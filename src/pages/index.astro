@@ -7,53 +7,102 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>GridPermit | NEM 3.0 Solar & Battery ROI Calculator</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-	<main class="container">
-		<header class="hero">
-			<h1>GridPermit</h1>
-			<p>Calculate your exact solar payback period & battery savings under NEM 3.0 rules.</p>
-		</header>
+	<nav class="navbar">
+		<div class="nav-container">
+			<div class="logo">⚡ <strong>GridPermit</strong></div>
+			<a href="/blog" class="nav-link">Solar Guides & Articles →</a>
+		</div>
+	</nav>
 
+	<header class="hero">
+		<div class="badge">NEM 3.0 California Solar Audit (2026)</div>
+		<h1>Calculate Your Exact Solar & Battery ROI</h1>
+		<p class="hero-sub">Don't overpay the grid. See how much you save under California's net metering rules in under 30 seconds.</p>
+	</header>
+
+	<main class="main-container">
 		<section class="calculator-card">
-			<h2>NEM 3.0 Solar Savings Calculator</h2>
+			<div class="card-header">
+				<h2>NEM 3.0 Savings Calculator</h2>
+				<p>Enter your utility details to estimate payback timeline.</p>
+			</div>
+
 			<form id="solar-form">
-				<div class="input-group">
-					<label for="zip">ZIP Code</label>
-					<input type="text" id="zip" placeholder="e.g. 90210" required />
+				<div class="form-grid">
+					<div class="input-group">
+						<label for="zip">ZIP Code</label>
+						<input type="text" id="zip" placeholder="e.g. 90210" required />
+					</div>
+					<div class="input-group">
+						<label for="bill">Avg. Monthly Electricity Bill ($)</label>
+						<input type="number" id="bill" placeholder="e.g. 250" required min="50" />
+					</div>
 				</div>
-				<div class="input-group">
-					<label for="bill">Average Monthly Electric Bill ($)</label>
-					<input type="number" id="bill" placeholder="e.g. 250" required min="50" />
-				</div>
-				<button type="submit" class="btn-primary">Calculate My Savings</button>
+				<button type="submit" class="btn-primary">Calculate My Payback Period</button>
 			</form>
 
 			<div id="results" class="results-box hidden">
-				<h3>Your Estimated Savings</h3>
+				<div class="results-header">
+					<h3>Estimated Payback Timeline</h3>
+					<p>Based on official NEM 3.0 grid export tariffs</p>
+				</div>
+
 				<div class="stats-grid">
-					<div class="stat">
-						<span class="label">Solar Only Payback</span>
-						<span class="value" id="payback-solar">--</span>
+					<div class="stat-card">
+						<span class="stat-label">Solar Only</span>
+						<span class="stat-value" id="payback-solar">--</span>
+						<span class="stat-desc">Low export compensation</span>
 					</div>
-					<div class="stat highlight">
-						<span class="label">Solar + Battery Payback</span>
-						<span class="value" id="payback-battery">--</span>
+					<div class="stat-card highlight">
+						<div class="recommended-badge">Recommended</div>
+						<span class="stat-label">Solar + Battery Storage</span>
+						<span class="stat-value" id="payback-battery">--</span>
+						<span class="stat-desc">Stores peak daytime power</span>
 					</div>
 				</div>
 
 				<div class="lead-box">
-					<h4>Get Matched With Top Pre-Vetted Local Installers</h4>
-					<p>Lock in 30% federal tax credits and state battery incentives before rates rise.</p>
-					<button class="btn-lead" type="button" onclick="alert('Lead capture integration active!')">Get My 3 Free Quotes</button>
+					<h3>Unlock Pre-Vetted California Quotes</h3>
+					<p>Get matched with top-rated local contractors and lock in up to 30% federal tax credits + local battery incentives.</p>
+					<button class="btn-lead" type="button" onclick="alert('Lead capture integration active!')">Get My 3 Free Installer Quotes →</button>
 				</div>
 			</div>
 		</section>
 
-		<footer style="margin-top: 3rem; text-align: center; color: #64748b;">
-			<p><a href="/blog" style="color: #2563eb; text-decoration: none; font-weight: bold;">Read Our Latest Solar Guides & Blog Posts &rarr;</a></p>
-		</footer>
+		<section class="features-grid">
+			<div class="feature-item">
+				<div class="feature-icon">📉</div>
+				<h4>75% Credit Drop</h4>
+				<p>NEM 3.0 cut grid export value significantly. Batteries are now critical to positive ROI.</p>
+			</div>
+			<div class="feature-item">
+				<div class="feature-icon">🛡️</div>
+				<h4>Verified EPCs</h4>
+				<p>We connect you only with fully licensed, insured, and pre-screened California solar installers.</p>
+			</div>
+			<div class="feature-item">
+				<div class="feature-icon">💡</div>
+				<h4>Instant ZIP Analysis</h4>
+				<p>Accurate payback models tailored to PG&E, SCE, and SDG&E electricity rate schedules.</p>
+			</div>
+		</section>
 	</main>
+
+	<footer class="footer">
+		<div class="footer-links">
+			<a href="/privacy">Privacy Policy</a>
+			<span>•</span>
+			<a href="/terms">Terms of Service</a>
+			<span>•</span>
+			<a href="/blog">Blog & Guides</a>
+		</div>
+		<p class="copyright">© 2026 GridPermit. All rights reserved. Independent solar analysis tool.</p>
+	</footer>
 
 	<script is:inline>
 		const form = document.getElementById('solar-form');
@@ -80,24 +129,83 @@
 	</script>
 
 	<style>
-		body { background: #f1f5f9; margin: 0; padding: 0; }
-		.container { max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif; }
-		.hero { text-align: center; margin-bottom: 2rem; }
-		.hero h1 { font-size: 3rem; color: #1e293b; margin-bottom: 0.5rem; }
-		.calculator-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-		.input-group { margin-bottom: 1.2rem; }
-		.input-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: #334155; }
-		.input-group input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
-		.btn-primary { width: 100%; padding: 0.85rem; background: #2563eb; color: white; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
-		.btn-primary:hover { background: #1d4ed8; }
+		:root {
+			--primary: #2563eb;
+			--primary-dark: #1d4ed8;
+			--accent: #16a34a;
+			--bg-slate: #f8fafc;
+			--text-main: #0f172a;
+			--text-muted: #64748b;
+			--border-color: #e2e8f0;
+		}
+
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+		body { font-family: 'Inter', system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-main); line-height: 1.5; }
+
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 1rem 2rem; }
+		.nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+		.logo { font-size: 1.25rem; color: var(--text-main); }
+		.nav-link { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+		.nav-link:hover { text-decoration: underline; }
+
+		.hero { text-align: center; padding: 3.5rem 1.5rem 2rem 1.5rem; max-width: 800px; margin: 0 auto; }
+		.badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 1rem; border-radius: 9999px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+		.hero h1 { font-size: 2.75rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
+		.hero-sub { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+		.main-container { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+
+		.calculator-card { background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); padding: 2.5rem; }
+		.card-header { margin-bottom: 2rem; }
+		.card-header h2 { font-size: 1.5rem; font-weight: 700; }
+		.card-header p { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem; }
+
+		.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+		@media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+
+		.input-group label { display: block; font-size: 0.9rem; font-weight: 600; color: #334155; margin-bottom: 0.5rem; }
+		.input-group input { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; outline: none; transition: all 0.2s; }
+		.input-group input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+
+		.btn-primary { width: 100%; background: var(--primary); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+		.btn-primary:hover { background: var(--primary-dark); }
+
 		.hidden { display: none; }
-		.results-box { margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed #cbd5e1; }
-		.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
-		.stat { background: #f8fafc; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #e2e8f0; }
-		.stat.highlight { border: 2px solid #16a34a; background: #f0fdf4; }
-		.stat .value { display: block; font-size: 1.5rem; font-weight: bold; margin-top: 0.5rem; color: #1e293b; }
-		.lead-box { background: #1e293b; color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 1.5rem; }
-		.btn-lead { background: #16a34a; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 0.5rem; }
+		.results-box { margin-top: 2.5rem; padding-top: 2rem; border-top: 2px dashed var(--border-color); animation: fadeIn 0.4s ease-in-out; }
+		@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+		.results-header h3 { font-size: 1.3rem; font-weight: 700; }
+		.results-header p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+
+		.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+		@media (max-width: 640px) { .stats-grid { grid-template-columns: 1fr; } }
+
+		.stat-card { background: var(--bg-slate); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-align: center; position: relative; }
+		.stat-card.highlight { border: 2px solid var(--accent); background: #f0fdf4; }
+		.recommended-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.75rem; border-radius: 9999px; text-transform: uppercase; }
+
+		.stat-label { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
+		.stat-value { font-size: 2rem; font-weight: 800; color: var(--text-main); display: block; margin: 0.5rem 0; }
+		.stat-desc { font-size: 0.8rem; color: #64748b; }
+
+		.lead-box { background: #0f172a; color: white; border-radius: 12px; padding: 2rem; text-align: center; }
+		.lead-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+		.lead-box p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.5rem; max-width: 550px; margin-left: auto; margin-right: auto; }
+		.btn-lead { background: var(--accent); color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: transform 0.1s, background 0.2s; }
+		.btn-lead:hover { background: #15803d; transform: translateY(-1px); }
+
+		.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+		@media (max-width: 640px) { .features-grid { grid-template-columns: 1fr; } }
+		.feature-item { background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-align: center; }
+		.feature-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+		.feature-item h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+		.feature-item p { font-size: 0.85rem; color: var(--text-muted); }
+
+		.footer { text-align: center; padding: 3rem 1.5rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border-color); background: white; margin-top: 3rem; }
+		.footer-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; }
+		.footer-links a:hover { color: var(--primary); }
+		.footer-links span { margin: 0 0.5rem; opacity: 0.5; }
+		.copyright { margin-top: 1rem; font-size: 0.8rem; opacity: 0.75; }
 	</style>
 </body>
 </html>
