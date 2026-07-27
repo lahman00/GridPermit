@@ -1,0 +1,39 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculation Methodology - GridPermit</title>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<style>
+		body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 2rem 1rem; }
+		.container { max-width: 800px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }
+		h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: #0f172a; }
+		h2 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #2563eb; }
+		p, li { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
+		ul { padding-left: 1.2rem; }
+		.back-link { display: inline-block; margin-bottom: 1.5rem; color: #2563eb; font-weight: 600; text-decoration: none; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<a href="/" class="back-link">← Back to Calculator</a>
+		<h1>GridPermit Calculation Methodology</h1>
+		<p>GridPermit utilizes regional US utility rate baselines, solar irradiance models, and time-of-use (TOU) battery dispatch assumptions to generate preliminary residential payback estimates.</p>
+		
+		<h2>1. System Sizing Baseline</h2>
+		<p>Solar photovoltaic (PV) system sizing ($kW$) is calculated based on user-entered monthly electric spend divided by regional utility kWh pricing averages. We assume an average solar yield factor of 1,350–1,600 kWh per kW installed annually depending on regional solar irradiance.</p>
+
+		<h2>2. Battery Storage Modeling</h2>
+		<p>Battery sizing recommendations ($13.5\text{ kWh}$ to $20\text{ kWh}$) are estimated based on peak evening consumption offset capabilities. Under modern utility rate structures (such as California NEM 3.0 and regional TOU rates), battery storage captures excess daytime generation and discharges during peak evening rate windows.</p>
+
+		<h2>3. Financial Incentives & Federal ITC</h2>
+		<p>Calculations incorporate federal tax incentive assumptions where applicable (such as the 30% Residential Clean Energy Credit under Section 25D, subject to tax liability eligibility). Federal, state, and local utility incentives vary by jurisdiction and eligibility.</p>
+
+		<h2>4. Escalation & Payback Timelines</h2>
+		<p>Simple payback periods are calculated assuming a conservative $3.5\%$ annual utility rate escalation factor. Actual ROI varies based on roof orientation, shading, equipment selection, and utility interconnection approval.</p>
+	</div>
+</body>
+</html>

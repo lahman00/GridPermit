@@ -13,8 +13,9 @@
 </head>
 <body>
 	<div class="top-banner">
-		US Federal Incentive Notice: 30% Residential Clean Energy Credit (ITC) Active Across All 50 States.
+		Federal tax incentive assumptions included where applicable. Eligibility and availability may vary.
 	</div>
+
 	<nav class="navbar">
 		<div class="nav-container">
 			<a href="/" class="brand-logo" aria-label="GridPermit Home">
@@ -32,6 +33,7 @@
 			<a href="#calculator" class="btn-cta-nav">Run Free Audit</a>
 		</div>
 	</nav>
+
 	<header class="hero">
 		<div class="hero-container">
 			<div class="hero-content">
@@ -41,16 +43,18 @@
 				<div class="hero-stats">
 					<div class="stat-item"><span class="stat-number">50 States</span><span class="stat-label">US Coverage</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">30%</span><span class="stat-label">Federal Tax Credit</span></div>
+					<div class="stat-item"><span class="stat-number">30% ITC</span><span class="stat-label">Federal Assumption</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">Instant</span><span class="stat-label">Calculated Output</span></div>
+					<div class="stat-item"><span class="stat-number">Instant</span><span class="stat-label">Dynamic Output</span></div>
 				</div>
 			</div>
+
 			<div class="calculator-glass-card" id="calculator">
 				<div class="calc-header">
 					<h3>Instant US Solar & Battery Payback Calculator</h3>
 					<p>Takes only 30 seconds • No contact info required</p>
 				</div>
+				
 				<form id="solar-form">
 					<div class="input-field">
 						<label for="zip">US ZIP Code</label>
@@ -65,37 +69,43 @@
 						<span id="btn-text">Calculate US Savings Audit</span>
 					</button>
 				</form>
+
 				<div id="loading-box" class="loading-container hidden">
 					<div class="spinner"></div>
 					<p id="loading-text">Analyzing regional utility rate baselines...</p>
 				</div>
+
 				<div id="results" class="results-container hidden">
 					<div class="results-badge">★ Recommended Strategy: Solar + Battery Storage</div>
+					
 					<div class="main-savings-card">
 						<span class="savings-head">Est. 20-Year Lifetime Savings</span>
-						<span class="savings-amount" id="res-lifetime-savings">$42,500</span>
-						<span class="savings-sub">Includes 30% US Federal Investment Tax Credit (ITC)</span>
+						<span class="savings-amount" id="res-lifetime-savings">$0</span>
+						<span class="savings-sub">Includes Federal Investment Tax Credit (ITC) assumptions</span>
 					</div>
+
 					<div class="confidence-box">
 						<div class="conf-header">
 							<span>Estimate Confidence: <strong>Medium</strong></span>
 						</div>
 						<ul class="conf-list">
-							<li>✓ Calculated using US regional ZIP baseline & rate trends</li>
+							<li>✓ Calculated using ZIP rate baseline & local grid trends</li>
 							<li>✓ Modeled with peak time-of-use (TOU) battery dispatch</li>
-							<li>⚡ <em>Excludes local shading & roof tilt analysis</em></li>
+							<li>⚡ <em>Excludes local roof tilt & shading analysis</em></li>
 						</ul>
 					</div>
+
 					<div class="results-metrics-grid">
 						<div class="metric-card">
 							<span class="m-label">Est. System Size</span>
-							<span class="m-val" id="res-sys-size">8.2 kW</span>
+							<span class="m-val" id="res-sys-size">0.0 kW</span>
 						</div>
 						<div class="metric-card">
 							<span class="m-label">Est. Battery Sizing</span>
 							<span class="m-val" id="res-bat-size">13.5 kWh</span>
 						</div>
 					</div>
+
 					<div class="results-table-wrap">
 						<table class="results-table">
 							<thead>
@@ -108,18 +118,20 @@
 							<tbody>
 								<tr>
 									<td><strong>Solar Only</strong></td>
-									<td id="res-payback-solar">8.4 - 10.2 Yrs</td>
-									<td id="res-savings-solar">$1,850/yr</td>
+									<td id="res-payback-solar">0 Yrs</td>
+									<td id="res-savings-solar">$0/yr</td>
 								</tr>
 								<tr class="highlight-row">
 									<td><strong>Solar + Battery</strong></td>
-									<td id="res-payback-battery">5.8 - 7.1 Yrs</td>
-									<td id="res-savings-battery">$2,950/yr</td>
+									<td id="res-payback-battery">0 Yrs</td>
+									<td id="res-savings-battery">$0/yr</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<p class="disclaimer-text">*Preliminary estimates based on national utility tariff averages and federal incentives. See our <a href="/methodology" style="color:#2563eb;">Methodology</a> for detail.</p>
+
+					<p class="disclaimer-text">*Preliminary estimates based on regional utility tariffs and federal incentive models. See our <a href="/methodology" style="color:#2563eb;">Methodology</a> for calculation details.</p>
+
 					<div class="lead-action-box">
 						<h4>Next Step: Compare Local Vetted Quotes</h4>
 						<p>Explore independent installer options in your area to confirm exact system engineering and local utility rebates.</p>
@@ -131,6 +143,7 @@
 			</div>
 		</div>
 	</header>
+
 	<footer class="footer">
 		<div class="footer-container">
 			<p>© 2026 GridPermit. All rights reserved.</p>
@@ -142,11 +155,13 @@
 			</div>
 		</div>
 	</footer>
+
 	<script is:inline>
 		document.addEventListener("DOMContentLoaded", () => {
 			const zipInput = document.getElementById("zip");
 			const utilPill = document.getElementById("utility-detected");
 			const utilName = document.getElementById("utility-name");
+
 			if (zipInput) {
 				zipInput.addEventListener("input", (e) => {
 					const val = e.target.value;
@@ -156,6 +171,7 @@
 						else if (val.startsWith("2") || val.startsWith("3")) region = "Southeast / Atlantic Grid";
 						else if (val.startsWith("4") || val.startsWith("5") || val.startsWith("6")) region = "Midwest Energy Zone";
 						else if (val.startsWith("7") || val.startsWith("8")) region = "Southwest / ERCOT Zone";
+						
 						utilName.innerText = region;
 						utilPill.classList.remove("hidden");
 					} else {
@@ -163,40 +179,60 @@
 					}
 				});
 			}
+
 			const form = document.getElementById("solar-form");
 			const loadingBox = document.getElementById("loading-box");
 			const loadingText = document.getElementById("loading-text");
 			const results = document.getElementById("results");
+
 			if (form) {
 				form.addEventListener("submit", (e) => {
 					e.preventDefault();
 					form.classList.add("hidden");
 					loadingBox.classList.remove("hidden");
-					setTimeout(() => { loadingText.innerText = "Calculating federal tax credit (30%)..."; }, 800);
-					setTimeout(() => { loadingText.innerText = "Evaluating regional battery payback..."; }, 1600);
+
+					setTimeout(() => { loadingText.innerText = "Analyzing regional utility rate baselines..."; }, 800);
+					setTimeout(() => { loadingText.innerText = "Evaluating battery payback model..."; }, 1600);
+
 					setTimeout(() => {
 						loadingBox.classList.add("hidden");
 						results.classList.remove("hidden");
+
+						const zipVal = document.getElementById("zip")?.value || "90210";
 						const bill = Number(document.getElementById("bill")?.value || 250);
-						const sysKw = (bill / 30).toFixed(1);
-						const batKwh = bill > 280 ? "20.0 kWh" : "13.5 kWh";
-						const paybackSolar = Math.max(6, Math.round(11 - (bill / 140)));
-						const paybackBattery = Math.max(4, Math.round(7 - (bill / 180)));
-						const annualSavingsSolar = Math.round(bill * 12 * 0.50);
-						const annualSavingsBattery = Math.round(bill * 12 * 0.85);
+
+						// Factor calculation based on US region
+						let rateMultiplier = 1.0;
+						if (zipVal.startsWith("9")) rateMultiplier = 1.35; // West Coast high rates
+						else if (zipVal.startsWith("0") || zipVal.startsWith("1")) rateMultiplier = 1.15; // Northeast
+						else if (zipVal.startsWith("7") || zipVal.startsWith("8")) rateMultiplier = 0.85; // Texas/Southwest
+
+						const sysKw = ((bill / (28 * rateMultiplier))).toFixed(1);
+						const batKwh = bill > 260 ? "20.0 kWh" : "13.5 kWh";
+
+						const paybackSolarVal = Math.max(5, Math.round((12 - (bill / 120)) / (rateMultiplier * 0.9)));
+						const paybackBatteryVal = Math.max(4, Math.round((8 - (bill / 150)) / (rateMultiplier * 0.9)));
+
+						const annualSavingsSolar = Math.round(bill * 12 * 0.48 * rateMultiplier);
+						const annualSavingsBattery = Math.round(bill * 12 * 0.82 * rateMultiplier);
 						const cumulativeBattery = annualSavingsBattery * 20;
+
 						document.getElementById("res-sys-size").innerText = sysKw + " kW";
 						document.getElementById("res-bat-size").innerText = batKwh;
 						document.getElementById("res-lifetime-savings").innerText = "$" + cumulativeBattery.toLocaleString();
-						document.getElementById("res-payback-solar").innerText = paybackSolar + " - " + (paybackSolar + 2) + " Yrs";
-						document.getElementById("res-payback-battery").innerText = paybackBattery + " - " + (paybackBattery + 2) + " Yrs";
+
+						document.getElementById("res-payback-solar").innerText = paybackSolarVal + " - " + (paybackSolarVal + 2) + " Yrs";
+						document.getElementById("res-payback-battery").innerText = paybackBatteryVal + " - " + (paybackBatteryVal + 2) + " Yrs";
+
 						document.getElementById("res-savings-solar").innerText = "$" + annualSavingsSolar.toLocaleString() + "/yr";
 						document.getElementById("res-savings-battery").innerText = "$" + annualSavingsBattery.toLocaleString() + "/yr";
+
 					}, 2400);
 				});
 			}
 		});
 	</script>
+
 	<style>
 		:root { --primary: #2563eb; --primary-dark: #1d4ed8; --accent: #10b981; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
 		* { box-sizing: border-box; margin: 0; padding: 0; }
