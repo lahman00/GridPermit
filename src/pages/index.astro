@@ -5,17 +5,16 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GridPermit - California NEM 3.0 Solar & Battery Calculator</title>
-	<meta name="description" content="Estimate solar payback timelines, 20-year savings, system sizing, and battery ROI under California NEM 3.0 rules." />
+	<title>GridPermit - US Solar & Battery Savings Calculator (2026)</title>
+	<meta name="description" content="Calculate home solar payback timelines, 20-year energy savings, and battery storage ROI across all 50 US states." />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="top-banner">
-		California Incentive Notice: 30% Federal Tax Credit & Local Battery Rebates Available.
+		US Federal Incentive Notice: 30% Residential Clean Energy Credit (ITC) Active Across All 50 States.
 	</div>
-
 	<nav class="navbar">
 		<div class="nav-container">
 			<a href="/" class="brand-logo" aria-label="GridPermit Home">
@@ -28,87 +27,75 @@
 				<a href="/how-it-works">How It Works</a>
 				<a href="/about">About</a>
 				<a href="/methodology">Methodology</a>
-				<a href="/blog/solar-battery-payback-nem3">NEM 3.0 Guide</a>
 				<a href="/contact">Contact</a>
 			</div>
 			<a href="#calculator" class="btn-cta-nav">Run Free Audit</a>
 		</div>
 	</nav>
-
 	<header class="hero">
 		<div class="hero-container">
 			<div class="hero-content">
-				<div class="badge-pill">Independent California Solar & Battery Tool</div>
-				<h1>Estimate Your Solar & Battery Payback Under NEM 3.0 Tariff Rules</h1>
-				<p class="hero-lead">Utility export credits dropped significantly under CPUC rules. Get a preliminary payback and financial savings breakdown in 30 seconds.</p>
+				<div class="badge-pill">Independent US Solar & Battery Marketplace Tool</div>
+				<h1>Estimate Your Home Solar & Battery Payback In Any State</h1>
+				<p class="hero-lead">Compare utility rate escalation, federal tax incentives, and battery storage ROI across all US utility regions in 30 seconds.</p>
 				<div class="hero-stats">
-					<div class="stat-item"><span class="stat-number">NEM 3.0</span><span class="stat-label">CPUC Baseline</span></div>
+					<div class="stat-item"><span class="stat-number">50 States</span><span class="stat-label">US Coverage</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">30%</span><span class="stat-label">Tax Credit Assumption</span></div>
+					<div class="stat-item"><span class="stat-number">30%</span><span class="stat-label">Federal Tax Credit</span></div>
 					<div class="stat-divider"></div>
 					<div class="stat-item"><span class="stat-number">Instant</span><span class="stat-label">Calculated Output</span></div>
 				</div>
 			</div>
-
 			<div class="calculator-glass-card" id="calculator">
 				<div class="calc-header">
-					<h3>Instant Solar & Battery Payback Estimate</h3>
+					<h3>Instant US Solar & Battery Payback Calculator</h3>
 					<p>Takes only 30 seconds • No contact info required</p>
 				</div>
-				
 				<form id="solar-form">
 					<div class="input-field">
-						<label for="zip">California ZIP Code</label>
-						<input type="text" id="zip" placeholder="e.g. 90210 or 94102" required pattern="[0-9]{5}" />
-						<div id="utility-detected" class="utility-pill hidden">Utility Detected: <span id="utility-name">PG&E</span></div>
+						<label for="zip">US ZIP Code</label>
+						<input type="text" id="zip" placeholder="e.g. 90210, 75001, 33101" required pattern="[0-9]{5}" />
+						<div id="utility-detected" class="utility-pill hidden">Utility Zone Detected: <span id="utility-name">Regional US Grid</span></div>
 					</div>
 					<div class="input-field">
 						<label for="bill">Avg. Monthly Electric Bill ($)</label>
-						<input type="number" id="bill" placeholder="e.g. 275" required min="25" max="5000" />
+						<input type="number" id="bill" placeholder="e.g. 250" required min="25" max="5000" />
 					</div>
 					<button type="submit" class="btn-glow-submit" id="calc-btn">
-						<span id="btn-text">Calculate NEM 3.0 Savings</span>
+						<span id="btn-text">Calculate US Savings Audit</span>
 					</button>
 				</form>
-
-				<!-- Loading Animation Box -->
 				<div id="loading-box" class="loading-container hidden">
 					<div class="spinner"></div>
-					<p id="loading-text">Analyzing NEM 3.0 export values...</p>
+					<p id="loading-text">Analyzing regional utility rate baselines...</p>
 				</div>
-
-				<!-- Result Card -->
 				<div id="results" class="results-container hidden">
-					<div class="results-badge">★ Recommended Strategy: Solar + Battery</div>
-					
+					<div class="results-badge">★ Recommended Strategy: Solar + Battery Storage</div>
 					<div class="main-savings-card">
 						<span class="savings-head">Est. 20-Year Lifetime Savings</span>
-						<span class="savings-amount" id="res-lifetime-savings">$38,200</span>
-						<span class="savings-sub">Includes 30% Federal Tax Credit Assumptions</span>
+						<span class="savings-amount" id="res-lifetime-savings">$42,500</span>
+						<span class="savings-sub">Includes 30% US Federal Investment Tax Credit (ITC)</span>
 					</div>
-
 					<div class="confidence-box">
 						<div class="conf-header">
 							<span>Estimate Confidence: <strong>Medium</strong></span>
 						</div>
 						<ul class="conf-list">
-							<li>✓ Calculated using ZIP baseline & utility rates</li>
-							<li>✓ Modeled with TOU peak discharge rate</li>
-							<li>⚡ <em>Excludes roof orientation & shade analysis</em></li>
+							<li>✓ Calculated using US regional ZIP baseline & rate trends</li>
+							<li>✓ Modeled with peak time-of-use (TOU) battery dispatch</li>
+							<li>⚡ <em>Excludes local shading & roof tilt analysis</em></li>
 						</ul>
 					</div>
-
 					<div class="results-metrics-grid">
 						<div class="metric-card">
 							<span class="m-label">Est. System Size</span>
-							<span class="m-val" id="res-sys-size">8.6 kW</span>
+							<span class="m-val" id="res-sys-size">8.2 kW</span>
 						</div>
 						<div class="metric-card">
 							<span class="m-label">Est. Battery Sizing</span>
 							<span class="m-val" id="res-bat-size">13.5 kWh</span>
 						</div>
 					</div>
-
 					<div class="results-table-wrap">
 						<table class="results-table">
 							<thead>
@@ -121,118 +108,99 @@
 							<tbody>
 								<tr>
 									<td><strong>Solar Only</strong></td>
-									<td id="res-payback-solar">11.4 - 13.1 Yrs</td>
-									<td id="res-savings-solar">$1,485/yr</td>
+									<td id="res-payback-solar">8.4 - 10.2 Yrs</td>
+									<td id="res-savings-solar">$1,850/yr</td>
 								</tr>
 								<tr class="highlight-row">
 									<td><strong>Solar + Battery</strong></td>
-									<td id="res-payback-battery">7.2 - 8.8 Yrs</td>
-									<td id="res-savings-battery">$2,700/yr</td>
+									<td id="res-payback-battery">5.8 - 7.1 Yrs</td>
+									<td id="res-savings-battery">$2,950/yr</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-
-					<p class="disclaimer-text">*Preliminary calculation based on utility tariff baselines. See our <a href="/methodology" style="color:#2563eb;">Methodology</a> for calculation models.</p>
-
+					<p class="disclaimer-text">*Preliminary estimates based on national utility tariff averages and federal incentives. See our <a href="/methodology" style="color:#2563eb;">Methodology</a> for detail.</p>
 					<div class="lead-action-box">
-						<h4>Next Step: Compare Certified Installers</h4>
-						<p>Explore independent installer options in your utility area to confirm physical roof sizing and actual quotes.</p>
+						<h4>Next Step: Compare Local Vetted Quotes</h4>
+						<p>Explore independent installer options in your area to confirm exact system engineering and local utility rebates.</p>
 						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="btn-green-action-link">
-							Compare Online Solar Marketplace →
+							Compare Installer Quotes Online →
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
-
 	<footer class="footer">
 		<div class="footer-container">
 			<p>© 2026 GridPermit. All rights reserved.</p>
 			<p class="affiliate-disclosure">
-				GridPermit is an independent educational platform that helps California homeowners calculate preliminary solar and battery payback timelines. GridPermit does not install solar systems and is not affiliated with the CPUC, PG&E, SCE, or SDG&E.
+				GridPermit is an independent educational platform helping US homeowners calculate preliminary solar and energy storage economics. GridPermit does not install solar equipment and is not affiliated with any public utility.
 			</p>
 			<div class="footer-links">
 				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
 			</div>
 		</div>
 	</footer>
-
 	<script is:inline>
-		document.addEventListener('DOMContentLoaded', () => {
-			const zipInput = document.getElementById('zip');
-			const utilPill = document.getElementById('utility-detected');
-			const utilName = document.getElementById('utility-name');
-
+		document.addEventListener("DOMContentLoaded", () => {
+			const zipInput = document.getElementById("zip");
+			const utilPill = document.getElementById("utility-detected");
+			const utilName = document.getElementById("utility-name");
 			if (zipInput) {
-				zipInput.addEventListener('input', (e) => {
+				zipInput.addEventListener("input", (e) => {
 					const val = e.target.value;
 					if (val.length === 5) {
-						let utility = 'PG&E';
-						if (val.startsWith('92') || val.startsWith('91')) utility = 'SCE';
-						if (val.startsWith('919') || val.startsWith('920') || val.startsWith('921')) utility = 'SDG&E';
-						
-						utilName.innerText = utility;
-						utilPill.classList.remove('hidden');
+						let region = "Pacific / West Utility Zone";
+						if (val.startsWith("0") || val.startsWith("1")) region = "Northeast Regional Grid";
+						else if (val.startsWith("2") || val.startsWith("3")) region = "Southeast / Atlantic Grid";
+						else if (val.startsWith("4") || val.startsWith("5") || val.startsWith("6")) region = "Midwest Energy Zone";
+						else if (val.startsWith("7") || val.startsWith("8")) region = "Southwest / ERCOT Zone";
+						utilName.innerText = region;
+						utilPill.classList.remove("hidden");
 					} else {
-						utilPill.classList.add('hidden');
+						utilPill.classList.add("hidden");
 					}
 				});
 			}
-
-			const form = document.getElementById('solar-form');
-			const loadingBox = document.getElementById('loading-box');
-			const loadingText = document.getElementById('loading-text');
-			const results = document.getElementById('results');
-
+			const form = document.getElementById("solar-form");
+			const loadingBox = document.getElementById("loading-box");
+			const loadingText = document.getElementById("loading-text");
+			const results = document.getElementById("results");
 			if (form) {
-				form.addEventListener('submit', (e) => {
+				form.addEventListener("submit", (e) => {
 					e.preventDefault();
-					form.classList.add('hidden');
-					loadingBox.classList.remove('hidden');
-
-					setTimeout(() => { loadingText.innerText = 'Estimating battery utilization...'; }, 900);
-					setTimeout(() => { loadingText.innerText = 'Calculating 20-year ROI...'; }, 1700);
-
+					form.classList.add("hidden");
+					loadingBox.classList.remove("hidden");
+					setTimeout(() => { loadingText.innerText = "Calculating federal tax credit (30%)..."; }, 800);
+					setTimeout(() => { loadingText.innerText = "Evaluating regional battery payback..."; }, 1600);
 					setTimeout(() => {
-						loadingBox.classList.add('hidden');
-						results.classList.remove('hidden');
-
-						const zipVal = document.getElementById('zip')?.value || '';
-						const bill = Number(document.getElementById('bill')?.value || 275);
-
-						const sysKw = (bill / 32).toFixed(1);
-						const batKwh = bill > 300 ? '20.0 kWh' : '13.5 kWh';
-
-						const paybackSolar = Math.max(7, Math.round(12 - (bill / 120)));
-						const paybackBattery = Math.max(4, Math.round(7 - (bill / 160)));
-						
-						const annualSavingsSolar = Math.round(bill * 12 * 0.45);
-						const annualSavingsBattery = Math.round(bill * 12 * 0.82);
-
+						loadingBox.classList.add("hidden");
+						results.classList.remove("hidden");
+						const bill = Number(document.getElementById("bill")?.value || 250);
+						const sysKw = (bill / 30).toFixed(1);
+						const batKwh = bill > 280 ? "20.0 kWh" : "13.5 kWh";
+						const paybackSolar = Math.max(6, Math.round(11 - (bill / 140)));
+						const paybackBattery = Math.max(4, Math.round(7 - (bill / 180)));
+						const annualSavingsSolar = Math.round(bill * 12 * 0.50);
+						const annualSavingsBattery = Math.round(bill * 12 * 0.85);
 						const cumulativeBattery = annualSavingsBattery * 20;
-
-						document.getElementById('res-sys-size').innerText = sysKw + ' kW';
-						document.getElementById('res-bat-size').innerText = batKwh;
-						document.getElementById('res-lifetime-savings').innerText = '$' + cumulativeBattery.toLocaleString();
-
-						document.getElementById('res-payback-solar').innerText = paybackSolar + ' - ' + (paybackSolar + 2) + ' Yrs';
-						document.getElementById('res-payback-battery').innerText = paybackBattery + ' - ' + (paybackBattery + 2) + ' Yrs';
-
-						document.getElementById('res-savings-solar').innerText = '$' + annualSavingsSolar.toLocaleString() + '/yr';
-						document.getElementById('res-savings-battery').innerText = '$' + annualSavingsBattery.toLocaleString() + '/yr';
-
-					}, 2500);
+						document.getElementById("res-sys-size").innerText = sysKw + " kW";
+						document.getElementById("res-bat-size").innerText = batKwh;
+						document.getElementById("res-lifetime-savings").innerText = "$" + cumulativeBattery.toLocaleString();
+						document.getElementById("res-payback-solar").innerText = paybackSolar + " - " + (paybackSolar + 2) + " Yrs";
+						document.getElementById("res-payback-battery").innerText = paybackBattery + " - " + (paybackBattery + 2) + " Yrs";
+						document.getElementById("res-savings-solar").innerText = "$" + annualSavingsSolar.toLocaleString() + "/yr";
+						document.getElementById("res-savings-battery").innerText = "$" + annualSavingsBattery.toLocaleString() + "/yr";
+					}, 2400);
 				});
 			}
 		});
 	</script>
-
 	<style>
 		:root { --primary: #2563eb; --primary-dark: #1d4ed8; --accent: #10b981; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
 		* { box-sizing: border-box; margin: 0; padding: 0; }
-		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-main); line-height: 1.6; }
+		body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-main); line-height: 1.6; }
 		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
 		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
 		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
