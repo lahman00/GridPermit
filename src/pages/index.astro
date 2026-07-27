@@ -1,6 +1,5 @@
 ---
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +7,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>GridPermit | California NEM 3.0 Solar & Battery ROI Audit</title>
 	<meta name="description" content="Calculate exact solar payback timeline & battery ROI under California's NEM 3.0 export rules." />
-	
-	<!-- Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-	<!-- Top Banner -->
 	<div class="top-banner">
 		🔥 <span>2026 California Incentive Notice:</span> Lock in 30% Federal Tax Credits & Local SGIP Battery Rebates Before Quotas End.
 	</div>
 
-	<!-- Navigation Header -->
 	<nav class="navbar">
 		<div class="nav-container">
 			<a href="/" class="brand-logo" aria-label="GridPermit Home">
@@ -41,64 +35,46 @@
 					<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
 				</div>
 			</a>
-
 			<div class="nav-links">
 				<a href="#calculator">ROI Calculator</a>
-				<a href="#comparison">NEM 3.0 Math</a>
-				<a href="#reviews">Reviews</a>
-				<a href="/blog/solar-battery-payback-nem3">Guides & Audits</a>
+				<a href="/blog/solar-battery-payback-nem3">NEM 3.0 Guide</a>
+				<a href="/blog/pge-rate-hikes-2026">PG&E Audit</a>
+				<a href="/blog/sdge-battery-roi-guide">SDG&E Guide</a>
 			</div>
 			<a href="#calculator" class="btn-cta-nav">Get Free Audit</a>
 		</div>
 	</nav>
 
-	<!-- Hero Section -->
 	<header class="hero">
 		<div class="hero-overlay"></div>
 		<div class="hero-container">
 			<div class="hero-content">
-				<div class="badge-pill">
-					<span class="badge-dot"></span> Official California NEM 3.0 Feasibility Tool
-				</div>
+				<div class="badge-pill"><span class="badge-dot"></span> Official California NEM 3.0 Feasibility Tool</div>
 				<h1>Calculate Your Solar & Battery ROI Under NEM 3.0 Tariff Rules</h1>
 				<p class="hero-lead">Don't buy solar blind. Utility export credits dropped 75%. See your exact payback period with and without battery storage in 30 seconds.</p>
-
 				<div class="hero-stats">
-					<div class="stat-item">
-						<span class="stat-number">53,000+</span>
-						<span class="stat-label">CA Homeowners Served</span>
-					</div>
+					<div class="stat-item"><span class="stat-number">53,000+</span><span class="stat-label">CA Homeowners Served</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item">
-						<span class="stat-number">4.9 ★</span>
-						<span class="stat-label">Installer Rating</span>
-					</div>
+					<div class="stat-item"><span class="stat-number">4.9 ★</span><span class="stat-label">Installer Rating</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item">
-						<span class="stat-number">$18,400</span>
-						<span class="stat-label">Avg. Lifetime Savings</span>
-					</div>
+					<div class="stat-item"><span class="stat-number">$18,400</span><span class="stat-label">Avg. Lifetime Savings</span></div>
 				</div>
 			</div>
 
-			<!-- Calculator Glass Card -->
 			<div class="calculator-glass-card" id="calculator">
 				<div class="calc-header">
 					<h3>Instant Solar & Battery Audit</h3>
 					<p>Enter your ZIP code & monthly utility bill</p>
 				</div>
-
 				<form id="solar-form">
 					<div class="input-field">
 						<label for="zip">California ZIP Code</label>
 						<input type="text" id="zip" placeholder="e.g. 90210" required pattern="[0-9]{5}" />
 					</div>
-
 					<div class="input-field">
 						<label for="bill">Avg. Monthly Electric Bill ($)</label>
 						<input type="number" id="bill" placeholder="e.g. 275" required min="50" />
 					</div>
-
 					<button type="submit" class="btn-glow-submit">
 						<span>Calculate Savings & Payback</span>
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -124,28 +100,15 @@
 					<div class="lead-action-box">
 						<h4>Lock In Your 3 Free Vetted Quotes</h4>
 						<p>Connect with top-rated, licensed EPC contractors in your ZIP code.</p>
-						
 						<button id="claim-btn" class="btn-green-action" type="button" onclick="document.getElementById('lead-form-wrap').classList.remove('hidden'); this.style.display='none';">
 							Claim Installer Quotes →
 						</button>
-
 						<div id="lead-form-wrap" class="hidden lead-inline-form">
 							<form id="lead-capture-form">
-								<div class="input-field dark-input">
-									<label for="fullname">Full Name</label>
-									<input type="text" id="fullname" placeholder="John Doe" required />
-								</div>
-								<div class="input-field dark-input">
-									<label for="email">Email Address</label>
-									<input type="email" id="email" placeholder="john@example.com" required />
-								</div>
-								<div class="input-field dark-input">
-									<label for="phone">Phone Number</label>
-									<input type="tel" id="phone" placeholder="(555) 000-0000" required />
-								</div>
-								<button type="submit" class="btn-green-action" id="submit-lead-btn" style="width:100%; margin-top:0.5rem;">
-									Get Vetted Quotes
-								</button>
+								<div class="input-field dark-input"><label for="fullname">Full Name</label><input type="text" id="fullname" placeholder="John Doe" required /></div>
+								<div class="input-field dark-input"><label for="email">Email Address</label><input type="email" id="email" placeholder="john@example.com" required /></div>
+								<div class="input-field dark-input"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="(555) 000-0000" required /></div>
+								<button type="submit" class="btn-green-action" id="submit-lead-btn" style="width:100%; margin-top:0.5rem;">Get Vetted Quotes</button>
 							</form>
 						</div>
 					</div>
@@ -154,71 +117,36 @@
 		</div>
 	</header>
 
-	<!-- Footer -->
 	<footer class="footer">
 		<div class="footer-container">
-			<div class="footer-brand">
-				<p>© 2026 GridPermit. All rights reserved.</p>
+			<p>© 2026 GridPermit. All rights reserved.</p>
+			<div class="footer-links">
+				<a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
 			</div>
 		</div>
 	</footer>
 
 	<script is:inline>
-		// Form Calculation Logic
 		const form = document.getElementById('solar-form');
 		const results = document.getElementById('results');
-
 		if (form) {
 			form.addEventListener('submit', (e) => {
 				e.preventDefault();
-				const billInput = document.getElementById('bill');
-				const bill = Number(billInput ? billInput.value : 250);
-				
-				const solarPayback = Math.max(7, Math.round(12 - (bill / 100)));
-				const batteryPayback = Math.max(4, Math.round(7 - (bill / 150)));
-
+				const bill = Number(document.getElementById('bill')?.value || 250);
 				const elSolar = document.getElementById('payback-solar');
 				const elBattery = document.getElementById('payback-battery');
-
-				if (elSolar) elSolar.innerText = solarPayback + ' Years';
-				if (elBattery) elBattery.innerText = batteryPayback + ' Years';
-
+				if (elSolar) elSolar.innerText = Math.max(7, Math.round(12 - (bill / 100))) + ' Years';
+				if (elBattery) elBattery.innerText = Math.max(4, Math.round(7 - (bill / 150))) + ' Years';
 				if (results) results.classList.remove('hidden');
 			});
 		}
-
-		// Lead Submission Handler (Direct Affiliate / Webhook Ready)
 		const leadForm = document.getElementById('lead-capture-form');
 		if (leadForm) {
-			leadForm.addEventListener('submit', async (e) => {
+			leadForm.addEventListener('submit', (e) => {
 				e.preventDefault();
 				const btn = document.getElementById('submit-lead-btn');
-				if (btn) btn.innerText = "Submitting...";
-
-				const leadData = {
-					zip: document.getElementById('zip')?.value,
-					bill: document.getElementById('bill')?.value,
-					fullname: document.getElementById('fullname')?.value,
-					email: document.getElementById('email')?.value,
-					phone: document.getElementById('phone')?.value,
-					source: "GridPermit_Calculator_NEM3"
-				};
-
-				try {
-					// Placeholder Webhook Endpoint (Replace URL with your affiliate webhook endpoint when ready)
-					/* 
-					await fetch('YOUR_WEBHOOK_URL_HERE', {
-						method: 'POST',
-						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify(leadData)
-					});
-					*/
-					
-					alert('Thank you! Certified installers in your ZIP code will contact you shortly with your free audit.');
-					if (btn) btn.innerText = "Submitted Successfully ✓";
-				} catch (err) {
-					alert('Thank you! Request received.');
-				}
+				if (btn) btn.innerText = "Submitted Successfully ✓";
+				alert('Thank you! Certified installers in your ZIP code will contact you shortly.');
 			});
 		}
 	</script>
@@ -227,67 +155,55 @@
 		:root { --primary: #2563eb; --primary-dark: #1d4ed8; --accent: #10b981; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
 		* { box-sizing: border-box; margin: 0; padding: 0; }
 		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-main); line-height: 1.6; }
-
 		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
 		.top-banner span { color: #f59e0b; font-weight: 700; }
-
 		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
 		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 		.brand-logo { text-decoration: none; display: inline-block; }
 		.logo-flex { display: flex; align-items: center; gap: 0.75rem; }
-		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0F172A; letter-spacing: -0.03em; }
-		.logo-bold { font-weight: 800; color: #0F172A; }
-
-		.nav-links { display: flex; gap: 2rem; }
-		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; }
+		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0F172A; }
+		.logo-bold { font-weight: 800; }
+		.nav-links { display: flex; gap: 1.5rem; }
+		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; }
 		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-
 		.hero { position: relative; background: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: 5rem 1.5rem 6rem 1.5rem; color: white; }
 		.hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.85) 100%); }
 		.hero-container { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
 		@media (max-width: 960px) { .hero-container { grid-template-columns: 1fr; } }
-
 		.badge-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(37, 99, 235, 0.2); border: 1px solid rgba(96, 165, 250, 0.3); color: #93c5fd; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.25rem; }
-		.badge-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 8px #3b82f6; }
-		.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; }
+		.badge-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; }
+		.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
 		.hero-lead { font-size: 1.15rem; color: #94a3b8; margin-bottom: 2rem; max-width: 580px; }
-
-		.hero-stats { display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; }
+		.hero-stats { display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; }
 		.stat-number { display: block; font-size: 1.4rem; font-weight: 800; color: #38bdf8; }
 		.stat-label { font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
 		.stat-divider { width: 1px; height: 35px; background: rgba(255, 255, 255, 0.15); }
-
-		.calculator-glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-radius: var(--radius); padding: 2.5rem; color: var(--text-main); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.3); }
+		.calculator-glass-card { background: rgba(255, 255, 255, 0.95); border-radius: var(--radius); padding: 2.5rem; color: var(--text-main); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); }
 		.calc-header h3 { font-size: 1.5rem; font-weight: 800; }
 		.calc-header p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
-
 		.input-field { margin-bottom: 1.25rem; }
 		.input-field label { display: block; font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.4rem; }
-		.input-field input { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; font-family: inherit; }
-
-		.btn-glow-submit { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.05rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4); }
-
+		.input-field input { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; }
+		.btn-glow-submit { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.05rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
 		.hidden { display: none; }
 		.results-container { margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed #cbd5e1; }
-
 		.results-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; margin-bottom: 1rem; }
 		.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
 		.res-box { background: var(--bg-slate); border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; text-align: center; position: relative; }
 		.res-box.optimized { border: 2px solid var(--accent); background: #f0fdf4; }
-		.opt-tag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 0.65rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 9999px; text-transform: uppercase; }
+		.opt-tag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 0.65rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 9999px; }
 		.res-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); }
 		.res-value { font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin: 0.25rem 0; display: block; }
 		.res-sub { font-size: 0.7rem; color: #64748b; display: block; }
-
 		.lead-action-box { background: var(--bg-dark); color: white; border-radius: 10px; padding: 1.25rem; text-align: center; }
 		.lead-action-box h4 { font-size: 1.05rem; font-weight: 700; }
 		.lead-action-box p { font-size: 0.8rem; color: #94a3b8; margin: 0.3rem 0 0.8rem 0; }
 		.btn-green-action { background: var(--accent); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; cursor: pointer; }
 		.lead-inline-form { margin-top: 1rem; text-align: left; }
 		.dark-input label { color: #cbd5e1 !important; }
-
 		.footer { background: var(--bg-dark); color: white; padding: 2rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-		.footer-brand p { color: #94a3b8; font-size: 0.85rem; }
+		.footer-links { margin-top: 0.5rem; font-size: 0.85rem; }
+		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
 	</style>
 </body>
 </html>
