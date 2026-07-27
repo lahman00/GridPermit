@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>California NEM 3.0 Solar & Battery Payback Guide (2026 Audit)</title>
-	<meta name="description" content="Complete 2026 guide to California NEM 3.0 solar export rates, battery payback timelines, and SGIP rebates." />
+	<meta name="description" content="In-depth 2026 California NEM 3.0 guide explaining solar export rates, battery payback timelines, and TOU rate arbitrage." />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,10 +16,43 @@
 	<article class="article-container">
 		<span class="article-category">NEM 3.0 Policy Analysis</span>
 		<h1>California NEM 3.0 Solar & Battery Payback Guide (2026 Rules)</h1>
-		<p class="article-meta">Published July 2026 • 6 min read</p>
-		<p class="lead-paragraph">Under California's NEM 3.0 rules, solar export credits dropped by ~75%. Adding battery storage is no longer optional—it is the single factor that determines whether your system pays off in 5 years or 12 years.</p>
-		<h2>Why Solar-Only Is No Longer Enough</h2>
-		<p>Under NEM 2.0, utilities credited homeowners nearly 1:1 for excess energy sent to the grid. Under NEM 3.0, grid export values average just $0.05/kWh, while peak evening rates exceed $0.50/kWh.</p>
+		<p class="article-meta">Updated July 2026 • 6 min read</p>
+		
+		<p class="lead-paragraph">Under California's Net Billing Tariff (NEM 3.0), solar export compensation dropped by roughly 75%. Adding battery storage allows homeowners to capture daytime solar energy and avoid peak time-of-use (TOU) rates.</p>
+
+		<h2>1. The Shift From NEM 2.0 to NEM 3.0</h2>
+		<p>Under NEM 2.0, homeowners received near 1:1 retail credit for excess solar energy sent back to the grid. Under NEM 3.0, grid export values average approximately $0.05/kWh during peak solar hours, while evening grid electricity costs $0.50/kWh or higher across PG&E, SCE, and SDG&E territories.</p>
+
+		<h2>2. Estimated Payback Timeline Comparison</h2>
+		<table class="data-table">
+			<thead>
+				<tr>
+					<th>System Configuration</th>
+					<th>Avg. Payback Range</th>
+					<th>Primary Value Driver</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Solar Only</td>
+					<td>8 - 12 Years</td>
+					<td>Daytime direct consumption</td>
+				</tr>
+				<tr>
+					<td>Solar + Battery Storage</td>
+					<td>5 - 8 Years</td>
+					<td>Evening TOU rate arbitrage</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2>3. Frequently Asked Questions</h2>
+		<h3>Does a battery eliminate grid reliance completely?</h3>
+		<p>No. A home battery is sized to offset peak evening hours (typically 4 PM to 9 PM). Complete off-grid independence requires larger battery capacity and generator integration.</p>
+
+		<h2>4. Sources & Calculation Methodology</h2>
+		<p class="sources-text">Data derived from CPUC Net Billing Tariff Decision D.22-12-056 and public utility rate schedules for PG&E, SCE, and SDG&E. All payback calculations assume a 30% Federal Tax Credit eligibility and regional baseline utility inflation rates.</p>
+
 		<div class="cta-banner">
 			<h3>Calculate Your System Payback in 30 Seconds</h3>
 			<a href="/#calculator" class="btn-banner-cta">Start Free ROI Calculator →</a>
@@ -38,6 +71,10 @@
 		h1 { font-size: 2.25rem; font-weight: 800; margin: 0.5rem 0; line-height: 1.25; }
 		.article-meta { font-size: 0.85rem; color: #64748b; margin-bottom: 2rem; }
 		.lead-paragraph { font-size: 1.15rem; font-weight: 500; }
+		.data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; border-radius: 8px; overflow: hidden; }
+		.data-table th, .data-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+		.data-table th { background: #f1f5f9; font-weight: 700; }
+		.sources-text { font-size: 0.85rem; color: #64748b; background: #e2e8f0; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; }
 		.cta-banner { background: #0f172a; color: white; padding: 2.5rem; border-radius: 12px; text-align: center; margin-top: 3rem; }
 		.btn-banner-cta { background: #10b981; color: white; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 800; text-decoration: none; display: inline-block; margin-top: 1rem; }
 		.footer { text-align: center; padding: 2rem; color: #64748b; font-size: 0.85rem; }
