@@ -24,9 +24,30 @@
 	<!-- Navigation Header -->
 	<nav class="navbar">
 		<div class="nav-container">
-			<!-- Exact Cropped Image Logo -->
+			<!-- Exact GridPermit Vector Logo (White Background Version) -->
 			<a href="/" class="brand-logo" aria-label="GridPermit Home">
-				<img src="/logo.png" alt="GridPermit Logo" class="logo-img" />
+				<div class="logo-flex">
+					<svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<!-- Outer Blue 'G' Frame / Hexagon -->
+						<path d="M50 10 L88 32 V62 L76 68 V39 L50 24 L24 39 V73 L50 88 L66 79 L76 85 L50 100 L12 78 V32 L50 10 Z" fill="#2563EB"/>
+						
+						<!-- Top Black Circuit / Grid Node -->
+						<path d="M28 44 H72 M50 30 V56" stroke="#0F172A" stroke-width="4.5" stroke-linecap="round"/>
+						<circle cx="28" cy="44" r="4.5" fill="#0F172A"/>
+						<circle cx="72" cy="44" r="4.5" fill="#0F172A"/>
+						<circle cx="50" cy="30" r="4.5" fill="#0F172A"/>
+						<circle cx="50" cy="56" r="4.5" fill="#0F172A"/>
+
+						<!-- Green Growth Bars -->
+						<rect x="38" y="68" width="5" height="10" rx="1.5" fill="#10B981"/>
+						<rect x="47.5" y="62" width="5" height="16" rx="1.5" fill="#10B981"/>
+						<rect x="57" y="55" width="5" height="23" rx="1.5" fill="#10B981"/>
+
+						<!-- Green Bottom Chevron Base -->
+						<path d="M20 78 L50 95 L80 78 L87 83 L50 103 L13 83 L20 78 Z" fill="#10B981"/>
+					</svg>
+					<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
+				</div>
 			</a>
 
 			<div class="nav-links">
@@ -139,27 +160,26 @@
 		</div>
 	</header>
 
-	<!-- Trust Badges Bar -->
-	<section class="trust-bar">
-		<div class="trust-container">
-			<span class="trust-title">Supported Utilities & Certified Partners:</span>
-			<div class="logos-row">
-				<span class="partner-logo">PG&E Tariff Match</span>
-				<span class="partner-logo">SCE Net Billing</span>
-				<span class="partner-logo">SDG&E High-Rate Mitigation</span>
-				<span class="partner-logo">Tesla Certified</span>
-				<span class="partner-logo">Enphase Certified</span>
-				<span class="partner-logo">NABCEP Accredited</span>
-			</div>
-		</div>
-	</section>
-
 	<!-- Footer -->
 	<footer class="footer">
 		<div class="footer-container">
 			<div class="footer-brand">
 				<a href="/" class="brand-logo footer-logo-style">
-					<img src="/logo.png" alt="GridPermit Logo" class="logo-img footer-logo-img" />
+					<div class="logo-flex">
+						<svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M50 10 L88 32 V62 L76 68 V39 L50 24 L24 39 V73 L50 88 L66 79 L76 85 L50 100 L12 78 V32 L50 10 Z" fill="#60A5FA"/>
+							<path d="M28 44 H72 M50 30 V56" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+							<circle cx="28" cy="44" r="4.5" fill="#FFFFFF"/>
+							<circle cx="72" cy="44" r="4.5" fill="#FFFFFF"/>
+							<circle cx="50" cy="30" r="4.5" fill="#FFFFFF"/>
+							<circle cx="50" cy="56" r="4.5" fill="#FFFFFF"/>
+							<rect x="38" y="68" width="5" height="10" rx="1.5" fill="#10B981"/>
+							<rect x="47.5" y="62" width="5" height="16" rx="1.5" fill="#10B981"/>
+							<rect x="57" y="55" width="5" height="23" rx="1.5" fill="#10B981"/>
+							<path d="M20 78 L50 95 L80 78 L87 83 L50 103 L13 83 L20 78 Z" fill="#10B981"/>
+						</svg>
+						<span class="logo-text text-white">Grid<span class="logo-bold text-white">Permit</span></span>
+					</div>
 				</a>
 				<p>California's leading independent solar feasibility tool and NEM 3.0 calculation platform.</p>
 			</div>
@@ -212,12 +232,14 @@
 		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
 		.top-banner span { color: #f59e0b; font-weight: 700; }
 
-		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.8rem 2rem; position: sticky; top: 0; z-index: 100; }
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
 		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 		
-		.brand-logo { display: inline-flex; align-items: center; text-decoration: none; }
-		.logo-img { height: 42px; width: auto; object-fit: contain; }
-		.footer-logo-img { height: 38px; background: white; padding: 4px 10px; border-radius: 6px; }
+		.brand-logo { text-decoration: none; display: inline-block; }
+		.logo-flex { display: flex; align-items: center; gap: 0.75rem; }
+		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0F172A; letter-spacing: -0.03em; }
+		.logo-bold { font-weight: 800; color: #0F172A; }
+		.text-white { color: white !important; }
 
 		.nav-links { display: flex; gap: 2rem; }
 		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; }
@@ -266,12 +288,6 @@
 		.btn-green-action { background: var(--accent); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; cursor: pointer; }
 		.lead-inline-form { margin-top: 1rem; text-align: left; }
 		.dark-input label { color: #cbd5e1 !important; }
-
-		.trust-bar { background: white; border-bottom: 1px solid var(--border-color); padding: 1.5rem 0; }
-		.trust-container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-		.trust-title { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
-		.logos-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-		.partner-logo { font-size: 0.85rem; font-weight: 700; color: #475569; background: var(--bg-slate); padding: 0.4rem 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); }
 
 		.footer { background: var(--bg-dark); color: white; padding: 4rem 1.5rem 2rem 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
 		.footer-container { max-width: 1200px; margin: 0 auto; }
