@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GridPermit - Independent California NEM 3.0 Solar & Battery Calculator</title>
+	<title>GridPermit - California NEM 3.0 Solar & Battery Calculator</title>
 	<meta name="description" content="Estimate solar payback timelines, annual savings, and battery ROI under California's NEM 3.0 export rules." />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,25 +13,13 @@
 </head>
 <body>
 	<div class="top-banner">
-		🔥 <span>2026 California Incentive Notice:</span> Federal Tax Credits & SGIP Battery Rebates Available.
+		California Incentive Notice: 30% Federal Tax Credit & Local SGIP Battery Rebates Available.
 	</div>
 
 	<nav class="navbar">
 		<div class="nav-container">
 			<a href="/" class="brand-logo" aria-label="GridPermit Home">
 				<div class="logo-flex">
-					<svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M50 10 L88 32 V62 L76 68 V39 L50 24 L24 39 V73 L50 88 L66 79 L76 85 L50 100 L12 78 V32 L50 10 Z" fill="#2563EB"/>
-						<path d="M28 44 H72 M50 30 V56" stroke="#0F172A" stroke-width="4.5" stroke-linecap="round"/>
-						<circle cx="28" cy="44" r="4.5" fill="#0F172A"/>
-						<circle cx="72" cy="44" r="4.5" fill="#0F172A"/>
-						<circle cx="50" cy="30" r="4.5" fill="#0F172A"/>
-						<circle cx="50" cy="56" r="4.5" fill="#0F172A"/>
-						<rect x="38" y="68" width="5" height="10" rx="1.5" fill="#10B981"/>
-						<rect x="47.5" y="62" width="5" height="16" rx="1.5" fill="#10B981"/>
-						<rect x="57" y="55" width="5" height="23" rx="1.5" fill="#10B981"/>
-						<path d="M20 78 L50 95 L80 78 L87 83 L50 103 L13 83 L20 78 Z" fill="#10B981"/>
-					</svg>
 					<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
 				</div>
 			</a>
@@ -49,15 +37,15 @@
 		<div class="hero-overlay"></div>
 		<div class="hero-container">
 			<div class="hero-content">
-				<div class="badge-pill"><span class="badge-dot"></span> Independent California Solar & Battery Tool</div>
+				<div class="badge-pill">Independent California Solar & Battery Tool</div>
 				<h1>Estimate Your Solar & Battery Payback Under NEM 3.0 Tariff Rules</h1>
-				<p class="hero-lead">Utility export credits dropped ~75% under CPUC rules. Get a preliminary payback and savings estimate in 30 seconds.</p>
+				<p class="hero-lead">Utility export credits dropped significantly under CPUC rules. Get a preliminary payback and savings estimate in 30 seconds.</p>
 				<div class="hero-stats">
-					<div class="stat-item"><span class="stat-number">NEM 3.0</span><span class="stat-label">CPUC Alignment</span></div>
+					<div class="stat-item"><span class="stat-number">NEM 3.0</span><span class="stat-label">CPUC Baseline</span></div>
 					<div class="stat-divider"></div>
 					<div class="stat-item"><span class="stat-number">30%</span><span class="stat-label">Tax Credit Assumption</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">&lt; 60 Sec</span><span class="stat-label">Fast Process</span></div>
+					<div class="stat-item"><span class="stat-number">Fast</span><span class="stat-label">Instant Calculation</span></div>
 				</div>
 			</div>
 
@@ -77,7 +65,6 @@
 					</div>
 					<button type="submit" class="btn-glow-submit">
 						<span>Calculate Savings & Payback Range</span>
-						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 					</button>
 				</form>
 
@@ -117,7 +104,7 @@
 						<h4>Compare Up To 3 Local Vetted Quotes</h4>
 						<p>Connect with up to three matched installers with active California licenses.</p>
 						<button id="claim-btn" class="btn-green-action" type="button" onclick="document.getElementById('lead-form-wrap').classList.remove('hidden'); this.style.display='none';">
-							Request Installer Comparison →
+							Request Installer Comparison
 						</button>
 						<div id="lead-form-wrap" class="hidden lead-inline-form">
 							<form id="lead-capture-form">
@@ -187,7 +174,7 @@
 			leadForm.addEventListener('submit', (e) => {
 				e.preventDefault();
 				const btn = document.getElementById('submit-lead-btn');
-				if (btn) btn.innerText = "Request Submitted ✓";
+				if (btn) btn.innerText = "Request Submitted";
 				alert('Thank you! Matched licensed installers in your area will reach out with your detailed audit.');
 			});
 		}
@@ -198,7 +185,6 @@
 		* { box-sizing: border-box; margin: 0; padding: 0; }
 		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-main); line-height: 1.6; }
 		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
-		.top-banner span { color: #f59e0b; font-weight: 700; }
 		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
 		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 		.brand-logo { text-decoration: none; display: inline-block; }
@@ -208,12 +194,10 @@
 		.nav-links { display: flex; gap: 1.5rem; }
 		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; }
 		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-		.hero { position: relative; background: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: 5rem 1.5rem 6rem 1.5rem; color: white; }
-		.hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.85) 100%); }
+		.hero { position: relative; background: #0f172a; padding: 5rem 1.5rem 6rem 1.5rem; color: white; }
 		.hero-container { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
 		@media (max-width: 960px) { .hero-container { grid-template-columns: 1fr; } }
-		.badge-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(37, 99, 235, 0.2); border: 1px solid rgba(96, 165, 250, 0.3); color: #93c5fd; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.25rem; }
-		.badge-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; }
+		.badge-pill { display: inline-flex; align-items: center; background: rgba(37, 99, 235, 0.2); border: 1px solid rgba(96, 165, 250, 0.3); color: #93c5fd; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.25rem; }
 		.hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
 		.hero-lead { font-size: 1.15rem; color: #94a3b8; margin-bottom: 2rem; max-width: 580px; }
 		.hero-stats { display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; }
@@ -226,7 +210,7 @@
 		.input-field { margin-bottom: 1.25rem; }
 		.input-field label { display: block; font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.4rem; }
 		.input-field input { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; }
-		.btn-glow-submit { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+		.btn-glow-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1rem; font-weight: 800; cursor: pointer; }
 		.hidden { display: none; }
 		.results-container { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 2px dashed #cbd5e1; }
 		.results-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; margin-bottom: 0.75rem; }
