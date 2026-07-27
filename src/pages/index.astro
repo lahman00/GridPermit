@@ -1,8 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="GridPermit | NEM 3.0 Solar & Battery ROI Calculator">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GridPermit | NEM 3.0 Solar & Battery ROI Calculator</title>
+</head>
+<body>
 	<main class="container">
 		<header class="hero">
 			<h1>GridPermit</h1>
@@ -43,6 +49,10 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 		</section>
+
+		<footer style="margin-top: 3rem; text-align: center; color: #64748b;">
+			<p><a href="/blog" style="color: #2563eb; text-decoration: none; font-weight: bold;">Read Our Latest Solar Guides & Blog Posts &rarr;</a></p>
+		</footer>
 	</main>
 
 	<script is:inline>
@@ -70,10 +80,11 @@ import Layout from '../layouts/Layout.astro';
 	</script>
 
 	<style>
+		body { background: #f1f5f9; margin: 0; padding: 0; }
 		.container { max-width: 800px; margin: 0 auto; padding: 2rem; font-family: system-ui, sans-serif; }
 		.hero { text-align: center; margin-bottom: 2rem; }
 		.hero h1 { font-size: 3rem; color: #1e293b; margin-bottom: 0.5rem; }
-		.calculator-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+		.calculator-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
 		.input-group { margin-bottom: 1.2rem; }
 		.input-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: #334155; }
 		.input-group input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
@@ -82,10 +93,11 @@ import Layout from '../layouts/Layout.astro';
 		.hidden { display: none; }
 		.results-box { margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed #cbd5e1; }
 		.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
-		.stat { background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #e2e8f0; }
+		.stat { background: #f8fafc; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #e2e8f0; }
 		.stat.highlight { border: 2px solid #16a34a; background: #f0fdf4; }
 		.stat .value { display: block; font-size: 1.5rem; font-weight: bold; margin-top: 0.5rem; color: #1e293b; }
 		.lead-box { background: #1e293b; color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 1.5rem; }
 		.btn-lead { background: #16a34a; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 0.5rem; }
 	</style>
-</Layout>
+</body>
+</html>
