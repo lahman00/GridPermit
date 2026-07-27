@@ -5,15 +5,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GridPermit | Independent California NEM 3.0 Solar & Battery ROI Calculator</title>
-	<meta name="description" content="Calculate estimated solar payback timelines & battery ROI under California's NEM 3.0 export rules. Independent analysis." />
+	<title>GridPermit - Independent California NEM 3.0 Solar & Battery Calculator</title>
+	<meta name="description" content="Estimate solar payback timelines, annual savings, and battery ROI under California's NEM 3.0 export rules." />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="top-banner">
-		🔥 <span>2026 California Incentive Notice:</span> Lock in 30% Federal Tax Credits & Local SGIP Battery Rebates Before Quotas End.
+		🔥 <span>2026 California Incentive Notice:</span> Federal Tax Credits & SGIP Battery Rebates Available.
 	</div>
 
 	<nav class="navbar">
@@ -51,13 +51,13 @@
 			<div class="hero-content">
 				<div class="badge-pill"><span class="badge-dot"></span> Independent California Solar & Battery Tool</div>
 				<h1>Estimate Your Solar & Battery Payback Under NEM 3.0 Tariff Rules</h1>
-				<p class="hero-lead">Utility export credits dropped ~75% under CPUC rules. Get a preliminary payback estimate with and without battery storage in 30 seconds.</p>
+				<p class="hero-lead">Utility export credits dropped ~75% under CPUC rules. Get a preliminary payback and savings estimate in 30 seconds.</p>
 				<div class="hero-stats">
-					<div class="stat-item"><span class="stat-number">NEM 3.0</span><span class="stat-label">CPUC Rule Alignment</span></div>
+					<div class="stat-item"><span class="stat-number">NEM 3.0</span><span class="stat-label">CPUC Alignment</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">30%</span><span class="stat-label">Federal Tax Credit Included</span></div>
+					<div class="stat-item"><span class="stat-number">30%</span><span class="stat-label">Tax Credit Assumption</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">&lt; 60 Sec</span><span class="stat-label">Fast Audit Process</span></div>
+					<div class="stat-item"><span class="stat-number">&lt; 60 Sec</span><span class="stat-label">Fast Process</span></div>
 				</div>
 			</div>
 
@@ -82,25 +82,40 @@
 				</form>
 
 				<div id="results" class="results-container hidden">
-					<div class="results-badge">Preliminary Estimate Ready</div>
-					<div class="results-grid">
-						<div class="res-box legacy">
-							<span class="res-label">Solar Only</span>
-							<span class="res-value" id="payback-solar">--</span>
-							<span class="res-sub">Longer payback due to low $0.05/kWh export rates</span>
-						</div>
-						<div class="res-box optimized">
-							<span class="opt-tag">Battery Enhanced</span>
-							<span class="res-label">Solar + Battery Storage</span>
-							<span class="res-value" id="payback-battery">--</span>
-							<span class="res-sub">Bypasses peak TOU grid rates</span>
-						</div>
+					<div class="results-badge">Preliminary Estimate Calculated</div>
+					
+					<div class="results-table-wrap">
+						<table class="results-table">
+							<thead>
+								<tr>
+									<th>Scenario</th>
+									<th>Estimated Payback</th>
+									<th>Est. Annual Savings</th>
+									<th>20-Yr Cumulative</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Solar Only</strong></td>
+									<td id="res-payback-solar">--</td>
+									<td id="res-savings-solar">--</td>
+									<td id="res-cumulative-solar">--</td>
+								</tr>
+								<tr class="highlight-row">
+									<td><strong>Solar + Battery</strong></td>
+									<td id="res-payback-battery">--</td>
+									<td id="res-savings-battery">--</td>
+									<td id="res-cumulative-battery">--</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-					<p class="disclaimer-text">*Preliminary estimate based on California regional averages. A full bill audit is required for exact design.</p>
+
+					<p class="disclaimer-text">*Illustrative estimate based on regional average rates. Detailed utility bill analysis required for precise design.</p>
 
 					<div class="lead-action-box">
 						<h4>Compare Up To 3 Local Vetted Quotes</h4>
-						<p>Connect with active licensed installers in your utility service area.</p>
+						<p>Connect with up to three matched installers with active California licenses.</p>
 						<button id="claim-btn" class="btn-green-action" type="button" onclick="document.getElementById('lead-form-wrap').classList.remove('hidden'); this.style.display='none';">
 							Request Installer Comparison →
 						</button>
@@ -110,11 +125,10 @@
 								<div class="input-field dark-input"><label for="email">Email Address</label><input type="email" id="email" placeholder="john@example.com" required /></div>
 								<div class="input-field dark-input"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="(555) 000-0000" required /></div>
 								
-								<!-- TCPA Compliance Consent Box -->
 								<div class="tcpa-box">
 									<label class="tcpa-label">
 										<input type="checkbox" required />
-										<span>I agree to receive calls, emails, and SMS from GridPermit and up to 3 matched installation partners at the phone number provided above. Consent is not required to purchase. Msg & data rates may apply.</span>
+										<span>I agree to receive calls, emails, and SMS from GridPermit and up to three matched installation partners at the phone number provided. Consent is not required to purchase. Msg & data rates may apply.</span>
 									</label>
 								</div>
 
@@ -131,10 +145,10 @@
 		<div class="footer-container">
 			<p>© 2026 GridPermit. All rights reserved.</p>
 			<p class="affiliate-disclosure">
-				Disclaimer: GridPermit is an independent solar comparison service. We are not affiliated with the CPUC or any utility provider (PG&E, SCE, SDG&E). We may receive compensation from solar contractors when you request quotes.
+				Disclaimer: GridPermit is an independent solar comparison platform operated by GridPermit Media LLC (30 N Gould St, Sheridan, WY). We are not affiliated with CPUC or any utility provider (PG&E, SCE, SDG&E). We may receive referral compensation when users request quotes.
 			</p>
 			<div class="footer-links">
-				<a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+				<a href="/privacy">Privacy Policy & CCPA Rights</a> | <a href="/terms">Terms of Service</a>
 			</div>
 		</div>
 	</footer>
@@ -146,10 +160,25 @@
 			form.addEventListener('submit', (e) => {
 				e.preventDefault();
 				const bill = Number(document.getElementById('bill')?.value || 250);
-				const elSolar = document.getElementById('payback-solar');
-				const elBattery = document.getElementById('payback-battery');
-				if (elSolar) elSolar.innerText = Math.max(7, Math.round(12 - (bill / 100))) + ' Years Est.';
-				if (elBattery) elBattery.innerText = Math.max(4, Math.round(7 - (bill / 150))) + ' Years Est.';
+				
+				const paybackSolar = Math.max(7, Math.round(12 - (bill / 120)));
+				const paybackBattery = Math.max(4, Math.round(7 - (bill / 160)));
+				
+				const annualSavingsSolar = Math.round(bill * 12 * 0.45);
+				const annualSavingsBattery = Math.round(bill * 12 * 0.82);
+
+				const cumulativeSolar = annualSavingsSolar * 20;
+				const cumulativeBattery = annualSavingsBattery * 20;
+
+				document.getElementById('res-payback-solar').innerText = paybackSolar + ' - ' + (paybackSolar + 3) + ' Yrs';
+				document.getElementById('res-payback-battery').innerText = paybackBattery + ' - ' + (paybackBattery + 2) + ' Yrs';
+
+				document.getElementById('res-savings-solar').innerText = '$' + annualSavingsSolar.toLocaleString() + '/yr';
+				document.getElementById('res-savings-battery').innerText = '$' + annualSavingsBattery.toLocaleString() + '/yr';
+
+				document.getElementById('res-cumulative-solar').innerText = '$' + cumulativeSolar.toLocaleString();
+				document.getElementById('res-cumulative-battery').innerText = '$' + cumulativeBattery.toLocaleString();
+
 				if (results) results.classList.remove('hidden');
 			});
 		}
@@ -159,7 +188,7 @@
 				e.preventDefault();
 				const btn = document.getElementById('submit-lead-btn');
 				if (btn) btn.innerText = "Request Submitted ✓";
-				alert('Thank you! Certified installers in your ZIP code will contact you shortly.');
+				alert('Thank you! Matched licensed installers in your area will reach out with your detailed audit.');
 			});
 		}
 	</script>
@@ -191,7 +220,7 @@
 		.stat-number { display: block; font-size: 1.25rem; font-weight: 800; color: #38bdf8; }
 		.stat-label { font-size: 0.7rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
 		.stat-divider { width: 1px; height: 35px; background: rgba(255, 255, 255, 0.15); }
-		.calculator-glass-card { background: rgba(255, 255, 255, 0.95); border-radius: var(--radius); padding: 2.5rem; color: var(--text-main); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); }
+		.calculator-glass-card { background: rgba(255, 255, 255, 0.95); border-radius: var(--radius); padding: 2.25rem; color: var(--text-main); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); }
 		.calc-header h3 { font-size: 1.4rem; font-weight: 800; }
 		.calc-header p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
 		.input-field { margin-bottom: 1.25rem; }
@@ -199,16 +228,14 @@
 		.input-field input { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; }
 		.btn-glow-submit { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
 		.hidden { display: none; }
-		.results-container { margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed #cbd5e1; }
-		.results-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; margin-bottom: 1rem; }
-		.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.75rem; }
-		.res-box { background: var(--bg-slate); border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; text-align: center; position: relative; }
-		.res-box.optimized { border: 2px solid var(--accent); background: #f0fdf4; }
-		.opt-tag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 0.65rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 9999px; }
-		.res-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); }
-		.res-value { font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin: 0.25rem 0; display: block; }
-		.res-sub { font-size: 0.7rem; color: #64748b; display: block; }
-		.disclaimer-text { font-size: 0.75rem; color: #64748b; margin-bottom: 1.25rem; font-style: italic; }
+		.results-container { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 2px dashed #cbd5e1; }
+		.results-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; margin-bottom: 0.75rem; }
+		.results-table-wrap { overflow-x: auto; margin-bottom: 0.75rem; }
+		.results-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; }
+		.results-table th, .results-table td { padding: 0.6rem; border-bottom: 1px solid var(--border-color); }
+		.results-table th { background: #f1f5f9; color: var(--text-muted); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; }
+		.highlight-row { background: #f0fdf4; font-weight: 700; color: #166534; }
+		.disclaimer-text { font-size: 0.72rem; color: #64748b; margin-bottom: 1.25rem; font-style: italic; }
 		.lead-action-box { background: var(--bg-dark); color: white; border-radius: 10px; padding: 1.25rem; text-align: center; }
 		.lead-action-box h4 { font-size: 1.05rem; font-weight: 700; }
 		.lead-action-box p { font-size: 0.8rem; color: #94a3b8; margin: 0.3rem 0 0.8rem 0; }
