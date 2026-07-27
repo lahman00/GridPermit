@@ -24,26 +24,18 @@
 	<!-- Navigation Header -->
 	<nav class="navbar">
 		<div class="nav-container">
-			<!-- Exact GridPermit Vector Logo (White Background Version) -->
 			<a href="/" class="brand-logo" aria-label="GridPermit Home">
 				<div class="logo-flex">
-					<svg width="44" height="44" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<!-- Outer Blue 'G' Frame / Hexagon -->
+					<svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M50 10 L88 32 V62 L76 68 V39 L50 24 L24 39 V73 L50 88 L66 79 L76 85 L50 100 L12 78 V32 L50 10 Z" fill="#2563EB"/>
-						
-						<!-- Top Black Circuit / Grid Node -->
 						<path d="M28 44 H72 M50 30 V56" stroke="#0F172A" stroke-width="4.5" stroke-linecap="round"/>
 						<circle cx="28" cy="44" r="4.5" fill="#0F172A"/>
 						<circle cx="72" cy="44" r="4.5" fill="#0F172A"/>
 						<circle cx="50" cy="30" r="4.5" fill="#0F172A"/>
 						<circle cx="50" cy="56" r="4.5" fill="#0F172A"/>
-
-						<!-- Green Growth Bars -->
 						<rect x="38" y="68" width="5" height="10" rx="1.5" fill="#10B981"/>
 						<rect x="47.5" y="62" width="5" height="16" rx="1.5" fill="#10B981"/>
 						<rect x="57" y="55" width="5" height="23" rx="1.5" fill="#10B981"/>
-
-						<!-- Green Bottom Chevron Base -->
 						<path d="M20 78 L50 95 L80 78 L87 83 L50 103 L13 83 L20 78 Z" fill="#10B981"/>
 					</svg>
 					<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
@@ -54,7 +46,7 @@
 				<a href="#calculator">ROI Calculator</a>
 				<a href="#comparison">NEM 3.0 Math</a>
 				<a href="#reviews">Reviews</a>
-				<a href="/blog">Guides & Audits</a>
+				<a href="/blog/solar-battery-payback-nem3">Guides & Audits</a>
 			</div>
 			<a href="#calculator" class="btn-cta-nav">Get Free Audit</a>
 		</div>
@@ -138,7 +130,7 @@
 						</button>
 
 						<div id="lead-form-wrap" class="hidden lead-inline-form">
-							<form onsubmit="event.preventDefault(); alert('Thank you! A certified installer in your ZIP code will contact you shortly.');">
+							<form id="lead-capture-form">
 								<div class="input-field dark-input">
 									<label for="fullname">Full Name</label>
 									<input type="text" id="fullname" placeholder="John Doe" required />
@@ -151,7 +143,9 @@
 									<label for="phone">Phone Number</label>
 									<input type="tel" id="phone" placeholder="(555) 000-0000" required />
 								</div>
-								<button type="submit" class="btn-green-action" style="width:100%; margin-top:0.5rem;">Submit Request</button>
+								<button type="submit" class="btn-green-action" id="submit-lead-btn" style="width:100%; margin-top:0.5rem;">
+									Get Vetted Quotes
+								</button>
 							</form>
 						</div>
 					</div>
@@ -164,32 +158,13 @@
 	<footer class="footer">
 		<div class="footer-container">
 			<div class="footer-brand">
-				<a href="/" class="brand-logo footer-logo-style">
-					<div class="logo-flex">
-						<svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M50 10 L88 32 V62 L76 68 V39 L50 24 L24 39 V73 L50 88 L66 79 L76 85 L50 100 L12 78 V32 L50 10 Z" fill="#60A5FA"/>
-							<path d="M28 44 H72 M50 30 V56" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
-							<circle cx="28" cy="44" r="4.5" fill="#FFFFFF"/>
-							<circle cx="72" cy="44" r="4.5" fill="#FFFFFF"/>
-							<circle cx="50" cy="30" r="4.5" fill="#FFFFFF"/>
-							<circle cx="50" cy="56" r="4.5" fill="#FFFFFF"/>
-							<rect x="38" y="68" width="5" height="10" rx="1.5" fill="#10B981"/>
-							<rect x="47.5" y="62" width="5" height="16" rx="1.5" fill="#10B981"/>
-							<rect x="57" y="55" width="5" height="23" rx="1.5" fill="#10B981"/>
-							<path d="M20 78 L50 95 L80 78 L87 83 L50 103 L13 83 L20 78 Z" fill="#10B981"/>
-						</svg>
-						<span class="logo-text text-white">Grid<span class="logo-bold text-white">Permit</span></span>
-					</div>
-				</a>
-				<p>California's leading independent solar feasibility tool and NEM 3.0 calculation platform.</p>
-			</div>
-			<div class="footer-bottom">
 				<p>© 2026 GridPermit. All rights reserved.</p>
 			</div>
 		</div>
 	</footer>
 
 	<script is:inline>
+		// Form Calculation Logic
 		const form = document.getElementById('solar-form');
 		const results = document.getElementById('results');
 
@@ -211,21 +186,45 @@
 				if (results) results.classList.remove('hidden');
 			});
 		}
+
+		// Lead Submission Handler (Direct Affiliate / Webhook Ready)
+		const leadForm = document.getElementById('lead-capture-form');
+		if (leadForm) {
+			leadForm.addEventListener('submit', async (e) => {
+				e.preventDefault();
+				const btn = document.getElementById('submit-lead-btn');
+				if (btn) btn.innerText = "Submitting...";
+
+				const leadData = {
+					zip: document.getElementById('zip')?.value,
+					bill: document.getElementById('bill')?.value,
+					fullname: document.getElementById('fullname')?.value,
+					email: document.getElementById('email')?.value,
+					phone: document.getElementById('phone')?.value,
+					source: "GridPermit_Calculator_NEM3"
+				};
+
+				try {
+					// Placeholder Webhook Endpoint (Replace URL with your affiliate webhook endpoint when ready)
+					/* 
+					await fetch('YOUR_WEBHOOK_URL_HERE', {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify(leadData)
+					});
+					*/
+					
+					alert('Thank you! Certified installers in your ZIP code will contact you shortly with your free audit.');
+					if (btn) btn.innerText = "Submitted Successfully ✓";
+				} catch (err) {
+					alert('Thank you! Request received.');
+				}
+			});
+		}
 	</script>
 
 	<style>
-		:root {
-			--primary: #2563eb;
-			--primary-dark: #1d4ed8;
-			--accent: #10b981;
-			--bg-dark: #0f172a;
-			--bg-slate: #f8fafc;
-			--text-main: #0f172a;
-			--text-muted: #64748b;
-			--border-color: #e2e8f0;
-			--radius: 16px;
-		}
-
+		:root { --primary: #2563eb; --primary-dark: #1d4ed8; --accent: #10b981; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
 		* { box-sizing: border-box; margin: 0; padding: 0; }
 		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-main); line-height: 1.6; }
 
@@ -234,12 +233,10 @@
 
 		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
 		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-		
 		.brand-logo { text-decoration: none; display: inline-block; }
 		.logo-flex { display: flex; align-items: center; gap: 0.75rem; }
 		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0F172A; letter-spacing: -0.03em; }
 		.logo-bold { font-weight: 800; color: #0F172A; }
-		.text-white { color: white !important; }
 
 		.nav-links { display: flex; gap: 2rem; }
 		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; }
@@ -289,10 +286,8 @@
 		.lead-inline-form { margin-top: 1rem; text-align: left; }
 		.dark-input label { color: #cbd5e1 !important; }
 
-		.footer { background: var(--bg-dark); color: white; padding: 4rem 1.5rem 2rem 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-		.footer-container { max-width: 1200px; margin: 0 auto; }
-		.footer-brand p { color: #94a3b8; font-size: 0.9rem; margin-top: 0.75rem; }
-		.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 2rem; padding-top: 2rem; text-align: center; color: #64748b; font-size: 0.8rem; }
+		.footer { background: var(--bg-dark); color: white; padding: 2rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+		.footer-brand p { color: #94a3b8; font-size: 0.85rem; }
 	</style>
 </body>
 </html>
