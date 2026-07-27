@@ -5,8 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GridPermit | California NEM 3.0 Solar & Battery ROI Audit</title>
-	<meta name="description" content="Calculate exact solar payback timeline & battery ROI under California's NEM 3.0 export rules." />
+	<title>GridPermit | Independent California NEM 3.0 Solar & Battery ROI Calculator</title>
+	<meta name="description" content="Calculate estimated solar payback timelines & battery ROI under California's NEM 3.0 export rules. Independent analysis." />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -49,22 +49,22 @@
 		<div class="hero-overlay"></div>
 		<div class="hero-container">
 			<div class="hero-content">
-				<div class="badge-pill"><span class="badge-dot"></span> Official California NEM 3.0 Feasibility Tool</div>
-				<h1>Calculate Your Solar & Battery ROI Under NEM 3.0 Tariff Rules</h1>
-				<p class="hero-lead">Don't buy solar blind. Utility export credits dropped 75%. See your exact payback period with and without battery storage in 30 seconds.</p>
+				<div class="badge-pill"><span class="badge-dot"></span> Independent California Solar & Battery Tool</div>
+				<h1>Estimate Your Solar & Battery Payback Under NEM 3.0 Tariff Rules</h1>
+				<p class="hero-lead">Utility export credits dropped ~75% under CPUC rules. Get a preliminary payback estimate with and without battery storage in 30 seconds.</p>
 				<div class="hero-stats">
-					<div class="stat-item"><span class="stat-number">53,000+</span><span class="stat-label">CA Homeowners Served</span></div>
+					<div class="stat-item"><span class="stat-number">NEM 3.0</span><span class="stat-label">CPUC Rule Alignment</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">4.9 ★</span><span class="stat-label">Installer Rating</span></div>
+					<div class="stat-item"><span class="stat-number">30%</span><span class="stat-label">Federal Tax Credit Included</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">$18,400</span><span class="stat-label">Avg. Lifetime Savings</span></div>
+					<div class="stat-item"><span class="stat-number">&lt; 60 Sec</span><span class="stat-label">Fast Audit Process</span></div>
 				</div>
 			</div>
 
 			<div class="calculator-glass-card" id="calculator">
 				<div class="calc-header">
-					<h3>Instant Solar & Battery Audit</h3>
-					<p>Enter your ZIP code & monthly utility bill</p>
+					<h3>Instant Solar & Battery Payback Estimate</h3>
+					<p>Enter your ZIP code & monthly electric bill for regional baseline</p>
 				</div>
 				<form id="solar-form">
 					<div class="input-field">
@@ -73,42 +73,52 @@
 					</div>
 					<div class="input-field">
 						<label for="bill">Avg. Monthly Electric Bill ($)</label>
-						<input type="number" id="bill" placeholder="e.g. 275" required min="50" />
+						<input type="number" id="bill" placeholder="e.g. 275" required min="25" max="5000" />
 					</div>
 					<button type="submit" class="btn-glow-submit">
-						<span>Calculate Savings & Payback</span>
+						<span>Calculate Savings & Payback Range</span>
 						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 					</button>
 				</form>
 
 				<div id="results" class="results-container hidden">
-					<div class="results-badge">Calculation Complete</div>
+					<div class="results-badge">Preliminary Estimate Ready</div>
 					<div class="results-grid">
 						<div class="res-box legacy">
 							<span class="res-label">Solar Only</span>
 							<span class="res-value" id="payback-solar">--</span>
-							<span class="res-sub">Slow ROI due to low export rate</span>
+							<span class="res-sub">Longer payback due to low $0.05/kWh export rates</span>
 						</div>
 						<div class="res-box optimized">
-							<span class="opt-tag">Optimal ROI</span>
+							<span class="opt-tag">Battery Enhanced</span>
 							<span class="res-label">Solar + Battery Storage</span>
 							<span class="res-value" id="payback-battery">--</span>
-							<span class="res-sub">Stores daytime energy for peak hours</span>
+							<span class="res-sub">Bypasses peak TOU grid rates</span>
 						</div>
 					</div>
+					<p class="disclaimer-text">*Preliminary estimate based on California regional averages. A full bill audit is required for exact design.</p>
 
 					<div class="lead-action-box">
-						<h4>Lock In Your 3 Free Vetted Quotes</h4>
-						<p>Connect with top-rated, licensed EPC contractors in your ZIP code.</p>
+						<h4>Compare Up To 3 Local Vetted Quotes</h4>
+						<p>Connect with active licensed installers in your utility service area.</p>
 						<button id="claim-btn" class="btn-green-action" type="button" onclick="document.getElementById('lead-form-wrap').classList.remove('hidden'); this.style.display='none';">
-							Claim Installer Quotes →
+							Request Installer Comparison →
 						</button>
 						<div id="lead-form-wrap" class="hidden lead-inline-form">
 							<form id="lead-capture-form">
 								<div class="input-field dark-input"><label for="fullname">Full Name</label><input type="text" id="fullname" placeholder="John Doe" required /></div>
 								<div class="input-field dark-input"><label for="email">Email Address</label><input type="email" id="email" placeholder="john@example.com" required /></div>
 								<div class="input-field dark-input"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="(555) 000-0000" required /></div>
-								<button type="submit" class="btn-green-action" id="submit-lead-btn" style="width:100%; margin-top:0.5rem;">Get Vetted Quotes</button>
+								
+								<!-- TCPA Compliance Consent Box -->
+								<div class="tcpa-box">
+									<label class="tcpa-label">
+										<input type="checkbox" required />
+										<span>I agree to receive calls, emails, and SMS from GridPermit and up to 3 matched installation partners at the phone number provided above. Consent is not required to purchase. Msg & data rates may apply.</span>
+									</label>
+								</div>
+
+								<button type="submit" class="btn-green-action" id="submit-lead-btn" style="width:100%; margin-top:0.5rem;">Request Vetted Quotes</button>
 							</form>
 						</div>
 					</div>
@@ -120,6 +130,9 @@
 	<footer class="footer">
 		<div class="footer-container">
 			<p>© 2026 GridPermit. All rights reserved.</p>
+			<p class="affiliate-disclosure">
+				Disclaimer: GridPermit is an independent solar comparison service. We are not affiliated with the CPUC or any utility provider (PG&E, SCE, SDG&E). We may receive compensation from solar contractors when you request quotes.
+			</p>
 			<div class="footer-links">
 				<a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
 			</div>
@@ -135,8 +148,8 @@
 				const bill = Number(document.getElementById('bill')?.value || 250);
 				const elSolar = document.getElementById('payback-solar');
 				const elBattery = document.getElementById('payback-battery');
-				if (elSolar) elSolar.innerText = Math.max(7, Math.round(12 - (bill / 100))) + ' Years';
-				if (elBattery) elBattery.innerText = Math.max(4, Math.round(7 - (bill / 150))) + ' Years';
+				if (elSolar) elSolar.innerText = Math.max(7, Math.round(12 - (bill / 100))) + ' Years Est.';
+				if (elBattery) elBattery.innerText = Math.max(4, Math.round(7 - (bill / 150))) + ' Years Est.';
 				if (results) results.classList.remove('hidden');
 			});
 		}
@@ -145,7 +158,7 @@
 			leadForm.addEventListener('submit', (e) => {
 				e.preventDefault();
 				const btn = document.getElementById('submit-lead-btn');
-				if (btn) btn.innerText = "Submitted Successfully ✓";
+				if (btn) btn.innerText = "Request Submitted ✓";
 				alert('Thank you! Certified installers in your ZIP code will contact you shortly.');
 			});
 		}
@@ -172,37 +185,42 @@
 		@media (max-width: 960px) { .hero-container { grid-template-columns: 1fr; } }
 		.badge-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(37, 99, 235, 0.2); border: 1px solid rgba(96, 165, 250, 0.3); color: #93c5fd; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.25rem; }
 		.badge-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; }
-		.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+		.hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
 		.hero-lead { font-size: 1.15rem; color: #94a3b8; margin-bottom: 2rem; max-width: 580px; }
 		.hero-stats { display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; }
-		.stat-number { display: block; font-size: 1.4rem; font-weight: 800; color: #38bdf8; }
-		.stat-label { font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+		.stat-number { display: block; font-size: 1.25rem; font-weight: 800; color: #38bdf8; }
+		.stat-label { font-size: 0.7rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
 		.stat-divider { width: 1px; height: 35px; background: rgba(255, 255, 255, 0.15); }
 		.calculator-glass-card { background: rgba(255, 255, 255, 0.95); border-radius: var(--radius); padding: 2.5rem; color: var(--text-main); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); }
-		.calc-header h3 { font-size: 1.5rem; font-weight: 800; }
-		.calc-header p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+		.calc-header h3 { font-size: 1.4rem; font-weight: 800; }
+		.calc-header p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
 		.input-field { margin-bottom: 1.25rem; }
 		.input-field label { display: block; font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.4rem; }
 		.input-field input { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; }
-		.btn-glow-submit { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.05rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+		.btn-glow-submit { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
 		.hidden { display: none; }
 		.results-container { margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed #cbd5e1; }
 		.results-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; margin-bottom: 1rem; }
-		.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+		.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0.75rem; }
 		.res-box { background: var(--bg-slate); border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; text-align: center; position: relative; }
 		.res-box.optimized { border: 2px solid var(--accent); background: #f0fdf4; }
 		.opt-tag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 0.65rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 9999px; }
 		.res-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); }
-		.res-value { font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin: 0.25rem 0; display: block; }
+		.res-value { font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin: 0.25rem 0; display: block; }
 		.res-sub { font-size: 0.7rem; color: #64748b; display: block; }
+		.disclaimer-text { font-size: 0.75rem; color: #64748b; margin-bottom: 1.25rem; font-style: italic; }
 		.lead-action-box { background: var(--bg-dark); color: white; border-radius: 10px; padding: 1.25rem; text-align: center; }
 		.lead-action-box h4 { font-size: 1.05rem; font-weight: 700; }
 		.lead-action-box p { font-size: 0.8rem; color: #94a3b8; margin: 0.3rem 0 0.8rem 0; }
 		.btn-green-action { background: var(--accent); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; cursor: pointer; }
 		.lead-inline-form { margin-top: 1rem; text-align: left; }
 		.dark-input label { color: #cbd5e1 !important; }
-		.footer { background: var(--bg-dark); color: white; padding: 2rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-		.footer-links { margin-top: 0.5rem; font-size: 0.85rem; }
+		.tcpa-box { margin: 1rem 0; }
+		.tcpa-label { display: flex; gap: 0.5rem; font-size: 0.72rem; color: #94a3b8; line-height: 1.3; }
+		.tcpa-label input { margin-top: 2px; }
+		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
+		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
 		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
 	</style>
 </body>
