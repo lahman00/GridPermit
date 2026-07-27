@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="top-banner">
-		Federal tax incentive assumptions included where applicable. Eligibility and availability may vary.
+		Independent US Utility Analysis: Calculate Unsubsidized Solar & Battery ROI Across All 50 States.
 	</div>
 
 	<nav class="navbar">
@@ -39,11 +39,11 @@
 			<div class="hero-content">
 				<div class="badge-pill">Independent US Solar & Battery Marketplace Tool</div>
 				<h1>Estimate Your Home Solar & Battery Payback In Any State</h1>
-				<p class="hero-lead">Compare utility rate escalation, federal tax incentives, and battery storage ROI across all US utility regions in 30 seconds.</p>
+				<p class="hero-lead">Compare utility rate escalation, peak time-of-use discharge savings, and battery ROI across all US grid regions in 30 seconds.</p>
 				<div class="hero-stats">
 					<div class="stat-item"><span class="stat-number">50 States</span><span class="stat-label">US Coverage</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">30% ITC</span><span class="stat-label">Federal Assumption</span></div>
+					<div class="stat-item"><span class="stat-number">Direct</span><span class="stat-label">Utility Model</span></div>
 					<div class="stat-divider"></div>
 					<div class="stat-item"><span class="stat-number">Instant</span><span class="stat-label">Dynamic Output</span></div>
 				</div>
@@ -81,7 +81,7 @@
 					<div class="main-savings-card">
 						<span class="savings-head">Est. 20-Year Lifetime Savings</span>
 						<span class="savings-amount" id="res-lifetime-savings">$0</span>
-						<span class="savings-sub">Includes Federal Investment Tax Credit (ITC) assumptions</span>
+						<span class="savings-sub">Calculated based on local grid rate trends and peak TOU offset</span>
 					</div>
 
 					<div class="confidence-box">
@@ -89,7 +89,7 @@
 							<span>Estimate Confidence: <strong>Medium</strong></span>
 						</div>
 						<ul class="conf-list">
-							<li>✓ Calculated using ZIP rate baseline & local grid trends</li>
+							<li>✓ Calculated using ZIP rate baseline & regional energy pricing</li>
 							<li>✓ Modeled with peak time-of-use (TOU) battery dispatch</li>
 							<li>⚡ <em>Excludes local roof tilt & shading analysis</em></li>
 						</ul>
@@ -130,7 +130,7 @@
 						</table>
 					</div>
 
-					<p class="disclaimer-text">*Preliminary estimates based on regional utility tariffs and federal incentive models. See our <a href="/methodology" style="color:#2563eb;">Methodology</a> for calculation details.</p>
+					<p class="disclaimer-text">*Preliminary estimates based on regional utility tariffs. See our <a href="/methodology" style="color:#2563eb;">Methodology</a> for calculation details.</p>
 
 					<div class="lead-action-box">
 						<h4>Next Step: Compare Local Vetted Quotes</h4>
@@ -201,20 +201,19 @@
 						const zipVal = document.getElementById("zip")?.value || "90210";
 						const bill = Number(document.getElementById("bill")?.value || 250);
 
-						// Factor calculation based on US region
 						let rateMultiplier = 1.0;
-						if (zipVal.startsWith("9")) rateMultiplier = 1.35; // West Coast high rates
-						else if (zipVal.startsWith("0") || zipVal.startsWith("1")) rateMultiplier = 1.15; // Northeast
-						else if (zipVal.startsWith("7") || zipVal.startsWith("8")) rateMultiplier = 0.85; // Texas/Southwest
+						if (zipVal.startsWith("9")) rateMultiplier = 1.35;
+						else if (zipVal.startsWith("0") || zipVal.startsWith("1")) rateMultiplier = 1.15;
+						else if (zipVal.startsWith("7") || zipVal.startsWith("8")) rateMultiplier = 0.85;
 
 						const sysKw = ((bill / (28 * rateMultiplier))).toFixed(1);
 						const batKwh = bill > 260 ? "20.0 kWh" : "13.5 kWh";
 
-						const paybackSolarVal = Math.max(5, Math.round((12 - (bill / 120)) / (rateMultiplier * 0.9)));
-						const paybackBatteryVal = Math.max(4, Math.round((8 - (bill / 150)) / (rateMultiplier * 0.9)));
+						const paybackSolarVal = Math.max(6, Math.round((13 - (bill / 120)) / (rateMultiplier * 0.9)));
+						const paybackBatteryVal = Math.max(5, Math.round((9 - (bill / 150)) / (rateMultiplier * 0.9)));
 
-						const annualSavingsSolar = Math.round(bill * 12 * 0.48 * rateMultiplier);
-						const annualSavingsBattery = Math.round(bill * 12 * 0.82 * rateMultiplier);
+						const annualSavingsSolar = Math.round(bill * 12 * 0.45 * rateMultiplier);
+						const annualSavingsBattery = Math.round(bill * 12 * 0.78 * rateMultiplier);
 						const cumulativeBattery = annualSavingsBattery * 20;
 
 						document.getElementById("res-sys-size").innerText = sysKw + " kW";
