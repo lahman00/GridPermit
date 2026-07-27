@@ -14,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
 			<form id="solar-form">
 				<div class="input-group">
 					<label for="zip">ZIP Code</label>
-					<input type="text" id="zip" placeholder="e.g. 90210" required pattern="[0-9]{5}" />
+					<input type="text" id="zip" placeholder="e.g. 90210" required />
 				</div>
 				<div class="input-group">
 					<label for="bill">Average Monthly Electric Bill ($)</label>
@@ -39,29 +39,34 @@ import Layout from '../layouts/Layout.astro';
 				<div class="lead-box">
 					<h4>Get Matched With Top Pre-Vetted Local Installers</h4>
 					<p>Lock in 30% federal tax credits and state battery incentives before rates rise.</p>
-					<button class="btn-lead" onclick="alert('Lead capture integration active!')">Get My 3 Free Quotes</button>
+					<button class="btn-lead" type="button" onclick="alert('Lead capture integration active!')">Get My 3 Free Quotes</button>
 				</div>
 			</div>
 		</section>
 	</main>
 
-	<script>
+	<script is:inline>
 		const form = document.getElementById('solar-form');
 		const results = document.getElementById('results');
 
-		form?.addEventListener('submit', (e) => {
-			e.preventDefault();
-			const bill = Number((document.getElementById('bill') as HTMLInputElement).value);
-			
-			// Calculation logic for estimated NEM 3.0 payback
-			const solarPayback = Math.max(7, Math.round(12 - (bill / 100)));
-			const batteryPayback = Math.max(4, Math.round(7 - (bill / 150)));
+		if (form) {
+			form.addEventListener('submit', (e) => {
+				e.preventDefault();
+				const billInput = document.getElementById('bill');
+				const bill = Number(billInput ? billInput.value : 250);
+				
+				const solarPayback = Math.max(7, Math.round(12 - (bill / 100)));
+				const batteryPayback = Math.max(4, Math.round(7 - (bill / 150)));
 
-			(document.getElementById('payback-solar') as HTMLElement).innerText = `${solarPayback} Years`;
-			(document.getElementById('payback-battery') as HTMLElement).innerText = `${batteryPayback} Years`;
+				const elSolar = document.getElementById('payback-solar');
+				const elBattery = document.getElementById('payback-battery');
 
-			results?.classList.remove('hidden');
-		});
+				if (elSolar) elSolar.innerText = solarPayback + ' Years';
+				if (elBattery) elBattery.innerText = batteryPayback + ' Years';
+
+				if (results) results.classList.remove('hidden');
+			});
+		}
 	</script>
 
 	<style>
@@ -70,8 +75,8 @@ import Layout from '../layouts/Layout.astro';
 		.hero h1 { font-size: 3rem; color: #1e293b; margin-bottom: 0.5rem; }
 		.calculator-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
 		.input-group { margin-bottom: 1.2rem; }
-		.input-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
-		.input-group input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
+		.input-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; color: #334155; }
+		.input-group input { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
 		.btn-primary { width: 100%; padding: 0.85rem; background: #2563eb; color: white; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
 		.btn-primary:hover { background: #1d4ed8; }
 		.hidden { display: none; }
@@ -79,7 +84,7 @@ import Layout from '../layouts/Layout.astro';
 		.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
 		.stat { background: white; padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid #e2e8f0; }
 		.stat.highlight { border: 2px solid #16a34a; background: #f0fdf4; }
-		.stat .value { display: block; font-size: 1.5rem; font-weight: bold; margin-top: 0.5rem; }
+		.stat .value { display: block; font-size: 1.5rem; font-weight: bold; margin-top: 0.5rem; color: #1e293b; }
 		.lead-box { background: #1e293b; color: white; padding: 1.5rem; border-radius: 8px; text-align: center; margin-top: 1.5rem; }
 		.btn-lead { background: #16a34a; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 0.5rem; }
 	</style>
