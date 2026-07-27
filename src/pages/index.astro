@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="top-banner">
-		Independent US Utility Analysis: Calculate Unsubsidized Solar & Battery ROI Across All 50 States.
+		Independent Educational Guide: Estimate baseline home solar and battery economics across all 50 states.
 	</div>
 
 	<nav class="navbar">
@@ -30,28 +30,31 @@
 				<a href="/methodology">Methodology</a>
 				<a href="/contact">Contact</a>
 			</div>
-			<a href="#calculator" class="btn-cta-nav">Run Free Audit</a>
+			<a href="#calculator" class="btn-cta-nav">Estimate Savings</a>
 		</div>
 	</nav>
 
 	<header class="hero">
 		<div class="hero-container">
 			<div class="hero-content">
-				<div class="badge-pill">Independent US Solar & Battery Marketplace Tool</div>
+				<div class="badge-pill">Independent US Solar & Battery Savings Estimator</div>
 				<h1>Estimate Your Home Solar & Battery Payback In Any State</h1>
-				<p class="hero-lead">Compare utility rate escalation, peak time-of-use discharge savings, and battery ROI across all US grid regions in 30 seconds.</p>
+				<p class="hero-lead">Learn how regional utility rates may affect your energy costs and get a preliminary solar and battery estimate in about 30 seconds.</p>
 				<div class="hero-stats">
 					<div class="stat-item"><span class="stat-number">50 States</span><span class="stat-label">US Coverage</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">Direct</span><span class="stat-label">Utility Model</span></div>
+					<div class="stat-item"><span class="stat-number">Regional</span><span class="stat-label">Rate Averages</span></div>
 					<div class="stat-divider"></div>
 					<div class="stat-item"><span class="stat-number">Instant</span><span class="stat-label">Dynamic Output</span></div>
 				</div>
+				<p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1.5rem;">
+					Our estimates use publicly available regional electricity pricing, solar-production assumptions, and standardized system-cost inputs.
+				</p>
 			</div>
 
 			<div class="calculator-glass-card" id="calculator">
 				<div class="calc-header">
-					<h3>Instant US Solar & Battery Payback Calculator</h3>
+					<h3>US Solar & Battery Savings Calculator</h3>
 					<p>Takes only 30 seconds • No contact info required</p>
 				</div>
 				
@@ -66,22 +69,22 @@
 						<input type="number" id="bill" placeholder="e.g. 250" required min="25" max="5000" />
 					</div>
 					<button type="submit" class="btn-glow-submit" id="calc-btn">
-						<span id="btn-text">Calculate US Savings Audit</span>
+						<span id="btn-text">See My Preliminary Estimate →</span>
 					</button>
 				</form>
 
 				<div id="loading-box" class="loading-container hidden">
 					<div class="spinner"></div>
-					<p id="loading-text">Analyzing regional utility rate baselines...</p>
+					<p id="loading-text">Modeling regional utility rate averages...</p>
 				</div>
 
 				<div id="results" class="results-container hidden">
-					<div class="results-badge">★ Recommended Strategy: Solar + Battery Storage</div>
+					<div class="results-badge">★ Common Configuration: Solar + Battery Storage</div>
 					
 					<div class="main-savings-card">
-						<span class="savings-head">Est. 20-Year Lifetime Savings</span>
+						<span class="savings-head">Estimated 20-Year Savings</span>
 						<span class="savings-amount" id="res-lifetime-savings">$0</span>
-						<span class="savings-sub">Calculated based on local grid rate trends and peak TOU offset</span>
+						<span class="savings-sub">Modeled using regional electricity-rate and energy-use assumptions</span>
 					</div>
 
 					<div class="confidence-box">
@@ -91,7 +94,7 @@
 						<ul class="conf-list">
 							<li>✓ Calculated using ZIP rate baseline & regional energy pricing</li>
 							<li>✓ Modeled with peak time-of-use (TOU) battery dispatch</li>
-							<li>⚡ <em>Excludes local roof tilt & shading analysis</em></li>
+							<li>⚡ <em>Preliminary estimate — excludes property-specific roof, shading, financing, and installer analysis</em></li>
 						</ul>
 					</div>
 
@@ -130,14 +133,18 @@
 						</table>
 					</div>
 
-					<p class="disclaimer-text">*Preliminary estimates based on regional utility tariffs. See our <a href="/methodology" style="color:#2563eb;">Methodology</a> for calculation details.</p>
+					<p class="disclaimer-text">*Educational estimate based on regional averages and standardized assumptions. Actual system size, pricing, incentives, and savings vary. Review our <a href="/methodology" style="color:#2563eb;">Methodology</a> and verify final figures with a qualified installer.</p>
 
 					<div class="lead-action-box">
-						<h4>Next Step: Compare Local Vetted Quotes</h4>
-						<p>Explore independent installer options in your area to confirm exact system engineering and local utility rebates.</p>
-						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="btn-green-action-link">
-							Compare Installer Quotes Online →
+						<h4>Compare Quotes From Local Installers</h4>
+						<p>Get property-specific pricing and system recommendations through our independent marketplace partner.</p>
+						<!-- TODO: Replace with the approved affiliate tracking URL before launch -->
+						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer sponsored" class="btn-green-action-link">
+							Compare Free Solar Quotes →
 						</a>
+						<p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.75rem; line-height: 1.4;">
+							You’ll continue on our partner’s website. GridPermit may earn compensation if you use this link, at no additional cost to you.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -148,7 +155,7 @@
 		<div class="footer-container">
 			<p>© 2026 GridPermit. All rights reserved.</p>
 			<p class="affiliate-disclosure">
-				GridPermit is an independent educational platform helping US homeowners calculate preliminary solar and energy storage economics. GridPermit does not install solar equipment and is not affiliated with any public utility.
+				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. We may receive compensation when users visit or use services offered by our affiliate partners, at no additional cost to the user.
 			</p>
 			<div class="footer-links">
 				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
@@ -191,7 +198,7 @@
 					form.classList.add("hidden");
 					loadingBox.classList.remove("hidden");
 
-					setTimeout(() => { loadingText.innerText = "Analyzing regional utility rate baselines..."; }, 800);
+					setTimeout(() => { loadingText.innerText = "Modeling regional utility rate averages..."; }, 800);
 					setTimeout(() => { loadingText.innerText = "Evaluating battery payback model..."; }, 1600);
 
 					setTimeout(() => {
