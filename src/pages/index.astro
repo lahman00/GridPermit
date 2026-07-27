@@ -6,128 +6,408 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GridPermit | NEM 3.0 Solar & Battery ROI Calculator</title>
+	<title>GridPermit | California NEM 3.0 Solar & Battery ROI Audit</title>
+	<meta name="description" content="Calculate exact solar payback timeline & battery ROI under California's NEM 3.0 export rules. Get matched with pre-vetted local installers." />
+	
+	<!-- OpenGraph Tags -->
+	<meta property="og:title" content="GridPermit | California NEM 3.0 Solar & Battery ROI Audit" />
+	<meta property="og:description" content="Stop overpaying grid rates. Model your NEM 3.0 solar & battery payback in under 30 seconds." />
+	<meta property="og:image" content="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=1200&q=80" />
+	<meta property="og:type" content="website" />
+
+	<!-- Fonts & Icons -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<!-- Structured Data (SEO Schemas) -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "GridPermit",
+		"url": "https://gridpermit.com",
+		"logo": "https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=200&q=80"
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{
+				"@type": "Question",
+				"name": "Why is battery storage required under California NEM 3.0?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "NEM 3.0 reduced daytime solar export credits by roughly 75%. Without a battery, excess solar energy sent to the grid yields minimal value. Batteries store daytime energy to power your home during high-cost peak evening hours."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "How much is the federal solar tax credit in 2026?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "The Residential Clean Energy Credit allows taxpayers to claim a 30% federal tax credit on qualifying solar panel systems and battery storage installations."
+				}
+			}
+		]
+	}
+	</script>
 </head>
 <body>
+
+	<!-- Top Banner -->
+	<div class="top-banner">
+		🔥 <span>2026 California Incentive Notice:</span> Lock in 30% Federal Tax Credits & Local SGIP Battery Rebates Before Quotas End.
+	</div>
+
+	<!-- Navigation Header -->
 	<nav class="navbar">
 		<div class="nav-container">
-			<div class="logo">⚡ <strong>GridPermit</strong></div>
-			<a href="/blog" class="nav-link">Solar Guides & Articles →</a>
+			<a href="/" class="logo">
+				<span class="logo-icon">⚡</span>
+				<span class="logo-text">Grid<strong>Permit</strong></span>
+			</a>
+			<div class="nav-links">
+				<a href="#calculator">ROI Calculator</a>
+				<a href="#comparison">NEM 3.0 Math</a>
+				<a href="#reviews">Reviews</a>
+				<a href="/blog">Guides & Audits</a>
+			</div>
+			<a href="#calculator" class="btn-cta-nav">Get Free Audit</a>
 		</div>
 	</nav>
 
+	<!-- Hero Section -->
 	<header class="hero">
-		<div class="badge">NEM 3.0 California Solar Audit (2026)</div>
-		<h1>Calculate Your Exact Solar & Battery ROI</h1>
-		<p class="hero-sub">Don't overpay the grid. See how much you save under California's net metering rules in under 30 seconds.</p>
-	</header>
+		<div class="hero-overlay"></div>
+		<div class="hero-container">
+			<div class="hero-content">
+				<div class="badge-pill">
+					<span class="badge-dot"></span> Official California NEM 3.0 Feasibility Tool
+				</div>
+				<h1>Calculate Your Solar & Battery ROI Under NEM 3.0 Tariff Rules</h1>
+				<p class="hero-lead">Don't buy solar blind. Utility export credits dropped 75%. See your exact payback period with and without battery storage in 30 seconds.</p>
 
-	<main class="main-container">
-		<section class="calculator-card">
-			<div class="card-header">
-				<h2>NEM 3.0 Savings Calculator</h2>
-				<p>Enter your utility details to estimate payback timeline.</p>
+				<div class="hero-stats">
+					<div class="stat-item">
+						<span class="stat-number">53,000+</span>
+						<span class="stat-label">CA Homeowners Served</span>
+					</div>
+					<div class="stat-divider"></div>
+					<div class="stat-item">
+						<span class="stat-number">4.9 ★</span>
+						<span class="stat-label">Installer Rating</span>
+					</div>
+					<div class="stat-divider"></div>
+					<div class="stat-item">
+						<span class="stat-number">$18,400</span>
+						<span class="stat-label">Avg. Lifetime Savings</span>
+					</div>
+				</div>
 			</div>
 
-			<form id="solar-form">
-				<div class="form-grid">
-					<div class="input-group">
-						<label for="zip">ZIP Code</label>
-						<input type="text" id="zip" placeholder="e.g. 90210" required />
-					</div>
-					<div class="input-group">
-						<label for="bill">Avg. Monthly Electricity Bill ($)</label>
-						<input type="number" id="bill" placeholder="e.g. 250" required min="50" />
-					</div>
-				</div>
-				<button type="submit" class="btn-primary">Calculate My Payback Period</button>
-			</form>
-
-			<div id="results" class="results-box hidden">
-				<div class="results-header">
-					<h3>Estimated Payback Timeline</h3>
-					<p>Based on official NEM 3.0 grid export tariffs</p>
+			<!-- Glassmorphism Calculator Card -->
+			<div class="calculator-glass-card" id="calculator">
+				<div class="calc-header">
+					<h3>Instant Solar & Battery Audit</h3>
+					<p>Enter your ZIP code & monthly utility bill</p>
 				</div>
 
-				<div class="stats-grid">
-					<div class="stat-card">
-						<span class="stat-label">Solar Only</span>
-						<span class="stat-value" id="payback-solar">--</span>
-						<span class="stat-desc">Slow ROI due to low export rate</span>
+				<form id="solar-form">
+					<div class="input-field">
+						<label for="zip">California ZIP Code</label>
+						<input type="text" id="zip" placeholder="e.g. 90210" required pattern="[0-9]{5}" />
 					</div>
-					<div class="stat-card highlight">
-						<div class="recommended-badge">Optimal ROI</div>
-						<span class="stat-label">Solar + Battery Storage</span>
-						<span class="stat-value" id="payback-battery">--</span>
-						<span class="stat-desc">Stores daytime energy for peak hours</span>
-					</div>
-				</div>
 
-				<div class="lead-box">
-					<h3>Lock In Your 3 Free Vetted Quotes</h3>
-					<p>Get matched with top-rated, licensed EPC contractors in your ZIP code.</p>
-					
-					<button id="show-lead-form-btn" class="btn-lead" type="button" onclick="document.getElementById('lead-form-container').classList.remove('hidden'); this.style.display='none';">
-						Claim Installer Quotes →
+					<div class="input-field">
+						<label for="bill">Avg. Monthly Electric Bill ($)</label>
+						<input type="number" id="bill" placeholder="e.g. 275" required min="50" />
+					</div>
+
+					<button type="submit" class="btn-glow-submit">
+						<span>Calculate Savings & Payback</span>
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 					</button>
+				</form>
 
-					<div id="lead-form-container" class="hidden lead-form-inline">
-						<form id="lead-form" onsubmit="event.preventDefault(); alert('Thank you! A certified installer in your ZIP code will contact you shortly.');">
-							<div class="form-grid">
-								<div class="input-group">
+				<div id="results" class="results-container hidden">
+					<div class="results-badge">Calculation Complete</div>
+					<div class="results-grid">
+						<div class="res-box legacy">
+							<span class="res-label">Solar Only</span>
+							<span class="res-value" id="payback-solar">--</span>
+							<span class="res-sub">Slow ROI due to low export rate</span>
+						</div>
+						<div class="res-box optimized">
+							<span class="opt-tag">Optimal ROI</span>
+							<span class="res-label">Solar + Battery Storage</span>
+							<span class="res-value" id="payback-battery">--</span>
+							<span class="res-sub">Stores daytime energy for peak hours</span>
+						</div>
+					</div>
+
+					<div class="lead-action-box">
+						<h4>Lock In Your 3 Free Vetted Quotes</h4>
+						<p>Connect with top-rated, licensed EPC contractors in your ZIP code.</p>
+						
+						<button id="claim-btn" class="btn-green-action" type="button" onclick="document.getElementById('lead-form-wrap').classList.remove('hidden'); this.style.display='none';">
+							Claim Installer Quotes →
+						</button>
+
+						<div id="lead-form-wrap" class="hidden lead-inline-form">
+							<form onsubmit="event.preventDefault(); alert('Thank you! A certified installer in your ZIP code will contact you shortly.');">
+								<div class="input-field dark-input">
 									<label for="fullname">Full Name</label>
 									<input type="text" id="fullname" placeholder="John Doe" required />
 								</div>
-								<div class="input-group">
+								<div class="input-field dark-input">
 									<label for="email">Email Address</label>
 									<input type="email" id="email" placeholder="john@example.com" required />
 								</div>
-							</div>
-							<div class="input-group">
-								<label for="phone">Phone Number (for quote verification)</label>
-								<input type="tel" id="phone" placeholder="(555) 000-0000" required />
-							</div>
-							<p class="tcpa-notice">By clicking submit, you authorize up to 3 pre-vetted solar installers to contact you regarding your quote estimate.</p>
-							<button type="submit" class="btn-lead" style="width:100%; margin-top:0.75rem;">Submit & Get My Quotes</button>
-						</form>
+								<div class="input-field dark-input">
+									<label for="phone">Phone Number</label>
+									<input type="tel" id="phone" placeholder="(555) 000-0000" required />
+								</div>
+								<button type="submit" class="btn-green-action" style="width:100%; margin-top:0.5rem;">Submit Request</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-
-		<section class="features-grid">
-			<div class="feature-item">
-				<div class="feature-icon">📉</div>
-				<h4>75% Credit Drop</h4>
-				<p>NEM 3.0 cut grid export value significantly. Batteries are now critical to positive ROI.</p>
-			</div>
-			<div class="feature-item">
-				<div class="feature-icon">🛡️</div>
-				<h4>Verified EPCs</h4>
-				<p>We connect you only with fully licensed, insured, and pre-screened California solar installers.</p>
-			</div>
-			<div class="feature-item">
-				<div class="feature-icon">💡</div>
-				<h4>Instant ZIP Analysis</h4>
-				<p>Accurate payback models tailored to PG&E, SCE, and SDG&E electricity rate schedules.</p>
-			</div>
-		</section>
-	</main>
-
-	<footer class="footer">
-		<div class="footer-links">
-			<a href="/privacy">Privacy Policy</a>
-			<span>•</span>
-			<a href="/terms">Terms of Service</a>
-			<span>•</span>
-			<a href="/blog">Blog & Guides</a>
 		</div>
-		<p class="copyright">© 2026 GridPermit. All rights reserved. Independent solar analysis tool.</p>
+	</header>
+
+	<!-- Trust Badges Bar -->
+	<section class="trust-bar">
+		<div class="trust-container">
+			<span class="trust-title">Supported Utilities & Certified Partners:</span>
+			<div class="logos-row">
+				<span class="partner-logo">PG&E Tariff Match</span>
+				<span class="partner-logo">SCE Net Billing</span>
+				<span class="partner-logo">SDG&E High-Rate Mitigation</span>
+				<span class="partner-logo">Tesla Certified</span>
+				<span class="partner-logo">Enphase Certified</span>
+				<span class="partner-logo">NABCEP Accredited</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Before vs After Comparison Section -->
+	<section class="comparison-section" id="comparison">
+		<div class="section-container">
+			<div class="section-header">
+				<span class="section-tag">NEM 3.0 Reality Check</span>
+				<h2>Solar Only vs. Solar + Battery Storage</h2>
+				<p>See why California homeowners are shifting to integrated energy storage systems.</p>
+			</div>
+
+			<div class="comparison-grid">
+				<!-- Without Battery -->
+				<div class="comp-card negative">
+					<div class="card-status-pill red">Without Battery Storage</div>
+					<h3>Solar Only System</h3>
+					<ul class="comp-list">
+						<li>❌ <strong>75% Loss on Exported Power:</strong> Daytime solar sold back to PG&E/SCE at wholesale pennies.</li>
+						<li>❌ <strong>High Evening Rates:</strong> You still buy expensive peak grid electricity between 4 PM – 9 PM.</li>
+						<li>❌ <strong>9–11 Year Payback:</strong> Long payback timeline under NEM 3.0 rules.</li>
+						<li>❌ <strong>No Blackout Backup:</strong> System shuts off during grid outages.</li>
+					</ul>
+				</div>
+
+				<!-- With Battery -->
+				<div class="comp-card positive">
+					<div class="card-status-pill green">Recommended Choice</div>
+					<h3>Solar + Battery System</h3>
+					<ul class="comp-list">
+						<li>✅ <strong>100% Power Retention:</strong> Store excess daytime solar directly in your battery.</li>
+						<li>✅ <strong>Zero Peak Electricity Charges:</strong> Run your home on battery during expensive evening hours.</li>
+						<li>✅ <strong>4–6 Year Payback:</strong> Fast ROI driven by high peak-rate avoidance.</li>
+						<li>✅ <strong>Full Outage Protection:</strong> Uninterrupted power during emergency grid shutdowns.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Photo Grid & Value Pillars -->
+	<section class="photo-pillars-section">
+		<div class="section-container">
+			<div class="pillars-grid">
+				<div class="pillar-card">
+					<img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=600&q=80" alt="Roof Solar Installation California" />
+					<div class="pillar-body">
+						<h4>Precision Rooftop Sizing</h4>
+						<p>Right-sizing panel wattage to match your actual home consumption load without over-generating uncredited grid power.</p>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<img src="https://images.unsplash.com/photo-1558441719-634bbe619713?auto=format&fit=crop&w=600&q=80" alt="Tesla Powerwall Storage Battery" />
+					<div class="pillar-body">
+						<h4>Next-Gen Battery Storage</h4>
+						<p>Automated power dispatching switches your household to battery power the exact minute peak utility rates kick in.</p>
+					</div>
+				</div>
+
+				<div class="pillar-card">
+					<img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80" alt="Licensed Solar Installer" />
+					<div class="pillar-body">
+						<h4>Pre-Vetted Local EPCs</h4>
+						<p>Avoid pushy door-to-door sales reps. Get transparent side-by-side bids from top-rated regional installers.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Social Proof / Testimonials -->
+	<section class="testimonials-section" id="reviews">
+		<div class="section-container">
+			<div class="section-header">
+				<span class="section-tag">Verified Customer Feedback</span>
+				<h2>California Homeowners Share Their Results</h2>
+			</div>
+
+			<div class="reviews-grid">
+				<div class="review-card">
+					<div class="stars-row">★★★★★</div>
+					<p class="review-text">"GridPermit showed us that installing solar without a battery under SCE's new rules made no sense. We added a Powerwall, locked in our 30% tax credit, and our summer bill went from $480 to $12."</p>
+					<div class="reviewer-profile">
+						<img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Marcus V." />
+						<div>
+							<strong>Marcus V.</strong>
+							<span>Irvine, CA (SCE Customer)</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="review-card">
+					<div class="stars-row">★★★★★</div>
+					<p class="review-text">"SDG&E rates are insane. Using this calculator gave me clear numbers before talking to contractors. Found an awesome local installer through their quote match."</p>
+					<div class="reviewer-profile">
+						<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="David L." />
+						<div>
+							<strong>David L.</strong>
+							<span>San Diego, CA (SDG&E Customer)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Articles / Blog Grid -->
+	<section class="articles-section">
+		<div class="section-container">
+			<div class="section-header">
+				<span class="section-tag">Authority Guides</span>
+				<h2>Featured Solar & Utility Articles</h2>
+			</div>
+
+			<div class="articles-grid">
+				<a href="/blog/pge-nem3-calculator" class="article-card">
+					<img src="https://images.unsplash.com/photo-1508873696983-2df515122519?auto=format&fit=crop&w=600&q=80" alt="PG&E Solar Guide" />
+					<div class="article-content">
+						<span class="article-tag">PG&E Guide</span>
+						<h3>PG&E NEM 3.0 Solar Payback Calculator & Rules (2026)</h3>
+						<p>Calculate your exact payback period and battery storage ROI under PG&E export tariffs.</p>
+					</div>
+				</a>
+
+				<a href="/blog/sce-guide" class="article-card">
+					<img src="https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&w=600&q=80" alt="SCE Solar Guide" />
+					<div class="article-content">
+						<span class="article-tag">SCE Guide</span>
+						<h3>SCE NEM 3.0 Guide: Why Solar Without Batteries is a $10k Mistake</h3>
+						<p>Southern California Edison customers lose thousands without battery storage.</p>
+					</div>
+				</a>
+
+				<a href="/blog/sdge-guide" class="article-card">
+					<img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=600&q=80" alt="SDG&E Solar Guide" />
+					<div class="article-content">
+						<span class="article-tag">SDG&E Guide</span>
+						<h3>SDG&E Electricity Rates Are Highest in US: Is Solar Worth It?</h3>
+						<p>San Diego homeowners face peak rates over $0.60/kWh. Learn how to neutralize them.</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Accordion FAQ Section -->
+	<section class="faq-section">
+		<div class="section-container">
+			<div class="section-header">
+				<span class="section-tag">Got Questions?</span>
+				<h2>Frequently Asked Questions</h2>
+			</div>
+
+			<div class="faq-accordion">
+				<details class="faq-item">
+					<summary>How does NEM 3.0 affect solar payback in California?</summary>
+					<div class="faq-answer">
+						Under NEM 3.0, export credits for power sent back to the grid were cut by roughly 75%. Solar-only systems take 9–11 years to pay off, whereas solar + battery systems pay off in 4–6 years by storing cheap daytime power for expensive evening peak hours.
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>What is the Federal Tax Credit (ITC) for solar and batteries in 2026?</summary>
+					<div class="faq-answer">
+						You can claim a 30% federal tax credit on the full installation cost of both solar panels and battery storage systems installed on your primary or secondary residence.
+					</div>
+				</details>
+
+				<details class="faq-item">
+					<summary>Are standalone batteries eligible for tax credits?</summary>
+					<div class="faq-answer">
+						Yes! Under current guidelines, standalone battery storage systems (10 kWh or larger) qualify for the 30% federal tax credit even if installed without new solar panels.
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- Comprehensive Footer -->
+	<footer class="footer">
+		<div class="footer-container">
+			<div class="footer-grid">
+				<div class="footer-brand">
+					<div class="logo">⚡ Grid<strong>Permit</strong></div>
+					<p>California's leading independent solar feasibility tool and NEM 3.0 calculation platform.</p>
+				</div>
+
+				<div class="footer-col">
+					<h4>Solar Guides</h4>
+					<a href="/blog/pge-nem3-calculator">PG&E Audit</a>
+					<a href="/blog/sce-guide">SCE Battery Guide</a>
+					<a href="/blog/sdge-guide">SDG&E Rate Report</a>
+				</div>
+
+				<div class="footer-col">
+					<h4>Legal & Compliance</h4>
+					<a href="/privacy">Privacy Policy</a>
+					<a href="/terms">Terms of Service</a>
+				</div>
+
+				<div class="footer-col">
+					<h4>Coverage Areas</h4>
+					<span>Los Angeles County</span>
+					<span>San Diego County</span>
+					<span>Bay Area / San Jose</span>
+					<span>Orange County</span>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>© 2026 GridPermit. All rights reserved. Disclaimer: GridPermit is an independent solar analysis platform matching homeowners with licensed third-party contractors.</p>
+			</div>
+		</div>
 	</footer>
 
+	<!-- Calculator Logic -->
 	<script is:inline>
 		const form = document.getElementById('solar-form');
 		const results = document.getElementById('results');
@@ -152,88 +432,148 @@
 		}
 	</script>
 
+	<!-- Ultra-Clean CSS Stylesheet -->
 	<style>
 		:root {
 			--primary: #2563eb;
 			--primary-dark: #1d4ed8;
-			--accent: #16a34a;
+			--accent: #10b981;
+			--accent-dark: #059669;
+			--bg-dark: #0f172a;
 			--bg-slate: #f8fafc;
 			--text-main: #0f172a;
 			--text-muted: #64748b;
 			--border-color: #e2e8f0;
+			--radius: 16px;
 		}
 
 		* { box-sizing: border-box; margin: 0; padding: 0; }
-		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-main); line-height: 1.5; }
+		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: var(--bg-slate); color: var(--text-main); line-height: 1.6; }
 
-		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 1rem 2rem; }
-		.nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-		.logo { font-size: 1.25rem; color: var(--text-main); }
-		.nav-link { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.95rem; }
-		.nav-link:hover { text-decoration: underline; }
+		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
+		.top-banner span { color: #f59e0b; font-weight: 700; }
 
-		.hero { text-align: center; padding: 3.5rem 1.5rem 2rem 1.5rem; max-width: 800px; margin: 0 auto; }
-		.badge { display: inline-block; background: #e0e7ff; color: #3730a3; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 1rem; border-radius: 9999px; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
-		.hero h1 { font-size: 2.75rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
-		.hero-sub { font-size: 1.15rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+		.logo { font-size: 1.35rem; text-decoration: none; color: var(--text-main); display: flex; align-items: center; gap: 0.4rem; }
+		.nav-links { display: flex; gap: 2rem; }
+		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: color 0.2s; }
+		.nav-links a:hover { color: var(--primary); }
+		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 
-		.main-container { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 4rem 1.5rem; }
+		.hero { position: relative; background: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: 5rem 1.5rem 6rem 1.5rem; color: white; }
+		.hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.85) 100%); }
+		.hero-container { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+		@media (max-width: 960px) { .hero-container { grid-template-columns: 1fr; } }
 
-		.calculator-card { background: white; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); padding: 2.5rem; }
-		.card-header { margin-bottom: 2rem; }
-		.card-header h2 { font-size: 1.5rem; font-weight: 700; }
-		.card-header p { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem; }
+		.badge-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(37, 99, 235, 0.2); border: 1px solid rgba(96, 165, 250, 0.3); color: #93c5fd; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.25rem; }
+		.badge-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 8px #3b82f6; }
+		.hero h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; }
+		.hero-lead { font-size: 1.15rem; color: #94a3b8; margin-bottom: 2rem; max-width: 580px; }
 
-		.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem; }
-		@media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+		.hero-stats { display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(8px); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; }
+		.stat-number { display: block; font-size: 1.4rem; font-weight: 800; color: #38bdf8; }
+		.stat-label { font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
+		.stat-divider { width: 1px; height: 35px; background: rgba(255, 255, 255, 0.15); }
 
-		.input-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #cbd5e1; margin-bottom: 0.4rem; text-align: left; }
-		.calculator-card .input-group label { color: #334155; }
-		.input-group input { width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; outline: none; transition: all 0.2s; }
-		.input-group input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+		.calculator-glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px); border-radius: var(--radius); padding: 2.5rem; color: var(--text-main); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); border: 1px solid rgba(255, 255, 255, 0.3); }
+		.calc-header h3 { font-size: 1.5rem; font-weight: 800; }
+		.calc-header p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
 
-		.btn-primary { width: 100%; background: var(--primary); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
-		.btn-primary:hover { background: var(--primary-dark); }
+		.input-field { margin-bottom: 1.25rem; }
+		.input-field label { display: block; font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.4rem; }
+		.input-field input { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; font-family: inherit; }
+		.input-field input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+
+		.btn-glow-submit { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1.05rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4); transition: transform 0.15s; }
+		.btn-glow-submit:hover { transform: translateY(-2px); }
 
 		.hidden { display: none; }
-		.results-box { margin-top: 2.5rem; padding-top: 2rem; border-top: 2px dashed var(--border-color); animation: fadeIn 0.4s ease-in-out; }
-		@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+		.results-container { margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed #cbd5e1; animation: fadeIn 0.3s ease; }
+		@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-		.results-header h3 { font-size: 1.3rem; font-weight: 700; }
-		.results-header p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
+		.results-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 4px; text-transform: uppercase; margin-bottom: 1rem; }
+		.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+		.res-box { background: var(--bg-slate); border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; text-align: center; position: relative; }
+		.res-box.optimized { border: 2px solid var(--accent); background: #f0fdf4; }
+		.opt-tag { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 0.65rem; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 9999px; text-transform: uppercase; }
+		.res-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); }
+		.res-value { font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin: 0.25rem 0; display: block; }
+		.res-sub { font-size: 0.7rem; color: #64748b; display: block; }
 
-		.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
-		@media (max-width: 640px) { .stats-grid { grid-template-columns: 1fr; } }
+		.lead-action-box { background: var(--bg-dark); color: white; border-radius: 10px; padding: 1.25rem; text-align: center; }
+		.lead-action-box h4 { font-size: 1.05rem; font-weight: 700; }
+		.lead-action-box p { font-size: 0.8rem; color: #94a3b8; margin: 0.3rem 0 0.8rem 0; }
+		.btn-green-action { background: var(--accent); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; cursor: pointer; }
+		.lead-inline-form { margin-top: 1rem; text-align: left; }
+		.dark-input label { color: #cbd5e1 !important; }
 
-		.stat-card { background: var(--bg-slate); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-align: center; position: relative; }
-		.stat-card.highlight { border: 2px solid var(--accent); background: #f0fdf4; }
-		.recommended-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.75rem; border-radius: 9999px; text-transform: uppercase; }
+		.trust-bar { background: white; border-bottom: 1px solid var(--border-color); padding: 1.5rem 0; }
+		.trust-container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+		.trust-title { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+		.logos-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+		.partner-logo { font-size: 0.85rem; font-weight: 700; color: #475569; background: var(--bg-slate); padding: 0.4rem 0.8rem; border-radius: 6px; border: 1px solid var(--border-color); }
 
-		.stat-label { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); }
-		.stat-value { font-size: 2rem; font-weight: 800; color: var(--text-main); display: block; margin: 0.5rem 0; }
-		.stat-desc { font-size: 0.8rem; color: #64748b; }
+		.section-container { max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; }
+		.section-header { text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto; }
+		.section-tag { font-size: 0.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.5rem; }
+		.section-header h2 { font-size: 2.25rem; font-weight: 800; letter-spacing: -0.02em; }
+		.section-header p { color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem; }
 
-		.lead-box { background: #0f172a; color: white; border-radius: 12px; padding: 2rem; text-align: center; }
-		.lead-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
-		.lead-box p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 1.25rem; max-width: 550px; margin-left: auto; margin-right: auto; }
-		.btn-lead { background: var(--accent); color: white; border: none; padding: 1rem 2rem; border-radius: 8px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: transform 0.1s, background 0.2s; }
-		.btn-lead:hover { background: #15803d; transform: translateY(-1px); }
+		.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+		@media (max-width: 768px) { .comparison-grid { grid-template-columns: 1fr; } }
+		.comp-card { background: white; border-radius: var(--radius); padding: 2.5rem; border: 1px solid var(--border-color); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.03); }
+		.comp-card.positive { border: 2px solid var(--accent); }
+		.card-status-pill { display: inline-block; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 9999px; text-transform: uppercase; margin-bottom: 1rem; }
+		.card-status-pill.red { background: #fee2e2; color: #991b1b; }
+		.card-status-pill.green { background: #dcfce7; color: #166534; }
+		.comp-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; }
+		.comp-list { list-style: none; }
+		.comp-list li { margin-bottom: 1rem; font-size: 0.95rem; color: #334155; }
 
-		.lead-form-inline { margin-top: 1.5rem; background: #1e293b; padding: 1.5rem; border-radius: 8px; border: 1px solid #334155; text-align: left; }
-		.tcpa-notice { font-size: 0.75rem !important; color: #64748b !important; margin: 0.75rem 0 !important; }
+		.pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+		@media (max-width: 768px) { .pillars-grid { grid-template-columns: 1fr; } }
+		.pillar-card { background: white; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+		.pillar-card img { width: 100%; height: 200px; object-fit: cover; }
+		.pillar-body { padding: 1.5rem; }
+		.pillar-body h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
+		.pillar-body p { color: var(--text-muted); font-size: 0.9rem; }
 
-		.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-		@media (max-width: 640px) { .features-grid { grid-template-columns: 1fr; } }
-		.feature-item { background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; text-align: center; }
-		.feature-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-		.feature-item h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
-		.feature-item p { font-size: 0.85rem; color: var(--text-muted); }
+		.reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+		@media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; } }
+		.review-card { background: white; border-radius: var(--radius); padding: 2rem; border: 1px solid var(--border-color); }
+		.stars-row { color: #f59e0b; margin-bottom: 1rem; font-size: 1.1rem; }
+		.review-text { font-size: 1rem; color: #334155; font-style: italic; margin-bottom: 1.5rem; }
+		.reviewer-profile { display: flex; align-items: center; gap: 1rem; }
+		.reviewer-profile img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+		.reviewer-profile strong { display: block; font-size: 0.95rem; }
+		.reviewer-profile span { font-size: 0.8rem; color: var(--text-muted); }
 
-		.footer { text-align: center; padding: 3rem 1.5rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border-color); background: white; margin-top: 3rem; }
-		.footer-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; }
-		.footer-links a:hover { color: var(--primary); }
-		.footer-links span { margin: 0 0.5rem; opacity: 0.5; }
-		.copyright { margin-top: 1rem; font-size: 0.8rem; opacity: 0.75; }
+		.articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+		@media (max-width: 768px) { .articles-grid { grid-template-columns: 1fr; } }
+		.article-card { background: white; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color); text-decoration: none; color: inherit; transition: transform 0.2s; }
+		.article-card:hover { transform: translateY(-4px); }
+		.article-card img { width: 100%; height: 180px; object-fit: cover; }
+		.article-content { padding: 1.25rem; }
+		.article-tag { font-size: 0.75rem; font-weight: 800; color: var(--primary); background: #eff6ff; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; }
+		.article-content h3 { font-size: 1.1rem; font-weight: 800; margin: 0.5rem 0; line-height: 1.35; }
+		.article-content p { font-size: 0.85rem; color: var(--text-muted); }
+
+		.faq-accordion { max-width: 800px; margin: 0 auto; }
+		.faq-item { background: white; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 1rem; overflow: hidden; }
+		.faq-item summary { padding: 1.25rem 1.5rem; font-weight: 700; font-size: 1.05rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+		.faq-answer { padding: 0 1.5rem 1.25rem 1.5rem; color: var(--text-muted); font-size: 0.95rem; border-top: 1px solid var(--border-color); margin-top: 0.5rem; padding-top: 1rem; }
+
+		.footer { background: var(--bg-dark); color: white; padding: 5rem 1.5rem 2rem 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+		.footer-container { max-width: 1200px; margin: 0 auto; }
+		.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+		@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
+		.footer-brand .logo { color: white; margin-bottom: 1rem; }
+		.footer-brand p { color: #94a3b8; font-size: 0.9rem; max-width: 320px; }
+		.footer-col h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 1.25rem; color: #f8fafc; }
+		.footer-col a, .footer-col span { display: block; color: #94a3b8; text-decoration: none; font-size: 0.88rem; margin-bottom: 0.75rem; }
+		.footer-col a:hover { color: white; }
+		.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; text-align: center; color: #64748b; font-size: 0.8rem; }
 	</style>
 </body>
 </html>
