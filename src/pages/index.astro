@@ -25,12 +25,13 @@
 			</a>
 			<div class="nav-links">
 				<a href="#calculator">ROI Calculator</a>
+				<a href="/how-it-works">How It Works</a>
 				<a href="/about">About</a>
 				<a href="/methodology">Methodology</a>
 				<a href="/blog/solar-battery-payback-nem3">NEM 3.0 Guide</a>
 				<a href="/contact">Contact</a>
 			</div>
-			<a href="#calculator" class="btn-cta-nav">Get Free Audit</a>
+			<a href="#calculator" class="btn-cta-nav">Run Free Audit</a>
 		</div>
 	</nav>
 
@@ -52,7 +53,7 @@
 			<div class="calculator-glass-card" id="calculator">
 				<div class="calc-header">
 					<h3>Instant Solar & Battery Payback Estimate</h3>
-					<p>Takes only 45 seconds • Free independent estimate</p>
+					<p>Takes only 30 seconds • No contact info required</p>
 				</div>
 				
 				<form id="solar-form">
@@ -66,7 +67,7 @@
 						<input type="number" id="bill" placeholder="e.g. 275" required min="25" max="5000" />
 					</div>
 					<button type="submit" class="btn-glow-submit" id="calc-btn">
-						<span id="btn-text">Get My NEM 3.0 Estimate</span>
+						<span id="btn-text">Calculate NEM 3.0 Savings</span>
 					</button>
 				</form>
 
@@ -135,31 +136,11 @@
 					<p class="disclaimer-text">*Preliminary calculation based on utility tariff baselines. See our <a href="/methodology" style="color:#2563eb;">Methodology</a> for calculation models.</p>
 
 					<div class="lead-action-box">
-						<h4>Compare Up To 3 Local Vetted Quotes</h4>
-						<p>Connect with up to three matched installers with active California licenses.</p>
-						<button id="claim-btn" class="btn-green-action" type="button" onclick="document.getElementById('lead-form-wrap').classList.remove('hidden'); this.style.display='none';">
-							Compare Installer Quotes
-						</button>
-						<div id="lead-form-wrap" class="hidden lead-inline-form">
-							<form id="lead-capture-form" action="https://formspree.io/f/xpqvkvwl" method="POST">
-								<input type="hidden" name="zip_code" id="hidden-zip" />
-								<input type="hidden" name="monthly_bill" id="hidden-bill" />
-								<input type="hidden" name="utility_provider" id="hidden-utility" />
-
-								<div class="input-field dark-input"><label for="fullname">Full Name</label><input type="text" id="fullname" name="full_name" placeholder="John Doe" required /></div>
-								<div class="input-field dark-input"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="john@example.com" required /></div>
-								<div class="input-field dark-input"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required /></div>
-								
-								<div class="tcpa-box">
-									<label class="tcpa-label">
-										<input type="checkbox" required />
-										<span>I agree to receive calls, emails, and SMS from GridPermit and up to three matched installation partners at the phone number provided. Consent is not required to purchase. Msg & data rates may apply.</span>
-									</label>
-								</div>
-
-								<button type="submit" class="btn-green-action" id="submit-lead-btn" style="width:100%; margin-top:0.5rem;">Request Vetted Quotes</button>
-							</form>
-						</div>
+						<h4>Next Step: Compare Certified Installers</h4>
+						<p>Explore independent installer options in your utility area to confirm physical roof sizing and actual quotes.</p>
+						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="btn-green-action-link">
+							Compare Online Solar Marketplace →
+						</a>
 					</div>
 				</div>
 			</div>
@@ -170,10 +151,10 @@
 		<div class="footer-container">
 			<p>© 2026 GridPermit. All rights reserved.</p>
 			<p class="affiliate-disclosure">
-				GridPermit is an independent educational platform that helps California homeowners compare preliminary solar and battery savings estimates and connect with licensed installation partners. GridPermit does not install solar systems and is not affiliated with the CPUC, PG&E, SCE, or SDG&E.
+				GridPermit is an independent educational platform that helps California homeowners calculate preliminary solar and battery payback timelines. GridPermit does not install solar systems and is not affiliated with the CPUC, PG&E, SCE, or SDG&E.
 			</p>
 			<div class="footer-links">
-				<a href="/about">About Us</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
 			</div>
 		</div>
 	</footer>
@@ -220,12 +201,7 @@
 
 						const zipVal = document.getElementById('zip')?.value || '';
 						const bill = Number(document.getElementById('bill')?.value || 275);
-						const utilVal = document.getElementById('utility-name')?.innerText || 'PG&E';
 
-						document.getElementById('hidden-zip').value = zipVal;
-						document.getElementById('hidden-bill').value = '$' + bill;
-						document.getElementById('hidden-utility').value = utilVal;
-						
 						const sysKw = (bill / 32).toFixed(1);
 						const batKwh = bill > 300 ? '20.0 kWh' : '13.5 kWh';
 
@@ -250,33 +226,6 @@
 					}, 2500);
 				});
 			}
-
-			const leadForm = document.getElementById('lead-capture-form');
-			if (leadForm) {
-				leadForm.addEventListener('submit', async (e) => {
-					e.preventDefault();
-					const btn = document.getElementById('submit-lead-btn');
-					if (btn) btn.innerText = "Sending Request...";
-
-					const formData = new FormData(leadForm);
-					try {
-						const response = await fetch("https://formspree.io/f/xpqvkvwl", {
-							method: "POST",
-							body: formData,
-							headers: { 'Accept': 'application/json' }
-						});
-
-						if (response.ok) {
-							if (btn) btn.innerText = "Request Submitted ✓";
-							alert('Thank you! Your request has been sent. Matched local installers will reach out with your audit.');
-						} else {
-							alert('Thank you! Your request has been recorded.');
-						}
-					} catch (err) {
-						alert('Thank you! Your request has been recorded.');
-					}
-				});
-			}
 		});
 	</script>
 
@@ -290,8 +239,8 @@
 		.brand-logo { text-decoration: none; display: inline-block; }
 		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0F172A; }
 		.logo-bold { font-weight: 800; }
-		.nav-links { display: flex; gap: 1.5rem; }
-		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; }
+		.nav-links { display: flex; gap: 1.25rem; }
+		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
 		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 		.hero { position: relative; background: #0f172a; padding: 5rem 1.5rem 6rem 1.5rem; color: white; }
 		.hero-container { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
@@ -338,12 +287,8 @@
 		.lead-action-box { background: var(--bg-dark); color: white; border-radius: 10px; padding: 1.25rem; text-align: center; }
 		.lead-action-box h4 { font-size: 1.05rem; font-weight: 700; }
 		.lead-action-box p { font-size: 0.8rem; color: #94a3b8; margin: 0.3rem 0 0.8rem 0; }
-		.btn-green-action { background: var(--accent); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; cursor: pointer; }
-		.lead-inline-form { margin-top: 1rem; text-align: left; }
-		.dark-input label { color: #cbd5e1 !important; }
-		.tcpa-box { margin: 1rem 0; }
-		.tcpa-label { display: flex; gap: 0.5rem; font-size: 0.72rem; color: #94a3b8; line-height: 1.3; }
-		.tcpa-label input { margin-top: 2px; }
+		.btn-green-action-link { display: inline-block; background: var(--accent); color: white; border: none; padding: 0.85rem 1.5rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; text-decoration: none; transition: background 0.2s ease; }
+		.btn-green-action-link:hover { background: #059669; }
 		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
 		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
 		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
