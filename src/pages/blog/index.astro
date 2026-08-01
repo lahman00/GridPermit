@@ -1,114 +1,311 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+// Blog index. Lists every existing post — the 5 Markdown posts in
+// src/content/blog/ (rendered via BlogPost.astro) and the 3 standalone
+// .astro posts in this same directory — without inventing any new content.
+// Category/featured-post choices below are editorial groupings of each
+// post's own existing title/description, not new factual claims.
+import { getCollection } from "astro:content";
+import { SITE_ORIGIN, buildBreadcrumbSchema } from "../../lib/locality-guide";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+interface PostSummary {
+	title: string;
+	description: string;
+	url: string;
+	category: string;
+	displayDate: string;
+	sortDate: string; // ISO date used only for ordering, not necessarily rendered verbatim
+}
+
+// Editorial category labels keyed by each markdown post's own
+// content-collection id — grouping existing posts by the utility/topic
+// already stated in their own title, not adding a new claim.
+const CATEGORY_BY_ID: Record<string, string> = {
+	"pge-nem3-calculator": "PG&E",
+	"sce-guide": "SCE",
+	"sdge-guide": "SDG&E",
+	"sgip-battery-rebates-california": "Incentives",
+	"tesla-powerwall-3-vs-enphase-iq5p": "Battery Comparisons",
+};
+
+const collectionPosts = await getCollection("blog");
+const fromCollection: PostSummary[] = collectionPosts.map((post) => ({
+	title: post.data.title,
+	description: post.data.description,
+	url: `/blog/${post.id}/`,
+	category: CATEGORY_BY_ID[post.id] ?? "General",
+	displayDate: post.data.pubDate.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
+	sortDate: post.data.pubDate.toISOString(),
+}));
+
+// The 3 standalone .astro posts aren't part of the content collection, so
+// their metadata is listed here verbatim from what's already on each page
+// (title, description, and "Updated July 2026" — no specific day is stated
+// on those pages, so none is invented here either).
+const standalonePosts: PostSummary[] = [
+	{
+		title: "PG&E Rate Hike Audit 2026: Solar & Battery Protection Analysis",
+		description: "Analysis of Pacific Gas & Electric (PG&E) electricity rate increases and how home battery storage offsets E-ELEC peak pricing.",
+		url: "/blog/pge-rate-hikes-2026/",
+		category: "PG&E",
+		displayDate: "July 2026",
+		sortDate: "2026-07-20",
+	},
+	{
+		title: "SDG&E Battery Storage ROI Guide 2026: Rates & Economics",
+		description: "San Diego Gas & Electric (SDG&E) battery payback breakdown under NEM 3.0 rules and EV-TOU-5 rate schedules.",
+		url: "/blog/sdge-battery-roi-guide/",
+		category: "SDG&E",
+		displayDate: "July 2026",
+		sortDate: "2026-07-20",
+	},
+	{
+		title: "California NEM 3.0 Solar & Battery Payback Guide (2026 Audit)",
+		description: "Comprehensive guide to California Net Billing Tariff (NEM 3.0), avoided cost rates, TOU arbitrage, and battery ROI.",
+		url: "/blog/solar-battery-payback-nem3/",
+		category: "Battery Economics",
+		displayDate: "July 2026",
+		sortDate: "2026-07-20",
+	},
+];
+
+const allPosts = [...fromCollection, ...standalonePosts].sort(
+	(a, b) => new Date(b.sortDate).valueOf() - new Date(a.sortDate).valueOf(),
 );
+
+// Editorial pick, not a factual claim: SGIP rebates apply to any CA
+// homeowner regardless of utility, making it the broadest-appeal post.
+const featured = allPosts.find((p) => p.url === "/blog/sgip-battery-rebates-california/") ?? allPosts[0];
+const latest = allPosts.filter((p) => p.url !== featured.url);
+
+const categories = [...new Set(allPosts.map((p) => p.category))].sort();
+
+// Pagination-ready: with 8 posts today, everything fits on one page. If the
+// post count grows past this, paginate `latest` here (e.g. via Astro's
+// getStaticPaths + page param) rather than changing the data model above —
+// `allPosts`/`featured`/`categories` would all stay exactly as they are.
+const POSTS_PER_PAGE = 24;
+
+const PAGE_PATH = "/blog/";
+const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
+const title = "Solar & Battery Guides Blog | GridPermit";
+const description = "California-focused solar, battery, and utility rate guides — PG&E, SCE, and SDG&E rate analysis, NEM 3.0 payback math, and SGIP rebate breakdowns.";
+
+const breadcrumbItems = [
+	{ name: "Home", url: `${SITE_ORIGIN}/` },
+	{ name: "Blog", url: CANONICAL_URL },
+];
+const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
+
+const blogSchema = {
+	"@context": "https://schema.org",
+	"@type": "Blog",
+	name: "GridPermit Blog",
+	url: CANONICAL_URL,
+	blogPost: fromCollection.map((p) => ({
+		"@type": "BlogPosting",
+		headline: p.title,
+		description: p.description,
+		url: `${SITE_ORIGIN}${p.url}`,
+		datePublished: p.sortDate,
+	})),
+};
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<link rel="canonical" href={CANONICAL_URL} />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={CANONICAL_URL} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	<script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+</head>
+<body>
+	<div class="top-banner">
+		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
+	</div>
+
+	<nav class="navbar">
+		<div class="nav-container">
+			<a href="/" class="brand-logo" aria-label="GridPermit Home">
+				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
+			</a>
+			<div class="nav-links">
+				<a href="/#calculator">ROI Calculator</a>
+				<a href="/how-it-works">How It Works</a>
+				<a href="/california/solar-permit-guides/">California Guides</a>
+				<a href="/methodology">Methodology</a>
+			</div>
+			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+		</div>
+	</nav>
+
+	<div class="page-container">
+		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+			<a href="/">Home</a><span class="crumb-sep">/</span><span class="crumb-current">Blog</span>
+		</nav>
+
+		<main class="content-card">
+			<h1>Solar &amp; Battery Guides</h1>
+			<p class="subtitle">California-focused rate analysis, NEM 3.0 payback math, and battery economics — {allPosts.length} guides</p>
+
+			<div class="filter-bar">
+				<input type="search" id="post-search" placeholder="Search guides…" aria-label="Search blog guides" />
+				<div class="category-chips" role="group" aria-label="Filter by category">
+					<button type="button" class="chip active" data-category="all">All</button>
+					{categories.map((c) => (
+						<button type="button" class="chip" data-category={c}>{c}</button>
+					))}
+				</div>
+			</div>
+
+			<section aria-labelledby="featured-heading">
+				<h2 id="featured-heading">Featured Guide</h2>
+				<a href={featured.url} class="featured-card" data-category={featured.category} data-search-text={`${featured.title} ${featured.description}`.toLowerCase()}>
+					<span class="featured-category">{featured.category}</span>
+					<h3>{featured.title}</h3>
+					<p>{featured.description}</p>
+					<span class="card-meta">{featured.displayDate}</span>
+				</a>
 			</section>
+
+			<section aria-labelledby="latest-heading">
+				<h2 id="latest-heading">Latest Guides</h2>
+				<div class="post-grid" id="post-grid">
+					{latest.map((post) => (
+						<a href={post.url} class="post-card" data-category={post.category} data-search-text={`${post.title} ${post.description}`.toLowerCase()}>
+							<span class="post-category">{post.category}</span>
+							<h3>{post.title}</h3>
+							<p>{post.description}</p>
+							<span class="card-meta">{post.displayDate}</span>
+						</a>
+					))}
+				</div>
+				<p class="no-results" id="no-results" hidden>No guides match your search.</p>
+			</section>
+
+			<section aria-labelledby="popular-guides-heading">
+				<h2 id="popular-guides-heading">Popular California Permit Guides</h2>
+				<p>Looking for city-specific permitting facts instead of rate analysis? See our <a href="/california/solar-permit-guides/">verified California solar permit guides</a>, sourced directly from each city's and utility's own official documentation.</p>
+			</section>
+
+			<div class="footer-disclaimer">
+				<p><strong>Disclaimers:</strong> These guides are for informational purposes only and are not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Rate figures cited are illustrative examples based on publicly reported ranges, not a live lookup of your bill — confirm current rates with your utility before making a decision.</p>
+				<p><a href="/methodology">Methodology</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/">Back to GridPermit</a></p>
+			</div>
 		</main>
-		<Footer />
-	</body>
+	</div>
+
+	<footer class="footer">
+		<div class="footer-container">
+			<p>© 2026 GridPermit. All rights reserved.</p>
+			<p class="affiliate-disclosure">
+				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
+			</p>
+			<div class="footer-links">
+				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+			</div>
+		</div>
+	</footer>
+
+	<script>
+		// Instant, client-side-only search + category filter — no external
+		// service, no network request. Filters the already-rendered post
+		// cards by matching data attributes computed at build time.
+		const searchInput = document.getElementById("post-search") as HTMLInputElement | null;
+		const chips = document.querySelectorAll<HTMLButtonElement>(".chip");
+		const cards = document.querySelectorAll<HTMLAnchorElement>(".post-card, .featured-card");
+		const noResults = document.getElementById("no-results");
+
+		let activeCategory = "all";
+
+		function applyFilter() {
+			const query = (searchInput?.value ?? "").trim().toLowerCase();
+			for (const card of cards) {
+				const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
+				const matchesSearch = query === "" || (card.dataset.searchText ?? "").includes(query);
+				card.hidden = !(matchesCategory && matchesSearch);
+			}
+			const visiblePostCards = document.querySelectorAll(".post-card:not([hidden])");
+			if (noResults) noResults.hidden = visiblePostCards.length > 0;
+		}
+
+		searchInput?.addEventListener("input", applyFilter);
+		chips.forEach((chip) => {
+			chip.addEventListener("click", () => {
+				chips.forEach((c) => c.classList.remove("active"));
+				chip.classList.add("active");
+				activeCategory = chip.dataset.category ?? "all";
+				applyFilter();
+			});
+		});
+	</script>
+
+	<style>
+		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
+		* { box-sizing: border-box; }
+		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
+		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
+		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+		.brand-logo { text-decoration: none; }
+		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
+		.logo-bold { font-weight: 800; }
+		.nav-links { display: flex; gap: 1.25rem; }
+		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
+		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+
+		.page-container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
+		.crumb-sep { margin: 0 0.4rem; }
+		.crumb-current { color: var(--text-main); font-weight: 600; }
+
+		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
+		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
+		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
+		h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 2rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
+		section:first-of-type h2 { margin-top: 1.5rem; }
+
+		.filter-bar { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 0.5rem; }
+		#post-search { flex: 1 1 220px; padding: 0.6rem 0.9rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.9rem; font-family: inherit; }
+		.category-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+		.chip { border: 1px solid var(--border-color); background: white; color: var(--text-muted); padding: 0.4rem 0.9rem; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; cursor: pointer; font-family: inherit; }
+		.chip.active, .chip:hover { border-color: var(--primary); color: var(--primary); }
+
+		.featured-card { display: block; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; border-radius: 12px; padding: 1.75rem 2rem; text-decoration: none; }
+		.featured-card h3 { color: white; font-size: 1.4rem; margin: 0.5rem 0; }
+		.featured-card p { color: #cbd5e1; margin: 0 0 0.75rem; }
+		.featured-category { display: inline-block; background: rgba(37,99,235,0.25); color: #93c5fd; padding: 0.2rem 0.7rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+
+		.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+		.post-card { display: block; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem 1.4rem; text-decoration: none; color: var(--text-main); transition: border-color 0.15s ease; }
+		.post-card:hover { border-color: var(--primary); }
+		.post-card h3 { font-size: 1.05rem; font-weight: 800; margin: 0.5rem 0 0.5rem; color: var(--text-main); }
+		.post-card p { font-size: 0.85rem; color: #334155; margin: 0 0 0.5rem; }
+		.post-category { display: inline-block; background: #e2e8f0; color: #334155; padding: 0.15rem 0.6rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+		.card-meta { font-size: 0.78rem; color: var(--text-muted); }
+		.no-results { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1.5rem 0; }
+
+		p { margin: 0 0 0.75rem; }
+		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
+		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
+
+		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
+		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
+		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
+	</style>
+</body>
 </html>
