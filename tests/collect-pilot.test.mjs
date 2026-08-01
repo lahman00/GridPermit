@@ -218,3 +218,81 @@ test("a run with no payloads and no existing records is COLLECTION_REQUIRED and 
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+// --- 7. target-validity guard: contradicted utility/city pairing -----------
+// This guard exists because of a real incident: a target once named
+// "Southern California Edison" for Pasadena, which turned out to be served
+// by its own municipal utility (Pasadena Water and Power). See
+// docs/PILOT_RUNBOOK.md, "The target-validity guard."
+
+function makeContradictedTarget({ localitiesDir, payloadsDir }) {
+  const target = makeTarget({ localitiesDir, payloadsDir, citySlug: "pasadena", countySlug: "losangeles", utilitySlug: "sce" });
+  target.utility_verification = {
+    status: "contradicted",
+    evidence: [
+      { claim: "Pasadena is served by its own municipal utility, not SCE.", source_url: "https://pwp.cityofpasadena.net/", source_title: "Pasadena Water and Power", publisher: "City of Pasadena" },
+    ],
+    checked_at: "2026-08-01",
+    notes: "Fixture mirrors the real SCE/Pasadena mistake this guard was built to catch.",
+  };
+  return target;
+}
+
+test("a target with a contradicted utility_verification produces CONFIG_ERROR", () => {
+  const { dir, localitiesDir, payloadsDir, runsDir } = makeTmpFixture();
+  try {
+    const target = makeContradictedTarget({ localitiesDir, payloadsDir });
+    const targetsPath = writeTargetsFile(dir, [target]);
+
+    const result = runCLI([], { PILOT_TARGETS_PATH: targetsPath, PILOT_RUNS_DIR: runsDir });
+    assert.equal(result.status, 1, result.stderr);
+    const report = JSON.parse(result.stdout);
+    assert.equal(report.results[0].status, "CONFIG_ERROR");
+    assert.match(report.results[0].message, /utility assignment contradicted/);
+    assert.ok(report.results[0].evidence?.length, "the evidence that contradicted the target should be surfaced in the result");
+    assert.equal(report.summary.config_error, 1);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a contradicted utility/city pairing creates no payload, locality, or validation-report file", () => {
+  const { dir, localitiesDir, payloadsDir, runsDir } = makeTmpFixture();
+  try {
+    const target = makeContradictedTarget({ localitiesDir, payloadsDir });
+    const targetsPath = writeTargetsFile(dir, [target]);
+
+    // Even if a payload happens to exist, the guard must block before it's ever read.
+    writeFileSync(target.source_payload_file, JSON.stringify({ record_id: target.record_id, marker: "should-never-be-used" }));
+
+    runCLI([], { PILOT_TARGETS_PATH: targetsPath, PILOT_RUNS_DIR: runsDir });
+
+    assert.equal(existsSync(target.locality_file), false, "no locality file should be created for a contradicted target");
+    assert.equal(
+      existsSync(path.join(REAL_VALIDATION_REPORTS_DIR, `${target.record_id}.json`)),
+      false,
+      "no validation report should be written for a contradicted target",
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// --- 8. the corrected real Pasadena/PWP target ------------------------------
+
+test("the real ca-los-angeles-pasadena-pwp target passes naming validation (no CONFIG_ERROR)", () => {
+  const result = runCLI(["--dry-run"]);
+  assert.equal(result.status, 0, result.stderr);
+  assert.doesNotMatch(
+    result.stdout,
+    /ca-los-angeles-pasadena-pwp[\s\S]*?planned outcome: CONFIG_ERROR/,
+    "the corrected Pasadena/PWP target must not be a CONFIG_ERROR",
+  );
+});
+
+test("--dry-run shows ca-los-angeles-pasadena-pwp", () => {
+  const result = runCLI(["--dry-run"]);
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /ca-los-angeles-pasadena-pwp/, "dry-run output should mention the corrected Pasadena target");
+  assert.doesNotMatch(result.stdout, /ca-los-angeles-pasadena-sce/, "the old, invalid SCE/Pasadena target must no longer appear anywhere");
+});

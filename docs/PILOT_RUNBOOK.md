@@ -40,10 +40,35 @@ node scripts/collect-pilot.mjs
 
 For each target, in order (one at a time, not in parallel):
 1. If naming doesn't validate → `CONFIG_ERROR`, move on.
-2. If `data/localities/<record_id>.json` already exists and `--force` was **not** passed → `SKIPPED_EXISTS`, move on. Nothing is overwritten by default, ever.
-3. Otherwise, ask the collection adapter for a payload. No payload file → `COLLECTION_REQUIRED`, move on.
-4. Payload found but its `record_id` doesn't match the target → `FAIL`, move on (this is a real defect, not a missing-data situation).
-5. Otherwise, write the payload to `data/localities/<record_id>.json` and run `scripts/validate-record.mjs` against it.
+2. **If the target's utility assignment has been recorded as contradicted by official evidence → `CONFIG_ERROR`, move on.** See "The target-validity guard" below — this happens *before* any file is touched, in both a real run and `--dry-run`.
+3. If `data/localities/<record_id>.json` already exists and `--force` was **not** passed → `SKIPPED_EXISTS`, move on. Nothing is overwritten by default, ever.
+4. Otherwise, ask the collection adapter for a payload. No payload file → `COLLECTION_REQUIRED`, move on.
+5. Payload found but its `record_id` doesn't match the target → `FAIL`, move on (this is a real defect, not a missing-data situation).
+6. Otherwise, write the payload to `data/localities/<record_id>.json` and run `scripts/validate-record.mjs` against it.
+
+### The target-validity guard
+
+This exists because of a real incident: an earlier target named the utility "Southern California Edison (SCE)" for Pasadena. Before any collection was attempted, research turned up that Pasadena is served by its own municipal utility, **Pasadena Water and Power (PWP)**, not SCE — confirmed directly on PWP's own site and via Pasadena's membership in the Southern California Public Power Authority (a joint powers authority exclusively for cities with their own municipal utilities). Collecting for that target would have produced a factually wrong record. The target was corrected to `ca-los-angeles-pasadena-pwp` (utility: Pasadena Water and Power) instead of ever being collected.
+
+The guard that resulted: each entry in `data/pilot-targets.json` may carry an optional `utility_verification` block:
+
+```json
+"utility_verification": {
+  "status": "confirmed",
+  "evidence": [
+    { "claim": "...", "source_url": "...", "source_title": "...", "publisher": "..." }
+  ],
+  "checked_at": "2026-08-01",
+  "notes": "..."
+}
+```
+
+**This is not a live check** — `scripts/collect-pilot.mjs` doesn't research anything itself, same rule as the collection adapter. It only enforces evidence a human (or a future automated agent) already recorded:
+
+- **Absent, or `status: "confirmed"`** → valid. Collection proceeds exactly as it always has. This is the default for every target that hasn't hit a problem — the guard is "invalid only if contradicted," not "invalid until proven correct," so it never blocks a target nobody has had a reason to doubt yet.
+- **Any other `status`** (in practice, `"contradicted"`) → invalid. The target's result is `CONFIG_ERROR`, the `evidence` array is included in that result (and therefore in the run summary and in `--dry-run` output), and **no payload, locality, validation, or rendered file is ever created or touched** for that target.
+
+If you discover a target's utility assignment is wrong, don't delete the entry — correct `utility`/`utility_slug`/`record_id`/the file paths to the right utility (as was done for Pasadena), the same way you'd fix any other config mistake. Only add a `"contradicted"` block on a target you're intentionally leaving in place as a documented "known-wrong, don't collect" record (which is not the normal case — normally you just fix it and move on, as happened here).
 
 To intentionally overwrite one existing record (re-collecting a locality with newer data), name it explicitly:
 
@@ -70,7 +95,7 @@ Possible per-target statuses:
 | `FAIL` | Validator found errors, or payload `record_id` mismatch, or an unexpected exception | **Yes** |
 | `COLLECTION_REQUIRED` | No source payload exists yet — expected, not an error | No |
 | `SKIPPED_EXISTS` | Record already exists and `--force` didn't target it | No |
-| `CONFIG_ERROR` | The target's own entry in `pilot-targets.json` doesn't validate, **or** `--force <record_id>` didn't match any target | **Yes** |
+| `CONFIG_ERROR` | The target's own entry in `pilot-targets.json` doesn't validate, **or** its `utility_verification.status` is not `"confirmed"`/absent, **or** `--force <record_id>` didn't match any target | **Yes** |
 
 The whole run's exit code is `1` if **any** target is `FAIL` or `CONFIG_ERROR` — every other status (`PASS`, `REVIEW`, `SKIPPED_EXISTS`, `COLLECTION_REQUIRED`) is a normal, expected outcome of a partially-collected pilot and does not fail the run.
 
@@ -90,9 +115,11 @@ Runs [tests/collect-pilot.test.mjs](../tests/collect-pilot.test.mjs) via Node's 
 
 - `--dry-run` creates no files.
 - Importing the module (`import("../scripts/collect-pilot.mjs")`) runs nothing — the direct-execution guard holds.
-- An invalid target entry produces `CONFIG_ERROR` and exit code `1`.
+- An invalid target entry (bad naming) produces `CONFIG_ERROR` and exit code `1`.
+- A target whose `utility_verification.status` is `"contradicted"` produces `CONFIG_ERROR` and exit code `1`, and creates no payload/locality/validation/rendered file.
 - `--force <unknown-record-id>` exits `1` without disturbing any real target.
 - `--force <record_id>` overwrites only that target; every other existing record is untouched.
 - A run with no payloads and no existing records is all `COLLECTION_REQUIRED` and exits `0`.
+- The real `data/pilot-targets.json` entry for Pasadena (`ca-los-angeles-pasadena-pwp`) passes naming validation and shows up correctly in `--dry-run`.
 
 Two things to know if you're adding a test: `PILOT_TARGETS_PATH` and `PILOT_RUNS_DIR` env vars override where the pipeline reads targets from and writes its run summary — every fixture-based test sets both to a throwaway temp directory (`node:os.tmpdir()`), never the real `data/`/`output/` trees. `scripts/validate-record.mjs` itself has no such override yet, so any test that lets a target reach the write-and-validate step will cause a real file to appear under `output/validation-reports/` using the fixture's `record_id` as the filename — that test is responsible for deleting it afterward (see the `--force` test for the pattern).

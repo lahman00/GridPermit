@@ -132,6 +132,37 @@ function validateTargetNaming(target) {
   return { valid: problems.length === 0, problems };
 }
 
+/**
+ * Guard against a target whose recorded utility has been found, by prior
+ * research, to NOT actually serve the named city — this exists because of
+ * a real incident: a target named "Southern California Edison" for
+ * Pasadena, which turned out to be served by its own municipal utility
+ * (Pasadena Water and Power), not SCE. Collecting for that target would
+ * have produced a factually wrong record.
+ *
+ * This is not a live check — scripts/lib/collection-adapter.mjs's own rule
+ * ("no live research inside this script") applies here too. It only
+ * enforces pre-recorded verification evidence a human (or a future
+ * automated agent) attached to the target in data/pilot-targets.json, as
+ * `target.utility_verification`:
+ *
+ *   { status: "confirmed" | "contradicted",
+ *     evidence: [{ claim, source_url, source_title, publisher }],
+ *     checked_at, notes }
+ *
+ * Absent, or status "confirmed" -> valid, collection proceeds as normal
+ * (this is the case for every target that hasn't hit a problem — it is
+ * NOT "invalid until proven correct"). Any other status (e.g.
+ * "contradicted") -> invalid: CONFIG_ERROR, with the evidence surfaced.
+ */
+function validateUtilityAssignment(target) {
+  const v = target.utility_verification;
+  if (!v || v.status === "confirmed") {
+    return { valid: true };
+  }
+  return { valid: false, evidence: v.evidence ?? [], notes: v.notes ?? null };
+}
+
 async function runValidator(localityPath) {
   try {
     const { stdout } = await execFile("node", [VALIDATOR_PATH, localityPath], { cwd: REPO_ROOT });
@@ -162,6 +193,20 @@ async function processTarget(target, { dryRun, force }) {
       validation_report: null,
       score: null,
       message: `target naming does not validate: ${naming.problems.join("; ")}`,
+    };
+  }
+
+  const utilityCheck = validateUtilityAssignment(target);
+  if (!utilityCheck.valid) {
+    return {
+      record_id: target.record_id,
+      target,
+      status: "CONFIG_ERROR",
+      locality_file: target.locality_file,
+      validation_report: null,
+      score: null,
+      message: `utility assignment contradicted by official evidence${utilityCheck.notes ? `: ${utilityCheck.notes}` : ""}`,
+      evidence: utilityCheck.evidence,
     };
   }
 
@@ -248,11 +293,23 @@ function printPlan(results, forceRecordId, forceMatchedSomething) {
   }
   for (const r of results) {
     console.log(`${r.record_id}`);
+    if (!r.target) {
+      // Synthetic result (e.g. an unmatched --force record_id) — no real target to describe.
+      console.log(`  planned outcome: ${r.status} — ${r.message}\n`);
+      continue;
+    }
     console.log(`  locality_file:   ${r.locality_file} (exists: ${r.locality_exists ?? "n/a"})`);
     console.log(`  payload_file:    ${r.target.source_payload_file} (exists: ${r.payload_exists ?? "n/a"})`);
     console.log(`  validation_out:  ${r.validation_report}`);
-    console.log(`  naming_valid:    ${r.naming_valid ?? false}`);
-    console.log(`  planned outcome: ${r.status} — ${r.message}\n`);
+    console.log(`  naming_valid:    ${r.status === "CONFIG_ERROR" && !r.evidence ? false : true}`);
+    console.log(`  planned outcome: ${r.status} — ${r.message}`);
+    if (r.evidence && r.evidence.length) {
+      console.log(`  evidence:`);
+      for (const e of r.evidence) {
+        console.log(`    - ${e.claim} (${e.source_title ?? e.source_url}, ${e.source_url})`);
+      }
+    }
+    console.log("");
   }
 }
 

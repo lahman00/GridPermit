@@ -1,6 +1,7 @@
 {
   "description": "Controlled California pilot batch for scripts/collect-pilot.mjs. Exactly 5 targets — do not add or remove entries without updating docs/PILOT_RUNBOOK.md.",
   "naming_rule": "<state-code>-<county-slug>-<city-slug>-<utility-slug>.json, lowercase kebab-case, no underscores. See data/schema.json record_id pattern and docs/DATA_ARCHITECTURE.md Section 2.",
+  "utility_verification_note": "Optional 'utility_verification' block per target records prior research on whether the named utility actually serves the named city, per scripts/collect-pilot.mjs's target-validity guard. Absent, or status 'confirmed', means collection proceeds normally. status 'contradicted' means collect-pilot.mjs refuses to collect for this target and returns CONFIG_ERROR with the evidence — see docs/PILOT_RUNBOOK.md.",
   "targets": [
     {
       "state": "California",
@@ -13,7 +14,15 @@
       "county_slug": "santa-clara",
       "record_id": "ca-santa-clara-san-jose-pge",
       "locality_file": "data/localities/ca-santa-clara-san-jose-pge.json",
-      "source_payload_file": "data/source-payloads/ca-santa-clara-san-jose-pge.json"
+      "source_payload_file": "data/source-payloads/ca-santa-clara-san-jose-pge.json",
+      "utility_verification": {
+        "status": "confirmed",
+        "evidence": [
+          { "claim": "PG&E is the primary SGIP administrator for Santa Clara County.", "source_url": "https://www.selfgenca.com/home/contact/", "source_title": "SGIP - Contact", "publisher": "Self-Generation Incentive Program (statewide administrator site)" }
+        ],
+        "checked_at": "2026-08-01",
+        "notes": "Confirmed during original San José record collection."
+      }
     },
     {
       "state": "California",
@@ -26,7 +35,15 @@
       "county_slug": "alameda",
       "record_id": "ca-alameda-fremont-pge",
       "locality_file": "data/localities/ca-alameda-fremont-pge.json",
-      "source_payload_file": "data/source-payloads/ca-alameda-fremont-pge.json"
+      "source_payload_file": "data/source-payloads/ca-alameda-fremont-pge.json",
+      "utility_verification": {
+        "status": "confirmed",
+        "evidence": [
+          { "claim": "PG&E continues to serve as the power transmission and distribution provider ... for Fremont customers of both PG&E and Ava.", "source_url": "https://www.fremont.gov/about/sustainability/energy/green-electricity", "source_title": "Green Electricity", "publisher": "City of Fremont" }
+        ],
+        "checked_at": "2026-08-01",
+        "notes": "PG&E confirmed as distribution/interconnection utility; Ava Community Energy (a CCA) is the separate default generation supplier — see the Fremont locality record's generation_supplier field."
+      }
     },
     {
       "state": "California",
@@ -39,20 +56,37 @@
       "county_slug": "alameda",
       "record_id": "ca-alameda-oakland-pge",
       "locality_file": "data/localities/ca-alameda-oakland-pge.json",
-      "source_payload_file": "data/source-payloads/ca-alameda-oakland-pge.json"
+      "source_payload_file": "data/source-payloads/ca-alameda-oakland-pge.json",
+      "utility_verification": {
+        "status": "confirmed",
+        "evidence": [
+          { "claim": "PG&E remains distribution/billing utility for Oakland; customers may opt out back to PG&E generation.", "source_url": "https://avaenergy.org/community/who-we-serve/oakland/", "source_title": "Oakland Electricity Provider", "publisher": "Ava Community Energy (Joint Powers Authority)" }
+        ],
+        "checked_at": "2026-08-01",
+        "notes": "PG&E confirmed as distribution/interconnection utility; Ava Community Energy (a CCA) is the separate default generation supplier — see the Oakland locality record's generation_supplier field."
+      }
     },
     {
       "state": "California",
       "state_code": "ca",
-      "utility": "Southern California Edison (SCE)",
-      "utility_slug": "sce",
+      "utility": "Pasadena Water and Power",
+      "utility_slug": "pwp",
       "city": "Pasadena",
       "city_slug": "pasadena",
       "county": "Los Angeles County",
       "county_slug": "los-angeles",
-      "record_id": "ca-los-angeles-pasadena-sce",
-      "locality_file": "data/localities/ca-los-angeles-pasadena-sce.json",
-      "source_payload_file": "data/source-payloads/ca-los-angeles-pasadena-sce.json"
+      "record_id": "ca-los-angeles-pasadena-pwp",
+      "locality_file": "data/localities/ca-los-angeles-pasadena-pwp.json",
+      "source_payload_file": "data/source-payloads/ca-los-angeles-pasadena-pwp.json",
+      "utility_verification": {
+        "status": "confirmed",
+        "evidence": [
+          { "claim": "PWP provides electricity to more than 65,000 customers within Pasadena; community-owned, not-for-profit public service owned and operated by the City of Pasadena.", "source_url": "https://pwp.cityofpasadena.net/", "source_title": "Pasadena Water and Power", "publisher": "City of Pasadena" },
+          { "claim": "City of Pasadena is a member of the Southern California Public Power Authority", "source_url": "https://scppa.org/", "source_title": "SCPPA Members", "publisher": "Southern California Public Power Authority" }
+        ],
+        "checked_at": "2026-08-01",
+        "notes": "Corrects a prior invalid target (utility: 'Southern California Edison (SCE)', record_id: ca-los-angeles-pasadena-sce) that was found to contradict official evidence before any collection was attempted — Pasadena is served by its own municipal utility, not SCE. See docs/PILOT_RUNBOOK.md for the target-validity guard this incident led to."
+      }
     },
     {
       "state": "California",
