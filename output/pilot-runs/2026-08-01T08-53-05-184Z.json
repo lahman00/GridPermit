@@ -1,0 +1,121 @@
+{
+  "run_at": "2026-08-01T08:53:05.184Z",
+  "dry_run": false,
+  "force": "ca-alameda-oakland-pge",
+  "targets_total": 5,
+  "results": [
+    {
+      "record_id": "ca-santa-clara-san-jose-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "San José",
+        "city_slug": "san-jose",
+        "county": "Santa Clara County",
+        "county_slug": "santa-clara",
+        "record_id": "ca-santa-clara-san-jose-pge",
+        "locality_file": "data/localities/ca-santa-clara-san-jose-pge.json",
+        "source_payload_file": "data/source-payloads/ca-santa-clara-san-jose-pge.json"
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-santa-clara-san-jose-pge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-santa-clara-san-jose-pge.json already exists; not overwritten (use --force ca-santa-clara-san-jose-pge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-alameda-fremont-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "Fremont",
+        "city_slug": "fremont",
+        "county": "Alameda County",
+        "county_slug": "alameda",
+        "record_id": "ca-alameda-fremont-pge",
+        "locality_file": "data/localities/ca-alameda-fremont-pge.json",
+        "source_payload_file": "data/source-payloads/ca-alameda-fremont-pge.json"
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-alameda-fremont-pge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-alameda-fremont-pge.json already exists; not overwritten (use --force ca-alameda-fremont-pge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-alameda-oakland-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "Oakland",
+        "city_slug": "oakland",
+        "county": "Alameda County",
+        "county_slug": "alameda",
+        "record_id": "ca-alameda-oakland-pge",
+        "locality_file": "data/localities/ca-alameda-oakland-pge.json",
+        "source_payload_file": "data/source-payloads/ca-alameda-oakland-pge.json"
+      },
+      "status": "REVIEW",
+      "locality_file": "data/localities/ca-alameda-oakland-pge.json",
+      "validation_report": "output/validation-reports/ca-alameda-oakland-pge.json",
+      "score": 91,
+      "message": "validated: REVIEW, score 91 (0 errors, 3 warnings)"
+    },
+    {
+      "record_id": "ca-los-angeles-pasadena-sce",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Southern California Edison (SCE)",
+        "utility_slug": "sce",
+        "city": "Pasadena",
+        "city_slug": "pasadena",
+        "county": "Los Angeles County",
+        "county_slug": "los-angeles",
+        "record_id": "ca-los-angeles-pasadena-sce",
+        "locality_file": "data/localities/ca-los-angeles-pasadena-sce.json",
+        "source_payload_file": "data/source-payloads/ca-los-angeles-pasadena-sce.json"
+      },
+      "status": "COLLECTION_REQUIRED",
+      "locality_file": "data/localities/ca-los-angeles-pasadena-sce.json",
+      "validation_report": null,
+      "score": null,
+      "message": "no source payload file found at /Users/eyalhaimovich/GridPermit/data/source-payloads/ca-los-angeles-pasadena-sce.json — supply one (see docs/PILOT_RUNBOOK.md) or wait for a future automated adapter"
+    },
+    {
+      "record_id": "ca-san-diego-san-diego-sdge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "San Diego Gas & Electric (SDG&E)",
+        "utility_slug": "sdge",
+        "city": "San Diego",
+        "city_slug": "san-diego",
+        "county": "San Diego County",
+        "county_slug": "san-diego",
+        "record_id": "ca-san-diego-san-diego-sdge",
+        "locality_file": "data/localities/ca-san-diego-san-diego-sdge.json",
+        "source_payload_file": "data/source-payloads/ca-san-diego-san-diego-sdge.json"
+      },
+      "status": "COLLECTION_REQUIRED",
+      "locality_file": "data/localities/ca-san-diego-san-diego-sdge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "no source payload file found at /Users/eyalhaimovich/GridPermit/data/source-payloads/ca-san-diego-san-diego-sdge.json — supply one (see docs/PILOT_RUNBOOK.md) or wait for a future automated adapter"
+    }
+  ],
+  "summary": {
+    "pass": 0,
+    "review": 1,
+    "fail": 0,
+    "collection_required": 2,
+    "skipped_exists": 2,
+    "config_error": 0
+  }
+}
