@@ -191,10 +191,6 @@ export function guideUrlForCitySlug(slug: string): string {
 	return `/california/${slug}/solar-permit-guide/`;
 }
 
-export function cityIndexUrlForCitySlug(slug: string): string {
-	return `/california/${slug}/`;
-}
-
 // The permit authority is named exactly as the record states it — never
 // assumed to be "City of {city}". Falls back to NOT_VERIFIED like every
 // other unresearched field.

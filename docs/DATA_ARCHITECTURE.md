@@ -2,7 +2,7 @@
 
 How every future GridPermit tool, page, and calculator consumes the structured data produced by [agents/data-collector.md](../agents/data-collector.md), validated against [data/schema.json](../data/schema.json).
 
-This is Phase 2 groundwork only: the schema and the agent spec. **No locality records exist yet.** `data/localities/` is empty until the Data Agent is actually run against a real city/utility pair. Nothing in this document describes anything that has shipped to the live site — [index.astro](../src/pages/index.astro) still runs on the two flat placeholder constants described in [methodology.astro](../src/pages/methodology.astro), unchanged, until a later phase wires it up to real records.
+This started as Phase 2 groundwork — the schema and the agent spec, written before any record existed. That has since shipped: `data/localities/` now holds 5 real records (San Jose, Fremont, Oakland, Pasadena, San Diego — see [PILOT_EVALUATION.md](PILOT_EVALUATION.md)), and the 4 `READY` ones each have a public page under `src/pages/california/` built from this schema via [LOCALITY_PAGE_FACTORY.md](LOCALITY_PAGE_FACTORY.md). The homepage calculator ([index.astro](../src/pages/index.astro)) is the one thing that deliberately still has not been wired to this data — it still runs on the two flat placeholder constants described in [methodology.astro](../src/pages/methodology.astro) — per the "coverage is binary, not blended" rule in Section 6 below, since `permit_fees`/`timeline_days` coverage across collected cities isn't yet high enough to justify it.
 
 ## 1. What this replaces
 
