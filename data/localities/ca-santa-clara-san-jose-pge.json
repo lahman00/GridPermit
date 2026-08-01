@@ -1,0 +1,108 @@
+{
+  "record_id": "ca-santa-clara-san-jose-pge",
+  "schema_version": "1.1.0",
+
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 1.0,
+    "source_ids": ["S6"],
+    "notes": "Given as the run's input parameter; directly corroborated by S6, which states PG&E is the primary SGIP administrator for Santa Clara County."
+  },
+  "city": {
+    "value": "San José",
+    "confidence": 1.0,
+    "source_ids": ["S1"],
+    "notes": "Given as the run's input parameter (user specified 'San Jose'); city's own official site spells it 'San José'."
+  },
+  "county": {
+    "value": "Santa Clara County",
+    "confidence": 0.85,
+    "source_ids": ["S8"],
+    "notes": "S8 is the County of Santa Clara's own Registrar of Voters page filed under 'City of San Jose', confirming the association structurally. Direct page content could not be rendered (HTTP 403) during this session; confidence reflects URL/domain-level rather than full-content confirmation."
+  },
+
+  "permit_authority": {
+    "value": "City of San José Development Services Permit Center (jointly operated by the Building, Planning, Fire, and Public Works divisions)",
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "Confirmed via direct retrieval of the Permit Center page; the page describes a multi-department partnership rather than a single named department."
+  },
+  "permit_url": {
+    "value": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects",
+    "confidence": 0.75,
+    "source_ids": ["S3"],
+    "notes": "Content directly confirmed, but this is the general electrical-permit page, not solar-specific. A dedicated photovoltaic permit document (sanjoseca.gov/home/showdocument?id=670) exists but returned repeated HTTP 503 errors from the city's document system (Granicus) throughout this session on 2026-08-01 and could not be verified."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S7"],
+    "notes": "URL confirmed to exist on PG&E's official domain via search engine indexing under the exact expected page title. Full page content could not be directly rendered this session — pge.com returned HTTP 403/Access Denied to both direct fetch and browser access on every attempt."
+  },
+
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific San José/Santa Clara eligibility not independently confirmed this session.",
+        "url": "https://www.selfgenca.com/home/about/"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S4", "S5"],
+    "notes": "Rate figures confirmed directly from cpuc.ca.gov and selfgenca.com on 2026-08-01. The Equity Resiliency source text says the $1,000/kWh rate was 'available through 2025' — since today is 2026-08-01, current active status and rate should be re-verified against selfgenca.com's live Program Metrics page before being shown to a user as current."
+  },
+
+  "required_documents": { "value": null, "confidence": 0.0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0.0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0.0, "source_ids": [] },
+  "permit_fees": { "value": null, "confidence": 0.0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0.0, "source_ids": [] },
+
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "San José Development Services Permit Center",
+        "phone": "408-535-3555",
+        "email": null,
+        "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": "415-973-6436",
+        "email": "selfgen@pge.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3", "S6"]
+  },
+
+  "last_verified": "2026-08-01",
+
+  "sources": [
+    { "id": "S1", "title": "City of San José — Official Website", "url": "https://www.sanjoseca.gov/", "publisher": "City of San José", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S2", "title": "Development Services Permit Center", "url": "https://www.sanjoseca.gov/business/development-services-permit-center", "publisher": "City of San José", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S3", "title": "Electrical Projects — Permit Requirements & Contact Info", "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects", "publisher": "City of San José", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S4", "title": "Self-Generation Incentive Program (SGIP)", "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program", "publisher": "California Public Utilities Commission", "type": "cpuc", "accessed_date": "2026-08-01" },
+    { "id": "S5", "title": "SGIP — Statewide Announcements / About", "url": "https://www.selfgenca.com/home/about/", "publisher": "Self-Generation Incentive Program (statewide administrator site)", "type": "program_administrator", "accessed_date": "2026-08-01" },
+    { "id": "S6", "title": "SGIP — Contact", "url": "https://www.selfgenca.com/home/contact/", "publisher": "Self-Generation Incentive Program (statewide administrator site)", "type": "program_administrator", "accessed_date": "2026-08-01" },
+    { "id": "S7", "title": "Net Energy Metering (NEM) Program | PG&E", "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html", "publisher": "Pacific Gas and Electric Company", "type": "utility", "accessed_date": "2026-08-01" },
+    { "id": "S8", "title": "City of San Jose — Registrar of Voters", "url": "https://www.sccgov.org/sites/rov/Pages/VignetteLinksInDatabase/City-of-San-Jose.aspx", "publisher": "County of Santa Clara", "type": "government", "accessed_date": "2026-08-01" }
+  ]
+}

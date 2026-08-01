@@ -1,0 +1,235 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mygridpermit.com/schema/locality-record-v1.json",
+  "title": "GridPermit Locality Record",
+  "description": "Master schema for every structured California residential solar/battery/permitting data record. One record = one (city, utility) pair. Produced by agents/data-collector.md. Every future page, calculator, and content-generation tool must read data through this schema, not invent its own shape. See docs/DATA_ARCHITECTURE.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "schema_version",
+    "utility",
+    "city",
+    "county",
+    "permit_authority",
+    "permit_url",
+    "interconnection_url",
+    "battery_programs",
+    "required_documents",
+    "inspection_steps",
+    "timeline_days",
+    "permit_fees",
+    "rebates",
+    "official_contacts",
+    "last_verified",
+    "sources"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "pattern": "^[a-z]{2}(-[a-z0-9]+){3,}$",
+      "description": "Naming rule: <state-code>-<county-slug>-<city-slug>-<utility-slug>, lowercase kebab-case only, no underscores. Must exactly match the record's filename (minus .json) under data/localities/. Note: this pattern cannot mechanically distinguish where one segment ends and the next begins when county/city names are themselves multi-word (e.g. 'santa-clara', 'san-jose') — segment boundaries are a documentation convention (see docs/DATA_ARCHITECTURE.md), not something this regex enforces beyond overall shape."
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.1.0",
+      "description": "Version of this schema the record was produced against. 1.1.0 tightened record_id to lowercase kebab-case, no underscores (previously allowed). Bump on a breaking change; see docs/DATA_ARCHITECTURE.md for the migration rule."
+    },
+
+    "utility": { "$ref": "#/$defs/stringField" },
+    "city": { "$ref": "#/$defs/stringField" },
+    "county": { "$ref": "#/$defs/stringField" },
+    "permit_authority": { "$ref": "#/$defs/stringField" },
+    "permit_url": { "$ref": "#/$defs/urlField" },
+    "interconnection_url": { "$ref": "#/$defs/urlField" },
+
+    "battery_programs": { "$ref": "#/$defs/programArrayField" },
+    "rebates": { "$ref": "#/$defs/programArrayField" },
+
+    "required_documents": { "$ref": "#/$defs/stringArrayField" },
+    "inspection_steps": { "$ref": "#/$defs/stringArrayField" },
+
+    "timeline_days": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "min_days": { "type": ["integer", "null"], "minimum": 0 },
+                "max_days": { "type": ["integer", "null"], "minimum": 0 },
+                "notes": { "type": ["string", "null"] }
+              },
+              "required": ["min_days", "max_days", "notes"]
+            }
+          ]
+        }
+      }
+    },
+
+    "permit_fees": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "array", "items": { "$ref": "#/$defs/feeItem" } }
+          ]
+        }
+      }
+    },
+
+    "official_contacts": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "array", "items": { "$ref": "#/$defs/contactItem" } }
+          ]
+        }
+      }
+    },
+
+    "last_verified": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Record-level: date this record was last researched/verified. Null only for a record that has never been run."
+    },
+
+    "sources": {
+      "type": "array",
+      "description": "Shared citation registry for this record. Every source_ids entry anywhere in this record must resolve to an id in this array.",
+      "items": { "$ref": "#/$defs/source" }
+    }
+  },
+
+  "$defs": {
+    "confidenceScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "0 = unknown/unverified. 1 = directly confirmed on a Tier-1 official source within 90 days. See agents/data-collector.md for the full scale."
+    },
+
+    "sourceIds": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "References into this record's top-level `sources[].id`. Must be empty when confidence is 0 / value is null.",
+      "default": []
+    },
+
+    "fieldEnvelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "confidence", "source_ids"],
+      "properties": {
+        "value": {},
+        "confidence": { "$ref": "#/$defs/confidenceScore" },
+        "source_ids": { "$ref": "#/$defs/sourceIds" },
+        "notes": { "type": ["string", "null"] }
+      },
+      "if": {
+        "properties": { "value": { "type": "null" } },
+        "required": ["value"]
+      },
+      "else": {
+        "description": "value is non-null: enforces the agent rule 'every non-null field must have a source'.",
+        "properties": { "source_ids": { "minItems": 1 } }
+      }
+    },
+
+    "stringField": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": { "value": { "type": ["string", "null"] } }
+    },
+
+    "urlField": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": { "value": { "type": ["string", "null"], "format": "uri" } }
+    },
+
+    "stringArrayField": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        }
+      }
+    },
+
+    "programArrayField": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "array", "items": { "$ref": "#/$defs/programItem" } }
+          ]
+        }
+      }
+    },
+
+    "programItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "administrator": { "type": ["string", "null"] },
+        "description": { "type": ["string", "null"] },
+        "value_usd_per_kwh": { "type": ["number", "null"] },
+        "value_usd_flat": { "type": ["number", "null"] },
+        "eligibility": { "type": ["string", "null"] },
+        "url": { "type": ["string", "null"], "format": "uri" }
+      }
+    },
+
+    "feeItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "amount_usd": { "type": ["number", "null"] },
+        "unit": { "type": ["string", "null"] },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+
+    "contactItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": ["string", "null"] },
+        "role": { "type": ["string", "null"] },
+        "phone": { "type": ["string", "null"] },
+        "email": { "type": ["string", "null"] },
+        "url": { "type": ["string", "null"], "format": "uri" }
+      }
+    },
+
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "url", "type", "accessed_date"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": ["string", "null"] },
+        "url": { "type": "string", "format": "uri" },
+        "publisher": { "type": ["string", "null"] },
+        "type": {
+          "type": "string",
+          "enum": ["government", "utility", "cpuc", "program_administrator", "other_official"]
+        },
+        "accessed_date": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}
