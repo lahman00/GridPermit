@@ -38,4 +38,6 @@ This gap creates a massive financial incentive to store every single kilowatt-ho
 2. **Claim 30% Federal ITC:** Deduct 30% of total equipment and installation costs on tax filings.
 3. **Audit Local ZIP Code Incentives:** Certain PG&E zones qualify for additional SGIP equity rebates.
 
-**[Run Your PG&E Solar & Battery Feasibility Analysis Now](https://YOUR-AFFILIATE-LINK-HERE.com)**
+**[Compare Free Solar & Battery Quotes From Local Installers](https://www.energysage.com)**
+
+*Figures above are illustrative examples based on publicly reported rate ranges, not a live lookup of your bill — confirm current rates with PG&E before making a decision.*

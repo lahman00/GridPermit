@@ -15,8 +15,8 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>GridPermit - US Solar & Battery Savings Calculator (2026)</title>
-	<meta name="description" content="Calculate home solar payback timelines, 20-year energy savings, and battery storage ROI across all 50 US states." />
+	<title>GridPermit - California Solar & Battery Savings Estimator (2026)</title>
+	<meta name="description" content="An educational, California-only starting point for home solar and battery payback questions. Illustrative estimates only — not a utility rate lookup." />
 <meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />	
 <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +24,7 @@
 </head>
 <body>
 	<div class="top-banner">
-		Independent Educational Guide: Estimate baseline home solar and battery economics across all 50 states.
+		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
 	</div>
 
 	<nav class="navbar">
@@ -48,32 +48,33 @@
 	<header class="hero">
 		<div class="hero-container">
 			<div class="hero-content">
-				<div class="badge-pill">Independent US Solar & Battery Savings Estimator</div>
-				<h1>Estimate Your Home Solar & Battery Payback In Any State</h1>
-				<p class="hero-lead">Learn how regional utility rates may affect your energy costs and get a preliminary solar and battery estimate in about 30 seconds.</p>
+				<div class="badge-pill">Independent California Solar & Battery Estimator</div>
+				<h1>A Straight-Talk Starting Point for Solar & Battery in California</h1>
+				<p class="hero-lead">Enter a California ZIP code and your monthly bill for a quick, clearly-labeled illustrative estimate — not a substitute for a real utility rate lookup or installer quote.</p>
 				<div class="hero-stats">
-					<div class="stat-item"><span class="stat-number">50 States</span><span class="stat-label">US Coverage</span></div>
+					<div class="stat-item"><span class="stat-number">California</span><span class="stat-label">Only, For Now</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">Regional</span><span class="stat-label">Rate Averages</span></div>
+					<div class="stat-item"><span class="stat-number">Illustrative</span><span class="stat-label">Not Utility-Specific</span></div>
 					<div class="stat-divider"></div>
-					<div class="stat-item"><span class="stat-number">Instant</span><span class="stat-label">Dynamic Output</span></div>
+					<div class="stat-item"><span class="stat-number">30 Sec</span><span class="stat-label">No Contact Info</span></div>
 				</div>
 				<p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1.5rem;">
-					Our estimates use publicly available regional electricity pricing, solar-production assumptions, and standardized system-cost inputs.
+					This estimate uses one flat, clearly-labeled placeholder assumption for the whole state — it does not yet look up your actual utility, rate schedule, or solar production data. See our <a href="/methodology" style="color:#93c5fd;">Methodology</a> for exactly what is and isn't modeled.
 				</p>
 			</div>
 
 			<div class="calculator-glass-card" id="calculator">
 				<div class="calc-header">
-					<h3>US Solar & Battery Savings Calculator</h3>
-					<p>Takes only 30 seconds • No contact info required</p>
+					<h3>California Solar & Battery Estimator</h3>
+					<p>Takes only 30 seconds • No contact info required • California ZIP codes only</p>
 				</div>
-				
+
 				<form id="solar-form">
 					<div class="input-field">
-						<label for="zip">US ZIP Code</label>
-						<input type="text" id="zip" placeholder="e.g. 90210, 75001, 33101" required pattern="[0-9]{5}" />
-						<div id="utility-detected" class="utility-pill hidden">Utility Zone Detected: <span id="utility-name">Regional US Grid</span></div>
+						<label for="zip">California ZIP Code</label>
+						<input type="text" id="zip" placeholder="e.g. 90210, 94103, 92101" required pattern="[0-9]{5}" />
+						<div id="utility-detected" class="utility-pill hidden">✓ ZIP code is within California's range</div>
+						<div id="utility-not-ca" class="utility-pill-warn hidden">This doesn't look like a California ZIP code. GridPermit currently covers California only.</div>
 					</div>
 					<div class="input-field">
 						<label for="bill">Avg. Monthly Electric Bill ($)</label>
@@ -86,37 +87,39 @@
 
 				<div id="loading-box" class="loading-container hidden">
 					<div class="spinner"></div>
-					<p id="loading-text">Modeling regional utility rate averages...</p>
+					<p id="loading-text">Applying statewide placeholder assumptions...</p>
 				</div>
 
 				<div id="results" class="results-container hidden">
-					<div class="results-badge">★ Common Configuration: Solar + Battery Storage</div>
-					
+					<div class="results-badge illustrative-badge">⚠ Illustrative Only — Not Utility-Specific</div>
+
 					<div class="main-savings-card">
-						<span class="savings-head">Estimated 20-Year Savings</span>
-						<span class="savings-amount" id="res-lifetime-savings">$0</span>
-						<span class="savings-sub">Modeled using regional electricity-rate and energy-use assumptions</span>
+						<span class="savings-head">20-Year Savings & Payback</span>
+						<span class="savings-amount coming-soon">Coming Soon</span>
+						<span class="savings-sub">Requires real utility rate data (PG&E / SCE / SDG&E) we haven't integrated yet</span>
 					</div>
 
 					<div class="confidence-box">
 						<div class="conf-header">
-							<span>Estimate Confidence: <strong>Medium</strong></span>
+							<span>What this estimate is — and isn't</span>
 						</div>
 						<ul class="conf-list">
-							<li>✓ Calculated using ZIP rate baseline & regional energy pricing</li>
-							<li>✓ Modeled with peak time-of-use (TOU) battery dispatch</li>
-							<li>⚡ <em>Preliminary estimate — excludes property-specific roof, shading, financing, and installer analysis</em></li>
+							<li>✓ Confirms your ZIP code falls within California's range</li>
+							<li>✓ Gives a rough system-size figure from one flat, disclosed placeholder rate — see below</li>
+							<li>✗ Does <strong>not</strong> look up your actual utility (PG&E / SCE / SDG&E) or rate schedule — coming soon</li>
+							<li>✗ Does <strong>not</strong> estimate dollar savings or payback yet — that requires real rate data we don't have</li>
+							<li>⚡ <em>The number below is a rough sizing figure, not a quote or financial projection</em></li>
 						</ul>
 					</div>
 
 					<div class="results-metrics-grid">
 						<div class="metric-card">
-							<span class="m-label">Est. System Size</span>
+							<span class="m-label">Illustrative System Size</span>
 							<span class="m-val" id="res-sys-size">0.0 kW</span>
 						</div>
 						<div class="metric-card">
-							<span class="m-label">Est. Battery Sizing</span>
-							<span class="m-val" id="res-bat-size">13.5 kWh</span>
+							<span class="m-label">Typical Battery Range</span>
+							<span class="m-val">10–20 kWh (site-dependent)</span>
 						</div>
 					</div>
 
@@ -132,29 +135,29 @@
 							<tbody>
 								<tr>
 									<td><strong>Solar Only</strong></td>
-									<td id="res-payback-solar">0 Yrs</td>
-									<td id="res-savings-solar">$0/yr</td>
+									<td>Coming Soon</td>
+									<td>Coming Soon</td>
 								</tr>
 								<tr class="highlight-row">
 									<td><strong>Solar + Battery</strong></td>
-									<td id="res-payback-battery">0 Yrs</td>
-									<td id="res-savings-battery">$0/yr</td>
+									<td>Coming Soon</td>
+									<td>Coming Soon</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 
-					<p class="disclaimer-text">*Educational estimate based on regional averages and standardized assumptions. Actual system size, pricing, incentives, and savings vary. Review our <a href="/methodology" style="color:#2563eb;">Methodology</a> and verify final figures with a qualified installer.</p>
+					<p class="disclaimer-text">*Illustrative estimate based on one flat, statewide placeholder assumption — not your actual utility rate, solar production, or property details. Actual system size, pricing, incentives, and savings vary significantly. Review our <a href="/methodology" style="color:#2563eb;">Methodology</a> and verify final figures with a qualified installer.</p>
 
 					<div class="lead-action-box">
-						<h4>Compare Quotes From Local Installers</h4>
-						<p>Get property-specific pricing and system recommendations through our independent marketplace partner.</p>
-						<!-- TODO: Replace with the approved affiliate tracking URL before launch -->
-						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer sponsored" class="btn-green-action-link">
-							Compare Free Solar Quotes →
+						<h4>Compare Quotes From Solar Installers</h4>
+						<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers.</p>
+						<!-- NOTE: plain, non-affiliate external link — no tracking ID configured yet. Do not add rel="sponsored" or compensation language until a real affiliate/tracking URL is supplied. -->
+						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="btn-green-action-link">
+							Visit EnergySage →
 						</a>
 						<p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.75rem; line-height: 1.4;">
-							You’ll continue on our partner’s website. GridPermit may earn compensation if you use this link, at no additional cost to you.
+							You’ll continue on EnergySage’s website. This is a plain external link — GridPermit does not currently have an affiliate relationship with EnergySage and earns no compensation from it.
 						</p>
 					</div>
 				</div>
@@ -176,24 +179,37 @@
 
 	<script is:inline>
 		document.addEventListener("DOMContentLoaded", () => {
+			// Honest-MVP notice: these are the ONLY two assumptions behind the system-size
+			// figure below, and both are flat statewide placeholders — not real utility
+			// rate or solar-production data. See /methodology for the full explanation.
+			const PLACEHOLDER_RATE_PER_KWH = 0.30; // not a real PG&E/SCE/SDG&E rate
+			const PLACEHOLDER_YIELD_KWH_PER_KW_YEAR = 1400; // rough statewide placeholder, not location-specific
+
+			// California ZIP codes fall in the 90001-96162 range. This is a structural
+			// range check only — it does not identify a specific utility or address.
+			function isCaliforniaZip(zip) {
+				const n = Number(zip);
+				return /^\d{5}$/.test(zip) && n >= 90001 && n <= 96162;
+			}
+
 			const zipInput = document.getElementById("zip");
-			const utilPill = document.getElementById("utility-detected");
-			const utilName = document.getElementById("utility-name");
+			const caPill = document.getElementById("utility-detected");
+			const notCaPill = document.getElementById("utility-not-ca");
 
 			if (zipInput) {
 				zipInput.addEventListener("input", (e) => {
 					const val = e.target.value;
-					if (val.length === 5) {
-						let region = "Pacific / West Utility Zone";
-						if (val.startsWith("0") || val.startsWith("1")) region = "Northeast Regional Grid";
-						else if (val.startsWith("2") || val.startsWith("3")) region = "Southeast / Atlantic Grid";
-						else if (val.startsWith("4") || val.startsWith("5") || val.startsWith("6")) region = "Midwest Energy Zone";
-						else if (val.startsWith("7") || val.startsWith("8")) region = "Southwest / ERCOT Zone";
-						
-						utilName.innerText = region;
-						utilPill.classList.remove("hidden");
+					if (val.length !== 5) {
+						caPill.classList.add("hidden");
+						notCaPill.classList.add("hidden");
+						return;
+					}
+					if (isCaliforniaZip(val)) {
+						caPill.classList.remove("hidden");
+						notCaPill.classList.add("hidden");
 					} else {
-						utilPill.classList.add("hidden");
+						caPill.classList.add("hidden");
+						notCaPill.classList.remove("hidden");
 					}
 				});
 			}
@@ -206,44 +222,32 @@
 			if (form) {
 				form.addEventListener("submit", (e) => {
 					e.preventDefault();
+
+					const zipVal = document.getElementById("zip")?.value || "";
+					if (!isCaliforniaZip(zipVal)) {
+						notCaPill.classList.remove("hidden");
+						zipInput.focus();
+						return;
+					}
+
 					form.classList.add("hidden");
 					loadingBox.classList.remove("hidden");
 
-					setTimeout(() => { loadingText.innerText = "Modeling regional utility rate averages..."; }, 800);
-					setTimeout(() => { loadingText.innerText = "Evaluating battery payback model..."; }, 1600);
+					setTimeout(() => { loadingText.innerText = "Applying statewide placeholder assumptions..."; }, 800);
+					setTimeout(() => { loadingText.innerText = "Building your illustrative estimate..."; }, 1600);
 
 					setTimeout(() => {
 						loadingBox.classList.add("hidden");
 						results.classList.remove("hidden");
 
-						const zipVal = document.getElementById("zip")?.value || "90210";
 						const bill = Number(document.getElementById("bill")?.value || 250);
 
-						let rateMultiplier = 1.0;
-						if (zipVal.startsWith("9")) rateMultiplier = 1.35;
-						else if (zipVal.startsWith("0") || zipVal.startsWith("1")) rateMultiplier = 1.15;
-						else if (zipVal.startsWith("7") || zipVal.startsWith("8")) rateMultiplier = 0.85;
+						// The only figure this MVP computes: a rough system-size guess,
+						// derived transparently from the two placeholder constants above.
+						const annualKwh = (bill * 12) / PLACEHOLDER_RATE_PER_KWH;
+						const sysKw = annualKwh / PLACEHOLDER_YIELD_KWH_PER_KW_YEAR;
 
-						const sysKw = ((bill / (28 * rateMultiplier))).toFixed(1);
-						const batKwh = bill > 260 ? "20.0 kWh" : "13.5 kWh";
-
-						const paybackSolarVal = Math.max(6, Math.round((13 - (bill / 120)) / (rateMultiplier * 0.9)));
-						const paybackBatteryVal = Math.max(5, Math.round((9 - (bill / 150)) / (rateMultiplier * 0.9)));
-
-						const annualSavingsSolar = Math.round(bill * 12 * 0.45 * rateMultiplier);
-						const annualSavingsBattery = Math.round(bill * 12 * 0.78 * rateMultiplier);
-						const cumulativeBattery = annualSavingsBattery * 20;
-
-						document.getElementById("res-sys-size").innerText = sysKw + " kW";
-						document.getElementById("res-bat-size").innerText = batKwh;
-						document.getElementById("res-lifetime-savings").innerText = "$" + cumulativeBattery.toLocaleString();
-
-						document.getElementById("res-payback-solar").innerText = paybackSolarVal + " - " + (paybackSolarVal + 2) + " Yrs";
-						document.getElementById("res-payback-battery").innerText = paybackBatteryVal + " - " + (paybackBatteryVal + 2) + " Yrs";
-
-						document.getElementById("res-savings-solar").innerText = "$" + annualSavingsSolar.toLocaleString() + "/yr";
-						document.getElementById("res-savings-battery").innerText = "$" + annualSavingsBattery.toLocaleString() + "/yr";
-
+						document.getElementById("res-sys-size").innerText = sysKw.toFixed(1) + " kW";
 					}, 2400);
 				});
 			}
@@ -280,6 +284,7 @@
 		.input-field label { display: block; font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.4rem; }
 		.input-field input { width: 100%; padding: 0.85rem 1rem; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 1rem; }
 		.utility-pill { font-size: 0.75rem; color: #166534; background: #dcfce7; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; margin-top: 0.4rem; display: inline-block; }
+		.utility-pill-warn { font-size: 0.75rem; color: #92400e; background: #fef3c7; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700; margin-top: 0.4rem; display: inline-block; }
 		.btn-glow-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 1.1rem; border-radius: 10px; font-size: 1rem; font-weight: 800; cursor: pointer; }
 		.hidden { display: none; }
 		.loading-container { text-align: center; padding: 2rem 0; }
@@ -287,9 +292,11 @@
 		@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 		.results-container { margin-top: 1rem; }
 		.results-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 0.8rem; font-weight: 800; padding: 0.3rem 0.75rem; border-radius: 6px; text-transform: uppercase; margin-bottom: 1rem; }
+		.illustrative-badge { background: #fef3c7; color: #92400e; }
 		.main-savings-card { background: #1e293b; color: white; padding: 1.25rem; border-radius: 12px; text-align: center; margin-bottom: 1rem; }
 		.savings-head { display: block; font-size: 0.8rem; color: #94a3b8; text-transform: uppercase; font-weight: 700; }
 		.savings-amount { font-size: 2.2rem; font-weight: 800; color: #38bdf8; display: block; margin: 0.2rem 0; }
+		.savings-amount.coming-soon { font-size: 1.5rem; color: #94a3b8; }
 		.savings-sub { font-size: 0.72rem; color: #cbd5e1; }
 		.confidence-box { background: #f8fafc; border: 1px solid #cbd5e1; padding: 0.85rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.8rem; }
 		.conf-header { font-weight: 700; color: #334155; margin-bottom: 0.3rem; }

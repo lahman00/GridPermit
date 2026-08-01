@@ -30,4 +30,6 @@ Designed for homeowners living in high-fire threat districts (HFTD), low-income 
 2. **Verify Medical & Tier Eligibility:** Check if your household falls within Tier 2 or Tier 3 fire zones or qualifies for utility medical baseline rates.
 3. **Combine Incentives:** Apply the 30% Federal Clean Energy Credit on the remaining out-of-pocket balance.
 
-**[Check Your ZIP Code Eligibility for California SGIP Battery Rebates](https://YOUR-AFFILIATE-LINK-HERE.com)**
+**[Check Your Eligibility With a Local Solar Installer](https://www.energysage.com)**
+
+*Rebate tiers and rates above are illustrative examples based on publicly reported SGIP program ranges, not a live eligibility check — confirm current tiers and funding availability through the CPUC's SGIP program administrator before making a decision.*

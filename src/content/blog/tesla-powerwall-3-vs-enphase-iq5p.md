@@ -34,4 +34,6 @@ Enphase offers unmatched reliability with microinverter redundancy and a 15-year
 
 ## Which Battery Fits Your Budget?
 
-**[Get Custom Quotes for Tesla & Enphase Systems From Certified CA Installers](https://YOUR-AFFILIATE-LINK-HERE.com)**
+**[Get Custom Quotes for Tesla & Enphase Systems From Certified CA Installers](https://www.energysage.com)**
+
+*Specs above reflect publicly published manufacturer datasheets; confirm current specs and pricing with an installer, as models and warranties can change.*

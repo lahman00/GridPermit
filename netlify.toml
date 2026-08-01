@@ -2,6 +2,12 @@
   command = "npm run build"
   publish = "dist"
 
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap-index.xml"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
