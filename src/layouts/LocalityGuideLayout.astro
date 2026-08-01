@@ -5,6 +5,7 @@
 // implemented once, here. See src/lib/locality-guide.ts for the underlying
 // data-shaping functions and docs/PILOT_EVALUATION.md Section 3 for which
 // fields are approved to show.
+import evaluation from "../../output/pilot-evaluation.json";
 import {
 	NOT_VERIFIED,
 	confidenceLabel,
@@ -17,6 +18,8 @@ import {
 	buildFaqs,
 	buildFaqSchema,
 	resolvePermitAuthorityLabel,
+	buildLocalityIndexEntries,
+	excludeCurrentEntry,
 	type LocalityRecord,
 } from "../lib/locality-guide";
 
@@ -32,6 +35,17 @@ const { record, pagePath, cityPath } = Astro.props;
 
 const { canonicalUrl, title, description, utilityShortName: utilityShort } = buildPageMeta(record, pagePath);
 const permitAuthorityLabel = resolvePermitAuthorityLabel(record);
+
+// "Other verified California guides" cross-links (never linking to this
+// page itself) — driven by the same READY-only entry list the locality
+// index page uses, so the two can never disagree on which cities qualify.
+const localityModules = import.meta.glob("../../data/localities/*.json", { eager: true }) as Record<
+	string,
+	{ default: LocalityRecord }
+>;
+const allRecordsById = new Map(Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]));
+const allReadyEntries = buildLocalityIndexEntries(evaluation.records, allRecordsById);
+const otherGuides = excludeCurrentEntry(allReadyEntries, record.record_id);
 
 const sourcesFor = buildSourceResolver(record.sources);
 const activeBatteryPrograms = getActiveBatteryPrograms(record.battery_programs.value);
@@ -283,9 +297,24 @@ const faqSchema = buildFaqSchema(faqs);
 				</ul>
 			</section>
 
+			<!-- ===== Other verified California guides ===== -->
+			{otherGuides.length > 0 && (
+				<section>
+					<h2>Other verified California guides</h2>
+					<p>
+						See all verified cities on the <a href="/california/solar-permit-guides/">California solar permit guide index</a>.
+					</p>
+					<ul class="fact-list other-guides-list">
+						{otherGuides.map((g) => (
+							<li><a href={g.guideUrl}>{g.city}</a> — {g.utility}</li>
+						))}
+					</ul>
+				</section>
+			)}
+
 			<div class="footer-disclaimer">
 				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Requirements, fees, and program terms change. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before starting a project. Last verified {record.last_verified}.</p>
-				<p><a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
+				<p><a href="/california/solar-permit-guides/">All California Guides</a> · <a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
 			</div>
 		</main>
 	</div>

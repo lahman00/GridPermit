@@ -73,6 +73,7 @@ export interface TimelineValue {
 // populated in every pilot record; every other field may be null ("not yet
 // researched") and the template must render NOT_VERIFIED for it.
 export interface LocalityRecord {
+	record_id: string;
 	city: FieldEnvelope<string>;
 	county: FieldEnvelope<string>;
 	utility: FieldEnvelope<string>;
@@ -366,4 +367,16 @@ export function buildLocalityIndexEntries(
 		});
 	}
 	return entries.sort((a, b) => a.city.localeCompare(b.city));
+}
+
+// Used by each locality page's "Other verified California guides" cross-link
+// section (see LocalityGuideLayout.astro) to link to every other READY guide
+// without linking to itself. Takes the same READY-filtered entry list
+// buildLocalityIndexEntries produces — never a separate, possibly
+// out-of-sync list of "other" cities.
+export function excludeCurrentEntry(
+	entries: LocalityIndexEntry[],
+	currentRecordId: string,
+): LocalityIndexEntry[] {
+	return entries.filter((e) => e.recordId !== currentRecordId);
 }

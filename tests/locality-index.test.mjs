@@ -7,7 +7,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { citySlug, buildLocalityIndexEntries } from "../src/lib/locality-guide.ts";
+import { citySlug, buildLocalityIndexEntries, excludeCurrentEntry } from "../src/lib/locality-guide.ts";
 
 test("citySlug lowercases and hyphenates a multi-word city name", () => {
 	assert.equal(citySlug("San Diego"), "san-diego");
@@ -105,4 +105,45 @@ test("entries are sorted alphabetically by city", () => {
 	const entries = buildLocalityIndexEntries(evaluationRecords, recordsById);
 	const cities = entries.map((e) => e.city);
 	assert.deepEqual(cities, [...cities].sort((a, b) => a.localeCompare(b)));
+});
+
+// --- Phase 4: "Other verified California guides" cross-links -------------
+
+test("excludeCurrentEntry removes exactly the current city's own entry, and only that one", () => {
+	const { evaluationRecords, recordsById } = makeFixture();
+	const entries = buildLocalityIndexEntries(evaluationRecords, recordsById);
+	const otherGuides = excludeCurrentEntry(entries, "ca-alameda-oakland-pge");
+
+	assert.equal(otherGuides.length, 3);
+	assert.ok(!otherGuides.some((e) => e.recordId === "ca-alameda-oakland-pge"));
+	assert.ok(!otherGuides.some((e) => e.city === "Oakland"));
+	// The other three READY cities must all still be present.
+	assert.deepEqual(
+		otherGuides.map((e) => e.city).sort(),
+		["Fremont", "Pasadena", "San Diego"],
+	);
+});
+
+test("excludeCurrentEntry's input already excludes LIMITED records (only READY cities ever appear in cross-links)", () => {
+	const { evaluationRecords, recordsById } = makeFixture();
+	const entries = buildLocalityIndexEntries(evaluationRecords, recordsById);
+	const otherGuides = excludeCurrentEntry(entries, "ca-alameda-fremont-pge");
+	assert.ok(!otherGuides.some((e) => e.city === "San Jose"), "San Jose (LIMITED) must never appear in another city's cross-link list");
+});
+
+test("excludeCurrentEntry cross-link routes are correct for each remaining city", () => {
+	const { evaluationRecords, recordsById } = makeFixture();
+	const entries = buildLocalityIndexEntries(evaluationRecords, recordsById);
+	const otherGuides = excludeCurrentEntry(entries, "ca-los-angeles-pasadena-pwp");
+	const fremont = otherGuides.find((e) => e.city === "Fremont");
+	const sanDiego = otherGuides.find((e) => e.city === "San Diego");
+	assert.equal(fremont.guideUrl, "/california/fremont/solar-permit-guide/");
+	assert.equal(sanDiego.guideUrl, "/california/san-diego/solar-permit-guide/");
+});
+
+test("excludeCurrentEntry with a record_id not in the list changes nothing (no accidental removal)", () => {
+	const { evaluationRecords, recordsById } = makeFixture();
+	const entries = buildLocalityIndexEntries(evaluationRecords, recordsById);
+	const otherGuides = excludeCurrentEntry(entries, "ca-does-not-exist-pge");
+	assert.equal(otherGuides.length, entries.length);
 });
