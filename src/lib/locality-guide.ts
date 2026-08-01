@@ -170,6 +170,30 @@ export function utilityShortName(utilityValue: string | null | undefined): strin
 	return match ? match[1] : utilityValue;
 }
 
+function stripDiacritics(str: string): string {
+	return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+// Same algorithm as scripts/generate-locality-pages.mjs's slugify (itself
+// mirroring scripts/collect-pilot.mjs) — kept as a separate literal here too,
+// so this rendering-side lib has no import dependency on the scripts/
+// directory. A route is only ever considered correct if it agrees with
+// whatever the generator actually wrote to disk for that record.
+export function citySlug(cityValue: string): string {
+	return stripDiacritics(cityValue)
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/^-+|-+$/g, "");
+}
+
+export function guideUrlForCitySlug(slug: string): string {
+	return `/california/${slug}/solar-permit-guide/`;
+}
+
+export function cityIndexUrlForCitySlug(slug: string): string {
+	return `/california/${slug}/`;
+}
+
 // The permit authority is named exactly as the record states it — never
 // assumed to be "City of {city}". Falls back to NOT_VERIFIED like every
 // other unresearched field.
@@ -292,4 +316,54 @@ export function buildFaqSchema(faqs: FaqEntry[]) {
 			acceptedAnswer: { "@type": "Answer", text: f.a },
 		})),
 	};
+}
+
+// The subset of output/pilot-evaluation.json's per-record fields this module
+// actually reads — not a full port of that report's shape.
+export interface EvaluationRecordSummary {
+	record_id: string;
+	readiness: string;
+	completeness_pct: number;
+}
+
+export interface LocalityIndexEntry {
+	recordId: string;
+	city: string;
+	utility: string;
+	generationSupplierName: string | null;
+	completenessPct: number;
+	lastVerified: string;
+	citySlug: string;
+	guideUrl: string;
+}
+
+// Shared by both the locality index page (Phase 3) and each locality page's
+// "other verified guides" cross-links (Phase 4), so the two never drift out
+// of sync on which records are eligible or what their URLs are. Only
+// readiness === "READY" records are included — this is the one and only
+// gate on which cities get a public link; a record with no matching entry in
+// `recordsById` (data missing) is silently skipped rather than crashing,
+// since the evaluation report and the locality files are read independently.
+export function buildLocalityIndexEntries(
+	evaluationRecords: EvaluationRecordSummary[],
+	recordsById: Map<string, LocalityRecord>,
+): LocalityIndexEntry[] {
+	const entries: LocalityIndexEntry[] = [];
+	for (const evalRecord of evaluationRecords) {
+		if (evalRecord.readiness !== "READY") continue;
+		const record = recordsById.get(evalRecord.record_id);
+		if (!record) continue;
+		const slug = citySlug(record.city.value);
+		entries.push({
+			recordId: evalRecord.record_id,
+			city: record.city.value,
+			utility: record.utility.value,
+			generationSupplierName: record.generation_supplier.value?.name ?? null,
+			completenessPct: evalRecord.completeness_pct,
+			lastVerified: record.last_verified,
+			citySlug: slug,
+			guideUrl: guideUrlForCitySlug(slug),
+		});
+	}
+	return entries.sort((a, b) => a.city.localeCompare(b.city));
 }
