@@ -1,0 +1,289 @@
+{
+  "evaluated_at": "2026-08-01T16:59:42.200Z",
+  "record_count": 5,
+  "records": [
+    {
+      "record_id": "ca-santa-clara-san-jose-pge",
+      "completeness_pct": 53.3,
+      "validation_score": 85,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 6,
+      "populated_fields": [
+        "utility",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "outdated_information"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": null,
+      "permit_fees_available": false,
+      "timeline_available": false,
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "ca-alameda-fremont-pge",
+      "completeness_pct": 80,
+      "validation_score": 85,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 6,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "required_documents",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "outdated_information"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": false,
+      "timeline_available": true,
+      "readiness": "READY"
+    },
+    {
+      "record_id": "ca-alameda-oakland-pge",
+      "completeness_pct": 86.7,
+      "validation_score": 91,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 3,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "outdated_information"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": false,
+      "timeline_available": true,
+      "readiness": "READY"
+    },
+    {
+      "record_id": "ca-los-angeles-pasadena-pwp",
+      "completeness_pct": 93.3,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "utility_type": "municipal",
+      "separate_cca_present": false,
+      "permit_fees_available": true,
+      "timeline_available": false,
+      "readiness": "READY"
+    },
+    {
+      "record_id": "ca-san-diego-san-diego-sdge",
+      "completeness_pct": 86.7,
+      "validation_score": 86,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 4,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "outdated_information",
+        "unsupported_claim"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": true,
+      "timeline_available": false,
+      "readiness": "READY"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 80,
+    "average_validation_score": 89,
+    "fields_missing_count": {
+      "utility": 0,
+      "generation_supplier": 1,
+      "city": 0,
+      "county": 0,
+      "permit_authority": 0,
+      "permit_url": 0,
+      "interconnection_url": 0,
+      "battery_programs": 0,
+      "required_documents": 2,
+      "inspection_steps": 1,
+      "timeline_days": 3,
+      "eligibility_constraints": 1,
+      "permit_fees": 3,
+      "rebates": 4,
+      "official_contacts": 0
+    },
+    "fields_most_often_missing": [
+      {
+        "field": "rebates",
+        "missing_in_records": 4
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 3
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 3
+      },
+      {
+        "field": "required_documents",
+        "missing_in_records": 2
+      },
+      {
+        "field": "generation_supplier",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "eligibility_constraints",
+        "missing_in_records": 1
+      }
+    ],
+    "warning_category_recurrence": {
+      "broken_url": 5,
+      "outdated_information": 4,
+      "unsupported_claim": 1
+    },
+    "recurring_source_access_problems": [
+      "broken_url (HTTP 403 blocked-to-automation) appears in the warnings of every one of the 5 records — county-level government sites (sccgov.org, acgov.org, locator.lacounty.gov, sandiegocounty.gov) were blocked in all 5; the major IOU domains (pge.com, sdge.com) were blocked in 4 of 5 (every record except Pasadena, whose utility is its own official site with no bot-blocking encountered).",
+      "outdated_information (the statewide SGIP 'Equity Resiliency' tier's stated 'through 2025' window has elapsed) recurs in 4 of 5 records — every record that relies on statewide SGIP figures (all except Pasadena, which has its own local battery rebate program instead)."
+    ],
+    "schema_gaps_discovered": [
+      "generation_supplier and eligibility_constraints (added in schema v1.2.0) and programItem.value_usd_per_watt (added in v1.3.0) were all discovered and fixed during this pilot, driven by real facts the schema couldn't represent yet (Fremont/Oakland's CCA, Fremont's system-size caps, Pasadena's per-Watt rebate tiers).",
+      "No further schema gaps surfaced while collecting Oakland, Pasadena, or San Diego beyond those three, already-addressed gaps."
+    ]
+  },
+  "mvp_recommendation": {
+    "recommended_launch_record_ids": [
+      "ca-alameda-fremont-pge",
+      "ca-alameda-oakland-pge",
+      "ca-los-angeles-pasadena-pwp",
+      "ca-san-diego-san-diego-sdge"
+    ],
+    "excluded_for_now": [
+      {
+        "record_id": "ca-santa-clara-san-jose-pge",
+        "reason": "readiness=LIMITED (completeness 53.3%)"
+      }
+    ],
+    "utilities_represented_in_recommended_set": [
+      "IOU",
+      "municipal"
+    ],
+    "fields_safe_to_expose": [
+      "utility",
+      "generation_supplier",
+      "city",
+      "county",
+      "permit_authority",
+      "permit_url",
+      "official_contacts",
+      "inspection_steps",
+      "eligibility_constraints",
+      "required_documents"
+    ],
+    "fields_to_hide_or_mark_unverified": [
+      "rebates (populated in only 1 of 5 records — too sparse to present as a reliable feature across localities yet)",
+      "permit_fees (populated in only 2 of 5 records, and both instances carry an 'unsupported_claim' warning for single-source-type sourcing — show only with an explicit verify-with-issuing-authority caveat, never as a confirmed final cost)",
+      "timeline_days (populated in only 2 of 5 records — must render as 'Not yet verified' everywhere else, never blended with a sitewide average)",
+      "battery_programs items with status 'expired' (the SGIP Equity Resiliency tier in 4 of 5 records) — must not be displayed as a current/active offer; either omit or label explicitly as lapsed",
+      "interconnection_url — safe to link, but must not be presented as directly verified content, since the underlying page could not be rendered in 4 of 5 records (HTTP 403)"
+    ],
+    "calculator_should_consume_data_yet": false,
+    "calculator_recommendation_notes": "Per docs/DATA_ARCHITECTURE.md Section 6 ('coverage is binary, not blended'), the flat homepage calculator should not yet read from these records — permit_fees and timeline_days are populated in fewer than half the pilot localities, so wiring the calculator in now would force exactly the mixed real/placeholder blending that document prohibits. Build locality-specific informational pages for the READY set first (the Phase 3 'Permit content pages' consumer already planned in docs/DATA_ARCHITECTURE.md Section 5); revisit calculator integration once permit_fees/timeline_days coverage is much higher and/or a larger city sample exists."
+  }
+}
