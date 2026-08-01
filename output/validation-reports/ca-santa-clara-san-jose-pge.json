@@ -3,14 +3,9 @@
   "file": "data/localities/ca-santa-clara-san-jose-pge.json",
   "validated_at": "2026-08-01",
   "status": "REVIEW",
-  "score": 65,
+  "score": 85,
   "errors": [],
   "warnings": [
-    {
-      "field": "county",
-      "category": "confidence_inconsistency",
-      "message": "confidence=0.85 but notes hedge: 'S8 is the County of Santa Clara's own Registrar of Voters page filed under 'City of San Jose', confirming the association structurally. Direct page content could not be rendered (HTTP 403) during this session; confidence reflects URL/domain-level rather than full-content confirmation.'"
-    },
     {
       "field": "battery_programs",
       "category": "outdated_information",
@@ -62,6 +57,72 @@
     {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects",
+      "checked_at": "2026-08-01T06:29:56.562Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "checked_at": "2026-08-01T06:29:56.745Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/about/",
+      "checked_at": "2026-08-01T06:29:56.838Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/contact/",
+      "checked_at": "2026-08-01T06:29:57.577Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.sanjoseca.gov/",
+      "checked_at": "2026-08-01T06:29:58.316Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.sanjoseca.gov/business/development-services-permit-center",
+      "checked_at": "2026-08-01T06:29:58.369Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "checked_at": "2026-08-01T06:29:58.412Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.sccgov.org/sites/rov/Pages/VignetteLinksInDatabase/City-of-San-Jose.aspx",
+      "checked_at": "2026-08-01T06:29:59.495Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }

@@ -13,10 +13,27 @@ const REPO_ROOT = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const SCHEMA_PATH = path.join(REPO_ROOT, "data", "schema.json");
 const REPORT_DIR = path.join(REPO_ROOT, "output", "validation-reports");
 
+// Only phrases about the FACT itself. Phrases about network/retrieval access
+// ("blocked", "403", "could not render", "could not fetch") must NOT appear
+// here — a source being blocked to automated access is a broken_url finding
+// (see checkUrl below), never evidence against factual confidence. This is
+// the deterministic form of "do not downgrade confidence solely because a
+// valid official URL blocks automated access" — see docs/DATA_ARCHITECTURE.md.
 const HEDGE_WORDS = [
-  "could not", "not confirmed", "not independently", "unable to",
-  "not directly rendered", "could not be verified", "blocked",
+  "not confirmed", "not independently confirmed", "uncertain",
+  "disputed", "uncorroborated", "unverified claim",
 ];
+
+const BOT_CHALLENGE_MARKERS = [
+  "just a moment", "checking your browser", "cf-chl", "captcha",
+  "attention required", "verify you are human", "enable javascript and cookies",
+];
+const REACHABLE = "REACHABLE";
+const BLOCKED_OR_UNVERIFIABLE = "BLOCKED_OR_UNVERIFIABLE";
+const CONFIRMED_BROKEN = "CONFIRMED_BROKEN";
+const URL_CHECK_PENALTY = { [BLOCKED_OR_UNVERIFIABLE]: 2 };
+const OTHER_WARNING_PENALTY = 5;
+const ERROR_PENALTY = 20;
 const FIELD_NAMES = [
   "utility", "city", "county", "permit_authority", "permit_url",
   "interconnection_url", "battery_programs", "required_documents",
@@ -59,24 +76,91 @@ function conflictsWithRecordUtility(text, recordUtility) {
   return !families.some((family) => family.some((alias) => recordUpper.includes(alias)));
 }
 
+function classifyNetworkError(err) {
+  // Every network-level failure (DNS, TLS, timeout, reset, generic connection
+  // failure) is BLOCKED_OR_UNVERIFIABLE, never CONFIRMED_BROKEN — a network
+  // failure is not proof the resource was removed. Malformed URLs and
+  // unsupported protocols are checked separately, before any fetch is attempted.
+  if (err.name === "AbortError") return "timeout";
+  const code = err.cause?.code ?? err.code;
+  if (code === "ENOTFOUND" || code === "EAI_AGAIN") return `DNS failure (${code})`;
+  if (code === "ECONNRESET") return "connection reset";
+  if (code === "ECONNREFUSED") return `connection refused (${code})`;
+  if (typeof code === "string" && code.startsWith("CERT_")) return `TLS/certificate failure (${code})`;
+  if (code === "EPROTO" || code === "ERR_TLS_CERT_ALTNAME_INVALID") return `TLS/network failure (${code})`;
+  return `network failure (${err.message})`;
+}
+
+function bodyLooksLikeBotChallenge(bodySnippet) {
+  const lower = bodySnippet.toLowerCase();
+  return BOT_CHALLENGE_MARKERS.some((m) => lower.includes(m));
+}
+
 async function checkUrl(url) {
-  // Returns { ok, status, error, blocked }
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  const checkedAt = new Date().toISOString();
+  const base = { url, checked_at: checkedAt };
+
+  // Pre-flight: malformed URL / unsupported protocol -> CONFIRMED_BROKEN,
+  // no network call attempted.
+  let parsed;
   try {
-    let res = await fetch(url, { method: "HEAD", signal: controller.signal, redirect: "follow" });
-    if (res.status === 405 || res.status === 501) {
-      res = await fetch(url, { method: "GET", signal: controller.signal, redirect: "follow" });
-    }
-    clearTimeout(timer);
-    if (res.status >= 200 && res.status < 300) return { ok: true, status: res.status };
-    if (res.status === 404 || res.status === 410) return { ok: false, status: res.status, blocked: false };
-    // 401/403/429/503/other non-2xx: treat as blocked/unverifiable, not confirmed-broken
-    return { ok: false, status: res.status, blocked: true };
-  } catch (err) {
-    clearTimeout(timer);
-    return { ok: false, status: null, blocked: true, error: err.message };
+    parsed = new URL(url);
+  } catch {
+    return { ...base, status: CONFIRMED_BROKEN, http_status: null, method: "HEAD", details: "malformed URL" };
   }
+  if (!["http:", "https:"].includes(parsed.protocol)) {
+    return { ...base, status: CONFIRMED_BROKEN, http_status: null, method: "HEAD", details: `unsupported protocol '${parsed.protocol}'` };
+  }
+
+  let method = "HEAD";
+  let res;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    try {
+      res = await fetch(url, { method: "HEAD", signal: controller.signal, redirect: "follow" });
+    } finally {
+      clearTimeout(timer);
+    }
+    if (res.status === 405 || res.status === 501) {
+      method = "GET";
+      const controller2 = new AbortController();
+      const timer2 = setTimeout(() => controller2.abort(), FETCH_TIMEOUT_MS);
+      try {
+        res = await fetch(url, { method: "GET", signal: controller2.signal, redirect: "follow" });
+      } finally {
+        clearTimeout(timer2);
+      }
+    }
+  } catch (err) {
+    return { ...base, status: BLOCKED_OR_UNVERIFIABLE, http_status: null, method, details: classifyNetworkError(err) };
+  }
+
+  if (res.status === 404 || res.status === 410) {
+    return { ...base, status: CONFIRMED_BROKEN, http_status: res.status, method, details: `HTTP ${res.status}: confirmed not found/removed` };
+  }
+  if ([401, 403, 429].includes(res.status)) {
+    return { ...base, status: BLOCKED_OR_UNVERIFIABLE, http_status: res.status, method, details: `HTTP ${res.status}: blocked/unverifiable, not confirmed broken` };
+  }
+  if (res.status >= 200 && res.status < 400) {
+    // Reachable by status code, but sniff the body for a bot-challenge page
+    // (some WAFs return HTTP 200 for a CAPTCHA/interstitial rather than 403).
+    if (method === "GET") {
+      try {
+        const text = (await res.text()).slice(0, 4000);
+        if (bodyLooksLikeBotChallenge(text)) {
+          return { ...base, status: BLOCKED_OR_UNVERIFIABLE, http_status: res.status, method, details: `HTTP ${res.status} but body matches a known bot-challenge marker` };
+        }
+      } catch {
+        // Body unreadable; fall through and trust the status code.
+      }
+    }
+    return { ...base, status: REACHABLE, http_status: res.status, method, details: `HTTP ${res.status}` };
+  }
+  // Any other status (5xx, or anything not explicitly enumerated above) is
+  // treated as unverifiable rather than confirmed-broken — only 404/410 are
+  // treated as a removal signal; see agents/data-validator.md check 8.
+  return { ...base, status: BLOCKED_OR_UNVERIFIABLE, http_status: res.status, method, details: `HTTP ${res.status}: not a removal signal, treated as unverifiable` };
 }
 
 function collectAllUrls(record) {
@@ -268,20 +352,25 @@ async function validate(filePath) {
     }
   }
 
-  // 8. broken_url — live fetch of every URL in the record
+  // 8. broken_url — live fetch of every URL in the record, three-state result.
+  // REACHABLE costs nothing and is not added to errors/warnings, only to
+  // url_checks (full evidence trail for every URL, not just failing ones).
   const allUrls = collectAllUrls(record);
   const seenUrls = new Set();
+  const urlChecks = [];
   for (const { label, url } of allUrls) {
     if (seenUrls.has(url)) continue;
     seenUrls.add(url);
     const result = await checkUrl(url);
-    if (!result.ok) {
-      if (result.blocked) {
-        addFinding(warnings, label, "broken_url", `${url} — HTTP ${result.status ?? "n/a"}${result.error ? ` (${result.error})` : ""}: blocked/unverifiable, not confirmed broken — recommend a manual check`);
-      } else {
-        addFinding(errors, label, "broken_url", `${url} — HTTP ${result.status}: confirmed not found/removed`);
-      }
+    urlChecks.push(result);
+    if (result.status === CONFIRMED_BROKEN) {
+      addFinding(errors, label, "broken_url", `${url} — ${result.details}`);
+    } else if (result.status === BLOCKED_OR_UNVERIFIABLE) {
+      addFinding(warnings, label, "broken_url", `${url} — ${result.details} — recommend a manual check`);
     }
+    // REACHABLE: no finding. Requirement 4: a blocked/broken URL never
+    // touches the field's own confidence score — that stays whatever the
+    // Data Collector recorded; only errors/warnings/score reflect this check.
   }
 
   // Recommendations: only for genuinely null/low-confidence fields, no generic filler.
@@ -292,7 +381,14 @@ async function validate(filePath) {
     }
   }
 
-  const score = Math.max(0, 100 - 20 * errors.length - 5 * warnings.length);
+  const urlWarningCount = warnings.filter((w) => w.category === "broken_url").length;
+  const otherWarningCount = warnings.length - urlWarningCount;
+  const score = Math.max(
+    0,
+    100 - ERROR_PENALTY * errors.length
+      - URL_CHECK_PENALTY[BLOCKED_OR_UNVERIFIABLE] * urlWarningCount
+      - OTHER_WARNING_PENALTY * otherWarningCount,
+  );
   const status = errors.length > 0 ? "FAIL" : warnings.length > 0 ? "REVIEW" : "PASS";
 
   return {
@@ -304,6 +400,7 @@ async function validate(filePath) {
     errors,
     warnings,
     recommendations,
+    url_checks: urlChecks,
   };
 }
 

@@ -66,4 +66,19 @@ Nobody should hand-edit `data/schema.json` to relax a constraint because one rec
 
 ## 9. Validating a record
 
-Any record under `data/localities/` must validate against `data/schema.json` (standard JSON Schema, draft 2020-12) before it's considered usable by any consumer. There's no repo-committed validation script yet — that's implementation work for whoever wires the Data Agent's actual output into this directory (Phase 2 continuation or Phase 4 automation), not part of this groundwork pass.
+Any record under `data/localities/` must validate against `data/schema.json` (standard JSON Schema, draft 2020-12) before it's considered usable by any consumer. Run [scripts/validate-record.mjs](../scripts/validate-record.mjs) against a record to get a full report per [agents/data-validator.md](../agents/data-validator.md)'s rules:
+
+```
+node scripts/validate-record.mjs data/localities/<record>.json
+```
+
+It never edits the source record — it only writes a report to `output/validation-reports/<same filename>`, and exits `0` for `PASS`/`REVIEW`, `1` for `FAIL`.
+
+## 10. URL reachability is not factual confidence
+
+A URL cited as evidence for a field can be blocked to automated access (bot protection, rate limiting, a transient outage) without that meaning the fact it supports is wrong. `scripts/validate-record.mjs` and `agents/data-validator.md` both encode this as a hard separation:
+
+- **Whether a fact is true** is `confidence` on the field — set once, by the Data Collector, based on what it actually read.
+- **Whether a citation is currently reachable by an automated checker** is `REACHABLE` / `BLOCKED_OR_UNVERIFIABLE` / `CONFIRMED_BROKEN` in `url_checks` — checked every validation run, and can change run to run as bot-protection and outages come and go, independent of whether the underlying fact changed at all.
+
+**Rule for every current and future consumer:** never lower, hide, or re-derive a field's `confidence` because its source URL failed a reachability check. A `BLOCKED_OR_UNVERIFIABLE` result costs the record a small, fixed 2-point score penalty (versus 5 points for an actual data problem, or 20 for an error) precisely because it's a much weaker signal — it says "a human should double-check this link," not "this fact is in doubt." Only `CONFIRMED_BROKEN` (HTTP 404/410, a malformed URL, or an unsupported protocol) is treated as a real defect.

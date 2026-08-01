@@ -25,9 +25,21 @@ Output exactly one JSON object per record reviewed. No prose, no markdown, no co
   ],
   "recommendations": [
     { "field": "<field name, or null for record-level>", "message": "<non-blocking suggestion>" }
+  ],
+  "url_checks": [
+    {
+      "url": "",
+      "status": "REACHABLE | BLOCKED_OR_UNVERIFIABLE | CONFIRMED_BROKEN",
+      "http_status": null,
+      "checked_at": "",
+      "method": "HEAD | GET",
+      "details": ""
+    }
   ]
 }
 ```
+
+`url_checks` records the result of **every** URL check performed against the record — including `REACHABLE` ones — so the evidence trail is complete, not just the failures that made it into `errors`/`warnings`.
 
 ## Detection categories
 
@@ -52,7 +64,8 @@ Within `sources[]`: two entries with the same `id` is an **error** (breaks refer
 ### 5. `confidence_inconsistency`
 - `value === null` with `confidence > 0` → **error** (contradicts the "0 = unknown, value must be null" rule).
 - `value !== null` with `confidence === 0` → **error** (same rule, other direction).
-- A field's own `notes` contain hedging language ("could not," "not confirmed," "not independently verified," "unable to") while `confidence >= 0.8` → **warning** — the field is asserting more certainty than its own documented caveats support. (If `notes` hedge AND `confidence` is already reduced to reflect it, that's good calibration, not a flag — only report when the two disagree.)
+- A field's own `notes` contain hedging language about the **fact itself** ("not confirmed," "not independently confirmed," "uncertain," "disputed," "uncorroborated") while `confidence >= 0.8` → **warning** — the field is asserting more certainty than its own documented caveats support. (If `notes` hedge AND `confidence` is already reduced to reflect it, that's good calibration, not a flag — only report when the two disagree.)
+- **Hard rule:** hedging language about *network/retrieval access* — "blocked," "403," "could not render," "could not fetch," "inaccessible" — must **never** trigger this check. A source being blocked to automated access is a `broken_url` finding (check 8), not evidence against the factual confidence score. Do not downgrade or flag a field's confidence solely because a valid official URL blocks automated access — that's the whole point of check 8's three-state model existing separately from this one.
 
 ### 6. `impossible_value`
 Sanity bounds that indicate a data-entry or unit error, not just uncertainty:
@@ -67,10 +80,26 @@ Sanity bounds that indicate a data-entry or unit error, not just uncertainty:
 - Any field's `description`/`notes` text names a specific past year as an expiration/eligibility window (e.g. "available through 2025") that has already elapsed as of `last_verified` → **warning**, even if `last_verified` itself is recent — a fresh check that surfaced stale program data is still stale program data.
 
 ### 8. `broken_url`
-Attempt to actually fetch every URL in the record (`permit_url`, `interconnection_url`, every `sources[].url`, every embedded item `url`). Distinguish:
-- **Confirmed broken** (DNS failure, TLS error, HTTP 404/410/500) → **error**.
-- **Blocked/unverifiable** (HTTP 403/503 consistent with bot-protection, not a content-not-found signal) → **warning**, worded as "inaccessible to automated verification, not confirmed broken — recommend a manual check." Do not silently upgrade this to a pass, and do not treat it as equivalent to "confirmed working."
-- Reachable and returns 2xx → no finding.
+Actually fetch every URL in the record (`permit_url`, `interconnection_url`, every `sources[].url`, every embedded item `url`) — HEAD first, falling back to GET only if HEAD returns 405/501. Classify into exactly three states, recorded in `url_checks` for every URL (not just failures):
+
+**`REACHABLE`** — no finding, no penalty.
+- HTTP 2xx or 3xx, **and** (when a GET was performed) the body doesn't match a known bot-challenge marker ("just a moment," "checking your browser," "cf-chl," "captcha," "attention required," "verify you are human").
+
+**`BLOCKED_OR_UNVERIFIABLE`** — **warning**, 2-point penalty, worded "blocked/unverifiable, not confirmed broken — recommend a manual check." Never upgrade this to a pass, and never treat it as equivalent to confirmed-working:
+- HTTP 401, 403, 429
+- timeout
+- TLS/network failure
+- DNS failure
+- connection reset
+- a bot-challenge page detected in the body (even on HTTP 200)
+- any other HTTP status not explicitly listed under `CONFIRMED_BROKEN` below (e.g. 5xx) — only 404/410 are treated as a removal signal; everything else defaults to unverifiable rather than broken.
+
+**`CONFIRMED_BROKEN`** — **error**, 20-point penalty:
+- HTTP 404 or 410
+- malformed URL (fails `new URL()` parsing) — checked before any network call
+- unsupported protocol (anything other than `http:`/`https:`) — checked before any network call
+
+**Hard rule:** a `BLOCKED_OR_UNVERIFIABLE` result must never reduce the confidence score of the field that cites the URL — see check 5's hard rule. The two are deliberately independent: this check penalizes the *record's score* a small, fixed amount to flag "this needs a manual look," while the field's own confidence stays exactly what the Data Collector recorded.
 
 ### 9. `unsupported_claim`
 - A monetary/rate/fee field (`permit_fees`, `battery_programs`, `rebates`) whose `source_ids` resolve **only** to sources of `type: "government"` or `"other_official"` (weaker fit for a specific dollar figure than `cpuc`/`utility`/`program_administrator`) → **warning**, recommending a stronger-tier source be added.
@@ -81,10 +110,17 @@ Cross-check names that should agree within one record: the `utility.value` name 
 
 ## Scoring
 
-Deterministic, not judgment-based:
+Deterministic, not judgment-based. `broken_url` warnings (`BLOCKED_OR_UNVERIFIABLE`) are penalized separately and more lightly than every other warning category, because a blocked automated check is a much weaker signal than an actual data problem:
 
 ```
-score = 100 − (20 × number of errors) − (5 × number of warnings), floored at 0
+other_warnings = warnings not in category "broken_url"
+url_warnings   = warnings in category "broken_url"   (always BLOCKED_OR_UNVERIFIABLE; CONFIRMED_BROKEN is an error, not a warning)
+
+score = 100
+        − (20 × number of errors)
+        − (2  × url_warnings)
+        − (5  × other_warnings)
+      , floored at 0
 ```
 
 ```
@@ -100,7 +136,7 @@ status = "PASS"   if errors is empty AND warnings is empty
 1. Load the target record and `data/schema.json`.
 2. Run check 1 (schema validation) first — if it fails structurally, still run checks 2–10 where possible, but expect cascading findings.
 3. Run checks 2–10 in order, appending each finding to `errors` or `warnings` per the rules above.
-4. Attempt a live reachability check (category 8) for every URL in the record — this requires actually fetching, not just checking the string looks like a URL.
+4. Attempt a live reachability check (category 8) for every URL in the record — parse first (catches malformed URLs/unsupported protocols without a network call), then actually fetch. Record every result in `url_checks`, and only add an `errors`/`warnings` entry for `CONFIRMED_BROKEN`/`BLOCKED_OR_UNVERIFIABLE` results — `REACHABLE` gets no finding.
 5. Compute `score` and `status` per the formulas above.
 6. Populate `recommendations` with concrete, specific next actions tied to what was actually found (not generic advice).
 7. Output the JSON object. Nothing else.
