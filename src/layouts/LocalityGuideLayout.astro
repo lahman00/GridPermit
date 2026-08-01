@@ -1,0 +1,361 @@
+---
+// Reusable shell for locality guide pages. A page using this layout should
+// only import its locality JSON record and pass it here along with the
+// route's own path — every other section, schema block, and trust rule is
+// implemented once, here. See src/lib/locality-guide.ts for the underlying
+// data-shaping functions and docs/PILOT_EVALUATION.md Section 3 for which
+// fields are approved to show.
+import {
+	NOT_VERIFIED,
+	confidenceLabel,
+	buildSourceResolver,
+	getActiveBatteryPrograms,
+	formatTimeline,
+	buildPageMeta,
+	buildBreadcrumbItems,
+	buildBreadcrumbSchema,
+	buildFaqs,
+	buildFaqSchema,
+	resolvePermitAuthorityLabel,
+	type LocalityRecord,
+} from "../lib/locality-guide";
+
+interface Props {
+	record: LocalityRecord;
+	pagePath: string;
+	// Explicit path to the city's own index page (e.g. "/california/oakland/").
+	// Required so breadcrumb generation never has to guess it from pagePath.
+	cityPath: string;
+}
+
+const { record, pagePath, cityPath } = Astro.props;
+
+const { canonicalUrl, title, description, utilityShortName: utilityShort } = buildPageMeta(record, pagePath);
+const permitAuthorityLabel = resolvePermitAuthorityLabel(record);
+
+const sourcesFor = buildSourceResolver(record.sources);
+const activeBatteryPrograms = getActiveBatteryPrograms(record.battery_programs.value);
+const hasTimeline = record.timeline_days?.value != null;
+const hasGenerationSupplier = record.generation_supplier.value !== null;
+const timeline = hasTimeline ? formatTimeline(record.timeline_days.value) : null;
+const td = record.timeline_days?.value;
+
+const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canonicalUrl });
+const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
+const faqs = buildFaqs(record);
+const faqSchema = buildFaqSchema(faqs);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<link rel="canonical" href={canonicalUrl} />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content={canonicalUrl} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+</head>
+<body>
+	<div class="top-banner">
+		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
+	</div>
+
+	<nav class="navbar">
+		<div class="nav-container">
+			<a href="/" class="brand-logo" aria-label="GridPermit Home">
+				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
+			</a>
+			<div class="nav-links">
+				<a href="/#calculator">ROI Calculator</a>
+				<a href="/how-it-works">How It Works</a>
+				<a href="/methodology">Methodology</a>
+			</div>
+			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+		</div>
+	</nav>
+
+	<div class="page-container">
+		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+			{breadcrumbItems.map((item, i) => (
+				<>
+					{i > 0 && <span class="crumb-sep">/</span>}
+					{i === breadcrumbItems.length - 1
+						? <span class="crumb-current">{item.name}</span>
+						: <a href={item.url.replace("https://mygridpermit.com", "")}>{item.name}</a>}
+				</>
+			))}
+		</nav>
+
+		<main class="content-card">
+			<h1>{record.city.value} Solar Permit Guide</h1>
+			<p class="subtitle">{record.utility.value} territory · {record.county.value} · Last verified {record.last_verified}</p>
+
+			<div class="disclaimer-box">
+				<strong>Informational only.</strong> This page is not legal, engineering, or permit advice. Every fact below links to the official source it came from and shows how confident we are in it. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before making a decision.
+			</div>
+
+			<!-- ===== Overview ===== -->
+			<section>
+				<h2>Overview</h2>
+				<p>
+					GridPermit collects California residential solar and permitting facts directly from official sources — city and county government sites, utilities, and CPUC — and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology">our methodology</a> for the rules this page follows.
+				</p>
+
+				{hasTimeline && timeline && (
+					<div class="fact-callout">
+						<h3>Permit timeline</h3>
+						<p class="fact-value">{timeline.label}</p>
+						{timeline.standardPathCaveat && <p class="fact-status">{timeline.standardPathCaveat}</p>}
+						{td.notes && <p class="fact-notes">{td.notes}</p>}
+						<p class="fact-meta">Confidence: {confidenceLabel(record.timeline_days.confidence)}</p>
+						<p class="fact-meta">Source(s): {sourcesFor(record.timeline_days.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+					</div>
+				)}
+
+				<div class="fact-callout fact-callout-caution">
+					<h3>Battery/solar incentive program on record</h3>
+					{activeBatteryPrograms.length > 0 ? (
+						<>
+							{activeBatteryPrograms.map((p) => (
+								<div class="program-item">
+									<p class="fact-value">{p.name}</p>
+									<p class="fact-notes">{p.description}</p>
+									<p class="fact-status">Status on file: <strong>{p.status}</strong> — verify current status before relying on this.</p>
+								</div>
+							))}
+							<p class="fact-meta">Confidence: {confidenceLabel(record.battery_programs.confidence)}</p>
+							<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+						</>
+					) : (
+						<p class="fact-value muted">No currently verified active battery program is available in this record.</p>
+					)}
+				</div>
+			</section>
+
+			<!-- ===== Utility and generation supplier ===== -->
+			<section>
+				<h2>Utility and generation supplier</h2>
+				<div class="fact-block">
+					<h3>Utility</h3>
+					<p class="fact-value">{record.utility.value ?? NOT_VERIFIED}</p>
+					<p class="fact-meta">Confidence: {confidenceLabel(record.utility.confidence)}</p>
+					<p class="fact-meta">Source(s): {sourcesFor(record.utility.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+				</div>
+
+				<div class="fact-block">
+					<h3>Generation supplier</h3>
+					{hasGenerationSupplier ? (
+						<>
+							<p class="fact-value">{record.generation_supplier.value.name} ({record.generation_supplier.value.type === "cca" ? "Community Choice Aggregator" : record.generation_supplier.value.type})</p>
+							{record.generation_supplier.value.notes && <p class="fact-notes">{record.generation_supplier.value.notes}</p>}
+							<p class="fact-meta">Confidence: {confidenceLabel(record.generation_supplier.confidence)}</p>
+							<p class="fact-meta">Source(s): {sourcesFor(record.generation_supplier.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+						</>
+					) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
+				</div>
+
+				<div class="fact-block">
+					<h3>Interconnection</h3>
+					{record.interconnection_url.value ? (
+						<>
+							<p class="fact-value"><a href={record.interconnection_url.value} target="_blank" rel="noopener">{record.interconnection_url.value}</a></p>
+							{record.interconnection_url.notes && <p class="fact-notes">{record.interconnection_url.notes}</p>}
+							<p class="fact-meta">Confidence: {confidenceLabel(record.interconnection_url.confidence)}</p>
+						</>
+					) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
+				</div>
+			</section>
+
+			<!-- ===== Permit authority ===== -->
+			<section>
+				<h2>Permit authority</h2>
+				<div class="fact-block">
+					<p class="fact-value">{record.permit_authority.value ?? NOT_VERIFIED}</p>
+					{record.permit_authority.notes && <p class="fact-notes">{record.permit_authority.notes}</p>}
+					<p class="fact-meta">Confidence: {confidenceLabel(record.permit_authority.confidence)}</p>
+					<p class="fact-meta">Source(s): {sourcesFor(record.permit_authority.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+					{record.permit_url.value && (
+						<p class="fact-meta">Permit page: <a href={record.permit_url.value} target="_blank" rel="noopener">{record.permit_url.value}</a></p>
+					)}
+				</div>
+			</section>
+
+			<!-- ===== Required documents ===== -->
+			<section>
+				<h2>Required documents</h2>
+				{record.required_documents.value ? (
+					<>
+						<ul class="fact-list">
+							{record.required_documents.value.map((doc) => (
+								<li>
+									<strong>{doc.name}</strong>
+									{doc.required_when && <span class="doc-condition"> — required when: {doc.required_when}</span>}
+								</li>
+							))}
+						</ul>
+						<p class="fact-meta">Confidence: {confidenceLabel(record.required_documents.confidence)}</p>
+						<p class="fact-meta">Source(s): {sourcesFor(record.required_documents.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+					</>
+				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
+			</section>
+
+			<!-- ===== Inspection steps ===== -->
+			<section>
+				<h2>Inspection steps</h2>
+				{record.inspection_steps.value ? (
+					<>
+						<ul class="fact-list">
+							{record.inspection_steps.value.map((step) => <li>{step}</li>)}
+						</ul>
+						{record.inspection_steps.notes && <p class="fact-notes">{record.inspection_steps.notes}</p>}
+						<p class="fact-meta">Confidence: {confidenceLabel(record.inspection_steps.confidence)}</p>
+						<p class="fact-meta">Source(s): {sourcesFor(record.inspection_steps.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+					</>
+				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
+			</section>
+
+			<!-- ===== Eligibility constraints ===== -->
+			<section>
+				<h2>Eligibility constraints</h2>
+				{record.eligibility_constraints.value ? (
+					<>
+						<ul class="fact-list">
+							<li><strong>Property types:</strong> {record.eligibility_constraints.value.property_types.length ? record.eligibility_constraints.value.property_types.join(", ") : NOT_VERIFIED}</li>
+							<li><strong>Max system size (AC):</strong> {record.eligibility_constraints.value.system_size_kw_ac_max != null ? `${record.eligibility_constraints.value.system_size_kw_ac_max} kW` : NOT_VERIFIED}</li>
+							<li><strong>Max system size (DC):</strong> {record.eligibility_constraints.value.system_size_kw_dc_max != null ? `${record.eligibility_constraints.value.system_size_kw_dc_max} kW` : NOT_VERIFIED}</li>
+							<li><strong>Max thermal capacity:</strong> {record.eligibility_constraints.value.thermal_capacity_kw_max != null ? `${record.eligibility_constraints.value.thermal_capacity_kw_max} kW` : NOT_VERIFIED}</li>
+							<li><strong>Program/pathway:</strong> {record.eligibility_constraints.value.program_or_pathway ?? NOT_VERIFIED}</li>
+							{record.eligibility_constraints.value.other_conditions.length > 0 && (
+								<li><strong>Other conditions:</strong>
+									<ul class="fact-sublist">
+										{record.eligibility_constraints.value.other_conditions.map((c) => <li>{c}</li>)}
+									</ul>
+								</li>
+							)}
+						</ul>
+						<p class="fact-meta">Confidence: {confidenceLabel(record.eligibility_constraints.confidence)}</p>
+						<p class="fact-meta">Source(s): {sourcesFor(record.eligibility_constraints.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+					</>
+				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
+			</section>
+
+			<!-- ===== Official contacts ===== -->
+			<section>
+				<h2>Official contacts</h2>
+				{record.official_contacts.value ? (
+					<>
+						<ul class="fact-list">
+							{record.official_contacts.value.map((c) => (
+								<li>
+									<strong>{c.role ?? c.name ?? "Contact"}</strong>
+									{c.phone && <span> — phone: {c.phone}</span>}
+									{c.email && <span>, email: <a href={`mailto:${c.email}`}>{c.email}</a></span>}
+									{c.url && <span>, <a href={c.url} target="_blank" rel="noopener">link</a></span>}
+								</li>
+							))}
+						</ul>
+						<p class="fact-meta">Confidence: {confidenceLabel(record.official_contacts.confidence)}</p>
+					</>
+				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
+			</section>
+
+			<!-- ===== Sources ===== -->
+			<section>
+				<h2>Sources</h2>
+				<ul class="fact-list sources-list">
+					{record.sources.map((s) => (
+						<li>
+							<a href={s.url} target="_blank" rel="noopener">{s.title}</a> — {s.publisher} ({s.type}). Accessed {s.accessed_date}.
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<div class="footer-disclaimer">
+				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Requirements, fees, and program terms change. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before starting a project. Last verified {record.last_verified}.</p>
+				<p><a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
+			</div>
+		</main>
+	</div>
+
+	<footer class="footer">
+		<div class="footer-container">
+			<p>© 2026 GridPermit. All rights reserved.</p>
+			<p class="affiliate-disclosure">
+				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
+			</p>
+			<div class="footer-links">
+				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+			</div>
+		</div>
+	</footer>
+
+	<style>
+		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
+		* { box-sizing: border-box; }
+		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
+		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
+		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+		.brand-logo { text-decoration: none; }
+		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
+		.logo-bold { font-weight: 800; }
+		.nav-links { display: flex; gap: 1.25rem; }
+		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
+		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+
+		.page-container { max-width: 840px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
+		.crumb-sep { margin: 0 0.4rem; }
+		.crumb-current { color: var(--text-main); font-weight: 600; }
+
+		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
+		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
+		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
+		h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 2rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
+		section:first-of-type h2 { border-top: none; padding-top: 0; margin-top: 1.5rem; }
+		h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.35rem; }
+		p { margin: 0 0 0.75rem; }
+
+		.disclaimer-box { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.5rem; }
+
+		.fact-callout { background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+		.fact-callout-caution { background: #fffbeb; border-color: #fde68a; }
+		.fact-block { margin-bottom: 1.5rem; }
+		.program-item { margin-bottom: 0.75rem; }
+		.fact-value { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.3rem; }
+		.fact-value.muted { color: var(--text-muted); font-weight: 600; font-style: italic; }
+		.fact-notes { font-size: 0.88rem; color: #334155; margin-bottom: 0.4rem; }
+		.fact-status { font-size: 0.85rem; color: #92400e; margin-bottom: 0.4rem; }
+		.fact-meta { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+		.fact-meta a { color: var(--primary); text-decoration: none; }
+
+		.fact-list { padding-left: 1.3rem; margin: 0 0 0.5rem; font-size: 0.92rem; }
+		.fact-list li { margin-bottom: 0.45rem; }
+		.fact-sublist { padding-left: 1.2rem; margin-top: 0.3rem; }
+		.doc-condition { color: var(--text-muted); font-size: 0.88rem; }
+		.sources-list a { color: var(--primary); }
+
+		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
+		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
+
+		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
+		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
+		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
+	</style>
+</body>
+</html>
