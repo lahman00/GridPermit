@@ -27,6 +27,8 @@ data/
 
 Every field is `{ value, confidence, source_ids }` — a value that might be `null`, a confidence score from 0 (unknown) to 1 (confirmed on a primary source within 90 days), and a list of IDs pointing into that record's own `sources[]` registry. Record-level metadata (`record_id`, `schema_version`, `last_verified`, `sources`) sits outside that envelope because it describes the record itself, not a researched fact.
 
+`value` itself isn't always a flat scalar or a simple list — `generation_supplier` and `eligibility_constraints` are structured objects, and `required_documents` items (since 1.2.0) each carry their own nested `source_ids` independent of the field-level one. The envelope (`value`/`confidence`/`source_ids`/`notes`) is the constant; what's inside `value` varies by field, per `data/schema.json`.
+
 ## 4. The rule every consumer must follow
 
 **No tool, page, or calculator may display a field's value unless it checks `confidence` and `value !== null` first.** This is a direct continuation of the Phase 1 rule that shipped in the homepage rewrite: [index.astro](../src/pages/index.astro) shows "Coming Soon" instead of inventing a payback figure it can't back up. Every future consumer of `data/localities/*.json` follows the same pattern:
@@ -41,8 +43,8 @@ There is no fixed sitewide threshold mandated here — each consumer sets its ow
 
 | Consumer | What it reads | What it must never do |
 |---|---|---|
-| **Homepage calculator** ([index.astro](../src/pages/index.astro)) | Looks up the record for the user's ZIP → city/utility, once ZIP-to-locality mapping exists. Uses `permit_fees`, `timeline_days`, `rebates`, `battery_programs` if confidence clears its threshold. | Fall back to the current flat placeholder rate/yield constants and present the result as if it were locality-specific — if a locality has no record yet, say so, don't blend fake and real numbers together. |
-| **Permit content pages** (Phase 3, not yet built) | One page per covered `(city, utility)`, built directly from that locality's record — `permit_authority`, `permit_url`, `required_documents`, `inspection_steps`, `timeline_days`, `official_contacts`. | Publish a page for a locality with no record, or with a record whose core fields are mostly `null`/low-confidence — see Section 6. |
+| **Homepage calculator** ([index.astro](../src/pages/index.astro)) | Looks up the record for the user's ZIP → city/utility, once ZIP-to-locality mapping exists. Uses `permit_fees`, `timeline_days`, `rebates`, `battery_programs` if confidence clears its threshold. Reads `generation_supplier` before assuming `utility`'s rates apply to generation charges. | Fall back to the current flat placeholder rate/yield constants and present the result as if it were locality-specific — if a locality has no record yet, say so, don't blend fake and real numbers together. |
+| **Permit content pages** (Phase 3, not yet built) | One page per covered `(city, utility)`, built directly from that locality's record — `permit_authority`, `permit_url`, `required_documents`, `inspection_steps`, `timeline_days`, `eligibility_constraints`, `official_contacts`. Uses `eligibility_constraints` to state the scope of any timeline/inspection claim instead of a blanket "this is how long it takes." | Publish a page for a locality with no record, or with a record whose core fields are mostly `null`/low-confidence — see Section 6. State a timeline/inspection rule without also stating the `eligibility_constraints` scope it applies to. |
 | **Content Agent** (not yet built, see MASTER_PLAN.md Section 4) | Drafts prose only from fields that pass the confidence threshold; must cite `source_ids` inline or in a visible footnote. | Fill a gap in the record with plausible-sounding prose. If a fact isn't in the record, the Content Agent's job is to flag a Data Agent task, not write around it. |
 | **Fact-Check Agent** (not yet built) | Diffs any drafted page against the record it claims to be based on — every number in the draft must trace to a `source_ids` entry. | Approve a page containing a number that isn't backed by the record it cites. |
 | **Publishing Agent** (not yet built) | Reads `last_verified` to flag stale records (see Section 7) before a page ships or re-ships. | Publish from a record it hasn't checked the staleness of. |
@@ -57,12 +59,26 @@ A locality is either covered (a record file exists, most core fields have real c
 
 ## 8. Schema versioning
 
-`schema_version` is pinned to `"1.1.0"` for every record right now (enforced as a `const` in `data/schema.json`). Rules for future changes:
+`schema_version` is pinned to `"1.2.0"` for every record right now (enforced as a `const` in `data/schema.json`), read as `<major>.<minor>.<patch>`. Explicit rule — no ambiguity between tiers:
 
-- **Additive, backward-compatible change** (e.g. a new optional field, or a tightened validation rule that every current record already satisfies): bump to `1.x.0`, existing records remain valid without modification. `1.1.0` was this kind of change — it tightened `record_id` to lowercase kebab-case with no underscores, and the one existing record was renamed to match rather than left non-conformant.
-- **Breaking change** (renaming/removing a field, changing a value's type): bump to `2.0.0`, and every existing record under `data/localities/` must be migrated before the new version is used — a mixed-version `data/localities/` directory is not allowed, since every consumer would need to branch on version to read it safely.
+- **Patch** (`x.y.Z`): documentation or validator fixes with **no schema-shape change** at all — e.g. clarifying a description string in `data/schema.json`, or a `scripts/validate-record.mjs` bug fix that doesn't change what a valid record looks like. No record ever needs to change.
+- **Minor** (`x.Y.0`): **optional additive fields only** — a new field that is not `required`, or a new enum value that doesn't invalidate any existing value. Every existing record remains valid without modification.
+- **Major** (`X.0.0`): **required fields, renamed fields, removed fields, or changed field types** — anything that can make a previously-valid record fail validation. This includes adding a new field to the top-level `required` array, even if the field itself is conceptually "new information" rather than a rename/removal — a required field an old record doesn't have is exactly what makes that record invalid, which is the operational definition of "breaking" here.
+
+**Every major schema change requires a migration script and migration of all existing records under `data/localities/` before commit.** A mixed-version `data/localities/` directory is never allowed — every consumer would need to branch on version to read it safely, and nothing in this repo does that.
+
+**Acknowledged historical exception — `1.2.0`:** `1.2.0` added `generation_supplier` and `eligibility_constraints` as new *required* top-level keys, and restructured `required_documents` items from plain strings to objects. Under the rule above, that's a **Major** change and should have been versioned `2.0.0`. It was shipped as `1.2.0` anyway, kept as-is rather than renumbered after the fact, specifically because both existing records (`ca-santa-clara-san-jose-pge`, `ca-alameda-fremont-pge`) were migrated atomically in the same change — no unmigrated record was ever left on disk, so the practical risk the Major-bump rule exists to prevent never materialized here. This is a one-time exception for the record, not a precedent: the **next** schema change that adds a required field, renames a field, removes a field, or changes a field's type must follow the Major rule exactly — a real migration script, every existing record migrated before commit, and a `2.0.0`-or-higher version.
 
 Nobody should hand-edit `data/schema.json` to relax a constraint because one record doesn't fit — that's a signal the record has a real problem, not the schema.
+
+## 11. `generation_supplier` and `eligibility_constraints` (added in 1.2.0)
+
+Added directly in response to real facts the first two collected records couldn't represent without burying them in free-text `notes`:
+
+- **`generation_supplier`** exists because `utility` answers "who do I interconnect/get billed through," not "who generates my electricity" — in Fremont those are two different entities (PG&E vs. Ava Community Energy, a Community Choice Aggregator). Any future rate or generation-cost content is wrong if it silently assumes `utility` also means "generation supplier." Consumers that touch rates/pricing must read `generation_supplier` before making that assumption, not just `utility`.
+- **`eligibility_constraints`** exists because permit/timeline/inspection rules are frequently scoped ("this 3-day turnaround only applies to systems ≤10kW AC on single-family/duplex homes") and that scope was previously only readable as prose duplicated across `timeline_days.notes` and `inspection_steps.notes`. Populate it once per record; other fields' `notes` should cross-reference it (`"see eligibility_constraints"`) instead of repeating the same constraint as free text in multiple places.
+
+Both fields follow the same rule as every other field: `null` when not researched, a real source-backed value otherwise — see [agents/data-collector.md](../agents/data-collector.md) for the exact value shapes and rules.
 
 ## 9. Validating a record
 

@@ -11,8 +11,8 @@ This is the first agent in the pipeline described in [docs/MASTER_PLAN.md](../do
 Output exactly one JSON object per run, shaped per `data/schema.json`. The object contains these fields, each wrapped as `{ value, confidence, source_ids }` (except `record_id`, `schema_version`, `last_verified`, and `sources`, which are record-level metadata, not researched facts):
 
 ```
-utility, city, county, permit_authority, permit_url, interconnection_url,
-battery_programs, required_documents, inspection_steps, timeline_days,
+utility, generation_supplier, city, county, permit_authority, permit_url, interconnection_url,
+battery_programs, required_documents, inspection_steps, timeline_days, eligibility_constraints,
 permit_fees, rebates, official_contacts
 ```
 
@@ -55,6 +55,49 @@ Applies to `battery_programs`, `required_documents`, `inspection_steps`, `permit
 
 These are not interchangeable. Never default to `[]` just to avoid showing `null` — that would itself be inventing a fact ("confirmed zero") you don't actually have.
 
+## `generation_supplier` (schema v1.2.0+)
+
+Separate from `utility`. `utility` is the distribution/interconnection/billing entity (who a solar interconnection application goes through); `generation_supplier` is who actually generates the electricity by default — in much of California these differ, because a Community Choice Aggregator (CCA) may be the default generation provider while the IOU remains the delivery utility. Value shape when not `null`: `{ "name": string|null, "type": "cca"|"utility"|"other", "notes": string|null }`.
+
+- `type: "utility"` — the record's own `utility` also generates by default (no separate CCA).
+- `type: "cca"` — a Community Choice Aggregator is the default generator (e.g. Ava Community Energy, MCE, CleanPowerSF, Silicon Valley Clean Energy). Only set this from a source that actually names the CCA for this specific city — do not assume a neighboring city's CCA applies.
+- `type: "other"` — neither of the above (e.g. direct access), only when a source states this explicitly.
+
+Never invent a CCA relationship because "many CA cities have one" — same rule as everything else: found on an official source for this locality, or `null`.
+
+## `eligibility_constraints` (schema v1.2.0+)
+
+Structured scope-of-applicability facts for permit/timeline/inspection rules — the kind of thing that's easy to bury as a footnote in `timeline_days.notes` but that a future calculator needs to be able to check programmatically (e.g. "does this rule apply to a 15 kW system?"). Value shape when not `null`:
+
+```json
+{
+  "property_types": ["single-family", "duplex"],
+  "system_size_kw_ac_max": 10,
+  "system_size_kw_dc_max": null,
+  "thermal_capacity_kw_max": 30,
+  "program_or_pathway": "Name of the expedited program/code chapter this applies to",
+  "other_conditions": []
+}
+```
+
+Every sub-field follows the same rule as everything else: a specific number/name only when a source states it, `null`/`[]` otherwise. If a source states an AC cap but not a DC cap, `system_size_kw_dc_max` stays `null` — do not derive one. `other_conditions` is for conditions a source states that don't fit the structured fields above; don't leave it empty just because it's easier — but don't pad it with restated facts from the other fields either.
+
+If the record's `timeline_days`, `inspection_steps`, or similar fields describe a scope-limited rule, populate `eligibility_constraints` once and have those other fields' `notes` cross-reference it (`"See eligibility_constraints for the scope this applies to."`) rather than duplicating the same constraint as prose in multiple places.
+
+## `required_documents` items (schema v1.2.0+)
+
+Each item is now an object, not a bare string: `{ "name": string, "required_when": string|null, "source_ids": [...] }`. Every item carries its **own** `source_ids` — independent of the field-level `required_documents.source_ids` — because different required documents on the same page can come from different sources, or you may confirm some documents with higher certainty than others. An item with an empty `source_ids` is invalid, same rule as everything else. `required_when` is for a stated condition (e.g. `"commercial/multifamily only"`); use `null` when a source doesn't condition the requirement.
+
+## `battery_programs` / `rebates` item fields: `effective_from`, `expires_on`, `status` (schema v1.2.0+)
+
+Every program item now also carries:
+
+- `effective_from` (ISO date or `null`) — when the source states the program/tier's terms took effect.
+- `expires_on` (ISO date or `null`) — when the source states the program/tier's terms end.
+- `status`: `"active"`, `"expired"`, or `"unknown"`.
+
+**`status` is never inferred from silence.** Set `"active"`/`"expired"` only when a source directly supports it — either it says so explicitly, or you can derive it unambiguously from an explicit `expires_on` date that has (or hasn't) passed as of `last_verified`. If a source gives a vague window like "available through 2025" with no specific day, it's fine to record `expires_on: "2025-12-31"` (end-of-year, the ordinary reading of "through <year>") — but say so in the field's `notes`, since that's an interpretation of the source's wording, not a verbatim date. If nothing about timing is stated at all, all three fields are `null`/`"unknown"` — do not guess a plausible-sounding date.
+
 ## Process
 
 1. Identify the target `(city, utility)` pair for this run.
@@ -83,8 +126,13 @@ The city, utility, and every value below are fictional placeholders to illustrat
 ```json
 {
   "record_id": "ca-example-county-example-city-example-utility",
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "utility": { "value": "Example Utility Co.", "confidence": 1.0, "source_ids": ["S1"] },
+  "generation_supplier": {
+    "value": { "name": "Example Community Energy", "type": "cca", "notes": "Default generation supplier per S1; Example Utility Co. remains delivery/billing utility." },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
   "city": { "value": "Example City", "confidence": 1.0, "source_ids": ["S1"] },
   "county": { "value": "Example County", "confidence": 1.0, "source_ids": ["S1"] },
   "permit_authority": { "value": "City of Example City Building & Safety Division", "confidence": 0.9, "source_ids": ["S2"] },
@@ -92,12 +140,28 @@ The city, utility, and every value below are fictional placeholders to illustrat
   "interconnection_url": { "value": null, "confidence": 0.0, "source_ids": [] },
   "battery_programs": { "value": null, "confidence": 0.0, "source_ids": [] },
   "required_documents": {
-    "value": ["Site plan", "Single-line electrical diagram", "Structural attachment details"],
+    "value": [
+      { "name": "Site plan", "required_when": null, "source_ids": ["S2"] },
+      { "name": "Single-line electrical diagram", "required_when": null, "source_ids": ["S2"] },
+      { "name": "Structural attachment details", "required_when": "roof-mounted systems only", "source_ids": ["S2"] }
+    ],
     "confidence": 0.8,
     "source_ids": ["S2"]
   },
   "inspection_steps": { "value": null, "confidence": 0.0, "source_ids": [] },
-  "timeline_days": { "value": { "min_days": 10, "max_days": 20, "notes": "Standard residential review track only." }, "confidence": 0.6, "source_ids": ["S2"] },
+  "timeline_days": { "value": { "min_days": 10, "max_days": 20, "notes": "Standard residential review track only. See eligibility_constraints for scope." }, "confidence": 0.6, "source_ids": ["S2"] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["single-family"],
+      "system_size_kw_ac_max": 15,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Standard Residential Review Track",
+      "other_conditions": []
+    },
+    "confidence": 0.6,
+    "source_ids": ["S2"]
+  },
   "permit_fees": {
     "value": [{ "name": "Residential solar permit fee", "amount_usd": 245, "unit": "flat", "notes": null }],
     "confidence": 0.9,

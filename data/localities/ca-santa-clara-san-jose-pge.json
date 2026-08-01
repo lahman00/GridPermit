@@ -1,12 +1,18 @@
 {
   "record_id": "ca-santa-clara-san-jose-pge",
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
 
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 1.0,
     "source_ids": ["S6"],
     "notes": "Given as the run's input parameter; directly corroborated by S6, which states PG&E is the primary SGIP administrator for Santa Clara County."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0.0,
+    "source_ids": [],
+    "notes": "Not researched for San José this session — no source in this record confirms whether a Community Choice Aggregator serves as the default generation supplier here, the way Ava Community Energy does for Fremont (see the Fremont record). Left null rather than assumed."
   },
   "city": {
     "value": "San José",
@@ -49,7 +55,10 @@
         "value_usd_per_kwh": 1100,
         "value_usd_flat": null,
         "eligibility": "PG&E or SCE residential customers (general market tier)",
-        "url": "https://www.selfgenca.com/home/about/"
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
       },
       {
         "name": "SGIP - Equity Resiliency",
@@ -58,17 +67,21 @@
         "value_usd_per_kwh": 1000,
         "value_usd_flat": null,
         "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific San José/Santa Clara eligibility not independently confirmed this session.",
-        "url": "https://www.selfgenca.com/home/about/"
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
       }
     ],
     "confidence": 0.7,
     "source_ids": ["S4", "S5"],
-    "notes": "Rate figures confirmed directly from cpuc.ca.gov and selfgenca.com on 2026-08-01. The Equity Resiliency source text says the $1,000/kWh rate was 'available through 2025' — since today is 2026-08-01, current active status and rate should be re-verified against selfgenca.com's live Program Metrics page before being shown to a user as current."
+    "notes": "Rate figures confirmed directly from cpuc.ca.gov and selfgenca.com on 2026-08-01. 'effective_from' for the Residential Solar and Storage Equity tier is the reservation-opening date directly stated by the source (2025-06-02); its 'status' is 'unknown' because no source states a current active/expired status or end date for that tier. 'expires_on' for the Equity Resiliency tier (2025-12-31) is interpreted as end-of-year from the source's stated 'available through 2025' — no specific day was given. Since that date is before last_verified (2026-08-01), 'status' is set to 'expired'; this should be re-verified against selfgenca.com's live Program Metrics page before being shown to a user as current."
   },
 
   "required_documents": { "value": null, "confidence": 0.0, "source_ids": [] },
   "inspection_steps": { "value": null, "confidence": 0.0, "source_ids": [] },
   "timeline_days": { "value": null, "confidence": 0.0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0.0, "source_ids": [] },
   "permit_fees": { "value": null, "confidence": 0.0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0.0, "source_ids": [] },
 

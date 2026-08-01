@@ -9,6 +9,7 @@
     "record_id",
     "schema_version",
     "utility",
+    "generation_supplier",
     "city",
     "county",
     "permit_authority",
@@ -18,6 +19,7 @@
     "required_documents",
     "inspection_steps",
     "timeline_days",
+    "eligibility_constraints",
     "permit_fees",
     "rebates",
     "official_contacts",
@@ -32,11 +34,22 @@
     },
     "schema_version": {
       "type": "string",
-      "const": "1.1.0",
-      "description": "Version of this schema the record was produced against. 1.1.0 tightened record_id to lowercase kebab-case, no underscores (previously allowed). Bump on a breaking change; see docs/DATA_ARCHITECTURE.md for the migration rule."
+      "const": "1.2.0",
+      "description": "Version of this schema the record was produced against. 1.2.0 added generation_supplier and eligibility_constraints as new required fields, extended battery_programs/rebates items with effective_from/expires_on/status, and replaced required_documents' plain-string items with structured {name, required_when, source_ids} objects. 1.1.0 tightened record_id to lowercase kebab-case, no underscores. Bump on further changes; see docs/DATA_ARCHITECTURE.md for the migration rule."
     },
 
     "utility": { "$ref": "#/$defs/stringField" },
+    "generation_supplier": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/generationSupplierValue" }
+          ]
+        }
+      }
+    },
     "city": { "$ref": "#/$defs/stringField" },
     "county": { "$ref": "#/$defs/stringField" },
     "permit_authority": { "$ref": "#/$defs/stringField" },
@@ -46,7 +59,17 @@
     "battery_programs": { "$ref": "#/$defs/programArrayField" },
     "rebates": { "$ref": "#/$defs/programArrayField" },
 
-    "required_documents": { "$ref": "#/$defs/stringArrayField" },
+    "required_documents": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "array", "items": { "$ref": "#/$defs/requiredDocumentItem" } }
+          ]
+        }
+      }
+    },
     "inspection_steps": { "$ref": "#/$defs/stringArrayField" },
 
     "timeline_days": {
@@ -65,6 +88,18 @@
               },
               "required": ["min_days", "max_days", "notes"]
             }
+          ]
+        }
+      }
+    },
+
+    "eligibility_constraints": {
+      "allOf": [{ "$ref": "#/$defs/fieldEnvelope" }],
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/eligibilityConstraintsValue" }
           ]
         }
       }
@@ -179,7 +214,7 @@
     "programItem": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name"],
+      "required": ["name", "effective_from", "expires_on", "status"],
       "properties": {
         "name": { "type": "string" },
         "administrator": { "type": ["string", "null"] },
@@ -187,7 +222,80 @@
         "value_usd_per_kwh": { "type": ["number", "null"] },
         "value_usd_flat": { "type": ["number", "null"] },
         "eligibility": { "type": ["string", "null"] },
-        "url": { "type": ["string", "null"], "format": "uri" }
+        "url": { "type": ["string", "null"], "format": "uri" },
+        "effective_from": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "ISO date this program/tier's terms took effect, if stated by a source. Null if unknown."
+        },
+        "expires_on": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "ISO date this program/tier's terms end, if stated by a source. Null if unknown or open-ended."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "expired", "unknown"],
+          "description": "'active'/'expired' only when a source directly supports it (e.g. an explicit expires_on date has passed, or a source states current status). Otherwise 'unknown' — never inferred from silence."
+        }
+      }
+    },
+
+    "requiredDocumentItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "source_ids"],
+      "properties": {
+        "name": { "type": "string" },
+        "required_when": {
+          "type": ["string", "null"],
+          "description": "Condition under which this document is required (e.g. 'always', 'commercial/multifamily only'). Null if not specified by the source."
+        },
+        "source_ids": { "$ref": "#/$defs/sourceIds" }
+      }
+    },
+
+    "generationSupplierValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "notes"],
+      "properties": {
+        "name": { "type": ["string", "null"] },
+        "type": {
+          "type": "string",
+          "enum": ["cca", "utility", "other"],
+          "description": "'cca' = Community Choice Aggregation (e.g. Ava Community Energy/EBCE), 'utility' = the same entity as the record's `utility` field generates by default, 'other' = neither (e.g. direct access)."
+        },
+        "notes": { "type": ["string", "null"] }
+      }
+    },
+
+    "eligibilityConstraintsValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "property_types",
+        "system_size_kw_ac_max",
+        "system_size_kw_dc_max",
+        "thermal_capacity_kw_max",
+        "program_or_pathway",
+        "other_conditions"
+      ],
+      "properties": {
+        "property_types": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Property types this rule set applies to, e.g. ['single-family', 'duplex']. Empty array if not specified/limited by the source."
+        },
+        "system_size_kw_ac_max": { "type": ["number", "null"], "description": "Max system AC capacity in kW for this rule set to apply, if stated. Null if unstated." },
+        "system_size_kw_dc_max": { "type": ["number", "null"], "description": "Max system DC capacity in kW for this rule set to apply, if stated. Null if unstated." },
+        "thermal_capacity_kw_max": { "type": ["number", "null"], "description": "Max thermal capacity in kW for this rule set to apply (solar thermal/water heating), if stated. Null if unstated." },
+        "program_or_pathway": { "type": ["string", "null"], "description": "Name of the expedited program/permitting pathway this rule set belongs to, e.g. 'Instant Solar Permit (ISP) / SolarAPP+'. Null if not a named pathway." },
+        "other_conditions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Any other stated conditions not captured by the structured fields above. Empty array if none."
+        }
       }
     },
 

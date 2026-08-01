@@ -35,9 +35,9 @@ const URL_CHECK_PENALTY = { [BLOCKED_OR_UNVERIFIABLE]: 2 };
 const OTHER_WARNING_PENALTY = 5;
 const ERROR_PENALTY = 20;
 const FIELD_NAMES = [
-  "utility", "city", "county", "permit_authority", "permit_url",
+  "utility", "generation_supplier", "city", "county", "permit_authority", "permit_url",
   "interconnection_url", "battery_programs", "required_documents",
-  "inspection_steps", "timeline_days", "permit_fees", "rebates",
+  "inspection_steps", "timeline_days", "eligibility_constraints", "permit_fees", "rebates",
   "official_contacts",
 ];
 const MONETARY_FIELDS = ["permit_fees", "battery_programs", "rebates"];
@@ -244,6 +244,21 @@ async function validate(filePath) {
     if (typeof value === "string" && value.trim() === "") {
       addFinding(errors, fn, "impossible_value", "value is an empty string; should be null if unknown");
     }
+
+    // 3. missing_source, per-item: required_documents items each carry their
+    // own source_ids independent of the field-level ones (schema v1.2.0+).
+    if (fn === "required_documents" && Array.isArray(value)) {
+      for (const doc of value) {
+        for (const sid of doc.source_ids ?? []) {
+          if (!sourceIdsKnown.has(sid)) {
+            addFinding(errors, fn, "missing_source", `required_documents item '${doc.name}' source_ids references '${sid}' which does not exist in sources[]`);
+          }
+        }
+        if ((doc.source_ids ?? []).length === 0) {
+          addFinding(errors, fn, "missing_source", `required_documents item '${doc.name}' has no source_ids`);
+        }
+      }
+    }
   }
 
   // 6. impossible_value: dates in the future
@@ -281,6 +296,26 @@ async function validate(filePath) {
     }
   }
 
+  // 6. impossible_value: battery_programs/rebates status vs effective_from/expires_on consistency.
+  for (const fn of ["battery_programs", "rebates"]) {
+    const arr = record[fn]?.value;
+    if (!Array.isArray(arr)) continue;
+    for (const item of arr) {
+      if (item.effective_from && item.expires_on && new Date(item.effective_from) > new Date(item.expires_on)) {
+        addFinding(errors, fn, "impossible_value", `${item.name}: effective_from (${item.effective_from}) is after expires_on (${item.expires_on})`);
+      }
+      if (item.expires_on) {
+        const expired = new Date(item.expires_on) < now;
+        if (expired && item.status === "active") {
+          addFinding(warnings, fn, "confidence_inconsistency", `${item.name}: status is 'active' but expires_on (${item.expires_on}) has already passed`);
+        }
+        if (!expired && item.status === "expired") {
+          addFinding(warnings, fn, "confidence_inconsistency", `${item.name}: status is 'expired' but expires_on (${item.expires_on}) is still in the future`);
+        }
+      }
+    }
+  }
+
   // 4. duplicate_source
   const byId = new Map();
   const byUrl = new Map();
@@ -310,6 +345,14 @@ async function validate(filePath) {
     const arr = record[fn]?.value;
     if (!Array.isArray(arr)) continue;
     for (const item of arr) {
+      // Prefer the structured expires_on field (schema v1.2.0+) when present
+      // — it's precise, so the text heuristic below would only duplicate it.
+      if (item.expires_on) {
+        if (new Date(item.expires_on) < now) {
+          addFinding(warnings, fn, "outdated_information", `${item.name}: expires_on (${item.expires_on}) has elapsed as of last_verified ${record.last_verified}`);
+        }
+        continue;
+      }
       const desc = item.description ?? "";
       const yearMatches = [...desc.matchAll(/\b(20\d{2})\b/g)].map((m) => Number(m[1]));
       for (const y of yearMatches) {

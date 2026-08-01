@@ -53,10 +53,12 @@ Every entry in `errors`/`warnings` must use exactly one of these ten category va
 Validate the whole record against [data/schema.json](../data/schema.json) (JSON Schema, draft 2020-12). Any structural failure — wrong type, missing required key, pattern mismatch, `additionalProperties` violation — is an **error**, category `schema_violation`.
 
 ### 2. `missing_required_field`
-Redundant with a full schema check (all 17 top-level keys are `required`), but check explicitly and report separately from generic schema failures so a human can tell "a key is entirely absent" from "a key is present but malformed."
+Redundant with a full schema check (all 19 top-level keys are `required`, as of schema v1.2.0 — `generation_supplier` and `eligibility_constraints` were added), but check explicitly and report separately from generic schema failures so a human can tell "a key is entirely absent" from "a key is present but malformed."
 
 ### 3. `missing_source`
 For every field with `value != null`: `source_ids` must be non-empty, and every ID in it must resolve to a real entry in the record's `sources[]`. A non-null value with no resolvable source is an **error**. (The schema's `if/else` already blocks `value != null` with `source_ids: []` structurally — this check additionally catches **dangling references**: an ID listed in `source_ids` that doesn't exist in `sources[]`, which the schema's shape-only validation cannot catch.)
+
+Since schema v1.2.0, `required_documents` items each carry their **own** `source_ids`, independent of the field-level one. Apply this same dangling-reference check, and the same "non-empty" requirement, to every item's `source_ids` individually — not just the field-level array.
 
 ### 4. `duplicate_source`
 Within `sources[]`: two entries with the same `id` is an **error** (breaks referential integrity — ambiguous which one `source_ids` means). Two entries with the same `url` under different `id`s is a **warning** (inflates apparent corroboration without adding a real independent source).
@@ -65,6 +67,7 @@ Within `sources[]`: two entries with the same `id` is an **error** (breaks refer
 - `value === null` with `confidence > 0` → **error** (contradicts the "0 = unknown, value must be null" rule).
 - `value !== null` with `confidence === 0` → **error** (same rule, other direction).
 - A field's own `notes` contain hedging language about the **fact itself** ("not confirmed," "not independently confirmed," "uncertain," "disputed," "uncorroborated") while `confidence >= 0.8` → **warning** — the field is asserting more certainty than its own documented caveats support. (If `notes` hedge AND `confidence` is already reduced to reflect it, that's good calibration, not a flag — only report when the two disagree.)
+- `battery_programs`/`rebates` items (schema v1.2.0+): `status: "active"` while `expires_on` is a date already in the past, or `status: "expired"` while `expires_on` is still in the future → **warning**. The structured fields must agree with each other; a mismatch means one of them is stale or was set incorrectly.
 - **Hard rule:** hedging language about *network/retrieval access* — "blocked," "403," "could not render," "could not fetch," "inaccessible" — must **never** trigger this check. A source being blocked to automated access is a `broken_url` finding (check 8), not evidence against the factual confidence score. Do not downgrade or flag a field's confidence solely because a valid official URL blocks automated access — that's the whole point of check 8's three-state model existing separately from this one.
 
 ### 6. `impossible_value`
@@ -74,10 +77,11 @@ Sanity bounds that indicate a data-entry or unit error, not just uncertainty:
 - `value_usd_per_kwh` above $5,000/kWh — **warning**, not error (flag for human sanity check; not impossible, just unusual enough to double-check).
 - `accessed_date` or `last_verified` later than the validation run's own date (a source can't have been accessed in the future) → **error**.
 - Empty string (`""`) where the schema allows `string | null` → **error** — should have been `null`.
+- `battery_programs`/`rebates` items (schema v1.2.0+): `effective_from` later than `expires_on` (an end date before its own start date) → **error**.
 
 ### 7. `outdated_information`
 - `last_verified` older than 180 days relative to the validation run date → **warning**. (180-day default per [docs/DATA_ARCHITECTURE.md](../docs/DATA_ARCHITECTURE.md) Section 7 — update both places together if this changes.)
-- Any field's `description`/`notes` text names a specific past year as an expiration/eligibility window (e.g. "available through 2025") that has already elapsed as of `last_verified` → **warning**, even if `last_verified` itself is recent — a fresh check that surfaced stale program data is still stale program data.
+- **Prefer the structured field when present (schema v1.2.0+):** for `battery_programs`/`rebates` items, if `expires_on` is set and has already elapsed as of `last_verified` → **warning**. Only fall back to scanning `description` text for a stated year (e.g. "available through 2025") that has elapsed when `expires_on` is `null` — once `expires_on` is populated, the text heuristic would only duplicate the same finding, so skip it for that item.
 
 ### 8. `broken_url`
 Actually fetch every URL in the record (`permit_url`, `interconnection_url`, every `sources[].url`, every embedded item `url`) — HEAD first, falling back to GET only if HEAD returns 405/501. Classify into exactly three states, recorded in `url_checks` for every URL (not just failures):

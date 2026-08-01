@@ -1,6 +1,6 @@
 {
-  "record_id": "ca-santa-clara-san-jose-pge",
-  "file": "data/localities/ca-santa-clara-san-jose-pge.json",
+  "record_id": "ca-alameda-fremont-pge",
+  "file": "data/localities/ca-alameda-fremont-pge.json",
   "validated_at": "2026-08-01",
   "status": "REVIEW",
   "score": 85,
@@ -14,7 +14,7 @@
     {
       "field": "permit_url",
       "category": "broken_url",
-      "message": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.fremont.gov/government/departments/community-development/planning-building-permit-services/planning-building-permits/permit-types/instant-solar-permit-isp — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
       "field": "interconnection_url",
@@ -22,41 +22,25 @@
       "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
-      "field": "sources[S1].url",
-      "category": "broken_url",
-      "message": "https://www.sanjoseca.gov/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
-    },
-    {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://www.sanjoseca.gov/business/development-services-permit-center — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.fremont.gov/government/departments/community-development/planning-building-permit-services/fees — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
-      "field": "sources[S8].url",
+      "field": "sources[S3].url",
       "category": "broken_url",
-      "message": "https://www.sccgov.org/sites/rov/Pages/VignetteLinksInDatabase/City-of-San-Jose.aspx — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.codepublishing.com/CA/Fremont/html/Fremont15/Fremont1563.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S7].url",
+      "category": "broken_url",
+      "message": "https://www.fremont.gov/about/sustainability/energy/green-electricity — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
     {
-      "field": "generation_supplier",
-      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "permit_fees",
@@ -69,8 +53,8 @@
   ],
   "url_checks": [
     {
-      "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects",
-      "checked_at": "2026-08-01T08:38:45.428Z",
+      "url": "https://www.fremont.gov/government/departments/community-development/planning-building-permit-services/planning-building-permits/permit-types/instant-solar-permit-isp",
+      "checked_at": "2026-08-01T08:38:49.569Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -78,7 +62,7 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-01T08:38:45.642Z",
+      "checked_at": "2026-08-01T08:38:50.133Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -86,7 +70,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-01T08:38:45.862Z",
+      "checked_at": "2026-08-01T08:38:50.175Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -94,23 +78,23 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-01T08:38:46.606Z",
+      "checked_at": "2026-08-01T08:38:50.914Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
-      "url": "https://www.sanjoseca.gov/",
-      "checked_at": "2026-08-01T08:38:47.647Z",
+      "url": "https://www.fremont.gov/government/departments/community-development/planning-building-permit-services/fees",
+      "checked_at": "2026-08-01T08:38:51.602Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
-      "url": "https://www.sanjoseca.gov/business/development-services-permit-center",
-      "checked_at": "2026-08-01T08:38:47.720Z",
+      "url": "https://www.codepublishing.com/CA/Fremont/html/Fremont15/Fremont1563.html",
+      "checked_at": "2026-08-01T08:38:51.771Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -118,19 +102,27 @@
     },
     {
       "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-      "checked_at": "2026-08-01T08:38:47.756Z",
+      "checked_at": "2026-08-01T08:38:51.827Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
-      "url": "https://www.sccgov.org/sites/rov/Pages/VignetteLinksInDatabase/City-of-San-Jose.aspx",
-      "checked_at": "2026-08-01T08:38:49.073Z",
+      "url": "https://www.fremont.gov/about/sustainability/energy/green-electricity",
+      "checked_at": "2026-08-01T08:38:52.959Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.acgov.org/government/",
+      "checked_at": "2026-08-01T08:38:53.051Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

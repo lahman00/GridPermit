@@ -1,0 +1,245 @@
+{
+  "record_id": "ca-alameda-fremont-pge",
+  "schema_version": "1.2.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S6",
+      "S7"
+    ],
+    "notes": "PG&E is confirmed as the transmission/distribution, billing, and interconnection utility of record for Fremont. See generation_supplier for the electricity generation supplier, which is a separate CCA entity (Ava Community Energy), not PG&E, by default."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Ava Community Energy (formerly East Bay Community Energy / EBCE) - 'Bright Choice' product",
+      "type": "cca",
+      "notes": "Fremont residents and businesses are automatically enrolled in Ava's Bright Choice product as their default electricity generation supplier, with the option to opt up to a cleaner product or opt out back to PG&E generation. PG&E remains the transmission/distribution entity and billing agent for both PG&E's and Ava's customers regardless of which generation supplier is used."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S7"]
+  },
+  "city": {
+    "value": "Fremont",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Given as the run's input parameter; confirmed by City of Fremont's own official site."
+  },
+  "county": {
+    "value": "Alameda County",
+    "confidence": 0.8,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "S8 is Alameda County's official government site, confirmed genuine, describing the county as home to '14 incorporated cities' without naming them individually in the section retrieved — could not directly render a single page explicitly naming Fremont among them this session. Confidence reflects domain-level/structural confirmation (Fremont's municipal code is hosted under a 'CA/Fremont' jurisdiction path, consistent with widely-established public record) rather than one explicit primary-source quote naming the county-city relationship directly, the same limitation encountered for San Jose/Santa Clara County in the prior pilot record."
+  },
+  "permit_authority": {
+    "value": "City of Fremont Community Development Department — Planning, Building & Permit Services",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Confirmed via direct retrieval of the Instant Solar Permit (ISP) page, which is hosted under this department's section of the city website and lists Development Services staff as the contact."
+  },
+  "permit_url": {
+    "value": "https://www.fremont.gov/government/departments/community-development/planning-building-permit-services/planning-building-permits/permit-types/instant-solar-permit-isp",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Content directly confirmed (unlike the San Jose pilot record's permit_url, which pointed at a general electrical page — this is the specific, dedicated solar permit page)."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Same URL and same limitation as the San Jose pilot record: confirmed to exist on PG&E's official domain via search engine indexing under the expected title, but pge.com returned HTTP 403 to direct fetch on every attempt this session (re-checked fresh for this record, not assumed from before)."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Fremont/Alameda County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Fremont/Alameda County eligibility not independently confirmed this session.",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": [
+      "S4",
+      "S5"
+    ],
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures confirmed for the San Jose pilot record, reused here because SGIP is administered per IOU distribution territory (PG&E), not per city — PG&E's distribution role in Fremont is independently confirmed (S7), so the program's applicability carries over. Confidence set slightly below the San Jose record's (0.7) because this record does not independently re-confirm PG&E's SGIP administrator role specifically for Alameda County (S6 names Santa Clara County explicitly, not Alameda). 'effective_from'/'expires_on'/'status' per item follow the same reasoning documented in the San Jose record: the Residential Solar and Storage Equity tier's reservation-opening date (2025-06-02) is directly stated, with no stated end date or current status (hence 'unknown'); the Equity Resiliency tier's 'available through 2025' is interpreted as expiring 2025-12-31 (end of year, no specific day given), which is before last_verified, hence 'expired'. Re-check against selfgenca.com's live Program Metrics page before showing as current."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "inspection_steps": {
+    "value": [
+      "One inspection required and performed for qualifying expedited/ISP small residential rooftop solar systems (Fremont Municipal Code Ch. 15.63)",
+      "Re-inspection authorized if the initial inspection fails"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Applies to qualifying small residential rooftop systems only — see eligibility_constraints for the exact scope. Does not describe the process for non-qualifying/larger systems."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Same-day approval for over-the-counter/Instant Solar Permit (ISP) applications; up to 3 days for other standard expedited applications, per Fremont Municipal Code Ch. 15.63. See eligibility_constraints for the system-size and property-type scope this applies to; non-qualifying or larger systems may require standard plan review with a longer, unconfirmed timeline."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["single-family", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Fremont Municipal Code Ch. 15.63 (Small Residential Rooftop Solar Systems) / Instant Solar Permit (ISP) via SolarAPP+",
+      "other_conditions": []
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"],
+    "notes": "System-size caps (10 kW AC / 30 kW thermal) and property-type scope (single-family, duplex) moved here from timeline_days/inspection_steps notes, where this same constraint was previously duplicated as free text. system_size_kw_dc_max left null — the source states an AC and a thermal cap, not a separate DC cap. other_conditions left empty — the source also mentions general fire/structural/electrical code compliance and building-height limits, but those were not transcribed into this record's text during the original collection session, so they are not carried forward here rather than being added now from memory."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Fremont Municipal Code Ch. 15.63 states fees are 'established by resolution' (Master Fee Schedule, Reso. 8672) rather than fixed in the code text. The fee schedule document (referenced on fremont.gov and hosted at cityoffremont.net) could not be rendered as readable text this session (PDF/iframe content), so no dollar figure could be verified. The Instant Solar Permit's SolarAPP+ processing fee ($25) appeared only in a search-engine-synthesized summary, not a page I directly rendered myself, so it is deliberately excluded rather than reported as verified."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Fremont Development Services (Community Development Dept.)",
+        "phone": "510-284-4000",
+        "email": "developmentservices@fremont.gov",
+        "url": "https://www.fremont.gov/government/departments/community-development/planning-building-permit-services/planning-building-permits/permit-types/instant-solar-permit-isp"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": "415-973-6436",
+        "email": "selfgen@pge.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
+  },
+  "last_verified": "2026-08-01",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Instant Solar Permit (ISP)",
+      "url": "https://www.fremont.gov/government/departments/community-development/planning-building-permit-services/planning-building-permits/permit-types/instant-solar-permit-isp",
+      "publisher": "City of Fremont",
+      "type": "government",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S2",
+      "title": "Planning, Building & Permit Services Fees",
+      "url": "https://www.fremont.gov/government/departments/community-development/planning-building-permit-services/fees",
+      "publisher": "City of Fremont",
+      "type": "government",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S3",
+      "title": "Fremont Municipal Code Chapter 15.63 - Small Residential Rooftop Solar Systems",
+      "url": "https://www.codepublishing.com/CA/Fremont/html/Fremont15/Fremont1563.html",
+      "publisher": "City of Fremont (hosted by Code Publishing Company)",
+      "type": "government",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Green Electricity",
+      "url": "https://www.fremont.gov/about/sustainability/energy/green-electricity",
+      "publisher": "City of Fremont",
+      "type": "government",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S8",
+      "title": "Alameda County Government",
+      "url": "https://www.acgov.org/government/",
+      "publisher": "County of Alameda",
+      "type": "government",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S9",
+      "title": "Net Energy Metering (NEM) Program | PG&E",
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}
