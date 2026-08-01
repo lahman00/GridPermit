@@ -1,0 +1,179 @@
+{
+  "run_at": "2026-08-01T15:38:14.409Z",
+  "dry_run": false,
+  "force": "ca-san-diego-san-diego-sdge",
+  "targets_total": 5,
+  "results": [
+    {
+      "record_id": "ca-santa-clara-san-jose-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "San José",
+        "city_slug": "san-jose",
+        "county": "Santa Clara County",
+        "county_slug": "santa-clara",
+        "record_id": "ca-santa-clara-san-jose-pge",
+        "locality_file": "data/localities/ca-santa-clara-san-jose-pge.json",
+        "source_payload_file": "data/source-payloads/ca-santa-clara-san-jose-pge.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "PG&E is the primary SGIP administrator for Santa Clara County.",
+              "source_url": "https://www.selfgenca.com/home/contact/",
+              "source_title": "SGIP - Contact",
+              "publisher": "Self-Generation Incentive Program (statewide administrator site)"
+            }
+          ],
+          "checked_at": "2026-08-01",
+          "notes": "Confirmed during original San José record collection."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-santa-clara-san-jose-pge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-santa-clara-san-jose-pge.json already exists; not overwritten (use --force ca-santa-clara-san-jose-pge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-alameda-fremont-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "Fremont",
+        "city_slug": "fremont",
+        "county": "Alameda County",
+        "county_slug": "alameda",
+        "record_id": "ca-alameda-fremont-pge",
+        "locality_file": "data/localities/ca-alameda-fremont-pge.json",
+        "source_payload_file": "data/source-payloads/ca-alameda-fremont-pge.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "PG&E continues to serve as the power transmission and distribution provider ... for Fremont customers of both PG&E and Ava.",
+              "source_url": "https://www.fremont.gov/about/sustainability/energy/green-electricity",
+              "source_title": "Green Electricity",
+              "publisher": "City of Fremont"
+            }
+          ],
+          "checked_at": "2026-08-01",
+          "notes": "PG&E confirmed as distribution/interconnection utility; Ava Community Energy (a CCA) is the separate default generation supplier — see the Fremont locality record's generation_supplier field."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-alameda-fremont-pge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-alameda-fremont-pge.json already exists; not overwritten (use --force ca-alameda-fremont-pge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-alameda-oakland-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "Oakland",
+        "city_slug": "oakland",
+        "county": "Alameda County",
+        "county_slug": "alameda",
+        "record_id": "ca-alameda-oakland-pge",
+        "locality_file": "data/localities/ca-alameda-oakland-pge.json",
+        "source_payload_file": "data/source-payloads/ca-alameda-oakland-pge.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "PG&E remains distribution/billing utility for Oakland; customers may opt out back to PG&E generation.",
+              "source_url": "https://avaenergy.org/community/who-we-serve/oakland/",
+              "source_title": "Oakland Electricity Provider",
+              "publisher": "Ava Community Energy (Joint Powers Authority)"
+            }
+          ],
+          "checked_at": "2026-08-01",
+          "notes": "PG&E confirmed as distribution/interconnection utility; Ava Community Energy (a CCA) is the separate default generation supplier — see the Oakland locality record's generation_supplier field."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-alameda-oakland-pge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-alameda-oakland-pge.json already exists; not overwritten (use --force ca-alameda-oakland-pge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-los-angeles-pasadena-pwp",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pasadena Water and Power",
+        "utility_slug": "pwp",
+        "city": "Pasadena",
+        "city_slug": "pasadena",
+        "county": "Los Angeles County",
+        "county_slug": "los-angeles",
+        "record_id": "ca-los-angeles-pasadena-pwp",
+        "locality_file": "data/localities/ca-los-angeles-pasadena-pwp.json",
+        "source_payload_file": "data/source-payloads/ca-los-angeles-pasadena-pwp.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "PWP provides electricity to more than 65,000 customers within Pasadena; community-owned, not-for-profit public service owned and operated by the City of Pasadena.",
+              "source_url": "https://pwp.cityofpasadena.net/",
+              "source_title": "Pasadena Water and Power",
+              "publisher": "City of Pasadena"
+            },
+            {
+              "claim": "City of Pasadena is a member of the Southern California Public Power Authority",
+              "source_url": "https://scppa.org/",
+              "source_title": "SCPPA Members",
+              "publisher": "Southern California Public Power Authority"
+            }
+          ],
+          "checked_at": "2026-08-01",
+          "notes": "Corrects a prior invalid target (utility: 'Southern California Edison (SCE)', record_id: ca-los-angeles-pasadena-sce) that was found to contradict official evidence before any collection was attempted — Pasadena is served by its own municipal utility, not SCE. See docs/PILOT_RUNBOOK.md for the target-validity guard this incident led to."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-los-angeles-pasadena-pwp.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-los-angeles-pasadena-pwp.json already exists; not overwritten (use --force ca-los-angeles-pasadena-pwp to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-san-diego-san-diego-sdge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "San Diego Gas & Electric (SDG&E)",
+        "utility_slug": "sdge",
+        "city": "San Diego",
+        "city_slug": "san-diego",
+        "county": "San Diego County",
+        "county_slug": "san-diego",
+        "record_id": "ca-san-diego-san-diego-sdge",
+        "locality_file": "data/localities/ca-san-diego-san-diego-sdge.json",
+        "source_payload_file": "data/source-payloads/ca-san-diego-san-diego-sdge.json"
+      },
+      "status": "REVIEW",
+      "locality_file": "data/localities/ca-san-diego-san-diego-sdge.json",
+      "validation_report": "output/validation-reports/ca-san-diego-san-diego-sdge.json",
+      "score": 86,
+      "message": "validated: REVIEW, score 86 (0 errors, 4 warnings)"
+    }
+  ],
+  "summary": {
+    "pass": 0,
+    "review": 1,
+    "fail": 0,
+    "collection_required": 0,
+    "skipped_exists": 4,
+    "config_error": 0
+  }
+}

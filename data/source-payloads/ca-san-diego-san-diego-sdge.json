@@ -1,0 +1,179 @@
+{
+  "record_id": "ca-san-diego-san-diego-sdge",
+  "schema_version": "1.3.0",
+
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 1.0,
+    "source_ids": ["S1"],
+    "notes": "Given as the run's input parameter; directly confirmed as the electric/gas franchise utility for the City of San Diego via the City's own official page. SDG&E is the distribution/interconnection utility of record; see generation_supplier for the separate default generation supplier."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "San Diego Community Power (SDCP)",
+      "type": "cca",
+      "notes": "The City of San Diego is a founding member/customer of San Diego Community Power, a joint-powers Community Choice Aggregator that purchases/generates electricity on customers' behalf. SDG&E remains the transmission/distribution entity and delivers the electricity SDCP procures. Customers receive one bill from SDG&E, with SDCP's generation charge appearing as a line item rather than a separate bill."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S6", "S7"]
+  },
+  "city": {
+    "value": "San Diego",
+    "confidence": 1.0,
+    "source_ids": ["S2"],
+    "notes": "Given as the run's input parameter; confirmed by the City of San Diego's own official site."
+  },
+  "county": {
+    "value": "San Diego County",
+    "confidence": 0.8,
+    "source_ids": ["S8"],
+    "notes": "S8 is San Diego County's own official government site, confirmed genuine via search, listing the County Administration Center (seat of county government) at an address within the City of San Diego. Direct page content could not be rendered (HTTP 403) this session; confidence reflects domain-level/structural confirmation rather than a rendered explicit quote, the same limitation encountered for county fields in every prior pilot record."
+  },
+
+  "permit_authority": {
+    "value": "City of San Diego Development Services Department",
+    "confidence": 0.9,
+    "source_ids": ["S2", "S4"],
+    "notes": "Confirmed via direct retrieval of the Residential Rooftop-Mounted Solar PV Permit page and the Permits, Approvals & Inspections page, both hosted under Development Services."
+  },
+  "permit_url": {
+    "value": "https://www.sandiego.gov/development-services/permits/solar-photovoltaic-permit",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "Content directly confirmed — the dedicated residential solar PV permit page, including size limits and the self-issued-permit pathway."
+  },
+  "interconnection_url": {
+    "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S9"],
+    "notes": "URL confirmed to exist on SDG&E's official domain via search engine indexing under the expected title. Full page content could not be directly rendered this session — sdge.com returned HTTP 403 to every attempt, including the site's own homepage and a linked PDF, both via direct fetch and via a text-extraction proxy. Same limitation as pge.com in the PG&E-territory pilot records."
+  },
+
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025. This is the same statewide SGIP tier used in the PG&E-territory pilot records; SDG&E-territory administration is confirmed to be handled by CSE rather than SDG&E directly.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific San Diego eligibility not independently confirmed this session.",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S10"],
+    "notes": "Unlike the PG&E-territory records (which reused the same figures without independently re-confirming the administrator), this record independently verified via CPUC's own page that SDG&E's SGIP administrator is specifically 'SDG&E – Via Center for Sustainable Energy (CSE)' — confirmed NOT to be SDG&E directly, and NOT the same generic administrator description used for PG&E. Rate figures ($1,100/kWh, $1,000/kWh) are the same statewide CPUC-set SGIP budgets, not utility-specific numbers, so reuse of the figures themselves is warranted; only the administrator attribution required independent verification, which was done. Same 'through 2025' elapsed-window caveat as prior records applies to the Equity Resiliency tier."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Hazardous Materials Reporting Form (DS-165)", "required_when": "non-residential or battery/ESS projects", "source_ids": ["S3"] },
+      { "name": "San Diego Regional Hazardous Materials Questionnaire (HM-9171)", "required_when": null, "source_ids": ["S3"] },
+      { "name": "Stormwater Requirements Applicability Checklist (DS-560)", "required_when": null, "source_ids": ["S3"] },
+      { "name": "Owner-Builder Verification (DS-3042)", "required_when": "if the owner performs the work", "source_ids": ["S3"] },
+      { "name": "Project Contact form (DS-345)", "required_when": "at permit issuance", "source_ids": ["S3"] },
+      { "name": "Site plan showing all PV panels, disconnects, inverters, batteries, and meter locations", "required_when": null, "source_ids": ["S3"] },
+      { "name": "Roof plan with slope, panel location, and weight calculations", "required_when": null, "source_ids": ["S3"] },
+      { "name": "Single-line diagram with voltage, kilowatt output, and conductor specifications", "required_when": null, "source_ids": ["S3"] },
+      { "name": "Manufacturer specifications for modules, racking, inverters, and batteries", "required_when": null, "source_ids": ["S3"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Electrical Underground inspection",
+      "Electrical Rough inspection",
+      "Electrical Final inspection",
+      "Structural-Foundation inspection (if applicable)",
+      "Structural-Rough inspection (if applicable)",
+      "Structural-Final inspection (if applicable)",
+      "After final inspection approval for all related City permits, the City notifies SDG&E; the system is not approved to energize until SDG&E gives its own approval"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"],
+    "notes": "Quoted directly from IB-301: 'After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is obtained.' This is a genuine two-authority sign-off (City then SDG&E), distinct from the single-authority processes in the PG&E/Ava-territory and PWP records."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0.0,
+    "source_ids": [],
+    "notes": "IB-301 does not specify a standard turnaround/timeline for residential review. It mentions an 'Express Plan Check' service (1.5x regular fees) for faster review, but explicitly states this expedited option is 'not available for single-family/duplex/ADU projects' — the exact category most residential solar falls into — so it does not provide a usable residential timeline either."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["single-family", "duplex", "townhouse"],
+      "system_size_kw_ac_max": 38.4,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Self-issued residential solar PV permit, no plan review (Information Bulletin 301)",
+      "other_conditions": [
+        "Energy storage systems up to 38.4 kWh total, with individual units not exceeding 20 kWh",
+        "Panel upgrades permitted up to 320 amps under the same self-issued pathway",
+        "Fire plan review determination (IB-301 Section F) and structural review determination (IB-301 Section II.C.1) both required",
+        "Ground-mounted systems require a Building Permit if the support structure exceeds 5 feet above ground",
+        "No additional work requiring a separate building permit is allowed under the self-issued pathway"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S2", "S3"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Residential First System/Inverter Inspection (no plan review)", "amount_usd": 275.80, "unit": "flat", "notes": "Applies to the self-issued residential pathway (no plan review) under IB-301." },
+      { "name": "Residential First System/Inverter Plan Check (with plan review)", "amount_usd": 154.20, "unit": "flat", "notes": "Applies only if the project requires plan review rather than the self-issued pathway." },
+      { "name": "Residential First System/Inverter Inspection (with plan review)", "amount_usd": 275.80, "unit": "flat", "notes": null },
+      { "name": "Non-Residential/Multi-Family First 100 kW Plan Check", "amount_usd": 758.00, "unit": "per 100kW", "notes": null },
+      { "name": "Non-Residential/Multi-Family Each Additional 100 kW Plan Check", "amount_usd": 264.00, "unit": "per 100kW", "notes": null },
+      { "name": "Non-Residential/Multi-Family First 100 kW Inspection", "amount_usd": 290.00, "unit": "per 100kW", "notes": null },
+      { "name": "Non-Residential/Multi-Family Each Additional 100 kW Inspection", "amount_usd": 145.00, "unit": "per 100kW", "notes": null },
+      { "name": "Mapping Fee", "amount_usd": 12.16, "unit": "flat", "notes": "Only if applicable, per IB-301." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "An additional SDG&E interconnection application fee (reported elsewhere as $132 for systems ≤1MW) was found only via a search-engine summary, never a page I could directly render (sdge.com blocked every attempt this session) — deliberately excluded rather than reported as verified, consistent with this project's sourcing rules. Batteries/ESS review, structural, zoning, and historical reviews are billed at hourly rates per a separate Information Bulletin (501) not independently reviewed this session."
+  },
+  "rebates": { "value": null, "confidence": 0.0, "source_ids": [] },
+
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "City of San Diego Development Services Department", "phone": "619-446-5000", "email": null, "url": "https://www.sandiego.gov/development-services/permits-inspections" },
+      { "name": null, "role": "SGIP Program Administrator for SDG&E territory (Center for Sustainable Energy)", "phone": null, "email": "sgip@energycenter.org", "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program" }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S4", "S10"],
+    "notes": "An SDG&E Net Energy Metering contact (phone/email) was found only via a search-engine summary, never directly rendered — excluded rather than reported as verified, same reasoning as the excluded interconnection fee above."
+  },
+
+  "last_verified": "2026-08-01",
+
+  "sources": [
+    { "id": "S1", "title": "SDG&E Electric and Gas Franchise", "url": "https://www.sandiego.gov/general-services/energy/sdge-franchise", "publisher": "City of San Diego", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S2", "title": "Residential Rooftop-Mounted Solar Photovoltaic (PV) Permit", "url": "https://www.sandiego.gov/development-services/permits/solar-photovoltaic-permit", "publisher": "City of San Diego", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S3", "title": "Information Bulletin 301 - How to Obtain a Permit for the Installation of Solar Photovoltaic (PV) Systems", "url": "https://www.sandiego.gov/development-services/forms-publications/information-bulletins/301", "publisher": "City of San Diego", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S4", "title": "Permits, Approvals & Inspections", "url": "https://www.sandiego.gov/development-services/permits-inspections", "publisher": "City of San Diego", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S5", "title": "Background on CCA: How We Got Here", "url": "https://www.sandiego.gov/sustainability/clean-and-renewable-energy/community-choice-aggregation-program", "publisher": "City of San Diego", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S6", "title": "Mayor Gloria Launches San Diego Community Power", "url": "https://www.sandiego.gov/mayor/mayor-gloria-launches-san-diego-community-power", "publisher": "City of San Diego", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S7", "title": "Understanding Your Bill", "url": "https://sdcommunitypower.org/understanding-your-bill/", "publisher": "San Diego Community Power", "type": "program_administrator", "accessed_date": "2026-08-01" },
+    { "id": "S8", "title": "Contact Us", "url": "https://www.sandiegocounty.gov/content/sdc/cob/contact.html", "publisher": "County of San Diego", "type": "government", "accessed_date": "2026-08-01" },
+    { "id": "S9", "title": "Net Energy Metering (NEM) | San Diego Gas & Electric", "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering", "publisher": "San Diego Gas & Electric", "type": "utility", "accessed_date": "2026-08-01" },
+    { "id": "S10", "title": "Self-Generation Incentive Program (SGIP)", "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program", "publisher": "California Public Utilities Commission", "type": "cpuc", "accessed_date": "2026-08-01" }
+  ]
+}
