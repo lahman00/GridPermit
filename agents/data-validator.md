@@ -73,11 +73,12 @@ Within `sources[]`: two entries with the same `id` is an **error** (breaks refer
 ### 6. `impossible_value`
 Sanity bounds that indicate a data-entry or unit error, not just uncertainty:
 - Any `_days` value negative, or `timeline_days.min_days > timeline_days.max_days`.
-- Any `amount_usd` or `value_usd_flat`/`value_usd_per_kwh` negative.
+- Any `amount_usd` or `value_usd_flat`/`value_usd_per_kwh`/`value_usd_per_watt` (schema v1.3.0+) negative.
 - `value_usd_per_kwh` above $5,000/kWh — **warning**, not error (flag for human sanity check; not impossible, just unusual enough to double-check).
 - `accessed_date` or `last_verified` later than the validation run's own date (a source can't have been accessed in the future) → **error**.
 - Empty string (`""`) where the schema allows `string | null` → **error** — should have been `null`.
 - `battery_programs`/`rebates` items (schema v1.2.0+): `effective_from` later than `expires_on` (an end date before its own start date) → **error**.
+- `battery_programs`/`rebates` items (schema v1.3.0+): more than one of `value_usd_per_kwh`/`value_usd_flat`/`value_usd_per_watt` populated on the *same* item, when the item's `description` doesn't contain explanatory language for a genuine multi-component program ("paired with," "plus," "combined with," "in addition to," "along with") → **warning**. This is usually a sign one of the values was put in the wrong field, or two tiers that should be separate items got merged into one — see [agents/data-collector.md](../agents/data-collector.md)'s guidance on splitting multi-tier rebates into separate items.
 
 ### 7. `outdated_information`
 - `last_verified` older than 180 days relative to the validation run date → **warning**. (180-day default per [docs/DATA_ARCHITECTURE.md](../docs/DATA_ARCHITECTURE.md) Section 7 — update both places together if this changes.)

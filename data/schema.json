@@ -34,8 +34,8 @@
     },
     "schema_version": {
       "type": "string",
-      "const": "1.2.0",
-      "description": "Version of this schema the record was produced against. 1.2.0 added generation_supplier and eligibility_constraints as new required fields, extended battery_programs/rebates items with effective_from/expires_on/status, and replaced required_documents' plain-string items with structured {name, required_when, source_ids} objects. 1.1.0 tightened record_id to lowercase kebab-case, no underscores. Bump on further changes; see docs/DATA_ARCHITECTURE.md for the migration rule."
+      "const": "1.3.0",
+      "description": "Version of this schema the record was produced against. 1.3.0 added value_usd_per_watt as a new optional field on programItem (battery_programs/rebates items) — additive only, not added to programItem's required list, so no existing record needed migration to remain schema-valid (all four existing records were migrated anyway, for consistency, per docs/DATA_ARCHITECTURE.md). 1.2.0 added generation_supplier and eligibility_constraints as new required fields, extended battery_programs/rebates items with effective_from/expires_on/status, and replaced required_documents' plain-string items with structured {name, required_when, source_ids} objects. 1.1.0 tightened record_id to lowercase kebab-case, no underscores. Bump on further changes; see docs/DATA_ARCHITECTURE.md for the migration rule."
     },
 
     "utility": { "$ref": "#/$defs/stringField" },
@@ -221,6 +221,11 @@
         "description": { "type": ["string", "null"] },
         "value_usd_per_kwh": { "type": ["number", "null"] },
         "value_usd_flat": { "type": ["number", "null"] },
+        "value_usd_per_watt": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "description": "Dollars per Watt of installed capacity, e.g. a per-watt solar rebate ($0.60/W). Distinct unit from value_usd_per_kwh (battery capacity) and value_usd_flat — do not convert between them. Null if not applicable to this item."
+        },
         "eligibility": { "type": ["string", "null"] },
         "url": { "type": ["string", "null"], "format": "uri" },
         "effective_from": {

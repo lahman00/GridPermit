@@ -180,6 +180,7 @@ function renderPrograms(field, sourcesById) {
     const values = [];
     if (p.value_usd_per_kwh != null) values.push(`$${p.value_usd_per_kwh}/kWh`);
     if (p.value_usd_flat != null) values.push(`$${p.value_usd_flat} flat`);
+    if (p.value_usd_per_watt != null) values.push(`$${p.value_usd_per_watt}/W`);
     if (values.length) out += `  Value: ${values.join(", ")}\n`;
     if (p.eligibility) out += `  Eligibility: ${p.eligibility}\n`;
     if (p.url) out += `  Link: ${p.url}\n`;

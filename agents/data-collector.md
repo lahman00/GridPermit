@@ -98,6 +98,12 @@ Every program item now also carries:
 
 **`status` is never inferred from silence.** Set `"active"`/`"expired"` only when a source directly supports it — either it says so explicitly, or you can derive it unambiguously from an explicit `expires_on` date that has (or hasn't) passed as of `last_verified`. If a source gives a vague window like "available through 2025" with no specific day, it's fine to record `expires_on: "2025-12-31"` (end-of-year, the ordinary reading of "through <year>") — but say so in the field's `notes`, since that's an interpretation of the source's wording, not a verbatim date. If nothing about timing is stated at all, all three fields are `null`/`"unknown"` — do not guess a plausible-sounding date.
 
+## `battery_programs` / `rebates` item field: `value_usd_per_watt` (schema v1.3.0+)
+
+A third monetary unit alongside `value_usd_per_kwh` (dollars per kWh of battery capacity) and `value_usd_flat` (a flat dollar amount): **dollars per Watt of installed capacity**, the unit many solar (not battery) rebates use, e.g. "$0.60/Watt." These three units are not interchangeable and must never be converted between each other or into one another's field — a $/kW figure is not a $/Watt figure divided or multiplied by 1000 in your head; if a source states $/kW and you're not certain that's the same as $/Watt, leave it in `description` text only rather than putting a guessed conversion into `value_usd_per_watt`.
+
+**Only one monetary unit per item, as a rule.** If a program genuinely has two components stated together (e.g. "a storage incentive of $X/kWh paired with a solar incentive of $Y/kW"), and only one of those units has a schema field to hold it, put the unrepresentable one in `description` text only and leave its field `null` — don't force it into the wrong field. If a program has two truly separate numeric values in the *same* unit that apply to different tiers (e.g. a standard rate and an income-qualified rate, both in $/Watt), represent them as **two separate program items** (e.g. `"... - Standard Rate"` and `"... - Income-Qualified Rate"`), each with its own `value_usd_per_watt` and `eligibility` text distinguishing the tiers — don't try to cram two numbers into one item's single field. `scripts/validate-record.mjs` warns if more than one of the three monetary fields is populated on the same item without the item's `description` containing explanatory language ("paired with," "plus," "combined with," etc.) — splitting into separate items for separate tiers avoids that warning because each item then has exactly one populated unit.
+
 ## Process
 
 1. Identify the target `(city, utility)` pair for this run.
@@ -126,7 +132,7 @@ The city, utility, and every value below are fictional placeholders to illustrat
 ```json
 {
   "record_id": "ca-example-county-example-city-example-utility",
-  "schema_version": "1.2.0",
+  "schema_version": "1.3.0",
   "utility": { "value": "Example Utility Co.", "confidence": 1.0, "source_ids": ["S1"] },
   "generation_supplier": {
     "value": { "name": "Example Community Energy", "type": "cca", "notes": "Default generation supplier per S1; Example Utility Co. remains delivery/billing utility." },

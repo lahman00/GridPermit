@@ -1,7 +1,7 @@
 **Locality:** Fremont, Alameda County
 **Utility (record):** Pacific Gas and Electric Company (PG&E)
 **Record ID:** ca-alameda-fremont-pge
-**Schema version:** 1.2.0
+**Schema version:** 1.3.0
 **Last verified:** 2026-08-01
 
 ---

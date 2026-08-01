@@ -1,0 +1,309 @@
+{
+  "record_id": "ca-los-angeles-pasadena-pwp",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pasadena Water and Power",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Given as the run's input parameter; directly confirmed as Pasadena's municipal electric utility via its own official site. PWP is both the distribution and interconnection authority — unlike the PG&E-territory records in this pilot, there is no separate investor-owned distribution company to distinguish from a city permitting authority."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Pasadena Water and Power",
+      "type": "utility",
+      "notes": "PWP is a vertically-integrated municipal utility, not layered with a separate CCA. Per PWP's own materials: about 10% of power demand is met by PWP-owned generating facilities; the remainder is purchased via contracts (conventional and renewable) and the wholesale energy market. No Community Choice Aggregator was mentioned anywhere in PWP's own materials reviewed this session."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S5"
+    ]
+  },
+  "city": {
+    "value": "Pasadena",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Given as the run's input parameter; confirmed by Pasadena Water and Power's own official site."
+  },
+  "county": {
+    "value": "Los Angeles County",
+    "confidence": 0.8,
+    "source_ids": [
+      "S6"
+    ],
+    "notes": "S6 is Los Angeles County's own Services Locator, confirmed genuine, structurally listing a Pasadena location. Direct page content could not be rendered (HTTP 403) this session; confidence reflects domain-level/structural confirmation rather than a rendered explicit quote, the same limitation encountered for San Jose/Santa Clara and Fremont/Alameda in prior pilot records."
+  },
+  "permit_authority": {
+    "value": "City of Pasadena Department of Planning & Development issues the building permit; Pasadena Water and Power's interconnection approval is required first, before a building permit application can be submitted.",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Distinguishes the two authorities per this record's collection rules: PWP is the interconnection authority (and the utility itself); the City's Planning & Development department is the separate building-permit-issuing authority. No City of Pasadena Planning & Development page was independently fetched this session — this fact comes from PWP's own description of the process."
+  },
+  "permit_url": {
+    "value": "https://pwp.cityofpasadena.net/solar-eligibility-and-requirements/",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "PWP's own solar eligibility/requirements page — the practical entry point for a Pasadena solar permit, since PWP pre-approval gates the building permit application."
+  },
+  "interconnection_url": {
+    "value": "https://pwp.cityofpasadena.net/selfgenusp/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "PWP's own self-generation/interconnection requirements page. Content directly confirmed, including the full application process — no bot-blocking encountered on pwp.cityofpasadena.net this session, unlike pge.com/sanjoseca.gov/fremont.gov in prior records."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "PWP Residential Solar and Battery Rebate Pilot Program - Battery Storage Track",
+        "administrator": "Pasadena Water and Power",
+        "description": "Battery energy storage incentive of up to $550/kWh for residential customers, part of a pilot program launched April 7, 2026. No funding cap or end date stated in the source.",
+        "value_usd_per_kwh": 550,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PWP residential electric customers",
+        "url": "https://pwp.cityofpasadena.net/launch-solar-and-battery-rebate-pilot-program-for-residential-and-commercial-customers/",
+        "effective_from": "2026-04-07",
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S7"
+    ],
+    "notes": "'status: active' is based on the source's present-tense framing ('battery energy storage incentives are also available') at time of the pilot's launch announcement, not inferred from silence about an end date — no source states the program has since closed, but this should be re-verified against PWP's live program page before being shown to a user as current, since pilot programs can pause or exhaust funding without an update to this specific announcement page."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed GFIA (Generation Facility Interconnection Application) Form",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Site plan with system description and parameters",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Single line diagram of electrical components",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Certification test verifying equipment compliance",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Signed contractor agreement",
+        "required_when": "if available",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "inspection_steps": {
+    "value": [
+      "Submit application package (GFIA form, site plan, single-line diagram, certification test, contractor agreement if available) to PWP Customer Relations - DG Applications",
+      "PWP reviews and determines if simplified interconnection or a detailed study is needed",
+      "PWP issues an approval letter (required before applying for a building permit)",
+      "Sign the applicable GFIA Interconnection Agreement (separate forms for systems above vs. below 15 kW)",
+      "Obtain a building permit from the City of Pasadena Department of Planning & Development",
+      "Install the system and schedule fire/building inspections",
+      "Submit a 'Permission to Operate' request with final inspection documentation",
+      "PWP performs a field inspection and meter replacement, then issues the 'Permission to Operate' letter"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "This is PWP's full 8-step interconnection-to-operate sequence, not a narrower 'inspection only' list, because PWP's own material presents it as one unified process with the building-permit step (step 5) embedded partway through."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "S2 explicitly states no overall timeline for the approval process is specified on that page."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [],
+      "system_size_kw_ac_max": 1000,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Net Energy Metering (Pasadena Municipal Code 13.04.177) via GFIA Interconnection Agreement",
+      "other_conditions": [
+        "System size also capped at 150% of the customer's average annual energy consumption per PWP billing record (or 2 watts DC per square foot of conditioned floor area for new construction without billing history)",
+        "System must serve on-site load to qualify under the renewable/Net Energy Metering pathway (PMC 13.04.177); other self-generation technologies (reciprocating engines, micro-turbines, fuel cells, combined heat and power) are billed under a separate Self-Generation Rate Schedule, PMC 13.04.178",
+        "Separate GFIA Interconnection Agreement forms apply for systems above vs. below 15 kW combined inverter nameplate rating"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S2",
+      "S3"
+    ],
+    "notes": "property_types left empty — sources describe eligibility by customer/meter account ('all PWP electric customers'), not by a residential-only or single-family-only property restriction; both residential and commercial customers are explicitly in scope across S2-S4."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Self-Generation/Interconnection Application Fee (GFIA)",
+        "amount_usd": 800,
+        "unit": "flat",
+        "notes": "Check payable to 'City of Pasadena'. Additional fees may apply if a supplemental review or detailed interconnection study is required (amount not specified by source)."
+      },
+      {
+        "name": "Plan Review and Inspection Fees",
+        "amount_usd": 0,
+        "unit": "flat",
+        "notes": "PWP states it is not charging plan review and inspection fees for solar and battery systems. Structural, Building & Safety, meter, and other non-energy-related fees may still apply. The relationship between this waiver and the separately-stated $800 GFIA application fee above is not fully reconciled by these two source pages — confirm directly with PWP before treating both as simultaneously accurate."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2",
+      "S4"
+    ]
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "PWP Residential Solar Rebate - Standard Rate",
+        "administrator": "Pasadena Water and Power",
+        "description": "Rebate of $0.60/Watt for new, permanent, owned (not leased/PPA) rooftop solar PV systems.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.60,
+        "eligibility": "PWP residential electric customers not enrolled in an income-qualified bill payment assistance program; system must be owned (leased/PPA systems do not qualify); final NEM approval from PWP required; must apply within 180 days of interconnection",
+        "url": "https://pwp.cityofpasadena.net/residential-solar-rebate/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "PWP Residential Solar Rebate - Income-Qualified Rate",
+        "administrator": "Pasadena Water and Power",
+        "description": "Rebate of $1.00/Watt for new, permanent, owned (not leased/PPA) rooftop solar PV systems, for customers enrolled in a PWP income-qualified bill payment assistance program.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 1.00,
+        "eligibility": "PWP residential electric customers enrolled in an income-qualified bill payment assistance program (EUAP, CARES, or CARES Plus) at time of application; system must be owned (leased/PPA systems do not qualify); final NEM approval from PWP required; must apply within 180 days of interconnection",
+        "url": "https://pwp.cityofpasadena.net/residential-solar-rebate/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Split into two separate program items (one per rate tier) rather than one item with two numbers, per the schema's 'one item, one unit' rule (see agents/data-collector.md) — the source describes two distinct eligibility tiers of the same per-Watt rebate, not two different components of one program. Both figures were previously stuck in 'description' text only because data/schema.json's programItem had no per-Watt field; schema v1.3.0 added value_usd_per_watt specifically in response to this record."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "PWP Solar / Self-Generation (DG Applications)",
+        "phone": "626-744-4495",
+        "email": "PWPDGApplications@cityofpasadena.net",
+        "url": "https://pwp.cityofpasadena.net/selfgenusp/"
+      },
+      {
+        "name": null,
+        "role": "PWP Customer Service",
+        "phone": "626-744-4005",
+        "email": null,
+        "url": "https://pwp.cityofpasadena.net/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-01",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Pasadena Water and Power",
+      "url": "https://pwp.cityofpasadena.net/",
+      "publisher": "City of Pasadena",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S2",
+      "title": "Requirements for Self-Generation",
+      "url": "https://pwp.cityofpasadena.net/selfgenusp/",
+      "publisher": "City of Pasadena (Pasadena Water and Power)",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S3",
+      "title": "Solar Eligibility and Requirements",
+      "url": "https://pwp.cityofpasadena.net/solar-eligibility-and-requirements/",
+      "publisher": "City of Pasadena (Pasadena Water and Power)",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S4",
+      "title": "Residential Solar Rebate",
+      "url": "https://pwp.cityofpasadena.net/residential-solar-rebate/",
+      "publisher": "City of Pasadena (Pasadena Water and Power)",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "Where Our Power Comes From",
+      "url": "https://pwp.cityofpasadena.net/power/",
+      "publisher": "City of Pasadena (Pasadena Water and Power)",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Pasadena, California - Services Locator",
+      "url": "https://locator.lacounty.gov/lac/Location/3036107/pasadena-california",
+      "publisher": "County of Los Angeles",
+      "type": "government",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "PWP Launches Solar and Battery Rebate Pilot Program for Residential and Commercial Customers",
+      "url": "https://pwp.cityofpasadena.net/launch-solar-and-battery-rebate-pilot-program-for-residential-and-commercial-customers/",
+      "publisher": "City of Pasadena (Pasadena Water and Power)",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

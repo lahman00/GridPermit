@@ -1,0 +1,79 @@
+{
+  "record_id": "ca-los-angeles-pasadena-pwp",
+  "file": "data/localities/ca-los-angeles-pasadena-pwp.json",
+  "validated_at": "2026-08-01",
+  "status": "REVIEW",
+  "score": 98,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "sources[S6].url",
+      "category": "broken_url",
+      "message": "https://locator.lacounty.gov/lac/Location/3036107/pasadena-california — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://pwp.cityofpasadena.net/solar-eligibility-and-requirements/",
+      "checked_at": "2026-08-01T15:11:48.478Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://pwp.cityofpasadena.net/selfgenusp/",
+      "checked_at": "2026-08-01T15:11:49.756Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://pwp.cityofpasadena.net/launch-solar-and-battery-rebate-pilot-program-for-residential-and-commercial-customers/",
+      "checked_at": "2026-08-01T15:11:50.892Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://pwp.cityofpasadena.net/residential-solar-rebate/",
+      "checked_at": "2026-08-01T15:11:52.014Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://pwp.cityofpasadena.net/",
+      "checked_at": "2026-08-01T15:11:53.167Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://pwp.cityofpasadena.net/power/",
+      "checked_at": "2026-08-01T15:11:54.366Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://locator.lacounty.gov/lac/Location/3036107/pasadena-california",
+      "checked_at": "2026-08-01T15:11:55.934Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}

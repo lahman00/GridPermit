@@ -59,7 +59,7 @@ A locality is either covered (a record file exists, most core fields have real c
 
 ## 8. Schema versioning
 
-`schema_version` is pinned to `"1.2.0"` for every record right now (enforced as a `const` in `data/schema.json`), read as `<major>.<minor>.<patch>`. Explicit rule — no ambiguity between tiers:
+`schema_version` is pinned to `"1.3.0"` for every record right now (enforced as a `const` in `data/schema.json`), read as `<major>.<minor>.<patch>`. Explicit rule — no ambiguity between tiers:
 
 - **Patch** (`x.y.Z`): documentation or validator fixes with **no schema-shape change** at all — e.g. clarifying a description string in `data/schema.json`, or a `scripts/validate-record.mjs` bug fix that doesn't change what a valid record looks like. No record ever needs to change.
 - **Minor** (`x.Y.0`): **optional additive fields only** — a new field that is not `required`, or a new enum value that doesn't invalidate any existing value. Every existing record remains valid without modification.
@@ -70,6 +70,8 @@ A locality is either covered (a record file exists, most core fields have real c
 **Acknowledged historical exception — `1.2.0`:** `1.2.0` added `generation_supplier` and `eligibility_constraints` as new *required* top-level keys, and restructured `required_documents` items from plain strings to objects. Under the rule above, that's a **Major** change and should have been versioned `2.0.0`. It was shipped as `1.2.0` anyway, kept as-is rather than renumbered after the fact, specifically because both existing records (`ca-santa-clara-san-jose-pge`, `ca-alameda-fremont-pge`) were migrated atomically in the same change — no unmigrated record was ever left on disk, so the practical risk the Major-bump rule exists to prevent never materialized here. This is a one-time exception for the record, not a precedent: the **next** schema change that adds a required field, renames a field, removes a field, or changes a field's type must follow the Major rule exactly — a real migration script, every existing record migrated before commit, and a `2.0.0`-or-higher version.
 
 Nobody should hand-edit `data/schema.json` to relax a constraint because one record doesn't fit — that's a signal the record has a real problem, not the schema.
+
+**`1.3.0`, for contrast with the `1.2.0` exception above, is a genuine Minor change:** it added `value_usd_per_watt` to `programItem` as an *optional* property (not added to `programItem`'s own `required` list), so no previously-valid `battery_programs`/`rebates` item became invalid. All four existing records were migrated to include it anyway (`null` where not applicable), for consistency — not because the schema demanded it.
 
 ## 11. `generation_supplier` and `eligibility_constraints` (added in 1.2.0)
 
@@ -98,3 +100,9 @@ A URL cited as evidence for a field can be blocked to automated access (bot prot
 - **Whether a citation is currently reachable by an automated checker** is `REACHABLE` / `BLOCKED_OR_UNVERIFIABLE` / `CONFIRMED_BROKEN` in `url_checks` — checked every validation run, and can change run to run as bot-protection and outages come and go, independent of whether the underlying fact changed at all.
 
 **Rule for every current and future consumer:** never lower, hide, or re-derive a field's `confidence` because its source URL failed a reachability check. A `BLOCKED_OR_UNVERIFIABLE` result costs the record a small, fixed 2-point score penalty (versus 5 points for an actual data problem, or 20 for an error) precisely because it's a much weaker signal — it says "a human should double-check this link," not "this fact is in doubt." Only `CONFIRMED_BROKEN` (HTTP 404/410, a malformed URL, or an unsupported protocol) is treated as a real defect.
+
+## 12. `programItem.value_usd_per_watt` (added in 1.3.0)
+
+Added because the Pasadena Water and Power record's residential solar rebate ($0.60/Watt standard, $1.00/Watt income-qualified) couldn't be represented in either existing monetary field — `value_usd_per_kwh` is battery-capacity-denominated, `value_usd_flat` is a single flat amount, and neither is a per-Watt-of-installed-capacity unit, which is how many *solar* (not battery) rebates are actually priced. Before this field existed, the Pasadena record left both numbers null and put them in `description` text only, flagging the gap explicitly rather than miscoding them into the wrong unit.
+
+**One item, one unit, as a rule.** A program with two genuinely separate numeric tiers in the *same* unit (like Pasadena's standard vs. income-qualified rate) should be two separate `programItem` entries, not one item with an ambiguous second number stuffed into `description`. `scripts/validate-record.mjs` now warns when more than one of `value_usd_per_kwh`/`value_usd_flat`/`value_usd_per_watt` is populated on the same item without the item's own `description` explaining a genuine multi-component program — see [agents/data-collector.md](../agents/data-collector.md) for the exact rule and phrasing it checks for.

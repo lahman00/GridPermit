@@ -285,12 +285,33 @@ async function validate(filePath) {
     const arr = record[fn]?.value;
     if (!Array.isArray(arr)) continue;
     for (const item of arr) {
-      for (const key of ["amount_usd", "value_usd_flat", "value_usd_per_kwh"]) {
+      for (const key of ["amount_usd", "value_usd_flat", "value_usd_per_kwh", "value_usd_per_watt"]) {
         const v = item?.[key];
         if (v == null) continue;
         if (v < 0) addFinding(errors, fn, "impossible_value", `${item.name}.${key} = ${v} is negative`);
         if (key === "value_usd_per_kwh" && v > 5000) {
           addFinding(warnings, fn, "impossible_value", `${item.name}.${key} = ${v} exceeds $5000/kWh sanity ceiling, recommend human check`);
+        }
+      }
+    }
+  }
+
+  // 6. impossible_value: more than one monetary unit populated on the same
+  // program item is a likely data-entry mistake (e.g. a $/kWh value and a
+  // $/Watt value both set, when only one should apply to this tier) unless
+  // the item's own description explains that it genuinely has multiple
+  // components (e.g. "storage incentive ... paired with a solar incentive").
+  const MULTI_COMPONENT_PHRASES = ["paired with", "plus", "combined with", "in addition to", "along with"];
+  for (const fn of ["battery_programs", "rebates"]) {
+    const arr = record[fn]?.value;
+    if (!Array.isArray(arr)) continue;
+    for (const item of arr) {
+      const populatedUnits = ["value_usd_per_kwh", "value_usd_flat", "value_usd_per_watt"].filter((k) => item?.[k] != null);
+      if (populatedUnits.length > 1) {
+        const desc = (item.description ?? "").toLowerCase();
+        const explainsMultiple = MULTI_COMPONENT_PHRASES.some((p) => desc.includes(p));
+        if (!explainsMultiple) {
+          addFinding(warnings, fn, "impossible_value", `${item.name}: more than one monetary unit populated (${populatedUnits.join(", ")}) without an explanation in description — recommend human check`);
         }
       }
     }
