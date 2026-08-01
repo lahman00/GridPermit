@@ -12,7 +12,20 @@ import {
 	utilityShortName,
 	resolvePermitAuthorityLabel,
 	buildBreadcrumbItems,
+	confidenceBadgeClass,
 } from "../src/lib/locality-guide.ts";
+
+test("confidenceBadgeClass matches the same tiering as confidenceLabel", () => {
+	assert.equal(confidenceBadgeClass(0.9), "badge-high");
+	assert.equal(confidenceBadgeClass(0.8), "badge-high");
+	assert.equal(confidenceBadgeClass(0.79), "badge-medium");
+	assert.equal(confidenceBadgeClass(0.5), "badge-medium");
+	assert.equal(confidenceBadgeClass(0.49), "badge-low");
+	assert.equal(confidenceBadgeClass(0.01), "badge-low");
+	assert.equal(confidenceBadgeClass(0), "badge-none");
+	assert.equal(confidenceBadgeClass("not a number"), "badge-unknown");
+	assert.equal(confidenceBadgeClass(undefined), "badge-unknown");
+});
 
 const samplePrograms = [
 	{ name: "SGIP - Residential Solar and Storage Equity", status: "unknown", description: "..." },

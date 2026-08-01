@@ -8,7 +8,6 @@
 import evaluation from "../../output/pilot-evaluation.json";
 import {
 	NOT_VERIFIED,
-	confidenceLabel,
 	buildSourceResolver,
 	getActiveBatteryPrograms,
 	formatTimeline,
@@ -22,6 +21,8 @@ import {
 	excludeCurrentEntry,
 	type LocalityRecord,
 } from "../lib/locality-guide";
+import { getAllBlogPosts, relatedPostsForUtility } from "../lib/blog-posts";
+import ConfidenceBadge from "../components/ConfidenceBadge.astro";
 
 interface Props {
 	record: LocalityRecord;
@@ -35,6 +36,7 @@ const { record, pagePath, cityPath } = Astro.props;
 
 const { canonicalUrl, title, description, utilityShortName: utilityShort } = buildPageMeta(record, pagePath);
 const permitAuthorityLabel = resolvePermitAuthorityLabel(record);
+const sourceCount = record.sources.length;
 
 // "Other verified California guides" cross-links (never linking to this
 // page itself) — driven by the same READY-only entry list the locality
@@ -47,6 +49,11 @@ const allRecordsById = new Map(Object.values(localityModules).map((mod) => [mod.
 const allReadyEntries = buildLocalityIndexEntries(evaluation.records, allRecordsById);
 const otherGuides = excludeCurrentEntry(allReadyEntries, record.record_id);
 
+// "Related articles" — blog posts matching this locality's utility, via the
+// same shared post list/category logic the blog index itself uses.
+const allBlogPosts = await getAllBlogPosts();
+const relatedArticles = relatedPostsForUtility(allBlogPosts, utilityShort, 3);
+
 const sourcesFor = buildSourceResolver(record.sources);
 const activeBatteryPrograms = getActiveBatteryPrograms(record.battery_programs.value);
 const hasTimeline = record.timeline_days?.value != null;
@@ -58,6 +65,23 @@ const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canoni
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 const faqs = buildFaqs(record);
 const faqSchema = buildFaqSchema(faqs);
+
+// Table of contents — ids match the section anchors added below. FAQ and
+// "Other guides" entries are included only when that section will actually
+// render (mirrors each section's own conditional).
+const tocItems = [
+	{ id: "overview", label: "Overview" },
+	{ id: "utility-supplier", label: "Utility & Supplier" },
+	{ id: "permit-authority", label: "Permit Authority" },
+	{ id: "required-documents", label: "Required Documents" },
+	{ id: "inspection-steps", label: "Inspection Steps" },
+	{ id: "eligibility", label: "Eligibility" },
+	{ id: "official-contacts", label: "Official Contacts" },
+	...(faqs.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
+	{ id: "sources", label: "Sources" },
+	...(otherGuides.length > 0 ? [{ id: "other-guides", label: "Other Guides" }] : []),
+	...(relatedArticles.length > 0 ? [{ id: "related-articles", label: "Related Articles" }] : []),
+];
 ---
 
 <!DOCTYPE html>
@@ -82,6 +106,8 @@ const faqSchema = buildFaqSchema(faqs);
 	{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 </head>
 <body>
+	<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
+
 	<div class="top-banner">
 		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
 	</div>
@@ -114,16 +140,24 @@ const faqSchema = buildFaqSchema(faqs);
 			))}
 		</nav>
 
+		<div class="layout-grid">
 		<main class="content-card">
 			<h1>{record.city.value} Solar Permit Guide</h1>
-			<p class="subtitle">{record.utility.value} territory · {record.county.value} · Last verified {record.last_verified}</p>
+			<p class="subtitle">{record.utility.value} territory · {record.county.value}</p>
+
+			<div class="page-toolbar">
+				<span class="badge badge-verified">✓ Last verified {record.last_verified}</span>
+				<span class="badge badge-sources">{sourceCount} official source{sourceCount === 1 ? "" : "s"}</span>
+				<button type="button" class="btn-toolbar" id="copy-link-btn">Copy Link</button>
+				<button type="button" class="btn-toolbar" id="print-btn">Print</button>
+			</div>
 
 			<div class="disclaimer-box">
 				<strong>Informational only.</strong> This page is not legal, engineering, or permit advice. Every fact below links to the official source it came from and shows how confident we are in it. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before making a decision.
 			</div>
 
 			<!-- ===== Overview ===== -->
-			<section>
+			<section id="overview">
 				<h2>Overview</h2>
 				<p>
 					GridPermit collects California residential solar and permitting facts directly from official sources — city and county government sites, utilities, and CPUC — and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology">our methodology</a> for the rules this page follows.
@@ -135,7 +169,7 @@ const faqSchema = buildFaqSchema(faqs);
 						<p class="fact-value">{timeline.label}</p>
 						{timeline.standardPathCaveat && <p class="fact-status">{timeline.standardPathCaveat}</p>}
 						{td.notes && <p class="fact-notes">{td.notes}</p>}
-						<p class="fact-meta">Confidence: {confidenceLabel(record.timeline_days.confidence)}</p>
+						<ConfidenceBadge confidence={record.timeline_days.confidence} />
 						<p class="fact-meta">Source(s): {sourcesFor(record.timeline_days.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
 					</div>
 				)}
@@ -151,7 +185,7 @@ const faqSchema = buildFaqSchema(faqs);
 									<p class="fact-status">Status on file: <strong>{p.status}</strong> — verify current status before relying on this.</p>
 								</div>
 							))}
-							<p class="fact-meta">Confidence: {confidenceLabel(record.battery_programs.confidence)}</p>
+							<ConfidenceBadge confidence={record.battery_programs.confidence} />
 							<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
 						</>
 					) : (
@@ -161,12 +195,12 @@ const faqSchema = buildFaqSchema(faqs);
 			</section>
 
 			<!-- ===== Utility and generation supplier ===== -->
-			<section>
+			<section id="utility-supplier">
 				<h2>Utility and generation supplier</h2>
 				<div class="fact-block">
 					<h3>Utility</h3>
 					<p class="fact-value">{record.utility.value ?? NOT_VERIFIED}</p>
-					<p class="fact-meta">Confidence: {confidenceLabel(record.utility.confidence)}</p>
+					<ConfidenceBadge confidence={record.utility.confidence} />
 					<p class="fact-meta">Source(s): {sourcesFor(record.utility.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
 				</div>
 
@@ -176,7 +210,7 @@ const faqSchema = buildFaqSchema(faqs);
 						<>
 							<p class="fact-value">{record.generation_supplier.value.name} ({record.generation_supplier.value.type === "cca" ? "Community Choice Aggregator" : record.generation_supplier.value.type})</p>
 							{record.generation_supplier.value.notes && <p class="fact-notes">{record.generation_supplier.value.notes}</p>}
-							<p class="fact-meta">Confidence: {confidenceLabel(record.generation_supplier.confidence)}</p>
+							<ConfidenceBadge confidence={record.generation_supplier.confidence} />
 							<p class="fact-meta">Source(s): {sourcesFor(record.generation_supplier.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
 						</>
 					) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
@@ -188,19 +222,19 @@ const faqSchema = buildFaqSchema(faqs);
 						<>
 							<p class="fact-value"><a href={record.interconnection_url.value} target="_blank" rel="noopener">{record.interconnection_url.value}</a></p>
 							{record.interconnection_url.notes && <p class="fact-notes">{record.interconnection_url.notes}</p>}
-							<p class="fact-meta">Confidence: {confidenceLabel(record.interconnection_url.confidence)}</p>
+							<ConfidenceBadge confidence={record.interconnection_url.confidence} />
 						</>
 					) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 				</div>
 			</section>
 
 			<!-- ===== Permit authority ===== -->
-			<section>
+			<section id="permit-authority">
 				<h2>Permit authority</h2>
 				<div class="fact-block">
 					<p class="fact-value">{record.permit_authority.value ?? NOT_VERIFIED}</p>
 					{record.permit_authority.notes && <p class="fact-notes">{record.permit_authority.notes}</p>}
-					<p class="fact-meta">Confidence: {confidenceLabel(record.permit_authority.confidence)}</p>
+					<ConfidenceBadge confidence={record.permit_authority.confidence} />
 					<p class="fact-meta">Source(s): {sourcesFor(record.permit_authority.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
 					{record.permit_url.value && (
 						<p class="fact-meta">Permit page: <a href={record.permit_url.value} target="_blank" rel="noopener">{record.permit_url.value}</a></p>
@@ -209,7 +243,7 @@ const faqSchema = buildFaqSchema(faqs);
 			</section>
 
 			<!-- ===== Required documents ===== -->
-			<section>
+			<section id="required-documents">
 				<h2>Required documents</h2>
 				{record.required_documents.value ? (
 					<>
@@ -221,14 +255,14 @@ const faqSchema = buildFaqSchema(faqs);
 								</li>
 							))}
 						</ul>
-						<p class="fact-meta">Confidence: {confidenceLabel(record.required_documents.confidence)}</p>
+						<ConfidenceBadge confidence={record.required_documents.confidence} />
 						<p class="fact-meta">Source(s): {sourcesFor(record.required_documents.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
 
 			<!-- ===== Inspection steps ===== -->
-			<section>
+			<section id="inspection-steps">
 				<h2>Inspection steps</h2>
 				{record.inspection_steps.value ? (
 					<>
@@ -236,14 +270,14 @@ const faqSchema = buildFaqSchema(faqs);
 							{record.inspection_steps.value.map((step) => <li>{step}</li>)}
 						</ul>
 						{record.inspection_steps.notes && <p class="fact-notes">{record.inspection_steps.notes}</p>}
-						<p class="fact-meta">Confidence: {confidenceLabel(record.inspection_steps.confidence)}</p>
+						<ConfidenceBadge confidence={record.inspection_steps.confidence} />
 						<p class="fact-meta">Source(s): {sourcesFor(record.inspection_steps.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
 
 			<!-- ===== Eligibility constraints ===== -->
-			<section>
+			<section id="eligibility">
 				<h2>Eligibility constraints</h2>
 				{record.eligibility_constraints.value ? (
 					<>
@@ -261,14 +295,14 @@ const faqSchema = buildFaqSchema(faqs);
 								</li>
 							)}
 						</ul>
-						<p class="fact-meta">Confidence: {confidenceLabel(record.eligibility_constraints.confidence)}</p>
+						<ConfidenceBadge confidence={record.eligibility_constraints.confidence} />
 						<p class="fact-meta">Source(s): {sourcesFor(record.eligibility_constraints.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
 
 			<!-- ===== Official contacts ===== -->
-			<section>
+			<section id="official-contacts">
 				<h2>Official contacts</h2>
 				{record.official_contacts.value ? (
 					<>
@@ -282,13 +316,13 @@ const faqSchema = buildFaqSchema(faqs);
 								</li>
 							))}
 						</ul>
-						<p class="fact-meta">Confidence: {confidenceLabel(record.official_contacts.confidence)}</p>
+						<ConfidenceBadge confidence={record.official_contacts.confidence} />
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
 
 			<!-- ===== Sources ===== -->
-			<section>
+			<section id="sources">
 				<h2>Sources</h2>
 				<ul class="fact-list sources-list">
 					{record.sources.map((s) => (
@@ -299,9 +333,22 @@ const faqSchema = buildFaqSchema(faqs);
 				</ul>
 			</section>
 
+			<!-- ===== FAQ ===== -->
+			{faqs.length > 0 && (
+				<section id="faq">
+					<h2>Frequently Asked Questions</h2>
+					{faqs.map((f) => (
+						<details class="faq-item">
+							<summary>{f.q}</summary>
+							<p>{f.a}</p>
+						</details>
+					))}
+				</section>
+			)}
+
 			<!-- ===== Other verified California guides ===== -->
 			{otherGuides.length > 0 && (
-				<section>
+				<section id="other-guides">
 					<h2>Other verified California guides</h2>
 					<p>
 						See all verified cities on the <a href="/california/solar-permit-guides/">California solar permit guide index</a>.
@@ -314,11 +361,34 @@ const faqSchema = buildFaqSchema(faqs);
 				</section>
 			)}
 
+			<!-- ===== Related articles ===== -->
+			{relatedArticles.length > 0 && (
+				<section id="related-articles">
+					<h2>Related Articles</h2>
+					<ul class="fact-list related-articles-list">
+						{relatedArticles.map((a) => (
+							<li><a href={a.url}>{a.title}</a></li>
+						))}
+					</ul>
+				</section>
+			)}
+
 			<div class="footer-disclaimer">
 				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Requirements, fees, and program terms change. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before starting a project. Last verified {record.last_verified}.</p>
 				<p><a href="/california/solar-permit-guides/">All California Guides</a> · <a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
 			</div>
 		</main>
+		<aside class="toc-sidebar">
+			<nav class="toc-card" aria-label="Table of contents">
+				<p class="toc-heading">On This Page</p>
+				<ul class="toc-list">
+					{tocItems.map((item) => (
+						<li><a href={`#${item.id}`}>{item.label}</a></li>
+					))}
+				</ul>
+			</nav>
+		</aside>
+		</div>
 	</div>
 
 	<footer class="footer">
@@ -379,6 +449,11 @@ const faqSchema = buildFaqSchema(faqs);
 		.fact-sublist { padding-left: 1.2rem; margin-top: 0.3rem; }
 		.doc-condition { color: var(--text-muted); font-size: 0.88rem; }
 		.sources-list a { color: var(--primary); }
+		.related-articles-list a { color: var(--primary); }
+
+		.faq-item { border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 0.6rem; }
+		.faq-item summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; }
+		.faq-item p { margin: 0.6rem 0 0; font-size: 0.9rem; color: #334155; }
 
 		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
 		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
@@ -387,6 +462,71 @@ const faqSchema = buildFaqSchema(faqs);
 		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
 		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
 		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
+
+		/* ===== Reading progress ===== */
+		.reading-progress-track { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: transparent; z-index: 200; }
+		.reading-progress-bar { height: 100%; width: 0%; background: var(--primary); }
+
+		/* ===== TOC sidebar / sticky layout ===== */
+		.layout-grid { display: grid; grid-template-columns: 1fr 230px; gap: 2rem; align-items: start; }
+		.toc-sidebar { position: sticky; top: 5rem; }
+		.toc-card { background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.1rem 1.25rem; }
+		.toc-heading { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin: 0 0 0.6rem; }
+		.toc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+		.toc-list a { font-size: 0.83rem; color: var(--text-muted); text-decoration: none; }
+		.toc-list a:hover { color: var(--primary); }
+		@media (max-width: 900px) {
+			.layout-grid { grid-template-columns: 1fr; }
+			.toc-sidebar { display: none; }
+		}
+
+		/* ===== Page toolbar: badges, copy link, print ===== */
+		.page-toolbar { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 1.25rem; }
+		.badge { display: inline-flex; align-items: center; font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 9999px; }
+		.badge-verified { background: #dcfce7; color: #166534; }
+		.badge-sources { background: #e0e7ff; color: #3730a3; }
+		.btn-toolbar { background: white; border: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 9999px; cursor: pointer; font-family: inherit; }
+		.btn-toolbar:hover { border-color: var(--primary); color: var(--primary); }
+
+		/* ===== Print ===== */
+		@media print {
+			.reading-progress-track, .navbar, .top-banner, .toc-sidebar, .page-toolbar, .footer, .breadcrumb-nav { display: none !important; }
+			.layout-grid { display: block; }
+			.content-card { border: none; padding: 0; }
+			a { color: black !important; text-decoration: underline; }
+		}
 	</style>
+
+	<script>
+		// Reading progress bar — pure scroll-position math, no library.
+		const progressBar = document.getElementById("reading-progress-bar");
+		function updateReadingProgress() {
+			const scrollTop = window.scrollY;
+			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+			const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+			if (progressBar) progressBar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+		}
+		window.addEventListener("scroll", updateReadingProgress, { passive: true });
+		updateReadingProgress();
+
+		// Copy Link — Clipboard API, no external service.
+		const copyBtn = document.getElementById("copy-link-btn");
+		copyBtn?.addEventListener("click", async () => {
+			try {
+				await navigator.clipboard.writeText(window.location.href);
+				const original = copyBtn.textContent;
+				copyBtn.textContent = "Copied!";
+				setTimeout(() => {
+					copyBtn.textContent = original;
+				}, 1500);
+			} catch {
+				// Clipboard API unavailable (e.g. insecure context) — no-op rather
+				// than throwing in front of the user.
+			}
+		});
+
+		// Print — native browser print dialog.
+		document.getElementById("print-btn")?.addEventListener("click", () => window.print());
+	</script>
 </body>
 </html>

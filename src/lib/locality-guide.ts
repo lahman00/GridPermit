@@ -109,6 +109,17 @@ export function confidenceLabel(confidence: unknown): string {
 	return `None (${confidence})`;
 }
 
+// A CSS class for the visual confidence badge — same tiering as
+// confidenceLabel, exposed separately so the layout never has to parse the
+// label string back apart to decide how to color it.
+export function confidenceBadgeClass(confidence: unknown): string {
+	if (typeof confidence !== "number") return "badge-unknown";
+	if (confidence >= 0.8) return "badge-high";
+	if (confidence >= 0.5) return "badge-medium";
+	if (confidence > 0) return "badge-low";
+	return "badge-none";
+}
+
 export function buildSourceResolver(sources: SourceRef[] | null | undefined) {
 	const byId = new Map((sources || []).map((s) => [s.id, s]));
 	return function sourcesFor(sourceIds?: string[] | null): SourceRef[] {

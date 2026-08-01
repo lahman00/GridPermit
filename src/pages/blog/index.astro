@@ -2,75 +2,13 @@
 // Blog index. Lists every existing post — the 5 Markdown posts in
 // src/content/blog/ (rendered via BlogPost.astro) and the 3 standalone
 // .astro posts in this same directory — without inventing any new content.
-// Category/featured-post choices below are editorial groupings of each
-// post's own existing title/description, not new factual claims.
-import { getCollection } from "astro:content";
+// The post list and category assignments live in src/lib/blog-posts.ts, the
+// single source of truth also used by LocalityGuideLayout.astro's "Related
+// articles" section — no independent copy of this data lives here.
 import { SITE_ORIGIN, buildBreadcrumbSchema } from "../../lib/locality-guide";
+import { getAllBlogPosts } from "../../lib/blog-posts";
 
-interface PostSummary {
-	title: string;
-	description: string;
-	url: string;
-	category: string;
-	displayDate: string;
-	sortDate: string; // ISO date used only for ordering, not necessarily rendered verbatim
-}
-
-// Editorial category labels keyed by each markdown post's own
-// content-collection id — grouping existing posts by the utility/topic
-// already stated in their own title, not adding a new claim.
-const CATEGORY_BY_ID: Record<string, string> = {
-	"pge-nem3-calculator": "PG&E",
-	"sce-guide": "SCE",
-	"sdge-guide": "SDG&E",
-	"sgip-battery-rebates-california": "Incentives",
-	"tesla-powerwall-3-vs-enphase-iq5p": "Battery Comparisons",
-};
-
-const collectionPosts = await getCollection("blog");
-const fromCollection: PostSummary[] = collectionPosts.map((post) => ({
-	title: post.data.title,
-	description: post.data.description,
-	url: `/blog/${post.id}/`,
-	category: CATEGORY_BY_ID[post.id] ?? "General",
-	displayDate: post.data.pubDate.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
-	sortDate: post.data.pubDate.toISOString(),
-}));
-
-// The 3 standalone .astro posts aren't part of the content collection, so
-// their metadata is listed here verbatim from what's already on each page
-// (title, description, and "Updated July 2026" — no specific day is stated
-// on those pages, so none is invented here either).
-const standalonePosts: PostSummary[] = [
-	{
-		title: "PG&E Rate Hike Audit 2026: Solar & Battery Protection Analysis",
-		description: "Analysis of Pacific Gas & Electric (PG&E) electricity rate increases and how home battery storage offsets E-ELEC peak pricing.",
-		url: "/blog/pge-rate-hikes-2026/",
-		category: "PG&E",
-		displayDate: "July 2026",
-		sortDate: "2026-07-20",
-	},
-	{
-		title: "SDG&E Battery Storage ROI Guide 2026: Rates & Economics",
-		description: "San Diego Gas & Electric (SDG&E) battery payback breakdown under NEM 3.0 rules and EV-TOU-5 rate schedules.",
-		url: "/blog/sdge-battery-roi-guide/",
-		category: "SDG&E",
-		displayDate: "July 2026",
-		sortDate: "2026-07-20",
-	},
-	{
-		title: "California NEM 3.0 Solar & Battery Payback Guide (2026 Audit)",
-		description: "Comprehensive guide to California Net Billing Tariff (NEM 3.0), avoided cost rates, TOU arbitrage, and battery ROI.",
-		url: "/blog/solar-battery-payback-nem3/",
-		category: "Battery Economics",
-		displayDate: "July 2026",
-		sortDate: "2026-07-20",
-	},
-];
-
-const allPosts = [...fromCollection, ...standalonePosts].sort(
-	(a, b) => new Date(b.sortDate).valueOf() - new Date(a.sortDate).valueOf(),
-);
+const allPosts = await getAllBlogPosts();
 
 // Editorial pick, not a factual claim: SGIP rebates apply to any CA
 // homeowner regardless of utility, making it the broadest-appeal post.
@@ -101,7 +39,7 @@ const blogSchema = {
 	"@type": "Blog",
 	name: "GridPermit Blog",
 	url: CANONICAL_URL,
-	blogPost: fromCollection.map((p) => ({
+	blogPost: allPosts.filter((p) => p.hasExactDate).map((p) => ({
 		"@type": "BlogPosting",
 		headline: p.title,
 		description: p.description,
