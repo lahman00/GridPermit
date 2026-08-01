@@ -4,8 +4,6 @@ description: "A head-to-head financial and technical comparison of the two domin
 pubDate: "2026-07-27"
 ---
 
-# Tesla Powerwall 3 vs. Enphase IQ Battery 5P: NEM 3.0 ROI Comparison
-
 Choosing the right battery storage system is the single most critical decision when going solar under NEM 3.0. The two market leaders in North America—**Tesla Powerwall 3** and **Enphase IQ Battery 5P**—offer fundamentally different architectures.
 
 ---

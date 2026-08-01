@@ -4,8 +4,6 @@ description: "San Diego Gas & Electric customers face the highest utility rates 
 pubDate: "2026-07-27"
 ---
 
-# SDG&E Electricity Rates & NEM 3.0 Analysis: The Complete 2026 Guide
-
 > **FTC Disclosure:** GridPermit is an independent resource funded by lead referrals. When you request installer quotes through our tools, we may receive compensation at no cost to you.
 
 San Diego Gas & Electric (**SDG&E**) holds the title of offering the most expensive residential electricity rates in the United States. With summer peak rates frequently climbing above **$0.64 per kWh**, San Diego homeowners face massive monthly utility bills.

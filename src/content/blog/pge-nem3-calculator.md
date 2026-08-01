@@ -4,8 +4,6 @@ description: "How Pacific Gas & Electric (PG&E) customers can navigate NEM 3.0 e
 pubDate: "2026-07-27"
 ---
 
-# PG&E NEM 3.0 Solar Payback Calculator & Rules (2026 Guide)
-
 If you are a **Pacific Gas & Electric (PG&E)** customer in Northern or Central California, electricity prices have surged to historic highs. At the same time, California's **NEM 3.0 (Net Billing Tariff)** fundamentally altered how solar generation is credited.
 
 If you send daytime solar power back to PG&E, you receive pennies on the dollar. However, if you store that energy in a home battery, you offset peak utility rates exceeding **$0.58 per kWh**.

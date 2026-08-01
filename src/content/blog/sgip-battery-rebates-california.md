@@ -4,8 +4,6 @@ description: "Learn if your household qualifies for Self-Generation Incentive Pr
 pubDate: "2026-07-27"
 ---
 
-# California SGIP Battery Rebates 2026: Get State Funding for Energy Storage
-
 California’s **Self-Generation Incentive Program (SGIP)** provides thousands of dollars in direct rebates for homeowners installing battery storage systems. 
 
 When combined with the **30% Federal Tax Credit**, eligible households can cover **up to 80% or more** of their total energy storage investment.
