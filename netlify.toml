@@ -8,6 +8,43 @@
   status = 301
   force = true
 
+# Breadcrumbs on every locality guide link "California" and the city name to
+# these paths (see buildBreadcrumbItems in src/lib/locality-guide.ts) but no
+# Astro page exists at any of them — only the *-solar-permit-guide/ pages and
+# the guide index do. Redirect rather than change the breadcrumb API, which
+# would ripple through the page generator, every generated page, and their
+# tests. Add one more entry here for each new city added to
+# src/pages/california/.
+[[redirects]]
+  from = "/california/"
+  to = "/california/solar-permit-guides/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/california/oakland/"
+  to = "/california/oakland/solar-permit-guide/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/california/fremont/"
+  to = "/california/fremont/solar-permit-guide/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/california/pasadena/"
+  to = "/california/pasadena/solar-permit-guide/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/california/san-diego/"
+  to = "/california/san-diego/solar-permit-guide/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
