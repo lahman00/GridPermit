@@ -13,7 +13,7 @@ const label = confidenceLabel(confidence);
 const dotClass = confidenceBadgeClass(confidence);
 ---
 
-<p class="fact-meta"><span class={`confidence-dot ${dotClass}`}></span>Confidence: {label}</p>
+<p class="fact-meta"><span class={`confidence-dot ${dotClass}`} aria-hidden="true"></span>Confidence: {label}</p>
 
 <style>
 	.confidence-dot {
