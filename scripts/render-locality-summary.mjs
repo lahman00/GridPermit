@@ -17,6 +17,13 @@ import path from "node:path";
 const REPO_ROOT = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const OUT_DIR = path.join(REPO_ROOT, "output", "rendered");
 
+// NOT_VERIFIED and confidenceLabel() below are deliberate, separate copies of
+// the same constant/logic in src/lib/locality-guide.ts (which the Astro
+// pages/layout use). This CLI has no build step and no dependency on src/ —
+// it's meant to run standalone (`node scripts/render-locality-summary.mjs`)
+// against any locality JSON file, so it doesn't import from src/lib. Keep
+// the two in sync by hand if the tiering (High >=0.8 / Medium >=0.5 / Low >0)
+// or the exact "Not yet verified." string ever changes.
 const NOT_VERIFIED = "Not yet verified.";
 const NONE_CONFIRMED = "Confirmed: none found.";
 
@@ -229,7 +236,11 @@ function renderSourcesSection(sources) {
 
 // Fields eligible for the coverage/completeness count — every researched
 // field in the schema, i.e. everything except record-level metadata
-// (record_id, schema_version, last_verified, sources).
+// (record_id, schema_version, last_verified, sources). Same list as
+// scripts/evaluate-pilot.mjs's COVERAGE_FIELDS and scripts/validate-record.mjs's
+// FIELD_NAMES — a separate literal for the same reason (see the note next to
+// NOT_VERIFIED/confidenceLabel above: this CLI has no dependency on the
+// other two, or on src/lib/).
 const COVERAGE_FIELDS = [
   "utility", "generation_supplier", "city", "county", "permit_authority", "permit_url",
   "interconnection_url", "battery_programs", "required_documents",

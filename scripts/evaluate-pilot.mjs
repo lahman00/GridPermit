@@ -28,8 +28,9 @@ const PILOT_RECORD_IDS = [
 ];
 
 // Every researched field in the schema (matches scripts/render-locality-summary.mjs's
-// COVERAGE_FIELDS — kept as a separate literal here rather than imported, since
-// this script must stay a read-only reporting tool with no shared mutable state).
+// COVERAGE_FIELDS and scripts/validate-record.mjs's FIELD_NAMES — kept as a
+// separate literal here rather than imported, since this script must stay a
+// read-only reporting tool with no shared mutable state).
 const COVERAGE_FIELDS = [
   "utility", "generation_supplier", "city", "county", "permit_authority", "permit_url",
   "interconnection_url", "battery_programs", "required_documents",

@@ -34,6 +34,13 @@ const CONFIRMED_BROKEN = "CONFIRMED_BROKEN";
 const URL_CHECK_PENALTY = { [BLOCKED_OR_UNVERIFIABLE]: 2 };
 const OTHER_WARNING_PENALTY = 5;
 const ERROR_PENALTY = 20;
+// Same 15-field list as scripts/evaluate-pilot.mjs's COVERAGE_FIELDS and
+// scripts/render-locality-summary.mjs's COVERAGE_FIELDS — every researched
+// field in data/schema.json except record-level metadata (record_id,
+// schema_version, last_verified, sources). Kept as a separate literal here
+// (not imported) so each of these three standalone CLIs has no dependency on
+// the others; update all three together if a field is ever added/removed
+// from the schema.
 const FIELD_NAMES = [
   "utility", "generation_supplier", "city", "county", "permit_authority", "permit_url",
   "interconnection_url", "battery_programs", "required_documents",
