@@ -1,0 +1,71 @@
+{
+  "description": "Controlled California pilot batch for scripts/collect-pilot.mjs. Exactly 5 targets — do not add or remove entries without updating docs/PILOT_RUNBOOK.md.",
+  "naming_rule": "<state-code>-<county-slug>-<city-slug>-<utility-slug>.json, lowercase kebab-case, no underscores. See data/schema.json record_id pattern and docs/DATA_ARCHITECTURE.md Section 2.",
+  "targets": [
+    {
+      "state": "California",
+      "state_code": "ca",
+      "utility": "Pacific Gas and Electric Company (PG&E)",
+      "utility_slug": "pge",
+      "city": "San José",
+      "city_slug": "san-jose",
+      "county": "Santa Clara County",
+      "county_slug": "santa-clara",
+      "record_id": "ca-santa-clara-san-jose-pge",
+      "locality_file": "data/localities/ca-santa-clara-san-jose-pge.json",
+      "source_payload_file": "data/source-payloads/ca-santa-clara-san-jose-pge.json"
+    },
+    {
+      "state": "California",
+      "state_code": "ca",
+      "utility": "Pacific Gas and Electric Company (PG&E)",
+      "utility_slug": "pge",
+      "city": "Fremont",
+      "city_slug": "fremont",
+      "county": "Alameda County",
+      "county_slug": "alameda",
+      "record_id": "ca-alameda-fremont-pge",
+      "locality_file": "data/localities/ca-alameda-fremont-pge.json",
+      "source_payload_file": "data/source-payloads/ca-alameda-fremont-pge.json"
+    },
+    {
+      "state": "California",
+      "state_code": "ca",
+      "utility": "Pacific Gas and Electric Company (PG&E)",
+      "utility_slug": "pge",
+      "city": "Oakland",
+      "city_slug": "oakland",
+      "county": "Alameda County",
+      "county_slug": "alameda",
+      "record_id": "ca-alameda-oakland-pge",
+      "locality_file": "data/localities/ca-alameda-oakland-pge.json",
+      "source_payload_file": "data/source-payloads/ca-alameda-oakland-pge.json"
+    },
+    {
+      "state": "California",
+      "state_code": "ca",
+      "utility": "Southern California Edison (SCE)",
+      "utility_slug": "sce",
+      "city": "Pasadena",
+      "city_slug": "pasadena",
+      "county": "Los Angeles County",
+      "county_slug": "los-angeles",
+      "record_id": "ca-los-angeles-pasadena-sce",
+      "locality_file": "data/localities/ca-los-angeles-pasadena-sce.json",
+      "source_payload_file": "data/source-payloads/ca-los-angeles-pasadena-sce.json"
+    },
+    {
+      "state": "California",
+      "state_code": "ca",
+      "utility": "San Diego Gas & Electric (SDG&E)",
+      "utility_slug": "sdge",
+      "city": "San Diego",
+      "city_slug": "san-diego",
+      "county": "San Diego County",
+      "county_slug": "san-diego",
+      "record_id": "ca-san-diego-san-diego-sdge",
+      "locality_file": "data/localities/ca-san-diego-san-diego-sdge.json",
+      "source_payload_file": "data/source-payloads/ca-san-diego-san-diego-sdge.json"
+    }
+  ]
+}
