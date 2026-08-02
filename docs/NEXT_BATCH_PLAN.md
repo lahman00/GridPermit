@@ -26,12 +26,12 @@ Eight counties are represented, spanning the Central Valley (Fresno, San Joaquin
 
 - **Fresno** — PG&E's largest Central Valley city not yet in the pilot; high population, straightforward IOU case, good SEO value.
 - **Stockton** — PG&E, San Joaquin County; adds Central Valley geographic diversity beyond Fresno.
-- **Santa Rosa** — PG&E, North Bay; adds a CCA-overlay case (Sonoma Clean Power) distinct from the East Bay's Ava, testing whether the schema's CCA handling generalizes to a third real-world CCA.
+- **Santa Rosa** — PG&E, North Bay; adds a CCA-overlay case (Sonoma Clean Power, membership confirmed 2026-08-02 directly from the CCA's own site) distinct from the East Bay's Ava, testing whether the schema's CCA handling generalizes to a third real-world CCA.
 - **Irvine** — SCE; large, well-documented Orange County city, and a clean test of the utility/CCA split now that Orange County Power Authority (OCPA) has launched — mirrors the Fremont/Oakland/San Diego pattern but for SCE territory for the first time.
 - **Fullerton** — SCE; deliberately chosen despite (in fact, because of) a naming trap: its own city site has a page titled "Public Utilities Commission," which could be mistaken for a municipal electric utility the same way "Southern California Edison" was wrongly assumed for Pasadena in the original pilot. Verified directly (see evidence below) that this commission covers water/sanitation/sewer/trash, not electric, before including it.
 - **Santa Ana** — SCE; a large Orange County city with no CCA membership confirmed one way or the other in this pass — included specifically to test the schema/collection process on a "plain IOU, no CCA" SCE case, as a control against Irvine/Fullerton's OCPA membership.
 - **Chula Vista** — SDG&E; San Diego County's second-largest city, already documented as a San Diego Community Power (SDCP) member alongside the already-collected city of San Diego — a direct opportunity to compare two SDCP-member cities' records once collected.
-- **Escondido** — SDG&E; a North County San Diego city whose SDCP membership was *not* confirmed one way or the other in this pass (unlike Chula Vista) — included as a control case where the generation-supplier field must be verified fresh, not assumed from a neighboring city.
+- **Escondido** — SDG&E; a North County San Diego city — re-verification on 2026-08-02 found it is **not** an SDCP member (unlike Chula Vista) but is instead served by a different CCA, Clean Energy Alliance. Kept in this batch specifically as the control case proving the schema/collection process must verify each city's CCA membership individually rather than assuming a regional pattern.
 - **Los Angeles (LADWP)** — the single most significant municipal utility in California by customer count; the pilot's only municipal-utility case so far (Pasadena/PWP) is a small city, so this adds a municipal-utility case at the opposite end of the size spectrum, testing whether the schema and page template hold up for the state's largest city.
 - **Alameda (AMP)** — a small, vertically-integrated municipal utility, distinct from both Pasadena/PWP (different city, different administrative structure) and from Fremont/Oakland (same county, but AMP is a completely separate utility from PG&E/Ava) — chosen to add a second small-municipal case and to specifically stress-test that the naming/record_id scheme correctly disambiguates a new city from two already-collected cities in the very same county.
 
@@ -41,8 +41,7 @@ Every target's `utility_verification.evidence` entry cites an official source �
 
 ## Known CCA / municipal-utility considerations
 
-- **Confirmed CCA overlay expected:** Irvine and Fullerton (Orange County Power Authority, OCPA) and Chula Vista (San Diego Community Power, SDCP) — the utility named in each target is the interconnection/distribution/billing utility (SCE, SDG&E respectively), not the generation supplier, exactly matching how `generation_supplier` is already handled as a field separate from `utility` for Fremont/Oakland/San Diego.
-- **CCA overlay plausible but not confirmed here:** Santa Rosa (Sonoma Clean Power very likely serves it, per general knowledge of that CCA's territory, but this was not directly verified against an official Santa Rosa-specific source in this pass) and Escondido (SDCP membership not confirmed either way). Both are flagged in their target's `notes` field specifically so a future collection pass verifies `generation_supplier` directly rather than assuming a pattern from a neighboring city.
+- **Confirmed CCA overlay expected:** Irvine and Fullerton (Orange County Power Authority, OCPA), Chula Vista (San Diego Community Power, SDCP), and — confirmed in the 2026-08-02 re-verification pass — Santa Rosa (Sonoma Clean Power, confirmed directly from sonomacleanpower.org) and Escondido (**Clean Energy Alliance**, confirmed directly from thecleanenergyalliance.org — this corrects an earlier assumption that Escondido might share Chula Vista's SDCP membership; it does not). In every case the utility named in the target is the interconnection/distribution/billing utility (SCE, SDG&E, or PG&E), not the generation supplier — the same split already handled as a field separate from `utility` for Fremont/Oakland/San Diego.
 - **No CCA overlay expected (vertically integrated):** Los Angeles (LADWP) and Alameda (AMP), like the existing Pasadena (PWP) record — municipal utilities that generate their own power rather than sitting alongside a separate CCA.
 - **Santa Ana** is the one target in this batch with no CCA signal found either way — a genuine "plain IOU" control case.
 - **Naming-trap risk, resolved:** Fullerton's city site has a "Public Utilities Commission" page that names look like it could indicate a municipal electric utility (the exact category of mistake — an assumed utility that turned out wrong — that the target-validity guard was built to catch after the real Pasadena/SCE incident). Verified directly that this commission's scope is water/sanitation/sewer/trash only; SCE is confirmed as Fullerton's electric utility by both the city's own utility-services breakdown and independent reporting.
@@ -54,11 +53,11 @@ Every target's `utility_verification.evidence` entry cites an official source �
 | Los Angeles (LADWP) | Low | Extremely well-documented; LADWP publishes extensive public solar/interconnection materials. |
 | Alameda (AMP) | Low–Medium | Well-documented for a small utility; likely fewer solar-specific public pages than LADWP or PG&E. |
 | Fresno, Stockton | Low | Standard, well-trodden PG&E IOU cities; PG&E's own solar/interconnection materials already used successfully for Fremont/Oakland/San Jose apply directly. |
-| Santa Rosa | Medium | PG&E utility side is low-difficulty, but confirming the Sonoma Clean Power generation-supplier relationship precisely (versus assuming it) adds a research step. |
+| Santa Rosa | Low–Medium | PG&E utility side is low-difficulty; Sonoma Clean Power generation-supplier relationship is now confirmed (2026-08-02), so this is mostly a matter of recording it correctly during collection. |
 | Irvine, Fullerton | Medium | SCE-side materials are new to this pipeline (first SCE collection); OCPA CCA relationship needs direct confirmation per city, not just per-utility. |
 | Santa Ana | Medium | Same SCE-materials-are-new consideration as Irvine/Fullerton, without an already-known CCA angle to cross-check against. |
 | Chula Vista | Medium | SDG&E utility side is already proven (San Diego pilot record); SDCP membership is already suggested by a secondary source and should be corroborated with an official one. |
-| Escondido | Medium–High | SDG&E utility side is proven, but the generation-supplier question is fully open — no CCA signal found in this pass, so it must be resolved from scratch. |
+| Escondido | Medium | SDG&E utility side is proven; the generation-supplier question is now resolved (Clean Energy Alliance, confirmed 2026-08-02, not SDCP) — remaining work is collecting CEA's own program/rate details, which this pipeline hasn't touched before. |
 
 ## Priority order for actual collection
 
@@ -70,8 +69,8 @@ Every target's `utility_verification.evidence` entry cites an official source �
 6. **Fresno (PG&E)** — low difficulty, high population, straightforward.
 7. **Stockton (PG&E)** — same rationale as Fresno.
 8. **Alameda (AMP)** — second municipal-utility record; small enough to move quickly once LADWP's municipal-utility research pattern exists.
-9. **Santa Rosa (PG&E)** — needs the extra Sonoma Clean Power verification step.
-10. **Escondido (SDG&E)** — the one target whose generation-supplier question is fully open; scheduled last so any process refinements from targets 1–9 are already in place.
+9. **Santa Rosa (PG&E)** — Sonoma Clean Power relationship now confirmed; low remaining risk.
+10. **Escondido (SDG&E)** — generation-supplier now resolved (Clean Energy Alliance), but this is the pipeline's first CEA-territory record; scheduled last so any process refinements from targets 1–9 are already in place.
 
 ## What this plan deliberately does not do
 

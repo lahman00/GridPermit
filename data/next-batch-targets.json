@@ -75,10 +75,16 @@
             "source_url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf",
             "source_title": "PG&E's Electric Service Territory",
             "publisher": "Pacific Gas and Electric Company (PG&E)"
+          },
+          {
+            "claim": "Sonoma Clean Power's own official site confirms it is the default electric generation provider for Santa Rosa (one of its member cities, alongside Cloverdale, Cotati, Fort Bragg, Petaluma, Point Arena, and Rohnert Park), under automatic-enrollment rules set by AB 117 — with PG&E remaining the distribution/billing utility and available as an opt-out destination.",
+            "source_url": "https://sonomacleanpower.org/frequently-asked-questions",
+            "source_title": "Frequently Asked Questions",
+            "publisher": "Sonoma Clean Power"
           }
         ],
         "checked_at": "2026-08-02",
-        "notes": "Sonoma County has an active CCA, Sonoma Clean Power, which very likely serves Santa Rosa as the default generation supplier while PG&E remains the distribution/billing utility — the same utility-vs-generation-supplier split already documented for Fremont/Oakland (Ava) and San Diego (SDCP). Confirm Sonoma Clean Power's exact Santa Rosa enrollment status during full collection; do not assume it without a direct source."
+        "notes": "Re-verified 2026-08-02: Sonoma Clean Power's own site confirms Santa Rosa membership directly (upgraded from the earlier 'very likely, unconfirmed' note) — expect a populated generation_supplier field (type 'cca', Sonoma Clean Power) during full collection, same pattern as Fremont/Oakland (Ava) and San Diego (SDCP)."
       }
     },
     {
@@ -127,10 +133,16 @@
             "source_url": "https://www.cityoffullerton.com/government/departments/administrative-services-finance/utility-services",
             "source_title": "Utility Services",
             "publisher": "City of Fullerton"
+          },
+          {
+            "claim": "The City of Fullerton's own Energy Conservation page promotes Southern California Edison's CARE & FERA low-income rate-discount programs to Fullerton residents — an official city page directing residents to SCE for electric-rate assistance, consistent with SCE (not the city) being the electric utility.",
+            "source_url": "https://www.cityoffullerton.com/government/departments/public-works/environmental-services/energy-conservation",
+            "source_title": "Energy Conservation",
+            "publisher": "City of Fullerton"
           }
         ],
         "checked_at": "2026-08-02",
-        "notes": "Fullerton's own site has a page literally titled 'Public Utilities Commission,' which could be mistaken for a municipal electric utility (the same kind of naming trap that caused the original Pasadena/SCE error this guard exists to catch) — verified above that this commission's scope is water/sanitation/sewer/trash, not electric. Fullerton is also an OCPA member city (see Irvine's note); expect a CCA generation_supplier during full collection."
+        "notes": "Re-verified 2026-08-02 with a second, independent City of Fullerton source (this batch's caution flagged Fullerton as needing stronger confirmation). Fullerton's own site has a page literally titled 'Public Utilities Commission,' which could be mistaken for a municipal electric utility (the same kind of naming trap that caused the original Pasadena/SCE error this guard exists to catch) — verified that this commission's scope is water/sanitation/sewer/trash, not electric, and separately that the city's own Energy Conservation page points residents to SCE for electric-rate assistance programs. Fullerton is also an OCPA member city (see Irvine's note); expect a CCA generation_supplier during full collection."
       }
     },
     {
@@ -205,10 +217,16 @@
             "source_url": "https://www.escondido.gov/1143/Utilities",
             "source_title": "Utilities",
             "publisher": "City of Escondido"
+          },
+          {
+            "claim": "Clean Energy Alliance's own official site confirms it — not San Diego Community Power — is the default power provider for Escondido, alongside Carlsbad, Del Mar, Oceanside, San Marcos, Solana Beach, and Vista. SDG&E remains the distribution/billing utility.",
+            "source_url": "https://thecleanenergyalliance.org/",
+            "source_title": "Clean Energy Alliance Service Cities",
+            "publisher": "Clean Energy Alliance"
           }
         ],
         "checked_at": "2026-08-02",
-        "notes": "Escondido's San Diego Community Power (CCA) membership status was not confirmed one way or the other during this verification pass (unlike Chula Vista) — do not assume it during full collection; verify generation_supplier directly."
+        "notes": "CORRECTED 2026-08-02: earlier verification left Escondido's CCA status as unconfirmed and speculated it might parallel Chula Vista's San Diego Community Power (SDCP) membership. Direct research now shows this assumption would have been wrong — Escondido is a Clean Energy Alliance member, a separate North San Diego County CCA, not SDCP. SDG&E remains the correct distribution/billing utility (unaffected). Expect a populated generation_supplier field (type 'cca', Clean Energy Alliance, not SDCP) during full collection."
       }
     },
     {
