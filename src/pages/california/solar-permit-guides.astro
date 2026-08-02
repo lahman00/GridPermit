@@ -112,7 +112,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 			<section>
 				<div class="guide-grid">
 					{entries.map((entry) => (
-						<a href={entry.guideUrl} class="guide-card">
+						<a href={entry.guideUrl} class="guide-card" data-track-click="permit_guide_clicked">
 							<h2>{entry.city}</h2>
 							<p class="card-field"><strong>Utility:</strong> {entry.utility}</p>
 							{entry.generationSupplierName && (

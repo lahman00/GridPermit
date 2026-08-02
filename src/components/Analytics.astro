@@ -2,6 +2,13 @@
 // Single source of truth for the GA4 snippet — every page includes this
 // instead of repeating the tracking ID inline. Previously only
 // src/pages/index.astro had analytics; every other page (21 of 22) had none.
+//
+// This component also wires the site's conversion-event tracking (see
+// src/lib/analytics-events.ts): any element anywhere on the site can opt in
+// to tracking purely via a markup attribute —
+//   data-track-view="locality_guide_viewed"  fires once, on page load
+//   data-track-click="official_source_clicked" fires on click
+// — so no page needs its own copy of this wiring or its own gtag snippet.
 ---
 
 <!-- Google tag (gtag.js) -->
@@ -11,4 +18,23 @@
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 	gtag('config', 'G-PGX9SJ9QLG');
+</script>
+<script>
+	import { trackEvent, isKnownAnalyticsEvent } from "../lib/analytics-events";
+
+	document.addEventListener("DOMContentLoaded", () => {
+		for (const el of document.querySelectorAll("[data-track-view]")) {
+			const name = el.getAttribute("data-track-view") ?? "";
+			if (isKnownAnalyticsEvent(name)) trackEvent(name);
+		}
+	});
+
+	document.addEventListener("click", (e) => {
+		const target = e.target;
+		if (!(target instanceof Element)) return;
+		const trigger = target.closest("[data-track-click]");
+		if (!trigger) return;
+		const name = trigger.getAttribute("data-track-click") ?? "";
+		if (isKnownAnalyticsEvent(name)) trackEvent(name);
+	});
 </script>

@@ -149,7 +149,7 @@ import Analytics from "../components/Analytics.astro";
 						<h4>Compare Quotes From Solar Installers</h4>
 						<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers.</p>
 						<!-- NOTE: plain, non-affiliate external link — no tracking ID configured yet. Do not add rel="sponsored" or compensation language until a real affiliate/tracking URL is supplied. -->
-						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="btn-green-action-link">
+						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="btn-green-action-link" data-track-click="external_partner_clicked">
 							Visit EnergySage →
 						</a>
 						<p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.75rem; line-height: 1.4;">
@@ -173,7 +173,9 @@ import Analytics from "../components/Analytics.astro";
 		</div>
 	</footer>
 
-	<script is:inline>
+	<script>
+		import { trackEvent } from "../lib/analytics-events";
+
 		document.addEventListener("DOMContentLoaded", () => {
 			// Honest-MVP notice: these are the ONLY two assumptions behind the system-size
 			// figure below, and both are flat statewide placeholders — not real utility
@@ -226,6 +228,8 @@ import Analytics from "../components/Analytics.astro";
 						return;
 					}
 
+					trackEvent("calculator_started");
+
 					form.classList.add("hidden");
 					loadingBox.classList.remove("hidden");
 
@@ -244,6 +248,7 @@ import Analytics from "../components/Analytics.astro";
 						const sysKw = annualKwh / PLACEHOLDER_YIELD_KWH_PER_KW_YEAR;
 
 						document.getElementById("res-sys-size").innerText = sysKw.toFixed(1) + " kW";
+						trackEvent("calculator_completed");
 					}, 2400);
 				});
 			}

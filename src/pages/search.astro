@@ -109,6 +109,8 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 	</footer>
 
 	<script>
+		import { trackEvent } from "../lib/analytics-events";
+
 		interface SearchEntry {
 			title: string;
 			description: string;
@@ -130,6 +132,10 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 			return index.filter((e) => `${e.title} ${e.description} ${e.category}`.toLowerCase().includes(q));
 		}
 
+		// Fires at most once per distinct non-empty query, not on every
+		// keystroke — avoids flooding GA with one event per character typed.
+		let lastTrackedQuery = "";
+
 		function render(query: string) {
 			const results = search(query);
 			if (!resultsList || !hint || !noResults) return;
@@ -138,10 +144,17 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 			if (query.trim() === "") {
 				hint.hidden = false;
 				noResults.hidden = true;
+				lastTrackedQuery = "";
 				return;
 			}
 			hint.hidden = true;
 			noResults.hidden = results.length > 0;
+
+			const normalizedQuery = query.trim().toLowerCase();
+			if (normalizedQuery !== lastTrackedQuery) {
+				lastTrackedQuery = normalizedQuery;
+				trackEvent("search_used", { result_count: results.length });
+			}
 
 			for (const r of results) {
 				const li = document.createElement("li");

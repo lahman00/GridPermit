@@ -112,7 +112,7 @@ const tocItems = [
 	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 </head>
-<body>
+<body data-track-view="locality_guide_viewed">
 	<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
 
 	<div class="top-banner">
@@ -178,7 +178,7 @@ const tocItems = [
 						{timeline.standardPathCaveat && <p class="fact-status">{timeline.standardPathCaveat}</p>}
 						{td.notes && <p class="fact-notes">{td.notes}</p>}
 						<ConfidenceBadge confidence={record.timeline_days.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.timeline_days.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+						<p class="fact-meta">Source(s): {sourcesFor(record.timeline_days.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 					</div>
 				)}
 
@@ -194,7 +194,7 @@ const tocItems = [
 								</div>
 							))}
 							<ConfidenceBadge confidence={record.battery_programs.confidence} />
-							<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+							<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 						</>
 					) : (
 						<p class="fact-value muted">No currently verified active battery program is available in this record.</p>
@@ -209,7 +209,7 @@ const tocItems = [
 					<h3>Utility</h3>
 					<p class="fact-value">{record.utility.value ?? NOT_VERIFIED}</p>
 					<ConfidenceBadge confidence={record.utility.confidence} />
-					<p class="fact-meta">Source(s): {sourcesFor(record.utility.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+					<p class="fact-meta">Source(s): {sourcesFor(record.utility.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 				</div>
 
 				<div class="fact-block">
@@ -219,7 +219,7 @@ const tocItems = [
 							<p class="fact-value">{record.generation_supplier.value.name} ({record.generation_supplier.value.type === "cca" ? "Community Choice Aggregator" : record.generation_supplier.value.type})</p>
 							{record.generation_supplier.value.notes && <p class="fact-notes">{record.generation_supplier.value.notes}</p>}
 							<ConfidenceBadge confidence={record.generation_supplier.confidence} />
-							<p class="fact-meta">Source(s): {sourcesFor(record.generation_supplier.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+							<p class="fact-meta">Source(s): {sourcesFor(record.generation_supplier.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 						</>
 					) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 				</div>
@@ -243,7 +243,7 @@ const tocItems = [
 					<p class="fact-value">{record.permit_authority.value ?? NOT_VERIFIED}</p>
 					{record.permit_authority.notes && <p class="fact-notes">{record.permit_authority.notes}</p>}
 					<ConfidenceBadge confidence={record.permit_authority.confidence} />
-					<p class="fact-meta">Source(s): {sourcesFor(record.permit_authority.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+					<p class="fact-meta">Source(s): {sourcesFor(record.permit_authority.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 					{record.permit_url.value && (
 						<p class="fact-meta">Permit page: <a href={record.permit_url.value} target="_blank" rel="noopener">{record.permit_url.value}</a></p>
 					)}
@@ -264,7 +264,7 @@ const tocItems = [
 							))}
 						</ul>
 						<ConfidenceBadge confidence={record.required_documents.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.required_documents.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+						<p class="fact-meta">Source(s): {sourcesFor(record.required_documents.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
@@ -279,7 +279,7 @@ const tocItems = [
 						</ul>
 						{record.inspection_steps.notes && <p class="fact-notes">{record.inspection_steps.notes}</p>}
 						<ConfidenceBadge confidence={record.inspection_steps.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.inspection_steps.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+						<p class="fact-meta">Source(s): {sourcesFor(record.inspection_steps.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
@@ -304,7 +304,7 @@ const tocItems = [
 							)}
 						</ul>
 						<ConfidenceBadge confidence={record.eligibility_constraints.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.eligibility_constraints.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener">{s.title}</a></>)}</p>
+						<p class="fact-meta">Source(s): {sourcesFor(record.eligibility_constraints.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
@@ -320,7 +320,7 @@ const tocItems = [
 									<strong>{c.role ?? c.name ?? "Contact"}</strong>
 									{c.phone && <span> — phone: {c.phone}</span>}
 									{c.email && <span>, email: <a href={`mailto:${c.email}`}>{c.email}</a></span>}
-									{c.url && <span>, <a href={c.url} target="_blank" rel="noopener">link</a></span>}
+									{c.url && <span>, <a href={c.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">link</a></span>}
 								</li>
 							))}
 						</ul>
@@ -335,7 +335,7 @@ const tocItems = [
 				<ul class="fact-list sources-list">
 					{record.sources.map((s) => (
 						<li>
-							<a href={s.url} target="_blank" rel="noopener">{s.title}</a> — {s.publisher} ({s.type}). Accessed {s.accessed_date}.
+							<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a> — {s.publisher} ({s.type}). Accessed {s.accessed_date}.
 						</li>
 					))}
 				</ul>
