@@ -42,7 +42,7 @@ import Analytics from "../components/Analytics.astro";
 		</div>
 	</nav>
 
-	<header class="hero">
+	<main class="hero">
 		<div class="hero-container">
 			<div class="hero-content">
 				<div class="badge-pill">Independent California Solar & Battery Estimator</div>
@@ -62,7 +62,7 @@ import Analytics from "../components/Analytics.astro";
 
 			<div class="calculator-glass-card" id="calculator">
 				<div class="calc-header">
-					<h3>California Solar & Battery Estimator</h3>
+					<h2>California Solar & Battery Estimator</h2>
 					<p>Takes only 30 seconds • No contact info required • California ZIP codes only</p>
 				</div>
 
@@ -124,9 +124,9 @@ import Analytics from "../components/Analytics.astro";
 						<table class="results-table">
 							<thead>
 								<tr>
-									<th>Configuration</th>
-									<th>Payback Period</th>
-									<th>Annual Savings</th>
+									<th scope="col">Configuration</th>
+									<th scope="col">Payback Period</th>
+									<th scope="col">Annual Savings</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -147,7 +147,7 @@ import Analytics from "../components/Analytics.astro";
 					<p class="disclaimer-text">*Illustrative estimate based on one flat, statewide placeholder assumption — not your actual utility rate, solar production, or property details. Actual system size, pricing, incentives, and savings vary significantly. Review our <a href="/methodology" style="color:#2563eb;">Methodology</a> and verify final figures with a qualified installer.</p>
 
 					<div class="lead-action-box">
-						<h4>Compare Quotes From Solar Installers</h4>
+						<h3>Compare Quotes From Solar Installers</h3>
 						<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers.</p>
 						<!-- NOTE: plain, non-affiliate external link — no tracking ID configured yet. Do not add rel="sponsored" or compensation language until a real affiliate/tracking URL is supplied. -->
 						<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="btn-green-action-link" data-track-click="external_partner_clicked">
@@ -160,7 +160,7 @@ import Analytics from "../components/Analytics.astro";
 				</div>
 			</div>
 		</div>
-	</header>
+	</main>
 
 	<footer class="footer">
 		<div class="footer-container">
@@ -270,6 +270,10 @@ import Analytics from "../components/Analytics.astro";
 		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
 		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
+		@media (max-width: 640px) {
+			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
+			.nav-links { flex-wrap: wrap; justify-content: center; }
+		}
 		.hero { position: relative; background: #0f172a; padding: 5rem 1.5rem 6rem 1.5rem; color: white; }
 		.hero-container { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
 		@media (max-width: 960px) { .hero-container { grid-template-columns: 1fr; } }
@@ -277,11 +281,14 @@ import Analytics from "../components/Analytics.astro";
 		.hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
 		.hero-lead { font-size: 1.15rem; color: #94a3b8; margin-bottom: 2rem; max-width: 580px; }
 		.hero-stats { display: flex; align-items: center; gap: 1.5rem; background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); width: fit-content; }
+		@media (max-width: 480px) {
+			.hero-stats { flex-wrap: wrap; width: auto; }
+		}
 		.stat-number { display: block; font-size: 1.25rem; font-weight: 800; color: #38bdf8; }
 		.stat-label { font-size: 0.7rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; }
 		.stat-divider { width: 1px; height: 35px; background: rgba(255, 255, 255, 0.15); }
 		.calculator-glass-card { background: rgba(255, 255, 255, 0.95); border-radius: var(--radius); padding: 2.25rem; color: var(--text-main); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35); }
-		.calc-header h3 { font-size: 1.4rem; font-weight: 800; }
+		.calc-header h2 { font-size: 1.4rem; font-weight: 800; }
 		.calc-header p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
 		.input-field { margin-bottom: 1.25rem; position: relative; }
 		.input-field label { display: block; font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 0.4rem; }
@@ -293,6 +300,9 @@ import Analytics from "../components/Analytics.astro";
 		.loading-container { text-align: center; padding: 2rem 0; }
 		.spinner { border: 4px solid #f3f3f3; border-top: 4px solid var(--primary); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 1rem auto; }
 		@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+		@media (prefers-reduced-motion: reduce) {
+			.spinner { animation: none; }
+		}
 		.results-container { margin-top: 1rem; }
 		.results-badge { display: inline-block; background: #dcfce7; color: #166534; font-size: 0.8rem; font-weight: 800; padding: 0.3rem 0.75rem; border-radius: 6px; text-transform: uppercase; margin-bottom: 1rem; }
 		.illustrative-badge { background: #fef3c7; color: #92400e; }
@@ -316,7 +326,7 @@ import Analytics from "../components/Analytics.astro";
 		.highlight-row { background: #f0fdf4; font-weight: 700; color: #166534; }
 		.disclaimer-text { font-size: 0.72rem; color: #64748b; margin-bottom: 1.25rem; font-style: italic; }
 		.lead-action-box { background: var(--bg-dark); color: white; border-radius: 10px; padding: 1.25rem; text-align: center; }
-		.lead-action-box h4 { font-size: 1.05rem; font-weight: 700; }
+		.lead-action-box h3 { font-size: 1.05rem; font-weight: 700; }
 		.lead-action-box p { font-size: 0.8rem; color: #94a3b8; margin: 0.3rem 0 0.8rem 0; }
 		.btn-green-action-link { display: inline-block; background: var(--accent); color: white; border: none; padding: 0.85rem 1.5rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; text-decoration: none; transition: background 0.2s ease; }
 		.btn-green-action-link:hover { background: #059669; }

@@ -320,7 +320,7 @@ const tocItems = [
 									<strong>{c.role ?? c.name ?? "Contact"}</strong>
 									{c.phone && <span> — phone: {c.phone}</span>}
 									{c.email && <span>, email: <a href={`mailto:${c.email}`}>{c.email}</a></span>}
-									{c.url && <span>, <a href={c.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">link</a></span>}
+									{c.url && <span>, <a href={c.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">official website</a></span>}
 								</li>
 							))}
 						</ul>
@@ -425,6 +425,10 @@ const tocItems = [
 		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
 		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
+		@media (max-width: 640px) {
+			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
+			.nav-links { flex-wrap: wrap; justify-content: center; }
+		}
 
 		.page-container { max-width: 840px; margin: 0 auto; padding: 2rem 1rem 4rem; }
 		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
@@ -432,7 +436,7 @@ const tocItems = [
 		.crumb-sep { margin: 0 0.4rem; }
 		.crumb-current { color: var(--text-main); font-weight: 600; }
 
-		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
+		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; min-width: 0; }
 		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
 		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
 		h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 2rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
@@ -446,11 +450,11 @@ const tocItems = [
 		.fact-callout-caution { background: #fffbeb; border-color: #fde68a; }
 		.fact-block { margin-bottom: 1.5rem; }
 		.program-item { margin-bottom: 0.75rem; }
-		.fact-value { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.3rem; }
+		.fact-value { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.3rem; overflow-wrap: anywhere; }
 		.fact-value.muted { color: var(--text-muted); font-weight: 600; font-style: italic; }
 		.fact-notes { font-size: 0.88rem; color: #334155; margin-bottom: 0.4rem; }
 		.fact-status { font-size: 0.85rem; color: #92400e; margin-bottom: 0.4rem; }
-		.fact-meta { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+		.fact-meta { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.2rem; overflow-wrap: anywhere; }
 		.fact-meta a { color: var(--primary); text-decoration: none; }
 
 		.fact-list { padding-left: 1.3rem; margin: 0 0 0.5rem; font-size: 0.92rem; }
