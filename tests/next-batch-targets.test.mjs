@@ -136,10 +136,19 @@ test("every target's locality file exists on disk and is a valid, matching recor
 	}
 });
 
-test("no public page exists yet for any of the 10 batch targets", () => {
+// Updated once the 3 READY records from this batch (Santa Rosa, Santa Ana,
+// Alameda — see output/next-batch-evaluation.json) had their public pages
+// generated. The other 7 (LIMITED) must still have no public page.
+const READY_CITY_SLUGS = new Set(["santa-rosa", "santa-ana", "alameda"]);
+
+test("a public page exists only for this batch's READY records, and only those", () => {
 	for (const target of targets) {
 		const pageFile = path.join(REPO_ROOT, "src", "pages", "california", target.city_slug, "solar-permit-guide.astro");
-		assert.equal(existsSync(pageFile), false, `${pageFile} should not exist yet — no public pages for this batch`);
+		if (READY_CITY_SLUGS.has(target.city_slug)) {
+			assert.ok(existsSync(pageFile), `${pageFile} should exist — ${target.city_slug} is READY`);
+		} else {
+			assert.equal(existsSync(pageFile), false, `${pageFile} should not exist — ${target.city_slug} is not READY yet`);
+		}
 	}
 });
 
