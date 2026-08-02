@@ -5,7 +5,8 @@
 // implemented once, here. See src/lib/locality-guide.ts for the underlying
 // data-shaping functions and docs/PILOT_EVALUATION.md Section 3 for which
 // fields are approved to show.
-import evaluation from "../../output/pilot-evaluation.json";
+import pilotEvaluation from "../../output/pilot-evaluation.json";
+import nextBatchEvaluation from "../../output/next-batch-evaluation.json";
 import {
 	NOT_VERIFIED,
 	buildSourceResolver,
@@ -47,7 +48,11 @@ const localityModules = import.meta.glob("../../data/localities/*.json", { eager
 	{ default: LocalityRecord }
 >;
 const allRecordsById = new Map(Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]));
-const allReadyEntries = buildLocalityIndexEntries(evaluation.records, allRecordsById);
+// Combine every evaluation run's records — see the same note in
+// solar-permit-guides.astro, which this cross-link list must always agree
+// with on which cities currently qualify.
+const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records];
+const allReadyEntries = buildLocalityIndexEntries(allEvaluatedRecords, allRecordsById);
 const otherGuides = excludeCurrentEntry(allReadyEntries, record.record_id);
 
 // "Related articles" — blog posts matching this locality's utility, via the

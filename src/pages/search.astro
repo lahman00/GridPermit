@@ -4,7 +4,8 @@
 // external search service, no network request per keystroke. See
 // src/lib/search-index.ts for the pure index-building/matching logic this
 // page and its tests both call.
-import evaluation from "../../output/pilot-evaluation.json";
+import pilotEvaluation from "../../output/pilot-evaluation.json";
+import nextBatchEvaluation from "../../output/next-batch-evaluation.json";
 import { SITE_ORIGIN, buildBreadcrumbSchema, buildLocalityIndexEntries, type LocalityRecord } from "../lib/locality-guide";
 import { getAllBlogPosts } from "../lib/blog-posts";
 import { buildSearchIndex } from "../lib/search-index";
@@ -15,7 +16,10 @@ const localityModules = import.meta.glob("../../data/localities/*.json", { eager
 	{ default: LocalityRecord }
 >;
 const recordsById = new Map(Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]));
-const localityEntries = buildLocalityIndexEntries(evaluation.records, recordsById);
+// Combine every evaluation run's records — see the same note in
+// solar-permit-guides.astro and LocalityGuideLayout.astro.
+const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records];
+const localityEntries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
 const blogPosts = await getAllBlogPosts();
 
 const searchIndex = buildSearchIndex({ localityEntries, blogPosts });

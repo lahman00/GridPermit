@@ -1,11 +1,14 @@
 ---
 // Public index of every READY locality guide. Entirely data-driven from
-// output/pilot-evaluation.json (readiness) and data/localities/*.json (city
-// facts) via buildLocalityIndexEntries in src/lib/locality-guide.ts — no
-// city, utility, or supplier name is hardcoded here. See
-// docs/PILOT_EVALUATION.md Section 3/4 for what "READY" means and
-// docs/LOCALITY_PAGE_FACTORY.md for how each linked guide itself is built.
-import evaluation from "../../../output/pilot-evaluation.json";
+// output/pilot-evaluation.json + output/next-batch-evaluation.json
+// (readiness, across every collected batch so far) and data/localities/*.json
+// (city facts) via buildLocalityIndexEntries in src/lib/locality-guide.ts —
+// no city, utility, or supplier name is hardcoded here. See
+// docs/PILOT_EVALUATION.md Section 3/4 and docs/NEXT_BATCH_EVALUATION.md for
+// what "READY" means per batch, and docs/LOCALITY_PAGE_FACTORY.md for how
+// each linked guide itself is built.
+import pilotEvaluation from "../../../output/pilot-evaluation.json";
+import nextBatchEvaluation from "../../../output/next-batch-evaluation.json";
 import {
 	SITE_ORIGIN,
 	buildLocalityIndexEntries,
@@ -22,7 +25,13 @@ const recordsById = new Map(
 	Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]),
 );
 
-const entries = buildLocalityIndexEntries(evaluation.records, recordsById);
+// Combine every evaluation run's records — each batch tracks readiness for
+// only its own targets, so the union across all of them is the current
+// full picture. buildLocalityIndexEntries only reads
+// {record_id, readiness, completeness_pct} and doesn't care which file a
+// given entry came from.
+const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records];
+const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
 
 const PAGE_PATH = "/california/solar-permit-guides/";
 const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
