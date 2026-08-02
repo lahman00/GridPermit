@@ -1,0 +1,374 @@
+{
+  "run_at": "2026-08-02T04:38:05.194Z",
+  "dry_run": false,
+  "force": "ca-los-angeles-los-angeles-ladwp",
+  "targets_total": 10,
+  "results": [
+    {
+      "record_id": "ca-fresno-fresno-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "Fresno",
+        "city_slug": "fresno",
+        "county": "Fresno County",
+        "county_slug": "fresno",
+        "record_id": "ca-fresno-fresno-pge",
+        "locality_file": "data/localities/ca-fresno-fresno-pge.json",
+        "source_payload_file": "data/source-payloads/ca-fresno-fresno-pge.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "PG&E's own official service-area page and electric service territory tariff map list Fresno and Fresno County ZIP codes within PG&E's Northern/Central California electric and gas service territory.",
+              "source_url": "https://www.pge.com/en/featured/pge-service-area.html",
+              "source_title": "PG&E service area",
+              "publisher": "Pacific Gas and Electric Company (PG&E)"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "Fresno is not a municipal-utility city (unlike this batch's LADWP/AMP targets) — it is a standard PG&E investor-owned-utility city. Local reporting exists about Fresno city-council interest in exploring a municipal utility district, but no such district has been formed; PG&E remains the current utility."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-fresno-fresno-pge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-fresno-fresno-pge.json already exists; not overwritten (use --force ca-fresno-fresno-pge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-san-joaquin-stockton-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "Stockton",
+        "city_slug": "stockton",
+        "county": "San Joaquin County",
+        "county_slug": "san-joaquin",
+        "record_id": "ca-san-joaquin-stockton-pge",
+        "locality_file": "data/localities/ca-san-joaquin-stockton-pge.json",
+        "source_payload_file": "data/source-payloads/ca-san-joaquin-stockton-pge.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "PG&E's own official service-area page describes its Northern/Central California electric and gas service territory as including San Joaquin County, where Stockton is the county seat.",
+              "source_url": "https://www.pge.com/en/featured/pge-service-area.html",
+              "source_title": "PG&E service area",
+              "publisher": "Pacific Gas and Electric Company (PG&E)"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "No CCA or municipal alternative identified for Stockton during this verification pass; confirm during full collection whether a CCA (e.g. a San Joaquin Valley program) has since launched."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-san-joaquin-stockton-pge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-san-joaquin-stockton-pge.json already exists; not overwritten (use --force ca-san-joaquin-stockton-pge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-sonoma-santa-rosa-pge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Pacific Gas and Electric Company (PG&E)",
+        "utility_slug": "pge",
+        "city": "Santa Rosa",
+        "city_slug": "santa-rosa",
+        "county": "Sonoma County",
+        "county_slug": "sonoma",
+        "record_id": "ca-sonoma-santa-rosa-pge",
+        "locality_file": "data/localities/ca-sonoma-santa-rosa-pge.json",
+        "source_payload_file": "data/source-payloads/ca-sonoma-santa-rosa-pge.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "PG&E's official electric service territory tariff map lists Santa Rosa ZIP codes (95401-95407, 95409) within PG&E's electric service area.",
+              "source_url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf",
+              "source_title": "PG&E's Electric Service Territory",
+              "publisher": "Pacific Gas and Electric Company (PG&E)"
+            },
+            {
+              "claim": "Sonoma Clean Power's own official site confirms it is the default electric generation provider for Santa Rosa (one of its member cities, alongside Cloverdale, Cotati, Fort Bragg, Petaluma, Point Arena, and Rohnert Park), under automatic-enrollment rules set by AB 117 — with PG&E remaining the distribution/billing utility and available as an opt-out destination.",
+              "source_url": "https://sonomacleanpower.org/frequently-asked-questions",
+              "source_title": "Frequently Asked Questions",
+              "publisher": "Sonoma Clean Power"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "Re-verified 2026-08-02: Sonoma Clean Power's own site confirms Santa Rosa membership directly (upgraded from the earlier 'very likely, unconfirmed' note) — expect a populated generation_supplier field (type 'cca', Sonoma Clean Power) during full collection, same pattern as Fremont/Oakland (Ava) and San Diego (SDCP)."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-sonoma-santa-rosa-pge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-sonoma-santa-rosa-pge.json already exists; not overwritten (use --force ca-sonoma-santa-rosa-pge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-orange-irvine-sce",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Southern California Edison (SCE)",
+        "utility_slug": "sce",
+        "city": "Irvine",
+        "city_slug": "irvine",
+        "county": "Orange County",
+        "county_slug": "orange",
+        "record_id": "ca-orange-irvine-sce",
+        "locality_file": "data/localities/ca-orange-irvine-sce.json",
+        "source_payload_file": "data/source-payloads/ca-orange-irvine-sce.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "The City of Irvine's own official 'Local Utility Companies' page identifies Southern California Edison as Irvine's electric utility, noting SCE continues to handle delivery, billing, and line maintenance even after Orange County Power Authority (OCPA) began providing generation service.",
+              "source_url": "https://cityofirvine.gov/sustainability-division/local-utility-companies",
+              "source_title": "Local Utility Companies",
+              "publisher": "City of Irvine"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "Irvine residents were automatically enrolled in Orange County Power Authority (OCPA), a CCA, for generation as of October 2022 — SCE remains the interconnection/distribution/billing utility. Expect a populated generation_supplier field (type 'cca', OCPA) during full collection, same pattern as Fremont/Oakland/San Diego."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-orange-irvine-sce.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-orange-irvine-sce.json already exists; not overwritten (use --force ca-orange-irvine-sce to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-orange-fullerton-sce",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Southern California Edison (SCE)",
+        "utility_slug": "sce",
+        "city": "Fullerton",
+        "city_slug": "fullerton",
+        "county": "Orange County",
+        "county_slug": "orange",
+        "record_id": "ca-orange-fullerton-sce",
+        "locality_file": "data/localities/ca-orange-fullerton-sce.json",
+        "source_payload_file": "data/source-payloads/ca-orange-fullerton-sce.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "The City of Fullerton's own Utility Services Division page describes that division's scope as water, sanitation, sewer, and trash billing only, with no electric utility function — confirming the city does not run its own electric utility and that Southern California Edison is the electric provider.",
+              "source_url": "https://www.cityoffullerton.com/government/departments/administrative-services-finance/utility-services",
+              "source_title": "Utility Services",
+              "publisher": "City of Fullerton"
+            },
+            {
+              "claim": "The City of Fullerton's own Energy Conservation page promotes Southern California Edison's CARE & FERA low-income rate-discount programs to Fullerton residents — an official city page directing residents to SCE for electric-rate assistance, consistent with SCE (not the city) being the electric utility.",
+              "source_url": "https://www.cityoffullerton.com/government/departments/public-works/environmental-services/energy-conservation",
+              "source_title": "Energy Conservation",
+              "publisher": "City of Fullerton"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "Re-verified 2026-08-02 with a second, independent City of Fullerton source (this batch's caution flagged Fullerton as needing stronger confirmation). Fullerton's own site has a page literally titled 'Public Utilities Commission,' which could be mistaken for a municipal electric utility (the same kind of naming trap that caused the original Pasadena/SCE error this guard exists to catch) — verified that this commission's scope is water/sanitation/sewer/trash, not electric, and separately that the city's own Energy Conservation page points residents to SCE for electric-rate assistance programs. Fullerton is also an OCPA member city (see Irvine's note); expect a CCA generation_supplier during full collection."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-orange-fullerton-sce.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-orange-fullerton-sce.json already exists; not overwritten (use --force ca-orange-fullerton-sce to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-orange-santa-ana-sce",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Southern California Edison (SCE)",
+        "utility_slug": "sce",
+        "city": "Santa Ana",
+        "city_slug": "santa-ana",
+        "county": "Orange County",
+        "county_slug": "orange",
+        "record_id": "ca-orange-santa-ana-sce",
+        "locality_file": "data/localities/ca-orange-santa-ana-sce.json",
+        "source_payload_file": "data/source-payloads/ca-orange-santa-ana-sce.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "The City of Santa Ana's own official resident FAQ, 'How do I set up electricity service?', directs residents to Southern California Edison to establish electric service.",
+              "source_url": "https://www.santa-ana.org/question/how-do-i-set-up-electricity-service/",
+              "source_title": "How do I set up electricity service?",
+              "publisher": "City of Santa Ana"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "Santa Ana is not currently confirmed as an OCPA member during this pass (unlike Irvine/Fullerton) — verify CCA/generation_supplier status directly during full collection rather than assuming parity with the other two Orange County targets in this batch."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-orange-santa-ana-sce.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-orange-santa-ana-sce.json already exists; not overwritten (use --force ca-orange-santa-ana-sce to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-san-diego-chula-vista-sdge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "San Diego Gas & Electric (SDG&E)",
+        "utility_slug": "sdge",
+        "city": "Chula Vista",
+        "city_slug": "chula-vista",
+        "county": "San Diego County",
+        "county_slug": "san-diego",
+        "record_id": "ca-san-diego-chula-vista-sdge",
+        "locality_file": "data/localities/ca-san-diego-chula-vista-sdge.json",
+        "source_payload_file": "data/source-payloads/ca-san-diego-chula-vista-sdge.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "Local news reporting describes SDG&E's decades-long status as the sole electric utility for San Diego and Chula Vista, ending only when San Diego Community Power (a CCA) began providing generation service in 2021 — with SDG&E continuing to handle delivery, billing, and grid maintenance.",
+              "source_url": "https://www.10news.com/news/in-depth/in-depth-sdg-es-century-long-monopoly-ends-sunday-in-san-diego-chula-vista",
+              "source_title": "In-Depth: SDG&E's century-long monopoly ends Sunday in San Diego, Chula Vista",
+              "publisher": "10News (KGTV San Diego)"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "Chula Vista is a San Diego Community Power (SDCP) member city per this source — expect the same utility/generation_supplier split already documented for the existing San Diego pilot record (SDG&E distribution, SDCP generation). Confirm SDCP membership directly (not just inferred from this article) during full collection."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-san-diego-chula-vista-sdge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-san-diego-chula-vista-sdge.json already exists; not overwritten (use --force ca-san-diego-chula-vista-sdge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-san-diego-escondido-sdge",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "San Diego Gas & Electric (SDG&E)",
+        "utility_slug": "sdge",
+        "city": "Escondido",
+        "city_slug": "escondido",
+        "county": "San Diego County",
+        "county_slug": "san-diego",
+        "record_id": "ca-san-diego-escondido-sdge",
+        "locality_file": "data/localities/ca-san-diego-escondido-sdge.json",
+        "source_payload_file": "data/source-payloads/ca-san-diego-escondido-sdge.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "The City of Escondido's own official Utilities page directs residents to San Diego Gas & Electric for gas and electric service.",
+              "source_url": "https://www.escondido.gov/1143/Utilities",
+              "source_title": "Utilities",
+              "publisher": "City of Escondido"
+            },
+            {
+              "claim": "Clean Energy Alliance's own official site confirms it — not San Diego Community Power — is the default power provider for Escondido, alongside Carlsbad, Del Mar, Oceanside, San Marcos, Solana Beach, and Vista. SDG&E remains the distribution/billing utility.",
+              "source_url": "https://thecleanenergyalliance.org/",
+              "source_title": "Clean Energy Alliance Service Cities",
+              "publisher": "Clean Energy Alliance"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "CORRECTED 2026-08-02: earlier verification left Escondido's CCA status as unconfirmed and speculated it might parallel Chula Vista's San Diego Community Power (SDCP) membership. Direct research now shows this assumption would have been wrong — Escondido is a Clean Energy Alliance member, a separate North San Diego County CCA, not SDCP. SDG&E remains the correct distribution/billing utility (unaffected). Expect a populated generation_supplier field (type 'cca', Clean Energy Alliance, not SDCP) during full collection."
+        }
+      },
+      "status": "SKIPPED_EXISTS",
+      "locality_file": "data/localities/ca-san-diego-escondido-sdge.json",
+      "validation_report": null,
+      "score": null,
+      "message": "data/localities/ca-san-diego-escondido-sdge.json already exists; not overwritten (use --force ca-san-diego-escondido-sdge to overwrite this specific record)"
+    },
+    {
+      "record_id": "ca-los-angeles-los-angeles-ladwp",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Los Angeles Department of Water and Power (LADWP)",
+        "utility_slug": "ladwp",
+        "city": "Los Angeles",
+        "city_slug": "los-angeles",
+        "county": "Los Angeles County",
+        "county_slug": "los-angeles",
+        "record_id": "ca-los-angeles-los-angeles-ladwp",
+        "locality_file": "data/localities/ca-los-angeles-los-angeles-ladwp.json",
+        "source_payload_file": "data/source-payloads/ca-los-angeles-los-angeles-ladwp.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "LADWP's own official site describes itself as the largest municipally-owned utility in the United States, providing electric and water service to the City of Los Angeles and several adjacent communities.",
+              "source_url": "https://www.ladwp.com/who-we-are",
+              "source_title": "Who We Are",
+              "publisher": "Los Angeles Department of Water and Power (LADWP)"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "Vertically-integrated municipal utility, same structural pattern as the existing Pasadena/PWP pilot record — no separate CCA layer expected. LADWP's own permitting/solar interconnection process (distinct from SolarAPP+, which is a separate-jurisdiction tool) should be verified directly during collection; do not assume it matches Oakland/Fremont's SolarAPP+ process."
+        }
+      },
+      "status": "REVIEW",
+      "locality_file": "data/localities/ca-los-angeles-los-angeles-ladwp.json",
+      "validation_report": "output/validation-reports/ca-los-angeles-los-angeles-ladwp.json",
+      "score": 98,
+      "message": "validated: REVIEW, score 98 (0 errors, 1 warnings)"
+    },
+    {
+      "record_id": "ca-alameda-alameda-amp",
+      "target": {
+        "state": "California",
+        "state_code": "ca",
+        "utility": "Alameda Municipal Power (AMP)",
+        "utility_slug": "amp",
+        "city": "Alameda",
+        "city_slug": "alameda",
+        "county": "Alameda County",
+        "county_slug": "alameda",
+        "record_id": "ca-alameda-alameda-amp",
+        "locality_file": "data/localities/ca-alameda-alameda-amp.json",
+        "source_payload_file": "data/source-payloads/ca-alameda-alameda-amp.json",
+        "utility_verification": {
+          "status": "confirmed",
+          "evidence": [
+            {
+              "claim": "The City of Alameda's own official site identifies Alameda Municipal Power as its municipal electric utility department, and AMP's own site (alamedamp.com) confirms it serves the City of Alameda's 12.8-square-mile island territory directly.",
+              "source_url": "https://www.alamedaca.gov/Departments/Alameda-Municipal-Power",
+              "source_title": "Alameda Municipal Power",
+              "publisher": "City of Alameda"
+            }
+          ],
+          "checked_at": "2026-08-02",
+          "notes": "City of Alameda is a distinct city from Fremont and Oakland despite sharing Alameda County — do not confuse this target with the two already-collected Alameda County records. Vertically-integrated municipal utility (like Pasadena/PWP and LADWP in this batch); no CCA layer expected."
+        }
+      },
+      "status": "COLLECTION_REQUIRED",
+      "locality_file": "data/localities/ca-alameda-alameda-amp.json",
+      "validation_report": null,
+      "score": null,
+      "message": "no source payload file found at /Users/eyalhaimovich/GridPermit/data/source-payloads/ca-alameda-alameda-amp.json — supply one (see docs/PILOT_RUNBOOK.md) or wait for a future automated adapter"
+    }
+  ],
+  "summary": {
+    "pass": 0,
+    "review": 1,
+    "fail": 0,
+    "collection_required": 1,
+    "skipped_exists": 8,
+    "config_error": 0
+  }
+}

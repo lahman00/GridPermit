@@ -1,0 +1,146 @@
+{
+  "record_id": "ca-san-diego-chula-vista-sdge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 0.8,
+    "source_ids": ["S12"],
+    "notes": "San Diego Community Power's own official site describes SDG&E as remaining the distribution/billing utility for its member cities (including Chula Vista) even after SDCP became the default generation supplier — consistent with SDG&E's long-standing role as the San Diego County IOU."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "San Diego Community Power (SDCP)",
+      "type": "cca",
+      "notes": "San Diego Community Power's own official site directly confirms Chula Vista as a current member city (alongside San Diego, Encinitas, Imperial Beach, La Mesa, National City, and unincorporated San Diego County). SDG&E remains the distribution/billing utility."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S12"],
+    "notes": null
+  },
+  "city": {
+    "value": "Chula Vista",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "county": {
+    "value": "San Diego County",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Chula Vista Development Services Department - Building Division",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "chulavistaca.gov returned HTTP 403 to direct automated fetch this session; confirmed via consistent, independent search-engine indexing of the official page across multiple separate queries."
+  },
+  "permit_url": {
+    "value": "https://www.chulavistaca.gov/departments/development-services/build-green/residential-solar-energy",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "Same chulavistaca.gov direct-fetch limitation as permit_authority."
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed this session — this is the pipeline's first SDG&E-territory record besides the existing San Diego pilot record; SDG&E's specific interconnection/NEM page URL was not independently re-verified for Chula Vista specifically."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not yet verified for this record. SGIP's general-market tier is known from other records to apply broadly across California IOUs including SDG&E, but this session did not independently re-confirm that applicability specifically for Chula Vista/SDG&E territory (unlike the PG&E/SCE-territory records, where the same statewide tiers were directly re-cited with an SDG&E- or PG&E-specific administrator note). Left null (not confirmed absent) rather than asserting either a populated list or a confirmed-empty array — re-verify SDG&E's SGIP program status directly in a future collection pass."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Sources describe application via the city's Citizen Access portal (create/log in, select 'Residential Solar Energy', enter the SolarAPP+ unique ID, and upload SolarAPP+ forms) but chulavistaca.gov could not be directly fetched to confirm a specific document checklist beyond the SolarAPP+ forms themselves."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed this session; chulavistaca.gov blocked to direct fetch."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Sources consistently describe Chula Vista's SolarAPP+ program as providing a 'same-day permit' for eligible ('cookie-cutter') residential solar installations. No source found states a timeline for the standard (non-SolarAPP+) permit path."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (automated same-day residential solar permitting)",
+      "other_conditions": [
+        "Sources describe SolarAPP+ eligibility in Chula Vista as limited to qualifying systems 'under 10 kW' without specifying whether this is an AC or DC rating — recorded as a condition rather than a specific size-cap field to avoid asserting an unstated unit.",
+        "Application submitted by a licensed contractor via the online SolarAPP+ process, using the SolarAPP+ unique ID and uploaded SolarAPP+ forms"
+      ]
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not stated in the sources reviewed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Chula Vista- or SDCP-specific rebate program was directly confirmed this session."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Chula Vista Development Services Department",
+        "phone": "(619) 691-5101",
+        "email": null,
+        "url": "https://www.chulavistaca.gov/departments/development-services/contact-us"
+      },
+      {
+        "name": null,
+        "role": "City of Chula Vista Building Inspection Scheduling",
+        "phone": "(619) 409-5434",
+        "email": null,
+        "url": "https://www.chulavistaca.gov/Home/Components/ServiceDirectory/ServiceDirectory/397/3156"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "Contact details found via consistent search-engine indexing of the city's own directory pages; not independently fetched this session (chulavistaca.gov blocked)."
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar Energy Permits",
+      "url": "https://www.chulavistaca.gov/departments/development-services/build-green/residential-solar-energy",
+      "publisher": "City of Chula Vista",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S12",
+      "title": "Our Community",
+      "url": "https://sdcommunitypower.org/our-community/",
+      "publisher": "San Diego Community Power",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}

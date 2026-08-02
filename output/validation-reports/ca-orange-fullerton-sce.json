@@ -1,0 +1,107 @@
+{
+  "record_id": "ca-orange-fullerton-sce",
+  "file": "data/localities/ca-orange-fullerton-sce.json",
+  "validated_at": "2026-08-02",
+  "status": "REVIEW",
+  "score": 87,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "battery_programs",
+      "category": "outdated_information",
+      "message": "SGIP - Equity Resiliency: expires_on (2025-12-31) has elapsed as of last_verified 2026-08-02"
+    },
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/photovoltaic-solar-permits — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "broken_url",
+      "message": "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S1].url",
+      "category": "broken_url",
+      "message": "https://codelibrary.amlegal.com/codes/fullerton/latest/fullerton_ca/0-0-0-28878 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S9].url",
+      "category": "broken_url",
+      "message": "https://www.cityoffullerton.com/government/departments/administrative-services-finance/utility-services — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "interconnection_url",
+      "message": "'interconnection_url' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "required_documents",
+      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/photovoltaic-solar-permits",
+      "checked_at": "2026-08-02T04:30:03.655Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/about/",
+      "checked_at": "2026-08-02T04:30:03.863Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety",
+      "checked_at": "2026-08-02T04:30:04.610Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://codelibrary.amlegal.com/codes/fullerton/latest/fullerton_ca/0-0-0-28878",
+      "checked_at": "2026-08-02T04:30:04.851Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "checked_at": "2026-08-02T04:30:04.889Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cityoffullerton.com/government/departments/administrative-services-finance/utility-services",
+      "checked_at": "2026-08-02T04:30:06.041Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}

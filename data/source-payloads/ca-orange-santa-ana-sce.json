@@ -1,0 +1,210 @@
+{
+  "record_id": "ca-orange-santa-ana-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "The City of Santa Ana's own official resident FAQ, 'How do I set up electricity service?', directs residents to Southern California Edison for electric service setup."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Orange County Power Authority's (OCPA) own official FAQ page explicitly lists its current member cities as Buena Park, Fullerton, and Irvine, with Fountain Valley 'beginning service soon' — Santa Ana is not among them. A secondary source (a chamber-of-commerce blog post) claimed Santa Ana had joined OCPA alongside Irvine/Fullerton/Huntington Beach/Buena Park, but this directly contradicts OCPA's own current, authoritative member list and was not used as evidence per this project's rule against using non-official sources as factual evidence. No other Orange County CCA serving Santa Ana was found, so SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.7,
+    "source_ids": ["S10"],
+    "notes": null
+  },
+  "city": {
+    "value": "Santa Ana",
+    "confidence": 0.95,
+    "source_ids": ["S2"],
+    "notes": null
+  },
+  "county": {
+    "value": "Orange County",
+    "confidence": 0.95,
+    "source_ids": ["S2"],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Santa Ana Building Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "Directly fetched and confirmed from the city's own official page."
+  },
+  "permit_url": {
+    "value": "https://santa-ana.gov/solarapp-automated-solar-plan-review/",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": null
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Explicitly available to both PG&E and SCE residential customers per the statewide SGIP administrator; SCE administers it within its own distribution territory, which includes Santa Ana/Orange County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Santa Ana/Orange County eligibility not independently confirmed this session.",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4", "S5"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory records and for Irvine/Fullerton (SCE)."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "SolarAPP+ Approval Document & Specifications",
+        "required_when": "always (SolarAPP+ path)",
+        "source_ids": ["S2"]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "Directly confirmed from the city's own page: only the SolarAPP+ Approval Document & Specifications are listed as required for the permit application itself."
+  },
+  "inspection_steps": {
+    "value": [
+      "Contractor must have the SolarAPP+ approval and printed permit available on-site",
+      "Inspectors may request additional plans if needed",
+      "Inspections are scheduled through the city's separate inspection-scheduling system"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": null
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": null,
+      "notes": "The city's own page describes SolarAPP+ as providing instant plan review, with revision requests 'processed within 72 business hours,' but does not state an overall submission-to-final-inspection timeline. No specific day range is recorded since none was directly stated for the full permit-to-completion process."
+    },
+    "confidence": 0.5,
+    "source_ids": ["S2"],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["single-family dwelling", "duplex", "accessory dwelling unit (ADU)", "permitted residential structures"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (automated solar plan review)",
+      "other_conditions": [
+        "Ballasted systems are excluded",
+        "Electrical storage devices (batteries) cannot be visible from public streets and require Planning Division approval for screening",
+        "Fire detection and smoke alarms required per Fire Code where applicable",
+        "Only licensed, SolarAPP+-registered contractors may apply; permit runners are prohibited",
+        "Effective June 1, 2026, all residential solar projects will only be issued permits upon SolarAPP+ approval"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "The city's own page does not state a maximum system size, so that field is left null rather than assumed."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not stated in the sources reviewed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Santa Ana-specific rebate program was directly confirmed this session, distinct from the statewide SGIP battery incentives already recorded under battery_programs."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Santa Ana Building Safety Division",
+        "phone": "(714) 647-5800",
+        "email": null,
+        "url": "https://santa-ana.gov/departments/building-division/"
+      },
+      {
+        "name": null,
+        "role": "City of Santa Ana Building Inspections",
+        "phone": "(714) 667-2738",
+        "email": null,
+        "url": "https://santa-ana.gov/building-inspection-scheduling/"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "Contact details found via consistent search-engine indexing of the city's own directory pages (same santa-ana.gov domain as S2); not independently fetched this session."
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "How do I set up electricity service?",
+      "url": "https://www.santa-ana.org/question/how-do-i-set-up-electricity-service/",
+      "publisher": "City of Santa Ana",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S2",
+      "title": "SolarAPP+ Automated Solar Plan Review",
+      "url": "https://santa-ana.gov/solarapp-automated-solar-plan-review/",
+      "publisher": "City of Santa Ana",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S10",
+      "title": "Frequently Asked Questions",
+      "url": "https://www.ocpower.org/faq/",
+      "publisher": "Orange County Power Authority",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}

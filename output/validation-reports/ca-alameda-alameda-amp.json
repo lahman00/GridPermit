@@ -1,0 +1,74 @@
+{
+  "record_id": "ca-alameda-alameda-amp",
+  "file": "data/localities/ca-alameda-alameda-amp.json",
+  "validated_at": "2026-08-02",
+  "status": "REVIEW",
+  "score": 86,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "broken_url",
+      "message": "https://www.alamedaca.gov/Departments/Planning-Building-and-Transportation/Permit-Center — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "broken_url",
+      "message": "https://www.alamedaca.gov/Departments/Alameda-Municipal-Power — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.alamedamp.com/188/Interconnection-Process",
+      "checked_at": "2026-08-02T04:39:17.832Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.alamedamp.com/430/Solar-at-AMP",
+      "checked_at": "2026-08-02T04:39:19.144Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.alamedaca.gov/Departments/Planning-Building-and-Transportation/Permit-Center",
+      "checked_at": "2026-08-02T04:39:20.607Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.alamedaca.gov/Departments/Alameda-Municipal-Power",
+      "checked_at": "2026-08-02T04:39:21.209Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}

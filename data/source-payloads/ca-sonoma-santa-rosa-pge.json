@@ -1,0 +1,233 @@
+{
+  "record_id": "ca-sonoma-santa-rosa-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "PG&E's own official electric service territory tariff map lists Santa Rosa ZIP codes (95401-95407, 95409) within PG&E's electric service area."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Sonoma Clean Power - CleanStart",
+      "type": "cca",
+      "notes": "Sonoma Clean Power's own official FAQ page (directly fetched) confirms Santa Rosa as a member city; new customers are automatically enrolled in its 'CleanStart' product (51% renewable, 91% carbon-free per the source). PG&E remains the distribution/billing utility — customers receive one combined PG&E bill showing both SCP and PG&E charges, and PG&E maintains the poles/transmission lines. Customers may opt out back to PG&E generation."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S7"],
+    "notes": null
+  },
+  "city": {
+    "value": "Santa Rosa",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "county": {
+    "value": "Sonoma County",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Santa Rosa Building Division, Planning and Economic Development Department",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Directly fetched and confirmed from the city's own official page."
+  },
+  "permit_url": {
+    "value": "https://www.srcity.org/3826/Solar-Panel-Installation",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "Same PG&E-wide NEM interconnection URL already confirmed for other PG&E-territory records — pge.com returns HTTP 403 to direct automated fetch."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Santa Rosa/Sonoma County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Sonoma County eligibility not independently confirmed this session.",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S4", "S5"],
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures already confirmed for the San Jose/Fremont/Oakland/Fresno/Stockton records, reused on the same reasoning: SGIP is administered per IOU distribution territory (PG&E), not per city. Sonoma Clean Power may separately offer its own local storage incentives not yet researched — this field covers only the statewide SGIP program."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Approved SolarApp+ document(s)",
+        "required_when": "SolarAPP+-eligible residential rooftop systems",
+        "source_ids": ["S1"]
+      },
+      {
+        "name": "Building Permit (issued after SolarApp+ approval)",
+        "required_when": "always (SolarAPP+ path)",
+        "source_ids": ["S1"]
+      },
+      {
+        "name": "Inspection Card",
+        "required_when": "must be printed and available on-site for inspection",
+        "source_ids": ["S1"]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Directly quoted from the city's own page: 'Approved SolarApp+ documents, the Building Permit, and Inspection Card must be printed and be available on-site for inspection.'"
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule inspection via text message to (833) 692-5526, the automated phone system at (707) 543-3006, or online through Accela",
+      "Next-day inspection requests must be submitted by 2:30 PM the previous day",
+      "Approved SolarApp+ documents, the Building Permit, and Inspection Card must be printed and available on-site at the time of inspection"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The city's own page states the permit 'will be immediately issued after your uploaded documents are verified' for SolarAPP+-eligible residential rooftop systems — same-day issuance. No source found states a timeline for a standard (non-SolarAPP+) permit path."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "roof-mounted", "retrofit"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (instantaneous residential solar permitting)",
+      "other_conditions": [
+        "Covers residential rooftop photovoltaic systems, including those with energy storage systems",
+        "Only residential, roof-mounted, retrofit photovoltaic systems qualify — the source references additional size/type exclusions on SolarAPP+'s own eligibility page without stating exact thresholds itself",
+        "Application submitted by a licensed contractor via SolarAPP+, then completed through the City's Accela Citizen Portal with the SolarAPP+ approval ID number"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "The city's own page does not state exact system-size thresholds itself (it defers to SolarAPP+'s own eligibility page), so system_size_kw_ac_max/dc_max are left null rather than inferred."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not stated in the source reviewed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Santa Rosa- or Sonoma Clean Power-specific rebate program was directly confirmed this session, distinct from the statewide SGIP battery incentives already recorded under battery_programs."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Santa Rosa Building Division",
+        "phone": "707-543-3200",
+        "email": null,
+        "url": "https://www.srcity.org/262/Building-Division"
+      },
+      {
+        "name": null,
+        "role": "Santa Rosa inspection scheduling (automated phone system)",
+        "phone": "707-543-3006",
+        "email": null,
+        "url": "https://www.srcity.org/3826/Solar-Panel-Installation"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": null,
+        "email": "selfgen@pge.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S6"],
+    "notes": null
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Application Process for Solar Panel Installation by Licensed Contractors Using SolarApp+",
+      "url": "https://www.srcity.org/3826/Solar-Panel-Installation",
+      "publisher": "City of Santa Rosa",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S3",
+      "title": "PG&E's Electric Service Territory",
+      "url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf",
+      "publisher": "Pacific Gas and Electric Company (PG&E)",
+      "type": "utility",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S7",
+      "title": "Frequently Asked Questions",
+      "url": "https://sonomacleanpower.org/frequently-asked-questions",
+      "publisher": "Sonoma Clean Power",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}

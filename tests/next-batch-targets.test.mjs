@@ -123,10 +123,16 @@ test("every target's utility_verification status is 'confirmed', never left unve
 	}
 });
 
-test("none of the 10 targets already have a locality file on disk (no collection has happened)", () => {
+// Updated once collection actually happened (all 10 targets were collected
+// in this session) — this now asserts the collected records' basic
+// integrity instead of asserting they don't exist yet.
+test("every target's locality file exists on disk and is a valid, matching record", () => {
 	for (const target of targets) {
 		const localityPath = path.join(REPO_ROOT, target.locality_file);
-		assert.equal(existsSync(localityPath), false, `${target.locality_file} should not exist yet — this batch has not been collected`);
+		assert.ok(existsSync(localityPath), `${target.locality_file} should exist — this batch has been collected`);
+		const record = JSON.parse(readFileSync(localityPath, "utf8"));
+		assert.equal(record.record_id, target.record_id);
+		assert.equal(record.schema_version, "1.3.0");
 	}
 });
 

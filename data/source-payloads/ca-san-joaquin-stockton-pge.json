@@ -1,0 +1,205 @@
+{
+  "record_id": "ca-san-joaquin-stockton-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "PG&E's own official service-area documentation describes its Northern/Central California electric and gas service territory as including San Joaquin County, where Stockton is the county seat."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Ava Community Energy - 'Bright Choice' service",
+      "type": "cca",
+      "notes": "Ava Community Energy's own official FAQ page directly confirms it serves Stockton, alongside other San Joaquin County cities (Lathrop, Tracy) and most of Alameda County. PG&E remains the distribution/billing utility; customers may opt out back to PG&E generation."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"],
+    "notes": null
+  },
+  "city": {
+    "value": "Stockton",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "county": {
+    "value": "San Joaquin County",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Stockton Community Development Department - Permit Center, Building and Life Safety Division",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "stocktonca.gov could not be directly fetched this session (the domain did not resolve for automated retrieval); confirmed via consistent, independent search-engine indexing of the official page across multiple separate queries."
+  },
+  "permit_url": {
+    "value": "https://www.stocktonca.gov/business/building___life_safety/automated_solar_permitting.php",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "Same stocktonca.gov direct-fetch limitation as permit_authority."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "Same PG&E-wide NEM interconnection URL already confirmed for other PG&E-territory records — pge.com returns HTTP 403 to direct automated fetch."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Stockton/San Joaquin County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific San Joaquin County eligibility not independently confirmed this session.",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S4", "S5"],
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures already confirmed for the San Jose/Fremont/Oakland/Fresno records, reused on the same reasoning: SGIP is administered per IOU distribution territory (PG&E), not per city. 'Available through 2025' read as expiring 2025-12-31, before last_verified, hence 'expired'; the other tier's status is 'unknown' since no end/current-status is stated. Re-check against selfgenca.com's live Program Metrics page before showing as current."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Sources describe an online SolarAPP+ application ('Residential Solar One Stop') resulting in an auto-issued permit, but no specific document/submittal checklist was directly confirmed this session — stocktonca.gov could not be fetched directly to check further."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific inspection-scheduling procedure was found in the sources reviewed this session."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Sources describe Stockton's SolarAPP+ program as resulting in an 'auto-issued permit' for qualifying systems — read as same-day/immediate issuance for SolarAPP+-eligible residential rooftop systems. No source found states a timeline for the standard (non-SolarAPP+) permit path."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential rooftop"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (automated residential solar permitting)",
+      "other_conditions": [
+        "Sources describe SolarAPP+ eligibility in Stockton as limited to qualifying systems 'under 10 kW' without specifying whether this is an AC or DC rating — recorded here as a condition rather than a specific size-cap field to avoid asserting an unstated unit.",
+        "Application must be submitted by a licensed contractor via the online SolarAPP+ / Residential Solar One Stop process"
+      ]
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not stated in any source reviewed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Stockton-specific rebate program found this session, distinct from the statewide SGIP battery incentives already recorded under battery_programs."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Stockton Permit Center, Building and Life Safety Division",
+        "phone": "(209) 937-8561",
+        "email": null,
+        "url": "https://www.stocktonca.gov/business/permit_center/index.php"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": null,
+        "email": "selfgen@pge.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1", "S6"],
+    "notes": "The Permit Center phone number was consistently cited across independent search results (unlike Fresno's, where multiple conflicting numbers appeared)."
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Automated Solar Permitting",
+      "url": "https://www.stocktonca.gov/business/building___life_safety/automated_solar_permitting.php",
+      "publisher": "City of Stockton",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S3",
+      "title": "PG&E service area",
+      "url": "https://www.pge.com/en/featured/pge-service-area.html",
+      "publisher": "Pacific Gas and Electric Company (PG&E)",
+      "type": "utility",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S7",
+      "title": "Frequently Asked Questions",
+      "url": "https://avaenergy.org/about-ava/faq/",
+      "publisher": "Ava Community Energy (Joint Powers Authority)",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}

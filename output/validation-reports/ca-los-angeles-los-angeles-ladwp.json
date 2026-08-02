@@ -1,0 +1,67 @@
+{
+  "record_id": "ca-los-angeles-los-angeles-ladwp",
+  "file": "data/localities/ca-los-angeles-los-angeles-ladwp.json",
+  "validated_at": "2026-08-02",
+  "status": "REVIEW",
+  "score": 98,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://dbs.lacity.gov/services/plan-review-permitting/plan-check-permit/express-permits — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "inspection_steps",
+      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://dbs.lacity.gov/services/plan-review-permitting/plan-check-permit/express-permits",
+      "checked_at": "2026-08-02T04:38:04.630Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.ladwp.com/commercial-services/programs-and-rebates-commercial/commercial-solar-programs/interconnection-program-nem-pv-bess-and-cogeneration-projects",
+      "checked_at": "2026-08-02T04:38:04.962Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.ladwp.com/residential-services/solar-programs/contact-solar-department",
+      "checked_at": "2026-08-02T04:38:05.093Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.ladwp.com/who-we-are",
+      "checked_at": "2026-08-02T04:38:05.145Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

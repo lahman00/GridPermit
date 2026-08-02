@@ -1,0 +1,221 @@
+{
+  "record_id": "ca-orange-irvine-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "The City of Irvine's own official 'Local Utility Companies' page identifies Southern California Edison as the electric utility serving Irvine, noting SCE continues to handle delivery, billing, and line maintenance even after Orange County Power Authority (OCPA) began providing generation service."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Orange County Power Authority (OCPA)",
+      "type": "cca",
+      "notes": "Irvine residents were automatically enrolled in Orange County Power Authority (OCPA), a CCA, for generation as of October 2022, per the City of Irvine's own materials. SCE remains the interconnection/distribution/billing utility."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Irvine",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Orange County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Irvine Community Development Department - Building Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Directly fetched and confirmed from the city's own official page."
+  },
+  "permit_url": {
+    "value": "https://cityofirvine.gov/community-development/solar-installations",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed this session — SCE's specific interconnection/NEM page URL was not directly verified for this record. This is the pipeline's first SCE-territory record, so no existing interconnection URL could be reused from a prior record the way PG&E's could."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. This tier is explicitly available to both PG&E and SCE residential customers per the statewide SGIP administrator; SCE administers it within its own distribution territory, which includes Irvine/Orange County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Irvine/Orange County eligibility not independently confirmed this session.",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S4",
+      "S5"
+    ],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory pilot records, applied here for the first time to an SCE-administered territory — the general-market tier's own eligibility text already explicitly names both PG&E and SCE customers, so this is a direct textual match, not an assumption. Confidence set slightly below the PG&E-territory records (0.6 vs 0.65) since SCE's specific administrator role for Irvine has not been independently re-confirmed the way PG&E's was for Bay Area cities. 'Available through 2025' read as expiring 2025-12-31, before last_verified, hence 'expired'; the other tier's status is 'unknown'."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city's own page references electronic-submittal forms and application pathways for single-family vs. commercial/multi-family solar but did not itself enumerate a specific document checklist in the content retrieved this session."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed this session — the fetched page did not detail a specific inspection-scheduling procedure."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 5,
+      "max_days": 10,
+      "notes": "The City of Irvine's own page states: 'Standard review for single family residential projects are 5 working days. More complex projects may take two weeks.' Recorded as 5-10 working days (2 weeks read as 10 working days). Separately, the city also offers an expedited electronic-submittal pathway for systems 10 kW or less, and (per independent reporting, not confirmed on this page) a same-day 'PermitsDIRECT!' option via a third-party platform for systems up to 38.4 kW with at most one battery storage system — timeline for those expedited pathways was not independently confirmed on the city's own page this session, so only the standard-review timeline is recorded here."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "single-family residential"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited Electronic Submittal (residential solar systems 10 kW or less)",
+      "other_conditions": [
+        "Must comply with the city's adopted building and fire codes, zoning ordinance (Chapter 3-31), and homeowner association approval where applicable",
+        "Separate application pathways exist for single-family residential vs. commercial/multi-family properties",
+        "Independent reporting (not confirmed directly on the city's own fetched page) describes a separate same-day 'PermitsDIRECT!' (Symbium) pathway for rooftop solar+battery systems up to 38.4 kW with at most one battery storage system — not included in the structured fields above since it wasn't independently confirmed on an official city page this session"
+      ]
+    },
+    "confidence": 0.65,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "system_size_kw_ac_max of 10 reflects the expedited electronic-submittal pathway specifically ('10 kW or Less'); the source did not specify AC vs DC, so this is recorded as stated. The higher 38.4 kW same-day pathway mentioned in secondary reporting is not included as a structured limit since it wasn't directly confirmed on an official page."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not stated in the source reviewed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Irvine- or OCPA-specific rebate program was directly confirmed this session, distinct from the statewide SGIP battery incentives already recorded under battery_programs."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Irvine Building Division - Permits",
+        "phone": "949-724-6313",
+        "email": "irvinepermits@cityofirvine.org",
+        "url": "https://cityofirvine.gov/building-safety"
+      },
+      {
+        "name": null,
+        "role": "City of Irvine Building Division - Inspections",
+        "phone": "949-724-6396",
+        "email": null,
+        "url": "https://cityofirvine.gov/building-safety"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Contact details found via consistent search-engine indexing referencing the city's own contact directory; not independently fetched this session."
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Installations",
+      "url": "https://cityofirvine.gov/community-development/solar-installations",
+      "publisher": "City of Irvine",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S2",
+      "title": "Helpful Contact Information",
+      "url": "https://cityofirvine.org/faq/helpful-contact-information",
+      "publisher": "City of Irvine",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S8",
+      "title": "Local Utility Companies",
+      "url": "https://cityofirvine.gov/sustainability-division/local-utility-companies",
+      "publisher": "City of Irvine",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}

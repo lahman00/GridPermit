@@ -1,0 +1,173 @@
+{
+  "record_id": "ca-san-diego-escondido-sdge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "The City of Escondido's own official Utilities page directs residents to SDG&E for gas and electric service."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Clean Energy Alliance",
+      "type": "cca",
+      "notes": "Clean Energy Alliance's own official site confirms it — not San Diego Community Power — is the default power provider for Escondido, alongside Carlsbad, Del Mar, Oceanside, San Marcos, Solana Beach, and Vista. SDG&E remains the distribution/billing utility."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S13"],
+    "notes": null
+  },
+  "city": {
+    "value": "Escondido",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "county": {
+    "value": "San Diego County",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Escondido Building Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Directly fetched and confirmed from the city's own official page."
+  },
+  "permit_url": {
+    "value": "https://www.escondido.gov/1247/Solar-App-Plus",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed this session."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not yet verified for this record — see the same note on the Chula Vista record regarding SDG&E-territory SGIP applicability not being independently re-confirmed this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Active SolarAPP+ account and City of Escondido portal account",
+        "required_when": "always (SolarAPP+ path)",
+        "source_ids": ["S1"]
+      },
+      {
+        "name": "Current City of Escondido business license",
+        "required_when": "must be obtained before permit submission",
+        "source_ids": ["S1"]
+      },
+      {
+        "name": "Approved documents/plans/permit number obtained from SolarAPP+",
+        "required_when": "always (SolarAPP+ path)",
+        "source_ids": ["S1"]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Directly confirmed from the city's own page."
+  },
+  "inspection_steps": {
+    "value": [
+      "Request an inspection through the city's Building Inspections Request form after permit approval",
+      "All approved paperwork, plus the printed permit and inspection card, must be present on-site at the time of inspection"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The city's own page states permits will be 'immediately issued electronically' after fee payment for SolarAPP+-eligible residential rooftop systems — read as same-day/immediate issuance. The SolarAPP+ review time itself and any standard (non-SolarAPP+) permit timeline were not stated."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential rooftop"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (instant residential solar permitting)",
+      "other_conditions": [
+        "Only projects conforming to SolarAPP+'s own Eligibility Checklist qualify for instant permitting; a system-size limit is referenced but not specified on this page",
+        "Non-licensed/owner-builder applicants must apply for a regular Building Permit with Plan Check instead of SolarAPP+"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "The city's own page references a system-size limit and ineligible system types without stating exact thresholds — left null rather than inferred."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not stated in the source reviewed this session (the page mentions fee payment as part of the process but not a specific amount)."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Escondido- or Clean Energy Alliance-specific rebate program was directly confirmed this session."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Escondido Building Division",
+        "phone": "760-839-4647",
+        "email": null,
+        "url": "https://escondido.gov/215/Building"
+      },
+      {
+        "name": null,
+        "role": "City of Escondido Building Inspection Requests (24-hour recorder)",
+        "phone": "760-839-4646",
+        "email": null,
+        "url": "https://www.escondido.gov/1247/Solar-App-Plus"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S1"],
+    "notes": "Contact details found via consistent search-engine indexing of the city's own directory pages."
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar App Plus",
+      "url": "https://www.escondido.gov/1247/Solar-App-Plus",
+      "publisher": "City of Escondido",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S2",
+      "title": "Utilities",
+      "url": "https://www.escondido.gov/1143/Utilities",
+      "publisher": "City of Escondido",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S13",
+      "title": "Clean Energy Alliance Service Cities",
+      "url": "https://thecleanenergyalliance.org/",
+      "publisher": "Clean Energy Alliance",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}

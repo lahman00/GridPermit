@@ -1,0 +1,208 @@
+{
+  "record_id": "ca-fresno-fresno-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "PG&E's own official service-area documentation lists Fresno and Fresno County within its Northern/Central California electric and gas service territory."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Could not confirm during this collection pass. No official source was found stating whether the City of Fresno has an operational Community Choice Aggregator (CCA). Multiple searches indicate the Fresno City Council was studying CCA formation but had not launched one as of the reporting reviewed; PG&E's own CCA-partner materials and CPUC's CCA consumer-information page do not name Fresno among active CCA service areas. This is absence-of-evidence across secondary sources, not a direct official 'no CCA' statement — needs verification via CPUC's CCA service-area map or a City of Fresno utilities communication before recording a value."
+  },
+  "city": {
+    "value": "Fresno",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "county": {
+    "value": "Fresno County",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Fresno Planning and Development Department - Building and Safety Services Division",
+    "confidence": 0.7,
+    "source_ids": ["S1", "S2"],
+    "notes": "fresno.gov could not be directly fetched this session (the domain did not resolve for automated retrieval); confirmed via consistent, independent search-engine indexing of the official page content and title across multiple separate queries, not a single unverified snippet."
+  },
+  "permit_url": {
+    "value": "https://www.fresno.gov/planning/get-an-instantly-approved-solar-permit-through-solar-app/",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "Same fresno.gov direct-fetch limitation as permit_authority."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "Same PG&E-wide NEM interconnection URL already confirmed for other PG&E-territory records (Oakland, Fremont, San Jose) via search-engine indexing — pge.com returns HTTP 403 to direct automated fetch. Not independently re-verified as containing Fresno-specific content beyond being PG&E's single statewide interconnection page."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Fresno/Fresno County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Fresno County eligibility not independently confirmed this session.",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S4", "S5"],
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures already confirmed for the San Jose/Fremont/Oakland pilot records, reused here on the same reasoning: SGIP is administered per IOU distribution territory (PG&E), not per city, and PG&E's distribution role in Fresno is independently confirmed (S3). Confidence held at 0.65 since this record does not independently re-confirm PG&E's SGIP administrator role specifically for Fresno County. 'Available through 2025' read as expiring 2025-12-31 (no specific day stated), which is before last_verified, hence 'expired'; the other tier's reservation-opening date is directly stated with no stated end/status, hence 'unknown'. Re-check against selfgenca.com's live Program Metrics page before showing as current."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "SolarAPP+ approval confirmation",
+        "required_when": "SolarAPP+-eligible residential rooftop systems (single-family and duplex only)",
+        "source_ids": ["S1"]
+      }
+    ],
+    "confidence": 0.55,
+    "source_ids": ["S1"],
+    "notes": "Only the SolarAPP+ confirmation-upload step was explicitly and consistently described across independent sources (contractor submits project details to SolarAPP+, then uploads the resulting confirmation to the city's Accela Citizens Access system as proof of code compliance). A dedicated 'Residential Solar Plan Check Submittal' PDF exists on fresno.gov (referenced by title in search results) but could not be directly fetched this session to confirm its specific document checklist — not listed here to avoid inventing items not directly confirmed."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific inspection-scheduling procedure (comparable to Fremont's municipal-code text or Oakland's mobile-app process) was found in the sources reviewed this session; fresno.gov could not be directly fetched to check further."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Multiple independent sources consistently describe SolarAPP+-eligible residential (single-family/duplex) solar permits in Fresno as issued 'in real time' once the contractor uploads the SolarAPP+ confirmation to the city's Accela system — i.e. same-day/immediate issuance. No source found states a timeline for the standard (non-SolarAPP+, e.g. commercial) permit path."
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["single-family", "duplex"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (instant residential solar permit)",
+      "other_conditions": [
+        "Contractor must be licensed and registered as a SolarAPP+ installer",
+        "Confirmation must be uploaded to the City's Accela Citizens Access (ACA) electronic permitting system",
+        "Commercial solar installations do not qualify for SolarAPP+ and must use the standard permit process"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not stated in any source reviewed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Fresno-specific rebate program found this session, distinct from the statewide SGIP battery incentives already recorded under battery_programs."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Fresno Planning and Development Department - Building and Safety Services",
+        "phone": null,
+        "email": null,
+        "url": "https://www.fresno.gov/planning/building-and-safety/"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": null,
+        "email": "selfgen@pge.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.55,
+    "source_ids": ["S2", "S6"],
+    "notes": "A phone number for Fresno's Building and Safety Services Division appeared in search results but was inconsistent across sources (multiple different numbers attributed to the same office with no single canonical page confirming one) — omitted rather than recording a possibly-incorrect number. The office's own URL is included instead."
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarAPP+ provides instantly approved solar permits",
+      "url": "https://www.fresno.gov/planning/get-an-instantly-approved-solar-permit-through-solar-app/",
+      "publisher": "City of Fresno",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S2",
+      "title": "Building and Safety",
+      "url": "https://www.fresno.gov/planning/building-and-safety/",
+      "publisher": "City of Fresno",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S3",
+      "title": "PG&E service area",
+      "url": "https://www.pge.com/en/featured/pge-service-area.html",
+      "publisher": "Pacific Gas and Electric Company (PG&E)",
+      "type": "utility",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}

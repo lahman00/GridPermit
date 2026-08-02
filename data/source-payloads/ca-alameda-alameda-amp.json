@@ -1,0 +1,195 @@
+{
+  "record_id": "ca-alameda-alameda-amp",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Alameda Municipal Power (AMP)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "The City of Alameda's own official site identifies Alameda Municipal Power as its municipal electric utility department, and AMP's own site confirms it serves the City of Alameda's island territory directly."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Alameda Municipal Power (AMP)",
+      "type": "utility",
+      "notes": "AMP is a vertically-integrated municipal utility (like LADWP and Pasadena Water and Power) — it generates/procures and delivers its own power rather than sitting alongside a separate CCA. No Community Choice Aggregator was found serving the City of Alameda in the sources reviewed this session."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S2"],
+    "notes": null
+  },
+  "city": {
+    "value": "Alameda",
+    "confidence": 0.95,
+    "source_ids": ["S3"],
+    "notes": null
+  },
+  "county": {
+    "value": "Alameda County",
+    "confidence": 0.95,
+    "source_ids": ["S3"],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Alameda Permit Center (building permit), with Alameda Municipal Power (interconnection engineering review)",
+    "confidence": 0.75,
+    "source_ids": ["S2"],
+    "notes": "Per AMP's own directly-fetched interconnection page, the building permit is issued by the City of Alameda Permit Center, while AMP separately performs the engineering review, inspection scheduling, and Permission to Operate step. alamedaca.gov itself returned HTTP 403 to direct automated fetch this session; the Permit Center's role is confirmed via AMP's own page (alamedamp.com), a different domain that was directly fetchable."
+  },
+  "permit_url": {
+    "value": "https://www.alamedamp.com/188/Interconnection-Process",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "AMP's own interconnection-process page describes both the City Permit Center's building-permit step and AMP's own engineering/PTO steps end to end; used here as the permit_url since no City of Alameda-hosted equivalent page could be directly fetched this session."
+  },
+  "interconnection_url": {
+    "value": "https://www.alamedamp.com/188/Interconnection-Process",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "Directly fetched and confirmed from AMP's own official page."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "AMP's own page (directly fetched) explicitly states it does not administer a battery storage incentive program and refers only to PG&E's Self-Generation Incentive Program (SGIP) for PG&E natural-gas customers — which does not apply to AMP's own electric customers, since AMP is a municipal utility outside CPUC/SGIP jurisdiction (the same reasoning already applied to LADWP). Recorded as null (not an AMP program, and no AMP-specific battery incentive exists per this source) rather than fabricating a value."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Building permit application (via City of Alameda Permit Center)",
+        "required_when": "always",
+        "source_ids": ["S2"]
+      },
+      {
+        "name": "ERG (Eligible Renewable Generation) application package",
+        "required_when": "always, submitted to solar@alamedamp.com",
+        "source_ids": ["S2"]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S2"],
+    "notes": "Directly confirmed from AMP's own interconnection-process page; a full document checklist beyond these two named submissions was not itemized on the page."
+  },
+  "inspection_steps": {
+    "value": [
+      "Homeowner contacts AMP Engineering at AMPInspect@alamedamp.com to schedule inspection after installation",
+      "Final inspection and approval is issued by the City of Alameda Permit Center (not AMP)",
+      "After final inspection, the ERG application package is submitted to solar@alamedamp.com",
+      "AMP provides a Permission to Operate (PTO) letter once the interconnection agreement is signed"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Directly confirmed from AMP's own interconnection-process page."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "AMP's own page describes the interconnection process as a sequence of steps but does not state a specific numeric timeline for any step."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "AMP Interconnection Process (5-step engineering review and Permission to Operate)",
+      "other_conditions": [
+        "Battery storage systems must be paired with a renewable energy system (e.g. solar) — standalone battery interconnection is not addressed",
+        "Battery systems must not back-feed to AMP's distribution grid",
+        "Systems must comply with state smart inverter standards"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "Directly confirmed from AMP's own pages. No system-size cap was stated."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential interconnection fee",
+        "amount_usd": 330,
+        "unit": "flat fee",
+        "notes": "AMP's own page states: 'AMP will waive the residential interconnection fee ($330) for homes built before January 1, 2020.' Homes built on or after that date pay the $330 fee."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Directly quoted from AMP's own interconnection-process page — a real, specific, currently-stated fee, distinct from the weak/single-source-only permit_fees findings in the original 5-city pilot."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "AMP income-qualified solar rebate",
+        "administrator": "Alameda Municipal Power (AMP)",
+        "description": "A $500 rebate for income-qualified customers installing solar systems.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": 500,
+        "value_usd_per_watt": null,
+        "eligibility": "Income-qualified AMP customers installing a solar system",
+        "url": "https://www.alamedamp.com/430/Solar-at-AMP",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "Directly confirmed from AMP's own Solar at AMP page: a $500 rebate for income-qualified customers, available at alamedamp.com/rebates (not independently fetched separately this session). No effective/expiration date was stated by the source, so status is recorded as 'unknown' per the same rule applied to the SGIP tiers elsewhere in this pilot — never inferred as active or expired without a source stating current status."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Alameda Permit Center",
+        "phone": "(510) 747-6800",
+        "email": "permits@alamedaca.gov",
+        "url": "https://www.alamedaca.gov/Departments/Planning-Building-and-Transportation/Permit-Center"
+      },
+      {
+        "name": null,
+        "role": "Alameda Municipal Power - Engineering (inspection scheduling)",
+        "phone": null,
+        "email": "AMPInspect@alamedamp.com",
+        "url": "https://www.alamedamp.com/188/Interconnection-Process"
+      },
+      {
+        "name": null,
+        "role": "Alameda Municipal Power - Solar/ERG applications",
+        "phone": null,
+        "email": "solar@alamedamp.com",
+        "url": "https://www.alamedamp.com/430/Solar-at-AMP"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "Email addresses directly confirmed from AMP's own pages; the Permit Center phone/email found via consistent search-engine indexing of the city's own directory (alamedaca.gov blocked to direct fetch this session)."
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar at AMP",
+      "url": "https://www.alamedamp.com/430/Solar-at-AMP",
+      "publisher": "Alameda Municipal Power",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S2",
+      "title": "Interconnection Process",
+      "url": "https://www.alamedamp.com/188/Interconnection-Process",
+      "publisher": "Alameda Municipal Power",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S3",
+      "title": "Alameda Municipal Power",
+      "url": "https://www.alamedaca.gov/Departments/Alameda-Municipal-Power",
+      "publisher": "City of Alameda",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}

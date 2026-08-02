@@ -1,0 +1,213 @@
+{
+  "record_id": "ca-orange-fullerton-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "The City of Fullerton's own Utility Services Division page describes that division's scope as water, sanitation, sewer, and trash billing only, with no electric utility function, and the city's own Energy Conservation page promotes SCE's CARE & FERA discount programs to residents — both consistent with SCE (not the city) being the electric utility. Fullerton's site also has a page titled 'Public Utilities Commission,' a naming trap verified separately to cover only water/sanitation/sewer/trash, not electric."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified this session. Fullerton is plausibly an Orange County Power Authority (OCPA) member city alongside Irvine (same regional CCA rollout), but no Fullerton-specific official source was directly confirmed during this collection pass — per the trust rule against inferring an unverified fact, this is left null rather than asserted. Verify directly against OCPA's own member-city list in a future collection pass before recording a value."
+  },
+  "city": {
+    "value": "Fullerton",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Orange County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "City of Fullerton Building and Safety Division",
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "cityoffullerton.com returned HTTP 403 to direct automated fetch this session; confirmed via consistent, independent search-engine indexing of the official municipal code (Chapter 14.18) and the city's own department pages across multiple separate queries."
+  },
+  "permit_url": {
+    "value": "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety/photovoltaic-solar-permits",
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Same cityoffullerton.com direct-fetch limitation as permit_authority."
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Explicitly available to both PG&E and SCE residential customers per the statewide SGIP administrator; SCE administers it within its own distribution territory, which includes Fullerton/Orange County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Fullerton/Orange County eligibility not independently confirmed this session.",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S4",
+      "S5"
+    ],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory records and for Irvine (SCE); the general-market tier's own eligibility text directly names both PG&E and SCE customers."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Sources state the Building Division has adopted 'a standard plan and checklist of all requirements' for expedited small residential rooftop solar review, and that documents are available on the city's website, but the specific checklist items were not directly retrieved this session (cityoffullerton.com blocked to direct fetch)."
+  },
+  "inspection_steps": {
+    "value": [
+      "Only one inspection is required for small residential rooftop solar energy systems eligible for expedited review",
+      "Inspection is scheduled within one business day of a request"
+    ],
+    "confidence": 0.65,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Sourced from consistent search-engine indexing of Fullerton Municipal Code Chapter 14.18 (Small Residential Rooftop Solar Energy System Permits), Section 14.18.060 (Expedited permit review and inspection requirements); not independently re-confirmed via direct fetch this session (cityoffullerton.com and the code-library mirrors both returned HTTP 403)."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 3,
+      "max_days": 5,
+      "notes": "Fullerton Municipal Code Chapter 14.18 (per consistent search-engine indexing) states the Building Division issues a building permit within 3 business days for over-the-counter applications or 5 business days for electronically filed applications, for small residential rooftop solar systems meeting the expedited-review checklist. Fullerton also incorporated SolarAPP+ per state law SB 379, which issues permits in real time for eligible systems — a separate, faster pathway not reflected in the min/max above since only the expedited-but-not-instant timeline was consistently described across sources."
+    },
+    "confidence": 0.65,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "small residential rooftop"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited small residential rooftop solar permit review (Fullerton Municipal Code Ch. 14.18); SolarAPP+ also incorporated per SB 379",
+      "other_conditions": [
+        "Must meet the Building Division's adopted standard plan and checklist of requirements to qualify for expedited review",
+        "Electronic submittal (email, city website, or facsimile) accepted, with electronic signatures accepted on all forms"
+      ]
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The municipal code chapter's own title names this 'Small Residential Rooftop Solar Energy System Permits,' but a specific numeric system-size cap was not directly confirmed in the content retrieved this session (cityoffullerton.com and code-library mirrors both blocked to direct fetch) — left null rather than assuming the statewide AB 2188 default cap applies without direct confirmation."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not stated in the sources reviewed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Fullerton-specific rebate program was directly confirmed this session, distinct from the statewide SGIP battery incentives already recorded under battery_programs."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Fullerton Building and Safety Division",
+        "phone": "(714) 738-6541",
+        "email": null,
+        "url": "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Phone number and address consistently cited across independent search results; not independently fetched this session."
+  },
+  "last_verified": "2026-08-02",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Fullerton Municipal Code Chapter 14.18 - Small Residential Rooftop Solar Energy System Permits",
+      "url": "https://codelibrary.amlegal.com/codes/fullerton/latest/fullerton_ca/0-0-0-28878",
+      "publisher": "City of Fullerton",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S2",
+      "title": "Building and Safety",
+      "url": "https://www.cityoffullerton.com/government/departments/community-and-economic-development/building-and-safety",
+      "publisher": "City of Fullerton",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S9",
+      "title": "Utility Services",
+      "url": "https://www.cityoffullerton.com/government/departments/administrative-services-finance/utility-services",
+      "publisher": "City of Fullerton",
+      "type": "government",
+      "accessed_date": "2026-08-02"
+    }
+  ]
+}
