@@ -13,6 +13,7 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const REPO_ROOT = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const OUT_DIR = path.join(REPO_ROOT, "output", "rendered");
@@ -331,4 +332,9 @@ async function main() {
   console.error(`Rendered ${path.relative(REPO_ROOT, filePath)} -> ${path.relative(REPO_ROOT, outPath)}`);
 }
 
-main().catch((err) => fail(err.stack ?? String(err)));
+// Direct-execution guard: main() only runs when this file is the process's
+// entry point, never when it's imported (by a test or anything else).
+const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (isDirectRun) {
+  main().catch((err) => fail(err.stack ?? String(err)));
+}

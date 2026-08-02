@@ -192,7 +192,12 @@ async function main() {
   console.error(`\nEvaluation written to ${path.relative(REPO_ROOT, OUT_PATH)}`);
 }
 
-main().catch((err) => {
-  console.error("error:", err.stack ?? String(err));
-  process.exit(1);
-});
+// Direct-execution guard: main() only runs when this file is the process's
+// entry point, never when it's imported (by a test or anything else).
+const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (isDirectRun) {
+  main().catch((err) => {
+    console.error("error:", err.stack ?? String(err));
+    process.exit(1);
+  });
+}
