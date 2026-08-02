@@ -6,6 +6,7 @@
 // single source of truth also used by LocalityGuideLayout.astro's "Related
 // articles" section — no independent copy of this data lives here.
 import { SITE_ORIGIN, buildBreadcrumbSchema } from "../../lib/locality-guide";
+import Analytics from "../../components/Analytics.astro";
 import { getAllBlogPosts } from "../../lib/blog-posts";
 
 const allPosts = await getAllBlogPosts();
@@ -52,6 +53,7 @@ const blogSchema = {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<Analytics />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>

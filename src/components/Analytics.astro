@@ -1,0 +1,14 @@
+---
+// Single source of truth for the GA4 snippet — every page includes this
+// instead of repeating the tracking ID inline. Previously only
+// src/pages/index.astro had analytics; every other page (21 of 22) had none.
+---
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PGX9SJ9QLG"></script>
+<script is:inline>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-PGX9SJ9QLG');
+</script>

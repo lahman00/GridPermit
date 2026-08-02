@@ -12,6 +12,7 @@ import {
 	buildBreadcrumbSchema,
 	type LocalityRecord,
 } from "../../lib/locality-guide";
+import Analytics from "../../components/Analytics.astro";
 
 const localityModules = import.meta.glob("../../../data/localities/*.json", { eager: true }) as Record<
 	string,
@@ -40,6 +41,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<Analytics />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>

@@ -23,6 +23,7 @@ import {
 } from "../lib/locality-guide";
 import { getAllBlogPosts, relatedPostsForUtility } from "../lib/blog-posts";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
+import Analytics from "../components/Analytics.astro";
 
 interface Props {
 	record: LocalityRecord;
@@ -87,6 +88,7 @@ const tocItems = [
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<Analytics />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>
