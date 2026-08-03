@@ -1,5 +1,22 @@
 ---
 import Analytics from "../../components/Analytics.astro";
+
+const TITLE = "SDG&E Battery Storage ROI Guide 2026: Rates & Economics";
+const DESCRIPTION = "San Diego Gas & Electric (SDG&E) battery payback breakdown under NEM 3.0 rules and EV-TOU-5 rate schedules.";
+const CANONICAL_URL = "https://mygridpermit.com/blog/sdge-battery-roi-guide/";
+const HEADLINE = "San Diego Solar & Battery Economics: SDG&E Rate Analysis (2026)";
+
+// No datePublished/dateModified/image: not stated with real precision on
+// this page, and no real hero image asset exists for this post.
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	headline: HEADLINE,
+	description: DESCRIPTION,
+	mainEntityOfPage: { "@type": "WebPage", "@id": CANONICAL_URL },
+	author: { "@type": "Organization", name: "GridPermit" },
+	publisher: { "@type": "Organization", name: "GridPermit" },
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -7,22 +24,23 @@ import Analytics from "../../components/Analytics.astro";
 	<Analytics />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SDG&E Battery Storage ROI Guide 2026: Rates & Economics</title>
-	<meta name="description" content="San Diego Gas & Electric (SDG&E) battery payback breakdown under NEM 3.0 rules and EV-TOU-5 rate schedules." />
-	<link rel="canonical" href="https://mygridpermit.com/blog/sdge-battery-roi-guide/" />
+	<title>{TITLE}</title>
+	<meta name="description" content={DESCRIPTION} />
+	<link rel="canonical" href={CANONICAL_URL} />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="https://mygridpermit.com/blog/sdge-battery-roi-guide/" />
-	<meta property="og:title" content="SDG&E Battery Storage ROI Guide 2026: Rates & Economics" />
-	<meta property="og:description" content="San Diego Gas & Electric (SDG&E) battery payback breakdown under NEM 3.0 rules and EV-TOU-5 rate schedules." />
+	<meta property="og:url" content={CANONICAL_URL} />
+	<meta property="og:title" content={TITLE} />
+	<meta property="og:description" content={DESCRIPTION} />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 </head>
 <body data-track-view="blog_article_viewed">
 	<nav class="navbar"><div class="nav-container"><a href="/" class="brand-logo">Grid<strong>Permit</strong></a><div class="nav-links"><a href="/blog">Blog</a><a href="/california/solar-permit-guides/">California Guides</a><a href="/methodology">Methodology</a><a href="/search">Search</a></div><a href="/#calculator" class="btn-cta-nav">Run Free ROI Audit</a></div></nav>
 	<main class="article-container">
 		<span class="article-category">Regional Analysis</span>
-		<h1>San Diego Solar & Battery Economics: SDG&E Rate Analysis (2026)</h1>
+		<h1>{HEADLINE}</h1>
 		<p class="article-meta">Updated July 2026 • 7 min read</p>
 		
 		<p class="lead-paragraph">San Diego Gas & Electric (SDG&E) territory features some of the highest per-kWh electricity rates in the continental United States. For San Diego residents, home batteries yield significant bill savings under NEM 3.0.</p>

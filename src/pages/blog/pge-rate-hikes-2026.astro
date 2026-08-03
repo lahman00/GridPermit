@@ -1,5 +1,24 @@
 ---
 import Analytics from "../../components/Analytics.astro";
+
+const TITLE = "PG&E Rate Hike Audit 2026: Solar & Battery Protection Analysis";
+const DESCRIPTION = "Analysis of Pacific Gas & Electric (PG&E) electricity rate increases and how home battery storage offsets E-ELEC peak pricing.";
+const CANONICAL_URL = "https://mygridpermit.com/blog/pge-rate-hikes-2026/";
+const HEADLINE = "PG&E Rate Hikes in 2026: Impact Analysis for Northern California Solar Owners";
+
+// No datePublished/dateModified/image: the page's own visible text only
+// states "Updated July 2026" (month precision), and no real hero image
+// asset exists for this post — adding either here would assert more
+// precision/content than we actually have.
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	headline: HEADLINE,
+	description: DESCRIPTION,
+	mainEntityOfPage: { "@type": "WebPage", "@id": CANONICAL_URL },
+	author: { "@type": "Organization", name: "GridPermit" },
+	publisher: { "@type": "Organization", name: "GridPermit" },
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -7,22 +26,23 @@ import Analytics from "../../components/Analytics.astro";
 	<Analytics />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PG&E Rate Hike Audit 2026: Solar & Battery Protection Analysis</title>
-	<meta name="description" content="Analysis of Pacific Gas & Electric (PG&E) electricity rate increases and how home battery storage offsets E-ELEC peak pricing." />
-	<link rel="canonical" href="https://mygridpermit.com/blog/pge-rate-hikes-2026/" />
+	<title>{TITLE}</title>
+	<meta name="description" content={DESCRIPTION} />
+	<link rel="canonical" href={CANONICAL_URL} />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="https://mygridpermit.com/blog/pge-rate-hikes-2026/" />
-	<meta property="og:title" content="PG&E Rate Hike Audit 2026: Solar & Battery Protection Analysis" />
-	<meta property="og:description" content="Analysis of Pacific Gas & Electric (PG&E) electricity rate increases and how home battery storage offsets E-ELEC peak pricing." />
+	<meta property="og:url" content={CANONICAL_URL} />
+	<meta property="og:title" content={TITLE} />
+	<meta property="og:description" content={DESCRIPTION} />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 </head>
 <body data-track-view="blog_article_viewed">
 	<nav class="navbar"><div class="nav-container"><a href="/" class="brand-logo">Grid<strong>Permit</strong></a><div class="nav-links"><a href="/blog">Blog</a><a href="/california/solar-permit-guides/">California Guides</a><a href="/methodology">Methodology</a><a href="/search">Search</a></div><a href="/#calculator" class="btn-cta-nav">Run Free ROI Audit</a></div></nav>
 	<main class="article-container">
 		<span class="article-category">Utility Rate Audit</span>
-		<h1>PG&E Rate Hikes in 2026: Impact Analysis for Northern California Solar Owners</h1>
+		<h1>{HEADLINE}</h1>
 		<p class="article-meta">Updated July 2026 • 7 min read</p>
 		
 		<p class="lead-paragraph">Pacific Gas & Electric (PG&E) electricity rates have increased significantly over the past three years. For Northern California homeowners, rising baseline delivery costs make utility bill management a top financial priority.</p>
