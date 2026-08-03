@@ -1,0 +1,104 @@
+{
+  "record_id": "ca-san-mateo-san-mateo-pge",
+  "file": "data/localities/ca-san-mateo-san-mateo-pge.json",
+  "validated_at": "2026-08-03",
+  "status": "REVIEW",
+  "score": 93,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.cityofsanmateo.org/4770/SolarApp-For-Solar-Installers",
+      "checked_at": "2026-08-03T21:45:42.228Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "checked_at": "2026-08-03T21:45:43.220Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/about/",
+      "checked_at": "2026-08-03T21:45:43.269Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/contact/",
+      "checked_at": "2026-08-03T21:45:44.017Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cityofsanmateo.org/477/Building",
+      "checked_at": "2026-08-03T21:45:44.722Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://law.cityofsanmateo.org/us/ca/cities/san-mateo/code/23.46.050",
+      "checked_at": "2026-08-03T21:45:45.669Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://law.cityofsanmateo.org/us/ca/cities/san-mateo/code/23.46.070",
+      "checked_at": "2026-08-03T21:45:45.711Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://law.cityofsanmateo.org/us/ca/cities/san-mateo/code/23.46.020",
+      "checked_at": "2026-08-03T21:45:45.749Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.westlightenergy.org/news-releases/peninsula-clean-energy-now-serving-all-of-san-mateo-county-with-lower-cost-cleaner-electricity/",
+      "checked_at": "2026-08-03T21:45:45.787Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

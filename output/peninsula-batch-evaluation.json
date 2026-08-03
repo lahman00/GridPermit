@@ -1,0 +1,198 @@
+{
+  "evaluated_at": "2026-08-03T21:55:45.143Z",
+  "record_count": 3,
+  "records": [
+    {
+      "record_id": "ca-san-mateo-san-mateo-pge",
+      "city": "San Mateo",
+      "county": "San Mateo County",
+      "completeness_pct": 86.7,
+      "validation_score": 93,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "unsupported_claim"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": true,
+      "timeline_available": false,
+      "required_documents_available": true,
+      "readiness": "READY"
+    },
+    {
+      "record_id": "ca-los-angeles-sierra-madre-sce",
+      "city": "Sierra Madre",
+      "county": "Los Angeles County",
+      "completeness_pct": 80,
+      "validation_score": 96,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": false,
+      "timeline_available": false,
+      "required_documents_available": true,
+      "readiness": "READY"
+    },
+    {
+      "record_id": "ca-santa-clara-milpitas-pge",
+      "city": "Milpitas",
+      "county": "Santa Clara County",
+      "completeness_pct": 86.7,
+      "validation_score": 93,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days",
+        "permit_fees"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "unsupported_claim"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": false,
+      "timeline_available": false,
+      "required_documents_available": true,
+      "readiness": "READY"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 84.5,
+    "average_validation_score": 94,
+    "ready_count": 3,
+    "limited_count": 0,
+    "not_ready_count": 0,
+    "fields_missing_count": {
+      "utility": 0,
+      "generation_supplier": 0,
+      "city": 0,
+      "county": 0,
+      "permit_authority": 0,
+      "permit_url": 0,
+      "interconnection_url": 0,
+      "battery_programs": 0,
+      "required_documents": 0,
+      "inspection_steps": 0,
+      "timeline_days": 3,
+      "eligibility_constraints": 0,
+      "permit_fees": 2,
+      "rebates": 2,
+      "official_contacts": 0
+    },
+    "fields_most_often_missing": [
+      {
+        "field": "timeline_days",
+        "missing_in_records": 3
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 2
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 2
+      }
+    ],
+    "warning_category_recurrence": {
+      "broken_url": 3,
+      "unsupported_claim": 2
+    },
+    "utility_coverage": [
+      "IOU"
+    ],
+    "geographic_counties_represented": [
+      "Los Angeles County",
+      "San Mateo County",
+      "Santa Clara County"
+    ],
+    "recurring_source_access_problems": [
+      "Several city domains blocked automated fetch entirely this batch (redwoodcity.org, sunnyvale.ca.gov, cityoffullerton.com-style blanket blocks) — Redwood City and Sunnyvale were abandoned as candidates after their primary pages returned HTTP 403 with no working alternative found.",
+      "A CDN-hosting collision occurred again this batch: a PDF found while researching Mountain View, CA (via civiclive.com, a third-party CMS host shared by many cities) turned out to be City of Sierra Madre's checklist, not Mountain View's — caught by reading the letterhead before citing, and used honestly for Sierra Madre (a real, separate city) instead of discarded outright, since the content was genuinely useful once correctly attributed.",
+      "One self-caught citation error: an official_contacts URL for San Mateo, built from a search-result title rather than a directly-fetched page, resolved to a live HTTP 404 on the validator's real URL check — fixed by locating and directly fetching the department's actual current contact page before re-citing.",
+      "One self-caught fabrication risk: an SGIP program-administrator phone number for SCE territory was initially written from general knowledge/pattern-matching rather than a verified source; directly fetching SGIP's own contact page confirmed no phone number is listed for SCE (only email), and the invented number was removed before this batch was finalized."
+    ],
+    "schema_gaps_discovered": [
+      "No new schema gaps were discovered while collecting this batch. Milpitas's rebates entry uses value_usd_flat for a $1,250 lump-sum rebate (distinct from battery_programs' per-kWh/per-kW SGIP figures), which the schema already supports without modification."
+    ],
+    "trust_rule_corrections_made_during_collection": [
+      "Mountain View, CA was dropped as a candidate this batch after its only found submittal-checklist PDF turned out (on reading) to belong to a different city (Sierra Madre) via a shared third-party CDN host — no Mountain View record was created from unverified assumptions.",
+      "Milpitas's eligibility caps were recorded under system_size_kw_dc_max (not kw_ac_max) because the city's own page explicitly states 'kW (DC MAX)' — preserving the AC/DC distinction rather than defaulting to the more common AC-cap pattern seen in other cities' records."
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [
+      "ca-san-mateo-san-mateo-pge",
+      "ca-los-angeles-sierra-madre-sce",
+      "ca-santa-clara-milpitas-pge"
+    ],
+    "limited_for_now": [],
+    "not_ready": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
+    "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
+  }
+}

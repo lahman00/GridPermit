@@ -1,0 +1,84 @@
+{
+  "record_id": "ca-los-angeles-sierra-madre-sce",
+  "file": "data/localities/ca-los-angeles-sierra-madre-sce.json",
+  "validated_at": "2026-08-03",
+  "status": "REVIEW",
+  "score": 96,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "broken_url",
+      "message": "https://www.census.gov/quickfacts/fact/table/sierramadrecitycalifornia,losangelescountycalifornia/POP815222 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://cdnsm5-hosted.civiclive.com/UserFiles/Servers/Server_212309/File/Departments/Planning%20&%20Community%20Preservation%20Department/Solar%20Project%20Info/Residential%20Solar%20Checklist_Revised%20October%202019.pdf",
+      "checked_at": "2026-08-03T21:50:21.781Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "checked_at": "2026-08-03T21:50:21.879Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "timeout"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/about/",
+      "checked_at": "2026-08-03T21:50:31.883Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/contact/",
+      "checked_at": "2026-08-03T21:50:32.585Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://files.cleanpoweralliance.org/uploads/2020/10/CPA_20SierraMadreDefaultChangeNotice2.pdf",
+      "checked_at": "2026-08-03T21:50:33.261Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.census.gov/quickfacts/fact/table/sierramadrecitycalifornia,losangelescountycalifornia/POP815222",
+      "checked_at": "2026-08-03T21:50:33.325Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}
