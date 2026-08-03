@@ -1,15 +1,20 @@
 {
   "record_id": "ca-orange-santa-ana-sce",
   "file": "data/localities/ca-orange-santa-ana-sce.json",
-  "validated_at": "2026-08-02",
+  "validated_at": "2026-08-03",
   "status": "REVIEW",
-  "score": 95,
+  "score": 93,
   "errors": [],
   "warnings": [
     {
       "field": "battery_programs",
       "category": "outdated_information",
       "message": "SGIP - Equity Resiliency: expires_on (2025-12-31) has elapsed as of last_verified 2026-08-02"
+    },
+    {
+      "field": "sources[S10].url",
+      "category": "broken_url",
+      "message": "https://www.ocpower.org/faq/ — connection reset — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -29,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://santa-ana.gov/solarapp-automated-solar-plan-review/",
-      "checked_at": "2026-08-02T04:32:22.907Z",
+      "checked_at": "2026-08-03T21:24:09.698Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -37,7 +42,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-02T04:32:23.817Z",
+      "checked_at": "2026-08-03T21:24:10.708Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,7 +50,7 @@
     },
     {
       "url": "https://santa-ana.gov/departments/building-division/",
-      "checked_at": "2026-08-02T04:32:24.575Z",
+      "checked_at": "2026-08-03T21:24:11.771Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -53,7 +58,7 @@
     },
     {
       "url": "https://santa-ana.gov/building-inspection-scheduling/",
-      "checked_at": "2026-08-02T04:32:25.361Z",
+      "checked_at": "2026-08-03T21:24:12.555Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -61,7 +66,7 @@
     },
     {
       "url": "https://www.santa-ana.org/question/how-do-i-set-up-electricity-service/",
-      "checked_at": "2026-08-02T04:32:26.125Z",
+      "checked_at": "2026-08-03T21:24:13.472Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -69,7 +74,7 @@
     },
     {
       "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-      "checked_at": "2026-08-02T04:32:27.462Z",
+      "checked_at": "2026-08-03T21:24:14.936Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -77,11 +82,11 @@
     },
     {
       "url": "https://www.ocpower.org/faq/",
-      "checked_at": "2026-08-02T04:32:28.506Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-03T21:24:15.922Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "connection reset"
     }
   ]
 }

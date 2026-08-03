@@ -139,7 +139,7 @@ test("every target's locality file exists on disk and is a valid, matching recor
 // Updated once the 3 READY records from this batch (Santa Rosa, Santa Ana,
 // Alameda — see output/next-batch-evaluation.json) had their public pages
 // generated. The other 7 (LIMITED) must still have no public page.
-const READY_CITY_SLUGS = new Set(["santa-rosa", "santa-ana", "alameda", "escondido"]);
+const READY_CITY_SLUGS = new Set(["santa-rosa", "santa-ana", "alameda", "escondido", "irvine"]);
 
 test("a public page exists only for this batch's READY records, and only those", () => {
 	for (const target of targets) {

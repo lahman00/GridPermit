@@ -54,10 +54,10 @@
     "notes": null
   },
   "interconnection_url": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not confirmed this session — SCE's specific interconnection/NEM page URL was not directly verified for this record. This is the pipeline's first SCE-territory record, so no existing interconnection URL could be reused from a prior record the way PG&E's could."
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S9"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — this is a utility-wide fact (the same URL applies to every city in SCE's distribution territory, including Irvine), not city-specific. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
   },
   "battery_programs": {
     "value": [
@@ -96,10 +96,22 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory pilot records, applied here for the first time to an SCE-administered territory — the general-market tier's own eligibility text already explicitly names both PG&E and SCE customers, so this is a direct textual match, not an assumption. Confidence set slightly below the PG&E-territory records (0.6 vs 0.65) since SCE's specific administrator role for Irvine has not been independently re-confirmed the way PG&E's was for Bay Area cities. 'Available through 2025' read as expiring 2025-12-31, before last_verified, hence 'expired'; the other tier's status is 'unknown'."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The city's own page references electronic-submittal forms and application pathways for single-family vs. commercial/multi-family solar but did not itself enumerate a specific document checklist in the content retrieved this session."
+    "value": [
+      { "name": "Building Permit Application (must include kW DC system size and number of photovoltaic solar roof panels)", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Electronic/Digital Signature Disclosure", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Site Plan (street address, property owner's name and phone number, applicant's contact information)", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Roof Plan (module layout with dimensions showing distance from roof edge, hips, and/or valleys)", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Single Line Electrical Diagram (equipment make/model, conductor type/size, conduit type/size, breaker size)", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Electrical Load Calculations", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "PV System Specifications (manufacturer's specification sheets for solar modules, inverter(s), J-boxes, combiner boxes)", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Signs and Labeling Sheet", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Roof Mounting Details, stamped and signed by a California licensed Civil Engineer, Structural Engineer, or Architect", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Roof Mounting Manufacturer's Product Specification/Installation Sheets", "required_when": "always", "source_ids": ["S10"] },
+      { "name": "Residential Photovoltaic General Notes", "required_when": "always", "source_ids": ["S10"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S10"],
+    "notes": "From the City of Irvine's 'Adding a Rooftop Solar Energy System' page — appears to be the standard residential submittal package rather than the separate 10kW-or-less expedited electronic-submittal pathway's own (shorter) checklist, which was not independently located this session."
   },
   "inspection_steps": {
     "value": null,
@@ -175,7 +187,7 @@
     ],
     "notes": "Contact details found via consistent search-engine indexing referencing the city's own contact directory; not independently fetched this session."
   },
-  "last_verified": "2026-08-02",
+  "last_verified": "2026-08-03",
   "sources": [
     {
       "id": "S1",
@@ -216,6 +228,22 @@
       "publisher": "City of Irvine",
       "type": "government",
       "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S9",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S10",
+      "title": "Adding a Rooftop Solar Energy System",
+      "url": "https://cityofirvine.gov/building-permits-and-inspections/adding-rooftop-solar-energy-system",
+      "publisher": "City of Irvine",
+      "type": "government",
+      "accessed_date": "2026-08-03"
     }
   ]
 }

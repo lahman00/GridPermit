@@ -3,9 +3,14 @@
   "file": "data/localities/ca-san-diego-chula-vista-sdge.json",
   "validated_at": "2026-08-03",
   "status": "REVIEW",
-  "score": 90,
+  "score": 85,
   "errors": [],
   "warnings": [
+    {
+      "field": "battery_programs",
+      "category": "outdated_information",
+      "message": "SGIP - Equity Resiliency: expires_on (2025-12-31) has elapsed as of last_verified 2026-08-02"
+    },
     {
       "field": "permit_url",
       "category": "broken_url",
@@ -34,10 +39,6 @@
   ],
   "recommendations": [
     {
-      "field": "battery_programs",
-      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
@@ -57,7 +58,7 @@
   "url_checks": [
     {
       "url": "https://www.chulavistaca.gov/departments/development-services/build-green/residential-solar-energy",
-      "checked_at": "2026-08-03T04:07:56.408Z",
+      "checked_at": "2026-08-03T21:38:40.647Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -65,15 +66,23 @@
     },
     {
       "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
-      "checked_at": "2026-08-03T04:07:56.779Z",
+      "checked_at": "2026-08-03T21:38:40.771Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "checked_at": "2026-08-03T21:38:40.824Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
       "url": "https://www.chulavistaca.gov/departments/development-services/contact-us",
-      "checked_at": "2026-08-03T04:07:56.891Z",
+      "checked_at": "2026-08-03T21:38:42.014Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -81,7 +90,7 @@
     },
     {
       "url": "https://www.chulavistaca.gov/Home/Components/ServiceDirectory/ServiceDirectory/397/3156",
-      "checked_at": "2026-08-03T04:07:56.954Z",
+      "checked_at": "2026-08-03T21:38:42.093Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -89,7 +98,7 @@
     },
     {
       "url": "https://sdcommunitypower.org/our-community/",
-      "checked_at": "2026-08-03T04:07:57.022Z",
+      "checked_at": "2026-08-03T21:38:42.151Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",

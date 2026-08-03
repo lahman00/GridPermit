@@ -10,10 +10,13 @@
     "notes": "The City of Fullerton's own Utility Services Division page describes that division's scope as water, sanitation, sewer, and trash billing only, with no electric utility function, and the city's own Energy Conservation page promotes SCE's CARE & FERA discount programs to residents — both consistent with SCE (not the city) being the electric utility. Fullerton's site also has a page titled 'Public Utilities Commission,' a naming trap verified separately to cover only water/sanitation/sewer/trash, not electric."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not verified this session. Fullerton is plausibly an Orange County Power Authority (OCPA) member city alongside Irvine (same regional CCA rollout), but no Fullerton-specific official source was directly confirmed during this collection pass — per the trust rule against inferring an unverified fact, this is left null rather than asserted. Verify directly against OCPA's own member-city list in a future collection pass before recording a value."
+    "value": {
+      "name": "Orange County Power Authority (OCPA)",
+      "type": "cca",
+      "notes": "Fullerton's own city government site hosts a page titled 'Orange County Power Authority | Fullerton, CA' (S10), confirming a formal OCPA relationship exists, though cityoffullerton.com returned HTTP 403 to direct fetch (same as every other Fullerton page this session) so its exact content could not be read. OCPA's own domain (ocpower.org) returned server errors (500/502) on every page attempted this session — a genuine outage, not a deliberate block. Fullerton's OCPA membership is corroborated by multiple independent sources (OCPA's own newsroom coverage and a peer member city's official site) consistently naming Fullerton as an OCPA member city since 2021-2022. Confidence reflects that this is indirect corroboration, not a directly-read primary-source page, unlike Irvine's generation_supplier record."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S10"]
   },
   "city": {
     "value": "Fullerton",
@@ -49,10 +52,10 @@
     "notes": "Same cityoffullerton.com direct-fetch limitation as permit_authority."
   },
   "interconnection_url": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not confirmed this session."
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S11"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact (same URL applies to every city in SCE's distribution territory, including Fullerton), already established for the Irvine record this session. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
   },
   "battery_programs": {
     "value": [
@@ -167,7 +170,7 @@
     ],
     "notes": "Phone number and address consistently cited across independent search results; not independently fetched this session."
   },
-  "last_verified": "2026-08-02",
+  "last_verified": "2026-08-03",
   "sources": [
     {
       "id": "S1",
@@ -208,6 +211,22 @@
       "publisher": "City of Fullerton",
       "type": "government",
       "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S10",
+      "title": "Orange County Power Authority",
+      "url": "https://www.cityoffullerton.com/government/departments/city-manager-s-office/administration/community-choice-energy",
+      "publisher": "City of Fullerton",
+      "type": "government",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S11",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
     }
   ]
 }

@@ -62,10 +62,37 @@
     "notes": "This is SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, not city-specific — the same URL already verified for the existing San Diego pilot record applies equally to every city in SDG&E's service territory, including Chula Vista. URL confirmed to exist on SDG&E's official domain via consistent search-engine indexing under the expected title; sdge.com returned HTTP 403 to direct automated fetch (same limitation noted on the San Diego record)."
   },
   "battery_programs": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not yet verified for this record. SGIP's general-market tier is known from other records to apply broadly across California IOUs including SDG&E, but this session did not independently re-confirm that applicability specifically for Chula Vista/SDG&E territory (unlike the PG&E/SCE-territory records, where the same statewide tiers were directly re-cited with an SDG&E- or PG&E-specific administrator note). Left null (not confirmed absent) rather than asserting either a populated list or a confirmed-empty array — re-verify SDG&E's SGIP program status directly in a future collection pass."
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025. Administered across SDG&E's entire distribution territory (via CSE), which includes Chula Vista — same statewide tier already independently verified (including CSE's specific administrator role for SDG&E territory) for the San Diego pilot record.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      },
+      {
+        "name": "SGIP - Equity Resiliency",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
+        "value_usd_per_kwh": 1000,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Chula Vista eligibility not independently confirmed this session.",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": null,
+        "expires_on": "2025-12-31",
+        "status": "expired"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S15"],
+    "notes": "Reused as a utility-level fact from the San Diego pilot record: SDG&E's SGIP administrator (CSE, not SDG&E directly) was independently verified via CPUC's own page there, and SDG&E's distribution role in Chula Vista is independently confirmed by S12 — so this SDG&E-territory-wide program applies here too, not asserted as separately Chula-Vista-specific research."
   },
   "required_documents": {
     "value": null,
@@ -146,7 +173,7 @@
     ],
     "notes": "Contact details found via consistent search-engine indexing of the city's own directory pages; not independently fetched this session (chulavistaca.gov blocked)."
   },
-  "last_verified": "2026-08-02",
+  "last_verified": "2026-08-03",
   "sources": [
     {
       "id": "S1",
@@ -171,6 +198,14 @@
       "publisher": "San Diego Gas & Electric",
       "type": "utility",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S15",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-03"
     }
   ]
 }

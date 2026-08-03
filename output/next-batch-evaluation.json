@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-03T04:08:44.595Z",
+  "evaluated_at": "2026-08-03T21:39:03.565Z",
   "record_count": 10,
   "records": [
     {
@@ -123,11 +123,11 @@
       "record_id": "ca-orange-irvine-sce",
       "city": "Irvine",
       "county": "Orange County",
-      "completeness_pct": 66.7,
-      "validation_score": 95,
+      "completeness_pct": 80,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -135,19 +135,59 @@
         "county",
         "permit_authority",
         "permit_url",
+        "interconnection_url",
         "battery_programs",
+        "required_documents",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "interconnection_url",
-        "required_documents",
         "inspection_steps",
         "permit_fees",
         "rebates"
       ],
       "warning_categories": [
+        "broken_url",
+        "outdated_information"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": false,
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
+    },
+    {
+      "record_id": "ca-orange-fullerton-sce",
+      "city": "Fullerton",
+      "county": "Orange County",
+      "completeness_pct": 80,
+      "validation_score": 83,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 7,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "required_documents",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
         "outdated_information"
       ],
       "utility_type": "IOU",
@@ -158,73 +198,35 @@
       "readiness": "LIMITED"
     },
     {
-      "record_id": "ca-orange-fullerton-sce",
-      "city": "Fullerton",
+      "record_id": "ca-orange-santa-ana-sce",
+      "city": "Santa Ana",
       "county": "Orange County",
-      "completeness_pct": 66.7,
-      "validation_score": 87,
+      "completeness_pct": 80,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 5,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
         "permit_url",
         "battery_programs",
+        "required_documents",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "interconnection_url",
-        "required_documents",
         "permit_fees",
         "rebates"
       ],
       "warning_categories": [
         "broken_url",
-        "outdated_information"
-      ],
-      "utility_type": "IOU",
-      "separate_cca_present": null,
-      "permit_fees_available": false,
-      "timeline_available": true,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
-    },
-    {
-      "record_id": "ca-orange-santa-ana-sce",
-      "city": "Santa Ana",
-      "county": "Orange County",
-      "completeness_pct": 80,
-      "validation_score": 95,
-      "validation_status": "REVIEW",
-      "error_count": 0,
-      "warning_count": 1,
-      "populated_fields": [
-        "utility",
-        "generation_supplier",
-        "city",
-        "county",
-        "permit_authority",
-        "permit_url",
-        "battery_programs",
-        "required_documents",
-        "inspection_steps",
-        "timeline_days",
-        "eligibility_constraints",
-        "official_contacts"
-      ],
-      "missing_fields": [
-        "interconnection_url",
-        "permit_fees",
-        "rebates"
-      ],
-      "warning_categories": [
         "outdated_information"
       ],
       "utility_type": "IOU",
@@ -238,11 +240,11 @@
       "record_id": "ca-san-diego-chula-vista-sdge",
       "city": "Chula Vista",
       "county": "San Diego County",
-      "completeness_pct": 66.7,
-      "validation_score": 90,
+      "completeness_pct": 73.3,
+      "validation_score": 85,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 5,
+      "warning_count": 6,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -251,19 +253,20 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "outdated_information"
       ],
       "utility_type": "IOU",
       "separate_cca_present": true,
@@ -389,21 +392,21 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 75.3,
-    "average_validation_score": 91.4,
-    "ready_count": 4,
-    "limited_count": 6,
+    "average_completeness_pct": 78.7,
+    "average_validation_score": 90.1,
+    "ready_count": 5,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 2,
+      "generation_supplier": 1,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
       "permit_url": 0,
-      "interconnection_url": 3,
-      "battery_programs": 4,
-      "required_documents": 4,
+      "interconnection_url": 1,
+      "battery_programs": 3,
+      "required_documents": 3,
       "inspection_steps": 5,
       "timeline_days": 1,
       "eligibility_constraints": 0,
@@ -426,19 +429,19 @@
       },
       {
         "field": "battery_programs",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "required_documents",
-        "missing_in_records": 4
-      },
-      {
-        "field": "interconnection_url",
         "missing_in_records": 3
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 2
+        "missing_in_records": 1
+      },
+      {
+        "field": "interconnection_url",
+        "missing_in_records": 1
       },
       {
         "field": "timeline_days",
@@ -446,8 +449,8 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 8,
-      "outdated_information": 6,
+      "broken_url": 10,
+      "outdated_information": 7,
       "unsupported_claim": 1
     },
     "utility_coverage": [
@@ -478,6 +481,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-sonoma-santa-rosa-pge",
+      "ca-orange-irvine-sce",
       "ca-orange-santa-ana-sce",
       "ca-san-diego-escondido-sdge",
       "ca-alameda-alameda-amp"
@@ -494,19 +498,14 @@
         "reason": "readiness=LIMITED (completeness 73.3%, score 87)"
       },
       {
-        "record_id": "ca-orange-irvine-sce",
-        "city": "Irvine",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 95)"
-      },
-      {
         "record_id": "ca-orange-fullerton-sce",
         "city": "Fullerton",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 87)"
+        "reason": "readiness=LIMITED (completeness 80%, score 83)"
       },
       {
         "record_id": "ca-san-diego-chula-vista-sdge",
         "city": "Chula Vista",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 90)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 85)"
       },
       {
         "record_id": "ca-los-angeles-los-angeles-ladwp",
