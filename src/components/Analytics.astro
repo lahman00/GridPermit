@@ -8,6 +8,7 @@
 // to tracking purely via a markup attribute —
 //   data-track-view="locality_guide_viewed"  fires once, on page load
 //   data-track-click="official_source_clicked" fires on click
+//   data-track-toggle="faq_expanded"         fires when a <details> opens
 // — so no page needs its own copy of this wiring or its own gtag snippet.
 ---
 
@@ -36,5 +37,19 @@
 		if (!trigger) return;
 		const name = trigger.getAttribute("data-track-click") ?? "";
 		if (isKnownAnalyticsEvent(name)) trackEvent(name);
+	});
+
+	// <details>'s native "toggle" event doesn't bubble, so each element needs
+	// its own listener rather than one delegated document-level listener.
+	// Only fires on open (not close) — an "expanded" event, not a raw toggle.
+	document.addEventListener("DOMContentLoaded", () => {
+		for (const el of document.querySelectorAll("[data-track-toggle]")) {
+			if (!(el instanceof HTMLDetailsElement)) continue;
+			const name = el.getAttribute("data-track-toggle") ?? "";
+			if (!isKnownAnalyticsEvent(name)) continue;
+			el.addEventListener("toggle", () => {
+				if (el.open) trackEvent(name);
+			});
+		}
 	});
 </script>

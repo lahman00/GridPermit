@@ -347,7 +347,7 @@ const tocItems = [
 				<section id="faq">
 					<h2>Frequently Asked Questions</h2>
 					{faqs.map((f) => (
-						<details class="faq-item">
+						<details class="faq-item" data-track-toggle="faq_expanded">
 							<summary>{f.q}</summary>
 							<p>{f.a}</p>
 						</details>
