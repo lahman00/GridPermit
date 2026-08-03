@@ -193,7 +193,7 @@ function collectAllUrls(record) {
   return urls;
 }
 
-async function validate(filePath) {
+export async function validate(filePath) {
   const errors = [];
   const warnings = [];
   const recommendations = [];
