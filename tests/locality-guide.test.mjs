@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import {
 	NOT_VERIFIED,
 	SITE_ORIGIN,
-	getActiveBatteryPrograms,
+	getDisplayablePrograms,
 	formatTimeline,
 	withFallback,
 	buildFaqs,
@@ -33,22 +33,21 @@ const samplePrograms = [
 	{ name: "Local Storage Rebate", status: "active", description: "..." },
 ];
 
-test("getActiveBatteryPrograms filters out unknown and expired programs", () => {
-	const active = getActiveBatteryPrograms(samplePrograms);
-	assert.equal(active.length, 1);
-	assert.ok(active.every((p) => p.status === "active"));
-	assert.ok(!active.some((p) => p.status === "unknown" || p.status === "expired"));
+test("getDisplayablePrograms keeps every program regardless of status — status is a per-item caveat, not a display filter", () => {
+	const all = getDisplayablePrograms(samplePrograms);
+	assert.equal(all.length, samplePrograms.length);
+	assert.deepEqual(all, samplePrograms);
 });
 
-test("getActiveBatteryPrograms keeps active programs", () => {
+test("getDisplayablePrograms preserves an all-active list unchanged", () => {
 	const onlyActive = [{ name: "A", status: "active" }, { name: "B", status: "active" }];
-	assert.deepEqual(getActiveBatteryPrograms(onlyActive), onlyActive);
+	assert.deepEqual(getDisplayablePrograms(onlyActive), onlyActive);
 });
 
-test("getActiveBatteryPrograms returns an empty array for null/undefined/empty input", () => {
-	assert.deepEqual(getActiveBatteryPrograms(null), []);
-	assert.deepEqual(getActiveBatteryPrograms(undefined), []);
-	assert.deepEqual(getActiveBatteryPrograms([]), []);
+test("getDisplayablePrograms returns an empty array for null/undefined/empty input", () => {
+	assert.deepEqual(getDisplayablePrograms(null), []);
+	assert.deepEqual(getDisplayablePrograms(undefined), []);
+	assert.deepEqual(getDisplayablePrograms([]), []);
 });
 
 test("formatTimeline scopes a 0/0 range to SolarAPP+ eligibility, never a general same-day claim", () => {
@@ -225,12 +224,12 @@ test("buildFaqs does not crash when generation_supplier, timeline_days, and offi
 	assert.equal(faqs.length, 1);
 });
 
-test("getActiveBatteryPrograms does not crash on malformed program entries missing description", () => {
+test("getDisplayablePrograms does not crash on malformed program entries missing description", () => {
 	const malformed = [{ name: "No description field", status: "active" }];
-	assert.doesNotThrow(() => getActiveBatteryPrograms(malformed));
-	const active = getActiveBatteryPrograms(malformed);
-	assert.equal(active.length, 1);
-	assert.equal(active[0].description, undefined);
+	assert.doesNotThrow(() => getDisplayablePrograms(malformed));
+	const all = getDisplayablePrograms(malformed);
+	assert.equal(all.length, 1);
+	assert.equal(all[0].description, undefined);
 });
 
 test("formatTimeline does not crash when notes is missing entirely", () => {

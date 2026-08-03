@@ -12,7 +12,7 @@ import peninsulaBatchEvaluation from "../../output/peninsula-batch-evaluation.js
 import {
 	NOT_VERIFIED,
 	buildSourceResolver,
-	getActiveBatteryPrograms,
+	getDisplayablePrograms,
 	formatTimeline,
 	buildPageMeta,
 	buildBreadcrumbItems,
@@ -63,7 +63,8 @@ const allBlogPosts = await getAllBlogPosts();
 const relatedArticles = relatedPostsForUtility(allBlogPosts, utilityShort, 3);
 
 const sourcesFor = buildSourceResolver(record.sources);
-const activeBatteryPrograms = getActiveBatteryPrograms(record.battery_programs.value);
+const batteryPrograms = getDisplayablePrograms(record.battery_programs.value);
+const rebatePrograms = getDisplayablePrograms(record.rebates.value);
 const td = record.timeline_days?.value ?? null;
 const hasTimeline = td !== null;
 const timeline = td !== null ? formatTimeline(td) : null;
@@ -85,6 +86,8 @@ const tocItems = [
 	{ id: "required-documents", label: "Required Documents" },
 	{ id: "inspection-steps", label: "Inspection Steps" },
 	{ id: "eligibility", label: "Eligibility" },
+	{ id: "permit-fees", label: "Permit Fees" },
+	{ id: "rebates", label: "Rebates" },
 	{ id: "official-contacts", label: "Official Contacts" },
 	...(faqs.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
 	{ id: "sources", label: "Sources" },
@@ -188,9 +191,9 @@ const tocItems = [
 
 				<div class="fact-callout fact-callout-caution">
 					<h3>Battery/solar incentive program on record</h3>
-					{activeBatteryPrograms.length > 0 ? (
+					{batteryPrograms.length > 0 ? (
 						<>
-							{activeBatteryPrograms.map((p) => (
+							{batteryPrograms.map((p) => (
 								<div class="program-item">
 									<p class="fact-value">{p.name}</p>
 									<p class="fact-notes">{p.description}</p>
@@ -201,9 +204,51 @@ const tocItems = [
 							<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 						</>
 					) : (
-						<p class="fact-value muted">No currently verified active battery program is available in this record.</p>
+						<p class="fact-value muted">No battery/storage incentive program is on record for this locality.</p>
 					)}
 				</div>
+			</section>
+
+			<!-- ===== Permit fees ===== -->
+			<section id="permit-fees">
+				<h2>Permit fees</h2>
+				{record.permit_fees.value ? (
+					<>
+						<ul class="fact-list">
+							{record.permit_fees.value.map((fee) => (
+								<li>
+									<strong>{fee.name}</strong>
+									{fee.amount_usd != null ? (
+										<span> — ${fee.amount_usd}{fee.unit && ` (${fee.unit})`}</span>
+									) : (
+										<span class="doc-condition"> — amount not verified{fee.unit && ` (${fee.unit})`}</span>
+									)}
+									{fee.notes && <p class="fact-notes">{fee.notes}</p>}
+								</li>
+							))}
+						</ul>
+						<ConfidenceBadge confidence={record.permit_fees.confidence} />
+						<p class="fact-meta">Source(s): {sourcesFor(record.permit_fees.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+					</>
+				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
+			</section>
+
+			<!-- ===== Rebates ===== -->
+			<section id="rebates">
+				<h2>Rebates</h2>
+				{rebatePrograms.length > 0 ? (
+					<>
+						{rebatePrograms.map((p) => (
+							<div class="program-item">
+								<p class="fact-value">{p.name}</p>
+								<p class="fact-notes">{p.description}</p>
+								<p class="fact-status">Status on file: <strong>{p.status}</strong> — verify current status before relying on this.</p>
+							</div>
+						))}
+						<ConfidenceBadge confidence={record.rebates.confidence} />
+						<p class="fact-meta">Source(s): {sourcesFor(record.rebates.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+					</>
+				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
 
 			<!-- ===== Utility and generation supplier ===== -->

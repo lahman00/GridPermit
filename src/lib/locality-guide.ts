@@ -44,6 +44,13 @@ export interface RequiredDocument {
 	required_when?: string | null;
 }
 
+export interface FeeItem {
+	name: string;
+	amount_usd?: number | null;
+	unit?: string | null;
+	notes?: string | null;
+}
+
 export interface EligibilityConstraints {
 	property_types: string[];
 	system_size_kw_ac_max: number | null;
@@ -90,6 +97,8 @@ export interface LocalityRecord {
 	interconnection_url: FieldEnvelope<string | null>;
 	timeline_days: FieldEnvelope<TimelineValue | null>;
 	battery_programs: FieldEnvelope<BatteryProgram[] | null>;
+	rebates: FieldEnvelope<BatteryProgram[] | null>;
+	permit_fees: FieldEnvelope<FeeItem[] | null>;
 	required_documents: FieldEnvelope<RequiredDocument[] | null>;
 	inspection_steps: FieldEnvelope<string[] | null>;
 	eligibility_constraints: FieldEnvelope<EligibilityConstraints | null>;
@@ -136,12 +145,21 @@ export function buildSourceResolver(sources: SourceRef[] | null | undefined) {
 	};
 }
 
-// Trust rule: only a status of "active" counts as a currently verified
-// program. "unknown" and "expired" must never be displayed as if current.
-export function getActiveBatteryPrograms(
+// Every program on record is shown — status is never a display filter.
+// Hiding "unknown"-status programs (the status nearly every SGIP citation
+// carries, since re-confirming live program status wasn't in scope for most
+// collection sessions) previously made real, sourced program data disappear
+// entirely, rendering "No currently verified active battery program is
+// available" on pages that actually had one on file — the opposite of this
+// site's own promise to "show only what we can verify." The per-item
+// "Status on file: <status> — verify current status before relying on
+// this" caveat already renders for every item and is what protects against
+// treating "unknown"/"expired" as guaranteed-current, so no filter is
+// needed on top of it.
+export function getDisplayablePrograms(
 	value: BatteryProgram[] | null | undefined,
 ): BatteryProgram[] {
-	return (value || []).filter((p) => p.status === "active");
+	return value || [];
 }
 
 export interface TimelineDisplay {
