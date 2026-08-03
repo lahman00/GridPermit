@@ -1,22 +1,18 @@
 {
   "record_id": "ca-san-diego-escondido-sdge",
   "file": "data/localities/ca-san-diego-escondido-sdge.json",
-  "validated_at": "2026-08-02",
+  "validated_at": "2026-08-03",
   "status": "REVIEW",
   "score": 98,
   "errors": [],
   "warnings": [
     {
-      "field": "permit_url",
+      "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.escondido.gov/1247/Solar-App-Plus — timeout — recommend a manual check"
+      "message": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "interconnection_url",
-      "message": "'interconnection_url' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "battery_programs",
       "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -33,15 +29,23 @@
   "url_checks": [
     {
       "url": "https://www.escondido.gov/1247/Solar-App-Plus",
-      "checked_at": "2026-08-02T04:36:00.322Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": null,
+      "checked_at": "2026-08-03T04:07:57.401Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "timeout"
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+      "checked_at": "2026-08-03T04:07:58.480Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
       "url": "https://escondido.gov/215/Building",
-      "checked_at": "2026-08-02T04:36:10.327Z",
+      "checked_at": "2026-08-03T04:07:58.533Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -49,7 +53,7 @@
     },
     {
       "url": "https://www.escondido.gov/1143/Utilities",
-      "checked_at": "2026-08-02T04:36:15.832Z",
+      "checked_at": "2026-08-03T04:07:59.494Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -57,7 +61,7 @@
     },
     {
       "url": "https://thecleanenergyalliance.org/",
-      "checked_at": "2026-08-02T04:36:17.126Z",
+      "checked_at": "2026-08-03T04:08:00.458Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

@@ -54,10 +54,12 @@
     "notes": "Same chulavistaca.gov direct-fetch limitation as permit_authority."
   },
   "interconnection_url": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not confirmed this session — this is the pipeline's first SDG&E-territory record besides the existing San Diego pilot record; SDG&E's specific interconnection/NEM page URL was not independently re-verified for Chula Vista specifically."
+    "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": [
+      "S14"
+    ],
+    "notes": "This is SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, not city-specific — the same URL already verified for the existing San Diego pilot record applies equally to every city in SDG&E's service territory, including Chula Vista. URL confirmed to exist on SDG&E's official domain via consistent search-engine indexing under the expected title; sdge.com returned HTTP 403 to direct automated fetch (same limitation noted on the San Diego record)."
   },
   "battery_programs": {
     "value": null,
@@ -161,6 +163,14 @@
       "publisher": "San Diego Community Power",
       "type": "government",
       "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S14",
+      "title": "Net Energy Metering (NEM) | San Diego Gas & Electric",
+      "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+      "publisher": "San Diego Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
     }
   ]
 }
