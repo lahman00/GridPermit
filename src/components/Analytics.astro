@@ -20,6 +20,18 @@
 	gtag('js', new Date());
 	gtag('config', 'G-PGX9SJ9QLG');
 </script>
+
+<!-- Every page preloads its Google Fonts stylesheet (rel="preload") instead
+of a render-blocking rel="stylesheet", then flips it to a real stylesheet
+once loaded. The <noscript> fallback next to each preload link still
+applies the font with JS disabled. -->
+<script is:inline>
+	window.addEventListener("load", () => {
+		for (const link of document.querySelectorAll("link.async-font-css")) {
+			link.rel = "stylesheet";
+		}
+	});
+</script>
 <script>
 	import { trackEvent, isKnownAnalyticsEvent } from "../lib/analytics-events";
 

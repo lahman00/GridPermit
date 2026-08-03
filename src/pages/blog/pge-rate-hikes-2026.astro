@@ -35,7 +35,8 @@ const articleSchema = {
 	<meta property="og:description" content={DESCRIPTION} />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
+	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 </head>
 <body data-track-view="blog_article_viewed">
