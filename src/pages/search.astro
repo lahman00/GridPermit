@@ -110,13 +110,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 
 	<script>
 		import { trackEvent } from "../lib/analytics-events";
-
-		interface SearchEntry {
-			title: string;
-			description: string;
-			url: string;
-			category: string;
-		}
+		import { searchEntries, type SearchEntry } from "../lib/search-index";
 
 		const dataEl = document.getElementById("search-index-data");
 		const index: SearchEntry[] = dataEl ? JSON.parse(dataEl.textContent ?? "[]") : [];
@@ -126,21 +120,35 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 		const hint = document.getElementById("search-hint");
 		const noResults = document.getElementById("no-results");
 
-		function search(query: string): SearchEntry[] {
-			const q = query.trim().toLowerCase();
-			if (!q) return [];
-			return index.filter((e) => `${e.title} ${e.description} ${e.category}`.toLowerCase().includes(q));
-		}
-
 		// Fires at most once per distinct non-empty query, not on every
 		// keystroke — avoids flooding GA with one event per character typed.
 		let lastTrackedQuery = "";
+		let activeIndex = -1; // keyboard-highlighted result, -1 = none
+
+		function currentItems(): HTMLAnchorElement[] {
+			if (!resultsList) return [];
+			return Array.from(resultsList.querySelectorAll("a"));
+		}
+
+		function setActive(index: number) {
+			const items = currentItems();
+			if (items.length === 0) {
+				activeIndex = -1;
+				return;
+			}
+			activeIndex = ((index % items.length) + items.length) % items.length;
+			for (const [i, el] of items.entries()) {
+				el.classList.toggle("is-active", i === activeIndex);
+			}
+			items[activeIndex]?.scrollIntoView({ block: "nearest" });
+		}
 
 		function render(query: string) {
-			const results = search(query);
+			const results = searchEntries(index, query);
 			if (!resultsList || !hint || !noResults) return;
 
 			resultsList.innerHTML = "";
+			activeIndex = -1;
 			if (query.trim() === "") {
 				hint.hidden = false;
 				noResults.hidden = true;
@@ -165,6 +173,28 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 		}
 
 		input?.addEventListener("input", () => render(input.value));
+
+		// Arrow keys move a highlighted result; Enter follows it (falling back
+		// to the first result if none is highlighted yet) — keyboard users
+		// never have to reach for the mouse to open a search result.
+		input?.addEventListener("keydown", (e) => {
+			const items = currentItems();
+			if (items.length === 0) return;
+
+			if (e.key === "ArrowDown") {
+				e.preventDefault();
+				setActive(activeIndex + 1);
+			} else if (e.key === "ArrowUp") {
+				e.preventDefault();
+				setActive(activeIndex - 1);
+			} else if (e.key === "Enter") {
+				const target = items[activeIndex] ?? items[0];
+				if (target) {
+					e.preventDefault();
+					target.click();
+				}
+			}
+		});
 	</script>
 
 	<style>
@@ -202,7 +232,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 
 		.results-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
 		.result-item a { display: block; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem 1.25rem; text-decoration: none; color: var(--text-main); }
-		.result-item a:hover { border-color: var(--primary); }
+		.result-item a:hover, .result-item a.is-active { border-color: var(--primary); background: #eff6ff; }
 		.result-category { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--primary); margin-bottom: 0.25rem; }
 		.result-title { display: block; font-size: 1.02rem; font-weight: 700; margin-bottom: 0.25rem; }
 		.result-description { display: block; font-size: 0.85rem; color: #475569; }

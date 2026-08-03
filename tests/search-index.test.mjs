@@ -75,3 +75,38 @@ test("searchEntries returns nothing for a query matching no entry", () => {
 	const index = buildSearchIndex(makeParams());
 	assert.deepEqual(searchEntries(index, "nonexistent-zzz-query"), []);
 });
+
+test("searchEntries ranks a title match above a description-only match for the same query", () => {
+	const index = buildSearchIndex(makeParams());
+	// "SCE" matches the blog post's title-adjacent category exactly, and also
+	// appears inside the Oakland guide's description ("...(PG&E)..." does NOT
+	// contain SCE, so use a query that hits both a title/category match and a
+	// description-only match unambiguously).
+	const results = searchEntries(index, "guide");
+	// Every locality guide has "Guide" in its title; the blog index page's
+	// description doesn't. Title matches should sort before any
+	// description-only match.
+	const firstDescriptionOnlyIndex = results.findIndex(
+		(e) => !e.title.toLowerCase().includes("guide") && !e.category.toLowerCase().includes("guide"),
+	);
+	const lastTitleMatchIndex = results.reduce(
+		(last, e, i) => (e.title.toLowerCase().includes("guide") ? i : last),
+		-1,
+	);
+	if (firstDescriptionOnlyIndex !== -1 && lastTitleMatchIndex !== -1) {
+		assert.ok(lastTitleMatchIndex < firstDescriptionOnlyIndex);
+	}
+});
+
+test("searchEntries puts an exact title match first", () => {
+	const index = buildSearchIndex(makeParams());
+	const results = searchEntries(index, "oakland solar permit guide");
+	assert.equal(results[0]?.url, "/california/oakland/solar-permit-guide/");
+});
+
+test("searchEntries is deterministic: repeated calls with the same query return the same order", () => {
+	const index = buildSearchIndex(makeParams());
+	const first = searchEntries(index, "california");
+	const second = searchEntries(index, "california");
+	assert.deepEqual(first, second);
+});
