@@ -1,0 +1,134 @@
+{
+  "record_id": "ca-contra-costa-concord-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Concord's own Community Choice Energy (MCE) page confirms: 'the existing electrical utility, PG&E, delivers that power, continuing the metering and billing for customers.' PG&E is the underlying transmission/distribution/billing utility; MCE is a separate default generation supplier — see generation_supplier."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy) - Light Green (default service)",
+      "type": "cca",
+      "notes": "Concord's own page states MCE 'began providing the City of Concord with an alternative to PG&E' in 2018, and that customers who take no action are 'automatically enrolled in MCE's \"Light Green\" power supply, which is made up of 50% renewable power' as the default, with 'Deep Green' (100% renewable) and 'Local Sol' (100% local solar) available as opt-up choices."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "city": { "value": "Concord", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Contra Costa County",
+    "confidence": 0.75,
+    "source_ids": ["S2"],
+    "notes": "Concord's own MCE page identifies MCE as 'Contra Costa County's community-based electricity provider' in the context of Concord's own enrollment, structurally confirming the city-county relationship; no single page was found this session stating the relationship as one direct standalone sentence."
+  },
+  "permit_authority": {
+    "value": "City of Concord Building Division (Community and Economic Development Department)",
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.cityofconcord.org/718/Solar-PV-Projects",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same PG&E-wide Net Energy Metering program URL already verified for the Fremont/Oakland/Berkeley/Richmond records — reused as a utility-level fact. pge.com returns HTTP 403 to automated fetch; confirmed to exist via search engine indexing under its expected title."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Concord/Contra Costa County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S3"],
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program already verified for other PG&E-territory records this session, reused here as a utility-level fact since PG&E's distribution role in Concord is independently confirmed (S2)."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [],
+    "notes": "Concord's Solar PV Projects page references a 'Solar Permitting Checklist (PDF)' and a 'Solar PV Standardized Permit Submittal Instructions (PDF)' but neither document's contents could be located/rendered as readable text this session." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [],
+    "notes": "No review/approval timeframe is stated on Concord's Solar PV Projects page. California's AB 2188 model ordinance requires an expedited timeframe be codified, but the specific municipal code chapter was not located/read this session." },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [],
+    "notes": "Concord's Solar PV Projects page describes SolarAPP+, standard design documents, and standardized-configuration pathways but does not itself state system-size caps or property-type scope. Left null rather than assuming the common 10kW AC/single-family-duplex pattern seen in other cities without direct confirmation for Concord specifically." },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Concord Building Division",
+        "phone": "925-671-3107",
+        "email": "bldgpermits@cityofconcord.org",
+        "url": "https://www.cityofconcord.org/718/Solar-PV-Projects"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": "415-973-6436",
+        "email": "selfgen@pge.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-03",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar PV Projects | Concord, CA",
+      "url": "https://www.cityofconcord.org/718/Solar-PV-Projects",
+      "publisher": "City of Concord",
+      "type": "government",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S2",
+      "title": "Community Choice Energy (MCE) | Concord, CA",
+      "url": "https://www.cityofconcord.org/307/Community-Choice-Energy-MCE",
+      "publisher": "City of Concord",
+      "type": "government",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S3",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S4",
+      "title": "Net Energy Metering (NEM) Program | PG&E",
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

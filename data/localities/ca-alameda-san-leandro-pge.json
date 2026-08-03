@@ -1,0 +1,169 @@
+{
+  "record_id": "ca-alameda-san-leandro-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S6"],
+    "notes": "Ava Community Energy's own San Leandro page confirms PG&E's continued delivery/billing role: San Leandro accounts are 'automatically enrolled in Ava's Renewable 100 service' while remaining PG&E customers for delivery and billing (Ava is a separate default generation supplier layered on top of PG&E — see generation_supplier)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Ava Community Energy - Renewable 100 (default for residential, municipal, and commercial accounts)",
+      "type": "cca",
+      "notes": "Per Ava's own San Leandro page: 'The City of San Leandro helped found Ava in 2016—and has been using Ava's clean energy since 2018. Its residential, municipal, and commercial accounts are automatically enrolled in Ava's Renewable 100 service.'"
+    },
+    "confidence": 0.9,
+    "source_ids": ["S6"]
+  },
+  "city": { "value": "San Leandro", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Alameda County",
+    "confidence": 0.8,
+    "source_ids": ["S6"],
+    "notes": "Ava Community Energy's San Leandro page describes Ava as Alameda County's CCA and San Leandro as a founding member city; no single page was found this session stating the city-county relationship as one direct standalone sentence, the same limitation documented for county fields in other records this session."
+  },
+  "permit_authority": {
+    "value": "City of San Leandro Building & Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S1", "S2"]
+  },
+  "permit_url": {
+    "value": "https://www.sanleandro.org/241/Solar-Permitting-Guidelines",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "Same PG&E-wide Net Energy Metering program URL already verified for other PG&E-territory records this session — reused as a utility-level fact. pge.com returns HTTP 403 to automated fetch; confirmed to exist via search engine indexing under its expected title."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes San Leandro/Alameda County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S7"],
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program already verified for other PG&E-territory records this session, reused here as a utility-level fact since PG&E's distribution role in San Leandro is independently confirmed (S6)."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Plans (site plan; roof framing plan and cross-section; elevation/section detail; attachment detail and load calculations; grounding detail; single line diagram) combined into one PDF, stamped/signed if prepared by an architect or engineer", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Photo of the existing Main Electric Service Panel with the dead front off showing the breakers", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Labels, including one with contact information for the qualified maintenance and service provider (per 2025 CRC R330.11 #2)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Manufacturer Specifications for the solar panel, inverter, attachment system, and energy storage systems", "required_when": "always", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "From the City of San Leandro Building & Safety Division's 'PV Submittal Guidelines' (updated 2/2026). Applies to the standard submittal path; a separate 'PV SolarAPP Submittal Guidelines' document exists for SolarAPP+ contractor submittals but was not located/read this session."
+  },
+  "inspection_steps": {
+    "value": [
+      "Construction can begin only after the permit is issued",
+      "The project is considered complete when the Final Inspection result is Pass"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S2"],
+    "notes": "The Submittal Guidelines confirm a final inspection gates project completion but do not describe a multi-step inspection checklist or how to schedule inspections; the city's Online Permit Portal is referenced generally ('Schedule an Inspection' appears as a portal menu item) but its own scheduling process was not detailed on the page read this session."
+  },
+  "timeline_days": {
+    "value": { "min_days": 3, "max_days": 7, "notes": "The PV Submittal Guidelines state: 'After you pay the application fee, you will receive a permit number, which will be assigned to Permit Staff within 3 to 5 business days,' then for residential projects 'Initial Plans Review can take 3 to 7 business days before plan check comments or final packaging instructions are given. Resubmittal Reviews can also take another 3 to 7 business days.' The min/max recorded here (3-7 days) represents the Initial Plans Review stage specifically, the closest single figure to a 'permit review timeline'; the full process can take longer if a resubmittal round is needed, and commercial/industrial review windows are longer (12-15 and 10-12 business days) and out of scope for a residential-only record." },
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [],
+    "notes": "San Leandro's PV Submittal Guidelines document does not state a system-size cap or restrict eligibility by property type — it appears to apply broadly to residential PV submittals rather than gating a separate small-system streamlined tier the way some other cities' ordinances do. A separate SolarAPP+-specific eligibility checklist is referenced elsewhere but was not located/read this session. Left null rather than assuming the common 10kW AC/single-family-duplex pattern seen in other cities without direct confirmation for San Leandro specifically." },
+  "permit_fees": {
+    "value": [
+      { "name": "Building/Electrical Permit Fee", "amount_usd": null, "unit": null, "notes": "Amount not stated on the page read this session. The Submittal Guidelines state: 'Permit Fees are due when the permit is ready to be issued,' i.e. after plan review is complete, before the permit is issued and construction may begin." }
+    ],
+    "confidence": 0.5,
+    "source_ids": ["S2"],
+    "notes": "Confidence reflects a verified fact about fee timing, not a verified dollar amount — no amount is invented."
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of San Leandro Building & Safety Division",
+        "phone": "(510) 577-3405",
+        "email": "PermitsByEmail@SanLeandro.org",
+        "url": "https://www.sanleandro.org/241/Solar-Permitting-Guidelines"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": "415-973-6436",
+        "email": "selfgen@pge.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2", "S8"]
+  },
+  "last_verified": "2026-08-03",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permitting Guidelines | San Leandro, CA",
+      "url": "https://www.sanleandro.org/241/Solar-Permitting-Guidelines",
+      "publisher": "City of San Leandro",
+      "type": "government",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S2",
+      "title": "City of San Leandro PV Submittal Guidelines (Updated 2/2026)",
+      "url": "https://www.sanleandro.org/DocumentCenter/View/685/PV-Submittal-Guidelines-2025-PDF",
+      "publisher": "City of San Leandro, Building & Safety Division",
+      "type": "government",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S5",
+      "title": "Net Energy Metering (NEM) Program | PG&E",
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "San Leandro Electricity Provider | Ava Community Energy",
+      "url": "https://avaenergy.org/san-leandro/",
+      "publisher": "Ava Community Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S7",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S8",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

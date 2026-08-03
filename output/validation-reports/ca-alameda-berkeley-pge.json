@@ -1,0 +1,111 @@
+{
+  "record_id": "ca-alameda-berkeley-pge",
+  "file": "data/localities/ca-alameda-berkeley-pge.json",
+  "validated_at": "2026-08-03",
+  "status": "REVIEW",
+  "score": 87,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "battery_programs",
+      "category": "outdated_information",
+      "message": "SGIP - Equity Resiliency: expires_on (2025-12-31) has elapsed as of last_verified 2026-08-03"
+    },
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://berkeleyca.gov/construction-development/permits-design-parameters/permit-types/solar-permits — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S2].url",
+      "category": "broken_url",
+      "message": "https://berkeleyca.gov/sites/default/files/2022-03/Solar-PV-System-Submittal-Requirements.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S6].url",
+      "category": "broken_url",
+      "message": "https://berkeley.municipal.codes/BMC/1.04.010 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://berkeleyca.gov/construction-development/permits-design-parameters/permit-types/solar-permits",
+      "checked_at": "2026-08-03T20:55:53.111Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "checked_at": "2026-08-03T20:55:54.042Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/about/",
+      "checked_at": "2026-08-03T20:55:54.327Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/contact/",
+      "checked_at": "2026-08-03T20:55:55.374Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://berkeleyca.gov/sites/default/files/2022-03/Solar-PV-System-Submittal-Requirements.pdf",
+      "checked_at": "2026-08-03T20:55:56.160Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://avaenergy.org/berkeley/",
+      "checked_at": "2026-08-03T20:55:56.855Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://berkeley.municipal.codes/BMC/1.04.010",
+      "checked_at": "2026-08-03T20:55:57.610Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "checked_at": "2026-08-03T20:55:57.854Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

@@ -9,6 +9,7 @@
 // each linked guide itself is built.
 import pilotEvaluation from "../../../output/pilot-evaluation.json";
 import nextBatchEvaluation from "../../../output/next-batch-evaluation.json";
+import eastBayBatchEvaluation from "../../../output/east-bay-batch-evaluation.json";
 import {
 	SITE_ORIGIN,
 	buildLocalityIndexEntries,
@@ -30,7 +31,7 @@ const recordsById = new Map(
 // full picture. buildLocalityIndexEntries only reads
 // {record_id, readiness, completeness_pct} and doesn't care which file a
 // given entry came from.
-const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records];
+const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records];
 const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
 
 const PAGE_PATH = "/california/solar-permit-guides/";
