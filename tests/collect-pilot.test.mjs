@@ -13,7 +13,6 @@ import { fileURLToPath } from "node:url";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const SCRIPT = path.join(REPO_ROOT, "scripts", "collect-pilot.mjs");
-const REAL_TARGETS_PATH = path.join(REPO_ROOT, "data", "pilot-targets.json");
 const REAL_LOCALITIES_DIR = path.join(REPO_ROOT, "data", "localities");
 const REAL_RUNS_DIR = path.join(REPO_ROOT, "output", "pilot-runs");
 // scripts/validate-record.mjs (out of this task's scope to modify) has no

@@ -19,10 +19,10 @@ const latest = allPosts.filter((p) => p.url !== featured.url);
 const categories = [...new Set(allPosts.map((p) => p.category))].sort();
 
 // Pagination-ready: with 8 posts today, everything fits on one page. If the
-// post count grows past this, paginate `latest` here (e.g. via Astro's
-// getStaticPaths + page param) rather than changing the data model above —
-// `allPosts`/`featured`/`categories` would all stay exactly as they are.
-const POSTS_PER_PAGE = 24;
+// post count grows large enough to need it, paginate `latest` here (e.g.
+// via Astro's getStaticPaths + page param) rather than changing the data
+// model above — `allPosts`/`featured`/`categories` would all stay exactly
+// as they are.
 
 const PAGE_PATH = "/blog/";
 const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
@@ -68,8 +68,8 @@ const blogSchema = {
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 
-	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-	<script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
 </head>
 <body>
 	<div class="top-banner">

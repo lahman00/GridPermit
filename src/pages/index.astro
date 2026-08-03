@@ -186,18 +186,18 @@ import Analytics from "../components/Analytics.astro";
 
 			// California ZIP codes fall in the 90001-96162 range. This is a structural
 			// range check only — it does not identify a specific utility or address.
-			function isCaliforniaZip(zip) {
+			function isCaliforniaZip(zip: string): boolean {
 				const n = Number(zip);
 				return /^\d{5}$/.test(zip) && n >= 90001 && n <= 96162;
 			}
 
-			const zipInput = document.getElementById("zip");
+			const zipInput = document.getElementById("zip") as HTMLInputElement | null;
 			const caPill = document.getElementById("utility-detected");
 			const notCaPill = document.getElementById("utility-not-ca");
 
-			if (zipInput) {
+			if (zipInput && caPill && notCaPill) {
 				zipInput.addEventListener("input", (e) => {
-					const val = e.target.value;
+					const val = (e.target as HTMLInputElement).value;
 					if (val.length !== 5) {
 						caPill.classList.add("hidden");
 						notCaPill.classList.add("hidden");
@@ -218,11 +218,11 @@ import Analytics from "../components/Analytics.astro";
 			const loadingText = document.getElementById("loading-text");
 			const results = document.getElementById("results");
 
-			if (form) {
+			if (form && loadingBox && loadingText && results && zipInput && notCaPill) {
 				form.addEventListener("submit", (e) => {
 					e.preventDefault();
 
-					const zipVal = document.getElementById("zip")?.value || "";
+					const zipVal = zipInput.value || "";
 					if (!isCaliforniaZip(zipVal)) {
 						notCaPill.classList.remove("hidden");
 						zipInput.focus();
@@ -241,14 +241,16 @@ import Analytics from "../components/Analytics.astro";
 						loadingBox.classList.add("hidden");
 						results.classList.remove("hidden");
 
-						const bill = Number(document.getElementById("bill")?.value || 250);
+						const billInput = document.getElementById("bill") as HTMLInputElement | null;
+						const bill = Number(billInput?.value || 250);
 
 						// The only figure this MVP computes: a rough system-size guess,
 						// derived transparently from the two placeholder constants above.
 						const annualKwh = (bill * 12) / PLACEHOLDER_RATE_PER_KWH;
 						const sysKw = annualKwh / PLACEHOLDER_YIELD_KWH_PER_KW_YEAR;
 
-						document.getElementById("res-sys-size").innerText = sysKw.toFixed(1) + " kW";
+						const sysSizeEl = document.getElementById("res-sys-size");
+						if (sysSizeEl) sysSizeEl.innerText = sysKw.toFixed(1) + " kW";
 						trackEvent("calculator_completed");
 					}, 2400);
 				});

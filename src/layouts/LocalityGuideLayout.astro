@@ -62,10 +62,11 @@ const relatedArticles = relatedPostsForUtility(allBlogPosts, utilityShort, 3);
 
 const sourcesFor = buildSourceResolver(record.sources);
 const activeBatteryPrograms = getActiveBatteryPrograms(record.battery_programs.value);
-const hasTimeline = record.timeline_days?.value != null;
-const hasGenerationSupplier = record.generation_supplier.value !== null;
-const timeline = hasTimeline ? formatTimeline(record.timeline_days.value) : null;
-const td = record.timeline_days?.value;
+const td = record.timeline_days?.value ?? null;
+const hasTimeline = td !== null;
+const timeline = td !== null ? formatTimeline(td) : null;
+const generationSupplier = record.generation_supplier.value;
+const hasGenerationSupplier = generationSupplier !== null;
 
 const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canonicalUrl });
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
@@ -109,8 +110,8 @@ const tocItems = [
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 
-	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-	{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	{faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 </head>
 <body data-track-view="locality_guide_viewed">
 	<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
@@ -171,7 +172,7 @@ const tocItems = [
 					GridPermit collects California residential solar and permitting facts directly from official sources — city and county government sites, utilities, and CPUC — and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology">our methodology</a> for the rules this page follows.
 				</p>
 
-				{hasTimeline && timeline && (
+				{hasTimeline && timeline && td && (
 					<div class="fact-callout">
 						<h3>Permit timeline</h3>
 						<p class="fact-value">{timeline.label}</p>
@@ -214,10 +215,10 @@ const tocItems = [
 
 				<div class="fact-block">
 					<h3>Generation supplier</h3>
-					{hasGenerationSupplier ? (
+					{hasGenerationSupplier && generationSupplier ? (
 						<>
-							<p class="fact-value">{record.generation_supplier.value.name} ({record.generation_supplier.value.type === "cca" ? "Community Choice Aggregator" : record.generation_supplier.value.type})</p>
-							{record.generation_supplier.value.notes && <p class="fact-notes">{record.generation_supplier.value.notes}</p>}
+							<p class="fact-value">{generationSupplier.name} ({generationSupplier.type === "cca" ? "Community Choice Aggregator" : generationSupplier.type})</p>
+							{generationSupplier.notes && <p class="fact-notes">{generationSupplier.notes}</p>}
 							<ConfidenceBadge confidence={record.generation_supplier.confidence} />
 							<p class="fact-meta">Source(s): {sourcesFor(record.generation_supplier.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
 						</>

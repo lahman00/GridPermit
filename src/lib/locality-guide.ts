@@ -53,17 +53,24 @@ export interface EligibilityConstraints {
 	other_conditions: string[];
 }
 
+// Matches data/schema.json's $defs.contactItem exactly: every field is
+// independently nullable (not just optional) — real records legitimately
+// set e.g. `"name": null` when a contact is known only by role.
 export interface OfficialContact {
-	role?: string;
-	name?: string;
-	phone?: string;
-	email?: string;
-	url?: string;
+	role?: string | null;
+	name?: string | null;
+	phone?: string | null;
+	email?: string | null;
+	url?: string | null;
 }
 
+// Matches data/schema.json's timeline_days.value shape: when non-null, all
+// three keys are always present, but min_days/max_days/notes are each
+// independently nullable (a real record can confirm "no stated timeline"
+// without a specific day count).
 export interface TimelineValue {
-	min_days: number;
-	max_days: number;
+	min_days: number | null;
+	max_days: number | null;
 	notes?: string | null;
 }
 
@@ -146,6 +153,10 @@ export interface TimelineDisplay {
 // Trust rule: never render a general "same day" claim. A 0/0 range means
 // same-day review only for SolarAPP+-eligible projects, with no verified
 // timeline for the standard permit path — both facts must show together.
+// A record can also have a non-null timeline_days object with min_days/
+// max_days themselves null (e.g. Santa Ana: the source describes review
+// speed qualitatively but states no day range) — that must render
+// NOT_VERIFIED, never the literal string "null–null days".
 export function formatTimeline(td: TimelineValue): TimelineDisplay {
 	const isSameDaySolarAppOnly = td.min_days === 0 && td.max_days === 0;
 	if (isSameDaySolarAppOnly) {
@@ -154,6 +165,9 @@ export function formatTimeline(td: TimelineValue): TimelineDisplay {
 			label: "Same-day review for eligible SolarAPP+ projects",
 			standardPathCaveat: "No verified standard-path permit timeline is available.",
 		};
+	}
+	if (td.min_days === null || td.max_days === null) {
+		return { isSameDaySolarAppOnly: false, label: NOT_VERIFIED, standardPathCaveat: null };
 	}
 	const label =
 		td.min_days === td.max_days
@@ -267,26 +281,26 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
 // standard-path caveat shown in the visible page content.
 export function buildFaqs(record: LocalityRecord): FaqEntry[] {
 	const faqs: FaqEntry[] = [];
-	const hasGenerationSupplier = record.generation_supplier.value !== null;
-	const hasTimeline = record.timeline_days?.value != null;
+	const generationSupplier = record.generation_supplier.value;
+	const timelineValue = record.timeline_days?.value ?? null;
 
 	faqs.push({
 		q: `What utility serves solar customers in ${record.city.value}, California?`,
 		a:
 			`${record.utility.value} is the interconnection and distribution utility for ${record.city.value}.` +
-			(hasGenerationSupplier
-				? ` The default electricity generation supplier is ${record.generation_supplier.value!.name}, a ${
-						record.generation_supplier.value!.type === "cca"
-							? "Community Choice Aggregator (CCA)"
-							: record.generation_supplier.value!.type
+			(generationSupplier
+				? ` The default electricity generation supplier is ${generationSupplier.name}, a ${
+						generationSupplier.type === "cca" ? "Community Choice Aggregator (CCA)" : generationSupplier.type
 					}, separate from ${record.utility.value}.`
 				: ""),
 	});
 
-	if (hasTimeline) {
-		const td: TimelineValue = record.timeline_days!.value;
+	if (timelineValue) {
+		const td = timelineValue;
 		const timeline = formatTimeline(td);
-		const baseAnswer = td.notes ?? `${td.min_days}–${td.max_days} days.`;
+		const baseAnswer =
+			td.notes ??
+			(td.min_days !== null && td.max_days !== null ? `${td.min_days}–${td.max_days} days.` : NOT_VERIFIED);
 		faqs.push({
 			q: `How long does a SolarAPP+-eligible residential solar permit take in ${record.city.value}?`,
 			a: timeline.standardPathCaveat ? `${baseAnswer} ${timeline.standardPathCaveat}` : baseAnswer,

@@ -54,7 +54,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 
-	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </head>
 <body>
 	<div class="top-banner">
@@ -92,7 +92,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 			<p class="search-hint" id="search-hint">Start typing to search cities (e.g. "Oakland"), utilities (e.g. "PG&E" or "SCE"), or topics (e.g. "SGIP", "NEM 3.0").</p>
 			<p class="no-results" id="no-results" hidden>No results found.</p>
 
-			<script type="application/json" id="search-index-data" set:html={JSON.stringify(searchIndex)} />
+			<script is:inline type="application/json" id="search-index-data" set:html={JSON.stringify(searchIndex)} />
 		</main>
 	</div>
 
