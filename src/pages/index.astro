@@ -1,5 +1,27 @@
 ---
 import Analytics from "../components/Analytics.astro";
+import { SITE_ORIGIN } from "../lib/locality-guide";
+
+// Organization + WebSite/SearchAction JSON-LD — no page on the site declared
+// these site-wide schema types before. The SearchAction's target actually
+// works: src/pages/search.astro reads the same ?q= query param on load.
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	name: "GridPermit",
+	url: `${SITE_ORIGIN}/`,
+};
+const websiteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: "GridPermit",
+	url: `${SITE_ORIGIN}/`,
+	potentialAction: {
+		"@type": "SearchAction",
+		target: `${SITE_ORIGIN}/search?q={search_term_string}`,
+		"query-input": "required name=search_term_string",
+	},
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +38,8 @@ import Analytics from "../components/Analytics.astro";
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
 	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 </head>
 <body>
 	<div class="top-banner">

@@ -176,6 +176,15 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 
 		input?.addEventListener("input", () => render(input.value));
 
+		// Supports the homepage's WebSite SearchAction JSON-LD
+		// (target: "/search?q={search_term_string}") and lets any other page
+		// link to a pre-run search, e.g. <a href="/search?q=Oakland">.
+		const initialQuery = new URLSearchParams(window.location.search).get("q");
+		if (initialQuery && input) {
+			input.value = initialQuery;
+			render(initialQuery);
+		}
+
 		// Arrow keys move a highlighted result; Enter follows it (falling back
 		// to the first result if none is highlighted yet) — keyboard users
 		// never have to reach for the mouse to open a search result.
