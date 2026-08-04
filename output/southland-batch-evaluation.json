@@ -1,0 +1,110 @@
+{
+  "evaluated_at": "2026-08-04T20:56:50.985Z",
+  "record_count": 1,
+  "records": [
+    {
+      "record_id": "ca-los-angeles-san-gabriel-sce",
+      "city": "San Gabriel",
+      "county": "Los Angeles County",
+      "completeness_pct": 86.7,
+      "validation_score": 93,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "unsupported_claim"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": false,
+      "permit_fees_available": true,
+      "timeline_available": false,
+      "required_documents_available": true,
+      "readiness": "READY"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 86.7,
+    "average_validation_score": 93,
+    "ready_count": 1,
+    "limited_count": 0,
+    "not_ready_count": 0,
+    "fields_missing_count": {
+      "utility": 0,
+      "generation_supplier": 0,
+      "city": 0,
+      "county": 0,
+      "permit_authority": 0,
+      "permit_url": 0,
+      "interconnection_url": 0,
+      "battery_programs": 0,
+      "required_documents": 0,
+      "inspection_steps": 0,
+      "timeline_days": 1,
+      "eligibility_constraints": 0,
+      "permit_fees": 0,
+      "rebates": 1,
+      "official_contacts": 0
+    },
+    "fields_most_often_missing": [
+      {
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 1
+      }
+    ],
+    "warning_category_recurrence": {
+      "broken_url": 1,
+      "unsupported_claim": 1
+    },
+    "utility_coverage": [
+      "IOU"
+    ],
+    "geographic_counties_represented": [
+      "Los Angeles County"
+    ],
+    "recurring_source_access_problems": [
+      "cupertino.gov (and its govaccess.org mirror) both failed to respond (403 / connection refused) — Cupertino was dropped as a candidate this batch.",
+      "San Gabriel's originally-cited 2021 solar checklist PDF (sangabrielcity.com/DocumentCenter/View/15861) went from readable to a confirmed live HTTP 404 between the initial fetch and the validator's own re-check minutes later — the record was rebuilt around the city's current, live SolarAPP+ page instead of citing a URL confirmed dead by the validator's own check. This is a genuine content-lifecycle risk (a city replacing an old standard-plan-review checklist with a newer SolarAPP+-only page) worth re-checking on a recurring freshness pass, not just a one-time access failure."
+    ],
+    "schema_gaps_discovered": [
+      "No new schema gaps were discovered while collecting this batch."
+    ],
+    "trust_rule_corrections_made_during_collection": [
+      "San Gabriel's eligibility_constraints intentionally does not carry over the removed 2021 checklist's '10kW / ground-mounted eligible' facts, since the current live SolarAPP+ page states a narrower scope (roof-mounted only, no size cap stated) and the old page is no longer a valid citation — the record reflects only what the current, live source states, not what an outdated (now-inaccessible) source once said."
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [
+      "ca-los-angeles-san-gabriel-sce"
+    ],
+    "limited_for_now": [],
+    "not_ready": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
+    "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
+  }
+}
