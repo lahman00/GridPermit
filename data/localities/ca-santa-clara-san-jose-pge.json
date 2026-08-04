@@ -10,10 +10,13 @@
     "notes": "Given as the run's input parameter; directly corroborated by S6, which states PG&E is the primary SGIP administrator for Santa Clara County."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not researched for San José this session — no source in this record confirms whether a Community Choice Aggregator serves as the default generation supplier here, the way Ava Community Energy does for Fremont (see the Fremont record). Left null rather than assumed."
+    "value": {
+      "name": "San José Clean Energy (SJCE) - GreenSource (default, ~62% renewable)",
+      "type": "cca",
+      "notes": "San Jose Clean Energy's own Terms and Conditions page states: 'San José Clean Energy is the default electric generation service provider in the City of San José,' with GreenSource as the default product. The same page confirms PG&E remains delivery/billing: 'You will receive a single monthly bill from PG&E that includes all electricity related charges, including SJCE electric generation charges,' and 'PG&E will continue to charge for transmission, distribution, public goods programs and other non-generation charges.'"
+    },
+    "confidence": 0.9,
+    "source_ids": ["S9"]
   },
   "city": {
     "value": "San José",
@@ -144,7 +147,7 @@
       "S6"
     ]
   },
-  "last_verified": "2026-08-01",
+  "last_verified": "2026-08-03",
   "sources": [
     {
       "id": "S1",
@@ -209,6 +212,14 @@
       "publisher": "County of Santa Clara",
       "type": "government",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S9",
+      "title": "GreenSource Terms and Conditions",
+      "url": "https://sanjosecleanenergy.org/greensource-terms-conditions/",
+      "publisher": "San José Clean Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-03"
     }
   ]
 }
