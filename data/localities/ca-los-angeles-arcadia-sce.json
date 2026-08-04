@@ -1,0 +1,163 @@
+{
+  "record_id": "ca-los-angeles-arcadia-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S6"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Arcadia' by name among the cities in its service area, alongside Sierra Madre and San Gabriel (both already confirmed this session)."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Arcadia's own site references Clean Power Alliance on its 'Sustainable Arcadia' and 'Environmental Services' pages as one of several sustainability partners, but no page fetched this session states whether Arcadia is an enrolled CPA member city with CPA as the default generation supplier, or merely a program the city promotes to residents who opt in independently. Clean Power Alliance's own site lists 38 member communities but only names 19 in the content retrieved; Arcadia was not among the named ones. Left null rather than assumed either way — this is a case where evidence was insufficient in either direction, not a case of no evidence at all."
+  },
+  "city": { "value": "Arcadia", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Los Angeles County",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Arcadia is a well-documented Los Angeles County city, immediately adjacent to Sierra Madre and San Gabriel (both already confirmed LA County cities this session)."
+  },
+  "permit_authority": {
+    "value": "City of Arcadia Development Services Department, Building Services",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.arcadiaca.gov/government/development_services/building_services/solar_app.php",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for the Irvine, Fullerton, Sierra Madre, and San Gabriel records this session. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Arcadia/Los Angeles County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Contractor's license information", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ Approval Document and approval number (uploaded with the EDGE Portal permit application)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "The city's SolarAPP+ page references a separate 'SolarAPP+ Eligibility Checklist' for acceptable project types, not independently fetched this session."
+  },
+  "inspection_steps": {
+    "value": [
+      "Log into the City of Arcadia EDGE Portal",
+      "Under the Building section, select 'Request Inspection'",
+      "Locate the permit by number (format SOLR-23-XXXX) or search on-screen",
+      "Follow the prompts to schedule the inspection"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [],
+    "notes": "The SolarAPP+ page does not state a specific number of days for plan review or permit issuance." },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (automated residential solar permitting)",
+      "other_conditions": [
+        "Main dwelling rooftop, permitted, residential structures only — no ballasted or ground-mounted systems eligible for SolarAPP+",
+        "Retrofit roof-mounted photovoltaic systems only",
+        "Only licensed contractors may submit applications"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"],
+    "notes": "No specific kW size cap is stated on the SolarAPP+ page for Arcadia."
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [],
+    "notes": "The page states 'a processing fee is charged by SolarAPP+ NREL' but no dollar amount is given." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Arcadia Building Services",
+        "phone": "(626) 574-5400",
+        "email": null,
+        "url": "https://www.arcadiaca.gov/government/development_services/building_services/solar_app.php"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-03",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "City of Arcadia's Solar App+",
+      "url": "https://www.arcadiaca.gov/government/development_services/building_services/solar_app.php",
+      "publisher": "City of Arcadia",
+      "type": "government",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Southern California Edison's Service Area",
+      "url": "https://newsroom.edison.com/_gallery/get_file/?file_id=5cc32d492cfac24d21aecf4c&ir=1",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    }
+  ]
+}

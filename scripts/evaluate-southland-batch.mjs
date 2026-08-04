@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-// Evaluates San Gabriel, the single new locality record collected in this
-// session's third research pass (a Southern California / LA County city):
-// reads the record and its existing validation report (does not re-run
-// collection or validation itself) and produces one decision report,
-// using the exact same deterministic readiness framework already
-// established by every prior batch evaluator. Read-only on
-// data/localities/ and output/validation-reports/ — only ever writes
+// Evaluates San Gabriel and Arcadia, 2 new locality records collected in
+// this session's third research pass (Southern California / LA County
+// cities, both SCE territory): reads each record and its existing
+// validation report (does not re-run collection or validation itself) and
+// produces one decision report, per-record and aggregate, using the exact
+// same deterministic readiness framework already established by every
+// prior batch evaluator. Read-only on data/localities/ and
+// output/validation-reports/ — only ever writes
 // output/southland-batch-evaluation.json.
 //
 // Usage: node scripts/evaluate-southland-batch.mjs
@@ -19,10 +20,11 @@ const LOCALITIES_DIR = path.join(REPO_ROOT, "data", "localities");
 const REPORTS_DIR = path.join(REPO_ROOT, "output", "validation-reports");
 const OUT_PATH = path.join(REPO_ROOT, "output", "southland-batch-evaluation.json");
 
-// Exactly this 1 — not "every file in data/localities/" — so this report
+// Exactly these 2 — not "every file in data/localities/" — so this report
 // stays scoped to this specific batch even as more records are added later.
 const SOUTHLAND_BATCH_RECORD_IDS = [
   "ca-los-angeles-san-gabriel-sce",
+  "ca-los-angeles-arcadia-sce",
 ];
 
 const COVERAGE_FIELDS = [
@@ -121,14 +123,16 @@ function buildAggregate(records) {
     utility_coverage: [...new Set(records.map((r) => r.utility_type))].sort(),
     geographic_counties_represented: [...new Set(records.map((r) => r.county))].sort(),
     recurring_source_access_problems: [
-      "cupertino.gov (and its govaccess.org mirror) both failed to respond (403 / connection refused) — Cupertino was dropped as a candidate this batch.",
-      "San Gabriel's originally-cited 2021 solar checklist PDF (sangabrielcity.com/DocumentCenter/View/15861) went from readable to a confirmed live HTTP 404 between the initial fetch and the validator's own re-check minutes later — the record was rebuilt around the city's current, live SolarAPP+ page instead of citing a URL confirmed dead by the validator's own check. This is a genuine content-lifecycle risk (a city replacing an old standard-plan-review checklist with a newer SolarAPP+-only page) worth re-checking on a recurring freshness pass, not just a one-time access failure.",
+      "cupertino.gov (and its govaccess.org mirror), monroviaca.gov, and arcadiaca.gov's own environmental-services page all failed to respond (403 / connection refused / 404) at various points this batch.",
+      "San Gabriel's originally-cited 2021 solar checklist PDF (sangabrielcity.com/DocumentCenter/View/15861) went from readable to a confirmed live HTTP 404 between the initial fetch and the validator's own re-check minutes later — the record was rebuilt around the city's current, live SolarAPP+ page instead of citing a URL confirmed dead by the validator's own check.",
+      "Arcadia's Clean Power Alliance membership status could not be confirmed in either direction: CPA's own site lists 38 member communities but only names 19 in the content retrieved, and Arcadia was not among the named ones, while a city sustainability page merely lists CPA as a partner without stating enrollment — left null rather than guessed. Arcadia's own utility (SCE) was ultimately confirmed via SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet, which explicitly names Arcadia, San Gabriel, and Sierra Madre — a strong, reusable Tier-1 source for any future SCE-territory city.",
     ],
     schema_gaps_discovered: [
       "No new schema gaps were discovered while collecting this batch.",
     ],
     trust_rule_corrections_made_during_collection: [
       "San Gabriel's eligibility_constraints intentionally does not carry over the removed 2021 checklist's '10kW / ground-mounted eligible' facts, since the current live SolarAPP+ page states a narrower scope (roof-mounted only, no size cap stated) and the old page is no longer a valid citation — the record reflects only what the current, live source states, not what an outdated (now-inaccessible) source once said.",
+      "Arcadia's utility field was initially drafted citing a third-party outage-aggregator site (poweroutage.us) as evidence — caught and replaced before finalizing with SCE's own official service-area fact sheet, which directly names the city, per the rule against using unofficial third-party sites as evidentiary sources.",
     ],
   };
 }
