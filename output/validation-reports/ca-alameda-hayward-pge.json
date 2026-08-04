@@ -1,20 +1,15 @@
 {
   "record_id": "ca-alameda-hayward-pge",
   "file": "data/localities/ca-alameda-hayward-pge.json",
-  "validated_at": "2026-08-03",
+  "validated_at": "2026-08-04",
   "status": "REVIEW",
-  "score": 93,
+  "score": 95,
   "errors": [],
   "warnings": [
     {
       "field": "permit_fees",
       "category": "unsupported_claim",
       "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
-    },
-    {
-      "field": "interconnection_url",
-      "category": "broken_url",
-      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -26,7 +21,7 @@
   "url_checks": [
     {
       "url": "https://www.hayward-ca.gov/sites/default/files/documents/005-Residential-Solar-Checklist.pdf",
-      "checked_at": "2026-08-03T21:22:47.351Z",
+      "checked_at": "2026-08-04T22:08:16.972Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -34,15 +29,15 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-03T21:22:48.233Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "checked_at": "2026-08-04T22:08:17.764Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "HTTP 200"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-03T21:22:48.399Z",
+      "checked_at": "2026-08-04T22:08:18.050Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -50,7 +45,7 @@
     },
     {
       "url": "https://www.hayward-ca.gov",
-      "checked_at": "2026-08-03T21:22:49.746Z",
+      "checked_at": "2026-08-04T22:08:18.863Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -58,7 +53,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-03T21:22:50.424Z",
+      "checked_at": "2026-08-04T22:08:19.411Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -66,7 +61,7 @@
     },
     {
       "url": "https://www.hayward-ca.gov/discover/news/nov23/east-bay-community-energy-becomes-ava-community-energy",
-      "checked_at": "2026-08-03T21:22:51.115Z",
+      "checked_at": "2026-08-04T22:08:20.146Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

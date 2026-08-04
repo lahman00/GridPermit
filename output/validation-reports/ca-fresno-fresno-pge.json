@@ -1,9 +1,9 @@
 {
   "record_id": "ca-fresno-fresno-pge",
   "file": "data/localities/ca-fresno-fresno-pge.json",
-  "validated_at": "2026-08-03",
+  "validated_at": "2026-08-04",
   "status": "REVIEW",
-  "score": 87,
+  "score": 91,
   "errors": [],
   "warnings": [
     {
@@ -14,22 +14,12 @@
     {
       "field": "permit_url",
       "category": "broken_url",
-      "message": "https://www.fresno.gov/planning/get-an-instantly-approved-solar-permit-through-solar-app/ — timeout — recommend a manual check"
-    },
-    {
-      "field": "interconnection_url",
-      "category": "broken_url",
-      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.fresno.gov/planning/get-an-instantly-approved-solar-permit-through-solar-app/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
       "field": "official_contacts[0].url",
       "category": "broken_url",
-      "message": "https://www.fresno.gov/planning/building-and-safety/ — DNS failure (ENOTFOUND) — recommend a manual check"
-    },
-    {
-      "field": "sources[S3].url",
-      "category": "broken_url",
-      "message": "https://www.pge.com/en/featured/pge-service-area.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.fresno.gov/planning/building-and-safety/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -53,23 +43,23 @@
   "url_checks": [
     {
       "url": "https://www.fresno.gov/planning/get-an-instantly-approved-solar-permit-through-solar-app/",
-      "checked_at": "2026-08-03T21:23:28.264Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": null,
-      "method": "HEAD",
-      "details": "timeout"
-    },
-    {
-      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-03T21:23:38.265Z",
+      "checked_at": "2026-08-04T22:09:00.797Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "checked_at": "2026-08-04T22:09:01.527Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-03T21:23:38.315Z",
+      "checked_at": "2026-08-04T22:09:01.898Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -77,15 +67,15 @@
     },
     {
       "url": "https://www.fresno.gov/planning/building-and-safety/",
-      "checked_at": "2026-08-03T21:23:39.003Z",
+      "checked_at": "2026-08-04T22:09:02.689Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": null,
+      "http_status": 403,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-03T21:23:48.793Z",
+      "checked_at": "2026-08-04T22:09:03.098Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -93,15 +83,15 @@
     },
     {
       "url": "https://www.pge.com/en/featured/pge-service-area.html",
-      "checked_at": "2026-08-03T21:23:49.492Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "checked_at": "2026-08-04T22:09:03.815Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "HTTP 200"
     },
     {
       "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-      "checked_at": "2026-08-03T21:23:49.540Z",
+      "checked_at": "2026-08-04T22:09:04.084Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

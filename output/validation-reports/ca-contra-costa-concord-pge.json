@@ -1,27 +1,11 @@
 {
   "record_id": "ca-contra-costa-concord-pge",
   "file": "data/localities/ca-contra-costa-concord-pge.json",
-  "validated_at": "2026-08-03",
-  "status": "REVIEW",
-  "score": 94,
+  "validated_at": "2026-08-04",
+  "status": "PASS",
+  "score": 100,
   "errors": [],
-  "warnings": [
-    {
-      "field": "permit_url",
-      "category": "broken_url",
-      "message": "https://www.cityofconcord.org/718/Solar-PV-Projects — timeout — recommend a manual check"
-    },
-    {
-      "field": "interconnection_url",
-      "category": "broken_url",
-      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
-    },
-    {
-      "field": "sources[S2].url",
-      "category": "broken_url",
-      "message": "https://www.cityofconcord.org/307/Community-Choice-Energy-MCE — DNS failure (ENOTFOUND) — recommend a manual check"
-    }
-  ],
+  "warnings": [],
   "recommendations": [
     {
       "field": "required_documents",
@@ -51,23 +35,23 @@
   "url_checks": [
     {
       "url": "https://www.cityofconcord.org/718/Solar-PV-Projects",
-      "checked_at": "2026-08-03T21:23:05.678Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": null,
+      "checked_at": "2026-08-04T22:08:44.989Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "timeout"
+      "details": "HTTP 200"
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-03T21:23:15.680Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "checked_at": "2026-08-04T22:08:47.823Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "HTTP 200"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-03T21:23:15.813Z",
+      "checked_at": "2026-08-04T22:08:48.559Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -75,7 +59,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-03T21:23:16.487Z",
+      "checked_at": "2026-08-04T22:08:50.204Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -83,11 +67,11 @@
     },
     {
       "url": "https://www.cityofconcord.org/307/Community-Choice-Energy-MCE",
-      "checked_at": "2026-08-03T21:23:17.224Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": null,
+      "checked_at": "2026-08-04T22:08:51.059Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "HTTP 200"
     }
   ]
 }

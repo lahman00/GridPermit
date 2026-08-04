@@ -1,20 +1,15 @@
 {
   "record_id": "ca-alameda-san-leandro-pge",
   "file": "data/localities/ca-alameda-san-leandro-pge.json",
-  "validated_at": "2026-08-03",
+  "validated_at": "2026-08-04",
   "status": "REVIEW",
-  "score": 93,
+  "score": 95,
   "errors": [],
   "warnings": [
     {
       "field": "permit_fees",
       "category": "unsupported_claim",
       "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
-    },
-    {
-      "field": "interconnection_url",
-      "category": "broken_url",
-      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -30,7 +25,7 @@
   "url_checks": [
     {
       "url": "https://www.sanleandro.org/241/Solar-Permitting-Guidelines",
-      "checked_at": "2026-08-03T21:22:59.969Z",
+      "checked_at": "2026-08-04T22:08:35.557Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -38,15 +33,15 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-03T21:23:01.266Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "checked_at": "2026-08-04T22:08:37.337Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "HTTP 200"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-03T21:23:01.306Z",
+      "checked_at": "2026-08-04T22:08:37.634Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -54,7 +49,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-03T21:23:02.026Z",
+      "checked_at": "2026-08-04T22:08:38.374Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -62,7 +57,7 @@
     },
     {
       "url": "https://www.sanleandro.org/DocumentCenter/View/685/PV-Submittal-Guidelines-2025-PDF",
-      "checked_at": "2026-08-03T21:23:02.958Z",
+      "checked_at": "2026-08-04T22:08:39.692Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -70,7 +65,7 @@
     },
     {
       "url": "https://avaenergy.org/san-leandro/",
-      "checked_at": "2026-08-03T21:23:04.547Z",
+      "checked_at": "2026-08-04T22:08:41.538Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

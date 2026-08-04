@@ -1,9 +1,9 @@
 {
   "record_id": "ca-alameda-berkeley-pge",
   "file": "data/localities/ca-alameda-berkeley-pge.json",
-  "validated_at": "2026-08-03",
+  "validated_at": "2026-08-04",
   "status": "REVIEW",
-  "score": 87,
+  "score": 89,
   "errors": [],
   "warnings": [
     {
@@ -14,17 +14,12 @@
     {
       "field": "permit_url",
       "category": "broken_url",
-      "message": "https://berkeleyca.gov/construction-development/permits-design-parameters/permit-types/solar-permits — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
-    },
-    {
-      "field": "interconnection_url",
-      "category": "broken_url",
-      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://berkeleyca.gov/construction-development/permits-design-parameters/permit-types/solar-permits — network failure (fetch failed) — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://berkeleyca.gov/sites/default/files/2022-03/Solar-PV-System-Submittal-Requirements.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://berkeleyca.gov/sites/default/files/2022-03/Solar-PV-System-Submittal-Requirements.pdf — network failure (fetch failed) — recommend a manual check"
     },
     {
       "field": "sources[S6].url",
@@ -45,23 +40,23 @@
   "url_checks": [
     {
       "url": "https://berkeleyca.gov/construction-development/permits-design-parameters/permit-types/solar-permits",
-      "checked_at": "2026-08-03T21:22:34.941Z",
+      "checked_at": "2026-08-04T22:07:56.238Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "network failure (fetch failed)"
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-03T21:22:35.799Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "checked_at": "2026-08-04T22:07:57.829Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "HTTP 200"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-03T21:22:35.862Z",
+      "checked_at": "2026-08-04T22:08:00.086Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -69,7 +64,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-03T21:22:36.639Z",
+      "checked_at": "2026-08-04T22:08:01.578Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -77,15 +72,15 @@
     },
     {
       "url": "https://berkeleyca.gov/sites/default/files/2022-03/Solar-PV-System-Submittal-Requirements.pdf",
-      "checked_at": "2026-08-03T21:22:37.378Z",
+      "checked_at": "2026-08-04T22:08:02.989Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "network failure (fetch failed)"
     },
     {
       "url": "https://avaenergy.org/berkeley/",
-      "checked_at": "2026-08-03T21:22:38.185Z",
+      "checked_at": "2026-08-04T22:08:03.573Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -93,7 +88,7 @@
     },
     {
       "url": "https://berkeley.municipal.codes/BMC/1.04.010",
-      "checked_at": "2026-08-03T21:22:38.937Z",
+      "checked_at": "2026-08-04T22:08:07.965Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -101,7 +96,7 @@
     },
     {
       "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-      "checked_at": "2026-08-03T21:22:39.041Z",
+      "checked_at": "2026-08-04T22:08:08.449Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
