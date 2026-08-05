@@ -1,0 +1,142 @@
+{
+  "record_id": "ca-san-bernardino-upland-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Upland' by name among the cities in its service area."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No official Upland city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+  },
+  "city": { "value": "Upland", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "San Bernardino County",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "Upland is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
+  },
+  "permit_authority": {
+    "value": "City of Upland Building & Safety",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.uplandca.gov/development_services/building_safety/solar_permit_streamlining.php",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Upland/San Bernardino County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states 'City permit approval is still required' regardless of pathway (SolarAPP+ or the CSS Portal), but does not enumerate specific required documents." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 38.4,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (single-family/duplex, under 38.4 kW) / CSS Portal (all other submissions)",
+      "other_conditions": [
+        "Single-family and duplex PV systems under 38.4 kW are eligible for SolarAPP+",
+        "Battery/energy storage systems may be included in a SolarAPP+ submission"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Upland Building & Safety",
+        "phone": "(909) 931-4100",
+        "email": null,
+        "url": "https://www.uplandca.gov/development_services/building_safety/solar_permit_streamlining.php"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permit Streamlining",
+      "url": "https://www.uplandca.gov/development_services/building_safety/solar_permit_streamlining.php",
+      "publisher": "City of Upland",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

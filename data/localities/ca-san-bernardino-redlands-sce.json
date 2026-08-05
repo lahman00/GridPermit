@@ -1,0 +1,176 @@
+{
+  "record_id": "ca-san-bernardino-redlands-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S4", "S3"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Redlands' by name among the cities in its service area. The City of Redlands' own Municipal Utilities and Engineering Department page confirms its utility operations are limited to 'Water Production and Distribution; Non-Potable Water Distribution; Wastewater Collection, Treatment, and Disposal' — i.e. no municipal electric utility — consistent with SCE serving as the electric provider."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No official Redlands city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+  },
+  "city": { "value": "Redlands", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "San Bernardino County",
+    "confidence": 0.9,
+    "source_ids": ["S4"],
+    "notes": "Redlands is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
+  },
+  "permit_authority": {
+    "value": "City of Redlands Building & Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "permit_url": {
+    "value": "https://www.redlands.gov/guidelines-solar-plan-submittal/",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Redlands/San Bernardino County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S6"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Eligibility Checklist for Expedited Solar Photovoltaic Permitting (systems <= 10 kW AC, no battery backup)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Structural engineering calculations (footings and bolting specifications, required for systems > 10 kW AC and all ground-mounted installations)", "required_when": "conditional", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Request building inspections via the online form at veribook.com/lp/CityOfRedlands",
+      "Inspectors answer phone questions between 7:00am and 8:00am daily, with inspection schedules posted after 8:00am"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S2"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 10, "notes": "Roof-mounted PV arrays 10 kW AC or less (no battery backup) qualify for same-day 'over the counter' review and permit issuance. Roof-mounted arrays over 10 kW AC, and all ground-mounted arrays, require formal plan review with a 10-business-day turnaround." },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Over-the-counter expedited review (<=10 kW AC roof-mounted, no battery backup) / formal plan review (>10 kW AC roof-mounted, or any ground-mounted)",
+      "other_conditions": [
+        "Structural engineering calculations are not required for single-family residences at or below the 10 kW AC roof-mounted threshold",
+        "Ground-mounted PV arrays always require mandatory structural engineering calculations for footings and bolting, regardless of size"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Redlands Building & Safety Division (One Stop Permit Center)",
+        "phone": "909-798-7536",
+        "email": null,
+        "url": "https://www.redlands.gov/building-safety-division/"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2", "S7"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Guidelines for Solar Plan Submittal",
+      "url": "https://www.redlands.gov/guidelines-solar-plan-submittal/",
+      "publisher": "City of Redlands",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "Building & Safety Division",
+      "url": "https://www.redlands.gov/building-safety-division/",
+      "publisher": "City of Redlands",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Municipal Utilities and Engineering",
+      "url": "https://www.redlands.gov/municipal-utilities-and-engineering/",
+      "publisher": "City of Redlands",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S4",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S5",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import eastBayBatchEvaluation from "../../../output/east-bay-batch-evaluation.js
 import peninsulaBatchEvaluation from "../../../output/peninsula-batch-evaluation.json";
 import southlandBatchEvaluation from "../../../output/southland-batch-evaluation.json";
 import sanGabrielValleyBatchEvaluation from "../../../output/san-gabriel-valley-batch-evaluation.json";
+import inlandEmpireBatchEvaluation from "../../../output/inland-empire-batch-evaluation.json";
 import {
 	SITE_ORIGIN,
 	buildLocalityIndexEntries,
@@ -34,7 +35,7 @@ const recordsById = new Map(
 // full picture. buildLocalityIndexEntries only reads
 // {record_id, readiness, completeness_pct} and doesn't care which file a
 // given entry came from.
-const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records, ...peninsulaBatchEvaluation.records, ...southlandBatchEvaluation.records, ...sanGabrielValleyBatchEvaluation.records];
+const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records, ...peninsulaBatchEvaluation.records, ...southlandBatchEvaluation.records, ...sanGabrielValleyBatchEvaluation.records, ...inlandEmpireBatchEvaluation.records];
 const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
 
 const PAGE_PATH = "/california/solar-permit-guides/";
