@@ -1,0 +1,114 @@
+{
+  "record_id": "ca-san-joaquin-manteca-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "Search-engine synthesis of Manteca solar reporting references 'PG&E power bills' as the relevant utility context for Manteca residents' solar incentives; manteca.gov itself returned HTTP 403 to automated fetch on every attempt this session, so a direct city-page confirmation could not be independently obtained."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No official Manteca city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+  },
+  "city": { "value": "Manteca", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "San Joaquin County",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of Manteca Development Services Department, Building Safety Division",
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "manteca.gov returned HTTP 403 to automated fetch on every attempt this session (both the Instant Residential Solar and Energy Storage System Permits page and the general Building Safety page), and ecode360.com (host of the city's Small Residential Rooftop Solar Energy Systems municipal code chapter) also returned HTTP 403. This department name is confirmed via search-engine indexing, but the underlying pages' specific content could not be independently verified."
+  },
+  "permit_url": {
+    "value": "https://www.manteca.gov/?navid=524",
+    "confidence": 0.55,
+    "source_ids": ["S1"],
+    "notes": "URL identified via search-engine indexing (titled 'Instant Residential Solar and Energy Storage System Permits'); manteca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified. Search-engine synthesis suggests most systems are reviewed and approved 'over the counter' within one day, but this was not independently confirmed via direct fetch."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Manteca/San Joaquin County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": null,
+        "email": null,
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Instant Residential Solar and Energy Storage System Permits",
+      "url": "https://www.manteca.gov/?navid=524",
+      "publisher": "City of Manteca",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM) Program",
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

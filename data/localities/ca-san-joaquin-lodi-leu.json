@@ -1,0 +1,125 @@
+{
+  "record_id": "ca-san-joaquin-lodi-leu",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Lodi Electric Utility (LEU)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Lodi Electric Utility is the City of Lodi's own municipal electric utility, distinct from PG&E. The city's own materials confirm 'solar/battery interconnection goes through LEU not PG&E' and that all residential solar installations require LEU pre-approval before a City building permit can be obtained."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Lodi Electric Utility (LEU)",
+      "type": "utility",
+      "notes": "LEU is a vertically-integrated municipal utility — it generates/procures and delivers its own power rather than sitting alongside a separate CCA, consistent with the pattern already established for MID, TID, SMUD, and Roseville Electric this session."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Lodi", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "San Joaquin County",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of Lodi Community Development Department, Building and Safety Inspection Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.lodi.gov/1291/Steps-for-Going-Solar",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.lodi.gov/DocumentCenter/View/2845/Rule-No-21-PDF",
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "Lodi Electric Utility's own interconnection rule (Rule No. 21), identified via search-engine indexing; not independently fetched this session."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The statewide SGIP program (administered by the CPUC-regulated IOUs) does not apply to LEU customers, since LEU is a municipal utility outside CPUC jurisdiction, consistent with other municipal-utility records this session."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Last 12 months of utility bill usage history (used to determine maximum allowable system size)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Written estimates from at least three solar contractors", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "System plans and proposed system size, submitted by the contractor to LEU for pre-approval", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Contractor completes installation, then schedules final inspection with the City of Lodi Building Department",
+      "Upon passing inspection, a solar meter is installed within 10 business days",
+      "After meter installation, authorization to energize the system is issued, and a Permission to Operate (PTO) certificate is generated"
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 10, "max_days": 14, "notes": "LEU's pre-approval review (required before a building permit can be obtained) can take up to two weeks; after passing final inspection, solar meter installation occurs within 10 business days." },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "LEU pre-approval + City building/electrical permit (also SolarAPP+ available)",
+      "other_conditions": [
+        "Maximum allowable system size is determined by the customer's last 12 months of energy usage history",
+        "LEU pre-approval is required before a City of Lodi building permit can be obtained"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page does not specify fee amounts." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Lodi Customer Service",
+        "phone": "(209) 333-6717",
+        "email": "customerservice@lodi.gov",
+        "url": "https://www.lodi.gov/1291/Steps-for-Going-Solar"
+      },
+      {
+        "name": null,
+        "role": "Lodi Electric Utility Solar Engineering",
+        "phone": null,
+        "email": "EUDSolar@lodi.gov",
+        "url": "https://www.lodi.gov/1291/Steps-for-Going-Solar"
+      },
+      {
+        "name": null,
+        "role": "City of Lodi Building & Safety Inspection Division",
+        "phone": "(209) 333-6714",
+        "email": null,
+        "url": "https://www.lodi.gov/1291/Steps-for-Going-Solar"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Steps for Going Solar",
+      "url": "https://www.lodi.gov/1291/Steps-for-Going-Solar",
+      "publisher": "City of Lodi",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    }
+  ]
+}

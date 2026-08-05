@@ -1,0 +1,168 @@
+{
+  "record_id": "ca-madera-madera-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Madera is confirmed as within PG&E's electric service territory."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No official Madera city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+  },
+  "city": { "value": "Madera", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Madera County",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of Madera Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.madera.gov/business-building-development/solar-power/automated-residential-solar-permits/",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Madera/Madera County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ Approval Document and Inspection Checklist (generated upon approval)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "System specifications printouts and City permit documentation, maintained on-site", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "The field inspector compares the installation to the printed Inspection Checklist on-site",
+      "Call (559) 661-5445 with the permit number, address, inspection type, and preferred date/time",
+      "AM slots run 8:00am-12:00pm; PM slots run 1:00pm-4:00pm",
+      "Reinspection fees apply if the site is unready or revisions are incomplete"
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 1, "max_days": 2, "notes": "Inspection requests received before 4:00pm are scheduled for the next workday; requests received after 4:00pm are scheduled 2 days later." },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (residential, roof-mounted PV, main dwelling rooftops only)",
+      "other_conditions": [
+        "Only licensed contractors may use SolarAPP+; owner-builders must use standard permitting",
+        "Ground-mounted installations, systems exceeding SolarAPP+ size parameters, and non-standard configurations requiring traditional plan review are ineligible for this pathway"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states SolarAPP+ charges a processing fee and City fees follow the Master Fee Schedule, but no specific dollar amounts are given." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Madera Building Division (Front Counter)",
+        "phone": "(559) 661-5440",
+        "email": null,
+        "url": "https://www.madera.gov/business-building-development/solar-power/automated-residential-solar-permits/"
+      },
+      {
+        "name": null,
+        "role": "City of Madera Building Division (Inspections)",
+        "phone": "(559) 661-5445",
+        "email": null,
+        "url": "https://www.madera.gov/business-building-development/solar-power/automated-residential-solar-permits/"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": null,
+        "email": null,
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Automated Residential Solar Permits",
+      "url": "https://www.madera.gov/business-building-development/solar-power/automated-residential-solar-permits/",
+      "publisher": "City of Madera",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "PG&E's Electric Service Territory",
+      "url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Program",
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

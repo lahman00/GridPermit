@@ -1,0 +1,157 @@
+{
+  "record_id": "ca-kings-hanford-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Hanford is confirmed as within PG&E's electric service territory (ZIP codes 93230 and 93232), and Kings County's own economic development materials reference collaboration with PG&E on energy initiatives."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No official Hanford city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+  },
+  "city": { "value": "Hanford", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Kings County",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of Hanford Development Services Department",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.cityofhanfordca.com/1517/SolarAPP",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Hanford/Kings County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Pre-approved SolarAPP+ Approval Document", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ Approval ID number", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Solar project specification sheets", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Complete the application through the City's Self Service Portal",
+      "The City automatically issues the permit",
+      "The contractor schedules inspection through the online inspection request system"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+",
+      "other_conditions": [
+        "Installers must hold valid contractor licenses for their jurisdiction",
+        "Contractors must complete IREC's SolarAPP+ training module (a separate storage-focused course is required for solar-plus-battery projects) before submitting"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Chrystina Arms",
+        "role": "City of Hanford Development Services Technician",
+        "phone": "559-537-7997",
+        "email": "carms@hanfordca.gov",
+        "url": "https://www.cityofhanfordca.com/1517/SolarAPP"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": null,
+        "email": null,
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarAPP+",
+      "url": "https://www.cityofhanfordca.com/1517/SolarAPP",
+      "publisher": "City of Hanford",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "PG&E's Electric Service Territory",
+      "url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Program",
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

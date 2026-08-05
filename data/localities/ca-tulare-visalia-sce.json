@@ -1,0 +1,158 @@
+{
+  "record_id": "ca-tulare-visalia-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Visalia is confirmed as SCE territory via multiple corroborating sources this session (the Visalia Chamber of Commerce's own utility-member listing for SCE, and SCE program listings specific to Visalia), consistent with SCE's service territory extending into parts of Tulare County alongside neighboring Central Valley cities like Tulare, Porterville, Exeter, Farmersville, Lindsay, and Woodlake."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No official Visalia city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+  },
+  "city": { "value": "Visalia", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Tulare County",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of Visalia Engineering & Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.visalia.gov/269/SolarApp",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Visalia/Tulare County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ Approval Documents (obtained after automated review)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Single-line diagram (required at inspection)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Load calculations (required at inspection)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule inspection online through the Visalia ACA (Accela Citizen Access) portal",
+      "Bring the single-line diagram and load calculations to the inspection"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 0, "notes": "Per the city's own page, the permit auto-issues within seconds after online fee payment for SolarAPP+-eligible submissions." },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (residential solar energy system installations)",
+      "other_conditions": []
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "The page refers applicants to SolarAPP+'s own general eligible-systems guide rather than stating a specific size cap or property-type restriction itself."
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page does not list specific permit costs, referring applicants to SolarAPP+'s own general cost information instead." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Visalia Engineering & Building",
+        "phone": "559-713-4300",
+        "email": null,
+        "url": "https://www.visalia.gov/269/SolarApp"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarApp",
+      "url": "https://www.visalia.gov/269/SolarApp",
+      "publisher": "City of Visalia",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "Southern California Edison Company (Chamber of Commerce utility member listing)",
+      "url": "https://business.visaliachamber.org/list/member/southern-california-edison-company-4314",
+      "publisher": "Visalia Chamber of Commerce",
+      "type": "other_official",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

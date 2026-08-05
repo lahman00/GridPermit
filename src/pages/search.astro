@@ -14,6 +14,7 @@ import inlandEmpireBatchEvaluation from "../../output/inland-empire-batch-evalua
 import orangeCountyBatchEvaluation from "../../output/orange-county-batch-evaluation.json";
 import peninsulaBatch2Evaluation from "../../output/peninsula-batch-2-evaluation.json";
 import sacramentoRegionBatchEvaluation from "../../output/sacramento-region-batch-evaluation.json";
+import centralValleyBatchEvaluation from "../../output/central-valley-batch-evaluation.json";
 import { SITE_ORIGIN, buildBreadcrumbSchema, buildLocalityIndexEntries, type LocalityRecord } from "../lib/locality-guide";
 import { getAllBlogPosts } from "../lib/blog-posts";
 import { buildSearchIndex } from "../lib/search-index";
@@ -26,7 +27,7 @@ const localityModules = import.meta.glob("../../data/localities/*.json", { eager
 const recordsById = new Map(Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]));
 // Combine every evaluation run's records — see the same note in
 // solar-permit-guides.astro and LocalityGuideLayout.astro.
-const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records, ...peninsulaBatchEvaluation.records, ...southlandBatchEvaluation.records, ...sanGabrielValleyBatchEvaluation.records, ...inlandEmpireBatchEvaluation.records, ...orangeCountyBatchEvaluation.records, ...peninsulaBatch2Evaluation.records, ...sacramentoRegionBatchEvaluation.records];
+const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records, ...peninsulaBatchEvaluation.records, ...southlandBatchEvaluation.records, ...sanGabrielValleyBatchEvaluation.records, ...inlandEmpireBatchEvaluation.records, ...orangeCountyBatchEvaluation.records, ...peninsulaBatch2Evaluation.records, ...sacramentoRegionBatchEvaluation.records, ...centralValleyBatchEvaluation.records];
 const localityEntries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
 const blogPosts = await getAllBlogPosts();
 
