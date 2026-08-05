@@ -1,0 +1,163 @@
+{
+  "record_id": "ca-orange-garden-grove-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Garden Grove' by name among the cities in its service area."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Orange County Power Authority (OCPA), the CCA operating in Orange County, currently serves Buena Park, Fullerton, and Irvine per its own materials — Garden Grove was not named as a member this session. Left null rather than asserted either way."
+  },
+  "city": { "value": "Garden Grove", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Orange County",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "Garden Grove is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
+  },
+  "permit_authority": {
+    "value": "City of Garden Grove Community Development Department, Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://ggcity.org/sites/default/files/www/commdev/Solar-Guidelines.pdf",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session. The city's own guidelines separately instruct applicants to 'Notify serving utility before activation of PV system.'"
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Garden Grove/Orange County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Completed plan check application form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "2 sets of plans, minimum sheet size 11\"x17\"", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Manufacturer specification sheets, installation instructions, and U.L. listings attached to plans", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Plans signed by a State of California contractor (classification A, B, C-46, or C-10) or licensed electrical engineer, with signature and license number on each sheet", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Completed Eligibility Checklist (for expedited permitting)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Roof plan, electrical drawings, single-line diagram, inverter/module/array specifications, and system calculations per the city's detailed technical checklist", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Contact the building inspection request line at (855) 380-8758, or schedule electronically at https://ch.ci.garden-grove.ca.us/permitsoft/inspections/new",
+      "Inspection requests received up to 4:00pm are scheduled for the following business working day; requests received after 4:00pm are scheduled for the second business working day",
+      "The inspector verifies conformance with applicable code requirements and the approved plans"
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The document details plan-check content requirements and inspection scheduling but does not itself state a specific number of days for plan-review completion or permit issuance." },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited permitting for small residential rooftop solar energy systems (photovoltaic or solar domestic water heating), over single- or two-family dwellings",
+      "other_conditions": [
+        "Must complete the city's Eligibility Checklist and meet all criteria to qualify for expedited permitting",
+        "Framing information and structural calculations are waived if arrays are supported at a maximum spacing of 4 feet",
+        "Lateral analysis is waived if total array area is less than half the total roof area and module+support weight is 4 psf or less",
+        "Notify the serving utility before activation of the PV system"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Garden Grove Building Division",
+        "phone": "(714) 741-5307",
+        "email": "solar-app@garden-grove.org",
+        "url": "https://ggcity.org/building-and-safety"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Guidelines for Plan Check and Permit Requirements for Small Residential Rooftop Solar Energy System",
+      "url": "https://ggcity.org/sites/default/files/www/commdev/Solar-Guidelines.pdf",
+      "publisher": "City of Garden Grove",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

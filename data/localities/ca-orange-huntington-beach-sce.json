@@ -1,0 +1,178 @@
+{
+  "record_id": "ca-orange-huntington-beach-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.95,
+    "source_ids": ["S3"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Huntington Beach' by name among the cities in its service area."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Huntington Beach was formerly a member of the Orange County Power Authority (OCPA) CCA, but the City Council voted in May 2023 to withdraw; NEM/solar customers transitioned back to SCE bundled service in April 2024, with all remaining customers returning in June 2024. Confirmed directly via OCPA's own page: 'Southern California Edison (SCE) is once again your provider of both the electric generation and distribution service.' No CCA currently serves Huntington Beach."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S4"]
+  },
+  "city": { "value": "Huntington Beach", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Orange County",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "Huntington Beach is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
+  },
+  "permit_authority": {
+    "value": "City of Huntington Beach Community Development Department, Building & Inspection Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.huntingtonbeachca.gov/departments/community_development/building___inspection/solar_app.php",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Huntington Beach/Orange County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S6"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ IREC training completion certificate ('How to Use SolarAPP+ For Rooftop Solar Projects', and the PV+Storage module for systems including batteries)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Supplemental Permit/Asbestos Disclosure Form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ approval documents (downloaded after system submission)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule inspection via the ACA Permit Center Portal (engage.huntingtonbeachca.gov/CitizenAccess)"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 5, "max_days": 10, "notes": "Applies to traditional (non-SolarAPP+) plan review. SolarAPP+ submissions receive instant permit approval for code-compliant systems." },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 38.4,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (rooftop residential PV, up to 38.4 kW)",
+      "other_conditions": [
+        "Main electrical service rated at maximum 400A, with service disconnects and busbars rated at maximum 225A",
+        "Homeowners may not self-file through SolarAPP+ unless they are themselves a licensed contractor",
+        "Energy storage (battery) systems require separate SolarAPP+ PV+Storage training/certification"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "SolarAPP+ processing fee", "amount_usd": 35, "unit": "flat", "notes": "Charged by SolarAPP+ itself; separate city permit fees are also paid through the ACA portal, but no specific city fee amount was stated on the page." }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Huntington Beach Building & Inspection Division",
+        "phone": "(714) 536-5511",
+        "email": null,
+        "url": "https://www.huntingtonbeachca.gov/departments/community_development/building___inspection/solar_app.php"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S7"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarAPP+ Solar Permit Requirements",
+      "url": "https://www.huntingtonbeachca.gov/departments/community_development/building___inspection/solar_app.php",
+      "publisher": "City of Huntington Beach",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S4",
+      "title": "Huntington Beach",
+      "url": "https://www.ocpower.org/huntington-beach-2/",
+      "publisher": "Orange County Power Authority",
+      "type": "other_official",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S5",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}
