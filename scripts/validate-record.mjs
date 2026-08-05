@@ -130,7 +130,10 @@ async function checkUrl(url) {
     } finally {
       clearTimeout(timer);
     }
-    if (res.status === 405 || res.status === 501) {
+    if (res.status === 405 || res.status === 501 || res.status === 404) {
+      // Some hosts (e.g. CivicPlus DocumentCenter) don't implement HEAD and
+      // return 404 for it while GET succeeds — confirm with GET before
+      // treating a HEAD 404 as a real removal signal.
       method = "GET";
       const controller2 = new AbortController();
       const timer2 = setTimeout(() => controller2.abort(), FETCH_TIMEOUT_MS);
