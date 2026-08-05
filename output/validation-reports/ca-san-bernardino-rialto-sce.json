@@ -3,13 +3,18 @@
   "file": "data/localities/ca-san-bernardino-rialto-sce.json",
   "validated_at": "2026-08-05",
   "status": "REVIEW",
-  "score": 98,
+  "score": 96,
   "errors": [],
   "warnings": [
     {
       "field": "interconnection_url",
       "category": "broken_url",
       "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "broken_url",
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -33,7 +38,7 @@
   "url_checks": [
     {
       "url": "https://www.rialtoca.gov/871/Residential-Solar",
-      "checked_at": "2026-08-05T12:11:23.487Z",
+      "checked_at": "2026-08-05T22:49:45.511Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -41,7 +46,7 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-05T12:11:24.614Z",
+      "checked_at": "2026-08-05T22:49:46.729Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -49,7 +54,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T12:11:25.967Z",
+      "checked_at": "2026-08-05T22:49:47.047Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -57,7 +62,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-05T12:11:26.763Z",
+      "checked_at": "2026-08-05T22:49:48.388Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -65,11 +70,11 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-05T12:11:28.129Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-05T22:49:49.185Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }

@@ -2,10 +2,21 @@
   "record_id": "ca-san-mateo-millbrae-pge",
   "file": "data/localities/ca-san-mateo-millbrae-pge.json",
   "validated_at": "2026-08-05",
-  "status": "PASS",
-  "score": 100,
+  "status": "REVIEW",
+  "score": 96,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
   "recommendations": [
     {
       "field": "required_documents",
@@ -27,7 +38,7 @@
   "url_checks": [
     {
       "url": "https://ci.millbrae.ca.us/176/Building-Division",
-      "checked_at": "2026-08-05T18:26:02.705Z",
+      "checked_at": "2026-08-05T22:51:24.937Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -35,15 +46,15 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-05T18:26:04.329Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-05T22:51:26.157Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T18:26:04.691Z",
+      "checked_at": "2026-08-05T22:51:26.655Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -51,7 +62,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-05T18:26:05.494Z",
+      "checked_at": "2026-08-05T22:51:28.201Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -59,7 +70,7 @@
     },
     {
       "url": "https://www.ci.millbrae.ca.us/CivicAlerts.aspx?AID=164",
-      "checked_at": "2026-08-05T18:26:06.473Z",
+      "checked_at": "2026-08-05T22:51:29.745Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -67,15 +78,15 @@
     },
     {
       "url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf",
-      "checked_at": "2026-08-05T18:26:07.902Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-05T22:51:31.409Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
       "url": "https://westlightenergy.org/",
-      "checked_at": "2026-08-05T18:26:08.525Z",
+      "checked_at": "2026-08-05T22:51:31.816Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

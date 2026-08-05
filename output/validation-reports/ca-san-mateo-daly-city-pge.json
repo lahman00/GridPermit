@@ -2,10 +2,21 @@
   "record_id": "ca-san-mateo-daly-city-pge",
   "file": "data/localities/ca-san-mateo-daly-city-pge.json",
   "validated_at": "2026-08-05",
-  "status": "PASS",
-  "score": 100,
+  "status": "REVIEW",
+  "score": 96,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
   "recommendations": [
     {
       "field": "timeline_days",
@@ -23,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://www.dalycity.org/1157/SolarApp",
-      "checked_at": "2026-08-05T19:04:19.640Z",
+      "checked_at": "2026-08-05T22:50:52.258Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -31,15 +42,15 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-05T19:04:20.752Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-05T22:50:53.549Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T19:04:21.251Z",
+      "checked_at": "2026-08-05T22:50:53.923Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -47,7 +58,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-05T19:04:23.534Z",
+      "checked_at": "2026-08-05T22:50:54.696Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -55,7 +66,7 @@
     },
     {
       "url": "https://www.westlightenergy.org/wp-content/uploads/2022/09/Daly-City_2021_Community-Benefits.pdf",
-      "checked_at": "2026-08-05T19:04:24.284Z",
+      "checked_at": "2026-08-05T22:50:56.513Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -63,11 +74,11 @@
     },
     {
       "url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf",
-      "checked_at": "2026-08-05T19:04:25.616Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-05T22:50:57.481Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }

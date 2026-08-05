@@ -2,10 +2,16 @@
   "record_id": "ca-san-mateo-south-san-francisco-pge",
   "file": "data/localities/ca-san-mateo-south-san-francisco-pge.json",
   "validated_at": "2026-08-05",
-  "status": "PASS",
-  "score": 100,
+  "status": "REVIEW",
+  "score": 98,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
   "recommendations": [
     {
       "field": "timeline_days",
@@ -23,7 +29,7 @@
   "url_checks": [
     {
       "url": "https://www.ssfca.gov/files/assets/public/v/1/economic-amp-community-development/documents/solar-a.pdf",
-      "checked_at": "2026-08-05T18:53:55.208Z",
+      "checked_at": "2026-08-05T22:50:47.588Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -31,15 +37,15 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-05T18:53:56.449Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-05T22:50:48.744Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T18:53:56.989Z",
+      "checked_at": "2026-08-05T22:50:49.225Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -47,7 +53,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-05T18:53:58.970Z",
+      "checked_at": "2026-08-05T22:50:50.104Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -55,7 +61,7 @@
     },
     {
       "url": "https://www.ssfca.gov/Departments/City-Manager/Sustainability/Renewable-Energy-from-WestLight-Energy",
-      "checked_at": "2026-08-05T18:53:59.683Z",
+      "checked_at": "2026-08-05T22:50:51.482Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
