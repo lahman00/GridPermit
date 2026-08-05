@@ -10,6 +10,7 @@ import nextBatchEvaluation from "../../output/next-batch-evaluation.json";
 import eastBayBatchEvaluation from "../../output/east-bay-batch-evaluation.json";
 import peninsulaBatchEvaluation from "../../output/peninsula-batch-evaluation.json";
 import southlandBatchEvaluation from "../../output/southland-batch-evaluation.json";
+import sanGabrielValleyBatchEvaluation from "../../output/san-gabriel-valley-batch-evaluation.json";
 import {
 	NOT_VERIFIED,
 	buildSourceResolver,
@@ -54,7 +55,7 @@ const allRecordsById = new Map(Object.values(localityModules).map((mod) => [mod.
 // Combine every evaluation run's records — see the same note in
 // solar-permit-guides.astro, which this cross-link list must always agree
 // with on which cities currently qualify.
-const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records, ...peninsulaBatchEvaluation.records, ...southlandBatchEvaluation.records];
+const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records, ...peninsulaBatchEvaluation.records, ...southlandBatchEvaluation.records, ...sanGabrielValleyBatchEvaluation.records];
 const allReadyEntries = buildLocalityIndexEntries(allEvaluatedRecords, allRecordsById);
 const otherGuides = excludeCurrentEntry(allReadyEntries, record.record_id);
 

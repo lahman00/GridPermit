@@ -1,0 +1,147 @@
+{
+  "record_id": "ca-los-angeles-baldwin-park-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S4"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Baldwin Park' by name among the cities in its service area. Baldwin Park's own BPROUD program materials also confirm BPROUD 'is available exclusively to those residents and businesses within Baldwin Park that are currently served by Southern California Edison,' with SCE continuing to handle metering, billing, and outages."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Baldwin Park Resident Owned Utility District (BPROUD)",
+      "type": "cca",
+      "notes": "BPROUD is the City of Baldwin Park's own Community Choice Aggregation (CCA) program (not Clean Power Alliance), begun serving customers October 1, 2020. Confirmed via an official City of Baldwin Park City Council staff report (August 17, 2022) covering BPROUD's 2021 Power Content Label, which names 'Smart Choice' as the default product and 'Green Choice' as an optional 100%-renewable-leaning tier, and lists a net-metering option for customers who generate their own solar or wind power."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Baldwin Park", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Los Angeles County",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "Baldwin Park is a well-documented Los Angeles County city ('Hub of the San Gabriel Valley' per its own city seal, visible in the BPROUD staff report letterhead); also listed under Los Angeles County in SCE's own service-area fact sheet."
+  },
+  "permit_authority": {
+    "value": "City of Baldwin Park Building & Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.baldwinpark.com/157/Building-Safety",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "General Building & Safety Division page — no dedicated solar-specific page was found on the city's site this session. The city's Municipal Code Chapter 156 ('Small Residential Solar Energy System Permits,' covering expedited permit review, inspection requirements, and fees) is confirmed to exist via search indexing, but codelibrary.amlegal.com returned HTTP 403 to automated fetch on every attempt this session, so its specific eligibility/fee/timeline provisions could not be verified and are not included in this record."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Baldwin Park/Los Angeles County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S6"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "Municipal Code Chapter 156 likely details this, but codelibrary.amlegal.com returned HTTP 403 to automated fetch on every attempt this session." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Long Tang, Building Official",
+        "role": "City of Baldwin Park Building & Safety Division",
+        "phone": "626-813-5265",
+        "email": "LTang@baldwinpark.com",
+        "url": "https://www.baldwinpark.com/157/Building-Safety"
+      },
+      {
+        "name": null,
+        "role": "Baldwin Park Resident Owned Utility District (BPROUD)",
+        "phone": "626-214-1662",
+        "email": null,
+        "url": "http://bproud.baldwinpark.com"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S3", "S7"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building & Safety",
+      "url": "https://www.baldwinpark.com/157/Building-Safety",
+      "publisher": "City of Baldwin Park",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Staff Report: Baldwin Park Resident Owned Utility District (BPROUD) Program - 2021 Power Content Label",
+      "url": "https://baldwinpark.granicus.com/MetaViewer.php?view_id=10&clip_id=2815&meta_id=258075",
+      "publisher": "City of Baldwin Park (City Council staff report)",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S4",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S5",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

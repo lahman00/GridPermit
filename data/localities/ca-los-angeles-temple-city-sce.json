@@ -1,0 +1,162 @@
+{
+  "record_id": "ca-los-angeles-temple-city-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": "The City of Temple City's own 'Power' page states directly: 'Southern California Edison (SCE) serves Temple City with electric service.'"
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Clean Power Alliance (CPA)",
+      "type": "cca",
+      "notes": "The City of Temple City's own 'Power' page states the city joined Clean Power Alliance in December 2017 via a City Council vote."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Temple City", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Los Angeles County",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Temple City participates in the San Gabriel Valley Energy Wise Partnership alongside the San Gabriel Valley Council of Governments, confirming its Los Angeles County / San Gabriel Valley location."
+  },
+  "permit_authority": {
+    "value": "City of Temple City Building & Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "permit_url": {
+    "value": "https://www.templecityca.gov/870/Solar-Energy-System-Permits",
+    "confidence": 0.95,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Temple City/Los Angeles County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S6"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Solar Eligibility Checklist", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Solar Submittal Requirements form", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Solar Combination Permit Application", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Solar Structural Criteria documentation", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Solar PV Standard Plan (Microinverter/ACM or String Inverter Systems, as applicable)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Single line drawing (for SolarApp+ submissions)", "required_when": "conditional", "source_ids": ["S3"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule the building inspection through the Building and Safety Division at (626) 656-7327",
+      "Obtain a Los Angeles County Fire Department final inspection prior to use of the PV or energy storage system installation, required for all systems"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2", "S3"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Neither the Solar Energy System Permits page nor the SolarAPP page states a specific number of days for plan review or permit issuance." },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Solar Energy System Permits (standard) / SolarApp+ (automated)",
+      "other_conditions": [
+        "PV systems limited to single-family dwellings or duplexes only",
+        "Cannot exceed the maximum building height allowed under the Zoning Ordinance",
+        "Must meet all applicable state fire, structural, electrical, and building codes as adopted or amended by the city"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page states plan check fees are required upfront, payable by Visa, MasterCard, or eCheck, but no dollar amount is given." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "City of Temple City Building Department (general questions)", "phone": "(626) 285-0488", "email": "building@templecity.us", "url": "https://www.templecityca.gov/870/Solar-Energy-System-Permits" },
+      { "name": null, "role": "City of Temple City Building and Safety Division (inspections)", "phone": "(626) 656-7327", "email": null, "url": "https://www.templecityca.gov/1440/SolarAPP" },
+      { "name": null, "role": "Los Angeles County Fire Department, Fire Prevention Division", "phone": "(323) 890-4125", "email": null, "url": "https://fire.lacounty.gov/fire-prevention-expeditedpvess/" },
+      { "name": null, "role": "SGIP Program Administrator (SCE territory)", "phone": null, "email": "SGIPGroup@sce.com", "url": "https://www.selfgenca.com/home/contact/" }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2", "S3", "S7"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Power",
+      "url": "https://www.templecityca.gov/865/Power",
+      "publisher": "City of Temple City",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "Solar Energy System Permits",
+      "url": "https://www.templecityca.gov/870/Solar-Energy-System-Permits",
+      "publisher": "City of Temple City",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "SolarAPP",
+      "url": "https://www.templecityca.gov/1440/SolarAPP",
+      "publisher": "City of Temple City",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S5",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}
