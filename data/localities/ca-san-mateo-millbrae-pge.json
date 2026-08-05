@@ -1,0 +1,155 @@
+{
+  "record_id": "ca-san-mateo-millbrae-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S5"],
+    "notes": "PG&E's own electric service territory map covers all of San Mateo County. Millbrae is a well-documented San Mateo County city, consistent with PG&E service already established for other San Mateo County records this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "WestLight Energy (formerly Peninsula Clean Energy) - ECOplus (default)",
+      "type": "cca",
+      "notes": "Confirmed via the City of Millbrae's own civic alert announcing the rebrand ('Peninsula Clean Energy is now WestLight Energy', effective July 9, 2026, after ten years operating as Peninsula Clean Energy) and directly via WestLight Energy's own site, which states it serves San Mateo County (including Millbrae) and the City of Los Banos, with ECOplus remaining the default product (at least 50% renewable, lower rates than PG&E). PG&E continues to handle billing, metering, and outage response."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S2", "S6"]
+  },
+  "city": { "value": "Millbrae", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "San Mateo County",
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of Millbrae Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://ci.millbrae.ca.us/176/Building-Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes Millbrae/San Mateo County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S7"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city references a 'Structural Criteria for Residential Flush-Mounted Solar Arrays' handout on its Forms & Other Handouts page, but its specific content was not independently read this session (a widely-reused statewide-template document also seen at other cities, so its Millbrae-specific applicability was not separately confirmed)." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": null, "max_days": 15, "notes": "The city's Building Division page states 'Permit applicants should allow 15 days for all plan check activities to be performed' as the standard timeline; solar PV systems are separately described as qualifying for a streamlined, in-house expedited review, which the source suggests may be faster than the standard 15-day timeline but does not itself quantify." },
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Streamlined in-house review for SolarPV systems",
+      "other_conditions": [
+        "The city's own page states: 'Certain types of permits may be subject to a streamlined permitting process and will be reviewed in-house as time allows, these permits/plans are typically for SolarPV systems, kitchen, and bath remodels'"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city references a 'Community Development Department Service and Fee Schedule' for specific fee amounts, but this was not independently fetched this session." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Tabitha Romero, Permit Technician",
+        "role": "City of Millbrae Building Division",
+        "phone": "650-259-2330",
+        "email": "PTech@ci.millbrae.ca.us",
+        "url": "https://ci.millbrae.ca.us/176/Building-Division"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": null,
+        "email": null,
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S8"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Division",
+      "url": "https://ci.millbrae.ca.us/176/Building-Division",
+      "publisher": "City of Millbrae",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S2",
+      "title": "Peninsula Clean Energy is now WestLight Energy (Civic Alert)",
+      "url": "https://www.ci.millbrae.ca.us/CivicAlerts.aspx?AID=164",
+      "publisher": "City of Millbrae",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S5",
+      "title": "PG&E's Electric Service Territory",
+      "url": "https://www.pge.com/tariffs/assets/pdf/tariffbook/ELEC_MAPS_Service%20Area%20Map.pdf",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S6",
+      "title": "WestLight Energy (Homepage) - 'Peninsula Clean Energy is now WestLight Energy'",
+      "url": "https://westlightenergy.org/",
+      "publisher": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S7",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S8",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

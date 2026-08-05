@@ -1,0 +1,165 @@
+{
+  "record_id": "ca-san-mateo-south-san-francisco-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas and Electric Company (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "South San Francisco's own WestLight Energy page confirms PG&E 'still delivers it [electricity] to homes and businesses using existing transmission and delivery lines.' South San Francisco is a well-documented San Mateo County city, consistent with PG&E service already established for other San Mateo County records this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "WestLight Energy (formerly Peninsula Clean Energy) - ECOplus (default)",
+      "type": "cca",
+      "notes": "Confirmed directly via the City of South San Francisco's own 'Renewable Energy from WestLight Energy' page: 'Under California law, all residents and businesses in South San Francisco, and throughout the county, are automatically enrolled in WestLight Energy.' The default plan is ECOplus (at least 50% renewable). Residents may opt out back to PG&E generation."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "South San Francisco", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "San Mateo County",
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of South San Francisco Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.ssfca.gov/files/assets/public/v/1/economic-amp-community-development/documents/solar-a.pdf",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by PG&E across its entire distribution territory, which includes South San Francisco/San Mateo County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ account registration, plus an active City of South San Francisco Business License (required before submitting)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Approved plans, certificate, and permit number obtained from SolarAPP+ (or a SolarAPP+ non-support confirmation letter, if applicable)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Request an inspection by calling the Building Division main line at (650) 829-6670, option #1",
+      "Have all approved paperwork plus the permit and inspection card printed and present on-site for the inspector"
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The document states that once fees are paid, the permit is issued immediately/electronically for SolarAPP+-eligible projects, but does not state a specific day-count for non-eligible (regular Building Permit with Plan Check) projects." },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (residential only; licensed contractors/installers) / regular Building Permit with Plan Check (non-licensed/owner-builders, and all other Solar/PV installations)",
+      "other_conditions": [
+        "Only licensed contractors or installers may use SolarAPP+; non-licensed/owner-builders must apply for a regular Building Permit with Plan Check",
+        "Must conform to the SolarAPP+ Eligibility Checklist to use the automated portal"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The document states a processing fee is charged by SolarAPP+ itself, and that city fees also apply, but no dollar amounts are given." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of South San Francisco Building Division",
+        "phone": "(650) 829-6670",
+        "email": null,
+        "url": "https://www.ssfca.gov/files/assets/public/v/1/economic-amp-community-development/documents/solar-a.pdf"
+      },
+      {
+        "name": null,
+        "role": "SolarAPP+ team (application/configuration support)",
+        "phone": null,
+        "email": "team@solar-app.org",
+        "url": "https://www.ssfca.gov/files/assets/public/v/1/economic-amp-community-development/documents/solar-a.pdf"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (PG&E territory)",
+        "phone": null,
+        "email": null,
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S6"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar App+ (Residential Solar Permit Process)",
+      "url": "https://www.ssfca.gov/files/assets/public/v/1/economic-amp-community-development/documents/solar-a.pdf",
+      "publisher": "City of South San Francisco",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Renewable Energy from WestLight Energy",
+      "url": "https://www.ssfca.gov/Departments/City-Manager/Sustainability/Renewable-Energy-from-WestLight-Energy",
+      "publisher": "City of South San Francisco",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S4",
+      "title": "Net Energy Metering (NEM) Program",
+      "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
+      "publisher": "Pacific Gas and Electric Company",
+      "type": "utility",
+      "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}
