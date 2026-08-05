@@ -1,0 +1,128 @@
+{
+  "record_id": "ca-placer-roseville-re",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Roseville Electric Utility",
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": "Roseville Electric Utility is the City of Roseville's own municipal electric utility. The city's solar permit page requires 'preapproval from Roseville Electric before submission,' directly confirming it as the interconnecting utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Roseville Electric Utility",
+      "type": "utility",
+      "notes": "Roseville Electric is a vertically-integrated municipal utility — it generates/procures and delivers its own power rather than sitting alongside a separate CCA, consistent with the pattern already established for SMUD, Anaheim Public Utilities, Pasadena Water and Power, and Alameda Municipal Power this session."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Roseville", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Placer County",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of Roseville Development Services Department",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.roseville.ca.gov/development_services/building/solarapp.php",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.roseville.ca.gov/Documents/Electric%20Utility/Your%20trusted%20solar%20advisor/The%20Interconnection%20Process/Residential%20PV%20Packet.pdf?t=202602280307540",
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "Roseville Electric's own Residential Photovoltaic (PV) interconnection packet, identified via search-engine indexing; not independently fetched this session."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The statewide SGIP program (administered by the CPUC-regulated IOUs) does not apply to Roseville Electric customers, since Roseville Electric is a municipal utility outside CPUC jurisdiction, consistent with other municipal-utility records this session."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ Approval Document", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Specifications and plans", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "One-line diagram (needed on-site during inspection)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Print the building inspection card from the permit portal and have the one-line diagram available on-site",
+      "Schedule inspection through the online system after project completion",
+      "An electric site inspection occurs; if requirements are met, the meter technician signs the green permit card for electric department approval",
+      "After Roseville Electric Utility signs the green card, the customer-generator or contractor contacts the building department at 916-774-5333 to schedule final permit inspection and approval",
+      "The DG system safety disconnect must remain open (off) until the written Permit to Operate is received from Roseville Electric"
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (permitted main dwelling rooftop only)",
+      "other_conditions": [
+        "PV system must be installed on a permitted main dwelling rooftop only — no trenching allowed, no ballasted systems",
+        "Cannot be located in city flood zones (per FEMA and the City's Property Information Tool)",
+        "ADU solar installations for code compliance are ineligible for this pathway",
+        "No main panel upgrades allowed (must apply separately if needed); no line-side taps — nothing may be tied to the utility side of the main breaker",
+        "Contractor must hold a California C-10, C-46, or B license classification, be registered with SolarAPP+, hold a valid CSLB license and City business license; permit runners/expediters cannot submit applications",
+        "Requires preapproval from Roseville Electric before submission",
+        "New modules and inverters must be certified for use by the California Energy Commission"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "SolarAPP+ processing fee", "amount_usd": 25, "unit": "flat", "notes": null },
+      { "name": "City of Roseville building permit fee", "amount_usd": 1349.49, "unit": "flat", "notes": null }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Roseville Development Services Department",
+        "phone": "(916) 774-5285",
+        "email": null,
+        "url": "https://www.roseville.ca.gov/development_services/building/solarapp.php"
+      },
+      {
+        "name": null,
+        "role": "City of Roseville Building Department (final inspection scheduling, after Roseville Electric sign-off)",
+        "phone": "916-774-5333",
+        "email": null,
+        "url": "https://www.roseville.ca.gov/development_services/building/solarapp.php"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-05",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarAPP+ (Solar Permit Requirements)",
+      "url": "https://www.roseville.ca.gov/development_services/building/solarapp.php",
+      "publisher": "City of Roseville",
+      "type": "government",
+      "accessed_date": "2026-08-05"
+    }
+  ]
+}

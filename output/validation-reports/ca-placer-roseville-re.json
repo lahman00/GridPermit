@@ -1,0 +1,47 @@
+{
+  "record_id": "ca-placer-roseville-re",
+  "file": "data/localities/ca-placer-roseville-re.json",
+  "validated_at": "2026-08-05",
+  "status": "REVIEW",
+  "score": 95,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.roseville.ca.gov/development_services/building/solarapp.php",
+      "checked_at": "2026-08-05T21:40:07.067Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.roseville.ca.gov/Documents/Electric%20Utility/Your%20trusted%20solar%20advisor/The%20Interconnection%20Process/Residential%20PV%20Packet.pdf?t=202602280307540",
+      "checked_at": "2026-08-05T21:40:09.458Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}
