@@ -52,16 +52,17 @@ function citySlugFor(recordId) {
 	return record.city.value.toLowerCase().replace(/\s+/g, "-");
 }
 
-// Mirrors the import-name convention every aggregator file already uses:
-// "central-valley-batch-evaluation.json" -> "centralValleyBatchEvaluation".
-function importVariableNameFor(evaluationFileName) {
-	const base = evaluationFileName.replace(/\.json$/, "");
-	return base.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
-}
-
 function pageFileFor(citySlug) {
 	return path.join(CALIFORNIA_PAGES_DIR, citySlug, "solar-permit-guide.astro");
 }
+
+// Every aggregator file loads output/*-evaluation.json via import.meta.glob
+// rather than one hardcoded import per batch file, so a new batch's
+// evaluation file is picked up automatically with no wiring step to forget.
+// Accepts either relative-depth variant ("../../../output/..." from
+// src/pages/california/*.astro, or "../../output/..." from
+// src/pages/search.astro and src/layouts/LocalityGuideLayout.astro).
+const EVALUATION_GLOB_PATTERN = /import\.meta\.glob\(\s*["'](?:\.\.\/)+output\/\*-evaluation\.json["']/;
 
 const allRecords = loadAllEvaluatedRecords();
 const readyRecords = allRecords.filter((r) => r.readiness === "READY");
@@ -96,20 +97,19 @@ test("every READY record has a matching netlify.toml redirect", () => {
 	}
 });
 
-test("every batch evaluation file containing a READY record is imported and spread into allEvaluatedRecords in every aggregator file", () => {
-	const filesWithReadyRecords = new Set(readyRecords.map((r) => r.evaluationFile));
-	for (const file of filesWithReadyRecords) {
-		const varName = importVariableNameFor(file);
-		for (const [aggregatorPath, source] of aggregatorSources) {
-			assert.ok(
-				source.includes(`"../../../output/${file}"`) || source.includes(`"../../output/${file}"`),
-				`${path.relative(REPO_ROOT, aggregatorPath)} does not import ${file} (needed because it contains READY records)`,
-			);
-			assert.ok(
-				new RegExp(`\\.\\.\\.${varName}\\.records\\b`).test(source),
-				`${path.relative(REPO_ROOT, aggregatorPath)} imports ${file} but never spreads ...${varName}.records into allEvaluatedRecords`,
-			);
-		}
+test("every aggregator file loads every output/*-evaluation.json via glob (not a hardcoded per-batch import)", () => {
+	// A glob-based invariant is strictly stronger than checking each current
+	// file is named explicitly: it guarantees any *future* batch evaluation
+	// file is automatically included too, with no wiring step to forget.
+	for (const [aggregatorPath, source] of aggregatorSources) {
+		assert.ok(
+			EVALUATION_GLOB_PATTERN.test(source),
+			`${path.relative(REPO_ROOT, aggregatorPath)} does not glob-import output/*-evaluation.json — a new batch's evaluation file could silently fail to be included`,
+		);
+		assert.ok(
+			/\.flatMap\(\s*\(mod\)\s*=>\s*mod\.default\.records\s*\)/.test(source),
+			`${path.relative(REPO_ROOT, aggregatorPath)} globs the evaluation files but never flattens .records from every module into allEvaluatedRecords`,
+		);
 	}
 });
 

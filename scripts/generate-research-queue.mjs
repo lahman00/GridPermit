@@ -118,56 +118,55 @@ async function loadExistingCities() {
 	return byCity;
 }
 
-function main() {
-	return loadExistingCities().then(async (byCity) => {
-		const blockedSet = new Set(INVESTIGATED_BUT_BLOCKED.map((c) => c.toLowerCase()));
-		const waveReports = {};
-		let totalCities = 0, totalDone = 0, totalBlocked = 0, totalRemaining = 0;
+async function main() {
+	const byCity = await loadExistingCities();
+	const blockedSet = new Set(INVESTIGATED_BUT_BLOCKED.map((c) => c.toLowerCase()));
+	const waveReports = {};
+	let totalCities = 0, totalDone = 0, totalBlocked = 0, totalRemaining = 0;
 
-		for (const [wave, cities] of Object.entries(WAVES)) {
-			const done = [];
-			const blocked = [];
-			const remaining = [];
-			for (const city of cities) {
-				const key = city.toLowerCase();
-				if (byCity.has(key)) {
-					done.push({ city, records: byCity.get(key) });
-				} else if (blockedSet.has(key)) {
-					blocked.push({ city });
-				} else {
-					remaining.push({ city });
-				}
+	for (const [wave, cities] of Object.entries(WAVES)) {
+		const done = [];
+		const blocked = [];
+		const remaining = [];
+		for (const city of cities) {
+			const key = city.toLowerCase();
+			if (byCity.has(key)) {
+				done.push({ city, records: byCity.get(key) });
+			} else if (blockedSet.has(key)) {
+				blocked.push({ city });
+			} else {
+				remaining.push({ city });
 			}
-			waveReports[wave] = {
-				total: cities.length,
-				done_count: done.length,
-				blocked_count: blocked.length,
-				remaining_count: remaining.length,
-				done,
-				blocked,
-				remaining,
-			};
-			totalCities += cities.length;
-			totalDone += done.length;
-			totalBlocked += blocked.length;
-			totalRemaining += remaining.length;
 		}
-
-		const queue = {
-			generated_at: new Date().toISOString(),
-			summary: {
-				total_cities_in_queue: totalCities,
-				already_researched: totalDone,
-				investigated_but_blocked: totalBlocked,
-				remaining: totalRemaining,
-			},
-			waves: waveReports,
+		waveReports[wave] = {
+			total: cities.length,
+			done_count: done.length,
+			blocked_count: blocked.length,
+			remaining_count: remaining.length,
+			done,
+			blocked,
+			remaining,
 		};
+		totalCities += cities.length;
+		totalDone += done.length;
+		totalBlocked += blocked.length;
+		totalRemaining += remaining.length;
+	}
 
-		await writeFile(OUT_PATH, JSON.stringify(queue, null, 2) + "\n", "utf8");
-		console.log(JSON.stringify(queue.summary, null, 2));
-		console.error(`\nQueue written to ${path.relative(REPO_ROOT, OUT_PATH)}`);
-	});
+	const queue = {
+		generated_at: new Date().toISOString(),
+		summary: {
+			total_cities_in_queue: totalCities,
+			already_researched: totalDone,
+			investigated_but_blocked: totalBlocked,
+			remaining: totalRemaining,
+		},
+		waves: waveReports,
+	};
+
+	await writeFile(OUT_PATH, JSON.stringify(queue, null, 2) + "\n", "utf8");
+	console.log(JSON.stringify(queue.summary, null, 2));
+	console.error(`\nQueue written to ${path.relative(REPO_ROOT, OUT_PATH)}`);
 }
 
 const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);

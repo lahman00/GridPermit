@@ -1,7 +1,10 @@
 #!/usr/bin/env node
-// Deterministic research-progress report for the California
-// locality-expansion campaign (San Gabriel Valley, Inland Empire, Orange
-// County, two Peninsula batches, Sacramento region, and Central Valley).
+// Deterministic research-progress report for the ongoing statewide
+// California locality-expansion campaign. Auto-discovers every batch from
+// output/*-evaluation.json (see discoverBatches() below) rather than a
+// hardcoded per-batch list, so this report always reflects the actual,
+// current dataset — not a snapshot of whichever batches existed when this
+// script was last edited.
 // Reads every output/*-evaluation.json batch file and every
 // data/localities/*.json record (does not re-run collection or validation
 // itself) and produces one report listing every investigated locality by
@@ -39,14 +42,28 @@ const INVESTIGATED_BUT_BLOCKED = [
 	},
 ];
 
-const BATCHES = [
-	{ name: "San Gabriel Valley", evaluationFile: "san-gabriel-valley-batch-evaluation.json" },
-	{ name: "Inland Empire", evaluationFile: "inland-empire-batch-evaluation.json" },
-	{ name: "Orange County", evaluationFile: "orange-county-batch-evaluation.json" },
-	{ name: "Peninsula (second batch)", evaluationFile: "peninsula-batch-2-evaluation.json" },
-	{ name: "Sacramento region", evaluationFile: "sacramento-region-batch-evaluation.json" },
-	{ name: "Central Valley", evaluationFile: "central-valley-batch-evaluation.json" },
-];
+// Auto-discovered from every output/*-evaluation.json file (the exact same
+// glob every live-site aggregator uses — src/pages/california/solar-permit-guides.astro,
+// src/pages/search.astro, src/layouts/LocalityGuideLayout.astro) rather than
+// a hardcoded per-batch list, so a new batch's evaluation file is picked up
+// automatically and this report's totals can never drift from what's
+// actually published — no wiring step to forget across a long, many-wave
+// campaign. A human-readable name is derived from the filename, e.g.
+// "la-county-wave-a1-batch-evaluation.json" -> "La County Wave A1".
+function discoverBatches() {
+	return readdirSync(OUTPUT_DIR)
+		.filter((f) => f.endsWith("-evaluation.json"))
+		.sort()
+		.map((evaluationFile) => ({
+			name: evaluationFile
+				.replace(/-evaluation\.json$/, "")
+				.replace(/-batch$/, "")
+				.split("-")
+				.map((w) => (w.length <= 2 ? w.toUpperCase() : w[0].toUpperCase() + w.slice(1)))
+				.join(" "),
+			evaluationFile,
+		}));
+}
 
 function loadAllRecordIds() {
 	return new Set(
@@ -73,7 +90,7 @@ async function loadBatch(batch) {
 async function main() {
 	const allRecordIds = loadAllRecordIds();
 	const batches = [];
-	for (const b of BATCHES) {
+	for (const b of discoverBatches()) {
 		batches.push(await loadBatch(b));
 	}
 

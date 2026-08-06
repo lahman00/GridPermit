@@ -4,17 +4,6 @@
 // external search service, no network request per keystroke. See
 // src/lib/search-index.ts for the pure index-building/matching logic this
 // page and its tests both call.
-import pilotEvaluation from "../../output/pilot-evaluation.json";
-import nextBatchEvaluation from "../../output/next-batch-evaluation.json";
-import eastBayBatchEvaluation from "../../output/east-bay-batch-evaluation.json";
-import peninsulaBatchEvaluation from "../../output/peninsula-batch-evaluation.json";
-import southlandBatchEvaluation from "../../output/southland-batch-evaluation.json";
-import sanGabrielValleyBatchEvaluation from "../../output/san-gabriel-valley-batch-evaluation.json";
-import inlandEmpireBatchEvaluation from "../../output/inland-empire-batch-evaluation.json";
-import orangeCountyBatchEvaluation from "../../output/orange-county-batch-evaluation.json";
-import peninsulaBatch2Evaluation from "../../output/peninsula-batch-2-evaluation.json";
-import sacramentoRegionBatchEvaluation from "../../output/sacramento-region-batch-evaluation.json";
-import centralValleyBatchEvaluation from "../../output/central-valley-batch-evaluation.json";
 import { SITE_ORIGIN, buildBreadcrumbSchema, buildLocalityIndexEntries, type LocalityRecord } from "../lib/locality-guide";
 import { getAllBlogPosts } from "../lib/blog-posts";
 import { buildSearchIndex } from "../lib/search-index";
@@ -26,8 +15,13 @@ const localityModules = import.meta.glob("../../data/localities/*.json", { eager
 >;
 const recordsById = new Map(Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]));
 // Combine every evaluation run's records — see the same note in
-// solar-permit-guides.astro and LocalityGuideLayout.astro.
-const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records, ...peninsulaBatchEvaluation.records, ...southlandBatchEvaluation.records, ...sanGabrielValleyBatchEvaluation.records, ...inlandEmpireBatchEvaluation.records, ...orangeCountyBatchEvaluation.records, ...peninsulaBatch2Evaluation.records, ...sacramentoRegionBatchEvaluation.records, ...centralValleyBatchEvaluation.records];
+// solar-permit-guides.astro and LocalityGuideLayout.astro. Loaded via glob
+// so a new batch's evaluation file is picked up automatically.
+const evaluationModules = import.meta.glob("../../output/*-evaluation.json", { eager: true }) as Record<
+	string,
+	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
+>;
+const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
 const localityEntries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
 const blogPosts = await getAllBlogPosts();
 

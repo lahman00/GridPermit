@@ -5,17 +5,6 @@
 // implemented once, here. See src/lib/locality-guide.ts for the underlying
 // data-shaping functions and docs/PILOT_EVALUATION.md Section 3 for which
 // fields are approved to show.
-import pilotEvaluation from "../../output/pilot-evaluation.json";
-import nextBatchEvaluation from "../../output/next-batch-evaluation.json";
-import eastBayBatchEvaluation from "../../output/east-bay-batch-evaluation.json";
-import peninsulaBatchEvaluation from "../../output/peninsula-batch-evaluation.json";
-import southlandBatchEvaluation from "../../output/southland-batch-evaluation.json";
-import sanGabrielValleyBatchEvaluation from "../../output/san-gabriel-valley-batch-evaluation.json";
-import inlandEmpireBatchEvaluation from "../../output/inland-empire-batch-evaluation.json";
-import orangeCountyBatchEvaluation from "../../output/orange-county-batch-evaluation.json";
-import peninsulaBatch2Evaluation from "../../output/peninsula-batch-2-evaluation.json";
-import sacramentoRegionBatchEvaluation from "../../output/sacramento-region-batch-evaluation.json";
-import centralValleyBatchEvaluation from "../../output/central-valley-batch-evaluation.json";
 import {
 	NOT_VERIFIED,
 	buildSourceResolver,
@@ -59,8 +48,13 @@ const localityModules = import.meta.glob("../../data/localities/*.json", { eager
 const allRecordsById = new Map(Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]));
 // Combine every evaluation run's records — see the same note in
 // solar-permit-guides.astro, which this cross-link list must always agree
-// with on which cities currently qualify.
-const allEvaluatedRecords = [...pilotEvaluation.records, ...nextBatchEvaluation.records, ...eastBayBatchEvaluation.records, ...peninsulaBatchEvaluation.records, ...southlandBatchEvaluation.records, ...sanGabrielValleyBatchEvaluation.records, ...inlandEmpireBatchEvaluation.records, ...orangeCountyBatchEvaluation.records, ...peninsulaBatch2Evaluation.records, ...sacramentoRegionBatchEvaluation.records, ...centralValleyBatchEvaluation.records];
+// with on which cities currently qualify. Loaded via glob so a new batch's
+// evaluation file is picked up automatically.
+const evaluationModules = import.meta.glob("../../output/*-evaluation.json", { eager: true }) as Record<
+	string,
+	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
+>;
+const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
 const allReadyEntries = buildLocalityIndexEntries(allEvaluatedRecords, allRecordsById);
 const otherGuides = excludeCurrentEntry(allReadyEntries, record.record_id);
 
