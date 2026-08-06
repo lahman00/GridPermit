@@ -1,0 +1,134 @@
+{
+  "record_id": "ca-los-angeles-monrovia-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Monrovia' by name among the cities in its service area."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Clean Power Alliance (CPA)",
+      "type": "cca",
+      "notes": "Confirmed via a directly-fetched California Community Choice Association (CalCCA) press release: the CPA Board of Directors approved Monrovia as a new member community on December 1, 2022, with service expected to begin in 2024. The specific default product/tier name was not confirmed this session — the press release states 'Monrovia and Santa Paula will choose their respective energy options in 2023' without naming the outcome."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Monrovia", "confidence": 1, "source_ids": ["S2"] },
+  "county": {
+    "value": "Los Angeles County",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "Monrovia is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
+  },
+  "permit_authority": {
+    "value": "City of Monrovia Building Division",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "monroviaca.gov returned HTTP 403 to automated fetch on every attempt this session (the SolarAPP+ page and the Clean Power Alliance outreach page). This department name is confirmed via search-engine indexing of the city's own page titles, but the SolarAPP+ page's specific content (eligibility, fees, timeline) could not be independently verified."
+  },
+  "permit_url": {
+    "value": "https://www.monroviaca.gov/your-government/community-development/building/solarapp",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "URL identified via search-engine indexing; monroviaca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Monrovia/Los Angeles County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "monroviaca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's SolarAPP+ submittal requirements." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S6"]
+  },
+  "last_verified": "2026-08-06",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Clean Power Alliance Board of Directors Approves Adding the Cities of Hermosa Beach, Monrovia, and Santa Paula as New Member Communities",
+      "url": "https://cal-cca.org/clean-power-alliance-board-of-directors-approves-adding-the-cities-of-hermosa-beach-monrovia-and-santa-paula-as-new-member-communities/",
+      "publisher": "California Community Choice Association (CalCCA)",
+      "type": "other_official",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S2",
+      "title": "SolarAPP+",
+      "url": "https://www.monroviaca.gov/your-government/community-development/building/solarapp",
+      "publisher": "City of Monrovia",
+      "type": "government",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S3",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S4",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}
