@@ -1,0 +1,96 @@
+{
+  "record_id": "ca-los-angeles-west-hollywood-sce",
+  "file": "data/localities/ca-los-angeles-west-hollywood-sce.json",
+  "validated_at": "2026-08-07",
+  "status": "REVIEW",
+  "score": 96,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.weho.org/city-government/city-departments/community-development-department/building-and-safety/solar-west-hollywood — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "required_documents",
+      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "inspection_steps",
+      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "eligibility_constraints",
+      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.weho.org/city-government/city-departments/community-development-department/building-and-safety/solar-west-hollywood",
+      "checked_at": "2026-08-07T17:19:42.798Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "checked_at": "2026-08-07T17:19:43.090Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/about/",
+      "checked_at": "2026-08-07T17:19:43.520Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/contact/",
+      "checked_at": "2026-08-07T17:19:44.353Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://cal-cca.org/eight-more-clean-power-alliance-communities-choose-100-green-power-as-their-primary-energy-option-to-create-a-healthier-and-more-sustainable-future/",
+      "checked_at": "2026-08-07T17:19:45.060Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "checked_at": "2026-08-07T17:19:47.817Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}
