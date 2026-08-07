@@ -1,0 +1,159 @@
+{
+  "record_id": "ca-los-angeles-carson-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Carson' by name among the cities in its service area. Carson's own Clean Power Alliance page also confirms SCE continues to deliver power, bill, and handle service issues."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Clean Power Alliance (CPA) - Lean Power (default, 36% renewable content)",
+      "type": "cca",
+      "notes": "Confirmed directly via the City of Carson's own page (ci.carson.ca.us/publicworks/CleanPower.aspx): 'Our community has selected Lean Power as our default option.' Carson joined CPA in late 2017; residential service began February 2019."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Carson", "confidence": 1, "source_ids": ["S2"] },
+  "county": {
+    "value": "Los Angeles County",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "Carson is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
+  },
+  "permit_authority": {
+    "value": "City of Carson Community Development Department, Building and Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "permit_url": {
+    "value": "https://ci.carson.ca.us/communitydevelopment/SolarAPP.aspx",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Carson/Los Angeles County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ Approval Document", "required_when": "always", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Building Division inspections are conducted Monday through Thursday via the Civic Access portal",
+      "Fire Department inspection is required before system activation — contact the Los Angeles County Fire Department, Fire Prevention Division at (323) 890-4125 to schedule and pass an inspection"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page does not specify system-size or property-type eligibility limits." },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states the system will invoice permit fees upon approval-ID entry, but no dollar amount is given." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Carson City Hall",
+        "phone": "(310) 830-7600",
+        "email": null,
+        "url": "https://ci.carson.ca.us/communitydevelopment/SolarAPP.aspx"
+      },
+      {
+        "name": null,
+        "role": "Los Angeles County Fire Department, Fire Prevention Division",
+        "phone": "(323) 890-4125",
+        "email": null,
+        "url": "https://ci.carson.ca.us/communitydevelopment/SolarAPP.aspx"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2", "S6"]
+  },
+  "last_verified": "2026-08-06",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Clean Power Alliance",
+      "url": "https://ci.carson.ca.us/publicworks/CleanPower.aspx",
+      "publisher": "City of Carson",
+      "type": "government",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S2",
+      "title": "SolarApp+ Submittals",
+      "url": "https://ci.carson.ca.us/communitydevelopment/SolarAPP.aspx",
+      "publisher": "City of Carson",
+      "type": "government",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S3",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S4",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

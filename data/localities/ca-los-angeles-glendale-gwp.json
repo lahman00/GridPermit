@@ -1,0 +1,62 @@
+{
+  "record_id": "ca-los-angeles-glendale-gwp",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Glendale Water and Power (GWP)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Glendale Water and Power is the City of Glendale's own municipal electric utility. Glendale is notably absent from SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (which lists many neighboring LA County cities but not Glendale), consistent with Glendale having its own municipal utility rather than SCE service. glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session, so specific program pages could not be independently read, but GWP's identity and role as the electric utility is corroborated by multiple independent search-engine-indexed GWP program page titles on the city's own domain."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Glendale Water and Power (GWP)",
+      "type": "utility",
+      "notes": "GWP is a vertically-integrated municipal utility (like LADWP, Pasadena Water and Power, and Burbank Water and Power) — it generates/procures and delivers its own power rather than sitting alongside a separate CCA. No Community Choice Aggregator was found serving Glendale in the sources reviewed this session."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Glendale", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Los Angeles County",
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of Glendale Building & Safety, in coordination with Glendale Water and Power",
+    "confidence": 0.55,
+    "source_ids": ["S1"],
+    "notes": "glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific eligibility, fee, and process content."
+  },
+  "permit_url": {
+    "value": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-pv-interconnection-and-nem-for-under-15-kw-cec-ac-residential-systems",
+    "confidence": 0.5,
+    "source_ids": ["S1"],
+    "notes": "URL identified via search-engine indexing; glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+  },
+  "interconnection_url": {
+    "value": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-interconnection",
+    "confidence": 0.5,
+    "source_ids": ["S1"],
+    "notes": "Glendale's own Net Energy Metering (NEM) interconnection guide, identified via search-engine indexing; glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session. Search-engine synthesis indicates GWP runs its own 1:1 net metering program independent of the CPUC's NEM 3.0 mandate (which applies only to the three large investor-owned utilities), consistent with the general pattern already confirmed directly for other California municipal utilities this session (e.g. Anaheim Public Utilities), but this specific claim for Glendale was not independently verified via direct fetch."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "The statewide SGIP program (administered by the CPUC-regulated IOUs) is not applicable to Glendale, since GWP is a municipal utility outside SGIP's administering IOUs' territories. No GWP-specific battery incentive program was confirmed this session." },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the interconnection application requirements." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis suggested a 15kW CEC-AC threshold separating a residential guide from a commercial/large-residential guide, and a 10kW exemption from a historical-usage cap, but this could not be independently confirmed via direct fetch this session." },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": { "value": null, "confidence": 0, "source_ids": [] },
+  "last_verified": "2026-08-06",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Guide for Applying for Interconnection (Net Energy Metering)",
+      "url": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-interconnection",
+      "publisher": "City of Glendale / Glendale Water and Power",
+      "type": "government",
+      "accessed_date": "2026-08-06"
+    }
+  ]
+}
