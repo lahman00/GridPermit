@@ -1,0 +1,112 @@
+{
+  "record_id": "ca-san-mateo-atherton-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Atherton is a well-documented San Mateo County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "cca",
+      "notes": "WestLight Energy's own site confirms it is San Mateo County's CCA, formed in 2015 after every city council in the county voted to establish it, serving the entire county (all cities/towns, including Atherton) since 2017. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Atherton", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Mateo County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Atherton Building Department",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.athertonca.gov/147/Building",
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Atherton PV System Eligibility Checklist", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Only one inspection is required for a small residential rooftop solar energy system eligible for expedited review",
+      "May include a consolidated inspection by the building official and fire chief"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited review (Atherton PV System Eligibility Checklist)",
+      "other_conditions": [
+        "Solar array must be roof-mounted on a one- or two-family dwelling or accessory structure",
+        "Solar panel/module arrays may not exceed the maximum legal building height",
+        "Solar facilities are exempt from the minimum 10-foot side yard setback requirement unless the building official finds a specific adverse impact on public health or safety"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Atherton Building Department",
+        "phone": null,
+        "email": null,
+        "url": "https://www.athertonca.gov/147/Building"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building",
+      "url": "https://www.athertonca.gov/147/Building",
+      "publisher": "Town of Atherton",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "In the Community",
+      "url": "https://www.westlightenergy.org/in-the-community/",
+      "publisher": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

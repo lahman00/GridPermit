@@ -1,0 +1,116 @@
+{
+  "record_id": "ca-san-mateo-san-carlos-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "San Carlos is a well-documented San Mateo County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "cca",
+      "notes": "WestLight Energy's own site confirms it is San Mateo County's CCA, formed in 2015 after every city council in the county voted to establish it, serving the entire county (all cities/towns, including San Carlos) since 2017. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "San Carlos", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Mateo County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of San Carlos Community Development Department, Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.cityofsancarlos.org/city_hall/departments_and_divisions/community_development/building/building_permits/solar_permitting.php",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Active San Carlos Business License (contractor)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Permit application form (for projects ineligible for SolarApp+)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Inspection Checklist (downloaded after submission)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "After SolarApp+ approval, applicants receive an email from building@cityofsancarlos.org with the permit number and inspection-scheduling instructions",
+      "The downloaded Inspection Checklist guides the review"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 1, "max_days": 5, "notes": "Automated SolarApp+ permits process instantly; manual review typically takes 3-5 business days; permit confirmation email arrives within 1-2 business days after submission." },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarApp+ (Solar Rights Act / AB 2188 compliant)",
+      "other_conditions": [
+        "Projects that fail SolarApp+ eligibility must follow standard commercial-style permitting procedures instead"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of San Carlos Building Division",
+        "phone": null,
+        "email": "building@cityofsancarlos.org",
+        "url": "https://www.cityofsancarlos.org/city_hall/departments_and_divisions/community_development/building/building_permits/solar_permitting.php"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permitting",
+      "url": "https://www.cityofsancarlos.org/city_hall/departments_and_divisions/community_development/building/building_permits/solar_permitting.php",
+      "publisher": "City of San Carlos",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "In the Community",
+      "url": "https://www.westlightenergy.org/in-the-community/",
+      "publisher": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

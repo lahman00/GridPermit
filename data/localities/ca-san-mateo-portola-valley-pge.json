@@ -1,0 +1,102 @@
+{
+  "record_id": "ca-san-mateo-portola-valley-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Portola Valley is a well-documented San Mateo County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "cca",
+      "notes": "WestLight Energy's own site confirms it is San Mateo County's CCA, formed in 2015 after every city council in the county voted to establish it, serving the entire county (all cities/towns, including Portola Valley) since 2017. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Portola Valley", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Mateo County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Portola Valley Planning & Building Department",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.portolavalley.net/departments/planning-building-department/resource-center/general-information-and-handouts/building-permit-faqs",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page confirms an approved checklist and standard plan process exists, but the specific document list itself was not directly fetched this session." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 3, "notes": "The building department shall issue a building permit or other nondiscretionary permit within three business days of receipt of a complete application, including review by Woodside Fire Protection District, if the application meets the approved checklist and standard plan." },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited, streamlined solar permitting (Solar Rights Act / AB 2188 compliant)",
+      "other_conditions": [
+        "Detached ADUs must provide conduit pathway infrastructure to support future solar installation (Solar Photovoltaic 'Ready' Infrastructure requirement)",
+        "Applications reviewed in coordination with Woodside Fire Protection District"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Portola Valley Planning & Building Department",
+        "phone": "650-851-1700",
+        "email": "planbuild@portolavalley.net",
+        "url": "https://www.portolavalley.net/departments/planning-building-department/resource-center/general-information-and-handouts/building-permit-faqs"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permit FAQs",
+      "url": "https://www.portolavalley.net/departments/planning-building-department/resource-center/general-information-and-handouts/building-permit-faqs",
+      "publisher": "Town of Portola Valley",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "In the Community",
+      "url": "https://www.westlightenergy.org/in-the-community/",
+      "publisher": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

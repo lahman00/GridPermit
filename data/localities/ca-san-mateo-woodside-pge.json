@@ -1,0 +1,108 @@
+{
+  "record_id": "ca-san-mateo-woodside-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Woodside is a well-documented San Mateo County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "cca",
+      "notes": "WestLight Energy's own site confirms it is San Mateo County's CCA, formed in 2015 after every city council in the county voted to establish it, serving the entire county (all cities/towns, including Woodside) since 2017. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Woodside", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Mateo County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Woodside Building Department",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.woodsideca.gov/183/Solar-Photovoltaic-PV-Systems-Energy-Sto",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Completed permit application form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Eligibility checklist", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Submittal requirements documentation", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Plans (minimum 11x17, legible 10-point font)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited review for roof-mounted Solar PV (10kW and under) and solar hot water heating",
+      "other_conditions": [
+        "Systems exceeding 10kW require different (non-expedited) submittal procedures",
+        "Class 'A' roofs are required in Woodside, which is in the Wild Land-Urban Interface",
+        "Fees must be received by the Town before review begins; credit cards are not accepted"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "Fees are payable by check (two separate checks: one to the Town of Woodside, one to Woodside Fire Protection District) or cash, but no specific dollar amount is stated." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Woodside Building Department",
+        "phone": "650-851-6790",
+        "email": "projectmanagers@woodsideca.gov",
+        "url": "https://www.woodsideca.gov/183/Solar-Photovoltaic-PV-Systems-Energy-Sto"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic (PV) Systems & Energy Storage Systems (ESS)",
+      "url": "https://www.woodsideca.gov/183/Solar-Photovoltaic-PV-Systems-Energy-Sto",
+      "publisher": "Town of Woodside",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "In the Community",
+      "url": "https://www.westlightenergy.org/in-the-community/",
+      "publisher": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
