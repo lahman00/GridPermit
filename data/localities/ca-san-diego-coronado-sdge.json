@@ -1,0 +1,138 @@
+{
+  "record_id": "ca-san-diego-coronado-sdge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Coronado is a well-documented San Diego County city within SDG&E's core service territory; the city's own solar page references SolarAPP+ as an alternative application path, consistent with SDG&E-territory records established elsewhere this session."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Coronado's City Council voted to begin the process of joining San Diego Community Power (SDCP), but as of this session Coronado is not yet a confirmed, currently-operating SDCP member city (SDCP's own confirmed member list is San Diego, Chula Vista, Encinitas, La Mesa, National City, and Imperial Beach). Left null rather than recording a pending relationship as active."
+  },
+  "city": { "value": "Coronado", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Coronado Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.coronado.ca.us/252/Solar-Photovoltaic",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025. Administered across SDG&E's entire distribution territory, which includes Coronado.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S3"],
+    "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Building Permit Application Form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Eligibility Checklist for Expedited Permitting", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Complete plans (system one-line diagram, equipment specifications, grounding details, roof layout, fire safety items, site diagram)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Contact Building Services at 619-522-7361 to schedule",
+      "Requests submitted before 4 PM are typically scheduled for the next business day",
+      "Inspectors use the Single Inspection PV Checklist to verify compliance"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states expedited applications may receive 'over-the-counter' approval but does not give a specific day-range figure for standard review." },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited permitting for roof-mounted residential PV, one- and two-family dwellings",
+      "other_conditions": [
+        "Systems larger than 10kW or those including battery storage require standard (non-expedited) processing",
+        "Planning review is required for solar PV installations of this size",
+        "SolarAPP+ is also available as an alternative online application path"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page refers applicants to the city's Fiscal Year 2020-2021 fee schedule for current pricing but does not itself state a dollar figure." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Coronado Building Services (Inspections)",
+        "phone": "619-522-7361",
+        "email": null,
+        "url": "https://www.coronado.ca.us/252/Solar-Photovoltaic"
+      },
+      {
+        "name": null,
+        "role": "City of Coronado Building Services (General)",
+        "phone": "619-522-7331",
+        "email": null,
+        "url": "https://www.coronado.ca.us/247/Building-Services"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic",
+      "url": "https://www.coronado.ca.us/252/Solar-Photovoltaic",
+      "publisher": "City of Coronado",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+      "publisher": "San Diego Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

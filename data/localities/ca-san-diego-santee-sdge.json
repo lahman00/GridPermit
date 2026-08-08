@@ -1,0 +1,126 @@
+{
+  "record_id": "ca-san-diego-santee-sdge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Santee is a well-documented San Diego County city within SDG&E's core service territory, consistent with SDG&E-territory records established elsewhere this session."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Santee is not named as a member of either San Diego Community Power (San Diego, Chula Vista, Encinitas, Imperial Beach, La Mesa, National City) or Clean Energy Alliance (Carlsbad, Del Mar, Solana Beach, San Marcos, Escondido, Oceanside, Vista). No CCA was found serving Santee this session."
+  },
+  "city": { "value": "Santee", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Santee Planning & Building Department",
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://ecode360.com/43755763",
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "The city's small-residential-rooftop-solar-permit ordinance (13.06), as published via the municipal code's third-party hosting service (eCode360); a dedicated city-hosted solar permit page was not located this session."
+  },
+  "interconnection_url": {
+    "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025. Administered across SDG&E's entire distribution territory, which includes Santee.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S3"],
+    "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The ordinance requires conformance with applicable State fire, structural, electrical, and other building codes but does not itself enumerate a specific document checklist; submittals go through the city's Tyler EnerGov portal." },
+  "inspection_steps": {
+    "value": [
+      "Only one inspection is required for a small residential rooftop solar energy system eligible for expedited review, performed by the Building Division",
+      "May include a consolidated inspection with the Fire Department"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 0, "notes": "Because Santee's population exceeds 50,000, it falls under SB 379's earlier compliance tier, requiring automated same-day permitting for qualifying residential solar and battery systems." },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SB 379 same-day automated permitting (population over 50,000 compliance tier)",
+      "other_conditions": [
+        "Systems must conform to all applicable State fire, structural, electrical, and other building codes as adopted or amended by the city",
+        "Since 2023, all permits, plans, inspection requests, and business licenses go through the Tyler EnerGov portal; hard-copy applications are no longer accepted"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Santee Planning & Building Department",
+        "phone": null,
+        "email": null,
+        "url": "https://ecode360.com/43755763"
+      }
+    ],
+    "confidence": 0.55,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Chapter 13.06: Permits (Small Residential Rooftop Solar Energy Systems)",
+      "url": "https://ecode360.com/43755763",
+      "publisher": "City of Santee Municipal Code (eCode360)",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+      "publisher": "San Diego Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
