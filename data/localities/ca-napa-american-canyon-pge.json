@@ -1,0 +1,94 @@
+{
+  "record_id": "ca-napa-american-canyon-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "American Canyon is a well-documented Napa County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms American Canyon as one of 6 Napa County communities it serves (alongside Calistoga, Napa, St. Helena, Yountville, and unincorporated Napa County). PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "American Canyon", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Napa County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of American Canyon Community Development Department, Building Division",
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://law.cityofamericancanyon.org/us/ca/cities/american-canyon/code/16.15",
+    "confidence": 0.8,
+    "source_ids": ["S1"],
+    "notes": "The city's Streamlined Residential Rooftop Solar Energy Permit ordinance (Chapter 16.15); a dedicated city-hosted solar permit landing page was not located this session."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Only one inspection is required and performed by the building division for small residential rooftop solar energy systems eligible for expedited review"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": { "min_days": 3, "max_days": 3, "notes": "Typical approval time for solar panel permits in American Canyon is 3 business days." }, "confidence": 0.6, "source_ids": ["S1"] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Streamlined Residential Rooftop Solar Energy Permit (AB 2188 / Solar Rights Act compliant)",
+      "other_conditions": [
+        "The city reviews submitted plans for building code compliance, structural integrity, fire safety, energy code, and ADA accessibility",
+        "Larger rooftop systems (10kW and above) require standard building and electrical permits with full plan review",
+        "Ground-mounted arrays require a building permit, electrical permit, and zoning review as accessory structures"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": { "value": null, "confidence": 0, "source_ids": [] },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Chapter 16.15: Streamlined Residential Rooftop Solar Energy Permit",
+      "url": "https://law.cityofamericancanyon.org/us/ca/cities/american-canyon/code/16.15",
+      "publisher": "City of American Canyon Municipal Code",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
