@@ -1,0 +1,157 @@
+{
+  "record_id": "ca-orange-san-juan-capistrano-sdge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S2", "S1"],
+    "notes": "San Juan Capistrano is absent from SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (re-verified directly this session, consistent with the same finding for neighboring San Clemente and Dana Point). The city's own solar permit page directly confirms SDG&E as the interconnecting utility, requiring an 'SDG&E Work Order' for panel upgrades."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither San Diego Community Power nor Clean Energy Alliance (the two CCAs operating in SDG&E territory) name San Juan Capistrano as a member city this session. Left null rather than asserted either way."
+  },
+  "city": { "value": "San Juan Capistrano", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Orange County",
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "permit_authority": {
+    "value": "City of San Juan Capistrano Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.sanjuancapistrano.org/218/Solar-PV-Electric-Vehicle-Charging-Stati",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025. Administered across SDG&E's entire distribution territory (via CSE), which includes San Juan Capistrano — same statewide tier already independently verified for other SDG&E-territory records this session.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S4"],
+    "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Building Permit Application", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Solar Expedited Eligibility Checklist", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Two complete sets of 11x17 plans (stapled)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Two sets of structural calculations", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Two sets of manufacturer specifications", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Signed contract or letter of intent", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SDG&E Work Order (for panel upgrades)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Electrical Load Calculation Form (required for all installations)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Two photographs of existing service panels showing circuit breakers and ratings", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page details submittal requirements and timelines but does not itself describe the on-site inspection-scheduling process." },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 3, "notes": "Expedited approvals: same day or within 3 business days. Standard (non-expedited) solar reviews: within 2 working weeks. Resubmittals: 5-7 business days." },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Streamlined permitting for roof-mounted residential systems 10kW AC or less, single-family and duplex homes",
+      "other_conditions": [
+        "Ground-mounted, multi-family, and commercial systems require standard plan check review",
+        "City Hall is currently open by appointment only"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Residential solar permit (base)", "amount_usd": 0, "unit": "flat", "notes": "The city's own page states residential solar permits are 'no-fee,' though revisions incur applicable fees. Systems including main panel upgrades, battery backup, additional electrical equipment, or ground-mounted installations are charged associated fees (amounts not stated)." }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of San Juan Capistrano City Hall / Building Division",
+        "phone": "949-493-1171",
+        "email": null,
+        "url": "https://www.sanjuancapistrano.org/218/Solar-PV-Electric-Vehicle-Charging-Stati"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SDG&E territory)",
+        "phone": null,
+        "email": null,
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S4"]
+  },
+  "last_verified": "2026-08-06",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar PV & Electric Vehicle Charging Stations",
+      "url": "https://www.sanjuancapistrano.org/218/Solar-PV-Electric-Vehicle-Charging-Stati",
+      "publisher": "City of San Juan Capistrano",
+      "type": "government",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE (San Juan Capistrano confirmed absent from this list)",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+      "publisher": "San Diego Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-06"
+    }
+  ]
+}
