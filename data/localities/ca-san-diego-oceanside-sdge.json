@@ -1,0 +1,139 @@
+{
+  "record_id": "ca-san-diego-oceanside-sdge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Oceanside is a well-documented San Diego County city within SDG&E's core service territory, consistent with SDG&E-territory records established elsewhere this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Clean Energy Alliance (CEA)",
+      "type": "cca",
+      "notes": "CEA's own homepage confirms Oceanside as one of its 7 member cities (Carlsbad, Del Mar, Escondido, Oceanside, San Marcos, Solana Beach, Vista); Oceanside began CEA service in 2024. Per CEA's own description: 'Clean Energy Alliance purchases power directly from power providers and/or builds energy generation sources' while 'SDG&E delivers energy, handles billing and serves customers.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S4"]
+  },
+  "city": { "value": "Oceanside", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Oceanside Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.ci.oceanside.ca.us/government/development-services/building/solarapp",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025. Administered across SDG&E's entire distribution territory, which includes Oceanside.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S3"],
+    "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ approval (main dwelling rooftop, residential structures only)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Panel layout and electrical schematics", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Engineering certification verifying existing roof structure can support additional dead load", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections for solar installations may be performed without the homeowner present if a note is left granting the inspector access"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (Photovoltaic Only and Photovoltaic with Battery Storage)",
+      "other_conditions": [
+        "Only contractors who have completed SolarAPP+ training and are approved by SolarAPP+ may use the streamlined process",
+        "As of January 1, 2026 the city enforces the 2025 California Code of Regulations, Title 24; applications received on or after that date are subject to the 2025 codes"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Oceanside Building Division",
+        "phone": null,
+        "email": null,
+        "url": "https://www.ci.oceanside.ca.us/government/development-services/building"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarAPP+",
+      "url": "https://www.ci.oceanside.ca.us/government/development-services/building/solarapp",
+      "publisher": "City of Oceanside",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+      "publisher": "San Diego Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S4",
+      "title": "Clean Energy Alliance (homepage)",
+      "url": "https://thecleanenergyalliance.org/",
+      "publisher": "Clean Energy Alliance",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

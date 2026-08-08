@@ -1,0 +1,135 @@
+{
+  "record_id": "ca-san-diego-poway-sdge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Poway is a well-documented San Diego County city within SDG&E's core service territory, consistent with SDG&E-territory records established elsewhere this session."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Poway is not named as a member of either San Diego Community Power (San Diego, Chula Vista, Encinitas, Imperial Beach, La Mesa, National City) or Clean Energy Alliance (Carlsbad, Del Mar, Escondido, Oceanside, San Marcos, Solana Beach, Vista). No CCA was found serving Poway this session."
+  },
+  "city": { "value": "Poway", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Poway Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://poway.org/854/Solar-Photovoltaic-PV-Permits-AB-2188",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025. Administered across SDG&E's entire distribution territory, which includes Poway.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S3"],
+    "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Poway Building Permit Application", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Poway Solar Compliance List", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Eligibility Checklist", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Standard Plan sheets (including microinverter option)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Structural Criteria documentation", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule inspection by calling 858-668-4646 (automated line) or via the online portal",
+      "City provides an Inspection Guide detailing requirements"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 14, "max_days": 28, "notes": "For first submittal, the city advises planning for up to 14 calendar days for building reviews and up to 28 calendar days for planning and engineering reviews; qualifying expedited-review projects may be faster." },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "AB 2188 expedited review",
+      "other_conditions": [
+        "Ground-mounted PV system permits cannot be issued without a County Health Department verification stamp",
+        "Two sets of plans required for roof-mounted systems (plot plan, roof plan, electrical single-line diagram, system information)"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states fees are collected at the time of permit issuance but does not state a specific dollar amount." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Poway Building Division",
+        "phone": "858-668-4645",
+        "email": null,
+        "url": "https://poway.org/854/Solar-Photovoltaic-PV-Permits-AB-2188"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic (PV) Permits (AB 2188)",
+      "url": "https://poway.org/854/Solar-Photovoltaic-PV-Permits-AB-2188",
+      "publisher": "City of Poway",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+      "publisher": "San Diego Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

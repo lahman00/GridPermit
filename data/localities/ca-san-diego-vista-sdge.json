@@ -1,0 +1,133 @@
+{
+  "record_id": "ca-san-diego-vista-sdge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "San Diego Gas & Electric (SDG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Vista is a well-documented San Diego County city within SDG&E's core service territory; search-engine synthesis of the city's own page confirms 'after City approval, SDG&E interconnection is a separate step for grid-tied systems.'"
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Clean Energy Alliance (CEA)",
+      "type": "cca",
+      "notes": "CEA's own homepage confirms Vista as one of its 7 member cities (Carlsbad, Del Mar, Escondido, Oceanside, San Marcos, Solana Beach, Vista). Per CEA's own description: 'Clean Energy Alliance purchases power directly from power providers and/or builds energy generation sources' while 'SDG&E delivers energy, handles billing and serves customers.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S4"]
+  },
+  "city": { "value": "Vista", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Vista Development Services, Community Development",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "vista.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page, not independently read."
+  },
+  "permit_url": {
+    "value": "https://www.vista.gov/city-services/community-development/permits-forms/solarapp",
+    "confidence": 0.55,
+    "source_ids": ["S1"],
+    "notes": "URL identified via search-engine indexing; vista.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+  },
+  "interconnection_url": {
+    "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025. Administered across SDG&E's entire distribution territory, which includes Vista.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S3"],
+    "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "vista.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
+  "inspection_steps": {
+    "value": [
+      "Request a building inspection by contacting the city at 760-639-6106 (24-hours) once work is ready to be inspected"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": { "min_days": 0, "max_days": 0, "notes": "Search-engine synthesis of the city's own page indicates SolarApp+ permits are issued the same day once the online application and fees are complete; not independently confirmed via direct fetch this session." }, "confidence": 0.55, "source_ids": ["S1"] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarApp+",
+      "other_conditions": [
+        "Only qualifying SolarApp+ photovoltaic projects can be submitted online; other permit applications must be submitted in person at the Development Services Counter",
+        "All contractors pulling permits within the City of Vista must hold a City of Vista Business License"
+      ]
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Vista Inspections",
+        "phone": "760-639-6106",
+        "email": null,
+        "url": "https://www.vista.gov/city-services/community-development/permits-forms/solarapp"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarApp+",
+      "url": "https://www.vista.gov/city-services/community-development/permits-forms/solarapp",
+      "publisher": "City of Vista",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
+      "publisher": "San Diego Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S4",
+      "title": "Clean Energy Alliance (homepage)",
+      "url": "https://thecleanenergyalliance.org/",
+      "publisher": "Clean Energy Alliance",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
