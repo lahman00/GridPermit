@@ -1,0 +1,151 @@
+{
+  "record_id": "ca-san-bernardino-barstow-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Barstow' by name among the cities in its service area."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Community Choice Aggregator was confirmed serving the City of Barstow this session."
+  },
+  "city": { "value": "Barstow", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Barstow Community Development Department, Building & Safety Division",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "barstowca.org returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page, not independently read."
+  },
+  "permit_url": {
+    "value": "https://www.barstowca.org/departments/community-development-department/building-safety/solar-app",
+    "confidence": 0.55,
+    "source_ids": ["S1"],
+    "notes": "URL identified via search-engine indexing; barstowca.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Barstow.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Eligibility Checklist for Expedited Solar Photovoltaic Permitting for One- and Two-Family Dwellings", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Valid City of Barstow Business License (contractor)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Contact the City of Barstow Building Department by phone (760-255-5161) or email (building@barstowca.org) to schedule on-site inspections"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (Solar Automated Permit Processing)",
+      "other_conditions": [
+        "Projects can qualify for expedited processing by demonstrating compliance with the Eligibility Checklist for Expedited Solar Photovoltaic Permitting for One- and Two-Family Dwellings"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Barstow Building Department",
+        "phone": "760-255-5161",
+        "email": "building@barstowca.org",
+        "url": "https://www.barstowca.org/departments/community-development-department/building-safety/solar-app"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar APP+",
+      "url": "https://www.barstowca.org/departments/community-development-department/building-safety/solar-app",
+      "publisher": "City of Barstow",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

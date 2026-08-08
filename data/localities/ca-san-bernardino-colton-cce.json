@@ -1,0 +1,114 @@
+{
+  "record_id": "ca-san-bernardino-colton-cce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "City of Colton Electric Utility",
+    "confidence": 0.9,
+    "source_ids": ["S1", "S2"],
+    "notes": "The City of Colton Electric Utility is the city's own municipal electric utility, established in 1887, a member of the Southern California Public Power Authority (SCPPA). Colton is notably absent from SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet, consistent with Colton having its own municipal utility rather than SCE service."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "City of Colton Electric Utility",
+      "type": "utility",
+      "notes": "Colton Electric is a vertically-integrated municipal utility (like Riverside Public Utilities, Banning Electric Utility, Burbank Water and Power, and Glendale Water and Power) — it procures and delivers its own power to approximately 20,429 customers rather than sitting alongside a separate CCA. No Community Choice Aggregator was found serving Colton in the sources reviewed this session."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Colton", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Colton Electric Utility, Engineering and Planning Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.coltonca.gov/354/Solar-Program",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.coltonca.gov/354/Solar-Program",
+    "confidence": 0.8,
+    "source_ids": ["S1"],
+    "notes": "Colton Electric Utility's own solar program page, which hosts the PowerClerk online interconnection application portal."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "PowerClerk online application", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "12-month electric consumption data (obtained via online form, 3-business-day turnaround)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Load Questionnaire (if panel upgrade needed)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Service Panel Upgrade Requirements documentation", "required_when": "conditional", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page requires a Production Meter and two AC disconnects and notes appointments are required for pre-installation meetings, but does not itself detail the inspection-scheduling process." },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Colton Electric Net Metering",
+      "other_conditions": [
+        "System sizing capped at 100% of the customer's actual 12-month energy consumption, with no exceptions",
+        "Alternative sizing of 2 watts per square foot used if consumption history is unavailable",
+        "Production Meter and two AC disconnects are mandatory",
+        "Net metering is a 1:1 kWh credit system with an annual true-up in June; unused credits paid at $0.04/kWh"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Solar review charge", "amount_usd": 225, "unit": "flat", "notes": "Stated as of March 2021; must be paid before permit issuance." }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Colton Electric Utility (Solar Energy Advisor)",
+        "phone": "909-370-5099",
+        "email": "arogers@coltonca.gov",
+        "url": "https://www.coltonca.gov/354/Solar-Program"
+      },
+      {
+        "name": null,
+        "role": "City of Colton Electric Engineering and Planning Division",
+        "phone": "909-370-6132",
+        "email": null,
+        "url": "https://coltonca.gov/928/Engineering-and-Planning"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Program",
+      "url": "https://www.coltonca.gov/354/Solar-Program",
+      "publisher": "City of Colton Electric Utility",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE (Colton confirmed absent from this list)",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

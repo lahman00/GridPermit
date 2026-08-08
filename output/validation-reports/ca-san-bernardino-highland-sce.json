@@ -1,0 +1,76 @@
+{
+  "record_id": "ca-san-bernardino-highland-sce",
+  "file": "data/localities/ca-san-bernardino-highland-sce.json",
+  "validated_at": "2026-08-08",
+  "status": "REVIEW",
+  "score": 96,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[S2].url",
+      "category": "broken_url",
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.highlandca.gov/357/Photovoltaic-Energy-Systems-SOLAR",
+      "checked_at": "2026-08-08T18:55:45.219Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "checked_at": "2026-08-08T18:55:46.275Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/about/",
+      "checked_at": "2026-08-08T18:55:46.281Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/contact/",
+      "checked_at": "2026-08-08T18:55:47.022Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "checked_at": "2026-08-08T18:55:47.782Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "DNS failure (ENOTFOUND)"
+    }
+  ]
+}

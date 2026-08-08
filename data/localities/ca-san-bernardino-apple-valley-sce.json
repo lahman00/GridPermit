@@ -1,0 +1,128 @@
+{
+  "record_id": "ca-san-bernardino-apple-valley-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Apple Valley' by name among the cities in its service area. SCE continues to deliver electricity, maintain infrastructure, and provide billing/customer service for Apple Valley Choice Energy (AVCE) customers under the CCA structure."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Apple Valley Choice Energy (AVCE)",
+      "type": "cca",
+      "notes": "AVCE is the Town of Apple Valley's own Community Choice Aggregator, governed by the Apple Valley Town Council, operational since 2017. Customers are automatically enrolled in the default 'CoreChoice' plan (minimum 35% renewable); a 'MoreChoice' opt-up plan provides 100% renewable electricity for a $2.00/month premium. SCE continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S6"]
+  },
+  "city": { "value": "Apple Valley", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "Town of Apple Valley Building and Safety Division",
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "The town's dedicated Solar Photovoltaic (PV) Permit page returned HTTP 403/404 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing, but page-specific content was not independently read."
+  },
+  "permit_url": {
+    "value": "https://applevalley.org/business/permit-center/",
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "The town's dedicated Solar Photovoltaic (PV) Permit sub-page (applevalley.org/services/building-and-safety/permit-center/solar-photovoltaic-pv-permit) was confirmed HTTP 404 (removed/moved) this session, likely due to a site migration to a govaccess.org domain (which itself returned HTTP 403 to automated fetch). This URL points to the town's general, live Permit Center page instead."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Apple Valley.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The town's dedicated solar permit page returned HTTP 403/404 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis of the town's dedicated solar permit page (since confirmed HTTP 404/removed) indicated two inspections are required, but with that page gone the fact could not be independently re-verified this session." },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis of the town's dedicated solar permit page (since confirmed HTTP 404/removed) indicated an approximate one-week review timeline, but with that page gone the fact could not be independently re-verified this session." },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "The town's dedicated solar permit page returned HTTP 403/404 to automated fetch on every attempt this session, blocking access to specific eligibility/size limits." },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Apple Valley Permit Center",
+        "phone": "760-240-7000",
+        "email": null,
+        "url": "https://applevalley.org/business/permit-center/"
+      },
+      {
+        "name": null,
+        "role": "Apple Valley Choice Energy (AVCE)",
+        "phone": null,
+        "email": null,
+        "url": "https://avchoiceenergy.com/about-avce/"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1", "S6"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Permit Center",
+      "url": "https://applevalley.org/business/permit-center/",
+      "publisher": "Town of Apple Valley",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "About AVCE",
+      "url": "https://avchoiceenergy.com/about-avce/",
+      "publisher": "Apple Valley Choice Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
