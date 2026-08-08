@@ -1,0 +1,72 @@
+{
+  "record_id": "ca-contra-costa-san-ramon-pge",
+  "file": "data/localities/ca-contra-costa-san-ramon-pge.json",
+  "validated_at": "2026-08-08",
+  "status": "REVIEW",
+  "score": 96,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "broken_url",
+      "message": "https://www.mcecleanenergy.org/service-area/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.sanramon.ca.gov/our_city/departments_and_divisions/community_development/building_and_safety_services/permit_and_plan_submittal_instructions/residential_solar_photovoltaic",
+      "checked_at": "2026-08-08T19:40:47.572Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "checked_at": "2026-08-08T19:40:48.678Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.sanramon.ca.gov/our_city/departments_and_divisions/community_development/building_and_safety_services",
+      "checked_at": "2026-08-08T19:40:48.886Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "checked_at": "2026-08-08T19:40:49.661Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}
