@@ -302,16 +302,18 @@ export function buildFaqs(record: LocalityRecord): FaqEntry[] {
 	const generationSupplier = record.generation_supplier.value;
 	const timelineValue = record.timeline_days?.value ?? null;
 
-	faqs.push({
-		q: `What utility serves solar customers in ${record.city.value}, California?`,
-		a:
-			`${record.utility.value} is the interconnection and distribution utility for ${record.city.value}.` +
-			(generationSupplier
-				? ` The default electricity generation supplier is ${generationSupplier.name}, a ${
-						generationSupplier.type === "cca" ? "Community Choice Aggregator (CCA)" : generationSupplier.type
-					}, separate from ${record.utility.value}.`
-				: ""),
-	});
+	if (record.utility.value) {
+		faqs.push({
+			q: `What utility serves solar customers in ${record.city.value}, California?`,
+			a:
+				`${record.utility.value} is the interconnection and distribution utility for ${record.city.value}.` +
+				(generationSupplier
+					? ` The default electricity generation supplier is ${generationSupplier.name}, a ${
+							generationSupplier.type === "cca" ? "Community Choice Aggregator (CCA)" : generationSupplier.type
+						}, separate from ${record.utility.value}.`
+					: ""),
+		});
+	}
 
 	if (timelineValue) {
 		const td = timelineValue;

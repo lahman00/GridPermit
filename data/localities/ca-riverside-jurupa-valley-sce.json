@@ -1,0 +1,164 @@
+{
+  "record_id": "ca-riverside-jurupa-valley-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Jurupa Valley' by name among the cities in its service area."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Jurupa Valley is a named member city of Western Community Energy (WCE), but WCE deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021, with customers involuntarily returned to their default IOU. No currently-operating CCA was confirmed serving Jurupa Valley this session, so left null rather than recording a defunct relationship as active."
+  },
+  "city": { "value": "Jurupa Valley", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Jurupa Valley Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.jurupavalley.org/581/Solar-App",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Jurupa Valley/Riverside County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "SolarApp+ Eligibility Checklist verification", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarApp+ approval document and approval number (submitted at solarapp.nrel.gov)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "City permit application selecting the 'SolarAPP+ (Preapproved)' option", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Log into the City's online permits portal to request inspection",
+      "Locate the permit by number (format: B24-XXXXXX)"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 1, "notes": "SolarApp+ approvals are stated to be possible within the same day for qualifying projects." },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarApp+ (main dwelling rooftop, permitted residential structures)",
+      "other_conditions": [
+        "No ballasted or ground-mounted systems eligible for SolarApp+",
+        "Licensed contractors required to submit designs",
+        "Revisions submitted through solarapp.nrel.gov; initial processing fee covers up to three revisions"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states a SolarApp+/NREL processing fee applies but does not state a specific dollar amount." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Jurupa Valley City Hall",
+        "phone": "951-332-6464",
+        "email": null,
+        "url": "https://www.jurupavalley.org/581/Solar-App"
+      },
+      {
+        "name": null,
+        "role": "City of Jurupa Valley Inspections",
+        "phone": "951-332-0790",
+        "email": null,
+        "url": "https://www.jurupavalley.org/581/Solar-App"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar App+",
+      "url": "https://www.jurupavalley.org/581/Solar-App",
+      "publisher": "City of Jurupa Valley",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

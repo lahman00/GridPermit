@@ -1,0 +1,104 @@
+{
+  "record_id": "ca-riverside-corona-multi",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Corona is confirmed to be genuinely split between two separate electric providers, with no majority established this session. The City's own Expedited Permits page states applicants must obtain 'a separate application process and approval from the electric utility authority for your address' — naming both 'Southern California Edison' and the 'Corona Utilities Department' as the possible provider depending on address. Southern California Edison's own 'Incorporated Cities and Counties Served by SCE' fact sheet also lists Corona. The City of Corona Department of Water and Power (DWP) is confirmed to be a real, separate municipal electric utility (not a fringe/pocket service) with a stated peak electric demand of 25.8 MW, its own Electric Service and Direct Access programs, and a dedicated solar contact. Neither provider's percentage of Corona's total service territory could be confirmed this session, so utility is left null rather than guessed."
+  },
+  "generation_supplier": { "value": null, "confidence": 0, "source_ids": [], "notes": "Cannot be determined without first resolving which of the two utilities (SCE vs. Corona DWP) serves a given address; Corona is not a Western Community Energy member." },
+  "city": { "value": "Corona", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Riverside County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Corona Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.coronaca.gov/departments/building-division/expedited-permits",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": { "value": null, "confidence": 0, "source_ids": [], "notes": "Interconnection process depends on which of the two electric providers (SCE or Corona DWP) serves the applicant's address; not recorded to avoid implying a single utility-wide process." },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Expedited Solar Permit Application Form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Eligibility Checklist", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Standard Plan", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Structural Criteria Form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Roof Plan", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Installation/specification sheets (PDF, max 11x17)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Separate application and approval from the applicable electric utility authority (SCE or Corona DWP, depending on address)", "required_when": "always", "source_ids": ["S1", "S2", "S3"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited plan check (Central Inverter PV, Microinverter/ACM PV, Rooftop Solar Domestic Water Heating, Rooftop Solar Pool Water Heating)",
+      "other_conditions": [
+        "Plan check processing does not begin until plan check fees are confirmed paid",
+        "Corona Utilities prohibits 'Tesla Backup Switch' or similar devices attached directly to the electric service meter; such devices must be installed downstream in a separate enclosure"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states plan check fees apply but directs applicants to a separate fee schedule not fetched this session." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Corona Building Division",
+        "phone": "951-736-2250",
+        "email": "BuildingPlanCheck@CoronaCA.gov",
+        "url": "https://www.coronaca.gov/departments/building-division/expedited-permits"
+      },
+      {
+        "name": "Marjorie Adeva",
+        "role": "Corona Utilities (Solar)",
+        "phone": "951-279-3677",
+        "email": "Marjorie.Adeva@CoronaCA.gov",
+        "url": "https://www.coronaca.gov/government/departments-divisions/department-of-water-and-power/about-dwp"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S3"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Expedited Permits",
+      "url": "https://www.coronaca.gov/departments/building-division/expedited-permits",
+      "publisher": "City of Corona",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "About The Utilities Department (Department of Water and Power)",
+      "url": "https://www.coronaca.gov/government/departments-divisions/department-of-water-and-power/about-dwp",
+      "publisher": "City of Corona",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

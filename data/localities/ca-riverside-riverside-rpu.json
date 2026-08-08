@@ -1,0 +1,113 @@
+{
+  "record_id": "ca-riverside-riverside-rpu",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Riverside Public Utilities (RPU)",
+    "confidence": 0.95,
+    "source_ids": ["S1", "S2"],
+    "notes": "Riverside Public Utilities is the City of Riverside's own municipal electric utility. Riverside is notably absent from SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet, consistent with Riverside having its own municipal utility rather than SCE service."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Riverside Public Utilities (RPU)",
+      "type": "utility",
+      "notes": "RPU is a vertically-integrated municipal utility (like LADWP, Burbank Water and Power, and Glendale Water and Power) — it generates/procures and delivers its own power rather than sitting alongside a separate CCA. No Community Choice Aggregator was found serving Riverside in the sources reviewed this session (Riverside is not a Western Community Energy member, and WCE itself deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021)."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Riverside", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Riverside County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Riverside Community & Economic Development Department (CEDD), Building Safety Division",
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "permit_url": {
+    "value": "https://riversideca.gov/utilities/residents/solar-info",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://riversideca.gov/utilities/residents/solar-info",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "RPU's own solar/NEM interconnection information page — RPU's NEM Interconnection Agreement (separate from the City building permit) is required before a system may be turned on."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "RPU's page references a 'Residential Solar Energy Program' rebate but does not itself detail a battery/storage-specific incentive amount; not independently confirmed this session." },
+  "required_documents": {
+    "value": [
+      { "name": "City of Riverside building permit application (grid-tied PV systems)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "RPU NEM Interconnection Agreement (utility-signed, separate from the City permit)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "RPU's page references 'final permit approval' from the City but does not itself detail the inspection-scheduling process." },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "RPU Net Energy Metering (NEM)",
+      "other_conditions": [
+        "System sizing may offset up to 100% of the customer's historical 12-month energy consumption",
+        "New customers with less than 12 months of billing history are sized using 2 watts per square foot of living space, including garages",
+        "Residential and small business customers with a maximum yearly demand of 10kW or less may elect annual billing instead of the monthly default"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "A third-party guide cites $150-$300 for a typical residential system, but this was not independently confirmed against RPU's or the City's own fee schedule this session, so it is not recorded here." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [], "notes": "RPU's page references a 'Residential Solar Energy Program' offering rebates but the specific program details were not independently confirmed this session." },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Riverside Public Utilities (Solar/NEM billing questions)",
+        "phone": "951-782-0330",
+        "email": null,
+        "url": "https://riversideca.gov/utilities/residents/solar-info"
+      },
+      {
+        "name": null,
+        "role": "City of Riverside Building & Safety (permit questions)",
+        "phone": "951-826-5697",
+        "email": null,
+        "url": "https://riversideca.gov/cedd/building-safety/online-permits/solarapp"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S3"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Info",
+      "url": "https://riversideca.gov/utilities/residents/solar-info",
+      "publisher": "Riverside Public Utilities / City of Riverside",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE (Riverside confirmed absent from this list)",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "SolarAPP+ | CEDD",
+      "url": "https://riversideca.gov/cedd/building-safety/online-permits/solarapp",
+      "publisher": "City of Riverside",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
