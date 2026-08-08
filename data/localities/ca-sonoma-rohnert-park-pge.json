@@ -1,0 +1,98 @@
+{
+  "record_id": "ca-sonoma-rohnert-park-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Rohnert Park is a well-documented Sonoma County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Sonoma Clean Power",
+      "type": "cca",
+      "notes": "Sonoma Clean Power is the public power provider for Sonoma and Mendocino counties, serving all incorporated cities in Sonoma County except Healdsburg (its own municipal utility) and Ukiah (Mendocino County). PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.7,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Rohnert Park", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Sonoma County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Rohnert Park Development Services, Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.rpcity.ca.gov/229/Solar-Permits",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page confirms applicants apply through the Symbium automated permitting platform but does not itself enumerate a specific document checklist." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium automated permitting platform (SB 379 compliant)",
+      "other_conditions": [
+        "Automated permits available only for rooftop systems on single-family homes and duplexes, including those with energy storage systems",
+        "Other solar project types must submit for an Electrical permit through the City's eTRAKiT system"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Rohnert Park Development Services",
+        "phone": "707-588-2226",
+        "email": null,
+        "url": "https://www.rpcity.ca.gov/229/Solar-Permits"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permits",
+      "url": "https://www.rpcity.ca.gov/229/Solar-Permits",
+      "publisher": "City of Rohnert Park",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Home",
+      "url": "https://sonomacleanpower.org/",
+      "publisher": "Sonoma Clean Power",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
