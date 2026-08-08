@@ -1,0 +1,105 @@
+{
+  "record_id": "ca-santa-clara-los-gatos-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Los Gatos is a well-documented Santa Clara County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Silicon Valley Clean Energy (SVCE)",
+      "type": "cca",
+      "notes": "SVCE's own 'The Agency' page confirms Los Gatos as one of 13 member jurisdictions. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Los Gatos", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Santa Clara County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Los Gatos Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://permits.losgatosca.gov/Building/Apply-Directly-for-a-Residential-SolarAPP-Permit",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Completed permit application", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Plan set (bookmarked, signed by design professional, single PDF)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarApp+ Approval Number", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarApp+ (automated code-compliance review for most residential rooftop PV)",
+      "other_conditions": [
+        "Applicants must register for an account on the Town's permit portal; a Building Permit Technician must approve the account before submission can proceed"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Los Gatos Building Division",
+        "phone": null,
+        "email": "Building@losgatosca.gov",
+        "url": "https://www.losgatosca.gov/220/Building"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Apply Directly for a Residential SolarAPP+ Permit",
+      "url": "https://permits.losgatosca.gov/Building/Apply-Directly-for-a-Residential-SolarAPP-Permit",
+      "publisher": "Town of Los Gatos",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "The Agency",
+      "url": "https://www.svcleanenergy.org/the-agency/",
+      "publisher": "Silicon Valley Clean Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

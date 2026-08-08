@@ -1,0 +1,128 @@
+{
+  "record_id": "ca-santa-clara-gilroy-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Gilroy is a well-documented Santa Clara County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Silicon Valley Clean Energy (SVCE)",
+      "type": "cca",
+      "notes": "SVCE's own 'The Agency' page confirms Gilroy as one of 13 member jurisdictions. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Gilroy", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Santa Clara County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Gilroy Building and Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.cityofgilroy.org/975/SolarApp-for-Residential-Solar-Installer",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Manufacturer specifications for all components", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Completed electrical plan with single-line diagram (module counts, inverter details, grounding specs)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Roof plan with fire safety items and code-compliant access pathways", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Structural documentation (engineer-stamped for non-standard systems)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Smoke detector and carbon monoxide self-certification form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Water conserving plumbing fixture compliance form", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Request inspections online or via Inspect@CityofGilroy.org, providing permit number, address, inspection type, and preferred date/time",
+      "Inspections are scheduled 72 hours out for all appointments",
+      "Same-day cancellations incur reinspection fees"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 38.4,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (roof-mounted, retrofit systems up to 38.4kW)",
+      "other_conditions": [
+        "Systems up to 38.4kW qualify for automated permitting without separate planning or fire service reviews",
+        "All roof-mounted installations must meet California State Fire Marshall requirements, verified through plan checks and inspections"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Solar PV permit (15kW or less)", "amount_usd": 450, "unit": "flat" },
+      { "name": "Solar PV permit (over 15kW)", "amount_usd": 500, "unit": "flat", "notes": "Plus $15/kW above 15kW." },
+      { "name": "Energy Storage System permit", "amount_usd": 103.27, "unit": "flat" },
+      { "name": "ESS building inspection", "amount_usd": 146.77, "unit": "flat", "notes": "Plus hourly rate." },
+      { "name": "ESS fire inspection (>50kWh)", "amount_usd": 260, "unit": "flat", "notes": "Plus hourly rate." },
+      { "name": "Revision fee", "amount_usd": 137.03, "unit": "flat", "notes": "Plus divisional hourly rate." }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Gilroy Building and Safety Division",
+        "phone": "408-846-0451",
+        "email": "Inspect@CityofGilroy.org",
+        "url": "https://www.cityofgilroy.org/975/SolarApp-for-Residential-Solar-Installer"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarApp+ for Residential Solar Installers",
+      "url": "https://www.cityofgilroy.org/975/SolarApp-for-Residential-Solar-Installer",
+      "publisher": "City of Gilroy",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "The Agency",
+      "url": "https://www.svcleanenergy.org/the-agency/",
+      "publisher": "Silicon Valley Clean Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
