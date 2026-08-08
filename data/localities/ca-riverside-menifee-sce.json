@@ -1,0 +1,143 @@
+{
+  "record_id": "ca-riverside-menifee-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Menifee' by name among the cities in its service area, and the city's own page directs applicants to contact SCE directly for utility work."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Menifee is not a Western Community Energy member city (Eastvale, Hemet, Jurupa Valley, Norco, Perris, and Wildomar are); WCE itself deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021. No CCA was found serving Menifee this session."
+  },
+  "city": { "value": "Menifee", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Menifee Building & Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.menifee.ca.gov/401/Solar-Photovoltaic-System",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Menifee/Riverside County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Completed permit application and PDF plans", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Address verification through City Maps", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Structural calculations (new ground-mounted systems)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Active City of Menifee Business License (contractor)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 14, "notes": "The city states a plan check wait time of up to 14 business days for all solar submittals, with resubmittal turnaround matching that same standard." },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Standard solar PV permitting (Menifee Permit Portal)",
+      "other_conditions": [
+        "All solar PV systems require an electrical permit",
+        "Additional permits required if structural modifications are necessary (e.g., new struts, purlins, or framing members)",
+        "Submittals must comply with the 2025 California Building Standards Code"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page references 'low permit fees' for solar PV installations but does not state a specific amount." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Menifee Building & Safety Division (Solar)",
+        "phone": "951-672-6777",
+        "email": "solar@cityofmenifee.us",
+        "url": "https://www.menifee.ca.gov/401/Solar-Photovoltaic-System"
+      },
+      {
+        "name": null,
+        "role": "Southern California Edison (utility interconnection work)",
+        "phone": "951-928-8290",
+        "email": null,
+        "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic System",
+      "url": "https://www.menifee.ca.gov/401/Solar-Photovoltaic-System",
+      "publisher": "City of Menifee",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}

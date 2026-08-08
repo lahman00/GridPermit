@@ -1,0 +1,159 @@
+{
+  "record_id": "ca-riverside-beaumont-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Beaumont' by name among the cities in its service area."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Beaumont is not a Western Community Energy member city (Eastvale, Hemet, Jurupa Valley, Norco, Perris, and Wildomar are); WCE itself deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021. No CCA was found serving Beaumont this session."
+  },
+  "city": { "value": "Beaumont", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Beaumont Building & Safety Department",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://beaumontpd.org/1456/Photovoltaic-Permit-Streamlining",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Beaumont/Riverside County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Approved Symbium-issued documents (8.5x11)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Equipment manufacturer specifications (8.5x11)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Single line diagram (11x17)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "City of Beaumont Business License (contractor)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Citizen Self Service (CSS) Portal Account", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Standard inspections requested through the CSS Portal",
+      "Fire Prevention Division inspection required first if battery storage exceeds 20kW (requested via email)"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": 1, "max_days": 2, "notes": "Standard city plan review typically takes 24-48 hours via the CSS Portal; the expedited third-party (Symbium) automated review pathway is also available." },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 38.4,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Photovoltaic Permit Streamlining (expedited)",
+      "other_conditions": [
+        "Contractor must hold a California license (A, B, C-10, or C-46)",
+        "Applies to residential photovoltaic or battery energy storage systems 38.4kW AC nameplate rating or less",
+        "Contractor must hold a City of Beaumont Business License and maintain a CSS Portal account"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states additional vendor (Symbium) fees apply for expedited service and that revisions may incur additional fees, but does not state specific dollar amounts." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Beaumont Building & Safety Department",
+        "phone": "951-769-8520",
+        "email": "permits@beaumontca.gov",
+        "url": "https://beaumontpd.org/1456/Photovoltaic-Permit-Streamlining"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Photovoltaic Permit Streamlining",
+      "url": "https://beaumontpd.org/1456/Photovoltaic-Permit-Streamlining",
+      "publisher": "City of Beaumont",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}
