@@ -1,0 +1,130 @@
+{
+  "record_id": "ca-contra-costa-hercules-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Hercules is a well-documented Contra Costa County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms Hercules as one of 16 Contra Costa County communities it serves (alongside Concord, Danville, El Cerrito, Lafayette, Martinez, Moraga, Oakley, Pinole, Pittsburg, Pleasant Hill, Richmond, San Pablo, San Ramon, Walnut Creek, and unincorporated Contra Costa County). PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Hercules", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Contra Costa County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Contra Costa County Department of Conservation and Development, Building Inspection Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Contra Costa County's own SolarAPP+ page directly confirms Hercules is one of the cities (alongside Clayton, Lafayette, Orinda, and the Town of Moraga) that contracts residential building permitting to the County rather than maintaining its own building department for this function."
+  },
+  "permit_url": {
+    "value": "https://www.contracosta.ca.gov/9880/Solar-Permits-through-SolarAPP-For-Solar",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "AS BUILT plan set with manufacturer specifications (11x17, color, minimum)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ Approval document", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Permit card (2 pages)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule inspection by phone (925-646-4108, same-day requests accepted until 5:30 AM Monday-Friday) or online via the ePermits Center",
+      "Schedule type: '120 Building-Final'"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": { "min_days": 0, "max_days": 0, "notes": "Permits are auto-issued and emailed within a few minutes of successful SolarAPP+ submission to the County." }, "confidence": 0.85, "source_ids": ["S1"] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Contra Costa County SolarAPP+ (covers Hercules, Clayton, Lafayette, Orinda, Town of Moraga, and unincorporated County)",
+      "other_conditions": [
+        "Main dwelling rooftop residential structures only; no ballasted systems or mobile home parks",
+        "Not in FEMA Special Flood Hazard Areas or airport safety zones; not historic properties",
+        "Applicant contractor must be licensed and previously registered with SolarAPP+"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Solar system review fee", "amount_usd": 35, "unit": "flat" },
+      { "name": "Energy storage add-on fee", "amount_usd": 25, "unit": "flat" },
+      { "name": "Re-inspection penalty (missing/incorrect documents)", "amount_usd": 150, "unit": "flat" }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Contra Costa County Building Inspection Division",
+        "phone": "925-655-2700",
+        "email": null,
+        "url": "https://www.contracosta.ca.gov/9880/Solar-Permits-through-SolarAPP-For-Solar"
+      },
+      {
+        "name": null,
+        "role": "Contra Costa County Inspection Scheduling",
+        "phone": "925-646-4108",
+        "email": null,
+        "url": "https://www.contracosta.ca.gov/9880/Solar-Permits-through-SolarAPP-For-Solar"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permits through SolarAPP+ For Solar Installers",
+      "url": "https://www.contracosta.ca.gov/9880/Solar-Permits-through-SolarAPP-For-Solar",
+      "publisher": "Contra Costa County",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "record_id": "ca-alameda-emeryville-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Emeryville is a well-documented Alameda County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Ava Community Energy",
+      "type": "cca",
+      "notes": "Ava Community Energy (formerly East Bay Community Energy) confirms Emeryville as a current member city, alongside Albany, Berkeley, Dublin, Fremont, Hayward, Livermore, Newark, Oakland, Piedmont, Pleasanton, San Leandro, and Union City in Alameda County. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Emeryville", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Alameda County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Emeryville Building Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.emeryville.org/Development/Building-Division/Building-Permits-and-Programs/Streamline-Rooftop-Solar-Permitting",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "URL identified via search-engine indexing; emeryville.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "emeryville.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": 3, "max_days": 3, "notes": "Search-engine synthesis indicates a typical approval time of 3 business days for the Symbium-based online permitting platform; not independently confirmed via direct fetch this session." },
+    "confidence": 0.5,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 38.4,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium online permitting platform",
+      "other_conditions": [
+        "Larger rooftop solar systems (10kW and above) require standard building and electrical permits with plan review; a PE stamp is typically required for systems over 10kW"
+      ]
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "A third-party guide cites $250-$500 for Emeryville solar permits, but this was not independently confirmed against the city's own fee schedule this session." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Emeryville Building Division",
+        "phone": null,
+        "email": null,
+        "url": "https://www.emeryville.org/Development/Building-Division"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Streamline Rooftop Solar Permitting",
+      "url": "https://www.emeryville.org/Development/Building-Division/Building-Permits-and-Programs/Streamline-Rooftop-Solar-Permitting",
+      "publisher": "City of Emeryville",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Who We Serve",
+      "url": "https://avaenergy.org/community/who-we-serve/",
+      "publisher": "Ava Community Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

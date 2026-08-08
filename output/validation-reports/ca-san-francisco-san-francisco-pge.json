@@ -1,0 +1,80 @@
+{
+  "record_id": "ca-san-francisco-san-francisco-pge",
+  "file": "data/localities/ca-san-francisco-san-francisco-pge.json",
+  "validated_at": "2026-08-08",
+  "status": "REVIEW",
+  "score": 93,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "required_documents",
+      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.sf.gov/step-by-step--get-permit-solar-photovoltaic-system",
+      "checked_at": "2026-08-08T19:26:51.218Z",
+      "status": "REACHABLE",
+      "http_status": 202,
+      "method": "HEAD",
+      "details": "HTTP 202"
+    },
+    {
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "checked_at": "2026-08-08T19:26:51.537Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.sf.gov/departments--department-building-inspection--permit-services-dbi",
+      "checked_at": "2026-08-08T19:26:52.019Z",
+      "status": "REACHABLE",
+      "http_status": 202,
+      "method": "HEAD",
+      "details": "HTTP 202"
+    },
+    {
+      "url": "https://cleanpowersf.org/",
+      "checked_at": "2026-08-08T19:26:52.089Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://cleanpowersf.org/how-it-works",
+      "checked_at": "2026-08-08T19:26:52.781Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}
