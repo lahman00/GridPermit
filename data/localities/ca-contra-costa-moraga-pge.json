@@ -1,0 +1,99 @@
+{
+  "record_id": "ca-contra-costa-moraga-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Moraga is a well-documented Contra Costa County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms Moraga as one of 16 Contra Costa County communities it serves (alongside Concord, Danville, El Cerrito, Hercules, Lafayette, Martinez, Oakley, Pinole, Pittsburg, Pleasant Hill, Richmond, San Pablo, San Ramon, Walnut Creek, and unincorporated Contra Costa County). PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Moraga", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Contra Costa County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Contra Costa County Building Department",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "The Town of Moraga's own FAQ directly confirms building permits are issued by Contra Costa County; the Town's own Planning Department only reviews non-exempt projects (e.g., ground-mounted or commercial solar)."
+  },
+  "permit_url": {
+    "value": "https://www.moraga.ca.us/FAQ.aspx?QID=104",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "Inspections are handled by Contra Costa County (925-646-4108 per the County's own SolarAPP+ page); the Town's own FAQ does not itself detail the inspection-scheduling process." },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Contra Costa County building permit (Moraga contracts building services to the County)",
+      "other_conditions": [
+        "Residential roof-mounted solar panels are exempt from Town design review but require a Contra Costa County building permit",
+        "Non-exempt solar projects (commercial installations, new ground-mounted racks) must be reviewed by the Town Planning Department and may be subject to design review and approval"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Contra Costa County Building Department (Inspections)",
+        "phone": "925-646-4108",
+        "email": null,
+        "url": "https://www.contracosta.ca.gov/9880/Solar-Permits-through-SolarAPP-For-Solar"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Do solar panels require planning review?",
+      "url": "https://www.moraga.ca.us/FAQ.aspx?QID=104",
+      "publisher": "Town of Moraga",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
