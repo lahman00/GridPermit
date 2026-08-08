@@ -1,0 +1,174 @@
+{
+  "record_id": "ca-orange-seal-beach-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Seal Beach' by name among the cities in its service area."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Orange County Power Authority (OCPA), the CCA operating in Orange County, currently names Buena Park, Fullerton, Irvine, and Fountain Valley as members — Seal Beach was not named among current members this session. Left null rather than asserted either way."
+  },
+  "city": { "value": "Seal Beach", "confidence": 1, "source_ids": ["S1"] },
+  "county": {
+    "value": "Orange County",
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "Seal Beach is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
+  },
+  "permit_authority": {
+    "value": "City of Seal Beach Community Development Department, Building & Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.sealbeachca.gov/Portals/0/Documents/Solar%20Photovoltaic%20Installation.pdf",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S3"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized budget that opened for reservations June 2, 2025. Administered by SCE across its entire distribution territory, which includes Seal Beach/Orange County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S4"],
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Completed permit application form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Electrical Plan prepared by an electrical contractor or electrical engineer (main service/disconnect locations, module/string counts, inverter make/model, one-line diagram, grounding/bonding, conductor sizing, battery locations if applicable, equipment cut sheets, CEC 690/705 labeling, site diagram with shading elements)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Three complete sets of plans for permit review and approval", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Structural support information for roof-mounted systems (roof covering/framing, panel weight/attachment, framing plan, calculations, racking system documentation)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Production analysis (if panels are visible from public view and relocating would cause a 10%+ efficiency loss, per SBMC 11.4.10.045 and California Civil Code Section 714)", "required_when": "conditional", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule on-site inspection by calling the Building Division at 562-431-2527 ext. 1519",
+      "Common inspection points: PV module count/model matches plans, workmanlike array conductor installation, proper array grounding, accessible electrical boxes, proper fastening/sealing, conductor ratings matching plans, required signage (PV power source at DC disconnect, AC point of connection, alternative power system switch), and equipment ratings consistent with installed signage"
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Standard plan-check submittal for systems under 10kW",
+      "other_conditions": [
+        "Planning review is required for all solar PV installations (not waived at this size, unlike most other cities' expedited pathways)",
+        "Fire Department approval is not required for solar PV installations of this size in residential areas",
+        "Solar collectors must be placed in the location least visible from public streets or screened from public view (SBMC 11.4.10.045), unless doing so causes a 10%+ efficiency loss per California Civil Code Section 714"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Plan Check and Permit Fee (residential photovoltaic)", "amount_usd": 0, "unit": "flat", "notes": "The city's own guidelines state: 'No fee for residential photovoltaic installations.'" },
+      { "name": "Inspection Fee", "amount_usd": 51, "unit": "flat", "notes": "Additional electrical permit fees may be required if a new electrical panel is installed." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Seal Beach Building Division (permit process questions)",
+        "phone": "562-431-2527 ext. 1323",
+        "email": null,
+        "url": "https://www.sealbeachca.gov/Portals/0/Documents/Solar%20Photovoltaic%20Installation.pdf"
+      },
+      {
+        "name": null,
+        "role": "City of Seal Beach Building Division (inspection questions)",
+        "phone": "562-431-2527 ext. 1315",
+        "email": null,
+        "url": "https://www.sealbeachca.gov/Portals/0/Documents/Solar%20Photovoltaic%20Installation.pdf"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1", "S5"]
+  },
+  "last_verified": "2026-08-06",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic Installation Guidelines",
+      "url": "https://www.sealbeachca.gov/Portals/0/Documents/Solar%20Photovoltaic%20Installation.pdf",
+      "publisher": "City of Seal Beach",
+      "type": "government",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S2",
+      "title": "Incorporated Cities and Counties Served by SCE",
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (NEM) Time of Use",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-03"
+    },
+    {
+      "id": "S4",
+      "title": "SGIP - Statewide Announcements / About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "SGIP - Contact",
+      "url": "https://www.selfgenca.com/home/contact/",
+      "publisher": "Self-Generation Incentive Program (statewide administrator site)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-01"
+    }
+  ]
+}
