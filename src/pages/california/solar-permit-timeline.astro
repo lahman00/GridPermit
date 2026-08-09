@@ -107,6 +107,7 @@ const faqSchema = {
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 </head>
 <body>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div class="top-banner">
 		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
 	</div>
@@ -141,7 +142,7 @@ const faqSchema = {
 		</nav>
 
 		<div class="layout-grid">
-		<main class="content-card">
+		<main class="content-card" id="main-content" tabindex="-1">
 			<h1>How Long Does a California Solar Permit Take?</h1>
 			<p class="subtitle">Verified review-timeline data, aggregated from each city's own guide — not a statewide estimate</p>
 
@@ -229,6 +230,8 @@ const faqSchema = {
 
 	<style>
 		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
+		.skip-link { position: absolute; top: -3rem; left: 0; background: var(--primary); color: white; padding: 0.75rem 1.25rem; z-index: 1000; text-decoration: none; font-weight: 700; border-radius: 0 0 8px 0; transition: top 0.15s ease; }
+		.skip-link:focus { top: 0; }
 		* { box-sizing: border-box; }
 		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
 		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
