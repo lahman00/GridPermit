@@ -130,14 +130,28 @@ test("buildTimelineInsights runs cleanly against the real dataset with figures c
 			}),
 	);
 	const evaluationFiles = readdirSync(outputDir).filter(
-		(f) => f.endsWith(".json") && f !== "research-progress-report.json" && f !== "statewide-research-queue.json" && f !== "site-inventory.json",
+		(f) => f.endsWith(".json") && f !== "research-progress-report.json" && f !== "statewide-research-queue.json" && f !== "site-inventory.json" && f !== "source-freshness-report.json" && f !== "source-health-report.json",
 	);
 	const allEvaluatedRecords = evaluationFiles.flatMap(
 		(f) => JSON.parse(readFileSync(path.join(outputDir, f), "utf8")).records ?? [],
 	);
 	const insights = buildTimelineInsights(allEvaluatedRecords, recordsById);
 
-	assert.equal(insights.readyCount, 81, "expected 81 READY cities to match the verified statewide baseline");
+	// Deduped by most-recent evaluated_at per record_id, same logic as
+	// scripts/source-freshness-report.mjs — computed here rather than
+	// hardcoded, since this mission's whole purpose is to grow this number.
+	const latestByRecordId = new Map();
+	for (const file of evaluationFiles) {
+		const data = JSON.parse(readFileSync(path.join(outputDir, file), "utf8"));
+		for (const r of data.records ?? []) {
+			const existing = latestByRecordId.get(r.record_id);
+			if (!existing || new Date(data.evaluated_at) > new Date(existing.evaluated_at)) {
+				latestByRecordId.set(r.record_id, { ...r, evaluated_at: data.evaluated_at });
+			}
+		}
+	}
+	const expectedReadyCount = [...latestByRecordId.values()].filter((r) => r.readiness === "READY").length;
+	assert.equal(insights.readyCount, expectedReadyCount, "readyCount should match a fresh, deduplicated tally of the real dataset");
 	assert.ok(insights.documentedCount > 0, "expected at least one READY city to have a documented timeline");
 	assert.equal(
 		insights.documentedCount,

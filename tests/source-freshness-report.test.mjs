@@ -8,7 +8,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -25,11 +25,31 @@ test("source-freshness-report.mjs runs cleanly against the real dataset", () => 
 	assert.equal(result.status, 0, result.stderr);
 });
 
-test("the report covers exactly the 81 verified statewide READY records", () => {
+test("the report covers exactly the current verified statewide READY records (deduplicated tally)", () => {
 	runScript();
 	const report = JSON.parse(readFileSync(REPORT_PATH, "utf8"));
-	assert.equal(report.ready_record_count, 81, "expected 81 READY cities to match the verified statewide baseline");
-	assert.equal(report.records.length, 81);
+
+	// Computed fresh here rather than hardcoded — this mission's whole
+	// purpose is to grow this number, so a magic literal would need
+	// updating every single batch.
+	const outputDir = path.join(REPO_ROOT, "output");
+	const evaluationFiles = readdirSync(outputDir).filter(
+		(f) => f.endsWith(".json") && f !== "research-progress-report.json" && f !== "statewide-research-queue.json" && f !== "site-inventory.json" && f !== "source-freshness-report.json" && f !== "source-health-report.json",
+	);
+	const latestByRecordId = new Map();
+	for (const file of evaluationFiles) {
+		const data = JSON.parse(readFileSync(path.join(outputDir, file), "utf8"));
+		for (const r of data.records ?? []) {
+			const existing = latestByRecordId.get(r.record_id);
+			if (!existing || new Date(data.evaluated_at) > new Date(existing.evaluated_at)) {
+				latestByRecordId.set(r.record_id, { ...r, evaluated_at: data.evaluated_at });
+			}
+		}
+	}
+	const expectedReadyCount = [...latestByRecordId.values()].filter((r) => r.readiness === "READY").length;
+
+	assert.equal(report.ready_record_count, expectedReadyCount, "ready_record_count should match a fresh, deduplicated tally of the real dataset");
+	assert.equal(report.records.length, expectedReadyCount);
 });
 
 test("every record's last_verified_age_days is a non-negative integer consistent with its own last_verified date", () => {
