@@ -1,0 +1,102 @@
+{
+  "record_id": "ca-solano-dixon-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Dixon is a well-documented Solano County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Dixon is not listed among MCE's 4 current Solano County member communities (Benicia, Fairfield, Vallejo, and unincorporated Solano County). No CCA was found serving Dixon this session."
+  },
+  "city": { "value": "Dixon", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Solano County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Dixon Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.cityofdixonca.gov/solarapp",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Load calculations with electrical panel photos", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Smoke/CO2 self-certification form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ approval document", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Electronic signature", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Call the building inspection request line at 707-678-7005 (24-hour)",
+      "Provide permit number, address, inspection type, and preferred timing (AM or PM)"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (standard residential rooftop solar and energy storage systems)",
+      "other_conditions": [
+        "Projects not meeting SolarAPP+ Eligibility Checklist criteria must follow the Residential Rooftop Solar PV handout process instead"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states the initial SolarAPP+ fee covers up to three revisions but does not state a specific dollar amount." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Dixon Building Division",
+        "phone": "707-678-7000",
+        "email": "buildingdivision@cityofdixonca.gov",
+        "url": "https://www.cityofdixonca.gov/solarapp"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarApp+ Permitting Instructions",
+      "url": "https://www.cityofdixonca.gov/solarapp",
+      "publisher": "City of Dixon",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

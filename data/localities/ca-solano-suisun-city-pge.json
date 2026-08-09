@@ -1,0 +1,88 @@
+{
+  "record_id": "ca-solano-suisun-city-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Suisun City is a well-documented Solano County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Suisun City is not listed among MCE's 4 current Solano County member communities (Benicia, Fairfield, Vallejo, and unincorporated Solano County). No CCA was found serving Suisun City this session."
+  },
+  "city": { "value": "Suisun City", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Solano County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Suisun City Building Department",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.suisun.com/Departments/Development-Services/Building-Department",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Standard solar permitting under the city's Renewable Energy-Solar ordinance (Chapter 18.60)",
+      "other_conditions": [
+        "Applies to all zoning districts in the city except Open Space (OS)",
+        "Solar panels and solar thermal tanks must be mounted no more than 10 inches from the roof surface",
+        "Based on the city's latitude, fixed-angle solar panels should be mounted at a 31-32 degree angle to horizontal"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Suisun City Building Department",
+        "phone": null,
+        "email": null,
+        "url": "https://www.suisun.com/Departments/Development-Services/Building-Department"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Department",
+      "url": "https://www.suisun.com/Departments/Development-Services/Building-Department",
+      "publisher": "Suisun City",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

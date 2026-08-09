@@ -1,0 +1,113 @@
+{
+  "record_id": "ca-solano-benicia-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Benicia is a well-documented Solano County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms Benicia as one of 4 Solano County communities it serves (alongside Fairfield, Vallejo, and unincorporated Solano County). PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Benicia", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Solano County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Benicia Building Safety Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.ci.benicia.ca.us/solar",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Highlighted SolarAPP+ eligibility list showing ineligible items, OR screenshot of rejection message (owner-builders only)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "System-specific eligibility checklist conformance", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "A field solar representative must verify the inspection checklist prior to inspection",
+      "Discrepancies may cause processing delays or inspection correction notices"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (licensed contractors) / Building Permit - Energy Improvements with plan check (owner-builders)",
+      "other_conditions": [
+        "Automated permitting covers PV, PV with battery storage, building-integrated PV (BIPV), and BIPV with storage",
+        "Any residential main or sub panel work requires a C-10 licensed installer and an additional electrical permit",
+        "Only one inspection is required and performed by the Building Safety Division for small residential rooftop solar energy systems eligible for expedited review"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states SolarAPP+ includes three free revisions and lowers costs but does not state a specific dollar amount." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Benicia Building Safety Division",
+        "phone": "707-746-4230",
+        "email": "buildingsafety@ci.benicia.ca.us",
+        "url": "https://www.ci.benicia.ca.us/solar"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Automated Residential Solar Permitting",
+      "url": "https://www.ci.benicia.ca.us/solar",
+      "publisher": "City of Benicia",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
