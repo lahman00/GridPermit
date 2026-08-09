@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T23:02:08.286Z",
+  "evaluated_at": "2026-08-09T23:45:31.386Z",
   "record_count": 5,
   "records": [
     {
@@ -44,11 +44,11 @@
       "record_id": "ca-napa-american-canyon-pge",
       "city": "American Canyon",
       "county": "Napa County",
-      "completeness_pct": 73.3,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -60,13 +60,13 @@
         "battery_programs",
         "inspection_steps",
         "timeline_days",
-        "eligibility_constraints"
+        "eligibility_constraints",
+        "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
         "permit_fees",
-        "rebates",
-        "official_contacts"
+        "rebates"
       ],
       "warning_categories": [
         "broken_url"
@@ -76,7 +76,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-napa-calistoga-pge",
@@ -194,10 +194,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
-    "average_validation_score": 95.6,
-    "ready_count": 2,
-    "limited_count": 3,
+    "average_completeness_pct": 74.7,
+    "average_validation_score": 95.2,
+    "ready_count": 3,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -214,7 +214,7 @@
       "eligibility_constraints": 0,
       "permit_fees": 5,
       "rebates": 5,
-      "official_contacts": 1
+      "official_contacts": 0
     },
     "fields_most_often_missing": [
       {
@@ -240,10 +240,6 @@
       {
         "field": "battery_programs",
         "missing_in_records": 1
-      },
-      {
-        "field": "official_contacts",
-        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
@@ -268,14 +264,10 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-napa-napa-pge",
+      "ca-napa-american-canyon-pge",
       "ca-napa-st-helena-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-napa-american-canyon-pge",
-        "city": "American Canyon",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
       {
         "record_id": "ca-napa-calistoga-pge",
         "city": "Calistoga",
