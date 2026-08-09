@@ -1,16 +1,16 @@
 {
-  "evaluated_at": "2026-08-08T17:33:22.518Z",
+  "evaluated_at": "2026-08-09T22:11:31.712Z",
   "record_count": 6,
   "records": [
     {
       "record_id": "ca-orange-placentia-sce",
       "city": "Placentia",
       "county": "Orange County",
-      "completeness_pct": 73.3,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -22,23 +22,24 @@
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": null,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-orange-buena-park-sce",
@@ -234,10 +235,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 71.1,
-    "average_validation_score": 93.7,
-    "ready_count": 3,
-    "limited_count": 3,
+    "average_completeness_pct": 72.2,
+    "average_validation_score": 92.8,
+    "ready_count": 4,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -252,7 +253,7 @@
       "inspection_steps": 2,
       "timeline_days": 5,
       "eligibility_constraints": 2,
-      "permit_fees": 4,
+      "permit_fees": 3,
       "rebates": 6,
       "official_contacts": 0
     },
@@ -271,7 +272,7 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "required_documents",
@@ -288,7 +289,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 6,
-      "unsupported_claim": 2
+      "unsupported_claim": 3
     },
     "utility_coverage": [
       "IOU"
@@ -309,16 +310,12 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-orange-placentia-sce",
       "ca-orange-buena-park-sce",
       "ca-orange-la-habra-sce",
       "ca-orange-seal-beach-sce"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-orange-placentia-sce",
-        "city": "Placentia",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
       {
         "record_id": "ca-orange-cypress-sce",
         "city": "Cypress",
