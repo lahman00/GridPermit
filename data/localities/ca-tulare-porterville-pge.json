@@ -1,0 +1,98 @@
+{
+  "record_id": "ca-tulare-porterville-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Porterville is a well-documented Tulare County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Community Choice Aggregator was found confirmed to serve Porterville or Tulare County this session; a vague, unverified claim of a Tulare-area CCA surfaced in search-engine synthesis but could not be independently confirmed against any CCA's own official site, so it was not used."
+  },
+  "city": { "value": "Porterville", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Tulare County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Porterville Engineering & Building Division",
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "ci.porterville.ca.us returned HTTP 403 to automated fetch this session, so the city's own Building Division page could not be independently read; this record relies on search-engine-derived detail (including quoted excerpts of the city's municipal code, sections 7-16 and 7-18) rather than a direct page read."
+  },
+  "permit_url": {
+    "value": "https://www.ci.porterville.ca.us/departments/building_division/index.php",
+    "confidence": 0.5,
+    "source_ids": ["S1"],
+    "notes": "URL identified via search-engine indexing; the page returned HTTP 403 to automated fetch and its content was not independently verified this session."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "One inspection is required for small residential rooftop solar energy systems eligible for expedited review, covering roof clearances, ingress/egress, flashing installation, smoke alarms, and carbon monoxide detectors",
+      "Inspections are scheduled within two business days of a request, with a two-hour inspection window"
+    ],
+    "confidence": 0.55,
+    "source_ids": ["S1"],
+    "notes": "Derived from search-engine summaries of the city's municipal code and process; not independently re-confirmed via direct page fetch this session."
+  },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 3, "notes": "Building permit issued same day for over-the-counter applications, or within 1-3 business days for electronic applications, under the city's administrative nondiscretionary review process for small residential rooftop solar." },
+    "confidence": 0.55,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Administrative, nondiscretionary expedited review for small residential rooftop solar energy systems",
+      "other_conditions": []
+    },
+    "confidence": 0.55,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Porterville Engineering & Building Division",
+        "phone": "559-782-7480",
+        "email": null,
+        "url": "https://www.ci.porterville.ca.us/departments/building_division/index.php"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Division (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "url": "https://www.ci.porterville.ca.us/departments/building_division/index.php",
+      "publisher": "City of Porterville",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
