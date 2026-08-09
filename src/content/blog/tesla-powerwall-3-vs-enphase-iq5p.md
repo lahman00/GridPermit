@@ -32,6 +32,8 @@ Enphase offers unmatched reliability with microinverter redundancy and a 15-year
 
 ## Which Battery Fits Your Budget?
 
+Before choosing a battery, check whether your city has specific permitting requirements for it — see GridPermit's <a href="/california/solar-permit-guides/">verified California city guides</a>.
+
 **[Get Custom Quotes for Tesla & Enphase Systems From Certified CA Installers](https://www.energysage.com)**
 
 *Specs above reflect publicly published manufacturer datasheets; confirm current specs and pricing with an installer, as models and warranties can change.*

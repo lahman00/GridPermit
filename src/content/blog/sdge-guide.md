@@ -31,6 +31,8 @@ Under **NEM 3.0**, traditional solar without battery storage is no longer enough
 2. **Tax Credit:** Claim the 30% Federal Clean Energy Credit (IRS Form 5695).
 3. **SGIP Rebates:** Check if your ZIP code qualifies for medical baseline or equity rebates.
 
+Looking for your city's specific solar permit requirements rather than rate analysis? See our <a href="/california/utility/sdg-e/">verified SDG&E city guides</a>.
+
 **[See GridPermit's Illustrative California Solar & Battery Estimator](/)**
 
 *Rate and payback figures above are illustrative examples based on publicly reported rate ranges, not a live lookup of your bill — confirm current rates with SDG&E before making a decision.*

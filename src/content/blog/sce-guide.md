@@ -24,6 +24,8 @@ Under NEM 3.0, exporting daytime solar power to the grid earns credits at the ut
 2. **Check your specific SCE rate plan.** SCE offers multiple residential Time-Of-Use plans; exact peak windows and rates vary by plan and change over time — confirm your current plan and rates directly with SCE.
 3. **Check SGIP eligibility.** Households in high fire-threat districts, low-income programs, or on medical baseline may qualify for additional battery rebates through California's Self-Generation Incentive Program.
 
+Looking for your city's specific solar permit requirements rather than rate analysis? See our <a href="/california/utility/sce/">verified SCE city guides</a>.
+
 **[Compare Free Solar & Battery Quotes From Local Installers](https://www.energysage.com)**
 
 *This page describes the general structure of NEM 3.0 and SCE's Time-Of-Use billing, not a live lookup of your bill or your specific rate plan — confirm current rates and plan options with SCE before making a decision.*
