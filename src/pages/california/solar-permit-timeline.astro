@@ -1,0 +1,290 @@
+---
+// A statewide permit-timeline guide — every figure on this page is read
+// directly from an existing READY city's own verified timeline_days field
+// (see src/lib/permit-timeline.ts). This page never estimates, averages, or
+// infers a timeline for a city that hasn't independently confirmed one; it
+// only aggregates and classifies what's already on file. Built because the
+// underlying data (50+ of 81 READY cities have a documented review
+// timeline) supports a genuinely new, non-duplicative topic that no
+// existing page covers — see src/pages/california/index.astro's own
+// #inspections/#solarapp sections, which describe the process in general
+// terms but don't aggregate actual day counts across cities.
+import {
+	SITE_ORIGIN,
+	buildBreadcrumbSchema,
+	type LocalityRecord,
+} from "../../lib/locality-guide";
+import { buildTimelineInsights } from "../../lib/permit-timeline";
+import Analytics from "../../components/Analytics.astro";
+
+const localityModules = import.meta.glob("../../../data/localities/*.json", { eager: true }) as Record<
+	string,
+	{ default: LocalityRecord & { record_id: string } }
+>;
+const recordsById = new Map(
+	Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]),
+);
+const evaluationModules = import.meta.glob("../../../output/*-evaluation.json", { eager: true }) as Record<
+	string,
+	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
+>;
+const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
+const insights = buildTimelineInsights(allEvaluatedRecords, recordsById);
+
+const PAGE_PATH = "/california/solar-permit-timeline/";
+const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
+const title = "How Long Does a California Solar Permit Take? | GridPermit";
+const description =
+	`Verified review-timeline data from ${insights.documentedCount} California cities: same-day SolarAPP+ review vs. standard-path ranges, sourced to each city's own guide.`;
+
+const breadcrumbItems = [
+	{ name: "Home", url: `${SITE_ORIGIN}/` },
+	{ name: "California", url: `${SITE_ORIGIN}/california/` },
+	{ name: "Permit Timeline", url: CANONICAL_URL },
+];
+const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
+
+const webPageSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	name: title,
+	description,
+	url: CANONICAL_URL,
+	isPartOf: { "@type": "WebSite", name: "GridPermit", url: `${SITE_ORIGIN}/` },
+};
+
+const faqs = [
+	{
+		q: "How long does a solar permit take in California?",
+		a: `It depends entirely on the city — there's no single statewide timeline. Of the ${insights.readyCount} cities GridPermit has independently verified, ${insights.documentedCount} have a documented review-timeline on file: ${insights.sameDaySolarAppCount} report same-day review for SolarAPP+-eligible projects, and the rest have a standard-path range that varies by city. See your specific city's guide for its verified figure.`,
+	},
+	{
+		q: "What does 'same-day' review mean?",
+		a: "It means the city has adopted SolarAPP+ (or an equivalent automated review platform) and grants instant approval for projects that qualify — typically standard rooftop residential systems meeting specific size and configuration limits. Projects that don't qualify for automated review (larger systems, non-standard mounting, or cities without the platform) go through a manual plan-check process instead, which takes longer.",
+	},
+	{
+		q: "Why do standard-path timelines vary so much between cities?",
+		a: "Each California city runs its own building department, with its own staffing levels, queue volume, and review process — there's no centralized state permitting office for solar. A city's verified range reflects what that city's own sources state, not a statewide average.",
+	},
+];
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	mainEntity: faqs.map((f) => ({
+		"@type": "Question",
+		name: f.q,
+		acceptedAnswer: { "@type": "Answer", text: f.a },
+	})),
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<Analytics />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<link rel="canonical" href={CANONICAL_URL} />
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
+	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={CANONICAL_URL} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</head>
+<body>
+	<div class="top-banner">
+		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
+	</div>
+
+	<nav class="navbar">
+		<div class="nav-container">
+			<a href="/" class="brand-logo" aria-label="GridPermit Home">
+				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
+			</a>
+			<div class="nav-links">
+				<a href="/#calculator">ROI Calculator</a>
+				<a href="/how-it-works">How It Works</a>
+				<a href="/california/solar-permit-guides/">California Guides</a>
+				<a href="/blog">Blog</a>
+				<a href="/methodology">Methodology</a>
+			</div>
+			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
+			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+		</div>
+	</nav>
+
+	<div class="page-container">
+		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+			{breadcrumbItems.map((item, i) => (
+				<>
+					{i > 0 && <span class="crumb-sep">/</span>}
+					{i === breadcrumbItems.length - 1
+						? <span class="crumb-current">{item.name}</span>
+						: <a href={item.url.replace(SITE_ORIGIN, "")}>{item.name}</a>}
+				</>
+			))}
+		</nav>
+
+		<div class="layout-grid">
+		<main class="content-card">
+			<h1>How Long Does a California Solar Permit Take?</h1>
+			<p class="subtitle">Verified review-timeline data, aggregated from each city's own guide — not a statewide estimate</p>
+
+			<div class="stats-row">
+				<div class="stat-pill"><strong>{insights.documentedCount}</strong> of {insights.readyCount} cities have a documented timeline</div>
+				<div class="stat-pill"><strong>{insights.sameDaySolarAppCount}</strong> report same-day SolarAPP+ review</div>
+			</div>
+
+			<div class="disclaimer-box">
+				<strong>Informational only.</strong> Every figure below is copied from an individual city's own verified record — none is a statewide average, estimate, or prediction. If your city isn't in the examples below, check its own guide directly.
+			</div>
+
+			<section id="methodology">
+				<h2>How to read this page</h2>
+				<p>California has no single statewide solar-permit timeline — each city runs its own building department and review process. GridPermit tracks a review-timeline figure for each city where an official source states one, and classifies it one of two ways:</p>
+				<ul class="fact-list">
+					<li><strong>Same-day (SolarAPP+ or equivalent):</strong> the city's source states instant/same-day approval for qualifying projects, typically through an automated code-compliance platform.</li>
+					<li><strong>Standard path:</strong> the city's source states a specific day-range for manual plan-check review.</li>
+				</ul>
+				<p>A city with no timeline listed below simply hasn't stated one specifically enough for us to record — not necessarily a slow city. See <a href="/methodology#ready-criteria">our methodology</a> for the confidence rule behind every figure we publish.</p>
+			</section>
+
+			{insights.sameDaySolarAppExamples.length > 0 && (
+				<section id="same-day">
+					<h2>Cities with same-day SolarAPP+ review on file</h2>
+					<p>These cities' own sources confirm instant approval for qualifying projects — standard-path timelines for non-qualifying projects may still apply and are noted on each city's guide.</p>
+					<ul class="timeline-list">
+						{insights.sameDaySolarAppExamples.map((ex) => (
+							<li>
+								<a href={ex.guideUrl}>{ex.city}</a>
+								{ex.utility && <span class="timeline-meta"> · {ex.utility}</span>}
+								<span class="timeline-badge">Same-day (qualifying projects)</span>
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+
+			{insights.standardPathExamples.length > 0 && (
+				<section id="standard-path">
+					<h2>Standard-path review ranges (fastest verified examples)</h2>
+					<p>{insights.standardPathCount} cities have a documented standard-path range on file{insights.overallMinDays !== null && (<> — the fastest verified example is {insights.overallMinDays === 0 ? "same-day" : `${insights.overallMinDays} day${insights.overallMinDays === 1 ? "" : "s"}`}, the slowest is {insights.overallMaxDays} days</>)}. Shown below: the {insights.standardPathExamples.length} fastest verified examples.</p>
+					<ul class="timeline-list">
+						{insights.standardPathExamples.map((ex) => (
+							<li>
+								<a href={ex.guideUrl}>{ex.city}</a>
+								{ex.utility && <span class="timeline-meta"> · {ex.utility}</span>}
+								<span class="timeline-badge">{ex.minDays === ex.maxDays ? `${ex.minDays} day${ex.minDays === 1 ? "" : "s"}` : `${ex.minDays}–${ex.maxDays} days`}</span>
+							</li>
+						))}
+					</ul>
+					<p><a href="/california/solar-permit-guides/">Browse all verified California cities</a> to check one not listed here.</p>
+				</section>
+			)}
+
+			<section id="faq">
+				<h2>Frequently Asked Questions</h2>
+				{faqs.map((f) => (
+					<details class="faq-item" data-track-toggle="faq_expanded">
+						<summary>{f.q}</summary>
+						<p>{f.a}</p>
+					</details>
+				))}
+			</section>
+
+			<div class="footer-disclaimer">
+				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Verify current requirements and timelines with your city/county building department before starting a project.</p>
+				<p><a href="/california/">California Solar Permit Guide</a> · <a href="/california/solar-permit-guides/">All California Guides</a> · <a href="/methodology">Methodology</a> · <a href="/">Back to GridPermit</a></p>
+			</div>
+		</main>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div class="footer-container">
+			<p>© 2026 GridPermit. All rights reserved.</p>
+			<p class="affiliate-disclosure">
+				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
+			</p>
+			<div class="footer-links">
+				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+			</div>
+		</div>
+	</footer>
+
+	<style>
+		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
+		* { box-sizing: border-box; }
+		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
+		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
+		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+		.brand-logo { text-decoration: none; }
+		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
+		.logo-bold { font-weight: 800; }
+		.nav-links { display: flex; gap: 1.25rem; }
+		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
+		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
+		@media (max-width: 640px) {
+			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
+			.nav-links { flex-wrap: wrap; justify-content: center; }
+		}
+
+		.page-container { max-width: 840px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
+		.crumb-sep { margin: 0 0.4rem; }
+		.crumb-current { color: var(--text-main); font-weight: 600; }
+
+		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
+		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
+		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
+		h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 2rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
+		section:first-of-type h2 { border-top: none; padding-top: 0; margin-top: 1.5rem; }
+		p { margin: 0 0 0.75rem; }
+
+		.stats-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.25rem; }
+		.stat-pill { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; border-radius: 9999px; padding: 0.4rem 0.9rem; font-size: 0.85rem; }
+		.stat-pill strong { font-weight: 800; }
+
+		.disclaimer-box { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.5rem; }
+
+		.fact-list { padding-left: 1.3rem; margin: 0 0 0.75rem; font-size: 0.95rem; }
+		.fact-list li { margin-bottom: 0.5rem; }
+
+		.timeline-list { list-style: none; padding: 0; margin: 0 0 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+		.timeline-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; font-size: 0.9rem; }
+		.timeline-list a { color: var(--primary); text-decoration: none; font-weight: 700; }
+		.timeline-meta { color: var(--text-muted); font-size: 0.85rem; }
+		.timeline-badge { margin-left: auto; background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; border-radius: 9999px; padding: 0.2rem 0.7rem; font-size: 0.8rem; font-weight: 700; }
+
+		.faq-item { border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 0.6rem; }
+		.faq-item summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; }
+		.faq-item p { margin: 0.6rem 0 0; font-size: 0.9rem; color: #334155; }
+
+		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
+		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
+
+		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
+		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
+		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
+	</style>
+</body>
+</html>

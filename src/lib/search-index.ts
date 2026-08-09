@@ -29,6 +29,12 @@ const STATIC_PAGES: SearchEntry[] = [
 		category: "Guide",
 	},
 	{
+		title: "How Long Does a California Solar Permit Take?",
+		description: "Verified review-timeline data from California cities: which offer same-day SolarAPP+ review, and typical standard-path ranges.",
+		url: "/california/solar-permit-timeline/",
+		category: "Guide",
+	},
+	{
 		title: "Calculation Methodology",
 		description: "An exact, honest description of what GridPermit's California solar and battery estimator does and doesn't calculate today.",
 		url: "/methodology/",
