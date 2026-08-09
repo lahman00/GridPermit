@@ -1,0 +1,89 @@
+{
+  "record_id": "ca-shasta-anderson-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Anderson is confirmed to be within PG&E's electric service territory, independently checked rather than assumed — Shasta County contains a mix of PG&E and municipal-utility cities (Redding and Shasta Lake both operate their own municipal electric utilities)."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Community Choice Aggregator was found serving Anderson this session."
+  },
+  "city": { "value": "Anderson", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Shasta County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Anderson Development Services and Building Department",
+    "confidence": 0.65,
+    "source_ids": ["S1"],
+    "notes": "ci.anderson.ca.us returned HTTP 403 to automated fetch this session, so the city's own SolarApp+ Eligibility page could not be independently read; this record relies on search-engine-derived detail."
+  },
+  "permit_url": {
+    "value": "https://www.ci.anderson.ca.us/departments/development_services_and_building_departments/building_department/permit_forms_fees.php",
+    "confidence": 0.45,
+    "source_ids": ["S1"],
+    "notes": "URL identified via search-engine indexing; the page returned HTTP 403 to automated fetch and its content was not independently verified this session."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated permitting",
+      "other_conditions": [
+        "Limited to residential roof-mount PV installs under 10kW with no energy storage system proposed",
+        "Commercial projects, systems above 10kW, systems with main panel upgrades/derates, or PV with batteries require standard online application submission instead"
+      ]
+    },
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Anderson Building Department",
+        "phone": "530-378-6636",
+        "email": "plan.pub.works@ci.anderson.ca.us",
+        "url": "https://www.ci.anderson.ca.us/departments/development_services_and_building_departments/building_department/permit_forms_fees.php"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "SolarApp+ Eligibility (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "url": "https://www.ci.anderson.ca.us/departments/development_services_and_building_departments/building_department/permit_forms_fees.php",
+      "publisher": "City of Anderson",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
