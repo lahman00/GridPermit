@@ -62,10 +62,23 @@
     "notes": "ladwp.com returned HTTP 403 to direct automated fetch; confirmed via consistent search-engine indexing describing LADWP's NEM interconnection application process (obtaining an Interconnection Work Request Number via ladwp.com/nem)."
   },
   "battery_programs": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "SGIP is a CPUC program applicable to investor-owned utility (IOU) territories; LADWP is a municipal utility outside CPUC/SGIP jurisdiction, so the SGIP tiers used in other records do not apply here. No LADWP-specific battery/storage incentive program was independently confirmed this session — left null rather than assumed absent."
+    "value": [
+      {
+        "name": "Self-Generation Incentive Program (SGIP) — Residential Solar and Storage Equity (RSSE)",
+        "administrator": "Los Angeles Department of Water and Power (LADWP)",
+        "description": "Contrary to the assumption in an earlier pass of this record, LADWP is a genuine SGIP Program Administrator for the state-funded (AB 209) Residential Solar and Storage Equity budget — confirmed directly on LADWP's own SGIP page, which describes SGIP as providing funding for income-qualified residential customers to install solar and battery storage. Eligibility is income- and housing-type-restricted, not general-market: single-family households must document total household income at or below 80% of Area Median Income (AMI); multifamily properties must have 5+ deed-restricted low-income rental units and meet an additional disadvantaged-community or low-income-household threshold. No specific dollar incentive rate is stated on LADWP's own page; current step-based rates are tracked separately by the statewide SGIP administrator at selfgenca.com.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "LADWP residential customers meeting SGIP RSSE's income/housing criteria (single-family: household income at or below 80% AMI with tax documentation; multifamily: 5+ deed-restricted low-income units meeting an additional disadvantaged-community or low-income-household threshold). Not available to general-market (non-income-qualified) customers.",
+        "url": "https://www.ladwp.com/residential-services/solar-programs/self-generation-incentive-program",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S4"]
   },
   "required_documents": {
     "value": [
@@ -169,7 +182,7 @@
     ],
     "notes": "Contact details found via consistent search-engine indexing; not independently fetched this session (both domains 403 blocked)."
   },
-  "last_verified": "2026-08-02",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
@@ -186,6 +199,14 @@
       "publisher": "Los Angeles Department of Water and Power (LADWP)",
       "type": "government",
       "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program",
+      "url": "https://www.ladwp.com/residential-services/solar-programs/self-generation-incentive-program",
+      "publisher": "Los Angeles Department of Water and Power (LADWP)",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

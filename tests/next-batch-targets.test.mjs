@@ -136,10 +136,18 @@ test("every target's locality file exists on disk and is a valid, matching recor
 	}
 });
 
-// Updated once the 3 READY records from this batch (Santa Rosa, Santa Ana,
-// Alameda — see output/next-batch-evaluation.json) had their public pages
-// generated. The other 7 (LIMITED) must still have no public page.
-const READY_CITY_SLUGS = new Set(["santa-rosa", "santa-ana", "alameda", "escondido", "irvine"]);
+// Computed fresh from output/next-batch-evaluation.json rather than a
+// hardcoded list — this batch's READY set grows over time as more of its
+// records clear the READY bar, so a literal list needs updating (and goes
+// stale) every time that happens.
+const NEXT_BATCH_EVALUATION_PATH = path.join(REPO_ROOT, "output", "next-batch-evaluation.json");
+const nextBatchEvaluation = JSON.parse(readFileSync(NEXT_BATCH_EVALUATION_PATH, "utf8"));
+const readyRecordIds = new Set(
+	nextBatchEvaluation.records.filter((r) => r.readiness === "READY").map((r) => r.record_id),
+);
+const READY_CITY_SLUGS = new Set(
+	targets.filter((t) => readyRecordIds.has(t.record_id)).map((t) => t.city_slug),
+);
 
 test("a public page exists only for this batch's READY records, and only those", () => {
 	for (const target of targets) {

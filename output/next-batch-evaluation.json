@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-03T21:39:03.565Z",
+  "evaluated_at": "2026-08-09T20:30:41.868Z",
   "record_count": 10,
   "records": [
     {
@@ -7,10 +7,10 @@
       "city": "Fresno",
       "county": "Fresno County",
       "completeness_pct": 73.3,
-      "validation_score": 87,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 5,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -46,10 +46,10 @@
       "city": "Stockton",
       "county": "San Joaquin County",
       "completeness_pct": 73.3,
-      "validation_score": 87,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 5,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -202,10 +202,10 @@
       "city": "Santa Ana",
       "county": "Orange County",
       "completeness_pct": 80,
-      "validation_score": 93,
+      "validation_score": 95,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 1,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -226,7 +226,6 @@
         "rebates"
       ],
       "warning_categories": [
-        "broken_url",
         "outdated_information"
       ],
       "utility_type": "IOU",
@@ -317,11 +316,11 @@
       "record_id": "ca-los-angeles-los-angeles-ladwp",
       "city": "Los Angeles",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -330,26 +329,27 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "municipal",
       "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-alameda-alameda-amp",
@@ -392,10 +392,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 78.7,
-    "average_validation_score": 90.1,
-    "ready_count": 5,
-    "limited_count": 5,
+    "average_completeness_pct": 79.3,
+    "average_validation_score": 90.6,
+    "ready_count": 6,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -405,7 +405,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 1,
-      "battery_programs": 3,
+      "battery_programs": 2,
       "required_documents": 3,
       "inspection_steps": 5,
       "timeline_days": 1,
@@ -428,12 +428,12 @@
         "missing_in_records": 5
       },
       {
-        "field": "battery_programs",
+        "field": "required_documents",
         "missing_in_records": 3
       },
       {
-        "field": "required_documents",
-        "missing_in_records": 3
+        "field": "battery_programs",
+        "missing_in_records": 2
       },
       {
         "field": "generation_supplier",
@@ -449,9 +449,9 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 10,
+      "broken_url": 9,
       "outdated_information": 7,
-      "unsupported_claim": 1
+      "unsupported_claim": 2
     },
     "utility_coverage": [
       "IOU",
@@ -484,18 +484,19 @@
       "ca-orange-irvine-sce",
       "ca-orange-santa-ana-sce",
       "ca-san-diego-escondido-sdge",
+      "ca-los-angeles-los-angeles-ladwp",
       "ca-alameda-alameda-amp"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-fresno-fresno-pge",
         "city": "Fresno",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 87)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 91)"
       },
       {
         "record_id": "ca-san-joaquin-stockton-pge",
         "city": "Stockton",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 87)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 91)"
       },
       {
         "record_id": "ca-orange-fullerton-sce",
@@ -506,11 +507,6 @@
         "record_id": "ca-san-diego-chula-vista-sdge",
         "city": "Chula Vista",
         "reason": "readiness=LIMITED (completeness 73.3%, score 85)"
-      },
-      {
-        "record_id": "ca-los-angeles-los-angeles-ladwp",
-        "city": "Los Angeles",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [],

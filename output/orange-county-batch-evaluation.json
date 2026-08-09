@@ -1,16 +1,16 @@
 {
-  "evaluated_at": "2026-08-05T17:16:47.043Z",
+  "evaluated_at": "2026-08-09T20:30:41.827Z",
   "record_count": 10,
   "records": [
     {
       "record_id": "ca-orange-anaheim-apu",
       "city": "Anaheim",
       "county": "Orange County",
-      "completeness_pct": 73.3,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "completeness_pct": 80,
+      "validation_score": 95,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 1,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -19,34 +19,36 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
       ],
-      "warning_categories": [],
+      "warning_categories": [
+        "unsupported_claim"
+      ],
       "utility_type": "municipal",
       "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-orange-orange-sce",
       "city": "Orange",
       "county": "Orange County",
       "completeness_pct": 53.3,
-      "validation_score": 96,
+      "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -195,10 +197,10 @@
       "city": "Huntington Beach",
       "county": "Orange County",
       "completeness_pct": 93.3,
-      "validation_score": 93,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -272,10 +274,10 @@
       "city": "Tustin",
       "county": "Orange County",
       "completeness_pct": 73.3,
-      "validation_score": 98,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -310,10 +312,10 @@
       "city": "Yorba Linda",
       "county": "Orange County",
       "completeness_pct": 73.3,
-      "validation_score": 98,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -383,10 +385,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 68,
-    "average_validation_score": 97.1,
-    "ready_count": 1,
-    "limited_count": 9,
+    "average_completeness_pct": 68.6,
+    "average_validation_score": 95.8,
+    "ready_count": 2,
+    "limited_count": 8,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -396,7 +398,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 1,
+      "battery_programs": 0,
       "required_documents": 4,
       "inspection_steps": 4,
       "timeline_days": 9,
@@ -433,15 +435,11 @@
       {
         "field": "eligibility_constraints",
         "missing_in_records": 3
-      },
-      {
-        "field": "battery_programs",
-        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 9,
-      "unsupported_claim": 1
+      "unsupported_claim": 2,
+      "broken_url": 9
     },
     "utility_coverage": [
       "IOU",
@@ -468,18 +466,14 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-orange-anaheim-apu",
       "ca-orange-huntington-beach-sce"
     ],
     "limited_for_now": [
       {
-        "record_id": "ca-orange-anaheim-apu",
-        "city": "Anaheim",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
-      },
-      {
         "record_id": "ca-orange-orange-sce",
         "city": "Orange",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
+        "reason": "readiness=LIMITED (completeness 53.3%, score 94)"
       },
       {
         "record_id": "ca-orange-garden-grove-sce",
@@ -504,12 +498,12 @@
       {
         "record_id": "ca-orange-tustin-sce",
         "city": "Tustin",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-orange-yorba-linda-sce",
         "city": "Yorba Linda",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-orange-brea-sce",
@@ -519,6 +513,7 @@
     ],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
+      "municipal",
       "IOU"
     ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
