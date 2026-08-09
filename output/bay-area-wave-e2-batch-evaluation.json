@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-08T19:34:55.723Z",
+  "evaluated_at": "2026-08-09T21:17:50.307Z",
   "record_count": 7,
   "records": [
     {
       "record_id": "ca-contra-costa-martinez-pge",
       "city": "Martinez",
       "county": "Contra Costa County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -19,13 +19,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "permit_fees",
         "rebates"
@@ -38,7 +38,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-contra-costa-pleasant-hill-pge",
@@ -271,10 +271,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 70.5,
+    "average_completeness_pct": 71.4,
     "average_validation_score": 94.7,
-    "ready_count": 2,
-    "limited_count": 5,
+    "ready_count": 3,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -284,7 +284,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 7,
+      "battery_programs": 6,
       "required_documents": 3,
       "inspection_steps": 4,
       "timeline_days": 3,
@@ -295,12 +295,12 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
+        "field": "rebates",
         "missing_in_records": 7
       },
       {
-        "field": "rebates",
-        "missing_in_records": 7
+        "field": "battery_programs",
+        "missing_in_records": 6
       },
       {
         "field": "permit_fees",
@@ -346,15 +346,11 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-contra-costa-martinez-pge",
       "ca-contra-costa-pleasant-hill-pge",
       "ca-contra-costa-lafayette-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-contra-costa-martinez-pge",
-        "city": "Martinez",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
-      },
       {
         "record_id": "ca-contra-costa-walnut-creek-pge",
         "city": "Walnut Creek",

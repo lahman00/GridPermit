@@ -75,24 +75,13 @@
         "effective_from": "2025-06-02",
         "expires_on": null,
         "status": "unknown"
-      },
-      {
-        "name": "SGIP - Equity Resiliency",
-        "administrator": "Center for Sustainable Energy (CSE), on behalf of SDG&E, under the CPUC's Self-Generation Incentive Program",
-        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
-        "value_usd_per_kwh": 1000,
-        "value_usd_flat": null,
-        "value_usd_per_watt": null,
-        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Chula Vista eligibility not independently confirmed this session.",
-        "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-        "effective_from": null,
-        "expires_on": "2025-12-31",
-        "status": "expired"
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S15"],
-    "notes": "Reused as a utility-level fact from the San Diego pilot record: SDG&E's SGIP administrator (CSE, not SDG&E directly) was independently verified via CPUC's own page there, and SDG&E's distribution role in Chula Vista is independently confirmed by S12 — so this SDG&E-territory-wide program applies here too, not asserted as separately Chula-Vista-specific research."
+    "source_ids": [
+      "S15"
+    ],
+    "notes": "Reused as a utility-level fact from the San Diego pilot record: SDG&E's SGIP administrator (CSE, not SDG&E directly) was independently verified via CPUC's own page there, and SDG&E's distribution role in Chula Vista is independently confirmed by S12 — so this SDG&E-territory-wide program applies here too, not asserted as separately Chula-Vista-specific research. Removed the previously-listed \"SGIP - Equity Resiliency\" line item on 2026-08-09: its expires_on (2025-12-31) has definitively elapsed and no renewal/replacement was confirmed this session, so it no longer represents a current program; the remaining item(s) here are still active/unknown-status per their own status field."
   },
   "required_documents": {
     "value": null,
@@ -173,7 +162,7 @@
     ],
     "notes": "Contact details found via consistent search-engine indexing of the city's own directory pages; not independently fetched this session (chulavistaca.gov blocked)."
   },
-  "last_verified": "2026-08-03",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",

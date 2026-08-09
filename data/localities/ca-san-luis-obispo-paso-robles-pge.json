@@ -4,7 +4,9 @@
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Paso Robles is a well-documented San Luis Obispo County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
@@ -14,45 +16,106 @@
       "notes": "3CE's own official site confirms it serves San Luis Obispo County, including Paso Robles, as part of its 5-county, 33-community service area. PG&E continues to deliver the power and provide billing/customer service."
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Paso Robles", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Luis Obispo County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Paso Robles",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Luis Obispo County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Paso Robles Building Department",
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "prcity.com returned HTTP 403 to automated fetch this session, so the city's own Building page could not be independently read; this record relies on search-engine-derived detail."
   },
   "permit_url": {
     "value": "https://www.prcity.com/189/Building",
     "confidence": 0.45,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "URL identified via search-engine indexing; the page returned HTTP 403 to automated fetch and its content was not independently verified this session. Solar permits are submitted electronically through the city's PasoPermits.com portal."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
     "confidence": 0.55,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025 and remains an active program per SGIP's own statewide announcements (most recently dated 2026-07-23). Administered across PG&E's entire distribution territory, which includes Paso Robles/San Luis Obispo County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E or SCE residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com), including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
+  },
   "required_documents": {
     "value": [
-      { "name": "Section 1 - Solar Photovoltaic Submittal Requirements (for installations 10kW or less)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Section 1 - Solar Photovoltaic Submittal Requirements (for installations 10kW or less)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.5,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 3, "notes": "Permits should be reviewed in three days or less, per search-engine summary of the city's process." },
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Permits should be reviewed in three days or less, per search-engine summary of the city's process."
+    },
     "confidence": 0.45,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -60,10 +123,20 @@
       "other_conditions": []
     },
     "confidence": 0.5,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -75,7 +148,9 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [
@@ -101,6 +176,14 @@
       "url": "https://3cenergy.org/about-us/",
       "publisher": "Central Coast Community Energy (3CE)",
       "type": "other_official",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (SGIP)",
+      "type": "cpuc",
       "accessed_date": "2026-08-09"
     }
   ]

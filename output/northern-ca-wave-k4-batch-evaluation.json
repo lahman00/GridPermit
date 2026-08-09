@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T05:31:22.128Z",
+  "evaluated_at": "2026-08-09T21:17:50.664Z",
   "record_count": 4,
   "records": [
     {
       "record_id": "ca-humboldt-eureka-pge",
       "city": "Eureka",
       "county": "Humboldt County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -19,13 +19,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -38,7 +38,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-humboldt-arcata-pge",
@@ -82,7 +82,7 @@
       "record_id": "ca-humboldt-fortuna-pge",
       "city": "Fortuna",
       "county": "Humboldt County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -95,13 +95,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "permit_fees",
         "rebates"
@@ -114,7 +114,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-del-norte-crescent-city-pp",
@@ -156,10 +156,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 65,
+    "average_completeness_pct": 68.3,
     "average_validation_score": 97.5,
-    "ready_count": 0,
-    "limited_count": 4,
+    "ready_count": 2,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -169,7 +169,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 4,
+      "battery_programs": 2,
       "required_documents": 1,
       "inspection_steps": 3,
       "timeline_days": 3,
@@ -179,10 +179,6 @@
       "official_contacts": 1
     },
     "fields_most_often_missing": [
-      {
-        "field": "battery_programs",
-        "missing_in_records": 4
-      },
       {
         "field": "permit_fees",
         "missing_in_records": 4
@@ -198,6 +194,10 @@
       {
         "field": "timeline_days",
         "missing_in_records": 3
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 2
       },
       {
         "field": "generation_supplier",
@@ -235,22 +235,15 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-humboldt-eureka-pge",
+      "ca-humboldt-fortuna-pge"
+    ],
     "limited_for_now": [
-      {
-        "record_id": "ca-humboldt-eureka-pge",
-        "city": "Eureka",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
       {
         "record_id": "ca-humboldt-arcata-pge",
         "city": "Arcata",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-humboldt-fortuna-pge",
-        "city": "Fortuna",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-del-norte-crescent-city-pp",
@@ -259,7 +252,9 @@
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }

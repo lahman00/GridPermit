@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T04:06:33.609Z",
+  "evaluated_at": "2026-08-09T21:17:50.547Z",
   "record_count": 6,
   "records": [
     {
@@ -44,7 +44,7 @@
       "record_id": "ca-solano-benicia-pge",
       "city": "Benicia",
       "county": "Solano County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -57,13 +57,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -76,7 +76,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-solano-fairfield-pge",
@@ -232,10 +232,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 61.1,
+    "average_completeness_pct": 62.2,
     "average_validation_score": 94.7,
-    "ready_count": 0,
-    "limited_count": 6,
+    "ready_count": 1,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -245,7 +245,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 6,
+      "battery_programs": 5,
       "required_documents": 4,
       "inspection_steps": 4,
       "timeline_days": 6,
@@ -255,10 +255,6 @@
       "official_contacts": 0
     },
     "fields_most_often_missing": [
-      {
-        "field": "battery_programs",
-        "missing_in_records": 6
-      },
       {
         "field": "timeline_days",
         "missing_in_records": 6
@@ -270,6 +266,10 @@
       {
         "field": "rebates",
         "missing_in_records": 6
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 5
       },
       {
         "field": "required_documents",
@@ -304,17 +304,14 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-solano-benicia-pge"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-solano-vallejo-pge",
         "city": "Vallejo",
         "reason": "readiness=LIMITED (completeness 60%, score 92)"
-      },
-      {
-        "record_id": "ca-solano-benicia-pge",
-        "city": "Benicia",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-solano-fairfield-pge",
@@ -338,7 +335,9 @@
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }

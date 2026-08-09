@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T05:26:23.015Z",
+  "evaluated_at": "2026-08-09T21:17:50.623Z",
   "record_count": 5,
   "records": [
     {
@@ -82,7 +82,7 @@
       "record_id": "ca-nevada-grass-valley-pge",
       "city": "Grass Valley",
       "county": "Nevada County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -95,13 +95,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "rebates"
@@ -115,7 +115,7 @@
       "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-nevada-nevada-city-pge",
@@ -195,10 +195,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 65.3,
+    "average_completeness_pct": 66.7,
     "average_validation_score": 96,
-    "ready_count": 0,
-    "limited_count": 5,
+    "ready_count": 1,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -208,7 +208,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 1,
-      "battery_programs": 5,
+      "battery_programs": 4,
       "required_documents": 0,
       "inspection_steps": 3,
       "timeline_days": 5,
@@ -219,16 +219,16 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
-        "missing_in_records": 5
-      },
-      {
         "field": "timeline_days",
         "missing_in_records": 5
       },
       {
         "field": "rebates",
         "missing_in_records": 5
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 4
       },
       {
         "field": "generation_supplier",
@@ -277,7 +277,9 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-nevada-grass-valley-pge"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-sutter-yuba-city-pge",
@@ -288,11 +290,6 @@
         "record_id": "ca-yuba-marysville-pge",
         "city": "Marysville",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-nevada-grass-valley-pge",
-        "city": "Grass Valley",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
       },
       {
         "record_id": "ca-nevada-nevada-city-pge",
@@ -306,7 +303,9 @@
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }

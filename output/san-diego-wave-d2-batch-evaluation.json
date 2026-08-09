@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-08T19:18:54.388Z",
+  "evaluated_at": "2026-08-09T21:11:28.885Z",
   "record_count": 8,
   "records": [
     {
@@ -196,7 +196,7 @@
       "record_id": "ca-san-diego-encinitas-sdge",
       "city": "Encinitas",
       "county": "San Diego County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -210,11 +210,11 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
         "inspection_steps",
         "timeline_days",
         "permit_fees",
@@ -227,7 +227,7 @@
       "separate_cca_present": true,
       "permit_fees_available": false,
       "timeline_available": false,
-      "required_documents_available": false,
+      "required_documents_available": true,
       "readiness": "LIMITED"
     },
     {
@@ -308,7 +308,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 71.7,
+    "average_completeness_pct": 72.5,
     "average_validation_score": 95.8,
     "ready_count": 3,
     "limited_count": 5,
@@ -322,7 +322,7 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 1,
-      "required_documents": 5,
+      "required_documents": 4,
       "inspection_steps": 5,
       "timeline_days": 4,
       "eligibility_constraints": 2,
@@ -340,12 +340,12 @@
         "missing_in_records": 8
       },
       {
-        "field": "required_documents",
+        "field": "inspection_steps",
         "missing_in_records": 5
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 5
+        "field": "required_documents",
+        "missing_in_records": 4
       },
       {
         "field": "timeline_days",
@@ -404,7 +404,7 @@
       {
         "record_id": "ca-san-diego-encinitas-sdge",
         "city": "Encinitas",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 92)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
       },
       {
         "record_id": "ca-san-diego-solana-beach-sdge",

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T20:42:27.637Z",
+  "evaluated_at": "2026-08-09T21:17:50.745Z",
   "record_count": 10,
   "records": [
     {
@@ -120,7 +120,7 @@
       "record_id": "ca-santa-clara-cupertino-pge",
       "city": "Cupertino",
       "county": "Santa Clara County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -133,13 +133,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -152,13 +152,13 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-santa-clara-campbell-pge",
       "city": "Campbell",
       "county": "Santa Clara County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -171,13 +171,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "timeline_days",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "rebates"
@@ -191,7 +191,7 @@
       "permit_fees_available": true,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-santa-clara-los-gatos-pge",
@@ -312,7 +312,7 @@
       "record_id": "ca-santa-clara-morgan-hill-pge",
       "city": "Morgan Hill",
       "county": "Santa Clara County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -325,13 +325,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -344,7 +344,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-santa-clara-gilroy-pge",
@@ -387,10 +387,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 75.3,
     "average_validation_score": 94.5,
-    "ready_count": 4,
-    "limited_count": 6,
+    "ready_count": 7,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -400,7 +400,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 9,
+      "battery_programs": 6,
       "required_documents": 3,
       "inspection_steps": 5,
       "timeline_days": 6,
@@ -415,12 +415,12 @@
         "missing_in_records": 10
       },
       {
-        "field": "battery_programs",
-        "missing_in_records": 9
-      },
-      {
         "field": "permit_fees",
         "missing_in_records": 7
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 6
       },
       {
         "field": "timeline_days",
@@ -461,8 +461,11 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-santa-clara-santa-clara-svp",
+      "ca-santa-clara-cupertino-pge",
+      "ca-santa-clara-campbell-pge",
       "ca-santa-clara-monte-sereno-pge",
       "ca-santa-clara-saratoga-pge",
+      "ca-santa-clara-morgan-hill-pge",
       "ca-santa-clara-gilroy-pge"
     ],
     "limited_for_now": [
@@ -477,24 +480,9 @@
         "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
       },
       {
-        "record_id": "ca-santa-clara-cupertino-pge",
-        "city": "Cupertino",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
-      {
-        "record_id": "ca-santa-clara-campbell-pge",
-        "city": "Campbell",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
-      },
-      {
         "record_id": "ca-santa-clara-los-gatos-pge",
         "city": "Los Gatos",
         "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
-      },
-      {
-        "record_id": "ca-santa-clara-morgan-hill-pge",
-        "city": "Morgan Hill",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [],

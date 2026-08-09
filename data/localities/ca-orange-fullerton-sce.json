@@ -16,7 +16,9 @@
       "notes": "Fullerton's own city government site hosts a page titled 'Orange County Power Authority | Fullerton, CA' (S10), confirming a formal OCPA relationship exists, though cityoffullerton.com returned HTTP 403 to direct fetch (same as every other Fullerton page this session) so its exact content could not be read. OCPA's own domain (ocpower.org) returned server errors (500/502) on every page attempted this session — a genuine outage, not a deliberate block. Fullerton's OCPA membership is corroborated by multiple independent sources (OCPA's own newsroom coverage and a peer member city's official site) consistently naming Fullerton as an OCPA member city since 2021-2022. Confidence reflects that this is indirect corroboration, not a directly-read primary-source page, unlike Irvine's generation_supplier record."
     },
     "confidence": 0.6,
-    "source_ids": ["S10"]
+    "source_ids": [
+      "S10"
+    ]
   },
   "city": {
     "value": "Fullerton",
@@ -54,7 +56,9 @@
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S11"],
+    "source_ids": [
+      "S11"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact (same URL applies to every city in SCE's distribution territory, including Fullerton), already established for the Irvine record this session. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
   },
   "battery_programs": {
@@ -71,19 +75,6 @@
         "effective_from": "2025-06-02",
         "expires_on": null,
         "status": "unknown"
-      },
-      {
-        "name": "SGIP - Equity Resiliency",
-        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
-        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
-        "value_usd_per_kwh": 1000,
-        "value_usd_flat": null,
-        "value_usd_per_watt": null,
-        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Fullerton/Orange County eligibility not independently confirmed this session.",
-        "url": "https://www.selfgenca.com/home/about/",
-        "effective_from": null,
-        "expires_on": "2025-12-31",
-        "status": "expired"
       }
     ],
     "confidence": 0.6,
@@ -91,7 +82,7 @@
       "S4",
       "S5"
     ],
-    "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory records and for Irvine (SCE); the general-market tier's own eligibility text directly names both PG&E and SCE customers."
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory records and for Irvine (SCE); the general-market tier's own eligibility text directly names both PG&E and SCE customers. Removed the previously-listed \"SGIP - Equity Resiliency\" line item on 2026-08-09: its expires_on (2025-12-31) has definitively elapsed and no renewal/replacement was confirmed this session, so it no longer represents a current program; the remaining item(s) here are still active/unknown-status per their own status field."
   },
   "required_documents": {
     "value": null,
@@ -170,7 +161,7 @@
     ],
     "notes": "Phone number and address consistently cited across independent search results; not independently fetched this session."
   },
-  "last_verified": "2026-08-03",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",

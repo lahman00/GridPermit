@@ -14,14 +14,10 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "battery_programs",
-      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "inspection_steps",
       "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -38,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://carpinteriaca.gov/city-hall/community-development/building-and-safety/",
-      "checked_at": "2026-08-09T05:06:55.305Z",
+      "checked_at": "2026-08-09T21:15:42.207Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -46,15 +42,23 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-09T05:06:55.618Z",
+      "checked_at": "2026-08-09T21:15:42.566Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/about/",
+      "checked_at": "2026-08-09T21:15:52.568Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     },
     {
       "url": "https://3cenergy.org/11-communities-in-slo-and-santa-barbara-counties-begin-transitioning-to-clean-energy-local-control-with-central-coast-community-energy/",
-      "checked_at": "2026-08-09T05:06:55.623Z",
+      "checked_at": "2026-08-09T21:15:53.291Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

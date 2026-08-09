@@ -4,7 +4,9 @@
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Ava Community Energy's own Berkeley page confirms PG&E's continued role as the underlying transmission/distribution/billing utility, stating the Renewable 100 default product 'costs an additional 1¾ cent per kilowatt-hour above PG&E rates' and that customers may 'return to PG&E service.' Ava is a separate default generation supplier layered on top of PG&E delivery — see generation_supplier."
   },
   "generation_supplier": {
@@ -14,34 +16,46 @@
       "notes": "Per Ava Community Energy's own Berkeley page: 'In June 2021, the Berkeley City Council voted to set the default electricity option for Berkeley residents (except those on CARE, FERA, and/or Medical Baseline rates) to Ava's Renewable 100 service starting in March 2022... residential customers on the CARE, FERA, or Medical Baseline programs automatically remain on Bright Choice.' This is a different default product than the Fremont record's (Bright Choice) — a genuine per-city council decision, not an inconsistency."
     },
     "confidence": 0.9,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "city": {
     "value": "Berkeley",
     "confidence": 1,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Given as the run's input parameter; confirmed by the City of Berkeley's own official site."
   },
   "county": {
     "value": "Alameda County",
     "confidence": 0.85,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Berkeley Municipal Code's own definitions section (BMC 1.04.010) states: '\"County\" means the county of Alameda, California,' directly confirming the jurisdiction relationship on the city's own code, hosted at berkeley.municipal.codes."
   },
   "permit_authority": {
     "value": "City of Berkeley Permit Service Center (Building & Safety Division)",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://berkeleyca.gov/construction-development/permits-design-parameters/permit-types/solar-permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S9"],
+    "source_ids": [
+      "S9"
+    ],
     "notes": "Same PG&E-wide Net Energy Metering program URL already verified for the Fremont, Oakland, San Jose, Fresno, and Stockton records — reused here as a utility-level fact (PG&E's NEM program page is the same for every city in its distribution territory, not city-specific). pge.com has returned HTTP 403 to automated fetch in every prior check this session; the URL is confirmed to exist on PG&E's official domain via search engine indexing under its expected title."
   },
   "battery_programs": {
@@ -58,36 +72,64 @@
         "effective_from": "2025-06-02",
         "expires_on": null,
         "status": "unknown"
-      },
-      {
-        "name": "SGIP - Equity Resiliency",
-        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
-        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
-        "value_usd_per_kwh": 1000,
-        "value_usd_flat": null,
-        "value_usd_per_watt": null,
-        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Berkeley/Alameda County eligibility not independently confirmed this session.",
-        "url": "https://www.selfgenca.com/home/about/",
-        "effective_from": null,
-        "expires_on": "2025-12-31",
-        "status": "expired"
       }
     ],
     "confidence": 0.65,
-    "source_ids": ["S7", "S8"],
-    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures already verified for the Fremont/Oakland/San Jose records this session, reused here because SGIP is administered per IOU distribution territory (PG&E), not per city — PG&E's distribution role in Berkeley is independently confirmed via S5. Re-check against selfgenca.com's live Program Metrics page before showing as current."
+    "source_ids": [
+      "S7",
+      "S8"
+    ],
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures already verified for the Fremont/Oakland/San Jose records this session, reused here because SGIP is administered per IOU distribution territory (PG&E), not per city — PG&E's distribution role in Berkeley is independently confirmed via S5. Re-check against selfgenca.com's live Program Metrics page before showing as current. Removed the previously-listed \"SGIP - Equity Resiliency\" line item on 2026-08-09: its expires_on (2025-12-31) has definitively elapsed and no renewal/replacement was confirmed this session, so it no longer represents a current program; the remaining item(s) here are still active/unknown-status per their own status field."
   },
   "required_documents": {
     "value": [
-      { "name": "Cover Sheet (project address, owner and preparer contact info, scope of work, unit count, sheet index, legend)", "required_when": "always, standard (non-streamlined) submittal", "source_ids": ["S2"] },
-      { "name": "Schematic Site Plan (property lines, PV system location, main electrical panel/subpanels, equipment and disconnect locations)", "required_when": "always, standard (non-streamlined) submittal", "source_ids": ["S2"] },
-      { "name": "Permit Application (Building, Electrical, Mechanical, Plumbing)", "required_when": "always, standard (non-streamlined) submittal", "source_ids": ["S2"] },
-      { "name": "Electrical Plan (single line diagram of PV and utility interconnect, conductor/raceway specifications)", "required_when": "always, standard (non-streamlined) submittal", "source_ids": ["S2"] },
-      { "name": "Roof Plan and Cross-Section (roof layout, module attachment, fire-safety access pathways and labeling)", "required_when": "always, standard (non-streamlined) submittal; stamped engineering calculations additionally required if roof framing exceeds allowable span/spacing limits or panels are not flush-mounted", "source_ids": ["S2"] },
-      { "name": "Manufacturer's Specification Sheets (make, model, listing, size, weight for inverters, panels, racks, combiner boxes)", "required_when": "always, standard (non-streamlined) submittal", "source_ids": ["S2"] }
+      {
+        "name": "Cover Sheet (project address, owner and preparer contact info, scope of work, unit count, sheet index, legend)",
+        "required_when": "always, standard (non-streamlined) submittal",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Schematic Site Plan (property lines, PV system location, main electrical panel/subpanels, equipment and disconnect locations)",
+        "required_when": "always, standard (non-streamlined) submittal",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Permit Application (Building, Electrical, Mechanical, Plumbing)",
+        "required_when": "always, standard (non-streamlined) submittal",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Electrical Plan (single line diagram of PV and utility interconnect, conductor/raceway specifications)",
+        "required_when": "always, standard (non-streamlined) submittal",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Roof Plan and Cross-Section (roof layout, module attachment, fire-safety access pathways and labeling)",
+        "required_when": "always, standard (non-streamlined) submittal; stamped engineering calculations additionally required if roof framing exceeds allowable span/spacing limits or panels are not flush-mounted",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer's Specification Sheets (make, model, listing, size, weight for inverters, panels, racks, combiner boxes)",
+        "required_when": "always, standard (non-streamlined) submittal",
+        "source_ids": [
+          "S2"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "From the City of Berkeley Building & Safety Division's 'Solar Photovoltaic (PV) System Submittal Requirements' document. This document explicitly applies to the standard submittal path — it directs streamlined-eligible projects (10kW AC or less, single-family/duplex) to a separate 'Solar PV Residential Requirements for Streamlined Review' document, which was not located/fetched this session, so streamlined-path requirements are not separately verified here."
   },
   "inspection_steps": {
@@ -96,29 +138,53 @@
       "Inspections may be scheduled through Permits Online, the automated phone scheduling system at (844) 216-2170, or by phone at (510) 981-7440 (option 1)"
     ],
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 5, "notes": "Berkeley's Solar Permits page states 'Projects submitted under the standard permit process will be reviewed within one working day.' The Building & Safety Division's submittal-requirements document separately states 'Allow 5 working days for review of plans with calculations' — i.e. specifically when stamped structural engineering calculations are required (non-flush-mounted panels, or roof framing exceeding standard span/spacing limits). No specific timeline is stated for SolarAPP+ real-time or Permits Online streamlined applications." },
+    "value": {
+      "min_days": 0,
+      "max_days": 5,
+      "notes": "Berkeley's Solar Permits page states 'Projects submitted under the standard permit process will be reviewed within one working day.' The Building & Safety Division's submittal-requirements document separately states 'Allow 5 working days for review of plans with calculations' — i.e. specifically when stamped structural engineering calculations are required (non-flush-mounted panels, or roof framing exceeding standard span/spacing limits). No specific timeline is stated for SolarAPP+ real-time or Permits Online streamlined applications."
+    },
     "confidence": 0.8,
-    "source_ids": ["S1", "S2"]
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["single-family", "duplex"],
+      "property_types": [
+        "single-family",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
       "program_or_pathway": "Streamlined solar permitting (Permits Online) / SolarAPP+ real-time permitting",
-      "other_conditions": ["Must mark all items 'Yes' on the Eligibility Checklist for Solar Streamlining to use the streamlined process; SolarAPP+ has its own separate eligibility checklist referenced on the same page."]
+      "other_conditions": [
+        "Must mark all items 'Yes' on the Eligibility Checklist for Solar Streamlining to use the streamlined process; SolarAPP+ has its own separate eligibility checklist referenced on the same page."
+      ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The 10kW AC cap and single-family/duplex scope are stated for the streamlined (Permits Online) pathway specifically: 'small solar rooftop system (10kW AC or less)' on 'single family or duplex home.' SolarAPP+'s own eligibility checklist is referenced but not itself detailed on this page, so its criteria are not separately verified here."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "Berkeley's Solar Permits page states only that the city 'encourages the installation' through 'minimal permit fees,' without a specific dollar figure — not detailed enough to record as a verified fee." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Berkeley's Solar Permits page states only that the city 'encourages the installation' through 'minimal permit fees,' without a specific dollar figure — not detailed enough to record as a verified fee."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -137,9 +203,12 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S10"]
+    "source_ids": [
+      "S1",
+      "S10"
+    ]
   },
-  "last_verified": "2026-08-03",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",

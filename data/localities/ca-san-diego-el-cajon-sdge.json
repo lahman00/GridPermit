@@ -52,10 +52,19 @@
     "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis indicates only projects conforming to the SolarAPP+ eligibility list may use automated instant permitting, with all others requiring a regular Building Permit, but the specific document checklist was not independently confirmed via direct fetch this session (elcajon.gov returned HTTP 403)." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Complete the third-party inspection declaration on the permit and upload it to PACO (the City's online permit/inspection portal)",
+      "Request a Final Review through PACO in order to obtain a release of solar to SDG&E",
+      "No other City inspections are required beyond this final review/release step"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Confirmed via direct browser read of the City's own Photovoltaic page (elcajon.gov), which had returned HTTP 403 to WebFetch earlier this session but was successfully rendered via direct browser navigation."
+  },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 0, "notes": "Search-engine synthesis of the city's own page states eligible SolarAPP+ systems can receive permits issued in as little as 30 minutes; not independently confirmed via direct fetch this session (elcajon.gov returned HTTP 403)." },
-    "confidence": 0.5,
+    "value": { "min_days": 0, "max_days": 0, "notes": "The City's own page states eligible SolarAPP+ systems can receive permits issued in as little as 30 minutes, confirmed via direct browser read (elcajon.gov returned HTTP 403 to WebFetch but rendered correctly via direct browser navigation)." },
+    "confidence": 0.85,
     "source_ids": ["S1"]
   },
   "eligibility_constraints": {

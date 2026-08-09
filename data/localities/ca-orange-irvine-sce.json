@@ -56,7 +56,9 @@
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S9"],
+    "source_ids": [
+      "S9"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — this is a utility-wide fact (the same URL applies to every city in SCE's distribution territory, including Irvine), not city-specific. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
   },
   "battery_programs": {
@@ -73,19 +75,6 @@
         "effective_from": "2025-06-02",
         "expires_on": null,
         "status": "unknown"
-      },
-      {
-        "name": "SGIP - Equity Resiliency",
-        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
-        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
-        "value_usd_per_kwh": 1000,
-        "value_usd_flat": null,
-        "value_usd_per_watt": null,
-        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Irvine/Orange County eligibility not independently confirmed this session.",
-        "url": "https://www.selfgenca.com/home/about/",
-        "effective_from": null,
-        "expires_on": "2025-12-31",
-        "status": "expired"
       }
     ],
     "confidence": 0.6,
@@ -93,24 +82,92 @@
       "S4",
       "S5"
     ],
-    "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory pilot records, applied here for the first time to an SCE-administered territory — the general-market tier's own eligibility text already explicitly names both PG&E and SCE customers, so this is a direct textual match, not an assumption. Confidence set slightly below the PG&E-territory records (0.6 vs 0.65) since SCE's specific administrator role for Irvine has not been independently re-confirmed the way PG&E's was for Bay Area cities. 'Available through 2025' read as expiring 2025-12-31, before last_verified, hence 'expired'; the other tier's status is 'unknown'."
+    "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory pilot records, applied here for the first time to an SCE-administered territory — the general-market tier's own eligibility text already explicitly names both PG&E and SCE customers, so this is a direct textual match, not an assumption. Confidence set slightly below the PG&E-territory records (0.6 vs 0.65) since SCE's specific administrator role for Irvine has not been independently re-confirmed the way PG&E's was for Bay Area cities. 'Available through 2025' read as expiring 2025-12-31, before last_verified, hence 'expired'; the other tier's status is 'unknown'. Removed the previously-listed \"SGIP - Equity Resiliency\" line item on 2026-08-09: its expires_on (2025-12-31) has definitively elapsed and no renewal/replacement was confirmed this session, so it no longer represents a current program; the remaining item(s) here are still active/unknown-status per their own status field."
   },
   "required_documents": {
     "value": [
-      { "name": "Building Permit Application (must include kW DC system size and number of photovoltaic solar roof panels)", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Electronic/Digital Signature Disclosure", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Site Plan (street address, property owner's name and phone number, applicant's contact information)", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Roof Plan (module layout with dimensions showing distance from roof edge, hips, and/or valleys)", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Single Line Electrical Diagram (equipment make/model, conductor type/size, conduit type/size, breaker size)", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Electrical Load Calculations", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "PV System Specifications (manufacturer's specification sheets for solar modules, inverter(s), J-boxes, combiner boxes)", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Signs and Labeling Sheet", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Roof Mounting Details, stamped and signed by a California licensed Civil Engineer, Structural Engineer, or Architect", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Roof Mounting Manufacturer's Product Specification/Installation Sheets", "required_when": "always", "source_ids": ["S10"] },
-      { "name": "Residential Photovoltaic General Notes", "required_when": "always", "source_ids": ["S10"] }
+      {
+        "name": "Building Permit Application (must include kW DC system size and number of photovoltaic solar roof panels)",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Electronic/Digital Signature Disclosure",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Site Plan (street address, property owner's name and phone number, applicant's contact information)",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Roof Plan (module layout with dimensions showing distance from roof edge, hips, and/or valleys)",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Single Line Electrical Diagram (equipment make/model, conductor type/size, conduit type/size, breaker size)",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Electrical Load Calculations",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "PV System Specifications (manufacturer's specification sheets for solar modules, inverter(s), J-boxes, combiner boxes)",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Signs and Labeling Sheet",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Roof Mounting Details, stamped and signed by a California licensed Civil Engineer, Structural Engineer, or Architect",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Roof Mounting Manufacturer's Product Specification/Installation Sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      },
+      {
+        "name": "Residential Photovoltaic General Notes",
+        "required_when": "always",
+        "source_ids": [
+          "S10"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S10"],
+    "source_ids": [
+      "S10"
+    ],
     "notes": "From the City of Irvine's 'Adding a Rooftop Solar Energy System' page — appears to be the standard residential submittal package rather than the separate 10kW-or-less expedited electronic-submittal pathway's own (shorter) checklist, which was not independently located this session."
   },
   "inspection_steps": {
@@ -187,7 +244,7 @@
     ],
     "notes": "Contact details found via consistent search-engine indexing referencing the city's own contact directory; not independently fetched this session."
   },
-  "last_verified": "2026-08-03",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",

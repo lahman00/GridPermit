@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T05:07:48.412Z",
+  "evaluated_at": "2026-08-09T21:17:50.471Z",
   "record_count": 5,
   "records": [
     {
@@ -158,7 +158,7 @@
       "record_id": "ca-santa-barbara-carpinteria-sce",
       "city": "Carpinteria",
       "county": "Santa Barbara County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -171,13 +171,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "rebates"
@@ -191,14 +191,14 @@
       "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 60,
+    "average_completeness_pct": 61.3,
     "average_validation_score": 96.2,
-    "ready_count": 0,
-    "limited_count": 5,
+    "ready_count": 1,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -208,7 +208,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 1,
-      "battery_programs": 5,
+      "battery_programs": 4,
       "required_documents": 4,
       "inspection_steps": 5,
       "timeline_days": 3,
@@ -219,16 +219,16 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
-        "missing_in_records": 5
-      },
-      {
         "field": "inspection_steps",
         "missing_in_records": 5
       },
       {
         "field": "rebates",
         "missing_in_records": 5
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 4
       },
       {
         "field": "required_documents",
@@ -278,7 +278,9 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-santa-barbara-carpinteria-sce"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-santa-barbara-santa-maria-pge",
@@ -299,15 +301,12 @@
         "record_id": "ca-santa-barbara-goleta-sce",
         "city": "Goleta",
         "reason": "readiness=LIMITED (completeness 60%, score 96)"
-      },
-      {
-        "record_id": "ca-santa-barbara-carpinteria-sce",
-        "city": "Carpinteria",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }

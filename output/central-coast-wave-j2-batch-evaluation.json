@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T04:55:08.039Z",
+  "evaluated_at": "2026-08-09T21:17:50.392Z",
   "record_count": 5,
   "records": [
     {
@@ -83,7 +83,7 @@
       "record_id": "ca-monterey-carmel-by-the-sea-pge",
       "city": "Carmel-by-the-Sea",
       "county": "Monterey County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -96,13 +96,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -115,7 +115,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-monterey-seaside-pge",
@@ -195,10 +195,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 62.7,
+    "average_completeness_pct": 64,
     "average_validation_score": 96.6,
-    "ready_count": 0,
-    "limited_count": 5,
+    "ready_count": 1,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -208,7 +208,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 5,
+      "battery_programs": 4,
       "required_documents": 4,
       "inspection_steps": 4,
       "timeline_days": 5,
@@ -219,16 +219,16 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
-        "missing_in_records": 5
-      },
-      {
         "field": "timeline_days",
         "missing_in_records": 5
       },
       {
         "field": "rebates",
         "missing_in_records": 5
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 4
       },
       {
         "field": "required_documents",
@@ -268,7 +268,9 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-monterey-carmel-by-the-sea-pge"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-monterey-monterey-pge",
@@ -279,11 +281,6 @@
         "record_id": "ca-monterey-pacific-grove-pge",
         "city": "Pacific Grove",
         "reason": "readiness=LIMITED (completeness 66.7%, score 91)"
-      },
-      {
-        "record_id": "ca-monterey-carmel-by-the-sea-pge",
-        "city": "Carmel-by-the-Sea",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-monterey-seaside-pge",
@@ -297,7 +294,9 @@
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }

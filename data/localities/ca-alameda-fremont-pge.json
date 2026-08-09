@@ -75,19 +75,6 @@
         "effective_from": "2025-06-02",
         "expires_on": null,
         "status": "unknown"
-      },
-      {
-        "name": "SGIP - Equity Resiliency",
-        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
-        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
-        "value_usd_per_kwh": 1000,
-        "value_usd_flat": null,
-        "value_usd_per_watt": null,
-        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Fremont/Alameda County eligibility not independently confirmed this session.",
-        "url": "https://www.selfgenca.com/home/about/",
-        "effective_from": null,
-        "expires_on": "2025-12-31",
-        "status": "expired"
       }
     ],
     "confidence": 0.65,
@@ -95,7 +82,7 @@
       "S4",
       "S5"
     ],
-    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures confirmed for the San Jose pilot record, reused here because SGIP is administered per IOU distribution territory (PG&E), not per city — PG&E's distribution role in Fremont is independently confirmed (S7), so the program's applicability carries over. Confidence set slightly below the San Jose record's (0.7) because this record does not independently re-confirm PG&E's SGIP administrator role specifically for Alameda County (S6 names Santa Clara County explicitly, not Alameda). 'effective_from'/'expires_on'/'status' per item follow the same reasoning documented in the San Jose record: the Residential Solar and Storage Equity tier's reservation-opening date (2025-06-02) is directly stated, with no stated end date or current status (hence 'unknown'); the Equity Resiliency tier's 'available through 2025' is interpreted as expiring 2025-12-31 (end of year, no specific day given), which is before last_verified, hence 'expired'. Re-check against selfgenca.com's live Program Metrics page before showing as current."
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures confirmed for the San Jose pilot record, reused here because SGIP is administered per IOU distribution territory (PG&E), not per city — PG&E's distribution role in Fremont is independently confirmed (S7), so the program's applicability carries over. Confidence set slightly below the San Jose record's (0.7) because this record does not independently re-confirm PG&E's SGIP administrator role specifically for Alameda County (S6 names Santa Clara County explicitly, not Alameda). 'effective_from'/'expires_on'/'status' per item follow the same reasoning documented in the San Jose record: the Residential Solar and Storage Equity tier's reservation-opening date (2025-06-02) is directly stated, with no stated end date or current status (hence 'unknown'); the Equity Resiliency tier's 'available through 2025' is interpreted as expiring 2025-12-31 (end of year, no specific day given), which is before last_verified, hence 'expired'. Re-check against selfgenca.com's live Program Metrics page before showing as current. Removed the previously-listed \"SGIP - Equity Resiliency\" line item on 2026-08-09: its expires_on (2025-12-31) has definitively elapsed and no renewal/replacement was confirmed this session, so it no longer represents a current program; the remaining item(s) here are still active/unknown-status per their own status field."
   },
   "required_documents": {
     "value": null,
@@ -176,7 +163,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-01",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",

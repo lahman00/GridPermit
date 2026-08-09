@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T20:48:47.509Z",
+  "evaluated_at": "2026-08-09T21:17:50.509Z",
   "record_count": 7,
   "records": [
     {
@@ -120,7 +120,7 @@
       "record_id": "ca-sonoma-sebastopol-pge",
       "city": "Sebastopol",
       "county": "Sonoma County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -133,13 +133,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "permit_fees",
         "rebates"
@@ -152,7 +152,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-sonoma-healdsburg-hed",
@@ -270,10 +270,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 70.5,
+    "average_completeness_pct": 71.4,
     "average_validation_score": 97,
-    "ready_count": 2,
-    "limited_count": 5,
+    "ready_count": 3,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -283,7 +283,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 6,
+      "battery_programs": 5,
       "required_documents": 5,
       "inspection_steps": 4,
       "timeline_days": 2,
@@ -303,7 +303,7 @@
       },
       {
         "field": "battery_programs",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "required_documents",
@@ -341,6 +341,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-sonoma-sebastopol-pge",
       "ca-sonoma-healdsburg-hed",
       "ca-sonoma-sonoma-pge"
     ],
@@ -361,11 +362,6 @@
         "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
       },
       {
-        "record_id": "ca-sonoma-sebastopol-pge",
-        "city": "Sebastopol",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
-      {
         "record_id": "ca-sonoma-windsor-pge",
         "city": "Windsor",
         "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
@@ -373,8 +369,8 @@
     ],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
-      "municipal",
-      "IOU"
+      "IOU",
+      "municipal"
     ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }

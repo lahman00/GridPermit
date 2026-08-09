@@ -70,19 +70,6 @@
         "effective_from": "2025-06-02",
         "expires_on": null,
         "status": "unknown"
-      },
-      {
-        "name": "SGIP - Equity Resiliency",
-        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
-        "description": "Incentive of $1,000/kWh for IOU residential or non-residential customers. Source states this rate is/was 'available through 2025.'",
-        "value_usd_per_kwh": 1000,
-        "value_usd_flat": null,
-        "value_usd_per_watt": null,
-        "eligibility": "IOU residential or non-residential customers meeting Equity Resiliency criteria (e.g. high fire-threat district, medical baseline). Specific Fresno County eligibility not independently confirmed this session.",
-        "url": "https://www.selfgenca.com/home/about/",
-        "effective_from": null,
-        "expires_on": "2025-12-31",
-        "status": "expired"
       }
     ],
     "confidence": 0.65,
@@ -90,7 +77,7 @@
       "S4",
       "S5"
     ],
-    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures already confirmed for the San Jose/Fremont/Oakland pilot records, reused here on the same reasoning: SGIP is administered per IOU distribution territory (PG&E), not per city, and PG&E's distribution role in Fresno is independently confirmed (S3). Confidence held at 0.65 since this record does not independently re-confirm PG&E's SGIP administrator role specifically for Fresno County. 'Available through 2025' read as expiring 2025-12-31 (no specific day stated), which is before last_verified, hence 'expired'; the other tier's reservation-opening date is directly stated with no stated end/status, hence 'unknown'. Re-check against selfgenca.com's live Program Metrics page before showing as current."
+    "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures already confirmed for the San Jose/Fremont/Oakland pilot records, reused here on the same reasoning: SGIP is administered per IOU distribution territory (PG&E), not per city, and PG&E's distribution role in Fresno is independently confirmed (S3). Confidence held at 0.65 since this record does not independently re-confirm PG&E's SGIP administrator role specifically for Fresno County. 'Available through 2025' read as expiring 2025-12-31 (no specific day stated), which is before last_verified, hence 'expired'; the other tier's reservation-opening date is directly stated with no stated end/status, hence 'unknown'. Re-check against selfgenca.com's live Program Metrics page before showing as current. Removed the previously-listed \"SGIP - Equity Resiliency\" line item on 2026-08-09: its expires_on (2025-12-31) has definitively elapsed and no renewal/replacement was confirmed this session, so it no longer represents a current program; the remaining item(s) here are still active/unknown-status per their own status field."
   },
   "required_documents": {
     "value": [
@@ -184,7 +171,7 @@
     ],
     "notes": "A phone number for Fresno's Building and Safety Services Division appeared in search results but was inconsistent across sources (multiple different numbers attributed to the same office with no single canonical page confirming one) — omitted rather than recording a possibly-incorrect number. The office's own URL is included instead."
   },
-  "last_verified": "2026-08-02",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",

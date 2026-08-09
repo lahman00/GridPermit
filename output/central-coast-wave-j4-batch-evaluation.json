@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T05:02:19.495Z",
+  "evaluated_at": "2026-08-09T21:17:50.433Z",
   "record_count": 7,
   "records": [
     {
       "record_id": "ca-san-luis-obispo-san-luis-obispo-pge",
       "city": "San Luis Obispo",
       "county": "San Luis Obispo County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -19,13 +19,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "permit_fees"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "rebates",
         "official_contacts"
@@ -39,13 +39,13 @@
       "permit_fees_available": true,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-luis-obispo-paso-robles-pge",
       "city": "Paso Robles",
       "county": "San Luis Obispo County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -58,13 +58,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "permit_fees",
         "rebates"
@@ -77,7 +77,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-luis-obispo-atascadero-pge",
@@ -274,10 +274,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 75.2,
     "average_validation_score": 94.6,
-    "ready_count": 3,
-    "limited_count": 4,
+    "ready_count": 5,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -287,7 +287,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 7,
+      "battery_programs": 5,
       "required_documents": 2,
       "inspection_steps": 5,
       "timeline_days": 2,
@@ -298,12 +298,12 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
+        "field": "rebates",
         "missing_in_records": 7
       },
       {
-        "field": "rebates",
-        "missing_in_records": 7
+        "field": "battery_programs",
+        "missing_in_records": 5
       },
       {
         "field": "inspection_steps",
@@ -352,21 +352,13 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-san-luis-obispo-san-luis-obispo-pge",
+      "ca-san-luis-obispo-paso-robles-pge",
       "ca-san-luis-obispo-atascadero-pge",
       "ca-san-luis-obispo-pismo-beach-pge",
       "ca-san-luis-obispo-grover-beach-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-san-luis-obispo-san-luis-obispo-pge",
-        "city": "San Luis Obispo",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 91)"
-      },
-      {
-        "record_id": "ca-san-luis-obispo-paso-robles-pge",
-        "city": "Paso Robles",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
       {
         "record_id": "ca-san-luis-obispo-morro-bay-pge",
         "city": "Morro Bay",

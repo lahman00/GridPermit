@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-08T19:49:21.175Z",
+  "evaluated_at": "2026-08-09T21:17:50.705Z",
   "record_count": 7,
   "records": [
     {
@@ -121,7 +121,7 @@
       "record_id": "ca-san-mateo-atherton-pge",
       "city": "Atherton",
       "county": "San Mateo County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -134,13 +134,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -153,7 +153,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-mateo-woodside-pge",
@@ -271,10 +271,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72.4,
+    "average_completeness_pct": 73.3,
     "average_validation_score": 96.4,
-    "ready_count": 2,
-    "limited_count": 5,
+    "ready_count": 3,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -284,7 +284,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 7,
+      "battery_programs": 6,
       "required_documents": 1,
       "inspection_steps": 4,
       "timeline_days": 4,
@@ -295,12 +295,12 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
+        "field": "rebates",
         "missing_in_records": 7
       },
       {
-        "field": "rebates",
-        "missing_in_records": 7
+        "field": "battery_programs",
+        "missing_in_records": 6
       },
       {
         "field": "permit_fees",
@@ -345,18 +345,14 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-san-mateo-foster-city-pge",
-      "ca-san-mateo-san-carlos-pge"
+      "ca-san-mateo-san-carlos-pge",
+      "ca-san-mateo-atherton-pge"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-san-mateo-belmont-pge",
         "city": "Belmont",
         "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
-      },
-      {
-        "record_id": "ca-san-mateo-atherton-pge",
-        "city": "Atherton",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-san-mateo-woodside-pge",

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T04:12:26.897Z",
+  "evaluated_at": "2026-08-09T21:17:50.587Z",
   "record_count": 10,
   "records": [
     {
@@ -158,7 +158,7 @@
       "record_id": "ca-marin-larkspur-pge",
       "city": "Larkspur",
       "county": "Marin County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -171,13 +171,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "permit_fees",
         "rebates"
@@ -190,13 +190,13 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-marin-corte-madera-pge",
       "city": "Corte Madera",
       "county": "Marin County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -209,13 +209,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "permit_fees",
         "rebates"
@@ -228,7 +228,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-marin-tiburon-pge",
@@ -384,10 +384,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 67.3,
+    "average_completeness_pct": 68.7,
     "average_validation_score": 95.4,
-    "ready_count": 1,
-    "limited_count": 9,
+    "ready_count": 3,
+    "limited_count": 7,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -397,7 +397,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 10,
+      "battery_programs": 8,
       "required_documents": 7,
       "inspection_steps": 6,
       "timeline_days": 5,
@@ -408,16 +408,16 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
-        "missing_in_records": 10
-      },
-      {
         "field": "permit_fees",
         "missing_in_records": 10
       },
       {
         "field": "rebates",
         "missing_in_records": 10
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 8
       },
       {
         "field": "required_documents",
@@ -457,6 +457,8 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-marin-larkspur-pge",
+      "ca-marin-corte-madera-pge",
       "ca-marin-tiburon-pge"
     ],
     "limited_for_now": [
@@ -479,16 +481,6 @@
         "record_id": "ca-marin-sausalito-pge",
         "city": "Sausalito",
         "reason": "readiness=LIMITED (completeness 66.7%, score 92)"
-      },
-      {
-        "record_id": "ca-marin-larkspur-pge",
-        "city": "Larkspur",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
-      {
-        "record_id": "ca-marin-corte-madera-pge",
-        "city": "Corte Madera",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-marin-fairfax-pge",

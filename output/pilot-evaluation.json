@@ -1,16 +1,17 @@
 {
-  "evaluated_at": "2026-08-03T04:08:44.555Z",
+  "evaluated_at": "2026-08-09T21:11:28.764Z",
   "record_count": 5,
   "records": [
     {
       "record_id": "ca-santa-clara-san-jose-pge",
-      "completeness_pct": 53.3,
-      "validation_score": 85,
+      "completeness_pct": 60,
+      "validation_score": 90,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 6,
+      "warning_count": 5,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -20,7 +21,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -29,11 +29,10 @@
         "rebates"
       ],
       "warning_categories": [
-        "broken_url",
-        "outdated_information"
+        "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": true,
       "permit_fees_available": false,
       "timeline_available": false,
       "readiness": "LIMITED"
@@ -41,10 +40,10 @@
     {
       "record_id": "ca-alameda-fremont-pge",
       "completeness_pct": 80,
-      "validation_score": 85,
+      "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 6,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -65,8 +64,7 @@
         "rebates"
       ],
       "warning_categories": [
-        "broken_url",
-        "outdated_information"
+        "broken_url"
       ],
       "utility_type": "IOU",
       "separate_cca_present": true,
@@ -77,10 +75,10 @@
     {
       "record_id": "ca-alameda-oakland-pge",
       "completeness_pct": 86.7,
-      "validation_score": 91,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -101,8 +99,7 @@
         "rebates"
       ],
       "warning_categories": [
-        "broken_url",
-        "outdated_information"
+        "broken_url"
       ],
       "utility_type": "IOU",
       "separate_cca_present": true,
@@ -113,10 +110,10 @@
     {
       "record_id": "ca-los-angeles-pasadena-pwp",
       "completeness_pct": 93.3,
-      "validation_score": 98,
-      "validation_status": "REVIEW",
+      "validation_score": 100,
+      "validation_status": "PASS",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 0,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -136,9 +133,7 @@
       "missing_fields": [
         "timeline_days"
       ],
-      "warning_categories": [
-        "broken_url"
-      ],
+      "warning_categories": [],
       "utility_type": "municipal",
       "separate_cca_present": false,
       "permit_fees_available": true,
@@ -148,10 +143,10 @@
     {
       "record_id": "ca-san-diego-san-diego-sdge",
       "completeness_pct": 86.7,
-      "validation_score": 86,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 4,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -173,7 +168,6 @@
       ],
       "warning_categories": [
         "broken_url",
-        "outdated_information",
         "unsupported_claim"
       ],
       "utility_type": "IOU",
@@ -184,11 +178,11 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 80,
-    "average_validation_score": 89,
+    "average_completeness_pct": 81.3,
+    "average_validation_score": 93.8,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 1,
+      "generation_supplier": 0,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -221,10 +215,6 @@
         "missing_in_records": 2
       },
       {
-        "field": "generation_supplier",
-        "missing_in_records": 1
-      },
-      {
         "field": "inspection_steps",
         "missing_in_records": 1
       },
@@ -234,8 +224,7 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 5,
-      "outdated_information": 4,
+      "broken_url": 4,
       "unsupported_claim": 1
     },
     "recurring_source_access_problems": [
@@ -257,7 +246,7 @@
     "excluded_for_now": [
       {
         "record_id": "ca-santa-clara-san-jose-pge",
-        "reason": "readiness=LIMITED (completeness 53.3%)"
+        "reason": "readiness=LIMITED (completeness 60%)"
       }
     ],
     "utilities_represented_in_recommended_set": [

@@ -54,7 +54,18 @@
     "source_ids": ["S3"],
     "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page confirms a SolarAPP+ pathway exists and that all submittals go through the Customer Self Service (CSS) portal, but does not itself enumerate a specific document checklist." },
+  "required_documents": {
+    "value": [
+      { "name": "Completed eligibility checklist", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Standard plan (Central/String Inverter or Microinverter, as applicable)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Structural criteria and supporting documentation", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Roof plan", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Elevation drawing", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Manufacturer specifications for system components", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
@@ -88,7 +99,7 @@
     "confidence": 0.7,
     "source_ids": ["S1"]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
@@ -96,7 +107,7 @@
       "url": "https://www.encinitasca.gov/government/departments/development-services/land-development-building/building/small-solar-energy-systems",
       "publisher": "City of Encinitas",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-09"
     },
     {
       "id": "S2",
