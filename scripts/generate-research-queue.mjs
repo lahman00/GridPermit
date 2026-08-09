@@ -38,7 +38,7 @@ const WAVES = {
 		"Pasadena", "South Pasadena", "Alhambra", "Monterey Park", "Temple City", "Rosemead", "El Monte",
 		"South El Monte", "Baldwin Park", "West Covina", "Covina", "Glendora", "Azusa", "Duarte", "Monrovia",
 		"Arcadia", "Sierra Madre", "San Dimas", "La Verne", "Claremont", "Pomona", "Diamond Bar", "Walnut",
-		"Industry", "Whittier", "Pico Rivera", "Downey", "Norwalk", "Cerritos", "Lakewood", "Torrance",
+		"City of Industry", "Whittier", "Pico Rivera", "Downey", "Norwalk", "Cerritos", "Lakewood", "Torrance",
 		"Redondo Beach", "Manhattan Beach", "Hermosa Beach", "Hawthorne", "Gardena", "Carson", "Compton",
 		"Inglewood", "Culver City", "Burbank", "Glendale", "Santa Monica", "Beverly Hills", "West Hollywood",
 		"Malibu",

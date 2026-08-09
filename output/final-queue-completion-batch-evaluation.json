@@ -1,0 +1,75 @@
+{
+  "evaluated_at": "2026-08-09T05:37:21.750Z",
+  "record_count": 1,
+  "records": [
+    {
+      "record_id": "ca-los-angeles-city-of-industry-sce",
+      "city": "City of Industry",
+      "county": "Los Angeles County",
+      "completeness_pct": 46.7,
+      "validation_score": 93,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "duplicate_source"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": null,
+      "permit_fees_available": false,
+      "timeline_available": false,
+      "required_documents_available": false,
+      "readiness": "NOT_READY"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 46.7,
+    "average_validation_score": 93,
+    "ready_count": 0,
+    "limited_count": 0,
+    "not_ready_count": 1,
+    "utility_coverage": [
+      "IOU"
+    ],
+    "geographic_counties_represented": [
+      "Los Angeles County"
+    ],
+    "notes": [
+      "City of Industry is an almost entirely industrial-land-use city (2024 population 256; ~73 total housing units per the last full census) that contracts its building permitting entirely to Los Angeles County's Building & Safety Division rather than operating its own building department — confirmed via the city's own official site. Its extremely small residential base explains the thinness of available solar-specific permitting detail.",
+      "With this record, all 324 cities in the statewide research queue across Waves A-K have now been investigated (322 with a published data record, 2 investigated-but-blocked with no usable official source: South Pasadena, Claremont)."
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [],
+    "limited_for_now": [],
+    "not_ready": [
+      {
+        "record_id": "ca-los-angeles-city-of-industry-sce",
+        "city": "City of Industry",
+        "reason": "readiness=NOT_READY (completeness 46.7%, score 93)"
+      }
+    ],
+    "utilities_represented_in_recommended_set": [],
+    "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY). This is the final entry of the entire statewide research queue."
+  }
+}
