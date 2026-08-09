@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:17:50.307Z",
+  "evaluated_at": "2026-08-09T22:27:37.286Z",
   "record_count": 7,
   "records": [
     {
@@ -82,7 +82,7 @@
       "record_id": "ca-contra-costa-walnut-creek-pge",
       "city": "Walnut Creek",
       "county": "Contra Costa County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -95,12 +95,12 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "permit_fees",
@@ -159,7 +159,7 @@
       "record_id": "ca-contra-costa-orinda-pge",
       "city": "Orinda",
       "county": "Contra Costa County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -171,13 +171,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "permit_fees",
@@ -197,7 +197,7 @@
       "record_id": "ca-contra-costa-moraga-pge",
       "city": "Moraga",
       "county": "Contra Costa County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -210,11 +210,11 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -235,7 +235,7 @@
       "record_id": "ca-contra-costa-danville-pge",
       "city": "Danville",
       "county": "Contra Costa County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -248,12 +248,12 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "permit_fees",
@@ -271,7 +271,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 71.4,
+    "average_completeness_pct": 75.2,
     "average_validation_score": 94.7,
     "ready_count": 3,
     "limited_count": 4,
@@ -284,7 +284,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 6,
+      "battery_programs": 2,
       "required_documents": 3,
       "inspection_steps": 4,
       "timeline_days": 3,
@@ -297,10 +297,6 @@
       {
         "field": "rebates",
         "missing_in_records": 7
-      },
-      {
-        "field": "battery_programs",
-        "missing_in_records": 6
       },
       {
         "field": "permit_fees",
@@ -317,6 +313,10 @@
       {
         "field": "timeline_days",
         "missing_in_records": 3
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 2
       },
       {
         "field": "generation_supplier",
@@ -354,22 +354,22 @@
       {
         "record_id": "ca-contra-costa-walnut-creek-pge",
         "city": "Walnut Creek",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 92)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
       },
       {
         "record_id": "ca-contra-costa-orinda-pge",
         "city": "Orinda",
-        "reason": "readiness=LIMITED (completeness 60%, score 98)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
       },
       {
         "record_id": "ca-contra-costa-moraga-pge",
         "city": "Moraga",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       },
       {
         "record_id": "ca-contra-costa-danville-pge",
         "city": "Danville",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       }
     ],
     "not_ready": [],

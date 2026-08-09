@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T05:37:21.750Z",
+  "evaluated_at": "2026-08-09T22:27:37.772Z",
   "record_count": 1,
   "records": [
     {
       "record_id": "ca-los-angeles-city-of-industry-sce",
       "city": "City of Industry",
       "county": "Los Angeles County",
-      "completeness_pct": 46.7,
+      "completeness_pct": 53.3,
       "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -18,11 +18,11 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -39,15 +39,15 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
-      "readiness": "NOT_READY"
+      "readiness": "LIMITED"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 46.7,
+    "average_completeness_pct": 53.3,
     "average_validation_score": 93,
     "ready_count": 0,
-    "limited_count": 0,
-    "not_ready_count": 1,
+    "limited_count": 1,
+    "not_ready_count": 0,
     "utility_coverage": [
       "IOU"
     ],
@@ -61,14 +61,14 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [],
-    "limited_for_now": [],
-    "not_ready": [
+    "limited_for_now": [
       {
         "record_id": "ca-los-angeles-city-of-industry-sce",
         "city": "City of Industry",
-        "reason": "readiness=NOT_READY (completeness 46.7%, score 93)"
+        "reason": "readiness=LIMITED (completeness 53.3%, score 93)"
       }
     ],
+    "not_ready": [],
     "utilities_represented_in_recommended_set": [],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY). This is the final entry of the entire statewide research queue."
   }

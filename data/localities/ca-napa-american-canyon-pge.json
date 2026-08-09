@@ -4,7 +4,9 @@
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "American Canyon is a well-documented Napa County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
@@ -14,40 +16,99 @@
       "notes": "MCE's own service-area page confirms American Canyon as one of 6 Napa County communities it serves (alongside Calistoga, Napa, St. Helena, Yountville, and unincorporated Napa County). PG&E continues to deliver the power and provide billing/customer service."
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "American Canyon", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Napa County", "confidence": 0.95, "source_ids": ["S1"] },
+  "city": {
+    "value": "American Canyon",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Napa County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of American Canyon Community Development Department, Building Division",
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://law.cityofamericancanyon.org/us/ca/cities/american-canyon/code/16.15",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The city's Streamlined Residential Rooftop Solar Energy Permit ordinance (Chapter 16.15); a dedicated city-hosted solar permit landing page was not located this session."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
     "confidence": 0.55,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025 and remains an active program per SGIP's own statewide announcements (most recently dated 2026-07-23). Administered across PG&E's entire distribution territory, which includes American Canyon/Napa County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "inspection_steps": {
     "value": [
       "Only one inspection is required and performed by the building division for small residential rooftop solar energy systems eligible for expedited review"
     ],
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": { "min_days": 3, "max_days": 3, "notes": "Typical approval time for solar panel permits in American Canyon is 3 business days." }, "confidence": 0.6, "source_ids": ["S1"] },
+  "timeline_days": {
+    "value": {
+      "min_days": 3,
+      "max_days": 3,
+      "notes": "Typical approval time for solar panel permits in American Canyon is 3 business days."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -59,12 +120,26 @@
       ]
     },
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
-  "official_contacts": { "value": null, "confidence": 0, "source_ids": [] },
-  "last_verified": "2026-08-08",
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "official_contacts": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
@@ -89,6 +164,14 @@
       "publisher": "MCE (Marin Clean Energy)",
       "type": "other_official",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S4",
+      "title": "About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (SGIP)",
+      "type": "cpuc",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

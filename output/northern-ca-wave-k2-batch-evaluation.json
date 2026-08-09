@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T05:21:48.265Z",
+  "evaluated_at": "2026-08-09T22:27:38.020Z",
   "record_count": 4,
   "records": [
     {
       "record_id": "ca-butte-chico-pge",
       "city": "Chico",
       "county": "Butte County",
-      "completeness_pct": 46.7,
+      "completeness_pct": 53.3,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -18,11 +18,11 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -38,13 +38,13 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
-      "readiness": "NOT_READY"
+      "readiness": "LIMITED"
     },
     {
       "record_id": "ca-butte-oroville-pge",
       "city": "Oroville",
       "county": "Butte County",
-      "completeness_pct": 46.7,
+      "completeness_pct": 53.3,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -56,11 +56,11 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -76,13 +76,13 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
-      "readiness": "NOT_READY"
+      "readiness": "LIMITED"
     },
     {
       "record_id": "ca-butte-paradise-pge",
       "city": "Paradise",
       "county": "Butte County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -94,6 +94,7 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
@@ -101,7 +102,6 @@
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -154,11 +154,11 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 53.4,
+    "average_completeness_pct": 58.3,
     "average_validation_score": 98.5,
     "ready_count": 0,
-    "limited_count": 2,
-    "not_ready_count": 2,
+    "limited_count": 4,
+    "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
       "generation_supplier": 4,
@@ -167,7 +167,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 4,
+      "battery_programs": 1,
       "required_documents": 3,
       "inspection_steps": 3,
       "timeline_days": 4,
@@ -179,10 +179,6 @@
     "fields_most_often_missing": [
       {
         "field": "generation_supplier",
-        "missing_in_records": 4
-      },
-      {
-        "field": "battery_programs",
         "missing_in_records": 4
       },
       {
@@ -208,6 +204,10 @@
       {
         "field": "eligibility_constraints",
         "missing_in_records": 2
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
@@ -235,9 +235,19 @@
     "recommended_publish_record_ids": [],
     "limited_for_now": [
       {
+        "record_id": "ca-butte-chico-pge",
+        "city": "Chico",
+        "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
+      },
+      {
+        "record_id": "ca-butte-oroville-pge",
+        "city": "Oroville",
+        "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
+      },
+      {
         "record_id": "ca-butte-paradise-pge",
         "city": "Paradise",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-butte-gridley-geu",
@@ -245,18 +255,7 @@
         "reason": "readiness=LIMITED (completeness 53.3%, score 100)"
       }
     ],
-    "not_ready": [
-      {
-        "record_id": "ca-butte-chico-pge",
-        "city": "Chico",
-        "reason": "readiness=NOT_READY (completeness 46.7%, score 98)"
-      },
-      {
-        "record_id": "ca-butte-oroville-pge",
-        "city": "Oroville",
-        "reason": "readiness=NOT_READY (completeness 46.7%, score 98)"
-      }
-    ],
+    "not_ready": [],
     "utilities_represented_in_recommended_set": [],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }

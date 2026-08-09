@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T05:34:43.560Z",
+  "evaluated_at": "2026-08-09T22:27:38.149Z",
   "record_count": 4,
   "records": [
     {
@@ -44,7 +44,7 @@
       "record_id": "ca-mendocino-willits-pge",
       "city": "Willits",
       "county": "Mendocino County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -56,6 +56,7 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
@@ -63,7 +64,6 @@
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -82,7 +82,7 @@
       "record_id": "ca-lake-lakeport-pge",
       "city": "Lakeport",
       "county": "Lake County",
-      "completeness_pct": 46.7,
+      "completeness_pct": 53.3,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -94,11 +94,11 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "eligibility_constraints"
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -114,13 +114,13 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
-      "readiness": "NOT_READY"
+      "readiness": "LIMITED"
     },
     {
       "record_id": "ca-lake-clearlake-pge",
       "city": "Clearlake",
       "county": "Lake County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -132,6 +132,7 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
@@ -139,7 +140,6 @@
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -156,11 +156,11 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 58.4,
+    "average_completeness_pct": 63.3,
     "average_validation_score": 97,
     "ready_count": 0,
-    "limited_count": 3,
-    "not_ready_count": 1,
+    "limited_count": 4,
+    "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
       "generation_supplier": 4,
@@ -169,7 +169,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 4,
+      "battery_programs": 1,
       "required_documents": 2,
       "inspection_steps": 2,
       "timeline_days": 4,
@@ -181,10 +181,6 @@
     "fields_most_often_missing": [
       {
         "field": "generation_supplier",
-        "missing_in_records": 4
-      },
-      {
-        "field": "battery_programs",
         "missing_in_records": 4
       },
       {
@@ -206,6 +202,10 @@
       {
         "field": "inspection_steps",
         "missing_in_records": 2
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 1
       },
       {
         "field": "official_contacts",
@@ -245,21 +245,20 @@
       {
         "record_id": "ca-mendocino-willits-pge",
         "city": "Willits",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
+      },
+      {
+        "record_id": "ca-lake-lakeport-pge",
+        "city": "Lakeport",
+        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
       },
       {
         "record_id": "ca-lake-clearlake-pge",
         "city": "Clearlake",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
-    "not_ready": [
-      {
-        "record_id": "ca-lake-lakeport-pge",
-        "city": "Lakeport",
-        "reason": "readiness=NOT_READY (completeness 46.7%, score 96)"
-      }
-    ],
+    "not_ready": [],
     "utilities_represented_in_recommended_set": [],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY. This is the final sub-batch of the entire statewide research queue."
   }

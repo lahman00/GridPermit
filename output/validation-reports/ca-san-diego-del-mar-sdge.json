@@ -1,7 +1,7 @@
 {
   "record_id": "ca-san-diego-del-mar-sdge",
   "file": "data/localities/ca-san-diego-del-mar-sdge.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-09",
   "status": "REVIEW",
   "score": 98,
   "errors": [],
@@ -13,10 +13,6 @@
     }
   ],
   "recommendations": [
-    {
-      "field": "battery_programs",
-      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -45,7 +41,7 @@
   "url_checks": [
     {
       "url": "https://www.delmar.ca.us/133/Building-Services",
-      "checked_at": "2026-08-08T19:18:10.890Z",
+      "checked_at": "2026-08-09T22:26:57.589Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -53,15 +49,23 @@
     },
     {
       "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
-      "checked_at": "2026-08-08T19:18:11.980Z",
+      "checked_at": "2026-08-09T22:26:58.829Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "checked_at": "2026-08-09T22:26:58.945Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
       "url": "https://thecleanenergyalliance.org/",
-      "checked_at": "2026-08-08T19:18:12.022Z",
+      "checked_at": "2026-08-09T22:27:00.175Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

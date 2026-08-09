@@ -4,7 +4,9 @@
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Vacaville is a well-documented Solano County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
@@ -13,33 +15,87 @@
     "source_ids": [],
     "notes": "Vacaville is not listed among MCE's 4 current Solano County member communities (Benicia, Fairfield, Vallejo, and unincorporated Solano County). No CCA was found serving Vacaville this session."
   },
-  "city": { "value": "Vacaville", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Solano County", "confidence": 0.95, "source_ids": ["S1"] },
+  "city": {
+    "value": "Vacaville",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Solano County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Vacaville Building Division",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "cityofvacaville.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing, not independently read."
   },
   "permit_url": {
     "value": "https://www.cityofvacaville.gov/government/community-development/building/building-permits/apply-for-residential-solar-permits",
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "URL identified via search-engine indexing; cityofvacaville.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
     "confidence": 0.55,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "cityofvacaville.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025 and remains an active program per SGIP's own statewide announcements (most recently dated 2026-07-23). Administered across PG&E's entire distribution territory, which includes Vacaville/Solano County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "cityofvacaville.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -47,10 +103,20 @@
       "other_conditions": []
     },
     "confidence": 0.65,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -62,9 +128,11 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
@@ -81,6 +149,14 @@
       "publisher": "Pacific Gas & Electric",
       "type": "utility",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (SGIP)",
+      "type": "cpuc",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

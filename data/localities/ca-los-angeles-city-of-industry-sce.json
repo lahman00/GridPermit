@@ -4,7 +4,9 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City of Industry is confirmed to be within SCE's distribution service territory."
   },
   "generation_supplier": {
@@ -13,33 +15,96 @@
     "source_ids": [],
     "notes": "No Community Choice Aggregator was found serving the City of Industry this session. The city's population is negligible (256 residents in 2024, ~73 total housing units per the last full census) and almost entirely industrial land use, which limits the relevance and availability of residential-focused CCA/solar-program information."
   },
-  "city": { "value": "City of Industry", "confidence": 1, "source_ids": ["S2"] },
-  "county": { "value": "Los Angeles County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "City of Industry",
+    "confidence": 1,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "county": {
+    "value": "Los Angeles County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "Los Angeles County Department of Public Works, Building and Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City of Industry does not operate its own building department; per the city's own site, all building, electrical, mechanical, and plumbing permits — including solar — are issued by LA County Building & Safety, operating out of a satellite office within City of Industry."
   },
   "permit_url": {
     "value": "https://www.cityofindustry.org/182/Los-Angeles-County-Building-Safety",
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The fetched page confirms the contract-city arrangement with LA County and the online BSOP portal, but did not itemize solar-specific requirements, fees, or timelines."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this dataset."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "SGIP - Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison (SCE), under the CPUC's Self-Generation Incentive Program",
+        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025 and remains an active program per SGIP's own statewide announcements (most recently dated 2026-07-23). Administered across SCE's entire distribution territory, which includes City of Industry/Los Angeles County.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
+        "url": "https://www.selfgenca.com/home/about/",
+        "effective_from": "2025-06-02",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -51,7 +116,9 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [
@@ -77,6 +144,14 @@
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
       "publisher": "Southern California Edison",
       "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "About",
+      "url": "https://www.selfgenca.com/home/about/",
+      "publisher": "Self-Generation Incentive Program (SGIP)",
+      "type": "cpuc",
       "accessed_date": "2026-08-09"
     }
   ]

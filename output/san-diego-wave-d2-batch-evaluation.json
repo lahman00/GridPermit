@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:49:53.306Z",
+  "evaluated_at": "2026-08-09T22:27:38.279Z",
   "record_count": 8,
   "records": [
     {
@@ -272,7 +272,7 @@
       "record_id": "ca-san-diego-del-mar-sdge",
       "city": "Del Mar",
       "county": "San Diego County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -285,10 +285,10 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -308,7 +308,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.2,
+    "average_completeness_pct": 75,
     "average_validation_score": 95.5,
     "ready_count": 5,
     "limited_count": 3,
@@ -321,7 +321,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 1,
+      "battery_programs": 0,
       "required_documents": 4,
       "inspection_steps": 3,
       "timeline_days": 4,
@@ -357,10 +357,6 @@
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 1
-      },
-      {
-        "field": "battery_programs",
         "missing_in_records": 1
       }
     ],
@@ -406,7 +402,7 @@
       {
         "record_id": "ca-san-diego-del-mar-sdge",
         "city": "Del Mar",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
+        "reason": "readiness=LIMITED (completeness 60%, score 98)"
       }
     ],
     "not_ready": [],

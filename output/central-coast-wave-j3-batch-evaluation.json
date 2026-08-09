@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T04:58:38.179Z",
+  "evaluated_at": "2026-08-09T22:27:37.447Z",
   "record_count": 5,
   "records": [
     {
       "record_id": "ca-monterey-salinas-pge",
       "city": "Salinas",
       "county": "Monterey County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -19,10 +19,10 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "eligibility_constraints"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -44,7 +44,7 @@
       "record_id": "ca-monterey-gonzales-pge",
       "city": "Gonzales",
       "county": "Monterey County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -57,12 +57,12 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "permit_fees",
@@ -82,7 +82,7 @@
       "record_id": "ca-monterey-soledad-pge",
       "city": "Soledad",
       "county": "Monterey County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -95,12 +95,12 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "timeline_days",
         "permit_fees",
@@ -120,7 +120,7 @@
       "record_id": "ca-monterey-greenfield-pge",
       "city": "Greenfield",
       "county": "Monterey County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -133,10 +133,10 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -158,7 +158,7 @@
       "record_id": "ca-monterey-king-city-pge",
       "city": "King City",
       "county": "Monterey County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -171,11 +171,11 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -194,7 +194,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 60,
+    "average_completeness_pct": 66.7,
     "average_validation_score": 97.2,
     "ready_count": 0,
     "limited_count": 5,
@@ -207,7 +207,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 5,
+      "battery_programs": 0,
       "required_documents": 5,
       "inspection_steps": 4,
       "timeline_days": 4,
@@ -217,10 +217,6 @@
       "official_contacts": 1
     },
     "fields_most_often_missing": [
-      {
-        "field": "battery_programs",
-        "missing_in_records": 5
-      },
       {
         "field": "required_documents",
         "missing_in_records": 5
@@ -275,27 +271,27 @@
       {
         "record_id": "ca-monterey-salinas-pge",
         "city": "Salinas",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
+        "reason": "readiness=LIMITED (completeness 60%, score 96)"
       },
       {
         "record_id": "ca-monterey-gonzales-pge",
         "city": "Gonzales",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-monterey-soledad-pge",
         "city": "Soledad",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-monterey-greenfield-pge",
         "city": "Greenfield",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
+        "reason": "readiness=LIMITED (completeness 60%, score 98)"
       },
       {
         "record_id": "ca-monterey-king-city-pge",
         "city": "King City",
-        "reason": "readiness=LIMITED (completeness 60%, score 98)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
       }
     ],
     "not_ready": [],

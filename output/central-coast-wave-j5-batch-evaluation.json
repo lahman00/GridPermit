@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T21:17:50.471Z",
+  "evaluated_at": "2026-08-09T22:27:37.529Z",
   "record_count": 5,
   "records": [
     {
       "record_id": "ca-santa-barbara-santa-maria-pge",
       "city": "Santa Maria",
       "county": "Santa Barbara County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -19,11 +19,11 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "timeline_days",
         "eligibility_constraints"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "permit_fees",
@@ -82,7 +82,7 @@
       "record_id": "ca-santa-barbara-santa-barbara-sce",
       "city": "Santa Barbara",
       "county": "Santa Barbara County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -94,12 +94,12 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -120,7 +120,7 @@
       "record_id": "ca-santa-barbara-goleta-sce",
       "city": "Goleta",
       "county": "Santa Barbara County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -133,11 +133,11 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -195,7 +195,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 61.3,
+    "average_completeness_pct": 65.3,
     "average_validation_score": 96.2,
     "ready_count": 1,
     "limited_count": 4,
@@ -208,7 +208,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 1,
-      "battery_programs": 4,
+      "battery_programs": 1,
       "required_documents": 4,
       "inspection_steps": 5,
       "timeline_days": 3,
@@ -225,10 +225,6 @@
       {
         "field": "rebates",
         "missing_in_records": 5
-      },
-      {
-        "field": "battery_programs",
-        "missing_in_records": 4
       },
       {
         "field": "required_documents",
@@ -248,6 +244,10 @@
       },
       {
         "field": "interconnection_url",
+        "missing_in_records": 1
+      },
+      {
+        "field": "battery_programs",
         "missing_in_records": 1
       },
       {
@@ -285,7 +285,7 @@
       {
         "record_id": "ca-santa-barbara-santa-maria-pge",
         "city": "Santa Maria",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       },
       {
         "record_id": "ca-santa-barbara-lompoc-lu",
@@ -295,12 +295,12 @@
       {
         "record_id": "ca-santa-barbara-santa-barbara-sce",
         "city": "Santa Barbara",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
+        "reason": "readiness=LIMITED (completeness 60%, score 98)"
       },
       {
         "record_id": "ca-santa-barbara-goleta-sce",
         "city": "Goleta",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       }
     ],
     "not_ready": [],
