@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.234Z",
+  "evaluated_at": "2026-08-09T22:54:49.555Z",
   "record_count": 7,
   "records": [
     {
@@ -45,11 +45,11 @@
       "record_id": "ca-alameda-emeryville-pge",
       "city": "Emeryville",
       "county": "Alameda County",
-      "completeness_pct": 73.3,
-      "validation_score": 94,
+      "completeness_pct": 80,
+      "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -59,13 +59,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -77,7 +77,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-alameda-albany-pge",
@@ -273,10 +273,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.3,
-    "average_validation_score": 93.6,
-    "ready_count": 4,
-    "limited_count": 3,
+    "average_completeness_pct": 75.2,
+    "average_validation_score": 93.3,
+    "ready_count": 5,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -288,7 +288,7 @@
       "interconnection_url": 0,
       "battery_programs": 4,
       "required_documents": 3,
-      "inspection_steps": 3,
+      "inspection_steps": 2,
       "timeline_days": 4,
       "eligibility_constraints": 0,
       "permit_fees": 4,
@@ -318,7 +318,7 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 3
+        "missing_in_records": 2
       },
       {
         "field": "official_contacts",
@@ -351,16 +351,12 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-san-francisco-san-francisco-pge",
+      "ca-alameda-emeryville-pge",
       "ca-contra-costa-el-cerrito-pge",
       "ca-contra-costa-pinole-pge",
       "ca-contra-costa-hercules-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-alameda-emeryville-pge",
-        "city": "Emeryville",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
-      },
       {
         "record_id": "ca-alameda-albany-pge",
         "city": "Albany",
