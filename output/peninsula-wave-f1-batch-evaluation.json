@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T23:02:08.140Z",
+  "evaluated_at": "2026-08-09T23:09:45.218Z",
   "record_count": 7,
   "records": [
     {
@@ -45,7 +45,7 @@
       "record_id": "ca-san-mateo-belmont-pge",
       "city": "Belmont",
       "county": "San Mateo County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -60,12 +60,12 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -75,9 +75,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-mateo-san-carlos-pge",
@@ -271,10 +271,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 77.1,
+    "average_completeness_pct": 78.1,
     "average_validation_score": 96.4,
-    "ready_count": 4,
-    "limited_count": 3,
+    "ready_count": 5,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -287,7 +287,7 @@
       "battery_programs": 3,
       "required_documents": 1,
       "inspection_steps": 3,
-      "timeline_days": 4,
+      "timeline_days": 3,
       "eligibility_constraints": 0,
       "permit_fees": 6,
       "rebates": 7,
@@ -303,15 +303,15 @@
         "missing_in_records": 6
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 4
-      },
-      {
         "field": "battery_programs",
         "missing_in_records": 3
       },
       {
         "field": "inspection_steps",
+        "missing_in_records": 3
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 3
       },
       {
@@ -345,16 +345,12 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-san-mateo-foster-city-pge",
+      "ca-san-mateo-belmont-pge",
       "ca-san-mateo-san-carlos-pge",
       "ca-san-mateo-atherton-pge",
       "ca-san-mateo-woodside-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-san-mateo-belmont-pge",
-        "city": "Belmont",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
-      },
       {
         "record_id": "ca-san-mateo-portola-valley-pge",
         "city": "Portola Valley",
