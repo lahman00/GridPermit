@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:38.020Z",
+  "evaluated_at": "2026-08-09T22:48:00.803Z",
   "record_count": 4,
   "records": [
     {
@@ -82,7 +82,7 @@
       "record_id": "ca-butte-paradise-pge",
       "city": "Paradise",
       "county": "Butte County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -97,12 +97,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -112,9 +112,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-butte-gridley-geu",
@@ -154,10 +154,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 58.3,
+    "average_completeness_pct": 60,
     "average_validation_score": 98.5,
-    "ready_count": 0,
-    "limited_count": 4,
+    "ready_count": 1,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -170,7 +170,7 @@
       "battery_programs": 1,
       "required_documents": 3,
       "inspection_steps": 3,
-      "timeline_days": 4,
+      "timeline_days": 3,
       "eligibility_constraints": 2,
       "permit_fees": 4,
       "rebates": 4,
@@ -179,10 +179,6 @@
     "fields_most_often_missing": [
       {
         "field": "generation_supplier",
-        "missing_in_records": 4
-      },
-      {
-        "field": "timeline_days",
         "missing_in_records": 4
       },
       {
@@ -199,6 +195,10 @@
       },
       {
         "field": "inspection_steps",
+        "missing_in_records": 3
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 3
       },
       {
@@ -232,7 +232,9 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-butte-paradise-pge"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-butte-chico-pge",
@@ -245,18 +247,15 @@
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
       },
       {
-        "record_id": "ca-butte-paradise-pge",
-        "city": "Paradise",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
-      {
         "record_id": "ca-butte-gridley-geu",
         "city": "Gridley",
         "reason": "readiness=LIMITED (completeness 53.3%, score 100)"
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }

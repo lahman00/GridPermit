@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.735Z",
+  "evaluated_at": "2026-08-09T22:48:00.767Z",
   "record_count": 6,
   "records": [
     {
@@ -120,7 +120,7 @@
       "record_id": "ca-kern-arvin-pge",
       "city": "Arvin",
       "county": "Kern County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -135,12 +135,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -150,9 +150,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-kern-tehachapi-pge",
@@ -233,10 +233,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
+    "average_completeness_pct": 67.8,
     "average_validation_score": 96.8,
-    "ready_count": 1,
-    "limited_count": 5,
+    "ready_count": 2,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -249,7 +249,7 @@
       "battery_programs": 1,
       "required_documents": 2,
       "inspection_steps": 4,
-      "timeline_days": 5,
+      "timeline_days": 4,
       "eligibility_constraints": 1,
       "permit_fees": 5,
       "rebates": 6,
@@ -265,15 +265,15 @@
         "missing_in_records": 6
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 5
-      },
-      {
         "field": "permit_fees",
         "missing_in_records": 5
       },
       {
         "field": "inspection_steps",
+        "missing_in_records": 4
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 4
       },
       {
@@ -312,6 +312,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-kern-arvin-pge",
       "ca-kern-tehachapi-pge"
     ],
     "limited_for_now": [
@@ -329,11 +330,6 @@
         "record_id": "ca-kern-mcfarland-pge",
         "city": "McFarland",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-kern-arvin-pge",
-        "city": "Arvin",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-kern-ridgecrest-sce",
