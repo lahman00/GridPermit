@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-08T18:48:00.301Z",
+  "evaluated_at": "2026-08-09T21:46:40.893Z",
   "record_count": 8,
   "records": [
     {
@@ -44,7 +44,7 @@
       "record_id": "ca-riverside-menifee-sce",
       "city": "Menifee",
       "county": "Riverside County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -58,13 +58,13 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -76,7 +76,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-riverside-temecula-sce",
@@ -308,10 +308,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 67.5,
+    "average_completeness_pct": 68.3,
     "average_validation_score": 96.3,
-    "ready_count": 2,
-    "limited_count": 6,
+    "ready_count": 3,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -323,7 +323,7 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 2,
-      "inspection_steps": 6,
+      "inspection_steps": 5,
       "timeline_days": 4,
       "eligibility_constraints": 3,
       "permit_fees": 8,
@@ -345,7 +345,7 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "timeline_days",
@@ -387,6 +387,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-riverside-menifee-sce",
       "ca-riverside-murrieta-sce",
       "ca-riverside-beaumont-sce"
     ],
@@ -395,11 +396,6 @@
         "record_id": "ca-riverside-banning-beu",
         "city": "Banning",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-riverside-menifee-sce",
-        "city": "Menifee",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-riverside-temecula-sce",

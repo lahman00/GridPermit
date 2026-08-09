@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-05T20:50:59.960Z",
+  "evaluated_at": "2026-08-09T21:46:40.976Z",
   "record_count": 8,
   "records": [
     {
@@ -7,10 +7,10 @@
       "city": "Burlingame",
       "county": "San Mateo County",
       "completeness_pct": 66.7,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "validation_score": 96,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -30,7 +30,9 @@
         "permit_fees",
         "rebates"
       ],
-      "warning_categories": [],
+      "warning_categories": [
+        "broken_url"
+      ],
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
@@ -42,11 +44,11 @@
       "record_id": "ca-san-mateo-millbrae-pge",
       "city": "Millbrae",
       "county": "San Mateo County",
-      "completeness_pct": 73.3,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "completeness_pct": 80,
+      "validation_score": 96,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -56,33 +58,35 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
-      "warning_categories": [],
+      "warning_categories": [
+        "broken_url"
+      ],
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-mateo-san-bruno-pge",
       "city": "San Bruno",
       "county": "San Mateo County",
-      "completeness_pct": 73.3,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "completeness_pct": 80,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 1,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -93,32 +97,34 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
-      "warning_categories": [],
+      "warning_categories": [
+        "broken_url"
+      ],
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-mateo-south-san-francisco-pge",
       "city": "South San Francisco",
       "county": "San Mateo County",
       "completeness_pct": 80,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "validation_score": 98,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 1,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -138,7 +144,9 @@
         "permit_fees",
         "rebates"
       ],
-      "warning_categories": [],
+      "warning_categories": [
+        "broken_url"
+      ],
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
@@ -151,10 +159,10 @@
       "city": "Daly City",
       "county": "San Mateo County",
       "completeness_pct": 80,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "validation_score": 96,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -174,7 +182,9 @@
         "permit_fees",
         "rebates"
       ],
-      "warning_categories": [],
+      "warning_categories": [
+        "broken_url"
+      ],
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
@@ -298,10 +308,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.2,
-    "average_validation_score": 98.3,
-    "ready_count": 4,
-    "limited_count": 4,
+    "average_completeness_pct": 75.8,
+    "average_validation_score": 96.3,
+    "ready_count": 6,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -313,8 +323,8 @@
       "interconnection_url": 0,
       "battery_programs": 0,
       "required_documents": 3,
-      "inspection_steps": 5,
-      "timeline_days": 6,
+      "inspection_steps": 4,
+      "timeline_days": 5,
       "eligibility_constraints": 1,
       "permit_fees": 8,
       "rebates": 8,
@@ -331,11 +341,11 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "required_documents",
@@ -347,7 +357,7 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 3
+      "broken_url": 8
     },
     "utility_coverage": [
       "IOU"
@@ -372,6 +382,8 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-san-mateo-millbrae-pge",
+      "ca-san-mateo-san-bruno-pge",
       "ca-san-mateo-south-san-francisco-pge",
       "ca-san-mateo-daly-city-pge",
       "ca-san-mateo-menlo-park-pge",
@@ -381,17 +393,7 @@
       {
         "record_id": "ca-san-mateo-burlingame-pge",
         "city": "Burlingame",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 100)"
-      },
-      {
-        "record_id": "ca-san-mateo-millbrae-pge",
-        "city": "Millbrae",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
-      },
-      {
-        "record_id": "ca-san-mateo-san-bruno-pge",
-        "city": "San Bruno",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       },
       {
         "record_id": "ca-san-mateo-redwood-city-pge",

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T20:23:16.817Z",
+  "evaluated_at": "2026-08-09T21:46:41.017Z",
   "record_count": 10,
   "records": [
     {
@@ -306,7 +306,7 @@
       "record_id": "ca-yolo-davis-pge",
       "city": "Davis",
       "county": "Yolo County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -321,12 +321,12 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -336,9 +336,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-yolo-woodland-pge",
@@ -380,10 +380,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
+    "average_completeness_pct": 67.3,
     "average_validation_score": 97.3,
-    "ready_count": 4,
-    "limited_count": 6,
+    "ready_count": 5,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -396,7 +396,7 @@
       "battery_programs": 1,
       "required_documents": 5,
       "inspection_steps": 6,
-      "timeline_days": 10,
+      "timeline_days": 9,
       "eligibility_constraints": 5,
       "permit_fees": 9,
       "rebates": 10,
@@ -404,12 +404,12 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "timeline_days",
+        "field": "rebates",
         "missing_in_records": 10
       },
       {
-        "field": "rebates",
-        "missing_in_records": 10
+        "field": "timeline_days",
+        "missing_in_records": 9
       },
       {
         "field": "permit_fees",
@@ -473,6 +473,7 @@
       "ca-sacramento-sacramento-smud",
       "ca-sacramento-citrus-heights-smud",
       "ca-placer-roseville-re",
+      "ca-yolo-davis-pge",
       "ca-yolo-woodland-pge"
     ],
     "limited_for_now": [
@@ -500,11 +501,6 @@
         "record_id": "ca-placer-rocklin-pge",
         "city": "Rocklin",
         "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
-      },
-      {
-        "record_id": "ca-yolo-davis-pge",
-        "city": "Davis",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       }
     ],
     "not_ready": [],

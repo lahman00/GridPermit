@@ -61,7 +61,16 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Schedule the inspection via the Menifee Permit Portal (registration required) after the permit is issued",
+      "Inspections are conducted Monday through Friday, 8:00 a.m. to 4:00 p.m.; requests made before 2:00 p.m. can be performed the next business day",
+      "For SolarAPP+ permits, the solar representative must verify the Inspection Checklist and sign it confirming completion prior to inspection",
+      "Two inspections per solar company can be accommodated per day"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S5"]
+  },
   "timeline_days": {
     "value": { "min_days": 0, "max_days": 14, "notes": "The city states a plan check wait time of up to 14 business days for all solar submittals, with resubmittal turnaround matching that same standard." },
     "confidence": 0.85,
@@ -105,7 +114,7 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
@@ -138,6 +147,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "Inspections",
+      "url": "https://www.menifee.ca.gov/1107/Inspections",
+      "publisher": "City of Menifee",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

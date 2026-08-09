@@ -70,7 +70,11 @@
     "source_ids": ["S2"]
   },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page describes online payment triggering immediate permit issuance but does not describe a separate inspection scheduling process." },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 0, "notes": "The City's own Expedited Solar Permits page states that if permit fees are paid online via MyGovernmentOnline, 'the Permit will be issued online and can be downloaded from your account' immediately following payment, i.e. same-day/instant issuance for SolarAPP+-eligible projects." },
+    "confidence": 0.65,
+    "source_ids": ["S2"]
+  },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential"],
@@ -107,7 +111,7 @@
     "confidence": 0.85,
     "source_ids": ["S2", "S6"]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
