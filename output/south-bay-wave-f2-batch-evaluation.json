@@ -1,16 +1,16 @@
 {
-  "evaluated_at": "2026-08-08T19:58:21.111Z",
+  "evaluated_at": "2026-08-09T20:42:27.637Z",
   "record_count": 10,
   "records": [
     {
       "record_id": "ca-santa-clara-santa-clara-svp",
       "city": "Santa Clara",
       "county": "Santa Clara County",
-      "completeness_pct": 66.7,
-      "validation_score": 94,
+      "completeness_pct": 80,
+      "validation_score": 90,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 5,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -19,13 +19,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
+        "required_documents",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
-        "required_documents",
         "inspection_steps",
         "permit_fees",
         "rebates"
@@ -37,8 +37,8 @@
       "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": true,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-santa-clara-mountain-view-pge",
@@ -387,10 +387,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72,
-    "average_validation_score": 94.9,
-    "ready_count": 3,
-    "limited_count": 7,
+    "average_completeness_pct": 73.3,
+    "average_validation_score": 94.5,
+    "ready_count": 4,
+    "limited_count": 6,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -400,8 +400,8 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 10,
-      "required_documents": 4,
+      "battery_programs": 9,
+      "required_documents": 3,
       "inspection_steps": 5,
       "timeline_days": 6,
       "eligibility_constraints": 0,
@@ -411,12 +411,12 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
+        "field": "rebates",
         "missing_in_records": 10
       },
       {
-        "field": "rebates",
-        "missing_in_records": 10
+        "field": "battery_programs",
+        "missing_in_records": 9
       },
       {
         "field": "permit_fees",
@@ -432,7 +432,7 @@
       },
       {
         "field": "required_documents",
-        "missing_in_records": 4
+        "missing_in_records": 3
       }
     ],
     "warning_category_recurrence": {
@@ -460,16 +460,12 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-santa-clara-santa-clara-svp",
       "ca-santa-clara-monte-sereno-pge",
       "ca-santa-clara-saratoga-pge",
       "ca-santa-clara-gilroy-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-santa-clara-santa-clara-svp",
-        "city": "Santa Clara",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
-      },
       {
         "record_id": "ca-santa-clara-mountain-view-pge",
         "city": "Mountain View",
@@ -503,6 +499,7 @@
     ],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
+      "municipal",
       "IOU"
     ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
