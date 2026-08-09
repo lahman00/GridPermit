@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:11:28.845Z",
+  "evaluated_at": "2026-08-09T21:28:20.862Z",
   "record_count": 7,
   "records": [
     {
@@ -82,7 +82,7 @@
       "record_id": "ca-san-diego-imperial-beach-sdge",
       "city": "Imperial Beach",
       "county": "San Diego County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -97,11 +97,11 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "inspection_steps",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -114,7 +114,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-diego-la-mesa-sdge",
@@ -272,10 +272,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 76.2,
+    "average_completeness_pct": 77.1,
     "average_validation_score": 94.6,
-    "ready_count": 2,
-    "limited_count": 5,
+    "ready_count": 3,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -287,7 +287,7 @@
       "interconnection_url": 0,
       "battery_programs": 0,
       "required_documents": 3,
-      "inspection_steps": 3,
+      "inspection_steps": 2,
       "timeline_days": 3,
       "eligibility_constraints": 0,
       "permit_fees": 5,
@@ -312,12 +312,12 @@
         "missing_in_records": 3
       },
       {
-        "field": "inspection_steps",
+        "field": "timeline_days",
         "missing_in_records": 3
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 3
+        "field": "inspection_steps",
+        "missing_in_records": 2
       }
     ],
     "warning_category_recurrence": {
@@ -344,6 +344,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-san-diego-imperial-beach-sdge",
       "ca-san-diego-la-mesa-sdge",
       "ca-san-diego-lemon-grove-sdge"
     ],
@@ -357,11 +358,6 @@
         "record_id": "ca-san-diego-national-city-sdge",
         "city": "National City",
         "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
-      },
-      {
-        "record_id": "ca-san-diego-imperial-beach-sdge",
-        "city": "Imperial Beach",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-san-diego-el-cajon-sdge",

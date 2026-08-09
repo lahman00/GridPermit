@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-08T19:02:16.461Z",
+  "evaluated_at": "2026-08-09T21:28:20.817Z",
   "record_count": 9,
   "records": [
     {
       "record_id": "ca-san-bernardino-colton-cce",
       "city": "Colton",
       "county": "San Bernardino County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -19,13 +19,13 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "rebates"
@@ -38,7 +38,7 @@
       "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-bernardino-san-bernardino-sce",
@@ -348,10 +348,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 74.1,
     "average_validation_score": 94.2,
-    "ready_count": 4,
-    "limited_count": 5,
+    "ready_count": 5,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -361,7 +361,7 @@
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
-      "battery_programs": 1,
+      "battery_programs": 0,
       "required_documents": 3,
       "inspection_steps": 2,
       "timeline_days": 5,
@@ -398,10 +398,6 @@
       {
         "field": "inspection_steps",
         "missing_in_records": 2
-      },
-      {
-        "field": "battery_programs",
-        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
@@ -429,17 +425,13 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-san-bernardino-colton-cce",
       "ca-san-bernardino-san-bernardino-sce",
       "ca-san-bernardino-highland-sce",
       "ca-san-bernardino-loma-linda-sce",
       "ca-san-bernardino-hesperia-sce"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-san-bernardino-colton-cce",
-        "city": "Colton",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
       {
         "record_id": "ca-san-bernardino-yucaipa-sce",
         "city": "Yucaipa",
@@ -463,6 +455,7 @@
     ],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
+      "municipal",
       "IOU"
     ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."

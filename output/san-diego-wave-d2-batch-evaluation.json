@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:11:28.885Z",
+  "evaluated_at": "2026-08-09T21:28:20.903Z",
   "record_count": 8,
   "records": [
     {
@@ -158,7 +158,7 @@
       "record_id": "ca-san-diego-carlsbad-sdge",
       "city": "Carlsbad",
       "county": "San Diego County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -172,13 +172,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -190,7 +190,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-diego-encinitas-sdge",
@@ -308,10 +308,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72.5,
+    "average_completeness_pct": 73.3,
     "average_validation_score": 95.8,
-    "ready_count": 3,
-    "limited_count": 5,
+    "ready_count": 4,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -323,7 +323,7 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 4,
-      "inspection_steps": 5,
+      "inspection_steps": 4,
       "timeline_days": 4,
       "eligibility_constraints": 2,
       "permit_fees": 8,
@@ -340,11 +340,11 @@
         "missing_in_records": 8
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 5
+        "field": "required_documents",
+        "missing_in_records": 4
       },
       {
-        "field": "required_documents",
+        "field": "inspection_steps",
         "missing_in_records": 4
       },
       {
@@ -388,18 +388,14 @@
     "recommended_publish_record_ids": [
       "ca-san-diego-poway-sdge",
       "ca-san-diego-vista-sdge",
-      "ca-san-diego-oceanside-sdge"
+      "ca-san-diego-oceanside-sdge",
+      "ca-san-diego-carlsbad-sdge"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-san-diego-san-marcos-sdge",
         "city": "San Marcos",
         "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
-      },
-      {
-        "record_id": "ca-san-diego-carlsbad-sdge",
-        "city": "Carlsbad",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       },
       {
         "record_id": "ca-san-diego-encinitas-sdge",

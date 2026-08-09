@@ -63,7 +63,17 @@
     "confidence": 0.75,
     "source_ids": ["S1"]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states inspections are scheduled between 9 a.m. and 2 p.m., Monday-Thursday, via the CSS portal, but does not itself detail a solar-specific inspection sequence." },
+  "inspection_steps": {
+    "value": [
+      "Request a building inspection via the inspection hotline (619-628-1360), the Citizen Self-Service (CSS) portal, or email",
+      "Inspections are conducted 9:00 a.m. to 2:00 p.m., Monday through Thursday (no inspections on Fridays)",
+      "Staff will contact the applicant on the morning of the inspection with a detailed time frame",
+      "California-licensed contractors, architects, or engineers may qualify to self-certify select minor residential permits without a Building Division inspection, per the City's Building Self-Certification Program"
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City's page does not describe a separate, solar-specific inspection sequence, consistent with how this field has been filled for other small/medium cities in this dataset whose solar permits route through the same general building inspection system."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
@@ -95,7 +105,7 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",

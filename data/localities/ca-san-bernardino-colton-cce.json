@@ -34,7 +34,12 @@
     "source_ids": ["S1"],
     "notes": "Colton Electric Utility's own solar program page, which hosts the PowerClerk online interconnection application portal."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": [],
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Confirmed absence, not an unresearched gap: the City's own Solar Program FAQ directly states 'Does the City of Colton offer any rebates to go solar? No, the City of Colton does not have any rebates for installing solar panels,' with no separate battery/storage rebate mentioned anywhere on the page."
+  },
   "required_documents": {
     "value": [
       { "name": "PowerClerk online application", "required_when": "always", "source_ids": ["S1"] },
@@ -92,7 +97,7 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
