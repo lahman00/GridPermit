@@ -1,0 +1,259 @@
+{
+  "evaluated_at": "2026-08-09T04:51:24.767Z",
+  "record_count": 4,
+  "records": [
+    {
+      "record_id": "ca-santa-cruz-santa-cruz-pge",
+      "city": "Santa Cruz",
+      "county": "Santa Cruz County",
+      "completeness_pct": 53.3,
+      "validation_score": 96,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "eligibility_constraints"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": false,
+      "timeline_available": false,
+      "required_documents_available": false,
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "ca-santa-cruz-capitola-pge",
+      "city": "Capitola",
+      "county": "Santa Cruz County",
+      "completeness_pct": 80,
+      "validation_score": 93,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "unsupported_claim"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": true,
+      "timeline_available": false,
+      "required_documents_available": true,
+      "readiness": "READY"
+    },
+    {
+      "record_id": "ca-santa-cruz-scotts-valley-pge",
+      "city": "Scotts Valley",
+      "county": "Santa Cruz County",
+      "completeness_pct": 60,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": false,
+      "timeline_available": false,
+      "required_documents_available": false,
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "ca-santa-cruz-watsonville-pge",
+      "city": "Watsonville",
+      "county": "Santa Cruz County",
+      "completeness_pct": 60,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "utility_type": "IOU",
+      "separate_cca_present": true,
+      "permit_fees_available": false,
+      "timeline_available": false,
+      "required_documents_available": false,
+      "readiness": "LIMITED"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 63.3,
+    "average_validation_score": 96.3,
+    "ready_count": 1,
+    "limited_count": 3,
+    "not_ready_count": 0,
+    "fields_missing_count": {
+      "utility": 0,
+      "generation_supplier": 0,
+      "city": 0,
+      "county": 0,
+      "permit_authority": 0,
+      "permit_url": 0,
+      "interconnection_url": 0,
+      "battery_programs": 4,
+      "required_documents": 3,
+      "inspection_steps": 3,
+      "timeline_days": 4,
+      "eligibility_constraints": 0,
+      "permit_fees": 3,
+      "rebates": 4,
+      "official_contacts": 1
+    },
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 4
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 4
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 4
+      },
+      {
+        "field": "required_documents",
+        "missing_in_records": 3
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 3
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 3
+      },
+      {
+        "field": "official_contacts",
+        "missing_in_records": 1
+      }
+    ],
+    "warning_category_recurrence": {
+      "broken_url": 4,
+      "unsupported_claim": 1
+    },
+    "utility_coverage": [
+      "IOU"
+    ],
+    "geographic_counties_represented": [
+      "Santa Cruz County"
+    ],
+    "recurring_source_access_problems": [
+      "santacruzca.gov returned HTTP 403 to automated fetch on every attempt this session, limiting Santa Cruz's record to search-engine-derived detail. A Watsonville-hosted 'SolarAPP+ - How to' PDF was fetched but returned only unreadable binary/image content, not extractable text. cityofcapitola.gov, scottsvalley.gov, and watsonville.gov (general Building Division page) were all directly reachable."
+    ],
+    "schema_gaps_discovered": [
+      "No new schema gaps were discovered while collecting this batch."
+    ],
+    "trust_rule_corrections_made_during_collection": [
+      "Central Coast Community Energy (3CE) was independently confirmed via its own official site (3cenergy.org/about-us/) to serve all 4 cities in this batch as part of its 5-county, 33-community Central Coast service area — reused as a single CCA citation across the batch, consistent with the established per-organization CCA verification pattern."
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [
+      "ca-santa-cruz-capitola-pge"
+    ],
+    "limited_for_now": [
+      {
+        "record_id": "ca-santa-cruz-santa-cruz-pge",
+        "city": "Santa Cruz",
+        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
+      },
+      {
+        "record_id": "ca-santa-cruz-scotts-valley-pge",
+        "city": "Scotts Valley",
+        "reason": "readiness=LIMITED (completeness 60%, score 98)"
+      },
+      {
+        "record_id": "ca-santa-cruz-watsonville-pge",
+        "city": "Watsonville",
+        "reason": "readiness=LIMITED (completeness 60%, score 98)"
+      }
+    ],
+    "not_ready": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
+    "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
+  }
+}

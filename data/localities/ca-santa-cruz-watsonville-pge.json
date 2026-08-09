@@ -1,0 +1,96 @@
+{
+  "record_id": "ca-santa-cruz-watsonville-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Watsonville is a well-documented Santa Cruz County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Central Coast Community Energy (3CE)",
+      "type": "cca",
+      "notes": "3CE's own official site confirms Watsonville as one of its member communities. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Watsonville", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Santa Cruz County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Watsonville Building Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.watsonville.gov/150/Building-Division",
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "The Building Division offers SolarAPP+ per a dedicated 'SolarAPP+ - How to' PDF found on the city's site, but that PDF returned only unreadable binary/image content to automated fetch this session, so its procedural detail could not be independently extracted."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (Solar Automated Permit Processing) automated permitting for licensed contractors/installers",
+      "other_conditions": []
+    },
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Watsonville Building Division",
+        "phone": "831-768-3050",
+        "email": "building.permits@watsonville.gov",
+        "url": "https://www.watsonville.gov/150/Building-Division"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Division",
+      "url": "https://www.watsonville.gov/150/Building-Division",
+      "publisher": "City of Watsonville",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S3",
+      "title": "About Us — Service Area",
+      "url": "https://3cenergy.org/about-us/",
+      "publisher": "Central Coast Community Energy (3CE)",
+      "type": "other_official",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
