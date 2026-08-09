@@ -87,9 +87,15 @@
     "notes": "cityofpetaluma.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Request an inspection via the Permits & Planning Hub, by email at building@cityofpetaluma.org, or by phone (707-778-4479); scheduling occurs within 24 hours during regular business hours",
+      "Inspections are performed Monday-Thursday only; the next-day cutoff is 2:00 p.m. (a Friday inspection can be requested by phone for a minimum $514 fee)",
+      "Check the daily inspection schedule for the estimated 2-hour arrival window based on inspection order number",
+      "Keep the inspection card posted at the job site until the project passes final inspection"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S5"],
+    "notes": "This is the City's general Building Inspections process (the same page covers all building permit types, including solar); the City's page does not describe a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": {
@@ -178,6 +184,14 @@
       "url": "https://www.selfgenca.com/home/about/",
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Building Inspections",
+      "url": "https://cityofpetaluma.org/building-inspections/",
+      "publisher": "City of Petaluma",
+      "type": "government",
       "accessed_date": "2026-08-09"
     }
   ]

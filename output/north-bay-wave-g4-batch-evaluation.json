@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.940Z",
+  "evaluated_at": "2026-08-09T22:42:30.922Z",
   "record_count": 10,
   "records": [
     {
@@ -310,7 +310,7 @@
       "record_id": "ca-marin-san-anselmo-pge",
       "city": "San Anselmo",
       "county": "Marin County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -324,13 +324,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -342,7 +342,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-marin-ross-pge",
@@ -384,10 +384,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 74,
     "average_validation_score": 95.4,
-    "ready_count": 3,
-    "limited_count": 7,
+    "ready_count": 4,
+    "limited_count": 6,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -399,7 +399,7 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 7,
-      "inspection_steps": 6,
+      "inspection_steps": 5,
       "timeline_days": 5,
       "eligibility_constraints": 0,
       "permit_fees": 10,
@@ -421,7 +421,7 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "timeline_days",
@@ -459,7 +459,8 @@
     "recommended_publish_record_ids": [
       "ca-marin-larkspur-pge",
       "ca-marin-corte-madera-pge",
-      "ca-marin-tiburon-pge"
+      "ca-marin-tiburon-pge",
+      "ca-marin-san-anselmo-pge"
     ],
     "limited_for_now": [
       {
@@ -486,11 +487,6 @@
         "record_id": "ca-marin-fairfax-pge",
         "city": "Fairfax",
         "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
-      },
-      {
-        "record_id": "ca-marin-san-anselmo-pge",
-        "city": "San Anselmo",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-marin-ross-pge",

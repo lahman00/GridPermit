@@ -1,16 +1,16 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.818Z",
+  "evaluated_at": "2026-08-09T22:42:30.886Z",
   "record_count": 7,
   "records": [
     {
       "record_id": "ca-sonoma-petaluma-pge",
       "city": "Petaluma",
       "county": "Sonoma County",
-      "completeness_pct": 73.3,
-      "validation_score": 94,
+      "completeness_pct": 80,
+      "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -20,13 +20,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -38,7 +38,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-sonoma-rohnert-park-pge",
@@ -196,7 +196,7 @@
       "record_id": "ca-sonoma-windsor-pge",
       "city": "Windsor",
       "county": "Sonoma County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -210,13 +210,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -228,7 +228,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-sonoma-sonoma-pge",
@@ -270,10 +270,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 75.2,
-    "average_validation_score": 97,
-    "ready_count": 3,
-    "limited_count": 4,
+    "average_completeness_pct": 77.1,
+    "average_validation_score": 96.7,
+    "ready_count": 5,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -285,7 +285,7 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 5,
-      "inspection_steps": 4,
+      "inspection_steps": 2,
       "timeline_days": 2,
       "eligibility_constraints": 0,
       "permit_fees": 7,
@@ -307,7 +307,7 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 4
+        "missing_in_records": 2
       },
       {
         "field": "timeline_days",
@@ -341,16 +341,13 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-sonoma-petaluma-pge",
       "ca-sonoma-sebastopol-pge",
       "ca-sonoma-healdsburg-hed",
+      "ca-sonoma-windsor-pge",
       "ca-sonoma-sonoma-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-sonoma-petaluma-pge",
-        "city": "Petaluma",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
-      },
       {
         "record_id": "ca-sonoma-rohnert-park-pge",
         "city": "Rohnert Park",
@@ -359,11 +356,6 @@
       {
         "record_id": "ca-sonoma-cotati-pge",
         "city": "Cotati",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
-      {
-        "record_id": "ca-sonoma-windsor-pge",
-        "city": "Windsor",
         "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
