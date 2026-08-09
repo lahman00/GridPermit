@@ -1,0 +1,99 @@
+{
+  "record_id": "ca-butte-paradise-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Paradise is confirmed to be within PG&E's electric service territory."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No CCA currently serves Paradise. Pioneer Community Energy is confirmed (via Butte County's own site) to begin serving the Town of Paradise starting October 2027, but that program has not launched as of this session and is not yet an active generation supplier."
+  },
+  "city": { "value": "Paradise", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Butte County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Paradise Building Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.paradiseca.gov/building/page/online-roof-mount-solar-permits-now-available-solarapp",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "SolarApp+ approved plans (downloaded after automated review and processing fee payment)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule online at app.govwell.com/paradise with permit number, jobsite address, inspection type, preferred date/time (AM or PM), jobsite contact phone, and any special access instructions"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarApp+ automated roof-mount solar permitting",
+      "other_conditions": [
+        "Limited to licensed B-General, C-10 Electrical, or C-46 Solar Photovoltaic contractors",
+        "Covers only new rooftop solar photovoltaic on detached one- and two-family dwellings, townhomes, and related accessory structures (e.g. garage or ADU)"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Paradise Building Resiliency Center",
+        "phone": "530-872-6291",
+        "email": "building@townofparadise.com",
+        "url": "https://www.paradiseca.gov/building/page/online-roof-mount-solar-permits-now-available-solarapp"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Online Roof Mount Solar Permits Now Available with SolarApp+",
+      "url": "https://www.paradiseca.gov/building/page/online-roof-mount-solar-permits-now-available-solarapp",
+      "publisher": "Town of Paradise",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
