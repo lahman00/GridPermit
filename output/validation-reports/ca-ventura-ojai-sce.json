@@ -14,17 +14,13 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "timeline_days",
@@ -38,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://ojai.ca.gov/342/Building-Permit",
-      "checked_at": "2026-08-09T22:24:28.484Z",
+      "checked_at": "2026-08-09T23:16:49.805Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "GET",
@@ -46,15 +42,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-09T22:24:31.892Z",
+      "checked_at": "2026-08-09T23:16:53.814Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-09T22:24:31.896Z",
+      "checked_at": "2026-08-09T23:17:03.816Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -62,7 +58,15 @@
     },
     {
       "url": "https://cleanpoweralliance.org/",
-      "checked_at": "2026-08-09T22:24:32.606Z",
+      "checked_at": "2026-08-09T23:17:04.683Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://ojai.ca.gov/283/Building-and-Safety-Division",
+      "checked_at": "2026-08-09T23:17:04.966Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

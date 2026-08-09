@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:42:30.813Z",
+  "evaluated_at": "2026-08-09T23:17:19.765Z",
   "record_count": 9,
   "records": [
     {
@@ -158,7 +158,7 @@
       "record_id": "ca-ventura-moorpark-sce",
       "city": "Moorpark",
       "county": "Ventura County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -173,11 +173,11 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "inspection_steps",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -190,7 +190,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-ventura-simi-valley-sce",
@@ -234,7 +234,7 @@
       "record_id": "ca-ventura-ojai-sce",
       "city": "Ojai",
       "county": "Ventura County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -248,13 +248,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "timeline_days",
         "rebates"
       ],
@@ -267,7 +267,7 @@
       "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-ventura-fillmore-sce",
@@ -347,10 +347,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72.6,
+    "average_completeness_pct": 74.1,
     "average_validation_score": 97.2,
-    "ready_count": 2,
-    "limited_count": 7,
+    "ready_count": 4,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -362,7 +362,7 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 6,
-      "inspection_steps": 4,
+      "inspection_steps": 2,
       "timeline_days": 8,
       "eligibility_constraints": 0,
       "permit_fees": 8,
@@ -388,7 +388,7 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 4
+        "missing_in_records": 2
       },
       {
         "field": "generation_supplier",
@@ -423,7 +423,9 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-ventura-ventura-sce",
-      "ca-ventura-camarillo-sce"
+      "ca-ventura-camarillo-sce",
+      "ca-ventura-moorpark-sce",
+      "ca-ventura-ojai-sce"
     ],
     "limited_for_now": [
       {
@@ -437,19 +439,9 @@
         "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
-        "record_id": "ca-ventura-moorpark-sce",
-        "city": "Moorpark",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
-      {
         "record_id": "ca-ventura-simi-valley-sce",
         "city": "Simi Valley",
         "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
-      {
-        "record_id": "ca-ventura-ojai-sce",
-        "city": "Ojai",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
       },
       {
         "record_id": "ca-ventura-fillmore-sce",
