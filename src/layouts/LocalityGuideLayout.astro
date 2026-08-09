@@ -21,6 +21,8 @@ import {
 	relationLabel,
 	type LocalityRecord,
 } from "../lib/locality-guide";
+import { buildCountyHubs, countySlug } from "../lib/county-hub";
+import { buildUtilityHubs, utilitySlug } from "../lib/utility-hub";
 import { getAllBlogPosts, relatedPostsForUtility } from "../lib/blog-posts";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
 import Analytics from "../components/Analytics.astro";
@@ -73,6 +75,23 @@ const currentEntry = {
 	guideUrl: "",
 };
 const relatedLocalities = buildRelatedLocalities(currentEntry, allReadyEntries, 6);
+
+// County hub link — only when this city's county cleared the hub-page
+// value threshold (see MIN_READY_CITIES_FOR_HUB in src/lib/county-hub.ts).
+// Most counties in this dataset have too few READY cities for a hub page
+// to exist, so this is null far more often than not.
+const countyHubs = buildCountyHubs(allEvaluatedRecords, allRecordsById);
+const countyHub = record.county?.value
+	? countyHubs.find((h) => h.countySlug === countySlug(record.county.value))
+	: undefined;
+const countyHubUrl = countyHub ? `/california/county/${countyHub.countySlug}/` : null;
+
+// Utility hub link — same idea, keyed by short name so it still matches
+// regardless of which full-name spelling this record used (see the same
+// fix in buildRelatedLocalities).
+const utilityHubs = buildUtilityHubs(allEvaluatedRecords, allRecordsById);
+const utilityHub = utilityShort ? utilityHubs.find((h) => h.utilitySlug === utilitySlug(utilityShort)) : undefined;
+const utilityHubUrl = utilityHub ? `/california/utility/${utilityHub.utilitySlug}/` : null;
 
 // "Related articles" — blog posts matching this locality's utility, via the
 // same shared post list/category logic the blog index itself uses.
@@ -183,7 +202,7 @@ const tocItems = [
 		<div class="layout-grid">
 		<main class="content-card">
 			<h1>{record.city.value} Solar Permit Guide</h1>
-			<p class="subtitle">{record.utility.value} territory · {record.county.value}</p>
+			<p class="subtitle">{utilityHubUrl ? <a href={utilityHubUrl}>{record.utility.value}</a> : record.utility.value} territory · {countyHubUrl ? <a href={countyHubUrl}>{record.county.value}</a> : record.county.value}</p>
 
 			<div class="page-toolbar">
 				<span class="badge badge-verified">✓ Last verified {record.last_verified}</span>

@@ -1,0 +1,206 @@
+---
+// Utility hub pages — generated only for utilities with enough READY
+// cities to offer genuine navigation and context value (see
+// MIN_READY_CITIES_FOR_UTILITY_HUB in src/lib/utility-hub.ts). Never
+// generalizes a per-city permitting fact onto the utility page — only
+// utility-level facts already true across every one of its READY cities.
+import { buildUtilityHubs, type UtilityEvaluationSummary } from "../../../lib/utility-hub";
+import { SITE_ORIGIN, buildBreadcrumbSchema, type LocalityRecord } from "../../../lib/locality-guide";
+import Analytics from "../../../components/Analytics.astro";
+
+export async function getStaticPaths() {
+	const localityModules = import.meta.glob("../../../../data/localities/*.json", { eager: true }) as Record<
+		string,
+		{ default: LocalityRecord & { record_id: string } }
+	>;
+	const recordsById = new Map(
+		Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]),
+	);
+	const evaluationModules = import.meta.glob("../../../../output/*-evaluation.json", { eager: true }) as Record<
+		string,
+		{ default: { records: UtilityEvaluationSummary[] } }
+	>;
+	const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
+	const hubs = buildUtilityHubs(allEvaluatedRecords, recordsById);
+
+	return hubs.map((hub) => ({
+		params: { slug: hub.utilitySlug },
+		props: { hub },
+	}));
+}
+
+const { hub } = Astro.props;
+
+const PAGE_PATH = `/california/utility/${hub.utilitySlug}/`;
+const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
+const title = `${hub.utilityShort} Solar Permit Cities in California | GridPermit`;
+const description = `${hub.cities.length} verified California cities served by ${hub.utilityShort} — permit authority per city, plus ${hub.utilityShort}'s role vs. each city's building department.`;
+
+const breadcrumbItems = [
+	{ name: "Home", url: `${SITE_ORIGIN}/` },
+	{ name: "California", url: `${SITE_ORIGIN}/california/` },
+	{ name: hub.utilityShort, url: CANONICAL_URL },
+];
+const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<Analytics />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<link rel="canonical" href={CANONICAL_URL} />
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
+	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={CANONICAL_URL} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</head>
+<body>
+	<div class="top-banner">
+		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
+	</div>
+
+	<nav class="navbar">
+		<div class="nav-container">
+			<a href="/" class="brand-logo" aria-label="GridPermit Home">
+				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
+			</a>
+			<div class="nav-links">
+				<a href="/#calculator">ROI Calculator</a>
+				<a href="/how-it-works">How It Works</a>
+				<a href="/california/solar-permit-guides/">California Guides</a>
+				<a href="/blog">Blog</a>
+				<a href="/methodology">Methodology</a>
+			</div>
+			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
+			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+		</div>
+	</nav>
+
+	<div class="page-container">
+		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+			{breadcrumbItems.map((item, i) => (
+				<>
+					{i > 0 && <span class="crumb-sep">/</span>}
+					{i === breadcrumbItems.length - 1
+						? <span class="crumb-current">{item.name}</span>
+						: <a href={item.url.replace(SITE_ORIGIN, "")}>{item.name}</a>}
+				</>
+			))}
+		</nav>
+
+		<main class="content-card">
+			<h1>{hub.utilityShort} Solar Permit Cities</h1>
+			<p class="subtitle">{hub.cities.length} verified cities across {hub.counties.length} {hub.counties.length === 1 ? "county" : "counties"}</p>
+
+			<div class="disclaimer-box">
+				<strong>Informational only.</strong> This page summarizes verified per-city facts already published on each city's own guide. {hub.utilityShort} is the interconnection and distribution utility for the cities listed — the city's own building department, not {hub.utilityShort}, issues the construction/electrical permit. Not legal, engineering, or permit advice.
+			</div>
+
+			<section id="role">
+				<h2>{hub.utilityShort}'s role</h2>
+				<p>{hub.utilityShort} reviews and approves grid interconnection for residential solar and battery systems in the cities below — a separate process from, and usually reviewed independently of, each city's building/electrical permit. See <a href="/california/#permit-vs-interconnection">why these are two separate approvals</a>.</p>
+				{hub.commonInterconnectionUrl && (
+					<p>{hub.utilityShort}'s own interconnection page (cited identically across every verified city below): <a href={hub.commonInterconnectionUrl} target="_blank" rel="noopener">{hub.commonInterconnectionUrl}</a></p>
+				)}
+			</section>
+
+			<section id="cities">
+				<h2>Verified {hub.utilityShort} cities</h2>
+				<div class="guide-grid">
+					{hub.cities.map((c) => (
+						<a href={c.guideUrl} class="guide-card" data-track-click="permit_guide_clicked">
+							<h2>{c.city}</h2>
+							{c.county && <p class="card-field"><strong>County:</strong> {c.county}</p>}
+							<span class="card-link">View full guide →</span>
+						</a>
+					))}
+				</div>
+			</section>
+
+			<div class="footer-disclaimer">
+				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Verify current requirements with each city's listed permit authority and with {hub.utilityShort} directly.</p>
+				<p><a href="/california/">California Solar Permit Guide</a> · <a href="/california/solar-permit-guides/">All California Guides</a> · <a href="/methodology">Methodology</a> · <a href="/">Back to GridPermit</a></p>
+			</div>
+		</main>
+	</div>
+
+	<footer class="footer">
+		<div class="footer-container">
+			<p>© 2026 GridPermit. All rights reserved.</p>
+			<p class="affiliate-disclosure">
+				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
+			</p>
+			<div class="footer-links">
+				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+			</div>
+		</div>
+	</footer>
+
+	<style>
+		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
+		* { box-sizing: border-box; }
+		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
+		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
+		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+		.brand-logo { text-decoration: none; }
+		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
+		.logo-bold { font-weight: 800; }
+		.nav-links { display: flex; gap: 1.25rem; }
+		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
+		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
+		@media (max-width: 640px) {
+			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
+			.nav-links { flex-wrap: wrap; justify-content: center; }
+		}
+
+		.page-container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
+		.crumb-sep { margin: 0 0.4rem; }
+		.crumb-current { color: var(--text-main); font-weight: 600; }
+
+		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
+		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
+		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
+		h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 2rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
+		section:first-of-type h2 { border-top: none; padding-top: 0; margin-top: 1.5rem; }
+		p { margin: 0 0 0.75rem; }
+
+		.disclaimer-box { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.5rem; }
+
+		.guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+		.guide-card { display: block; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem 1.4rem; text-decoration: none; color: var(--text-main); transition: border-color 0.15s ease; }
+		.guide-card:hover { border-color: var(--primary); }
+		.guide-card h2 { font-size: 1.15rem; font-weight: 800; margin: 0 0 0.6rem; color: var(--text-main); border: none; padding: 0; }
+		.card-field { font-size: 0.85rem; color: #334155; margin-bottom: 0.35rem; }
+		.card-field strong { color: var(--text-main); }
+		.card-link { display: inline-block; margin-top: 0.5rem; font-size: 0.85rem; font-weight: 700; color: var(--primary); }
+
+		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
+		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
+
+		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
+		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
+		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
+	</style>
+</body>
+</html>

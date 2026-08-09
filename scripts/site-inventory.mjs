@@ -193,6 +193,8 @@ function classifyPageFamily(url) {
 	if (/^\/california\/[^/]+\/solar-permit-guide\/$/.test(url)) return "locality-guide";
 	if (url === "/california/solar-permit-guides/") return "locality-directory";
 	if (url === "/california/") return "california-hub";
+	if (/^\/california\/county\/[^/]+\/$/.test(url)) return "county-hub";
+	if (/^\/california\/utility\/[^/]+\/$/.test(url)) return "utility-hub";
 	if (/^\/blog\/[^/]+\/$/.test(url)) return "blog-post";
 	if (url === "/blog/") return "blog-index";
 	if (url === "/search/") return "search";
