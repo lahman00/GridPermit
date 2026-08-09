@@ -6,11 +6,29 @@ import { buildSearchIndex, searchEntries } from "../src/lib/search-index.ts";
 function makeParams() {
 	return {
 		localityEntries: [
-			{ recordId: "ca-alameda-oakland-pge", city: "Oakland", utility: "Pacific Gas and Electric Company (PG&E)", generationSupplierName: "Ava Community Energy", completenessPct: 86.7, lastVerified: "2026-08-01", citySlug: "oakland", guideUrl: "/california/oakland/solar-permit-guide/" },
-			{ recordId: "ca-los-angeles-pasadena-pwp", city: "Pasadena", utility: "Pasadena Water and Power", generationSupplierName: null, completenessPct: 93.3, lastVerified: "2026-08-01", citySlug: "pasadena", guideUrl: "/california/pasadena/solar-permit-guide/" },
+			{ recordId: "ca-alameda-oakland-pge", city: "Oakland", county: "Alameda County", utility: "Pacific Gas and Electric Company (PG&E)", generationSupplierName: "Ava Community Energy", completenessPct: 86.7, lastVerified: "2026-08-01", citySlug: "oakland", guideUrl: "/california/oakland/solar-permit-guide/" },
+			{ recordId: "ca-los-angeles-pasadena-pwp", city: "Pasadena", county: "Los Angeles County", utility: "Pasadena Water and Power", generationSupplierName: null, completenessPct: 93.3, lastVerified: "2026-08-01", citySlug: "pasadena", guideUrl: "/california/pasadena/solar-permit-guide/" },
 		],
 		blogPosts: [
 			{ title: "SCE NEM 3.0 Guide", description: "SCE customers are losing thousands under NEM 3.0.", url: "/blog/sce-guide/", category: "SCE", displayDate: "x", sortDate: "2026-07-26", hasExactDate: true },
+		],
+		countyHubs: [
+			{
+				county: "Alameda County",
+				countySlug: "alameda",
+				cities: [{ city: "Oakland" }, { city: "Berkeley" }],
+				utilities: ["PG&E"],
+				countyContractedCities: [],
+			},
+		],
+		utilityHubs: [
+			{
+				utilityShort: "PG&E",
+				utilitySlug: "pge",
+				cities: [{ city: "Oakland" }, { city: "Berkeley" }],
+				counties: ["Alameda County"],
+				commonInterconnectionUrl: null,
+			},
 		],
 	};
 }
@@ -46,6 +64,37 @@ test("searchEntries matches a municipal utility name for a city with no generati
 	const index = buildSearchIndex(makeParams());
 	const results = searchEntries(index, "water and power");
 	assert.ok(results.some((e) => e.url === "/california/pasadena/solar-permit-guide/"));
+});
+
+test("buildSearchIndex includes county and utility hub pages when provided", () => {
+	const index = buildSearchIndex(makeParams());
+	assert.ok(index.some((e) => e.url === "/california/county/alameda/"));
+	assert.ok(index.some((e) => e.url === "/california/utility/pge/"));
+});
+
+test("buildSearchIndex omits county/utility hub entries entirely when none are provided (optional params)", () => {
+	const { countyHubs, utilityHubs, ...paramsWithoutHubs } = makeParams();
+	const index = buildSearchIndex(paramsWithoutHubs);
+	assert.ok(!index.some((e) => e.category === "County"));
+	assert.ok(!index.some((e) => e.category === "Utility"));
+});
+
+test("searchEntries matches a county name and surfaces that county's hub page", () => {
+	const index = buildSearchIndex(makeParams());
+	const results = searchEntries(index, "Alameda County");
+	assert.ok(results.some((e) => e.url === "/california/county/alameda/"));
+});
+
+test("searchEntries matches a county name embedded in a locality entry's description", () => {
+	const index = buildSearchIndex(makeParams());
+	const results = searchEntries(index, "Los Angeles County");
+	assert.ok(results.some((e) => e.url === "/california/pasadena/solar-permit-guide/"));
+});
+
+test("searchEntries matches a utility abbreviation and surfaces that utility's hub page", () => {
+	const index = buildSearchIndex(makeParams());
+	const results = searchEntries(index, "PG&E");
+	assert.ok(results.some((e) => e.url === "/california/utility/pge/"));
 });
 
 test("searchEntries matches blog post content", () => {

@@ -7,6 +7,8 @@
 import { SITE_ORIGIN, buildBreadcrumbSchema, buildLocalityIndexEntries, type LocalityRecord } from "../lib/locality-guide";
 import { getAllBlogPosts } from "../lib/blog-posts";
 import { buildSearchIndex } from "../lib/search-index";
+import { buildCountyHubs, type ReadyEvaluationSummary } from "../lib/county-hub";
+import { buildUtilityHubs } from "../lib/utility-hub";
 import Analytics from "../components/Analytics.astro";
 
 const localityModules = import.meta.glob("../../data/localities/*.json", { eager: true }) as Record<
@@ -24,8 +26,10 @@ const evaluationModules = import.meta.glob("../../output/*-evaluation.json", { e
 const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
 const localityEntries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
 const blogPosts = await getAllBlogPosts();
+const countyHubs = buildCountyHubs(allEvaluatedRecords as ReadyEvaluationSummary[], recordsById);
+const utilityHubs = buildUtilityHubs(allEvaluatedRecords as ReadyEvaluationSummary[], recordsById);
 
-const searchIndex = buildSearchIndex({ localityEntries, blogPosts });
+const searchIndex = buildSearchIndex({ localityEntries, blogPosts, countyHubs, utilityHubs });
 
 const PAGE_PATH = "/search/";
 const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
@@ -100,7 +104,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 			<input type="search" id="search-input" placeholder="Search for a city, utility, or topic…" aria-label="Site search" autofocus />
 
 			<ul class="results-list" id="results-list"></ul>
-			<p class="search-hint" id="search-hint">Start typing to search cities (e.g. "Oakland"), utilities (e.g. "PG&E" or "SCE"), or topics (e.g. "SGIP", "NEM 3.0").</p>
+			<p class="search-hint" id="search-hint">Start typing to search cities (e.g. "Oakland"), counties (e.g. "Alameda County"), utilities (e.g. "PG&E" or "SCE"), or topics (e.g. "SGIP", "NEM 3.0").</p>
 			<p class="no-results" id="no-results" hidden>No results found.</p>
 
 			<script is:inline type="application/json" id="search-index-data" set:html={JSON.stringify(searchIndex)} />

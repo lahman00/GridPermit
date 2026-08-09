@@ -4,6 +4,8 @@
 // lists, so this stays unit-testable with plain node:test.
 import type { LocalityIndexEntry } from "./locality-guide";
 import type { PostSummary } from "./blog-posts";
+import type { CountyHubData } from "./county-hub";
+import type { UtilityHubData } from "./utility-hub";
 
 export interface SearchEntry {
 	title: string;
@@ -57,6 +59,12 @@ const STATIC_PAGES: SearchEntry[] = [
 export function buildSearchIndex(params: {
 	localityEntries: LocalityIndexEntry[];
 	blogPosts: PostSummary[];
+	// Optional: only county/utility groupings that already cleared the
+	// genuine-value threshold (see county-hub.ts/utility-hub.ts) get their
+	// own hub page, so only those are indexed here — a county or utility
+	// with no hub page has nothing to link a search result to.
+	countyHubs?: CountyHubData[];
+	utilityHubs?: UtilityHubData[];
 }): SearchEntry[] {
 	const entries: SearchEntry[] = [...STATIC_PAGES];
 
@@ -68,11 +76,36 @@ export function buildSearchIndex(params: {
 	});
 
 	for (const e of params.localityEntries) {
+		// County is folded into the description (not just the title) so a
+		// query for a county name — one of the terms this index is explicitly
+		// stress-tested against — surfaces every city in it, not just a city
+		// whose own name happens to match.
+		const descriptionParts = [e.utility, e.generationSupplierName, e.county ? `${e.county}` : null].filter(
+			(part): part is string => Boolean(part),
+		);
 		entries.push({
 			title: `${e.city} Solar Permit Guide`,
-			description: e.generationSupplierName ? `${e.utility} · ${e.generationSupplierName}` : e.utility,
+			description: descriptionParts.join(" · "),
 			url: e.guideUrl,
 			category: "California Guide",
+		});
+	}
+
+	for (const hub of params.countyHubs ?? []) {
+		entries.push({
+			title: `${hub.county} Solar Permit Guides`,
+			description: `${hub.cities.length} verified ${hub.cities.length === 1 ? "city" : "cities"} in ${hub.county}: ${hub.cities.map((c) => c.city).join(", ")}.`,
+			url: `/california/county/${hub.countySlug}/`,
+			category: "County",
+		});
+	}
+
+	for (const hub of params.utilityHubs ?? []) {
+		entries.push({
+			title: `${hub.utilityShort} Solar Permit Guides`,
+			description: `${hub.cities.length} verified ${hub.cities.length === 1 ? "city" : "cities"} served by ${hub.utilityShort}: ${hub.cities.map((c) => c.city).join(", ")}.`,
+			url: `/california/utility/${hub.utilitySlug}/`,
+			category: "Utility",
 		});
 	}
 
