@@ -66,7 +66,16 @@
     "confidence": 0.9,
     "source_ids": ["S1"]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Log into the Customer Self Service (CSS) account to schedule the Building inspection",
+      "Inspections may be scheduled for the next business day if the request is received by 3:00 p.m. on the prior business day",
+      "Check the Daily Inspection Schedule the day of the inspection for the assigned time slot"
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "This is the City's general Building Inspections process (the same page covers all building permit types, including solar); the City's page does not describe a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
@@ -132,6 +141,14 @@
       "publisher": "San Diego Community Power",
       "type": "other_official",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S5",
+      "title": "Building Inspections",
+      "url": "https://www.encinitasca.gov/government/departments/development-services/land-development-building/building/inspections",
+      "publisher": "City of Encinitas",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }
