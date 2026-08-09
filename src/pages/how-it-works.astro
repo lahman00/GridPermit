@@ -1,5 +1,13 @@
 ---
 import Analytics from "../components/Analytics.astro";
+
+const webPageSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	name: "How It Works - GridPermit",
+	description: "Learn how GridPermit's California-only solar and battery estimator works in three simple steps.",
+	url: "https://mygridpermit.com/how-it-works/",
+};
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +31,7 @@ import Analytics from "../components/Analytics.astro";
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
 	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
 	<style>
 		body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 2rem 1rem; }
 		.container { max-width: 800px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }

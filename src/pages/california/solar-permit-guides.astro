@@ -49,6 +49,28 @@ const breadcrumbItems = [
 	{ name: "Solar Permit Guides", url: CANONICAL_URL },
 ];
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
+
+// CollectionPage + ItemList — this page's entire purpose is to list every
+// verified city guide, so both schema types are a direct, accurate match
+// (not added speculatively). itemListElement uses each entry's own already-
+// verified guideUrl; nothing here is a separate, possibly-stale copy of it.
+const collectionSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: title,
+	description,
+	url: CANONICAL_URL,
+	mainEntity: {
+		"@type": "ItemList",
+		numberOfItems: entries.length,
+		itemListElement: entries.map((entry, i) => ({
+			"@type": "ListItem",
+			position: i + 1,
+			name: `${entry.city} Solar Permit Guide`,
+			url: `${SITE_ORIGIN}${entry.guideUrl}`,
+		})),
+	},
+};
 ---
 
 <!DOCTYPE html>
@@ -80,6 +102,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 	<meta name="twitter:description" content={description} />
 
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
 </head>
 <body>
 	<div class="top-banner">

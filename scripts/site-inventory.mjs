@@ -356,6 +356,44 @@ async function main() {
 		}
 		console.log(`\nFull report: ${path.relative(REPO_ROOT, OUT_PATH)}`);
 	}
+
+	// --check turns this into a CI gate: exit non-zero on defect categories
+	// that are always unambiguously wrong (a real dead link, a JSON-LD parse
+	// error, a page missing from the sitemap, an accidental noindex, two
+	// pages sharing a title/canonical). Categories that involve an editorial
+	// judgment call this session already made and documented — e.g.
+	// title_too_long (reviewed: the 3 remaining are intentional editorial
+	// blog titles under 80 chars), internal_links_via_redirect (reviewed:
+	// the 81 remaining are the intentional per-city breadcrumb redirect
+	// pattern documented in netlify.toml), thin_pages (reviewed: contact/
+	// privacy/terms are conventionally thin by design) — are reported but
+	// never fail the gate, so this never blocks a future change on a
+	// judgment call it can't make.
+	if (process.argv.includes("--check")) {
+		const HARD_DEFECTS = [
+			"duplicate_titles",
+			"duplicate_descriptions",
+			"missing_title",
+			"missing_description",
+			"multiple_h1",
+			"missing_h1",
+			"missing_canonical",
+			"malformed_canonical",
+			"accidental_noindex",
+			"sitemap_drift_missing_from_sitemap",
+			"sitemap_drift_extra_in_sitemap",
+			"dead_internal_links",
+			"structured_data_errors",
+			"orphan_pages",
+		];
+		const failures = HARD_DEFECTS.filter((k) => (report.defect_summary[k] ?? 0) > 0);
+		if (failures.length > 0) {
+			console.error(`\nsite-inventory --check FAILED: ${failures.join(", ")}`);
+			process.exitCode = 1;
+		} else {
+			console.log("\nsite-inventory --check passed: no hard defects found.");
+		}
+	}
 }
 
 const isDirectRun = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);

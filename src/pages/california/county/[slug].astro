@@ -45,6 +45,24 @@ const breadcrumbItems = [
 	{ name: hub.county, url: CANONICAL_URL },
 ];
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
+
+const collectionSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: title,
+	description,
+	url: CANONICAL_URL,
+	mainEntity: {
+		"@type": "ItemList",
+		numberOfItems: hub.cities.length,
+		itemListElement: hub.cities.map((c, i) => ({
+			"@type": "ListItem",
+			position: i + 1,
+			name: `${c.city} Solar Permit Guide`,
+			url: `${SITE_ORIGIN}${c.guideUrl}`,
+		})),
+	},
+};
 ---
 
 <!DOCTYPE html>
@@ -72,6 +90,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 	<meta name="twitter:description" content={description} />
 
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
 </head>
 <body>
 	<div class="top-banner">
