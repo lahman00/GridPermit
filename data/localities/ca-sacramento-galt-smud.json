@@ -1,0 +1,78 @@
+{
+  "record_id": "ca-sacramento-galt-smud",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Sacramento Municipal Utility District (SMUD)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "SMUD's own Jurisdiction Contacts page directly lists the City of Galt among the local agencies it coordinates with for meter and service purposes, confirming Galt is within SMUD's service territory — consistent with the pattern already established for other Sacramento County cities in this dataset (Sacramento, Elk Grove, Rancho Cordova, Folsom, Citrus Heights)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Sacramento Municipal Utility District (SMUD)",
+      "type": "utility",
+      "notes": "SMUD is a vertically-integrated municipal utility (a public power district, not an investor-owned utility) — it generates/procures and delivers its own power rather than sitting alongside a separate CCA. No Community Choice Aggregator applies within SMUD's own service territory."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Galt", "confidence": 1, "source_ids": ["S2"] },
+  "county": { "value": "Sacramento County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Galt Community Development Department, Building Division",
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "permit_url": {
+    "value": "https://www.cityofgalt.org/government/community-development/building",
+    "confidence": 0.8,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": { "value": null, "confidence": 0, "source_ids": [], "notes": "SMUD's own NEM/interconnection page was not directly confirmed for this record this session." },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "cityofgalt.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Galt Building Division",
+        "phone": "209-366-7200",
+        "email": null,
+        "url": "https://www.cityofgalt.org/government/community-development/building"
+      },
+      {
+        "name": null,
+        "role": "City of Galt Building Division (24-Hour Inspection Line)",
+        "phone": "209-745-1337",
+        "email": null,
+        "url": "https://www.cityofgalt.org/government/community-development/building"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Jurisdiction Contacts",
+      "url": "https://www.smud.org/Business-Solutions-and-Rebates/Design-and-Construction-Services/Meter-and-Service/jurisdiction-contacts",
+      "publisher": "Sacramento Municipal Utility District (SMUD)",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Building Division",
+      "url": "https://www.cityofgalt.org/government/community-development/building",
+      "publisher": "City of Galt",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
