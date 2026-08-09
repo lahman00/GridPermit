@@ -1,11 +1,15 @@
 // Regression guard for the "/california/<city>/" breadcrumb-target redirects
 // documented in netlify.toml. buildBreadcrumbItems (src/lib/locality-guide.ts)
-// links "California" and each city name to paths with no matching Astro page
-// — netlify.toml redirects those to the real *-solar-permit-guide/ pages
-// instead. That file's own comment says to add one entry per new city, and
-// this session found 3 generated cities (santa-rosa, santa-ana, alameda)
-// that were missing theirs — a real broken link in production. This test
-// makes that omission fail loudly instead of silently shipping again.
+// links each city name to a path with no matching Astro page — netlify.toml
+// redirects those to the real *-solar-permit-guide/ pages instead. That
+// file's own comment says to add one entry per new city, and this session
+// found 3 generated cities (santa-rosa, santa-ana, alameda) that were
+// missing theirs — a real broken link in production. This test makes that
+// omission fail loudly instead of silently shipping again.
+//
+// "California" itself is no longer part of this pattern: src/pages/california/
+// index.astro is a real page (the statewide hub), so the breadcrumb's
+// "California" link resolves directly with no redirect needed.
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -40,7 +44,15 @@ test("every city with a generated solar-permit-guide.astro page has a matching n
 	}
 });
 
-test("netlify.toml redirects /california/ to the real guide index page", () => {
-	assert.ok(netlifyToml.includes('from = "/california/"'));
-	assert.ok(netlifyToml.includes('to = "/california/solar-permit-guides/"'));
+test("/california/ is a real page, not a redirect (src/pages/california/index.astro exists and netlify.toml has no /california/ redirect)", () => {
+	assert.ok(
+		existsSync(path.join(CALIFORNIA_PAGES_DIR, "index.astro")),
+		"expected src/pages/california/index.astro (the statewide hub page) to exist",
+	);
+	// Match the exact redirect line, not `/california/<city>/` entries, which
+	// legitimately contain the substring "/california/".
+	assert.ok(
+		!netlifyToml.includes('from = "/california/"\n'),
+		"netlify.toml should not redirect /california/ — it's a real page (src/pages/california/index.astro), not a stand-in for the guide index",
+	);
 });
