@@ -1,0 +1,118 @@
+{
+  "record_id": "ca-san-luis-obispo-pismo-beach-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Pismo Beach is a well-documented San Luis Obispo County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Central Coast Community Energy (3CE)",
+      "type": "cca",
+      "notes": "3CE's own official site confirms it serves San Luis Obispo County, and separately lists Pismo Beach among its named member communities. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Pismo Beach", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "San Luis Obispo County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Pismo Beach Building Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://pismobeach.org/830/Solar-Photovoltaic-Expedited-Permit-Proc",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Eligibility Checklist", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Submittal Requirements packet", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Solar PV permit application", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Solar PV Standard Plan and Labels", "required_when": "conditional", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 2, "notes": "Every attempt is made to approve applications within 2 days." },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Nondiscretionary Expedited Solar Photovoltaic Permit Process, or SolarAPP+",
+      "other_conditions": [
+        "Solar array height must not exceed 10 inches above the roof surface",
+        "System must be utility-interactive and not use battery storage",
+        "No electrical service change/upgrade may be performed under the same permit application"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "SolarAPP+ processing fee", "amount_usd": 26.06, "unit": "flat fee, paid to SolarAPP+ (not the city)", "notes": null }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Pismo Beach Building Division",
+        "phone": "805-773-4657",
+        "email": "permits@pismobeach.org",
+        "url": "https://pismobeach.org/830/Solar-Photovoltaic-Expedited-Permit-Proc"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic Expedited Permit Process",
+      "url": "https://pismobeach.org/830/Solar-Photovoltaic-Expedited-Permit-Proc",
+      "publisher": "City of Pismo Beach",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S3",
+      "title": "About Us — Service Area",
+      "url": "https://3cenergy.org/about-us/",
+      "publisher": "Central Coast Community Energy (3CE)",
+      "type": "other_official",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
