@@ -20,11 +20,7 @@ and earns no compensation from it.</p>
 
 **Finding: plain external link, accurately disclosed.** The URL (`https://www.energysage.com`) has no query parameters, referral codes, or tracking IDs. `rel="noopener noreferrer"` is present (correct for a new-tab external link) but **not** `rel="sponsored"`, which would misrepresent it as a paid placement. The inline disclosure sentence directly and correctly states there is no affiliate relationship and no compensation. This is the one part of the monetization surface that is already accurate and requires no change.
 
-**Inconsistency worth flagging (not fixing — this is a legal-text decision, not a code bug):** the sitewide footer disclosure, present on every page, reads:
-
-> "We may receive compensation when users visit or use services offered by our affiliate partners, at no additional cost to the user."
-
-This is a general, forward-looking disclosure that could reasonably describe a *future* state once real partners exist — but read next to the EnergySage-specific text ("does not currently have an affiliate relationship... earns no compensation"), a careful reader could be confused about whether GridPermit has affiliate relationships right now. Recommend clarifying this footer language (e.g., "GridPermit does not currently have any affiliate or compensation relationships; if this changes, it will be disclosed here and on each relevant page") the next time the footer is touched for another reason — not urgent enough to justify a standalone content-only PR today.
+**Update (resolved as of the GridPermit SEO & Authority mission):** the "may receive compensation" footer inconsistency flagged in the original version of this section has been fixed. The sitewide footer disclosure now reads "GridPermit is an independent educational resource and referral website... GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency" — no compensation claim, consistent with the EnergySage-specific "no affiliate relationship... no compensation" text next to it. Confirmed present in this exact form on every page's footer as of this update.
 
 ## 2. Lead capture
 
