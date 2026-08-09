@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T22:42:30.922Z",
+  "evaluated_at": "2026-08-09T23:02:08.217Z",
   "record_count": 10,
   "records": [
     {
       "record_id": "ca-marin-san-rafael-pge",
       "city": "San Rafael",
       "county": "Marin County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -21,11 +21,11 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "inspection_steps",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -38,7 +38,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-marin-novato-pge",
@@ -384,10 +384,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74,
+    "average_completeness_pct": 74.7,
     "average_validation_score": 95.4,
-    "ready_count": 4,
-    "limited_count": 6,
+    "ready_count": 5,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -399,7 +399,7 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 7,
-      "inspection_steps": 5,
+      "inspection_steps": 4,
       "timeline_days": 5,
       "eligibility_constraints": 0,
       "permit_fees": 10,
@@ -420,12 +420,12 @@
         "missing_in_records": 7
       },
       {
-        "field": "inspection_steps",
+        "field": "timeline_days",
         "missing_in_records": 5
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 5
+        "field": "inspection_steps",
+        "missing_in_records": 4
       },
       {
         "field": "battery_programs",
@@ -457,17 +457,13 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-marin-san-rafael-pge",
       "ca-marin-larkspur-pge",
       "ca-marin-corte-madera-pge",
       "ca-marin-tiburon-pge",
       "ca-marin-san-anselmo-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-marin-san-rafael-pge",
-        "city": "San Rafael",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
       {
         "record_id": "ca-marin-novato-pge",
         "city": "Novato",

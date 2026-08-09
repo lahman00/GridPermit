@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:38.320Z",
+  "evaluated_at": "2026-08-09T23:02:08.181Z",
   "record_count": 10,
   "records": [
     {
@@ -197,7 +197,7 @@
       "record_id": "ca-santa-clara-los-gatos-pge",
       "city": "Los Gatos",
       "county": "Santa Clara County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -212,12 +212,12 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -227,9 +227,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-santa-clara-monte-sereno-pge",
@@ -387,10 +387,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 77.3,
+    "average_completeness_pct": 78,
     "average_validation_score": 94.5,
-    "ready_count": 7,
-    "limited_count": 3,
+    "ready_count": 8,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -403,7 +403,7 @@
       "battery_programs": 3,
       "required_documents": 3,
       "inspection_steps": 5,
-      "timeline_days": 6,
+      "timeline_days": 5,
       "eligibility_constraints": 0,
       "permit_fees": 7,
       "rebates": 10,
@@ -419,11 +419,11 @@
         "missing_in_records": 7
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 6
+        "field": "inspection_steps",
+        "missing_in_records": 5
       },
       {
-        "field": "inspection_steps",
+        "field": "timeline_days",
         "missing_in_records": 5
       },
       {
@@ -463,6 +463,7 @@
       "ca-santa-clara-santa-clara-svp",
       "ca-santa-clara-cupertino-pge",
       "ca-santa-clara-campbell-pge",
+      "ca-santa-clara-los-gatos-pge",
       "ca-santa-clara-monte-sereno-pge",
       "ca-santa-clara-saratoga-pge",
       "ca-santa-clara-morgan-hill-pge",
@@ -478,11 +479,6 @@
         "record_id": "ca-santa-clara-sunnyvale-pge",
         "city": "Sunnyvale",
         "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
-      },
-      {
-        "record_id": "ca-santa-clara-los-gatos-pge",
-        "city": "Los Gatos",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       }
     ],
     "not_ready": [],

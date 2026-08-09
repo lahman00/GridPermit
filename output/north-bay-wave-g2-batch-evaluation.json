@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.858Z",
+  "evaluated_at": "2026-08-09T23:02:08.286Z",
   "record_count": 5,
   "records": [
     {
@@ -120,7 +120,7 @@
       "record_id": "ca-napa-st-helena-pge",
       "city": "St. Helena",
       "county": "Napa County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -135,12 +135,12 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -150,9 +150,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-napa-yountville-pge",
@@ -194,10 +194,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72,
+    "average_completeness_pct": 73.3,
     "average_validation_score": 95.6,
-    "ready_count": 1,
-    "limited_count": 4,
+    "ready_count": 2,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -210,7 +210,7 @@
       "battery_programs": 1,
       "required_documents": 3,
       "inspection_steps": 3,
-      "timeline_days": 3,
+      "timeline_days": 2,
       "eligibility_constraints": 0,
       "permit_fees": 5,
       "rebates": 5,
@@ -235,7 +235,7 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 3
+        "missing_in_records": 2
       },
       {
         "field": "battery_programs",
@@ -267,7 +267,8 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
-      "ca-napa-napa-pge"
+      "ca-napa-napa-pge",
+      "ca-napa-st-helena-pge"
     ],
     "limited_for_now": [
       {
@@ -279,11 +280,6 @@
         "record_id": "ca-napa-calistoga-pge",
         "city": "Calistoga",
         "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
-      },
-      {
-        "record_id": "ca-napa-st-helena-pge",
-        "city": "St. Helena",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-napa-yountville-pge",

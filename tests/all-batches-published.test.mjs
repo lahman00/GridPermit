@@ -49,7 +49,13 @@ function loadAllEvaluatedRecords() {
 
 function citySlugFor(recordId) {
 	const record = JSON.parse(readFileSync(path.join(LOCALITIES_DIR, `${recordId}.json`), "utf8"));
-	return record.city.value.toLowerCase().replace(/\s+/g, "-");
+	// Mirrors scripts/generate-locality-pages.mjs's own slugify(): strip every
+	// non-alphanumeric run (not just whitespace) so names like "St. Helena"
+	// slug to "st-helena", matching the folder the generator actually writes.
+	return record.city.value
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/^-+|-+$/g, "");
 }
 
 function pageFileFor(citySlug) {

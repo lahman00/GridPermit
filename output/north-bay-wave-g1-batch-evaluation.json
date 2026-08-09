@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:42:30.886Z",
+  "evaluated_at": "2026-08-09T23:02:08.252Z",
   "record_count": 7,
   "records": [
     {
@@ -82,7 +82,7 @@
       "record_id": "ca-sonoma-cotati-pge",
       "city": "Cotati",
       "county": "Sonoma County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -97,12 +97,12 @@
         "interconnection_url",
         "battery_programs",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -112,9 +112,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-sonoma-sebastopol-pge",
@@ -270,10 +270,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 77.1,
+    "average_completeness_pct": 78.1,
     "average_validation_score": 96.7,
-    "ready_count": 5,
-    "limited_count": 2,
+    "ready_count": 6,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -286,7 +286,7 @@
       "battery_programs": 1,
       "required_documents": 5,
       "inspection_steps": 2,
-      "timeline_days": 2,
+      "timeline_days": 1,
       "eligibility_constraints": 0,
       "permit_fees": 7,
       "rebates": 7,
@@ -310,11 +310,11 @@
         "missing_in_records": 2
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 2
+        "field": "battery_programs",
+        "missing_in_records": 1
       },
       {
-        "field": "battery_programs",
+        "field": "timeline_days",
         "missing_in_records": 1
       }
     ],
@@ -342,6 +342,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-sonoma-petaluma-pge",
+      "ca-sonoma-cotati-pge",
       "ca-sonoma-sebastopol-pge",
       "ca-sonoma-healdsburg-hed",
       "ca-sonoma-windsor-pge",
@@ -352,11 +353,6 @@
         "record_id": "ca-sonoma-rohnert-park-pge",
         "city": "Rohnert Park",
         "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
-      },
-      {
-        "record_id": "ca-sonoma-cotati-pge",
-        "city": "Cotati",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [],

@@ -107,7 +107,15 @@ test("every generated locality guide page corresponds to a locality record that 
 		.filter((slug) => existsSync(path.join(californiaDir, slug, "solar-permit-guide.astro")));
 
 	const allCitySlugs = new Set(
-		loadAllRecords().map(({ record }) => record.city.value.toLowerCase().replace(/\s+/g, "-")),
+		// Mirrors scripts/generate-locality-pages.mjs's own slugify(): strip every
+		// non-alphanumeric run (not just whitespace) so names like "St. Helena"
+		// slug to "st-helena", matching the folder the generator actually writes.
+		loadAllRecords().map(({ record }) =>
+			record.city.value
+				.toLowerCase()
+				.replace(/[^a-z0-9]+/g, "-")
+				.replace(/^-+|-+$/g, ""),
+		),
 	);
 
 	for (const slug of cityDirs) {
