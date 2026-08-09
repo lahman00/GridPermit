@@ -91,7 +91,19 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states city fees are required at application and SolarAPP+ charges separate processing fees, but no dollar figures are given." },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar / PV System - Residential Permit and Inspection (per AB 1414)",
+        "amount_usd": 535,
+        "unit": "flat fee",
+        "notes": "City of Tustin's own 2026-2027 Comprehensive Schedule of Fees (Building Division Fees section, effective per Council Resolution)."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S6"],
+    "notes": "Confirmed via direct download and read of the City's own published comprehensive fee schedule PDF, which lists a distinct 'Solar / PV System' line item separate from general building permit fees."
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -120,7 +132,7 @@
     "confidence": 0.85,
     "source_ids": ["S1", "S5"]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
@@ -161,6 +173,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "2026-2027 Comprehensive Fee Schedule",
+      "url": "https://www.tustinca.org/DocumentCenter/View/19836/2026-Comprehensive-Schedule-of-Fees",
+      "publisher": "City of Tustin",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

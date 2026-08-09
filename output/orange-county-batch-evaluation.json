@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T20:30:41.827Z",
+  "evaluated_at": "2026-08-09T22:03:04.502Z",
   "record_count": 10,
   "records": [
     {
@@ -273,11 +273,11 @@
       "record_id": "ca-orange-tustin-sce",
       "city": "Tustin",
       "county": "Orange County",
-      "completeness_pct": 73.3,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -289,23 +289,24 @@
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": null,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-orange-yorba-linda-sce",
@@ -385,10 +386,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 68.6,
-    "average_validation_score": 95.8,
-    "ready_count": 2,
-    "limited_count": 8,
+    "average_completeness_pct": 69.3,
+    "average_validation_score": 95.3,
+    "ready_count": 3,
+    "limited_count": 7,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -403,7 +404,7 @@
       "inspection_steps": 4,
       "timeline_days": 9,
       "eligibility_constraints": 3,
-      "permit_fees": 9,
+      "permit_fees": 8,
       "rebates": 10,
       "official_contacts": 0
     },
@@ -417,11 +418,11 @@
         "missing_in_records": 9
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 9
+        "field": "generation_supplier",
+        "missing_in_records": 8
       },
       {
-        "field": "generation_supplier",
+        "field": "permit_fees",
         "missing_in_records": 8
       },
       {
@@ -438,7 +439,7 @@
       }
     ],
     "warning_category_recurrence": {
-      "unsupported_claim": 2,
+      "unsupported_claim": 3,
       "broken_url": 9
     },
     "utility_coverage": [
@@ -467,7 +468,8 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-orange-anaheim-apu",
-      "ca-orange-huntington-beach-sce"
+      "ca-orange-huntington-beach-sce",
+      "ca-orange-tustin-sce"
     ],
     "limited_for_now": [
       {
@@ -494,11 +496,6 @@
         "record_id": "ca-orange-newport-beach-sce",
         "city": "Newport Beach",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-orange-tustin-sce",
-        "city": "Tustin",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-orange-yorba-linda-sce",
