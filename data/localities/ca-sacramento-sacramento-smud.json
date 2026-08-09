@@ -29,9 +29,8 @@
   },
   "permit_url": {
     "value": "https://www.cityofsacramento.gov/community-development/building/permit-services/residential-solar",
-    "confidence": 0.75,
-    "source_ids": ["S1"],
-    "notes": "This is the City's own dedicated Residential Solar page (confirmed to exist via search-engine indexing under this exact title), but the page rendered only navigation-shell content on direct fetch this session (a JavaScript-heavy page whose main content did not appear in the fetched HTML), so its specific eligibility/fee/timeline content could not be independently read this session."
+    "confidence": 0.9,
+    "source_ids": ["S1"]
   },
   "interconnection_url": {
     "value": "https://www.smud.org/-/media/Documents/Business-Solutions-and-Rebates/Interconnection/NetEnergyMetering_Rate_Schedule.ashx",
@@ -40,12 +39,35 @@
     "notes": "SMUD's own Net Energy Metering (NEM) rate schedule document, applying to residential, commercial/industrial, and agricultural customers with an eligible renewable generation facility (including photovoltaic). Existing solar customers are grandfathered under the 'NEM1' rate schedule (approved before March 1, 2022); newer customers fall under SMUD's own 'Solar and Storage Rate (SSR)' program."
   },
   "battery_programs": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The statewide SGIP program (administered by the CPUC-regulated IOUs) does not apply to SMUD customers, since SMUD is a municipal utility outside CPUC jurisdiction. SMUD instead offers its own 'Solar and Storage Rate (SSR)' program (allowing systems sized up to 110% of a customer's own load, with a storage incentive for transitional customers), but this session did not independently confirm a specific dollar-denominated SSR incentive figure suitable for this field."
+    "value": [
+      {
+        "name": "My Energy Optimizer Partner+",
+        "administrator": "Sacramento Municipal Utility District (SMUD)",
+        "description": "SMUD's own battery storage incentive program (separate from the CPUC/IOU-administered SGIP, which does not apply to SMUD customers as a municipal utility outside CPUC jurisdiction, and separate from SMUD's Solar and Storage Rate (SSR) billing structure). One-time enrollment incentive of up to $10,000 per household ($500/kWh minus a 20% holdback) for new battery energy storage system customers who enroll within 90 days of receiving Permission to Operate (PTO) from SMUD. Ongoing quarterly incentives are currently only available for Tesla batteries ($110 for 1 battery, $220 for 2, $330 for 3+); other eligible brands (Eguana, Enphase, Franklin, SolarEdge, Sonnen) receive only the one-time enrollment incentive at this time.",
+        "value_usd_per_kwh": 500,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "SMUD residential customers with a battery storage unit installed at their home who participate in SMUD's Solar and Storage Rate (SSR). Individual rental units are currently ineligible; multifamily homes are eligible with the same tenant restrictions. MED Rate customers are not eligible.",
+        "url": "https://www.smud.org/Going-Green/Battery-storage/Homeowner",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S4"]
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "cityofsacramento.gov's Residential Solar page rendered only navigation content on direct fetch this session; its specific submittal checklist could not be independently read." },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ Approval ID number and approval documents", "required_when": "SolarAPP+-eligible projects (registered licensed contractors only)", "source_ids": ["S1"] },
+      { "name": "CDD Building Application for Solar Energy Systems", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SMUD interconnection letter", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Construction plans", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Equipment specifications", "required_when": "standard (non-SolarAPP+) plan review path", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
   "inspection_steps": {
     "value": [
       "Since January 12, 2026, residential web permits for minor HVAC, minor water heaters, solar/PV, and EV chargers require a VuSpex virtual inspection"
@@ -86,7 +108,7 @@
     "source_ids": ["S1"],
     "notes": "The phone number is from the header of a City of Sacramento re-roof permit handout (CDD-0304), located at the Building Division's 300 Richards Blvd. office; the email is the city's general planning helpdesk, referenced via search-engine synthesis for solar-specific site inquiries."
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
@@ -94,7 +116,7 @@
       "url": "https://www.cityofsacramento.gov/community-development/building/permit-services/residential-solar",
       "publisher": "City of Sacramento",
       "type": "government",
-      "accessed_date": "2026-08-05"
+      "accessed_date": "2026-08-09"
     },
     {
       "id": "S2",
@@ -111,6 +133,14 @@
       "publisher": "Sacramento Municipal Utility District (SMUD)",
       "type": "utility",
       "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S4",
+      "title": "Battery storage for homeowners",
+      "url": "https://www.smud.org/Going-Green/Battery-storage/Homeowner",
+      "publisher": "Sacramento Municipal Utility District (SMUD)",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "record_id": "ca-sacramento-folsom-smud",
   "file": "data/localities/ca-sacramento-folsom-smud.json",
-  "validated_at": "2026-08-05",
+  "validated_at": "2026-08-09",
   "status": "REVIEW",
   "score": 98,
   "errors": [],
@@ -13,14 +13,6 @@
     }
   ],
   "recommendations": [
-    {
-      "field": "interconnection_url",
-      "message": "'interconnection_url' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "battery_programs",
-      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -53,15 +45,31 @@
   "url_checks": [
     {
       "url": "https://www.folsom.ca.us/government/community-development/building-services/instant-solar-permitting",
-      "checked_at": "2026-08-05T22:52:18.124Z",
+      "checked_at": "2026-08-09T20:22:39.207Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
+      "url": "https://www.smud.org/Going-Green/Solar-for-Your-Home",
+      "checked_at": "2026-08-09T20:22:40.312Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.smud.org/Going-Green/Battery-storage/Homeowner",
+      "checked_at": "2026-08-09T20:22:41.104Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
       "url": "https://folsomtimes.com/smud-hosting-12th-annual-folsom-electricity-fair-oct-18",
-      "checked_at": "2026-08-05T22:52:18.716Z",
+      "checked_at": "2026-08-09T20:22:41.758Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

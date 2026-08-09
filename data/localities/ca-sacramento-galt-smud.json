@@ -28,8 +28,31 @@
     "confidence": 0.8,
     "source_ids": ["S2"]
   },
-  "interconnection_url": { "value": null, "confidence": 0, "source_ids": [], "notes": "SMUD's own NEM/interconnection page was not directly confirmed for this record this session." },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "interconnection_url": {
+    "value": "https://www.smud.org/Going-Green/Solar-for-Your-Home",
+    "confidence": 0.85,
+    "source_ids": ["S4"],
+    "notes": "SMUD's own solar hub page, which includes an 'Interconnection process' FAQ topic — utility-wide, not city-specific."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "My Energy Optimizer Partner+",
+        "administrator": "Sacramento Municipal Utility District (SMUD)",
+        "description": "SMUD's own battery storage incentive program (separate from the CPUC/IOU-administered SGIP, which does not apply to SMUD customers as a municipal utility outside CPUC jurisdiction). One-time enrollment incentive of up to $10,000 per household ($500/kWh minus a 20% holdback) for new battery energy storage system customers who enroll within 90 days of receiving Permission to Operate (PTO) from SMUD. Ongoing quarterly incentives are currently only available for Tesla batteries ($110 for 1 battery, $220 for 2, $330 for 3+); other eligible brands (Eguana, Enphase, Franklin, SolarEdge, Sonnen) receive only the one-time enrollment incentive at this time.",
+        "value_usd_per_kwh": 500,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "SMUD residential customers with a battery storage unit installed at their home who participate in SMUD's Solar and Storage Rate (SSR). Individual rental units are currently ineligible; multifamily homes are eligible with the same tenant restrictions. MED Rate customers are not eligible.",
+        "url": "https://www.smud.org/Going-Green/Battery-storage/Homeowner",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "cityofgalt.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
@@ -72,6 +95,22 @@
       "url": "https://www.cityofgalt.org/government/community-development/building",
       "publisher": "City of Galt",
       "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S3",
+      "title": "Battery storage for homeowners",
+      "url": "https://www.smud.org/Going-Green/Battery-storage/Homeowner",
+      "publisher": "Sacramento Municipal Utility District (SMUD)",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Solar for your home",
+      "url": "https://www.smud.org/Going-Green/Solar-for-Your-Home",
+      "publisher": "Sacramento Municipal Utility District (SMUD)",
+      "type": "utility",
       "accessed_date": "2026-08-09"
     }
   ]
