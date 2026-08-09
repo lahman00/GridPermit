@@ -67,12 +67,20 @@ function addFinding(list, field, category, message) {
   list.push({ field, category, message });
 }
 
+function containsAliasAsWord(upper, alias) {
+  // Word-boundary match so short abbreviations like "SCE" don't false-positive
+  // inside ordinary words that happen to contain the same letters in sequence
+  // (e.g. "Crescent City" contains the literal substring "SCE").
+  const escaped = alias.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(?:^|[^A-Z0-9])${escaped}(?:[^A-Z0-9]|$)`).test(upper);
+}
+
 function utilityFamiliesIn(text) {
   if (!text) return [];
   const upper = text.toUpperCase();
   const found = [];
   for (const family of KNOWN_UTILITIES) {
-    if (family.some((alias) => upper.includes(alias))) found.push(family);
+    if (family.some((alias) => containsAliasAsWord(upper, alias))) found.push(family);
   }
   return found;
 }
