@@ -79,14 +79,54 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": "Completed building permit application",
+        "required_when": "always",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Two complete sets of 11\" x 17\" drawings (residential)",
+        "required_when": "always",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Site plan showing location of major components on the property",
+        "required_when": "always",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Electrical diagram showing PV array configuration, wiring system, overcurrent protection, inverter, disconnects, required signs, and AC connection to building",
+        "required_when": "always",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Specification sheets for all manufactured components (PV modules, inverter(s), combiner box, disconnects, mounting system)",
+        "required_when": "always",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Labeling / signage page",
+        "required_when": "always",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Fire Marshal approval",
+        "required_when": "conditional",
+        "source_ids": ["S5"]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "Fire Marshal approval is required only for installations covering more than 50% of the total roof area, per the City's own solar-specific submittal guidelines."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Racking and rough electrical inspection",
+      "Final inspection"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S5"]
   },
   "timeline_days": {
     "value": {
@@ -176,6 +216,14 @@
       "url": "https://www.selfgenca.com/home/about/",
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Guidelines for Permitting Small-Scale Photovoltaic Systems",
+      "url": "https://www.morrobayca.gov/DocumentCenter/View/8729/GUIDELINES-FOR-PERMITTING-SMALL-SCALE-SOLAR-SYSTEMS-06-12-19",
+      "publisher": "City of Morro Bay Community Development Department",
+      "type": "government",
       "accessed_date": "2026-08-09"
     }
   ]

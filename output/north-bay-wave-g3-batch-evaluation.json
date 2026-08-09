@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.899Z",
+  "evaluated_at": "2026-08-09T23:55:28.838Z",
   "record_count": 6,
   "records": [
     {
@@ -196,7 +196,7 @@
       "record_id": "ca-solano-dixon-pge",
       "city": "Dixon",
       "county": "Solano County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -211,12 +211,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -226,16 +226,16 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 67.8,
+    "average_completeness_pct": 68.9,
     "average_validation_score": 94.7,
-    "ready_count": 1,
-    "limited_count": 5,
+    "ready_count": 2,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -248,7 +248,7 @@
       "battery_programs": 0,
       "required_documents": 4,
       "inspection_steps": 4,
-      "timeline_days": 6,
+      "timeline_days": 5,
       "eligibility_constraints": 0,
       "permit_fees": 6,
       "rebates": 6,
@@ -256,16 +256,16 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "timeline_days",
-        "missing_in_records": 6
-      },
-      {
         "field": "permit_fees",
         "missing_in_records": 6
       },
       {
         "field": "rebates",
         "missing_in_records": 6
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 5
       },
       {
         "field": "required_documents",
@@ -301,7 +301,8 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
-      "ca-solano-benicia-pge"
+      "ca-solano-benicia-pge",
+      "ca-solano-dixon-pge"
     ],
     "limited_for_now": [
       {
@@ -323,11 +324,6 @@
         "record_id": "ca-solano-vacaville-pge",
         "city": "Vacaville",
         "reason": "readiness=LIMITED (completeness 60%, score 94)"
-      },
-      {
-        "record_id": "ca-solano-dixon-pge",
-        "city": "Dixon",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [],

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:38.061Z",
+  "evaluated_at": "2026-08-09T23:55:28.763Z",
   "record_count": 5,
   "records": [
     {
@@ -121,11 +121,11 @@
       "record_id": "ca-nevada-nevada-city-pge",
       "city": "Nevada City",
       "county": "Nevada County",
-      "completeness_pct": 73.3,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -136,11 +136,11 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "inspection_steps",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -153,7 +153,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-nevada-truckee-tdpud",
@@ -195,10 +195,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 70.7,
-    "average_validation_score": 96,
-    "ready_count": 1,
-    "limited_count": 4,
+    "average_completeness_pct": 72,
+    "average_validation_score": 95.6,
+    "ready_count": 2,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -210,7 +210,7 @@
       "interconnection_url": 1,
       "battery_programs": 1,
       "required_documents": 0,
-      "inspection_steps": 3,
+      "inspection_steps": 2,
       "timeline_days": 5,
       "eligibility_constraints": 1,
       "permit_fees": 3,
@@ -231,12 +231,12 @@
         "missing_in_records": 3
       },
       {
-        "field": "inspection_steps",
+        "field": "permit_fees",
         "missing_in_records": 3
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 3
+        "field": "inspection_steps",
+        "missing_in_records": 2
       },
       {
         "field": "interconnection_url",
@@ -278,7 +278,8 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
-      "ca-nevada-grass-valley-pge"
+      "ca-nevada-grass-valley-pge",
+      "ca-nevada-nevada-city-pge"
     ],
     "limited_for_now": [
       {
@@ -290,11 +291,6 @@
         "record_id": "ca-yuba-marysville-pge",
         "city": "Marysville",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-nevada-nevada-city-pge",
-        "city": "Nevada City",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-nevada-truckee-tdpud",

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.447Z",
+  "evaluated_at": "2026-08-09T23:55:28.721Z",
   "record_count": 5,
   "records": [
     {
@@ -44,7 +44,7 @@
       "record_id": "ca-monterey-gonzales-pge",
       "city": "Gonzales",
       "county": "Monterey County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -58,13 +58,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -76,7 +76,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-monterey-soledad-pge",
@@ -194,10 +194,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
+    "average_completeness_pct": 68,
     "average_validation_score": 97.2,
-    "ready_count": 0,
-    "limited_count": 5,
+    "ready_count": 1,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -209,7 +209,7 @@
       "interconnection_url": 0,
       "battery_programs": 0,
       "required_documents": 5,
-      "inspection_steps": 4,
+      "inspection_steps": 3,
       "timeline_days": 4,
       "eligibility_constraints": 1,
       "permit_fees": 5,
@@ -230,12 +230,12 @@
         "missing_in_records": 5
       },
       {
-        "field": "inspection_steps",
+        "field": "timeline_days",
         "missing_in_records": 4
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 4
+        "field": "inspection_steps",
+        "missing_in_records": 3
       },
       {
         "field": "eligibility_constraints",
@@ -266,17 +266,14 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-monterey-gonzales-pge"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-monterey-salinas-pge",
         "city": "Salinas",
         "reason": "readiness=LIMITED (completeness 60%, score 96)"
-      },
-      {
-        "record_id": "ca-monterey-gonzales-pge",
-        "city": "Gonzales",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-monterey-soledad-pge",
@@ -295,7 +292,9 @@
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }

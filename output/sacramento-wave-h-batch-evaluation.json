@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:38.236Z",
+  "evaluated_at": "2026-08-09T23:55:28.876Z",
   "record_count": 4,
   "records": [
     {
@@ -44,7 +44,7 @@
       "record_id": "ca-placer-lincoln-pge",
       "city": "Lincoln",
       "county": "Placer County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -59,12 +59,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -74,9 +74,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-placer-auburn-pge",
@@ -156,10 +156,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 65,
+    "average_completeness_pct": 66.7,
     "average_validation_score": 98,
-    "ready_count": 0,
-    "limited_count": 4,
+    "ready_count": 1,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -172,17 +172,13 @@
       "battery_programs": 0,
       "required_documents": 2,
       "inspection_steps": 3,
-      "timeline_days": 4,
+      "timeline_days": 3,
       "eligibility_constraints": 2,
       "permit_fees": 4,
       "rebates": 4,
       "official_contacts": 0
     },
     "fields_most_often_missing": [
-      {
-        "field": "timeline_days",
-        "missing_in_records": 4
-      },
       {
         "field": "permit_fees",
         "missing_in_records": 4
@@ -193,6 +189,10 @@
       },
       {
         "field": "inspection_steps",
+        "missing_in_records": 3
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 3
       },
       {
@@ -231,17 +231,14 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-placer-lincoln-pge"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-sacramento-galt-smud",
         "city": "Galt",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-placer-lincoln-pge",
-        "city": "Lincoln",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-placer-auburn-pge",
@@ -255,7 +252,9 @@
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }
