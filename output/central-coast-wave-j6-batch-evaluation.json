@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T23:17:19.765Z",
+  "evaluated_at": "2026-08-09T23:21:52.042Z",
   "record_count": 9,
   "records": [
     {
@@ -196,7 +196,7 @@
       "record_id": "ca-ventura-simi-valley-sce",
       "city": "Simi Valley",
       "county": "Ventura County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -211,12 +211,12 @@
         "interconnection_url",
         "battery_programs",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -226,9 +226,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-ventura-ojai-sce",
@@ -347,10 +347,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.1,
+    "average_completeness_pct": 74.8,
     "average_validation_score": 97.2,
-    "ready_count": 4,
-    "limited_count": 5,
+    "ready_count": 5,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -363,7 +363,7 @@
       "battery_programs": 1,
       "required_documents": 6,
       "inspection_steps": 2,
-      "timeline_days": 8,
+      "timeline_days": 7,
       "eligibility_constraints": 0,
       "permit_fees": 8,
       "rebates": 9,
@@ -375,12 +375,12 @@
         "missing_in_records": 9
       },
       {
-        "field": "timeline_days",
+        "field": "permit_fees",
         "missing_in_records": 8
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 8
+        "field": "timeline_days",
+        "missing_in_records": 7
       },
       {
         "field": "required_documents",
@@ -425,6 +425,7 @@
       "ca-ventura-ventura-sce",
       "ca-ventura-camarillo-sce",
       "ca-ventura-moorpark-sce",
+      "ca-ventura-simi-valley-sce",
       "ca-ventura-ojai-sce"
     ],
     "limited_for_now": [
@@ -437,11 +438,6 @@
         "record_id": "ca-ventura-thousand-oaks-sce",
         "city": "Thousand Oaks",
         "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
-      {
-        "record_id": "ca-ventura-simi-valley-sce",
-        "city": "Simi Valley",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-ventura-fillmore-sce",
