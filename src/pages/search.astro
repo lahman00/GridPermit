@@ -53,10 +53,17 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
 	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={CANONICAL_URL} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 </head>

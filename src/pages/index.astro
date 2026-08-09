@@ -34,10 +34,20 @@ const websiteSchema = {
 	<meta name="description" content="An educational, California-only starting point for home solar and battery payback questions. Illustrative estimates only — not a utility rate lookup." />
 <meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="canonical" href="https://mygridpermit.com/" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
 	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://mygridpermit.com/" />
+	<meta property="og:title" content="GridPermit - California Solar & Battery Savings Estimator (2026)" />
+	<meta property="og:description" content="An educational, California-only starting point for home solar and battery payback questions. Illustrative estimates only — not a utility rate lookup." />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="GridPermit - California Solar & Battery Savings Estimator (2026)" />
+	<meta name="twitter:description" content="An educational, California-only starting point for home solar and battery payback questions. Illustrative estimates only — not a utility rate lookup." />
+
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 </head>
@@ -186,6 +196,17 @@ const websiteSchema = {
 			</div>
 		</div>
 	</main>
+
+	<section class="guides-teaser">
+		<div class="guides-teaser-inner">
+			<h2>Verified California solar permit guides, city by city</h2>
+			<p>Separately from the estimator above, GridPermit maintains a source-linked, confidence-scored solar permitting guide for verified California cities — permit authority, required documents, inspection steps, and eligibility, each fact traced to an official source.</p>
+			<div class="guides-teaser-links">
+				<a href="/california/" class="btn-teaser-primary">Read the California Solar Permit Guide →</a>
+				<a href="/california/solar-permit-guides/" class="btn-teaser-secondary">Browse verified cities →</a>
+			</div>
+		</div>
+	</section>
 
 	<footer class="footer">
 		<div class="footer-container">
@@ -357,6 +378,15 @@ const websiteSchema = {
 		.lead-action-box p { font-size: 0.8rem; color: #94a3b8; margin: 0.3rem 0 0.8rem 0; }
 		.btn-green-action-link { display: inline-block; background: var(--accent); color: white; border: none; padding: 0.85rem 1.5rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; text-decoration: none; transition: background 0.2s ease; }
 		.btn-green-action-link:hover { background: #059669; }
+
+		.guides-teaser { background: var(--bg-slate); padding: 3.5rem 1.5rem; border-top: 1px solid var(--border-color); }
+		.guides-teaser-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+		.guides-teaser h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; }
+		.guides-teaser p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+		.guides-teaser-links { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; }
+		.btn-teaser-primary { background: var(--primary); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+		.btn-teaser-secondary { background: white; color: var(--primary); border: 1px solid var(--border-color); padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+
 		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
 		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
 		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }

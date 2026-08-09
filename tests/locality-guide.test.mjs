@@ -1,5 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync, readdirSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
 	NOT_VERIFIED,
@@ -12,8 +15,11 @@ import {
 	utilityShortName,
 	resolvePermitAuthorityLabel,
 	buildBreadcrumbItems,
+	buildPageMeta,
 	confidenceBadgeClass,
 } from "../src/lib/locality-guide.ts";
+
+const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 
 test("confidenceBadgeClass matches the same tiering as confidenceLabel", () => {
 	assert.equal(confidenceBadgeClass(0.9), "badge-high");
@@ -241,4 +247,48 @@ test("formatTimeline does not crash when notes is missing entirely", () => {
 test("withFallback does not crash on an empty string (a real, non-missing value)", () => {
 	assert.doesNotThrow(() => withFallback(""));
 	assert.equal(withFallback(""), "");
+});
+
+// --- buildPageMeta: title/description length + uniqueness regression ------
+// SERP snippets truncate long titles/descriptions — this guards the
+// template stays under safe limits for every real record, not just a
+// hand-picked example, and that no two cities ever produce the same title.
+
+test("buildPageMeta produces a title and description within safe SERP length limits, for every real locality record", () => {
+	const localitiesDir = path.join(REPO_ROOT, "data", "localities");
+	const files = readdirSync(localitiesDir).filter((f) => f.endsWith(".json"));
+	assert.ok(files.length > 0, "expected at least one real locality record to test against");
+
+	for (const f of files) {
+		const record = JSON.parse(readFileSync(path.join(localitiesDir, f), "utf8"));
+		const meta = buildPageMeta(record, `/california/x/solar-permit-guide/`);
+		assert.ok(meta.title.length <= 70, `${record.record_id}: title is ${meta.title.length} chars, expected <= 70: "${meta.title}"`);
+		assert.ok(meta.description.length <= 160, `${record.record_id}: description is ${meta.description.length} chars, expected <= 160: "${meta.description}"`);
+		assert.ok(meta.description.length >= 50, `${record.record_id}: description is only ${meta.description.length} chars, suspiciously short`);
+	}
+});
+
+test("buildPageMeta never produces the same title for two different real locality records", () => {
+	const localitiesDir = path.join(REPO_ROOT, "data", "localities");
+	const files = readdirSync(localitiesDir).filter((f) => f.endsWith(".json"));
+	const titles = new Map();
+	for (const f of files) {
+		const record = JSON.parse(readFileSync(path.join(localitiesDir, f), "utf8"));
+		const meta = buildPageMeta(record, `/california/x/solar-permit-guide/`);
+		const prior = titles.get(meta.title);
+		assert.ok(!prior, `duplicate title "${meta.title}" for both ${prior} and ${record.record_id}`);
+		titles.set(meta.title, record.record_id);
+	}
+});
+
+test("buildPageMeta title and description never contain unsupported superlative claims", () => {
+	const localitiesDir = path.join(REPO_ROOT, "data", "localities");
+	const files = readdirSync(localitiesDir).filter((f) => f.endsWith(".json"));
+	const bannedPhrases = /\b(guaranteed|fastest|#1|best in|complete guide)\b/i;
+	for (const f of files) {
+		const record = JSON.parse(readFileSync(path.join(localitiesDir, f), "utf8"));
+		const meta = buildPageMeta(record, `/california/x/solar-permit-guide/`);
+		assert.ok(!bannedPhrases.test(meta.title), `${record.record_id}: title contains an unsupported superlative: "${meta.title}"`);
+		assert.ok(!bannedPhrases.test(meta.description), `${record.record_id}: description contains an unsupported superlative: "${meta.description}"`);
+	}
 });

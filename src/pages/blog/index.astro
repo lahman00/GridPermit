@@ -68,6 +68,11 @@ const blogSchema = {
 	<meta property="og:url" content={CANONICAL_URL} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
 
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(blogSchema)} />

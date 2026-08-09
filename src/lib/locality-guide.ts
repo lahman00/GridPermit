@@ -248,13 +248,22 @@ export interface PageMeta {
 	utilityShortName: string | null;
 }
 
+// Deliberately does NOT include the utility name in the title. Utility
+// names in this dataset range from short IOU abbreviations ("PG&E") to long
+// municipal-department names ("City of Healdsburg Electric Department", 38
+// chars) — including the latter in the title pushes it past Google's SERP
+// display width and truncates it mid-name, cutting off the " | GridPermit"
+// brand tag. City name alone, at any length in this dataset, stays safely
+// short — see tests/locality-guide.test.mjs for the length assertion run
+// against every real record, not just the worst case. Utility context still
+// appears in the description and prominently on the page itself.
 export function buildPageMeta(record: LocalityRecord, pagePath: string): PageMeta {
 	const canonicalUrl = `${SITE_ORIGIN}${pagePath}`;
 	const shortName = utilityShortName(record.utility.value);
-	const title = `${record.city.value} Solar Permit Guide (${shortName}) | GridPermit`;
+	const title = `${record.city.value} Solar Permit Guide | GridPermit`;
 	const description =
-		`Source-linked, confidence-scored solar permitting facts for ${record.city.value}, ${record.county.value}: ` +
-		`permit authority, required documents, inspection steps, and eligibility — last verified ${record.last_verified}. Not permit or legal advice.`;
+		`${record.city.value}, CA solar permit facts: permit authority, utility, fees, and inspection steps — ` +
+		`sourced and confidence-scored. Verified ${record.last_verified}.`;
 	return { canonicalUrl, title, description, utilityShortName: shortName };
 }
 
@@ -371,6 +380,7 @@ export interface EvaluationRecordSummary {
 export interface LocalityIndexEntry {
 	recordId: string;
 	city: string;
+	county: string | null;
 	utility: string;
 	generationSupplierName: string | null;
 	completenessPct: number;
@@ -399,6 +409,7 @@ export function buildLocalityIndexEntries(
 		entries.push({
 			recordId: evalRecord.record_id,
 			city: record.city.value,
+			county: record.county?.value ?? null,
 			utility: record.utility.value,
 			generationSupplierName: record.generation_supplier.value?.name ?? null,
 			completenessPct: evalRecord.completeness_pct,
@@ -420,4 +431,61 @@ export function excludeCurrentEntry(
 	currentRecordId: string,
 ): LocalityIndexEntry[] {
 	return entries.filter((e) => e.recordId !== currentRecordId);
+}
+
+export interface RelatedLocalityEntry extends LocalityIndexEntry {
+	// Why this entry was surfaced — shown as the visible reason on the page
+	// so a "related" link reads as an actual relationship, not a random pick.
+	relation: "county" | "utility" | "supplier";
+}
+
+// Curated, bounded "related localities" for a city's cross-link section —
+// replaces linking to every other READY guide (which, at 80+ published
+// cities, produces a page-length link list with no relevance signal and
+// dilutes the value of any single link). Ranks candidates by how directly
+// they relate to `current`: same county first, then same utility, then same
+// generation supplier (CCA/municipal) — each candidate keeps only its
+// single best-matching reason, and unrelated cities are never included
+// (there is no "fill the rest randomly" fallback). Deterministic: ties
+// within a relation break by city name (the same alphabetical order
+// buildLocalityIndexEntries already sorts by), so the result never depends
+// on object/array iteration order. `limit` bounds the total so this never
+// grows into a link farm as the dataset grows — see docs/DATA_ARCHITECTURE.md
+// on why a bounded, relevance-ranked list is preferred over an exhaustive one.
+export function buildRelatedLocalities(
+	current: LocalityIndexEntry,
+	allEntries: LocalityIndexEntry[],
+	limit: number = 6,
+): RelatedLocalityEntry[] {
+	const candidates = excludeCurrentEntry(allEntries, current.recordId);
+	const scored: RelatedLocalityEntry[] = [];
+	for (const c of candidates) {
+		let relation: RelatedLocalityEntry["relation"] | null = null;
+		if (current.county && c.county && c.county === current.county) relation = "county";
+		else if (current.utility && c.utility && c.utility === current.utility) relation = "utility";
+		else if (
+			current.generationSupplierName &&
+			c.generationSupplierName &&
+			c.generationSupplierName === current.generationSupplierName
+		) {
+			relation = "supplier";
+		}
+		if (relation) scored.push({ ...c, relation });
+	}
+	const rank = { county: 0, utility: 1, supplier: 2 };
+	scored.sort((a, b) => rank[a.relation] - rank[b.relation] || a.city.localeCompare(b.city));
+	// De-duplicate by recordId in case a future data shape ever let a
+	// candidate match on paper more than once — keeps its first (best-rank)
+	// occurrence, since scored is already sorted best-first at this point.
+	const seen = new Set<string>();
+	const deduped = scored.filter((e) => (seen.has(e.recordId) ? false : (seen.add(e.recordId), true)));
+	return deduped.slice(0, limit);
+}
+
+// Human-readable label for why a related-locality link was surfaced —
+// shown next to the link so "related" reads as a real relationship.
+export function relationLabel(relation: RelatedLocalityEntry["relation"]): string {
+	if (relation === "county") return "same county";
+	if (relation === "utility") return "same utility";
+	return "same generation supplier";
 }

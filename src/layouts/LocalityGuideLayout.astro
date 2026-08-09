@@ -17,7 +17,8 @@ import {
 	buildFaqSchema,
 	resolvePermitAuthorityLabel,
 	buildLocalityIndexEntries,
-	excludeCurrentEntry,
+	buildRelatedLocalities,
+	relationLabel,
 	type LocalityRecord,
 } from "../lib/locality-guide";
 import { getAllBlogPosts, relatedPostsForUtility } from "../lib/blog-posts";
@@ -56,7 +57,22 @@ const evaluationModules = import.meta.glob("../../output/*-evaluation.json", { e
 >;
 const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
 const allReadyEntries = buildLocalityIndexEntries(allEvaluatedRecords, allRecordsById);
-const otherGuides = excludeCurrentEntry(allReadyEntries, record.record_id);
+// Built directly from this page's own record (not looked up in
+// allReadyEntries) so related-locality ranking still works even in the
+// defensive case where this page's own record_id isn't present in the
+// evaluation data passed in.
+const currentEntry = {
+	recordId: record.record_id,
+	city: record.city.value,
+	county: record.county?.value ?? null,
+	utility: record.utility.value,
+	generationSupplierName: record.generation_supplier.value?.name ?? null,
+	completenessPct: 0,
+	lastVerified: record.last_verified,
+	citySlug: "",
+	guideUrl: "",
+};
+const relatedLocalities = buildRelatedLocalities(currentEntry, allReadyEntries, 6);
 
 // "Related articles" — blog posts matching this locality's utility, via the
 // same shared post list/category logic the blog index itself uses.
@@ -92,7 +108,7 @@ const tocItems = [
 	{ id: "official-contacts", label: "Official Contacts" },
 	...(faqs.length > 0 ? [{ id: "faq", label: "FAQ" }] : []),
 	{ id: "sources", label: "Sources" },
-	...(otherGuides.length > 0 ? [{ id: "other-guides", label: "Other Guides" }] : []),
+	...(relatedLocalities.length > 0 ? [{ id: "other-guides", label: "Related Cities" }] : []),
 	...(relatedArticles.length > 0 ? [{ id: "related-articles", label: "Related Articles" }] : []),
 ];
 ---
@@ -111,11 +127,19 @@ const tocItems = [
 	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
 	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+
 	<!-- Open Graph -->
 	<meta property="og:type" content="article" />
 	<meta property="og:url" content={canonicalUrl} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
 
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 	{faqSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
@@ -404,16 +428,16 @@ const tocItems = [
 				</section>
 			)}
 
-			<!-- ===== Other verified California guides ===== -->
-			{otherGuides.length > 0 && (
+			<!-- ===== Related California guides ===== -->
+			{relatedLocalities.length > 0 && (
 				<section id="other-guides">
-					<h2>Other verified California guides</h2>
+					<h2>Related California cities</h2>
 					<p>
-						See all verified cities on the <a href="/california/solar-permit-guides/">California solar permit guide index</a>.
+						Other verified cities related to {record.city.value} — see all cities on the <a href="/california/solar-permit-guides/">California solar permit guide index</a>.
 					</p>
 					<ul class="fact-list other-guides-list">
-						{otherGuides.map((g) => (
-							<li><a href={g.guideUrl}>{g.city}</a> — {g.utility}</li>
+						{relatedLocalities.map((g) => (
+							<li><a href={g.guideUrl}>{g.city}</a> — {g.utility} <span class="related-reason">({relationLabel(g.relation)})</span></li>
 						))}
 					</ul>
 				</section>
@@ -513,6 +537,7 @@ const tocItems = [
 		.doc-condition { color: var(--text-muted); font-size: 0.88rem; }
 		.sources-list a { color: var(--primary); }
 		.related-articles-list a { color: var(--primary); }
+		.related-reason { color: var(--text-muted); font-size: 0.85rem; }
 
 		.faq-item { border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 0.6rem; }
 		.faq-item summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; }

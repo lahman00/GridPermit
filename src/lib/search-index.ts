@@ -23,6 +23,12 @@ const STATIC_PAGES: SearchEntry[] = [
 		category: "Page",
 	},
 	{
+		title: "California Solar Permit Guide",
+		description: "How California residential solar permitting works: permit vs. interconnection, SolarAPP+, inspections, and batteries.",
+		url: "/california/",
+		category: "Guide",
+	},
+	{
 		title: "Calculation Methodology",
 		description: "An exact, honest description of what GridPermit's California solar and battery estimator does and doesn't calculate today.",
 		url: "/methodology/",
@@ -50,7 +56,7 @@ export function buildSearchIndex(params: {
 
 	entries.push({
 		title: "California Solar Permit Guides",
-		description: "Index of every verified California city solar permit guide that passed GridPermit's pilot readiness review.",
+		description: "Index of every verified California city solar permit guide that clears GridPermit's READY threshold.",
 		url: "/california/solar-permit-guides/",
 		category: "Guide",
 	});
