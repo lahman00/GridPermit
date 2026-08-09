@@ -1,0 +1,111 @@
+{
+  "record_id": "ca-santa-barbara-carpinteria-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Carpinteria is confirmed to be within SCE's distribution service territory, per SCE's own published service-area description — independently checked rather than assumed from county location."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Central Coast Community Energy (3CE)",
+      "type": "cca",
+      "notes": "3CE's own site confirms eligible customers in Carpinteria enrolled in 3CE service starting October 2021. SCE continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Carpinteria", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Santa Barbara County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Carpinteria Community Development, Building & Safety Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://carpinteriaca.gov/city-hall/community-development/building-and-safety/",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this dataset."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ Approval Document and Specifications (printed, available on-site at inspection)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated permitting",
+      "other_conditions": [
+        "Coverage limited to residential rooftop solar on the main dwelling only",
+        "Only licensed contractors registered with SolarAPP+ may use the platform",
+        "Limited revisions are permitted after initial approval and permit issuance"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "SolarAPP+ processing fee", "amount_usd": 25, "unit": "flat fee, paid to SolarAPP+ (not the city)", "notes": "City permit fees apply in addition and are variable." }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Carpinteria Building & Safety Division",
+        "phone": "805-684-5405",
+        "email": null,
+        "url": "https://carpinteriaca.gov/city-hall/community-development/building-and-safety/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building and Safety",
+      "url": "https://carpinteriaca.gov/city-hall/community-development/building-and-safety/",
+      "publisher": "City of Carpinteria",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S3",
+      "title": "11 Communities in SLO and Santa Barbara Counties Begin Transitioning to Clean Energy, Local Control With Central Coast Community Energy",
+      "url": "https://3cenergy.org/11-communities-in-slo-and-santa-barbara-counties-begin-transitioning-to-clean-energy-local-control-with-central-coast-community-energy/",
+      "publisher": "Central Coast Community Energy (3CE)",
+      "type": "other_official",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}

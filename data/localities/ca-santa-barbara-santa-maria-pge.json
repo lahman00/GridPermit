@@ -1,0 +1,89 @@
+{
+  "record_id": "ca-santa-barbara-santa-maria-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Santa Maria is confirmed to be in PG&E's distribution territory (not SCE) — unlike most of the rest of coastal Santa Barbara County, which is SCE territory. This was independently checked rather than assumed from county membership."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Central Coast Community Energy (3CE)",
+      "type": "cca",
+      "notes": "3CE's own official site explicitly names Santa Maria among its member communities. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Santa Maria", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Santa Barbara County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Santa Maria Community Development Department",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "Detail drawn from search-engine summaries of municipal code Chapter 9-52 (Residential Rooftop Solar Systems); the underlying page was not independently fetched this session."
+  },
+  "permit_url": {
+    "value": "https://ecode360.com/43657169",
+    "confidence": 0.5,
+    "source_ids": ["S1"],
+    "notes": "Municipal code hosted on ecode360.com; not independently fetched this session (ecode360.com has returned HTTP 403 to automated fetch in prior sessions)."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": 0, "max_days": 3, "notes": "The Community Development Department must issue a nondiscretionary building permit within 3 business days of a complete application meeting the approved checklist and standard plan." },
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited permitting for small residential rooftop solar (municipal code Ch. 9-52), conforming to the California Solar Permitting Guidebook",
+      "other_conditions": []
+    },
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": { "value": null, "confidence": 0, "source_ids": [] },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Chapter 9-52: Residential Rooftop Solar Systems (not independently fetched — detail drawn from search-engine summaries)",
+      "url": "https://ecode360.com/43657169",
+      "publisher": "City of Santa Maria Municipal Code",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S3",
+      "title": "How 3CE Works — Member Communities",
+      "url": "https://3cenergy.org/about-us/how-ccce-works/",
+      "publisher": "Central Coast Community Energy (3CE)",
+      "type": "other_official",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}

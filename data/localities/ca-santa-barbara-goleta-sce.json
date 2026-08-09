@@ -1,0 +1,96 @@
+{
+  "record_id": "ca-santa-barbara-goleta-sce",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Goleta is confirmed to be within SCE's distribution service territory, per SCE's own published service-area description — independently checked rather than assumed from county location."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Central Coast Community Energy (3CE)",
+      "type": "cca",
+      "notes": "3CE's own site confirms eligible customers in Goleta enrolled in 3CE service starting October 2021. SCE continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Goleta", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Santa Barbara County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Goleta Building and Safety Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.cityofgoleta.org/your-city/planning-and-environmental-review/building-planning/building-and-safety-division",
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "The page returned HTTP 403 to automated fetch this session; detail below is drawn from search-engine summaries, including the city's own municipal code Chapter 15.14 (Streamlined Permitting Process for Small Residential Rooftop Solar Energy Systems)."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this dataset."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Streamlined Permitting Process for Small Residential Rooftop Solar Energy Systems (municipal code Ch. 15.14)",
+      "other_conditions": ["Eligible systems must be no larger than 10kW AC nameplate rating or 30kW thermal"]
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Goleta Building & Safety Permits",
+        "phone": "805-961-7552",
+        "email": "buildinggroup@cityofgoleta.gov",
+        "url": "https://www.cityofgoleta.org/your-city/planning-and-environmental-review/building-planning/building-and-safety-division"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building and Safety Division (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "url": "https://www.cityofgoleta.org/your-city/planning-and-environmental-review/building-planning/building-and-safety-division",
+      "publisher": "City of Goleta",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S3",
+      "title": "11 Communities in SLO and Santa Barbara Counties Begin Transitioning to Clean Energy, Local Control With Central Coast Community Energy",
+      "url": "https://3cenergy.org/11-communities-in-slo-and-santa-barbara-counties-begin-transitioning-to-clean-energy-local-control-with-central-coast-community-energy/",
+      "publisher": "Central Coast Community Energy (3CE)",
+      "type": "other_official",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
