@@ -1,16 +1,16 @@
 {
-  "evaluated_at": "2026-08-06T05:45:37.514Z",
+  "evaluated_at": "2026-08-09T21:36:34.264Z",
   "record_count": 10,
   "records": [
     {
       "record_id": "ca-los-angeles-west-covina-sce",
       "city": "West Covina",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -21,12 +21,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -36,19 +36,19 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-covina-sce",
       "city": "Covina",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -59,12 +59,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -74,9 +74,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-glendora-sce",
@@ -383,10 +383,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 62,
-    "average_validation_score": 96.9,
-    "ready_count": 1,
-    "limited_count": 8,
+    "average_completeness_pct": 63.3,
+    "average_validation_score": 96.5,
+    "ready_count": 3,
+    "limited_count": 6,
     "not_ready_count": 1,
     "fields_missing_count": {
       "utility": 0,
@@ -399,17 +399,13 @@
       "battery_programs": 1,
       "required_documents": 6,
       "inspection_steps": 6,
-      "timeline_days": 10,
+      "timeline_days": 8,
       "eligibility_constraints": 6,
       "permit_fees": 9,
       "rebates": 10,
       "official_contacts": 1
     },
     "fields_most_often_missing": [
-      {
-        "field": "timeline_days",
-        "missing_in_records": 10
-      },
       {
         "field": "rebates",
         "missing_in_records": 10
@@ -420,6 +416,10 @@
       },
       {
         "field": "generation_supplier",
+        "missing_in_records": 8
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 8
       },
       {
@@ -468,19 +468,11 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-los-angeles-west-covina-sce",
+      "ca-los-angeles-covina-sce",
       "ca-los-angeles-diamond-bar-sce"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-los-angeles-west-covina-sce",
-        "city": "West Covina",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
-      {
-        "record_id": "ca-los-angeles-covina-sce",
-        "city": "Covina",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
       {
         "record_id": "ca-los-angeles-glendora-sce",
         "city": "Glendora",

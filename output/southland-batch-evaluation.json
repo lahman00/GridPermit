@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-04T21:49:15.198Z",
+  "evaluated_at": "2026-08-09T21:36:34.336Z",
   "record_count": 2,
   "records": [
     {
@@ -45,11 +45,11 @@
       "record_id": "ca-los-angeles-arcadia-sce",
       "city": "Arcadia",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -60,12 +60,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -75,16 +75,16 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 80,
-    "average_validation_score": 95.5,
-    "ready_count": 1,
-    "limited_count": 1,
+    "average_completeness_pct": 83.4,
+    "average_validation_score": 94.5,
+    "ready_count": 2,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -97,7 +97,7 @@
       "battery_programs": 0,
       "required_documents": 0,
       "inspection_steps": 0,
-      "timeline_days": 2,
+      "timeline_days": 1,
       "eligibility_constraints": 0,
       "permit_fees": 1,
       "rebates": 2,
@@ -105,15 +105,15 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "timeline_days",
-        "missing_in_records": 2
-      },
-      {
         "field": "rebates",
         "missing_in_records": 2
       },
       {
         "field": "generation_supplier",
+        "missing_in_records": 1
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 1
       },
       {
@@ -146,15 +146,10 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
-      "ca-los-angeles-san-gabriel-sce"
+      "ca-los-angeles-san-gabriel-sce",
+      "ca-los-angeles-arcadia-sce"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-los-angeles-arcadia-sce",
-        "city": "Arcadia",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
       "IOU"

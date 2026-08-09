@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-05T05:48:49.201Z",
+  "evaluated_at": "2026-08-09T21:36:34.301Z",
   "record_count": 7,
   "records": [
     {
@@ -160,11 +160,11 @@
       "record_id": "ca-los-angeles-el-monte-sce",
       "city": "El Monte",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -175,12 +175,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -190,9 +190,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-south-el-monte-sce",
@@ -272,10 +272,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72.4,
-    "average_validation_score": 96.3,
-    "ready_count": 3,
-    "limited_count": 4,
+    "average_completeness_pct": 73.3,
+    "average_validation_score": 96,
+    "ready_count": 4,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -288,7 +288,7 @@
       "battery_programs": 0,
       "required_documents": 3,
       "inspection_steps": 2,
-      "timeline_days": 6,
+      "timeline_days": 5,
       "eligibility_constraints": 3,
       "permit_fees": 5,
       "rebates": 7,
@@ -301,7 +301,7 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "permit_fees",
@@ -354,18 +354,14 @@
     "recommended_publish_record_ids": [
       "ca-los-angeles-monterey-park-sce",
       "ca-los-angeles-temple-city-sce",
-      "ca-los-angeles-rosemead-sce"
+      "ca-los-angeles-rosemead-sce",
+      "ca-los-angeles-el-monte-sce"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-los-angeles-alhambra-sce",
         "city": "Alhambra",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-los-angeles-el-monte-sce",
-        "city": "El Monte",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-los-angeles-south-el-monte-sce",

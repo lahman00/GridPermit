@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-05T22:33:27.924Z",
+  "evaluated_at": "2026-08-09T21:36:34.221Z",
   "record_count": 11,
   "records": [
     {
@@ -272,7 +272,7 @@
       "record_id": "ca-kings-hanford-pge",
       "city": "Hanford",
       "county": "Kings County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -287,12 +287,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -302,9 +302,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-joaquin-lodi-leu",
@@ -420,10 +420,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
+    "average_completeness_pct": 67.3,
     "average_validation_score": 96.7,
-    "ready_count": 4,
-    "limited_count": 7,
+    "ready_count": 5,
+    "limited_count": 6,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -436,7 +436,7 @@
       "battery_programs": 3,
       "required_documents": 5,
       "inspection_steps": 5,
-      "timeline_days": 6,
+      "timeline_days": 5,
       "eligibility_constraints": 5,
       "permit_fees": 11,
       "rebates": 11,
@@ -456,15 +456,15 @@
         "missing_in_records": 8
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 6
-      },
-      {
         "field": "required_documents",
         "missing_in_records": 5
       },
       {
         "field": "inspection_steps",
+        "missing_in_records": 5
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 5
       },
       {
@@ -516,6 +516,7 @@
       "ca-stanislaus-turlock-tid",
       "ca-madera-madera-pge",
       "ca-tulare-visalia-sce",
+      "ca-kings-hanford-pge",
       "ca-san-joaquin-lodi-leu"
     ],
     "limited_for_now": [
@@ -538,11 +539,6 @@
         "record_id": "ca-tulare-tulare-sce",
         "city": "Tulare",
         "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
-      },
-      {
-        "record_id": "ca-kings-hanford-pge",
-        "city": "Hanford",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-san-joaquin-manteca-pge",
