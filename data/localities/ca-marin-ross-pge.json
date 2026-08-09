@@ -1,0 +1,100 @@
+{
+  "record_id": "ca-marin-ross-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Ross is a well-documented Marin County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms Ross as one of Marin County's member communities. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Ross", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Marin County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Ross Building Department",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.townofrossca.gov/building/page/california-solar-permitting-guidebook",
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "The town references the statewide California Solar Permitting Guidebook (Spring 2019 edition) as its primary solar permitting resource; a dedicated town-specific solar permit page with detailed requirements was not located this session."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": 1, "max_days": 3, "notes": "Permit applications are reviewed within 1-3 business days for electronic applications from the date of receipt of a complete application, per the town's expedited-review procedures." },
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited Review of Small Residential Rooftop Solar Energy System Permits (municipal code Ch. 15.46)",
+      "other_conditions": []
+    },
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Barbara Reher",
+        "role": "Town of Ross Permit Technician",
+        "phone": "415-453-1453",
+        "email": "breher@townofrossca.gov",
+        "url": "https://www.townofrossca.gov/building/page/california-solar-permitting-guidebook"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "California Solar Permitting Guidebook",
+      "url": "https://www.townofrossca.gov/building/page/california-solar-permitting-guidebook",
+      "publisher": "Town of Ross",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "record_id": "ca-marin-san-rafael-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "San Rafael is a well-documented Marin County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms San Rafael as one of Marin County's member communities (alongside Belvedere, Corte Madera, Fairfax, Larkspur, Mill Valley, Novato, Ross, San Anselmo, Sausalito, Tiburon, and unincorporated Marin County). PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "San Rafael", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Marin County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of San Rafael Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.cityofsanrafael.org/renewable-energy/",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Site plan (panel locations, layout, clearances)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Electrical details", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Manufacturer specifications", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Standard residential solar permit (OpenGov online permitting system)",
+      "other_conditions": [
+        "Solar panels, battery backup, and/or service panel upgrades done simultaneously can be included on a single solar permit (additional fees may apply)",
+        "Reroof-with-solar-tile permits should list only the reroof value, excluding solar tile costs",
+        "Building permits issued after January 1, 2023 are valid for 2 years; minor permits expire after 180 days",
+        "All new permit applications must be submitted through OpenGov beginning February 23, 2026"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Don C. Jeppson",
+        "role": "City of San Rafael Chief Building Official",
+        "phone": "415-485-3367",
+        "email": "building@cityofsanrafael.org",
+        "url": "https://www.cityofsanrafael.org/renewable-energy/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Renewable Energy",
+      "url": "https://www.cityofsanrafael.org/renewable-energy/",
+      "publisher": "City of San Rafael",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

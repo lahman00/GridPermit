@@ -1,0 +1,122 @@
+{
+  "record_id": "ca-marin-tiburon-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Tiburon is a well-documented Marin County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms Tiburon as one of Marin County's member communities. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Tiburon", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Marin County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Tiburon Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "http://www.townoftiburon.gov/636/Solar-Permitting-with-SolarAPP",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Solar/photovoltaic design submitted via gosolarapp.org", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ approval document", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Licensed contractor declaration", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Plans and inspections checklist", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Call the Building Division at 415-435-7380 to schedule; provide job address, permit number, contact info, inspection type, and preferred date/time",
+      "Next-day building inspections available Monday-Thursday"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": { "min_days": 0, "max_days": 0, "notes": "Permits issue instantly upon payment completion through the automated SolarAPP+ system." }, "confidence": 0.8, "source_ids": ["S1"] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (main dwelling rooftop, permitted residential structures only)",
+      "other_conditions": [
+        "No ballasted, ground-mounted, or building-integrated PV systems eligible for SolarAPP+",
+        "Licensed contractors required",
+        "Systems exceeding 10kWh of PV solar or any project using storage batteries may require a separate Fire District permit and inspection prior to final inspection"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Tiburon Community Development / Building Division",
+        "phone": "415-435-7390",
+        "email": null,
+        "url": "http://www.townoftiburon.gov/636/Solar-Permitting-with-SolarAPP"
+      },
+      {
+        "name": null,
+        "role": "Tiburon Fire Protection District",
+        "phone": null,
+        "email": "plansubmittal@tiburonfire.org",
+        "url": "http://www.townoftiburon.gov/636/Solar-Permitting-with-SolarAPP"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permitting with SolarAPP+",
+      "url": "http://www.townoftiburon.gov/636/Solar-Permitting-with-SolarAPP",
+      "publisher": "Town of Tiburon",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

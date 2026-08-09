@@ -1,0 +1,110 @@
+{
+  "record_id": "ca-marin-corte-madera-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Corte Madera is a well-documented Marin County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms Corte Madera as one of Marin County's member communities. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Corte Madera", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Marin County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Corte Madera Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.cortemadera.gov/572/Solar-Photovoltaic",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Eligibility checklist", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Standard plans (central/string inverter or microinverter systems)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Structural criteria compliance documentation", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "The town provides an 'Inspection Guide' for residential systems, but the specific inspection-scheduling process was not detailed in the content reviewed this session." },
+  "timeline_days": {
+    "value": { "min_days": 3, "max_days": 3, "notes": "Approximately 3 business days for standard plan review submissions." },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium automated permitting platform (SB 379 compliant, launched September 30, 2024)",
+      "other_conditions": [
+        "Streamlined pathway covers solar PV installations 10kW or less for one- and two-family dwellings",
+        "Traditional applications for systems outside the automated process go to buildingpermit@cortemadera.gov"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Corte Madera Building Division",
+        "phone": "415-927-5062",
+        "email": "buildingpermit@cortemadera.gov",
+        "url": "https://www.cortemadera.gov/572/Solar-Photovoltaic"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic Permitting",
+      "url": "https://www.cortemadera.gov/572/Solar-Photovoltaic",
+      "publisher": "Town of Corte Madera",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}

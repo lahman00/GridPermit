@@ -1,0 +1,98 @@
+{
+  "record_id": "ca-marin-fairfax-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Fairfax is a well-documented Marin County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MCE (Marin Clean Energy)",
+      "type": "cca",
+      "notes": "MCE's own service-area page confirms Fairfax as one of Marin County's member communities. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Fairfax", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Marin County", "confidence": 0.95, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "Town of Fairfax Planning and Building Department",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://townoffairfaxca.gov/departments/planning-building/",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy System Requirements (municipal code §17.138.230)",
+      "other_conditions": [
+        "Systems must meet applicable health and safety standards imposed by the state, the town, and the Ross Valley Fire District",
+        "Water-heating systems (single-family, commercial, or pool applications) must be certified by an accredited listing agency per the California Plumbing and Mechanical Code"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Fairfax Planning and Building Department",
+        "phone": "415-453-1584",
+        "email": "planning@townoffairfaxca.gov",
+        "url": "https://townoffairfaxca.gov/departments/planning-building/"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-08",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Planning and Building",
+      "url": "https://townoffairfaxca.gov/departments/planning-building/",
+      "publisher": "Town of Fairfax",
+      "type": "government",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-08"
+    }
+  ]
+}
