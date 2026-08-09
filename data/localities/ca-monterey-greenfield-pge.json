@@ -1,0 +1,85 @@
+{
+  "record_id": "ca-monterey-greenfield-pge",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Pacific Gas & Electric (PG&E)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Greenfield is a well-documented Monterey County city within PG&E's core Northern California service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Central Coast Community Energy (3CE)",
+      "type": "cca",
+      "notes": "3CE's own official site confirms it serves Monterey County, and separately lists Greenfield among its named member communities. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Greenfield", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Monterey County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Greenfield Building Division",
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.greenfieldca.gov/174/Building",
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "The fetched page confirms the Building Division issues permits and performs plan checks/inspections generally, but did not itemize solar-specific requirements."
+  },
+  "interconnection_url": {
+    "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Mark Meyers",
+        "role": "City of Greenfield Consultant Building Official",
+        "phone": "831-304-0333",
+        "email": "inspections@ci.greenfield.ca.us",
+        "url": "https://www.greenfieldca.gov/174/Building"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building",
+      "url": "https://www.greenfieldca.gov/174/Building",
+      "publisher": "City of Greenfield",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering (NEM)",
+      "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
+      "publisher": "Pacific Gas & Electric",
+      "type": "utility",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S3",
+      "title": "About Us — Service Area",
+      "url": "https://3cenergy.org/about-us/",
+      "publisher": "Central Coast Community Energy (3CE)",
+      "type": "other_official",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
