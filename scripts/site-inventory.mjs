@@ -214,6 +214,7 @@ function buildDefectReport(pages, sitemapUrls, redirectMap) {
 		missing_h1: [],
 		missing_canonical: [],
 		malformed_canonical: [],
+		non_self_referential_canonical: [],
 		accidental_noindex: [],
 		missing_og_title: [],
 		missing_twitter_card: [],
@@ -259,6 +260,14 @@ function buildDefectReport(pages, sitemapUrls, redirectMap) {
 		if (p.h1s.length === 0) defects.missing_h1.push(p.url);
 		if (!p.canonical) defects.missing_canonical.push(p.url);
 		else if (!p.canonical.startsWith("https://mygridpermit.com")) defects.malformed_canonical.push({ url: p.url, canonical: p.canonical });
+		// Every page on this site canonicalizes to itself — no page ever
+		// intentionally points its canonical at a different page's URL. This
+		// catches both a copy-paste bug (page A's canonical literally reading
+		// page B's URL) and two different pages accidentally sharing one
+		// canonical (which would tell Google to treat them as duplicates).
+		else if (p.canonical !== `https://mygridpermit.com${p.url}`) {
+			defects.non_self_referential_canonical.push({ url: p.url, canonical: p.canonical });
+		}
 		if (p.noindex) defects.accidental_noindex.push(p.url);
 		if (!p.ogTitle) defects.missing_og_title.push(p.url);
 		if (!p.twitterCard) defects.missing_twitter_card.push(p.url);
@@ -379,6 +388,7 @@ async function main() {
 			"missing_h1",
 			"missing_canonical",
 			"malformed_canonical",
+			"non_self_referential_canonical",
 			"accidental_noindex",
 			"sitemap_drift_missing_from_sitemap",
 			"sitemap_drift_extra_in_sitemap",
