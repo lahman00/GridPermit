@@ -1,0 +1,101 @@
+{
+  "record_id": "ca-nevada-truckee-tdpud",
+  "schema_version": "1.3.0",
+  "utility": {
+    "value": "Truckee Donner Public Utility District (TDPUD)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "The greater Truckee area has been served by the publicly-owned Truckee Donner Public Utility District (established 1927) since its founding, confirmed via TDPUD's own site and its membership in the Northern California Power Agency (NCPA). This is a public utility district, not PG&E, independently confirmed rather than assumed from county location."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No CCA was found serving Truckee this session; as a public utility district, TDPUD generally would not participate in a CCA."
+  },
+  "city": { "value": "Truckee", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Nevada County", "confidence": 0.85, "source_ids": ["S1"], "notes": "Truckee straddles Nevada and Placer Counties; its Town Hall and primary municipal seat are in Nevada County." },
+  "permit_authority": {
+    "value": "Town of Truckee Community Development Department, Building Division",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.townoftruckee.gov/184/Residential-Solar-and-Battery-Storage",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The TDPUD solar/interconnection page found via search-engine indexing was confirmed HTTP 404 (dead) this session. As a public utility district, TDPUD's own interconnection review process applies rather than a statewide IOU NEM program, but a live replacement URL was not independently located."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Battery storage systems are covered under the same Symbium-based residential solar and battery storage permitting process, but this is a permitting-pathway detail rather than a distinct incentive/rebate battery program."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Site, roof layout, electrical, and mounting plans", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Engineered design and structural calculations", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Product specifications", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Solar assessment report (for mandated systems)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "CF1R and CF2R-PVB-01-E certificates", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "inspection_steps": {
+    "value": ["Post-installation requires a solar assessment report from a CEC-approved tool, plus photographic documentation confirming the installed system matches the modeled design"],
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium automated permitting (AI-based plan checking)",
+      "other_conditions": ["Systems must comply with the 2025 California Residential Code (Sections R324 and R907), the 2022 California Electrical Code, and Truckee's own Design Guidelines and Criteria", "TDPUD must separately review and approve all solar/battery projects for electrical safety and grid reliability"]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Symbium processing fee", "amount_usd": null, "unit": "paid to Symbium at submission, separate from the Town permit fee", "notes": "The Town permit fee is billed separately to the applicant afterward. Exception reviews are billed hourly (1-hour minimum)." }
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Town of Truckee Community Development Department",
+        "phone": "530-582-7700",
+        "email": "cdd@townoftruckee.gov",
+        "url": "https://www.townoftruckee.gov/184/Residential-Solar-and-Battery-Storage"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-09",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar and Battery Storage",
+      "url": "https://www.townoftruckee.gov/184/Residential-Solar-and-Battery-Storage",
+      "publisher": "Town of Truckee",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    }
+  ]
+}
