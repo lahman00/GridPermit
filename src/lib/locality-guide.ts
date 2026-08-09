@@ -458,11 +458,21 @@ export function buildRelatedLocalities(
 	limit: number = 6,
 ): RelatedLocalityEntry[] {
 	const candidates = excludeCurrentEntry(allEntries, current.recordId);
+	// Compared by short name (e.g. "PG&E"), not the raw full utility string —
+	// this dataset has more than one full-name spelling on file for the same
+	// utility (e.g. "Pacific Gas & Electric (PG&E)" vs "Pacific Gas and
+	// Electric Company (PG&E)" — utility.value was researched independently
+	// per record across many batches, and both spellings are equally
+	// accurate quotes of PG&E's own materials, so this is not a data error to
+	// fix in the records themselves). Comparing raw strings would silently
+	// fail to relate two same-utility cities that happened to use different
+	// spellings.
+	const currentUtilityShort = utilityShortName(current.utility);
 	const scored: RelatedLocalityEntry[] = [];
 	for (const c of candidates) {
 		let relation: RelatedLocalityEntry["relation"] | null = null;
 		if (current.county && c.county && c.county === current.county) relation = "county";
-		else if (current.utility && c.utility && c.utility === current.utility) relation = "utility";
+		else if (currentUtilityShort && utilityShortName(c.utility) === currentUtilityShort) relation = "utility";
 		else if (
 			current.generationSupplierName &&
 			c.generationSupplierName &&

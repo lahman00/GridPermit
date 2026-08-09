@@ -191,6 +191,15 @@ test("buildRelatedLocalities ranks same-county above same-utility above same-sup
 	assert.equal(sanJose.relation, "utility");
 });
 
+test("buildRelatedLocalities matches 'same utility' by short name, not the raw full string — the dataset has more than one spelling of PG&E on file", () => {
+	const a = { recordId: "x-a", city: "A City", county: "County One", utility: "Pacific Gas & Electric (PG&E)", generationSupplierName: null, completenessPct: 80, lastVerified: "2026-08-01", citySlug: "a-city", guideUrl: "/california/a-city/solar-permit-guide/" };
+	const b = { recordId: "x-b", city: "B City", county: "County Two", utility: "Pacific Gas and Electric Company (PG&E)", generationSupplierName: null, completenessPct: 80, lastVerified: "2026-08-01", citySlug: "b-city", guideUrl: "/california/b-city/solar-permit-guide/" };
+	const related = buildRelatedLocalities(a, [a, b]);
+	assert.equal(related.length, 1, "A City and B City are both PG&E under different full-name spellings and should relate");
+	assert.equal(related[0].recordId, "x-b");
+	assert.equal(related[0].relation, "utility");
+});
+
 test("buildRelatedLocalities excludes cities with no relation at all (no random fallback)", () => {
 	const { evaluationRecords, recordsById } = makeFixture();
 	const entries = buildLocalityIndexEntries(evaluationRecords, recordsById);
