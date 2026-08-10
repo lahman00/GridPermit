@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T05:49:40.953Z",
+  "evaluated_at": "2026-08-10T18:31:01.744Z",
   "record_count": 5,
   "records": [
     {
@@ -45,13 +45,14 @@
       "record_id": "ca-orange-laguna-beach-sce",
       "city": "Laguna Beach",
       "county": "Orange County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
       "warning_count": 3,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -61,7 +62,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -73,7 +73,7 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
@@ -197,14 +197,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 77.3,
+    "average_completeness_pct": 78.7,
     "average_validation_score": 92.6,
     "ready_count": 4,
     "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 5,
+      "generation_supplier": 4,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -221,12 +221,12 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "generation_supplier",
+        "field": "rebates",
         "missing_in_records": 5
       },
       {
-        "field": "rebates",
-        "missing_in_records": 5
+        "field": "generation_supplier",
+        "missing_in_records": 4
       },
       {
         "field": "timeline_days",
@@ -281,7 +281,7 @@
       {
         "record_id": "ca-orange-laguna-beach-sce",
         "city": "Laguna Beach",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 94)"
+        "reason": "readiness=LIMITED (completeness 60%, score 94)"
       }
     ],
     "not_ready": [],

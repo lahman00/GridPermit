@@ -1,18 +1,19 @@
 {
-  "evaluated_at": "2026-08-10T05:49:40.993Z",
+  "evaluated_at": "2026-08-10T18:31:01.818Z",
   "record_count": 6,
   "records": [
     {
       "record_id": "ca-orange-lake-forest-sce",
       "city": "Lake Forest",
       "county": "Orange County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
       "warning_count": 3,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -22,7 +23,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -34,7 +34,7 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
@@ -122,13 +122,14 @@
       "record_id": "ca-orange-dana-point-sdge",
       "city": "Dana Point",
       "county": "Orange County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
       "warning_count": 3,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -138,7 +139,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -150,7 +150,7 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
@@ -236,14 +236,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 71.1,
+    "average_completeness_pct": 73.3,
     "average_validation_score": 92,
     "ready_count": 4,
     "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 6,
+      "generation_supplier": 4,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -260,16 +260,16 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "generation_supplier",
-        "missing_in_records": 6
-      },
-      {
         "field": "rebates",
         "missing_in_records": 6
       },
       {
         "field": "timeline_days",
         "missing_in_records": 5
+      },
+      {
+        "field": "generation_supplier",
+        "missing_in_records": 4
       },
       {
         "field": "inspection_steps",
@@ -319,12 +319,12 @@
       {
         "record_id": "ca-orange-lake-forest-sce",
         "city": "Lake Forest",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 94)"
+        "reason": "readiness=LIMITED (completeness 60%, score 94)"
       },
       {
         "record_id": "ca-orange-dana-point-sdge",
         "city": "Dana Point",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 94)"
+        "reason": "readiness=LIMITED (completeness 60%, score 94)"
       }
     ],
     "not_ready": [],

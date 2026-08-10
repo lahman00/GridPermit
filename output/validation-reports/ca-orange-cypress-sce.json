@@ -1,7 +1,7 @@
 {
   "record_id": "ca-orange-cypress-sce",
   "file": "data/localities/ca-orange-cypress-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
   "score": 94,
   "errors": [],
@@ -14,19 +14,15 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "generation_supplier",
-      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -55,7 +51,7 @@
   "url_checks": [
     {
       "url": "https://www.cypressca.org/departments/community-development/building-division/solarapp",
-      "checked_at": "2026-08-08T17:24:46.465Z",
+      "checked_at": "2026-08-10T18:29:39.848Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -63,15 +59,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T17:24:46.637Z",
+      "checked_at": "2026-08-10T18:29:40.499Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "timeout"
+      "details": "DNS failure (ENOTFOUND)"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T17:24:56.640Z",
+      "checked_at": "2026-08-10T18:29:40.504Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -79,7 +75,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T17:24:57.452Z",
+      "checked_at": "2026-08-10T18:29:41.282Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -87,11 +83,19 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T17:24:58.212Z",
+      "checked_at": "2026-08-10T18:29:42.763Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "timeout"
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://ocpower.org/",
+      "checked_at": "2026-08-10T18:29:42.767Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

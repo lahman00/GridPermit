@@ -1,7 +1,7 @@
 {
   "record_id": "ca-orange-orange-sce",
   "file": "data/localities/ca-orange-orange-sce.json",
-  "validated_at": "2026-08-05",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
   "score": 94,
   "errors": [],
@@ -14,19 +14,15 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "generation_supplier",
-      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -55,7 +51,7 @@
   "url_checks": [
     {
       "url": "https://www.cityoforange.org/our-city/departments/community-development/building-and-safety-services/forms",
-      "checked_at": "2026-08-05T22:49:57.735Z",
+      "checked_at": "2026-08-10T18:30:09.172Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -63,15 +59,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-05T22:49:58.346Z",
+      "checked_at": "2026-08-10T18:30:10.344Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "DNS failure (ENOTFOUND)"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T22:49:58.694Z",
+      "checked_at": "2026-08-10T18:30:10.350Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -79,7 +75,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-05T22:50:00.593Z",
+      "checked_at": "2026-08-10T18:30:11.814Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -87,11 +83,19 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-05T22:50:01.888Z",
+      "checked_at": "2026-08-10T18:30:12.578Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://ocpower.org/",
+      "checked_at": "2026-08-10T18:30:12.583Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

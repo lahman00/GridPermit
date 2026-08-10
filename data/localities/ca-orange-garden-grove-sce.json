@@ -8,10 +8,13 @@
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Garden Grove' by name among the cities in its service area."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Orange County Power Authority (OCPA), the CCA operating in Orange County, currently serves Buena Park, Fullerton, and Irvine per its own materials — Garden Grove was not named as a member this session. Left null rather than asserted either way."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Orange County Power Authority (OCPA), the only CCA operating in Orange County, directly re-verified this session as serving exactly four member cities — Buena Park, Fullerton, Irvine, and Fountain Valley (now live, having previously been 'beginning service soon') — via its own homepage's 'Celebrating our member communities' listing. Garden Grove is not among them, so SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S6"]
   },
   "city": { "value": "Garden Grove", "confidence": 1, "source_ids": ["S1"] },
   "county": {
@@ -158,6 +161,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Homepage (member communities listing)",
+      "url": "https://ocpower.org/",
+      "publisher": "Orange County Power Authority",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
