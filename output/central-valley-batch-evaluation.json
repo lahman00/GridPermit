@@ -1,16 +1,16 @@
 {
-  "evaluated_at": "2026-08-10T16:54:20.916Z",
+  "evaluated_at": "2026-08-10T20:26:21.260Z",
   "record_count": 11,
   "records": [
     {
       "record_id": "ca-stanislaus-modesto-mid",
       "city": "Modesto",
       "county": "Stanislaus County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -22,23 +22,24 @@
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "municipal",
       "separate_cca_present": false,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-stanislaus-turlock-tid",
@@ -421,10 +422,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 69.7,
-    "average_validation_score": 95.7,
-    "ready_count": 6,
-    "limited_count": 5,
+    "average_completeness_pct": 70.3,
+    "average_validation_score": 95.3,
+    "ready_count": 7,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -439,7 +440,7 @@
       "inspection_steps": 4,
       "timeline_days": 5,
       "eligibility_constraints": 4,
-      "permit_fees": 10,
+      "permit_fees": 9,
       "rebates": 11,
       "official_contacts": 1
     },
@@ -450,7 +451,7 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 10
+        "missing_in_records": 9
       },
       {
         "field": "generation_supplier",
@@ -483,7 +484,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 10,
-      "unsupported_claim": 1
+      "unsupported_claim": 2
     },
     "utility_coverage": [
       "IOU",
@@ -515,6 +516,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-stanislaus-modesto-mid",
       "ca-stanislaus-turlock-tid",
       "ca-madera-madera-pge",
       "ca-tulare-visalia-sce",
@@ -523,11 +525,6 @@
       "ca-san-joaquin-tracy-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-stanislaus-modesto-mid",
-        "city": "Modesto",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
       {
         "record_id": "ca-merced-merced-pge",
         "city": "Merced",

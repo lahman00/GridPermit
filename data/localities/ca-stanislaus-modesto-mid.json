@@ -82,7 +82,13 @@
     "confidence": 0.75,
     "source_ids": ["S1", "S2"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The Building Safety Division offers a 'Permitting Fee Estimator' tool for residential projects, but no specific solar permit fee amount was independently confirmed this session." },
+  "permit_fees": {
+    "value": [
+      { "name": "Electrical Photovoltaic - Residential", "amount_usd": 333, "unit": "flat fee (per permit)", "notes": "Per the City's own Building Safety Division Development User Fees, Fiscal Year 25-26." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S4"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [], "notes": "MID compensates customer over-generation at 7.6 cents per kWh per search-engine synthesis of MID's net metering materials, but this was not independently confirmed via direct fetch and is not recorded as a formal rebate program." },
   "official_contacts": {
     "value": [
@@ -129,6 +135,14 @@
       "publisher": "City of Modesto",
       "type": "government",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Building Safety Division Development User Fees, Fiscal Year 25-26",
+      "url": "https://permits.modestogov.com/DocumentCenter/View/19115/Building-Safety-Division-Development-User-Fees-Fiscal-Year-25-26-PDF",
+      "publisher": "City of Modesto",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

@@ -3,9 +3,14 @@
   "file": "data/localities/ca-stanislaus-modesto-mid.json",
   "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 98,
+  "score": 93,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -22,10 +27,6 @@
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
@@ -33,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://permits.modestogov.com/564/Building-Safety-Division",
-      "checked_at": "2026-08-10T05:18:43.868Z",
+      "checked_at": "2026-08-10T20:25:43.435Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -41,7 +42,7 @@
     },
     {
       "url": "https://www.mid.org/saving-energy-money/solar/",
-      "checked_at": "2026-08-10T05:18:45.047Z",
+      "checked_at": "2026-08-10T20:25:44.678Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -49,10 +50,18 @@
     },
     {
       "url": "https://permits.modestogov.com/1280/Building-Inspections",
-      "checked_at": "2026-08-10T05:18:55.050Z",
+      "checked_at": "2026-08-10T20:25:54.680Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://permits.modestogov.com/DocumentCenter/View/19115/Building-Safety-Division-Development-User-Fees-Fiscal-Year-25-26-PDF",
+      "checked_at": "2026-08-10T20:25:55.869Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
       "details": "HTTP 200"
     }
   ]
