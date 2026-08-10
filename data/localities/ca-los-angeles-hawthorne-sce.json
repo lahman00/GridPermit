@@ -25,15 +25,15 @@
   },
   "permit_authority": {
     "value": "City of Hawthorne Building & Safety Division",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": ["S3"],
-    "notes": "cityofhawthorne.org returned HTTP 403 to automated fetch on every attempt this session (the Building & Safety page and the SolarAPP+ news announcement). This department name is confirmed via search-engine indexing of the city's own page titles, but the SolarAPP+ program's specific eligibility, fee, and timeline content could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block). The City's SolarAPP+ announcement uses only general marketing language ('dramatically reducing the time and effort') with no explicit instant/same-day issuance wording, so no timeline figure is recorded."
   },
   "permit_url": {
     "value": "https://www.cityofhawthorne.org/departments/building-safety",
-    "confidence": 0.55,
+    "confidence": 0.85,
     "source_ids": ["S3"],
-    "notes": "URL identified via search-engine indexing; cityofhawthorne.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -62,7 +62,16 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "cityofhawthorne.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Schedule inspections through the Hawthorne Citizen Self Service (CSS) web portal; permits issued before July 2022 require calling the office instead",
+      "Inspection day is tentatively assigned based on the day the request is submitted within the business work week (excluding weekends, holidays, and closed Fridays); call before 9am on the inspection date to get the exact time slot",
+      "Cancellations must be made at least 24 hours before the scheduled inspection"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"],
+    "notes": "This is the City's general Building & Safety inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": null,
@@ -85,7 +94,7 @@
     "confidence": 0.6,
     "source_ids": ["S6"]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
@@ -134,6 +143,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Inspections",
+      "url": "https://www.cityofhawthorne.org/departments/building-safety/request-for-inspection-form",
+      "publisher": "City of Hawthorne",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
