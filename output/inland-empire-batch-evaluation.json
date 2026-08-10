@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T16:40:45.394Z",
+  "evaluated_at": "2026-08-10T19:49:27.438Z",
   "record_count": 9,
   "records": [
     {
@@ -44,11 +44,11 @@
       "record_id": "ca-san-bernardino-rancho-cucamonga-sce",
       "city": "Rancho Cucamonga",
       "county": "San Bernardino County",
-      "completeness_pct": 73.3,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -60,23 +60,24 @@
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": null,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-bernardino-upland-sce",
@@ -349,10 +350,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 76.3,
-    "average_validation_score": 94.8,
-    "ready_count": 5,
-    "limited_count": 4,
+    "average_completeness_pct": 77,
+    "average_validation_score": 94.2,
+    "ready_count": 6,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -367,7 +368,7 @@
       "inspection_steps": 1,
       "timeline_days": 6,
       "eligibility_constraints": 0,
-      "permit_fees": 6,
+      "permit_fees": 5,
       "rebates": 9,
       "official_contacts": 0
     },
@@ -386,7 +387,7 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "required_documents",
@@ -399,7 +400,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 9,
-      "unsupported_claim": 3
+      "unsupported_claim": 4
     },
     "utility_coverage": [
       "IOU"
@@ -426,6 +427,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-san-bernardino-rancho-cucamonga-sce",
       "ca-los-angeles-pomona-sce",
       "ca-san-bernardino-chino-sce",
       "ca-san-bernardino-chino-hills-sce",
@@ -437,11 +439,6 @@
         "record_id": "ca-san-bernardino-ontario-sce",
         "city": "Ontario",
         "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
-      },
-      {
-        "record_id": "ca-san-bernardino-rancho-cucamonga-sce",
-        "city": "Rancho Cucamonga",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-san-bernardino-upland-sce",

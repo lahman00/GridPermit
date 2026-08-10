@@ -89,7 +89,15 @@
     "confidence": 0.8,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "No official fee schedule figure was confirmed this session; third-party estimator sites cite a $250-$500 range but this is not an official city source and was not used." },
+  "permit_fees": {
+    "value": [
+      { "name": "Solar/Photovoltaic up to 15 kW (Residential)", "amount_usd": 181, "unit": "flat fee", "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26." },
+      { "name": "Solar/Photovoltaic - each kW over 15 kW (Residential)", "amount_usd": 14, "unit": "per kW", "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26." },
+      { "name": "Energy Storage System", "amount_usd": 233, "unit": "flat fee", "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S8"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -160,6 +168,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S8",
+      "title": "Community Development Fee Schedule, Effective 7-1-26",
+      "url": "https://www.cityofrc.us/sites/default/files/2026-07/Comm%20Develop%20Fee%20Schedule%20%207-1-26.pdf",
+      "publisher": "City of Rancho Cucamonga",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

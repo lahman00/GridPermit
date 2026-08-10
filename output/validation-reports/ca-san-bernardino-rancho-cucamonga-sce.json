@@ -3,18 +3,23 @@
   "file": "data/localities/ca-san-bernardino-rancho-cucamonga-sce.json",
   "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 91,
   "errors": [],
   "warnings": [
     {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     },
     {
       "field": "sources[S3].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -27,10 +32,6 @@
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
@@ -38,7 +39,7 @@
   "url_checks": [
     {
       "url": "https://www.cityofrc.us/community-development/building-safety/solar-permits",
-      "checked_at": "2026-08-10T06:00:28.239Z",
+      "checked_at": "2026-08-10T19:48:50.541Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -46,15 +47,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-10T06:00:29.022Z",
+      "checked_at": "2026-08-10T19:48:51.365Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-10T06:00:29.028Z",
+      "checked_at": "2026-08-10T19:49:01.368Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -62,7 +63,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-10T06:00:29.814Z",
+      "checked_at": "2026-08-10T19:49:02.395Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -70,15 +71,23 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-10T06:00:30.577Z",
+      "checked_at": "2026-08-10T19:49:03.133Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.cityofrc.us/sites/default/files/2022-07/How%20to%20schedule%20an%20inspection.pdf",
-      "checked_at": "2026-08-10T06:00:30.583Z",
+      "checked_at": "2026-08-10T19:49:13.134Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cityofrc.us/sites/default/files/2026-07/Comm%20Develop%20Fee%20Schedule%20%207-1-26.pdf",
+      "checked_at": "2026-08-10T19:49:13.859Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
