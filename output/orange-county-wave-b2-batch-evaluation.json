@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-08T17:52:45.437Z",
+  "evaluated_at": "2026-08-10T05:49:40.953Z",
   "record_count": 5,
   "records": [
     {
@@ -160,11 +160,11 @@
       "record_id": "ca-orange-mission-viejo-sce",
       "city": "Mission Viejo",
       "county": "Orange County",
-      "completeness_pct": 66.7,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -174,32 +174,33 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "inspection_steps",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": null,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.7,
-    "average_validation_score": 93.6,
-    "ready_count": 3,
-    "limited_count": 2,
+    "average_completeness_pct": 77.3,
+    "average_validation_score": 92.6,
+    "ready_count": 4,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -211,10 +212,10 @@
       "interconnection_url": 0,
       "battery_programs": 0,
       "required_documents": 1,
-      "inspection_steps": 2,
+      "inspection_steps": 1,
       "timeline_days": 2,
       "eligibility_constraints": 1,
-      "permit_fees": 3,
+      "permit_fees": 2,
       "rebates": 5,
       "official_contacts": 0
     },
@@ -228,19 +229,19 @@
         "missing_in_records": 5
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 3
-      },
-      {
-        "field": "inspection_steps",
-        "missing_in_records": 2
-      },
-      {
         "field": "timeline_days",
         "missing_in_records": 2
       },
       {
+        "field": "permit_fees",
+        "missing_in_records": 2
+      },
+      {
         "field": "required_documents",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
         "missing_in_records": 1
       },
       {
@@ -250,7 +251,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 5,
-      "unsupported_claim": 2
+      "unsupported_claim": 3
     },
     "utility_coverage": [
       "IOU"
@@ -273,18 +274,14 @@
     "recommended_publish_record_ids": [
       "ca-orange-fountain-valley-sce",
       "ca-orange-laguna-niguel-sce",
-      "ca-orange-laguna-hills-sce"
+      "ca-orange-laguna-hills-sce",
+      "ca-orange-mission-viejo-sce"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-orange-laguna-beach-sce",
         "city": "Laguna Beach",
         "reason": "readiness=LIMITED (completeness 53.3%, score 94)"
-      },
-      {
-        "record_id": "ca-orange-mission-viejo-sce",
-        "city": "Mission Viejo",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       }
     ],
     "not_ready": [],

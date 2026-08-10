@@ -1,11 +1,16 @@
 {
   "record_id": "ca-orange-mission-viejo-sce",
   "file": "data/localities/ca-orange-mission-viejo-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 91,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -23,16 +28,8 @@
       "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "rebates",
@@ -42,7 +39,7 @@
   "url_checks": [
     {
       "url": "https://www.missionviejo.gov/sites/default/files/Documents/2017-PV-Eligibility-&-Structural-Criteria-Checklists.pdf",
-      "checked_at": "2026-08-08T17:51:04.873Z",
+      "checked_at": "2026-08-10T05:48:38.485Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -50,7 +47,7 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T17:51:05.561Z",
+      "checked_at": "2026-08-10T05:48:39.951Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -58,7 +55,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T17:51:15.563Z",
+      "checked_at": "2026-08-10T05:48:49.955Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -66,7 +63,7 @@
     },
     {
       "url": "https://www.cityofmissionviejo.org",
-      "checked_at": "2026-08-08T17:51:16.418Z",
+      "checked_at": "2026-08-10T05:48:50.700Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -74,7 +71,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T17:51:17.178Z",
+      "checked_at": "2026-08-10T05:48:51.352Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -82,11 +79,27 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T17:51:17.924Z",
+      "checked_at": "2026-08-10T05:48:52.612Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "timeout"
+    },
+    {
+      "url": "https://www.missionviejo.gov/departments/community-development/building-services",
+      "checked_at": "2026-08-10T05:49:02.614Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.missionviejo.gov/sites/default/files/building-fee-schedule-4-1-23.pdf",
+      "checked_at": "2026-08-10T05:49:03.072Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

@@ -66,7 +66,15 @@
     "confidence": 0.9,
     "source_ids": ["S1"]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "This document details submittal/eligibility criteria in depth but does not itself describe the inspection-scheduling process." },
+  "inspection_steps": {
+    "value": [
+      "Schedule, cancel, and confirm inspections through the Client Self Service online portal",
+      "Inspections are conducted the next business day; requests must be submitted before 4:00 PM the day before the desired inspection date"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S6"],
+    "notes": "This is the City's general Building Services inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
@@ -87,7 +95,14 @@
     "confidence": 0.95,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": [
+      { "name": "Residential Solar Systems up to and including 15kW (AB 1414)", "amount_usd": 450, "unit": "flat fee", "notes": "Per the City's own Building Division Fee Schedule (effective April 1, 2023)." },
+      { "name": "Residential Solar Systems per kW above 15kW (AB 1414)", "amount_usd": 15, "unit": "per kW", "notes": "Per the City's own Building Division Fee Schedule (effective April 1, 2023)." }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S7"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -150,6 +165,22 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Building Services",
+      "url": "https://www.missionviejo.gov/departments/community-development/building-services",
+      "publisher": "City of Mission Viejo",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S7",
+      "title": "Building Division Fee Schedule Effective April 1, 2023",
+      "url": "https://www.missionviejo.gov/sites/default/files/building-fee-schedule-4-1-23.pdf",
+      "publisher": "City of Mission Viejo",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }
