@@ -74,14 +74,26 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Three complete sets of scaled plans (18\"x24\" min. to 36\"x42\" max, or up to two 8.5\"x11\" sheets if all info fits), numbered with a sheet index", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Complete site plan (property lines/easements, existing structures with distances, location of proposed work)", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Structural plan details (roof framing members affected, connectors, engineering calculations if applicable)", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Electrical plan and one-line diagram (main service/utility disconnect, module/string counts, inverter make/model, equipment cut sheets, grounding/bonding, conductor and conduit sizing)", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Fire safety documentation (clear access pathways, fire classification, required markings/labels, roof layout diagram)", "required_when": "always", "source_ids": ["S6"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S6"],
+    "notes": "Per the City's own 'Photo Voltaic System Requirements for AB 2188 Expedited Review' handout, for the expedited pathway (10kW AC or less, roof-mounted on a one- or two-family dwelling, utility-interactive without battery storage). Systems not meeting these criteria go through the standard review process instead."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Request inspections online through Accela Citizen Access (ACA); requests are accepted up until 6:00am for a same-day inspection",
+      "An inspector will contact you between 7:00am and 8:30am on the day of the inspection",
+      "The City is generally closed every other Friday per its City Calendar; inspection requests for a closed Friday or observed holiday are scheduled for the following business day"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S4"],
+    "notes": "This is the City's general Building Inspections process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": null,
@@ -93,23 +105,28 @@
       "property_types": [
         "residential"
       ],
-      "system_size_kw_ac_max": null,
+      "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
-      "program_or_pathway": "Small Residential Rooftop Solar Energy System review (municipal code Chapter 22.91)",
+      "program_or_pathway": "AB 2188 Expedited Review (municipal code Chapter 22.91)",
       "other_conditions": [
+        "Expedited review requires: 10kW AC or less, roof-mounted on a one- or two-family dwelling or accessory structure, panels no more than 10 inches above the roof surface, utility-interactive without battery storage",
+        "Systems not meeting these criteria go through the standard review process instead",
         "Review is limited to the Building Official's health/safety review and the City Planner's review of building height, open yard requirements, and zoning setbacks under Titles 28 and 30 of the Municipal Code"
       ]
     },
-    "confidence": 0.6,
+    "confidence": 0.8,
     "source_ids": [
-      "S1"
+      "S1", "S6"
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Photovoltaic (PV) System (Residential, 15kW or less)", "amount_usd": 450, "unit": "flat fee", "notes": "Per the City's own FY26 Building and Safety Fees schedule." },
+      { "name": "Photovoltaic (PV) System (Residential, above 15kW)", "amount_usd": 15, "unit": "per additional kW above 15kW", "notes": "Per the City's own FY26 Building and Safety Fees schedule." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S5"]
   },
   "rebates": {
     "value": null,
@@ -156,6 +173,30 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Building Inspections",
+      "url": "https://santabarbaraca.gov/services/construction-land-development/building-inspections",
+      "publisher": "City of Santa Barbara",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S5",
+      "title": "FY26 Building and Safety Fees",
+      "url": "https://santabarbaraca.gov/sites/default/files/2025-08/FY26%20Building%20and%20Safety%20Fees.pdf",
+      "publisher": "City of Santa Barbara",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S6",
+      "title": "Photo Voltaic System Requirements for AB 2188 Expedited Review",
+      "url": "https://santabarbaraca.gov/sites/default/files/documents/Community%20Development/Electrical/City%20PV1%20System%20Requirements%20for%20AB2188%20Expedited%20Review.pdf",
+      "publisher": "City of Santa Barbara",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
