@@ -35,20 +35,20 @@
     ]
   },
   "permit_authority": {
-    "value": "City of Santa Maria Community Development Department",
-    "confidence": 0.7,
+    "value": "City of Santa Maria Community Development Department, Building Division",
+    "confidence": 0.85,
     "source_ids": [
-      "S1"
+      "S5"
     ],
-    "notes": "Detail drawn from search-engine summaries of municipal code Chapter 9-52 (Residential Rooftop Solar Systems); the underlying page was not independently fetched this session."
+    "notes": "Directly confirmed via the City's own Building Division Homepage this session. Municipal code Chapter 9-52 (Residential Rooftop Solar Systems) detail (S1) remains unconfirmed since ecode360.com continues to return HTTP 403 to automated fetch."
   },
   "permit_url": {
-    "value": "https://ecode360.com/43657169",
-    "confidence": 0.5,
+    "value": "https://www.cityofsantamaria.org/services/departments/community-development/building-division-homepage",
+    "confidence": 0.8,
     "source_ids": [
-      "S1"
+      "S5"
     ],
-    "notes": "Municipal code hosted on ecode360.com; not independently fetched this session (ecode360.com has returned HTTP 403 to automated fetch in prior sessions)."
+    "notes": "The City's general Building Division Homepage, directly verified this session; no dedicated solar-specific subpage was found. The municipal code citation (ecode360.com, S1) remains blocked to automated fetch."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -128,9 +128,18 @@
     "source_ids": []
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": null,
+        "role": "City of Santa Maria City Hall / Community Development",
+        "phone": "805-925-0951",
+        "email": null,
+        "url": "https://www.cityofsantamaria.org/services/departments/community-development/building-division-homepage"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S5"],
+    "notes": "This is the general City Hall phone number listed on the Building Division Homepage; no Building-Division-specific direct line was found separately this session."
   },
   "last_verified": "2026-08-09",
   "sources": [
@@ -165,6 +174,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Building Division Homepage",
+      "url": "https://www.cityofsantamaria.org/services/departments/community-development/building-division-homepage",
+      "publisher": "City of Santa Maria",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
