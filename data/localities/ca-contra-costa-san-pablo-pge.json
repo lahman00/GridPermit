@@ -42,12 +42,12 @@
     ]
   },
   "permit_url": {
-    "value": "https://ecode360.com/45745316",
-    "confidence": 0.75,
+    "value": "https://www.sanpabloca.gov/2618/Solar",
+    "confidence": 0.85,
     "source_ids": [
-      "S1"
+      "S5"
     ],
-    "notes": "The city's Permit Process for Small Residential Rooftop Solar Systems ordinance (via eCode360); a dedicated city-hosted solar permit page was not located this session."
+    "notes": "The City's own dedicated Solar page, found this session (links to the Photovoltaic/Solar Panel Installation Checklist among other resources)."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -80,9 +80,19 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Drawings (3 sets; 4 sets if system is over 10kW): Site Plan, Structural Plan/Foundation Plan (if ground-mounted), Cross Sections, Structural Framing Details, Electrical Plan (18\"x24\" suggested minimum size)", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Calculations/Specifications (2 sets): Structural Calculations (if applicable), specifications for all manufactured components (PV modules, inverter, combiner box, disconnects, mounting system)", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Colored photos, inside and outside, of existing main service panels and sub-panels that are part of the photovoltaic system", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Building Permit Application", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Owner/Builder Form", "required_when": "conditional", "source_ids": ["S5"] },
+      { "name": "Expedited Photovoltaic (PV Permits) form", "required_when": "conditional", "source_ids": ["S5"] },
+      { "name": "Fire District Solar-Photovoltaic Notification Form (Contra Costa Fire Protection District)", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Copy of fully executed contract between vendor and customer (for contractor submittals)", "required_when": "conditional", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S5"],
+    "notes": "Per the City's own Photovoltaic/Solar Panel Installation Checklist. This is not stated to be a complete list; additional information may be required after initial plan review."
   },
   "inspection_steps": {
     "value": null,
@@ -90,9 +100,13 @@
     "source_ids": []
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 10,
+      "max_days": 15,
+      "notes": "The City's own Photovoltaic Checklist states: 'Typical plan review time for residential (one and two family dwelling) project is ten (10) working days for the first and all subsequent review cycles. Non-residential systems may take up to fifteen (15) working days for the first review cycle and ten (10) working for all subsequent review cycles.' The 10-15 range here reflects the residential (10-day) to non-residential (up to 15-day) figures; residential is the more typical case at 10 working days per cycle."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S5"]
   },
   "eligibility_constraints": {
     "value": {
@@ -124,9 +138,17 @@
     "source_ids": []
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": null,
+        "role": "City of San Pablo Community Development / Building Services",
+        "phone": "510-215-3030",
+        "email": null,
+        "url": "https://www.sanpabloca.gov/2618/Solar"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"]
   },
   "last_verified": "2026-08-09",
   "sources": [
@@ -161,6 +183,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Photovoltaic/Solar Panel Installation Checklist",
+      "url": "https://www.sanpabloca.gov/DocumentCenter/View/5355/Photovoltaic",
+      "publisher": "City of San Pablo",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

@@ -1,20 +1,20 @@
 {
   "record_id": "ca-contra-costa-san-pablo-pge",
   "file": "data/localities/ca-contra-costa-san-pablo-pge.json",
-  "validated_at": "2026-08-09",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
   "score": 94,
   "errors": [],
   "warnings": [
     {
-      "field": "permit_url",
-      "category": "broken_url",
-      "message": "https://ecode360.com/45745316 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
-    },
-    {
       "field": "interconnection_url",
       "category": "broken_url",
       "message": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S1].url",
+      "category": "broken_url",
+      "message": "https://ecode360.com/45745316 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
       "field": "sources[S3].url",
@@ -24,16 +24,8 @@
   ],
   "recommendations": [
     {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "inspection_steps",
       "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "permit_fees",
@@ -42,24 +34,20 @@
     {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "official_contacts",
-      "message": "'official_contacts' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
-      "url": "https://ecode360.com/45745316",
-      "checked_at": "2026-08-09T22:23:12.446Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "url": "https://www.sanpabloca.gov/2618/Solar",
+      "checked_at": "2026-08-10T17:06:24.444Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "HTTP 200"
     },
     {
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
-      "checked_at": "2026-08-09T22:23:12.542Z",
+      "checked_at": "2026-08-10T17:06:25.001Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -67,19 +55,35 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-09T22:23:12.581Z",
+      "checked_at": "2026-08-10T17:06:25.159Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
-      "url": "https://www.mcecleanenergy.org/service-area/",
-      "checked_at": "2026-08-09T22:23:13.348Z",
+      "url": "https://ecode360.com/45745316",
+      "checked_at": "2026-08-10T17:06:26.593Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "checked_at": "2026-08-10T17:06:26.697Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.sanpabloca.gov/DocumentCenter/View/5355/Photovoltaic",
+      "checked_at": "2026-08-10T17:06:27.381Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
     }
   ]
 }

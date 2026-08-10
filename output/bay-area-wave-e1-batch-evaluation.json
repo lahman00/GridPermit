@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T17:03:18.073Z",
+  "evaluated_at": "2026-08-10T17:06:47.607Z",
   "record_count": 7,
   "records": [
     {
@@ -160,7 +160,7 @@
       "record_id": "ca-contra-costa-san-pablo-pge",
       "city": "San Pablo",
       "county": "Contra Costa County",
-      "completeness_pct": 60,
+      "completeness_pct": 80,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -174,15 +174,15 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
-        "eligibility_constraints"
+        "required_documents",
+        "timeline_days",
+        "eligibility_constraints",
+        "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
         "inspection_steps",
-        "timeline_days",
         "permit_fees",
-        "rebates",
-        "official_contacts"
+        "rebates"
       ],
       "warning_categories": [
         "broken_url"
@@ -190,9 +190,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-contra-costa-pinole-pge",
@@ -273,10 +273,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 79.1,
+    "average_completeness_pct": 81.9,
     "average_validation_score": 93,
-    "ready_count": 6,
-    "limited_count": 1,
+    "ready_count": 7,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -287,13 +287,13 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 4,
-      "required_documents": 2,
+      "required_documents": 1,
       "inspection_steps": 1,
-      "timeline_days": 3,
+      "timeline_days": 2,
       "eligibility_constraints": 0,
       "permit_fees": 4,
       "rebates": 7,
-      "official_contacts": 1
+      "official_contacts": 0
     },
     "fields_most_often_missing": [
       {
@@ -310,18 +310,14 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 3
-      },
-      {
-        "field": "required_documents",
         "missing_in_records": 2
       },
       {
-        "field": "inspection_steps",
+        "field": "required_documents",
         "missing_in_records": 1
       },
       {
-        "field": "official_contacts",
+        "field": "inspection_steps",
         "missing_in_records": 1
       }
     ],
@@ -354,16 +350,11 @@
       "ca-alameda-emeryville-pge",
       "ca-alameda-albany-pge",
       "ca-contra-costa-el-cerrito-pge",
+      "ca-contra-costa-san-pablo-pge",
       "ca-contra-costa-pinole-pge",
       "ca-contra-costa-hercules-pge"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-contra-costa-san-pablo-pge",
-        "city": "San Pablo",
-        "reason": "readiness=LIMITED (completeness 60%, score 94)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
       "IOU"
