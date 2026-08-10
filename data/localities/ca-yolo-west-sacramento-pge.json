@@ -8,10 +8,13 @@
     "notes": "West Sacramento is in Yolo County; a 2006 ballot proposal to extend SMUD's public-utility service territory to include the Yolo County cities of West Sacramento, Davis, and Woodland was voted down, confirming PG&E has remained the electric utility for these cities since."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "West Sacramento is reportedly exploring joining Pioneer Community Energy (a CCA already serving Auburn, Colfax, Lincoln, and other communities), per local news reporting, but has not joined as of this session. Left null rather than recording a program the city has not joined."
+    "value": {
+      "name": "Pacific Gas and Electric Company (PG&E)",
+      "type": "utility",
+      "notes": "Directly re-verified this session via Valley Clean Energy's own homepage, which explicitly names its service area as 'Davis, Woodland, Winters, and unincorporated Yolo County' -- West Sacramento is not among them. West Sacramento is also reportedly exploring joining Pioneer Community Energy per local news reporting, but has not joined as of this session (Pioneer's own current service-area page names only Placer/El Dorado County communities, not West Sacramento). PG&E is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S6"]
   },
   "city": { "value": "West Sacramento", "confidence": 1, "source_ids": ["S1"] },
   "county": {
@@ -122,6 +125,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Homepage (service area description)",
+      "url": "https://www.valleycleanenergy.org/",
+      "publisher": "Valley Clean Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

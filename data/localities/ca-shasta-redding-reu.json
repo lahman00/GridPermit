@@ -8,10 +8,13 @@
     "notes": "The City of Redding has operated its own municipal electric utility for over 100 years (celebrated its centennial in 2021), confirmed via the city's own REU pages. This is a municipal utility, not PG&E, independently confirmed rather than assumed from county location."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No Community Choice Aggregator was found serving Redding this session; as a municipal utility, REU generally would not participate in a CCA the way IOU-served cities do."
+    "value": {
+      "name": "Redding Electric Utility (REU)",
+      "type": "utility",
+      "notes": "REU is a municipal utility, structurally outside CCA enrollment the same way as other municipal utilities in this dataset (Alameda Municipal Power, Gridley Electric Utility, Lompoc Utilities, TDPUD, Shasta Lake Municipal Utility, MID): a CCA only replaces the default generation of an underlying investor-owned utility's (PG&E/SCE/SDG&E) customers, and REU customers are never IOU customers. No CCA operating in Shasta County was found. REU is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "city": { "value": "Redding", "confidence": 1, "source_ids": ["S1"] },
   "county": { "value": "Shasta County", "confidence": 0.9, "source_ids": ["S1"] },
