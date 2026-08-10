@@ -25,15 +25,14 @@
   },
   "permit_authority": {
     "value": "City of Culver City Building Safety Division",
-    "confidence": 0.7,
-    "source_ids": ["S3"],
-    "notes": "culvercity.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page title, but the Expedited Solar Permits page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "confidence": 0.9,
+    "source_ids": ["S3"]
   },
   "permit_url": {
     "value": "https://www.culvercity.gov/Services/Building-Development/Expedited-Solar-Permits",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S3"],
-    "notes": "URL identified via search-engine indexing; culvercity.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -61,19 +60,51 @@
     "source_ids": ["S5"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "culvercity.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's solar submittal requirements." },
+  "required_documents": {
+    "value": [
+      { "name": "Contractor license (A, B, C-10, or C-46 classification)", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Electrical Permit Application (PDF, emailed to Building.Safety@culvercity.org)", "required_when": "conditional", "source_ids": ["S3"] }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S3"],
+    "notes": "The Electrical Permit Application is required only for the alternative (non-Symbium) submittal path for projects outside or disqualified from the automated platform."
+  },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states the Symbium partnership provides 'instant Solar & ESS Permits' and that 'your permit will be issued automatically, without manual review or an in-person visit,' with 'Permits...issued in real time when you apply on Symbium and after the City permit fees are paid.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates expedited online solar permits are available for systems up to 10kW in one- and two-family dwellings, and that effective December 5, 2025 all residential solar permits (PV & ESS) route through Symbium as the city's automated compliance-check platform, but this could not be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium automated permitting platform (SB 379 compliant)",
+      "other_conditions": [
+        "Contractor must hold an A, B, C-10, or C-46 license",
+        "Projects outside the Symbium platform, or disqualified from it, may submit electronically via the Electrical Permit Application to Building.Safety@culvercity.org for standard plan review"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S3"]
   },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
+      {
+        "name": null,
+        "role": "City of Culver City Solar Permits",
+        "phone": "310-253-5800",
+        "email": "solar.permits@culvercity.org",
+        "url": "https://www.culvercity.gov/Services/Building-Development/Expedited-Solar-Permits"
+      },
       {
         "name": null,
         "role": "SGIP Program Administrator (SCE territory)",
@@ -82,8 +113,8 @@
         "url": "https://www.selfgenca.com/home/contact/"
       }
     ],
-    "confidence": 0.6,
-    "source_ids": ["S6"]
+    "confidence": 0.85,
+    "source_ids": ["S3", "S6"]
   },
   "last_verified": "2026-08-06",
   "sources": [

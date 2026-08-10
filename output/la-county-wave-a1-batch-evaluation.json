@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:36:34.264Z",
+  "evaluated_at": "2026-08-10T06:29:07.106Z",
   "record_count": 10,
   "records": [
     {
@@ -194,11 +194,11 @@
       "record_id": "ca-los-angeles-monrovia-sce",
       "city": "Monrovia",
       "county": "Los Angeles County",
-      "completeness_pct": 60,
-      "validation_score": 96,
+      "completeness_pct": 86.7,
+      "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -208,13 +208,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
-        "official_contacts"
-      ],
-      "missing_fields": [
         "required_documents",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
         "permit_fees",
         "rebates"
       ],
@@ -224,9 +224,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-san-dimas-sce",
@@ -383,10 +383,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 63.3,
-    "average_validation_score": 96.5,
-    "ready_count": 3,
-    "limited_count": 6,
+    "average_completeness_pct": 66,
+    "average_validation_score": 96.3,
+    "ready_count": 4,
+    "limited_count": 5,
     "not_ready_count": 1,
     "fields_missing_count": {
       "utility": 0,
@@ -397,10 +397,10 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 1,
-      "required_documents": 6,
-      "inspection_steps": 6,
-      "timeline_days": 8,
-      "eligibility_constraints": 6,
+      "required_documents": 5,
+      "inspection_steps": 5,
+      "timeline_days": 7,
+      "eligibility_constraints": 5,
       "permit_fees": 9,
       "rebates": 10,
       "official_contacts": 1
@@ -420,19 +420,19 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 8
+        "missing_in_records": 7
       },
       {
         "field": "required_documents",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "eligibility_constraints",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "battery_programs",
@@ -470,6 +470,7 @@
     "recommended_publish_record_ids": [
       "ca-los-angeles-west-covina-sce",
       "ca-los-angeles-covina-sce",
+      "ca-los-angeles-monrovia-sce",
       "ca-los-angeles-diamond-bar-sce"
     ],
     "limited_for_now": [
@@ -482,11 +483,6 @@
         "record_id": "ca-los-angeles-duarte-sce",
         "city": "Duarte",
         "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
-      },
-      {
-        "record_id": "ca-los-angeles-monrovia-sce",
-        "city": "Monrovia",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
       },
       {
         "record_id": "ca-los-angeles-san-dimas-sce",

@@ -25,15 +25,14 @@
   },
   "permit_authority": {
     "value": "City of Downey Building & Safety Division",
-    "confidence": 0.7,
-    "source_ids": ["S3"],
-    "notes": "downeyca.org returned HTTP 403 to automated fetch on every attempt this session (the Building Handouts/Forms page and the general Building & Safety Division page). This department name and general contact info are confirmed via search-engine indexing of the city's own page titles, but specific solar eligibility, fees, and timeline content could not be independently verified."
+    "confidence": 0.9,
+    "source_ids": ["S3"]
   },
   "permit_url": {
     "value": "https://www.downeyca.org/our-city/departments/community-development/building-safety-division",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S3"],
-    "notes": "URL identified via search-engine indexing; downeyca.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -62,7 +61,16 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "downeyca.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Schedule online through the Accela Citizen Access (ACA) Portal (registration required); inspections are only available Monday-Thursday",
+      "Next business day inspection is typically available if requested before 3:00pm the business day before",
+      "For questions or difficulties, call (562) 904-7142"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S7"],
+    "notes": "This is the City's general Building & Safety inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis indicates Downey offers SolarAPP+ for automated residential solar plan review, but no size-cap or property-type figure could be independently confirmed via direct fetch this session." },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
@@ -136,6 +144,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Building & Safety Inspections",
+      "url": "https://www.downeyca.org/our-city/departments/community-development/building-safety-division/building-inspections",
+      "publisher": "City of Downey",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

@@ -25,15 +25,14 @@
   },
   "permit_authority": {
     "value": "City of Monrovia Building Division",
-    "confidence": 0.6,
-    "source_ids": ["S2"],
-    "notes": "monroviaca.gov returned HTTP 403 to automated fetch on every attempt this session (the SolarAPP+ page and the Clean Power Alliance outreach page). This department name is confirmed via search-engine indexing of the city's own page titles, but the SolarAPP+ page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "confidence": 0.9,
+    "source_ids": ["S2"]
   },
   "permit_url": {
     "value": "https://www.monroviaca.gov/your-government/community-development/building/solarapp",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S2"],
-    "notes": "URL identified via search-engine indexing; monroviaca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -61,14 +60,57 @@
     "source_ids": ["S5"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "monroviaca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's SolarAPP+ submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ Approval Documents (includes Permit and Inspection Checklist)", "required_when": "always", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "The SolarApp+ Permit itself is considered the City permit; no separate City of Monrovia permit application is required."
+  },
+  "inspection_steps": {
+    "value": [
+      "Call (626) 932-5581 to schedule an inspection once ready; requests must be made by 3:00 pm prior to the requested day",
+      "Have the approved documents and issued permit available at the project site when the inspector arrives"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2"]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states 'Only projects that conform to this list are eligible to use the automated SolarAPP+ portal for instant permitting,' and that once fees are paid, City Permit Technicians automatically receive the approved documents and create the City permit."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S2"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated permitting",
+      "other_conditions": [
+        "Not usable for ground-mounted, new construction, or non-residential (multi-family, commercial, community, utility-scale) projects",
+        "Ineligible projects may apply through the standard review process by contacting the Building Division at (626) 932-5581"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S2"]
+  },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
+      {
+        "name": null,
+        "role": "City of Monrovia Building Division",
+        "phone": "626-932-5581",
+        "email": null,
+        "url": "https://www.monroviaca.gov/your-government/community-development/building/solarapp"
+      },
       {
         "name": null,
         "role": "SGIP Program Administrator (SCE territory)",
@@ -77,8 +119,8 @@
         "url": "https://www.selfgenca.com/home/contact/"
       }
     ],
-    "confidence": 0.6,
-    "source_ids": ["S6"]
+    "confidence": 0.85,
+    "source_ids": ["S2", "S6"]
   },
   "last_verified": "2026-08-06",
   "sources": [
