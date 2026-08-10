@@ -10,10 +10,13 @@
     "notes": "Vacaville is a well-documented Solano County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Vacaville is not listed among MCE's 4 current Solano County member communities (Benicia, Fairfield, Vallejo, and unincorporated Solano County). No CCA was found serving Vacaville this session."
+    "value": {
+      "name": "Pacific Gas & Electric (PG&E)",
+      "type": "utility",
+      "notes": "Directly re-verified this session via MCE's own service-area page, which explicitly lists its Solano County service as exactly four communities: Benicia, Fairfield, Vallejo, and unincorporated Solano County. Vacaville is not among them, and no other CCA was found serving Solano County. PG&E is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S4"]
   },
   "city": {
     "value": "Vacaville",
@@ -31,19 +34,19 @@
   },
   "permit_authority": {
     "value": "City of Vacaville Building Division",
-    "confidence": 0.8,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "cityofvacaville.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing, not independently read."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.cityofvacaville.gov/government/community-development/building/building-permits/apply-for-residential-solar-permits",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; cityofvacaville.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -79,7 +82,7 @@
     "value": null,
     "confidence": 0,
     "source_ids": [],
-    "notes": "cityofvacaville.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements."
+    "notes": "Directly re-read the City's own page this session; it describes what to include in the application description (system size, panel count, main service panel upgrade details) but does not itemize a formal document checklist."
   },
   "inspection_steps": {
     "value": null,
@@ -87,9 +90,13 @@
     "source_ids": []
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "The City's own page states applicants using its Symbium-based automated platform (SB 379 compliant) 'will be able to apply for instantaneous plan review approval,' while all other photovoltaic/energy storage applications submitted via e-TRAKiT are 'subject to plan review' with 'permit processing [taking] approximately 1-3 business days, depending on staff availability.' The 0-3 day range reflects instant issuance for the Symbium-eligible pathway and up to 3 business days for the standard pathway."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
     "value": {
@@ -132,7 +139,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
@@ -157,6 +164,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

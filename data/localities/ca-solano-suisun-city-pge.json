@@ -10,10 +10,13 @@
     "notes": "Suisun City is a well-documented Solano County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Suisun City is not listed among MCE's 4 current Solano County member communities (Benicia, Fairfield, Vallejo, and unincorporated Solano County). No CCA was found serving Suisun City this session."
+    "value": {
+      "name": "Pacific Gas & Electric (PG&E)",
+      "type": "utility",
+      "notes": "Directly re-verified this session via MCE's own service-area page, which explicitly lists its Solano County service as exactly four communities: Benicia, Fairfield, Vallejo, and unincorporated Solano County. Suisun City is not among them, and no other CCA was found serving Solano County. PG&E is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S4"]
   },
   "city": {
     "value": "Suisun City",
@@ -158,6 +161,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Service Area",
+      "url": "https://www.mcecleanenergy.org/service-area/",
+      "publisher": "MCE (Marin Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
