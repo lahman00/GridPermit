@@ -10,10 +10,15 @@
     "notes": "Oroville is confirmed to be within PG&E's electric service territory."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No CCA currently serves Oroville. Pioneer Community Energy is confirmed (via Butte County's own site) to begin serving Oroville starting October 2027, but that program has not launched as of this session and is not yet an active generation supplier."
+    "value": {
+      "name": "Pacific Gas & Electric (PG&E)",
+      "type": "utility",
+      "notes": "Directly re-verified this session via Pioneer Community Energy's own homepage, which describes its current service area as 'most of the communities in unincorporated Placer and El Dorado counties, the Town of Loomis, and the cities of Auburn, Colfax, Grass Valley, Lincoln, Nevada City, Placerville and Rocklin' -- Oroville and Butte County are not included. No CCA currently serves Oroville. PG&E is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S4"
+    ]
   },
   "city": {
     "value": "Oroville",
@@ -144,6 +149,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Homepage (current service area description)",
+      "url": "https://pioneercommunityenergy.org/",
+      "publisher": "Pioneer Community Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
