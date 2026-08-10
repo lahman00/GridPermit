@@ -79,9 +79,13 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "SolarAPP+ approval (obtained via the SolarAPP+ website)", "required_when": "conditional", "source_ids": ["S6"] },
+      { "name": "City of Thousand Oaks TO/24 online permit application, with SolarAPP+ approval submitted and permit fees paid, to receive the City-issued State Solar Permit", "required_when": "always", "source_ids": ["S6"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S6"],
+    "notes": "Per the City's own Solar PV Systems page: any SolarAPP+ web-based approval is not itself a construction permit until applied for and submitted through TO/24 and fees are paid, at which point the City issues the State Solar Permit."
   },
   "inspection_steps": {
     "value": [
@@ -93,27 +97,32 @@
     ]
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own Solar PV Systems page states the 'Pre-Approved OR Preauthorized Solar Inspection Permit' (SolarApp+ permit type) 'is an express permit that allows instant permit issuance for compliant systems to licensed contractors installing on residential properties.'"
+    },
+    "confidence": 0.75,
+    "source_ids": ["S6"]
   },
   "eligibility_constraints": {
     "value": {
       "property_types": [
         "residential"
       ],
-      "system_size_kw_ac_max": 10,
+      "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
-      "program_or_pathway": "Small Residential Rooftop Solar Energy System Review Process (municipal code Sec. 8-1.25)",
+      "program_or_pathway": "SolarAPP+ / State Solar Permit (roof-mounted residential only)",
       "other_conditions": [
-        "A small residential rooftop solar energy system is defined as no larger than 10kW AC nameplate rating or 30kW thermal"
+        "SolarAPP+/State Solar Permit is for roof-mounted solar on residential properties only, up to 38.4kW AC; ballasted, ground-mounted, and carport/parking-shade systems require a Standard Permit regardless of size",
+        "Only California-licensed B, C-10, or C-46 contractors may apply via SolarAPP+",
+        "The State Solar Permit is issued to the specific licensed contractor identified in the SolarAPP+ application and is non-transferable",
+        "The City's Municipal Code separately requires all roofs and solar systems to be fire-rated Class A (including the racking system) per UL1703 as locally amended, per Sections 8-1.14, 8-1.25, and 8-7.06"
       ]
     },
-    "confidence": 0.7,
-    "source_ids": [
-      "S1"
-    ]
+    "confidence": 0.8,
+    "source_ids": ["S1", "S6"]
   },
   "permit_fees": {
     "value": null,
@@ -173,6 +182,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S6",
+      "title": "Solar PV Systems",
+      "url": "https://toaks.gov/solarsystems",
+      "publisher": "City of Thousand Oaks",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
