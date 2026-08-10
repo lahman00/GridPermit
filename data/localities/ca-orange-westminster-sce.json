@@ -37,19 +37,19 @@
   },
   "permit_authority": {
     "value": "City of Westminster Community Development Department, Building Division",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "westminster-ca.gov returned HTTP 403 to automated fetch on every attempt this session (both the dedicated 'Solar Photovoltaic Streamlining Process' page and the general Building Division page), and ecode360.com (host of the city's Small Residential Solar Energy System Permits municipal code chapter) also returned HTTP 403. This department name and page title are confirmed via search-engine indexing, but the page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.westminster-ca.gov/departments/community-development/building-division/solar-permit-process",
-    "confidence": 0.55,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; westminster-ca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -88,14 +88,23 @@
     "notes": "westminster-ca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's solar submittal requirements."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule inspections online via the Westminster Build portal after work for that phase is complete; time frames generally aren't scheduled online, so contact the inspector between 7:30-8:30am on the inspection day to request one",
+      "Have the permit number(s), property address/unit, inspection type(s), contact name/phone, and any gate access code ready when scheduling",
+      "Keep the approved plans, inspection card, permits, and subcontractors' proof of license available at the job site, with the contractor present to meet the inspector"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"],
+    "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own Solar Photovoltaic Streamlining Process page states SB 379 'requires... the City of Westminster... to implement an online, automated permitting platform that verifies code compliance and issues permits in real time,' and describes the SolarAPP+/Energov pathway as producing an 'auto-issued permit.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
     "value": {
@@ -141,7 +150,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
@@ -189,6 +198,14 @@
       "url": "https://ocpower.org/",
       "publisher": "Orange County Power Authority",
       "type": "other_official",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Building Inspections",
+      "url": "https://www.westminster-ca.gov/departments/community-development/building-division/building-inspections",
+      "publisher": "City of Westminster",
+      "type": "government",
       "accessed_date": "2026-08-10"
     }
   ]

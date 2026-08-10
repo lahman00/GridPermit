@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T18:31:01.596Z",
+  "evaluated_at": "2026-08-10T20:50:57.038Z",
   "record_count": 10,
   "records": [
     {
@@ -120,11 +120,11 @@
       "record_id": "ca-orange-westminster-sce",
       "city": "Westminster",
       "county": "Orange County",
-      "completeness_pct": 66.7,
-      "validation_score": 94,
+      "completeness_pct": 80,
+      "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -134,13 +134,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -150,9 +150,9 @@
       "utility_type": "IOU",
       "separate_cca_present": false,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-orange-costa-mesa-sce",
@@ -387,10 +387,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74,
-    "average_validation_score": 93.8,
-    "ready_count": 6,
-    "limited_count": 4,
+    "average_completeness_pct": 75.3,
+    "average_validation_score": 93.6,
+    "ready_count": 7,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -402,8 +402,8 @@
       "interconnection_url": 0,
       "battery_programs": 0,
       "required_documents": 4,
-      "inspection_steps": 4,
-      "timeline_days": 8,
+      "inspection_steps": 3,
+      "timeline_days": 7,
       "eligibility_constraints": 3,
       "permit_fees": 7,
       "rebates": 10,
@@ -416,7 +416,7 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 8
+        "missing_in_records": 7
       },
       {
         "field": "permit_fees",
@@ -427,11 +427,11 @@
         "missing_in_records": 4
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 4
+        "field": "generation_supplier",
+        "missing_in_records": 3
       },
       {
-        "field": "generation_supplier",
+        "field": "inspection_steps",
         "missing_in_records": 3
       },
       {
@@ -470,6 +470,7 @@
     "recommended_publish_record_ids": [
       "ca-orange-anaheim-apu",
       "ca-orange-garden-grove-sce",
+      "ca-orange-westminster-sce",
       "ca-orange-huntington-beach-sce",
       "ca-orange-tustin-sce",
       "ca-orange-yorba-linda-sce",
@@ -480,11 +481,6 @@
         "record_id": "ca-orange-orange-sce",
         "city": "Orange",
         "reason": "readiness=LIMITED (completeness 60%, score 94)"
-      },
-      {
-        "record_id": "ca-orange-westminster-sce",
-        "city": "Westminster",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
       },
       {
         "record_id": "ca-orange-costa-mesa-sce",
