@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T17:24:32.455Z",
+  "evaluated_at": "2026-08-10T19:41:20.425Z",
   "record_count": 5,
   "records": [
     {
@@ -83,7 +83,7 @@
       "record_id": "ca-monterey-soledad-pge",
       "city": "Soledad",
       "county": "Monterey County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -98,12 +98,12 @@
         "interconnection_url",
         "battery_programs",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -113,9 +113,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-monterey-greenfield-pge",
@@ -196,10 +196,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 76,
+    "average_completeness_pct": 77.3,
     "average_validation_score": 94,
-    "ready_count": 3,
-    "limited_count": 2,
+    "ready_count": 4,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -212,7 +212,7 @@
       "battery_programs": 0,
       "required_documents": 4,
       "inspection_steps": 1,
-      "timeline_days": 4,
+      "timeline_days": 3,
       "eligibility_constraints": 1,
       "permit_fees": 3,
       "rebates": 5,
@@ -229,7 +229,7 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "permit_fees",
@@ -268,14 +268,10 @@
     "recommended_publish_record_ids": [
       "ca-monterey-salinas-pge",
       "ca-monterey-gonzales-pge",
+      "ca-monterey-soledad-pge",
       "ca-monterey-king-city-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-monterey-soledad-pge",
-        "city": "Soledad",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
       {
         "record_id": "ca-monterey-greenfield-pge",
         "city": "Greenfield",

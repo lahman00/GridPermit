@@ -36,18 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Soledad Building and Safety Division",
-    "confidence": 0.75,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "The city's site migrated from cityofsoledad.com to cityofsoledad.gov during this session (confirmed by a 301 redirect); the redirected page was fetched but did not itself surface solar-specific detail beyond general department contact information."
+    "notes": "Directly re-verified via browser this session using the site's own working URL pattern (the previously-recorded permit_url redirected to the homepage when navigated to directly; the correct current URL is cityofsoledad.gov/services/community_economic_development/building_safety/index.php, found via the site's own navigation menu). The page links directly to SolarApp+ (solarapp.nrel.gov) under a dedicated 'Solar Permits' link."
   },
   "permit_url": {
-    "value": "https://www.cityofsoledad.gov/departments/community-and-economic-development/building-and-safety/",
-    "confidence": 0.6,
+    "value": "https://www.cityofsoledad.gov/services/community_economic_development/building_safety/index.php",
+    "confidence": 0.85,
     "source_ids": [
       "S1"
-    ]
+    ],
+    "notes": "Corrected URL, directly re-verified via browser this session; the previously-recorded URL redirected to the homepage rather than rendering this page."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -95,9 +96,13 @@
     "notes": "Derived from search-engine summaries; not independently re-confirmed via direct page fetch this session."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 28,
+      "max_days": 28,
+      "notes": "The City's own General Information - Building Permits bulletin states its goal for initial plan check completion is '4 weeks' for a 'Minor project' (defined to include 'Single family home, commercial or residential remodel, tenant improvement'), the category a residential solar installation not eligible for SolarApp+'s automated instant pathway would fall under. This is a general building-permit timeline, not solar-specific, and does not apply to SolarApp+-eligible systems (which the City's own page links directly to for automated review); no explicit instant/same-day language was found for the SolarApp+ pathway itself, so no 0-day figure is recorded for it."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S5"]
   },
   "eligibility_constraints": {
     "value": {
@@ -140,7 +145,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
@@ -173,6 +178,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "General Information - Building Permits",
+      "url": "https://www.cityofsoledad.gov/Documents/Services/Community%20and%20Economic%20Development/Building%20and%20Safety/General-Building-Permit-Information-2.pdf",
+      "publisher": "City of Soledad",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
