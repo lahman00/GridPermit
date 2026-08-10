@@ -79,10 +79,15 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The page confirms an approved checklist and standard plan process exists, but the specific document list itself was not directly fetched this session."
+    "value": [
+      { "name": "Building Permit application", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Wet-signed and stamped building plan sets", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Structural calculations", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Title 24 calculations", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "This is the Town's general Building Permit submittal requirement (per its own Building Permit FAQs page, 'How do I apply for a building permit?'), not a solar-specific checklist; the Town confirms an approved checklist and standard plan process exists for expedited solar review, but the solar-specific document list itself was not directly fetched this session."
   },
   "inspection_steps": {
     "value": null,
@@ -152,7 +157,7 @@
       "url": "https://www.portolavalley.net/departments/planning-building-department/resource-center/general-information-and-handouts/building-permit-faqs",
       "publisher": "Town of Portola Valley",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",

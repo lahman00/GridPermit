@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T07:12:48.186Z",
+  "evaluated_at": "2026-08-10T07:39:14.451Z",
   "record_count": 7,
   "records": [
     {
@@ -197,7 +197,7 @@
       "record_id": "ca-san-mateo-portola-valley-pge",
       "city": "Portola Valley",
       "county": "San Mateo County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -211,12 +211,12 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
         "inspection_steps",
         "permit_fees",
         "rebates"
@@ -228,8 +228,8 @@
       "separate_cca_present": true,
       "permit_fees_available": false,
       "timeline_available": true,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-santa-clara-palo-alto-cpau",
@@ -272,10 +272,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 80,
+    "average_completeness_pct": 81,
     "average_validation_score": 95.1,
-    "ready_count": 6,
-    "limited_count": 1,
+    "ready_count": 7,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -286,7 +286,7 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 3,
-      "required_documents": 1,
+      "required_documents": 0,
       "inspection_steps": 2,
       "timeline_days": 3,
       "eligibility_constraints": 0,
@@ -314,10 +314,6 @@
       {
         "field": "inspection_steps",
         "missing_in_records": 2
-      },
-      {
-        "field": "required_documents",
-        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
@@ -350,15 +346,10 @@
       "ca-san-mateo-san-carlos-pge",
       "ca-san-mateo-atherton-pge",
       "ca-san-mateo-woodside-pge",
+      "ca-san-mateo-portola-valley-pge",
       "ca-santa-clara-palo-alto-cpau"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-san-mateo-portola-valley-pge",
-        "city": "Portola Valley",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
       "IOU",
