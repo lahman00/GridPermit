@@ -1,11 +1,16 @@
 {
   "record_id": "ca-riverside-moreno-valley-sce",
   "file": "data/localities/ca-riverside-moreno-valley-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 94,
+  "score": 89,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -28,16 +33,8 @@
       "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "rebates",
@@ -47,7 +44,7 @@
   "url_checks": [
     {
       "url": "https://www.moreno-valley.ca.us/cdd/department/divisions-building-safety.html",
-      "checked_at": "2026-08-08T18:39:15.426Z",
+      "checked_at": "2026-08-10T06:12:53.491Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -55,7 +52,7 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T18:39:16.125Z",
+      "checked_at": "2026-08-10T06:12:54.137Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -63,7 +60,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T18:39:16.131Z",
+      "checked_at": "2026-08-10T06:12:54.143Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -71,7 +68,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T18:39:16.919Z",
+      "checked_at": "2026-08-10T06:12:55.069Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -79,7 +76,7 @@
     },
     {
       "url": "https://ecode360.com/43227662",
-      "checked_at": "2026-08-08T18:39:17.620Z",
+      "checked_at": "2026-08-10T06:12:55.768Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -87,11 +84,19 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T18:39:17.686Z",
+      "checked_at": "2026-08-10T06:12:55.842Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://www.moreno-valley.ca.us/departments/financial-mgmt-svcs/fin-pdf/FeeSchedule.pdf",
+      "checked_at": "2026-08-10T06:12:55.847Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

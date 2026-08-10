@@ -1,11 +1,16 @@
 {
   "record_id": "ca-riverside-san-jacinto-sce",
   "file": "data/localities/ca-riverside-san-jacinto-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 94,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.sanjacintoca.gov/city_departments/community-development/building-safety/instant_solar_permit — HTTP 429: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -27,10 +32,6 @@
       "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
@@ -42,15 +43,15 @@
   "url_checks": [
     {
       "url": "https://www.sanjacintoca.gov/city_departments/community-development/building-safety/instant_solar_permit",
-      "checked_at": "2026-08-08T18:47:10.378Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-10T06:12:56.567Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 429,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 429: blocked/unverifiable, not confirmed broken"
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T18:47:11.611Z",
+      "checked_at": "2026-08-10T06:12:56.684Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -58,7 +59,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T18:47:11.616Z",
+      "checked_at": "2026-08-10T06:12:56.687Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -66,7 +67,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T18:47:12.359Z",
+      "checked_at": "2026-08-10T06:12:57.685Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -74,7 +75,7 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T18:47:15.261Z",
+      "checked_at": "2026-08-10T06:12:58.449Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",

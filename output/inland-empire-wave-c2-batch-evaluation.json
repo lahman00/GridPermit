@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:46:40.893Z",
+  "evaluated_at": "2026-08-10T06:13:31.143Z",
   "record_count": 8,
   "records": [
     {
@@ -196,11 +196,11 @@
       "record_id": "ca-riverside-hemet-sce",
       "city": "Hemet",
       "county": "Riverside County",
-      "completeness_pct": 66.7,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -210,35 +210,36 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "inspection_steps",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": null,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-riverside-san-jacinto-sce",
       "city": "San Jacinto",
       "county": "Riverside County",
-      "completeness_pct": 66.7,
-      "validation_score": 96,
+      "completeness_pct": 73.3,
+      "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -248,13 +249,13 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
         "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -264,7 +265,7 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
       "readiness": "LIMITED"
     },
@@ -308,10 +309,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 68.3,
-    "average_validation_score": 96.3,
-    "ready_count": 3,
-    "limited_count": 5,
+    "average_completeness_pct": 70.8,
+    "average_validation_score": 95.4,
+    "ready_count": 4,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -323,18 +324,14 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 2,
-      "inspection_steps": 5,
-      "timeline_days": 4,
+      "inspection_steps": 4,
+      "timeline_days": 3,
       "eligibility_constraints": 3,
-      "permit_fees": 8,
+      "permit_fees": 7,
       "rebates": 8,
       "official_contacts": 0
     },
     "fields_most_often_missing": [
-      {
-        "field": "permit_fees",
-        "missing_in_records": 8
-      },
       {
         "field": "rebates",
         "missing_in_records": 8
@@ -344,12 +341,16 @@
         "missing_in_records": 7
       },
       {
+        "field": "permit_fees",
+        "missing_in_records": 7
+      },
+      {
         "field": "inspection_steps",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "eligibility_constraints",
@@ -365,7 +366,8 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 8
+      "broken_url": 8,
+      "unsupported_claim": 1
     },
     "utility_coverage": [
       "IOU",
@@ -389,6 +391,7 @@
     "recommended_publish_record_ids": [
       "ca-riverside-menifee-sce",
       "ca-riverside-murrieta-sce",
+      "ca-riverside-hemet-sce",
       "ca-riverside-beaumont-sce"
     ],
     "limited_for_now": [
@@ -408,14 +411,9 @@
         "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
       },
       {
-        "record_id": "ca-riverside-hemet-sce",
-        "city": "Hemet",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
-      },
-      {
         "record_id": "ca-riverside-san-jacinto-sce",
         "city": "San Jacinto",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       }
     ],
     "not_ready": [],

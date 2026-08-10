@@ -1,20 +1,25 @@
 {
   "record_id": "ca-riverside-hemet-sce",
   "file": "data/localities/ca-riverside-hemet-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 91,
   "errors": [],
   "warnings": [
     {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -23,16 +28,8 @@
       "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "rebates",
@@ -42,7 +39,7 @@
   "url_checks": [
     {
       "url": "https://www.hemetca.gov/68/Building-Safety",
-      "checked_at": "2026-08-08T18:47:05.729Z",
+      "checked_at": "2026-08-10T06:12:24.590Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -50,15 +47,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T18:47:08.730Z",
+      "checked_at": "2026-08-10T06:12:25.721Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T18:47:08.735Z",
+      "checked_at": "2026-08-10T06:12:35.724Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -66,7 +63,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T18:47:09.475Z",
+      "checked_at": "2026-08-10T06:12:37.010Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -74,11 +71,19 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T18:47:10.254Z",
+      "checked_at": "2026-08-10T06:12:37.743Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
+    },
+    {
+      "url": "https://www.hemetca.gov/DocumentCenter/View/11479",
+      "checked_at": "2026-08-10T06:12:47.745Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
     }
   ]
 }

@@ -62,7 +62,14 @@
     "confidence": 0.7,
     "source_ids": ["S1"]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Call the automated Inspection Request Line at 951-765-2428, or request through the Community Development Web Portal"
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building & Safety inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
@@ -79,7 +86,16 @@
     "confidence": 0.75,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": [
+      { "name": "Solar Streamline Permit", "amount_usd": 444, "unit": "flat fee", "notes": "Per the City's own Adopted Fee Schedule." },
+      { "name": "Residential Solar/Photovoltaic Roof Mounted (less than 50kW)", "amount_usd": 198, "unit": "flat fee", "notes": "Per the City's own Adopted Fee Schedule." },
+      { "name": "Residential Solar/Photovoltaic Roof Mounted (50kW-250kW)", "amount_usd": 395, "unit": "flat fee", "notes": "Per the City's own Adopted Fee Schedule." },
+      { "name": "Residential Solar/Photovoltaic Ground Mounted (less than 50kW)", "amount_usd": 296, "unit": "flat fee", "notes": "Per the City's own Adopted Fee Schedule." }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S6"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -142,6 +158,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Adopted Fee Schedule",
+      "url": "https://www.hemetca.gov/DocumentCenter/View/11479",
+      "publisher": "City of Hemet",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

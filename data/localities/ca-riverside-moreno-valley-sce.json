@@ -59,7 +59,14 @@
     "confidence": 0.75,
     "source_ids": ["S1", "S2"]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Schedule online through SimpliCITY, or call the Inspection line at 951-413-3380, or email buildinginspections@moval.org"
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building and Safety Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
@@ -76,7 +83,15 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": [
+      { "name": "Residential Photovoltaic System via SolarAPP+ (plan check / permit)", "amount_usd": 385, "unit": "flat fee", "notes": "Per the City's own Building & Safety Fees schedule: $0 plan check + $385.00 permit fee." },
+      { "name": "Residential Photovoltaic System, no fire review, ≤10kW (plan check / permit)", "amount_usd": 402, "unit": "flat fee", "notes": "Per the City's own Building & Safety Fees schedule: $88.00 plan check + $314.00 permit fee." },
+      { "name": "Residential Photovoltaic System, with fire review, >10kW and up to 15kW (plan check / permit)", "amount_usd": 284, "unit": "flat fee", "notes": "Per the City's own Building & Safety Fees schedule: $127.00 plan check + $157.00 permit fee." }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S7"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -147,6 +162,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Community Development Department Fee Schedule",
+      "url": "https://www.moreno-valley.ca.us/departments/financial-mgmt-svcs/fin-pdf/FeeSchedule.pdf",
+      "publisher": "City of Moreno Valley",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

@@ -60,7 +60,15 @@
     "source_ids": ["S1"]
   },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states the Instant Solar Permit 'instantly' issues a permit for code-compliant systems but does not give a specific day-range figure." },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page, titled 'Instant Solar Permit,' states the permit is issued 'instantly' for code-compliant systems submitted through SolarAPP+."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential"],
