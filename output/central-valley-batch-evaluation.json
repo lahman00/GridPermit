@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T21:36:34.221Z",
+  "evaluated_at": "2026-08-10T16:54:20.916Z",
   "record_count": 11,
   "records": [
     {
       "record_id": "ca-stanislaus-modesto-mid",
       "city": "Modesto",
       "county": "Stanislaus County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -20,12 +20,12 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "inspection_steps",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -384,11 +384,11 @@
       "record_id": "ca-san-joaquin-tracy-pge",
       "city": "Tracy",
       "county": "San Joaquin County",
-      "completeness_pct": 60,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 85,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 6,
       "populated_fields": [
         "utility",
         "city",
@@ -397,33 +397,34 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "required_documents",
         "timeline_days",
-        "eligibility_constraints",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": null,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "required_documents_available": true,
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 67.3,
-    "average_validation_score": 96.7,
-    "ready_count": 5,
-    "limited_count": 6,
+    "average_completeness_pct": 69.7,
+    "average_validation_score": 95.7,
+    "ready_count": 6,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -434,42 +435,42 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 3,
-      "required_documents": 5,
-      "inspection_steps": 5,
+      "required_documents": 4,
+      "inspection_steps": 4,
       "timeline_days": 5,
-      "eligibility_constraints": 5,
-      "permit_fees": 11,
+      "eligibility_constraints": 4,
+      "permit_fees": 10,
       "rebates": 11,
       "official_contacts": 1
     },
     "fields_most_often_missing": [
       {
-        "field": "permit_fees",
+        "field": "rebates",
         "missing_in_records": 11
       },
       {
-        "field": "rebates",
-        "missing_in_records": 11
+        "field": "permit_fees",
+        "missing_in_records": 10
       },
       {
         "field": "generation_supplier",
         "missing_in_records": 8
       },
       {
-        "field": "required_documents",
-        "missing_in_records": 5
-      },
-      {
-        "field": "inspection_steps",
-        "missing_in_records": 5
-      },
-      {
         "field": "timeline_days",
         "missing_in_records": 5
       },
       {
+        "field": "required_documents",
+        "missing_in_records": 4
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 4
+      },
+      {
         "field": "eligibility_constraints",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "battery_programs",
@@ -481,7 +482,8 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 10
+      "broken_url": 10,
+      "unsupported_claim": 1
     },
     "utility_coverage": [
       "IOU",
@@ -517,13 +519,14 @@
       "ca-madera-madera-pge",
       "ca-tulare-visalia-sce",
       "ca-kings-hanford-pge",
-      "ca-san-joaquin-lodi-leu"
+      "ca-san-joaquin-lodi-leu",
+      "ca-san-joaquin-tracy-pge"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-stanislaus-modesto-mid",
         "city": "Modesto",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-merced-merced-pge",
@@ -544,11 +547,6 @@
         "record_id": "ca-san-joaquin-manteca-pge",
         "city": "Manteca",
         "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
-      },
-      {
-        "record_id": "ca-san-joaquin-tracy-pge",
-        "city": "Tracy",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
       }
     ],
     "not_ready": [],

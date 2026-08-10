@@ -21,15 +21,15 @@
   },
   "permit_authority": {
     "value": "City of Tracy Building Safety Division",
-    "confidence": 0.7,
-    "source_ids": ["S1"],
-    "notes": "cityoftracy.org returned HTTP 403 to automated fetch on every attempt this session (the Building Safety / eTRAKiT page and several related pages). This department name is confirmed via search-engine indexing, but the underlying pages' specific solar content could not be independently verified. Multiple SEO/installer marketing sites referenced 'SolarAPP+ enabled' status and specific timelines for Tracy, but these were not used as evidence per the rule against using unofficial installer/SEO sites as sources."
+    "confidence": 0.9,
+    "source_ids": ["S5"],
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
-    "value": "https://www.cityoftracy.org/Departments/Community-and-Economic-Development/Building-Safety/eTRAKiT-Residential-Online-Permitting",
-    "confidence": 0.55,
-    "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; cityoftracy.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "value": "https://www.cityoftracy.org/Departments/Community-and-Economic-Development/Building-Safety/Permit-Process-and-Fees",
+    "confidence": 0.9,
+    "source_ids": ["S5"],
+    "notes": "Directly re-verified via browser this session. The City has a dedicated photovoltaic@cityoftracy.org intake email for solar submittals, separate from the general plancheck@cityoftracy.org address."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
@@ -57,7 +57,20 @@
     "source_ids": ["S3"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Completed Building Permit Application (new submittals) or Resubmittal/Revision Form", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "All plans (drawings) combined into one PDF, 11\"x17\" format, properly sorted and oriented", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Specification sheets for modules, inverters, optimizers, micro-inverters, RSS relays, combiner boxes, disconnects, racking systems, roof stand-offs, flashings, and sealants", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Scaled site plan (min. 1/8\"=1') with roof plan view showing access points, setbacks, pathways, vents, fireplaces, and furnace/water heater vents", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Single-line electrical diagram (strings/modules per string, combiner boxes, conductor/conduit type and size, inverter model, load centers)", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Main service panel rating, busbar rating, and backfed breaker overcurrent protection rating", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Conductor ampacity calculations, complete labeling schedule, bonding/grounding lug type, manufacturer listing information, and clear interior photos of the electrical service panel", "required_when": "always", "source_ids": ["S6"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S6"],
+    "notes": "Per the City's own 'Electronic Photovoltaic Plan Review Submittal Requirements' handout (revised January 21, 2026), for residential R-3/R-3.1 occupancies. Submittals are emailed to Photovoltaic@cityoftracy.org."
+  },
   "inspection_steps": {
     "value": [
       "Request inspections via e-TRAKiT or by calling (209) 831-6400 (Monday-Thursday 8:00am-6:00pm, and every other Friday 8:00am-5:00pm), providing the building permit number or address and inspection type"
@@ -67,8 +80,29 @@
     "notes": "This is the city's general inspection-request process, not solar-specific; no dedicated solar inspection procedure was independently confirmed this session."
   },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Electronic Photovoltaic Plan Review (Community & Economic Development, Building Safety Division)",
+      "other_conditions": [
+        "Applies to Residential R-3 and R-3.1 occupancies",
+        "Submittals with missing or non-compliant items are rejected outright"
+      ]
+    },
+    "confidence": 0.6,
+    "source_ids": ["S6"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Solar (PV) System - Residential (up to 15kW)", "amount_usd": 450, "unit": "flat fee", "notes": "Per the City's own FY2026-2027 Citywide Master Fee Schedule (state-mandated fee)." },
+      { "name": "Solar (PV) System - Residential (per kW above 15kW)", "amount_usd": 15, "unit": "per additional kW", "notes": "Per the City's own FY2026-2027 Citywide Master Fee Schedule (state-mandated fee)." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S7"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -123,6 +157,30 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "Permit Process and Fees",
+      "url": "https://www.cityoftracy.org/Departments/Community-and-Economic-Development/Building-Safety/Permit-Process-and-Fees",
+      "publisher": "City of Tracy",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S6",
+      "title": "Electronic Photovoltaic Plan Review Submittal Requirements (revised January 21, 2026)",
+      "url": "https://www.cityoftracy.org/files/assets/city/v/3/ced/documents/building-safety/electronic-photovoltaic-plan-requirements.pdf",
+      "publisher": "City of Tracy",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Approved FY2026-2027 Citywide Master Fee Schedule",
+      "url": "https://www.cityoftracy.org/files/assets/city/v/3/finance/documents/budget-amp-financial-documents/master-fee-schedule/approved-fy2026-2027-citywide-master-fee-schedule.pdf",
+      "publisher": "City of Tracy",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
