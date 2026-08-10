@@ -52,7 +52,18 @@
     "source_ids": ["S3"],
     "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The ordinance requires conformance with applicable State fire, structural, electrical, and other building codes but does not itself enumerate a specific document checklist; submittals go through the city's Tyler EnerGov portal." },
+  "required_documents": {
+    "value": [
+      { "name": "Eligibility Checklist", "required_when": "always", "source_ids": ["S4"] },
+      { "name": "Building Permit Application", "required_when": "always", "source_ids": ["S4"] },
+      { "name": "Solar PV Standard Plan (Central String Inverter or Micro-Inverter Systems)", "required_when": "always", "source_ids": ["S4"] },
+      { "name": "Structural Criteria for Small Residential Rooftop Solar Systems", "required_when": "conditional", "source_ids": ["S4"] },
+      { "name": "Solar PV Inspection Guide", "required_when": "always", "source_ids": ["S4"] },
+      { "name": "Access & Pathway Requirements", "required_when": "always", "source_ids": ["S4"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S4"]
+  },
   "inspection_steps": {
     "value": [
       "Only one inspection is required for a small residential rooftop solar energy system eligible for expedited review, performed by the Building Division",
@@ -121,6 +132,14 @@
       "publisher": "California Public Utilities Commission",
       "type": "cpuc",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S4",
+      "title": "Small Residential Rooftop Solar - Forms",
+      "url": "https://www.cityofsanteeca.gov/planning-building/solar/small-residential-rooftop-solar-forms",
+      "publisher": "City of Santee",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

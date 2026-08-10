@@ -1,7 +1,7 @@
 {
   "record_id": "ca-san-diego-santee-sdge",
   "file": "data/localities/ca-san-diego-santee-sdge.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
   "score": 96,
   "errors": [],
@@ -23,10 +23,6 @@
       "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
@@ -38,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://ecode360.com/43755763",
-      "checked_at": "2026-08-08T19:10:25.111Z",
+      "checked_at": "2026-08-10T00:05:40.694Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -46,7 +42,7 @@
     },
     {
       "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
-      "checked_at": "2026-08-08T19:10:25.339Z",
+      "checked_at": "2026-08-10T00:05:40.802Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -54,7 +50,15 @@
     },
     {
       "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-      "checked_at": "2026-08-08T19:10:25.410Z",
+      "checked_at": "2026-08-10T00:05:40.910Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cityofsanteeca.gov/planning-building/solar/small-residential-rooftop-solar-forms",
+      "checked_at": "2026-08-10T00:05:42.935Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
