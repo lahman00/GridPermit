@@ -59,14 +59,58 @@
     "source_ids": ["S3"],
     "notes": "Same statewide CPUC/PG&E-administered SGIP program already verified for other PG&E-territory records this session, reused here as a utility-level fact since PG&E's distribution role in Concord is independently confirmed (S2)."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "Concord's Solar PV Projects page references a 'Solar Permitting Checklist (PDF)' and a 'Solar PV Standardized Permit Submittal Instructions (PDF)' but neither document's contents could be located/rendered as readable text this session." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "No review/approval timeframe is stated on Concord's Solar PV Projects page. California's AB 2188 model ordinance requires an expedited timeframe be codified, but the specific municipal code chapter was not located/read this session." },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "Concord's Solar PV Projects page describes SolarAPP+, standard design documents, and standardized-configuration pathways but does not itself state system-size caps or property-type scope. Left null rather than assuming the common 10kW AC/single-family-duplex pattern seen in other cities without direct confirmation for Concord specifically." },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Contractor's Declaration (licensed contractors) or Owner-Builder Acknowledgement and Information Verification Form", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "SolarAPP+ approved checklist (if submitting under the 'Solar PV (Solar APP)' permit type with a SolarAPP+ approval ID — no other design documents required in that case)", "required_when": "conditional", "source_ids": ["S6"] },
+      { "name": "Drawings (Cover Sheet, Roof Plan, Single Line Electrical Diagram, Signage/Labeling) — Standard Plans PV-1 through PV-4 may be used", "required_when": "conditional", "source_ids": ["S6", "S7"] },
+      { "name": "Manufacturer Data Sheets (PV modules, mounting systems, combiner boxes, inverters, disconnects)", "required_when": "conditional", "source_ids": ["S6"] },
+      { "name": "Mounting bracket attachment details (fastener size/spacing/location, existing roof structure and material)", "required_when": "conditional", "source_ids": ["S6"] },
+      { "name": "Structural Information Worksheet (WKS-1) and, if system exceeds 5 lbs/sq ft, Structural Calculations by a licensed engineer", "required_when": "conditional", "source_ids": ["S6", "S7"] },
+      { "name": "Electrical Information Worksheet (WKS-2) and Equipment Schedule", "required_when": "conditional", "source_ids": ["S6", "S7"] },
+      { "name": "Business License (all contractors doing work within the City)", "required_when": "always", "source_ids": ["S6"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S6", "S7"],
+    "notes": "Combines the City's own Residential Solar PV Submittal Requirements checklist (SR-RSOLAR, effective 9/15/2023) and Standardized Permit Submittal Instructions (Information Bulletin IB-010, effective 8/5/2020). The standard (non-SolarAPP+) submittal path requires the full document set; the SolarAPP+ path only requires the approved SolarAPP+ checklist."
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspection appointments can be scheduled for the following day",
+      "Every effort is made to limit the inspection window waiting period to four hours or less, depending on daily volume and staff availability",
+      "Required inspections may include electrical and final; the inspector verifies conformance with code requirements and the approved plans",
+      "After the final building inspection, contact PG&E — the PV system is not approved to energize until PG&E has inspected the system and installed the net meter"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S7"]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "The City's own Information Bulletin IB-010 states: 'every attempt will be made to complete the permit review process expeditiously or within three full business days after filing of a complete permit application packet depending on staff availability and workload constraints,' for standard installations (10kW or less, single-family residential rooftop, meeting all prescriptive requirements)."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S7"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Streamlined permit process (Information Bulletin IB-010) for standard installations, or SolarAPP+",
+      "other_conditions": [
+        "Up to 10kW on single-family residential rooftops (1 & 2 unit dwellings/Group R-3, including duplexes); does not include new structures like trellises, patio covers, or canopies",
+        "Existing roof must have one layer of roofing, array weight 5 lbs/sq ft or less, concentrated load under 50 lbs per attachment for the streamlined path",
+        "Systems with battery back-up are not eligible for the standard/streamlined installation path and must go through normal permit review with a registered electrical engineer design",
+        "No planning/zoning review required for rooftop solar consistent with this bulletin; rooftop solar is statutorily CEQA-exempt under SB 226"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's own Information Bulletin IB-010 states 'Residential rooftop solar permit fees are computed on actual costs associated with the City's permit review and inspection process' per the Master Fee Schedule, but gives no specific dollar figure or formula." },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -129,6 +173,22 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Residential Solar PV Submittal Requirements (SR-RSOLAR, effective 9/15/2023)",
+      "url": "http://www.cityofconcord.org/DocumentCenter/View/2794/SolarPermittingChecklist",
+      "publisher": "City of Concord",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Residential Solar PV Standardized Permit Submittal Instructions (Information Bulletin IB-010, effective 8/5/2020)",
+      "url": "https://www.cityofconcord.org/DocumentCenter/View/2795/SolarPVInformationBulletin",
+      "publisher": "City of Concord",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

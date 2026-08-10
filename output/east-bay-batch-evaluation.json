@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T04:55:44.782Z",
+  "evaluated_at": "2026-08-10T16:58:10.199Z",
   "record_count": 6,
   "records": [
     {
@@ -194,11 +194,11 @@
       "record_id": "ca-contra-costa-concord-pge",
       "city": "Concord",
       "county": "Contra Costa County",
-      "completeness_pct": 60,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "completeness_pct": 86.7,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 1,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -208,30 +208,32 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
-        "official_contacts"
-      ],
-      "missing_fields": [
         "required_documents",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
         "permit_fees",
         "rebates"
       ],
-      "warning_categories": [],
+      "warning_categories": [
+        "broken_url"
+      ],
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 82.2,
-    "average_validation_score": 96.7,
-    "ready_count": 5,
-    "limited_count": 1,
+    "average_completeness_pct": 86.7,
+    "average_validation_score": 96.3,
+    "ready_count": 6,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -242,10 +244,10 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 0,
-      "required_documents": 1,
-      "inspection_steps": 1,
-      "timeline_days": 1,
-      "eligibility_constraints": 3,
+      "required_documents": 0,
+      "inspection_steps": 0,
+      "timeline_days": 0,
+      "eligibility_constraints": 2,
       "permit_fees": 4,
       "rebates": 6,
       "official_contacts": 0
@@ -261,23 +263,11 @@
       },
       {
         "field": "eligibility_constraints",
-        "missing_in_records": 3
-      },
-      {
-        "field": "required_documents",
-        "missing_in_records": 1
-      },
-      {
-        "field": "inspection_steps",
-        "missing_in_records": 1
-      },
-      {
-        "field": "timeline_days",
-        "missing_in_records": 1
+        "missing_in_records": 2
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 2,
+      "broken_url": 3,
       "unsupported_claim": 2
     },
     "utility_coverage": [
@@ -306,15 +296,10 @@
       "ca-alameda-san-leandro-pge",
       "ca-alameda-hayward-pge",
       "ca-alameda-pleasanton-pge",
-      "ca-contra-costa-richmond-pge"
+      "ca-contra-costa-richmond-pge",
+      "ca-contra-costa-concord-pge"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-contra-costa-concord-pge",
-        "city": "Concord",
-        "reason": "readiness=LIMITED (completeness 60%, score 100)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
       "IOU"
