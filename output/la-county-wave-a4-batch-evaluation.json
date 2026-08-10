@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:53:30.916Z",
+  "evaluated_at": "2026-08-10T18:19:42.515Z",
   "record_count": 5,
   "records": [
     {
@@ -82,13 +82,14 @@
       "record_id": "ca-los-angeles-inglewood-sce",
       "city": "Inglewood",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -101,7 +102,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -110,11 +110,11 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-burbank-bwp",
@@ -192,14 +192,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
-    "average_validation_score": 97.2,
-    "ready_count": 2,
-    "limited_count": 2,
+    "average_completeness_pct": 68,
+    "average_validation_score": 96.8,
+    "ready_count": 3,
+    "limited_count": 1,
     "not_ready_count": 1,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 2,
+      "generation_supplier": 1,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -232,16 +232,16 @@
         "missing_in_records": 3
       },
       {
-        "field": "generation_supplier",
-        "missing_in_records": 2
-      },
-      {
         "field": "required_documents",
         "missing_in_records": 2
       },
       {
         "field": "inspection_steps",
         "missing_in_records": 2
+      },
+      {
+        "field": "generation_supplier",
+        "missing_in_records": 1
       },
       {
         "field": "battery_programs",
@@ -276,6 +276,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-los-angeles-carson-sce",
+      "ca-los-angeles-inglewood-sce",
       "ca-los-angeles-burbank-bwp"
     ],
     "limited_for_now": [
@@ -283,11 +284,6 @@
         "record_id": "ca-los-angeles-compton-sce",
         "city": "Compton",
         "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
-      },
-      {
-        "record_id": "ca-los-angeles-inglewood-sce",
-        "city": "Inglewood",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [

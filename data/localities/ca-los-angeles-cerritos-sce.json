@@ -8,10 +8,13 @@
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Cerritos' by name among the cities in its service area. Note: the City of Cerritos separately operates its own small municipal utility, Cerritos Electric Utility (CEU), confirmed via SCPPA's own member page — but CEU explicitly 'serves educational institutions, City-owned facilities and major retail businesses' (about 449 non-residential accounts) rather than general residential customers, so this does not change the applicable utility for a residential solar permit."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No official Cerritos city page or Clean Power Alliance page confirming CCA membership was found this session. Left null rather than guessed."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Clean Power Alliance's own homepage states it serves '38 communities across Los Angeles and Ventura counties' and names each one individually via its site's community directory; Cerritos is not among the named communities. No other Los Angeles County CCA serving Cerritos was found, so SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S8"]
   },
   "city": { "value": "Cerritos", "confidence": 1, "source_ids": ["S1"] },
   "county": {
@@ -165,6 +168,14 @@
       "url": "https://www.cerritos.gov/media/xnncx0fz/master-fee-schedule-2026.pdf",
       "publisher": "City of Cerritos",
       "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S8",
+      "title": "Homepage (community directory listing all 38 CPA member communities)",
+      "url": "https://cleanpoweralliance.org/",
+      "publisher": "Clean Power Alliance",
+      "type": "other_official",
       "accessed_date": "2026-08-10"
     }
   ]

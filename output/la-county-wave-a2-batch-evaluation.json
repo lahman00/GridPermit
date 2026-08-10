@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T15:42:06.841Z",
+  "evaluated_at": "2026-08-10T18:19:31.664Z",
   "record_count": 7,
   "records": [
     {
@@ -159,13 +159,14 @@
       "record_id": "ca-los-angeles-cerritos-sce",
       "city": "Cerritos",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
       "warning_count": 3,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -178,7 +179,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "inspection_steps",
         "timeline_days",
         "rebates"
@@ -188,11 +188,11 @@
         "unsupported_claim"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-lakewood-sce",
@@ -272,14 +272,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 70.5,
+    "average_completeness_pct": 71.4,
     "average_validation_score": 92.9,
-    "ready_count": 3,
-    "limited_count": 4,
+    "ready_count": 4,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 4,
+      "generation_supplier": 3,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -308,12 +308,12 @@
         "missing_in_records": 5
       },
       {
-        "field": "generation_supplier",
+        "field": "inspection_steps",
         "missing_in_records": 4
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 4
+        "field": "generation_supplier",
+        "missing_in_records": 3
       },
       {
         "field": "required_documents",
@@ -350,18 +350,14 @@
     "recommended_publish_record_ids": [
       "ca-los-angeles-whittier-sce",
       "ca-los-angeles-pico-rivera-sce",
-      "ca-los-angeles-downey-sce"
+      "ca-los-angeles-downey-sce",
+      "ca-los-angeles-cerritos-sce"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-los-angeles-norwalk-sce",
         "city": "Norwalk",
         "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
-      },
-      {
-        "record_id": "ca-los-angeles-cerritos-sce",
-        "city": "Cerritos",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 91)"
       },
       {
         "record_id": "ca-los-angeles-lakewood-sce",

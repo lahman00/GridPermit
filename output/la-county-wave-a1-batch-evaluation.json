@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T06:29:07.106Z",
+  "evaluated_at": "2026-08-10T18:19:42.565Z",
   "record_count": 10,
   "records": [
     {
@@ -270,13 +270,14 @@
       "record_id": "ca-los-angeles-la-verne-sce",
       "city": "La Verne",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -289,7 +290,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -298,11 +298,11 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-diamond-bar-sce",
@@ -383,14 +383,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66,
-    "average_validation_score": 96.3,
-    "ready_count": 4,
-    "limited_count": 5,
+    "average_completeness_pct": 66.7,
+    "average_validation_score": 96.1,
+    "ready_count": 5,
+    "limited_count": 4,
     "not_ready_count": 1,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 8,
+      "generation_supplier": 7,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -416,7 +416,7 @@
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 8
+        "missing_in_records": 7
       },
       {
         "field": "timeline_days",
@@ -471,6 +471,7 @@
       "ca-los-angeles-west-covina-sce",
       "ca-los-angeles-covina-sce",
       "ca-los-angeles-monrovia-sce",
+      "ca-los-angeles-la-verne-sce",
       "ca-los-angeles-diamond-bar-sce"
     ],
     "limited_for_now": [
@@ -488,11 +489,6 @@
         "record_id": "ca-los-angeles-san-dimas-sce",
         "city": "San Dimas",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-los-angeles-la-verne-sce",
-        "city": "La Verne",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-los-angeles-walnut-sce",
