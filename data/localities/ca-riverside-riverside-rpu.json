@@ -43,7 +43,14 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "RPU's page references 'final permit approval' from the City but does not itself detail the inspection-scheduling process." },
+  "inspection_steps": {
+    "value": [
+      "Request an inspection through the City's Online Public Portal or via the automated phone system at 951-826-5361",
+      "SolarAPP+ plans and job cards must be present during scheduled inspections"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
@@ -61,7 +68,14 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "A third-party guide cites $150-$300 for a typical residential system, but this was not independently confirmed against RPU's or the City's own fee schedule this session, so it is not recorded here." },
+  "permit_fees": {
+    "value": [
+      { "name": "Residential Solar Energy System (≤15 kW)", "amount_usd": 175, "unit": "per kW", "notes": "Per the City's own Building & Safety Fees schedule (effective July 1, 2026)." },
+      { "name": "Residential Solar Energy System (each additional kW over 15)", "amount_usd": 7.5, "unit": "per kW", "notes": "Per the City's own Building & Safety Fees schedule (effective July 1, 2026)." }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S4"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [], "notes": "RPU's page references a 'Residential Solar Energy Program' offering rebates but the specific program details were not independently confirmed this session." },
   "official_contacts": {
     "value": [
@@ -108,6 +122,14 @@
       "publisher": "City of Riverside",
       "type": "government",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S4",
+      "title": "Building & Safety Fees (B&S Fees)",
+      "url": "http://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/building/forms/126_BUILDING%20FEES_V2.0.pdf",
+      "publisher": "City of Riverside",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

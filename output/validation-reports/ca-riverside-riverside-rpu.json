@@ -1,15 +1,20 @@
 {
   "record_id": "ca-riverside-riverside-rpu",
   "file": "data/localities/ca-riverside-riverside-rpu.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 98,
+  "score": 93,
   "errors": [],
   "warnings": [
     {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -18,16 +23,8 @@
       "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "rebates",
@@ -37,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://riversideca.gov/utilities/residents/solar-info",
-      "checked_at": "2026-08-08T18:39:11.839Z",
+      "checked_at": "2026-08-10T05:29:08.285Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,7 +42,7 @@
     },
     {
       "url": "https://riversideca.gov/cedd/building-safety/online-permits/solarapp",
-      "checked_at": "2026-08-08T18:39:14.132Z",
+      "checked_at": "2026-08-10T05:29:09.664Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -53,11 +50,19 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T18:39:14.694Z",
+      "checked_at": "2026-08-10T05:29:10.054Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
+    },
+    {
+      "url": "http://riversideca.gov/cedd/sites/riversideca.gov.cedd/files/pdf/building/forms/126_BUILDING%20FEES_V2.0.pdf",
+      "checked_at": "2026-08-10T05:29:20.057Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }
