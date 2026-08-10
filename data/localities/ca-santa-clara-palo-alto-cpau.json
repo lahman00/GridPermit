@@ -25,50 +25,78 @@
     "notes": "Palo Alto requires a two-step process: Electric Utilities Pre-Approval from CPAU, then a building/electrical permit from Development Services."
   },
   "permit_url": {
-    "value": "https://www.cityofpaloalto.org/gov/depts/utl/residents/resources/pcm/pv_permitting_and_interconnection.asp",
-    "confidence": 0.85,
-    "source_ids": ["S1"]
+    "value": "https://www.paloalto.gov/Departments/Planning-Development-Services/Development-Services/Start-the-Permit-Process/Apply-for-a-Residential-SolarAPP-Permit",
+    "confidence": 0.9,
+    "source_ids": ["S6"],
+    "notes": "The City's website migrated from cityofpaloalto.org to paloalto.gov; the previous permit_url (cityofpaloalto.org) now 404s. Updated to the current live 'Apply for a Residential SolarAPP+ Permit' page, found this session."
   },
   "interconnection_url": {
-    "value": "https://www.cityofpaloalto.org/gov/depts/utl/residents/resources/pcm/pv_permitting_and_interconnection.asp",
+    "value": "https://www.paloalto.gov/Departments/Utilities/Electrification/Electrify-My-Home/Consider-Solar",
     "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "CPAU's own PV Permitting and Interconnection page; Palo Alto's interconnection ('Permission to Operate') process is run by CPAU itself rather than an outside IOU."
+    "notes": "CPAU's own 'Consider Solar' page (current domain, paloalto.gov); Palo Alto's interconnection ('Permission to Operate') process is run by CPAU itself rather than an outside IOU. The previous cityofpaloalto.org interconnection_url is dead (404) after the City's site migration; S1 updated to the current live page."
   },
   "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
   "required_documents": {
     "value": [
-      { "name": "Site plan", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Elevation plan", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Three-line diagram", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "PV/ESS/inverter manufacturer technical datasheets", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Utilities interconnection agreement", "required_when": "always", "source_ids": ["S1"] }
+      { "name": "Site Plan/Roof Plan (existing main panel/amperage, proposed PV location, related equipment, roof penetrations, setbacks)", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Elevation Plan (only if structure/equipment is in a flood plain and equipment is installed outside)", "required_when": "conditional", "source_ids": ["S7"] },
+      { "name": "Structural Attachment Details and Waterproofing Details", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Three-Line Electrical Diagram", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Signage and Labeling Plan (rapid shutdown means)", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Structural Calculation (ballast system, standing seam roofs, tilt-up systems, etc., as applicable)", "required_when": "conditional", "source_ids": ["S7"] },
+      { "name": "Residential Electrical Load Calculation", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "CPAU Electrification Load Sheet", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "CPAU Interconnection Agreement (signed by owner)", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "PV/ESS/Inverter manufacturer technical datasheets", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "SolarAPP+ Approval Document and SolarAPP+ Spec Sheet (SolarAPP+ pathway only)", "required_when": "conditional", "source_ids": ["S6"] }
     ],
-    "confidence": 0.85,
-    "source_ids": ["S1"]
+    "confidence": 0.9,
+    "source_ids": ["S6", "S7"],
+    "notes": "Combines the City's own step-by-step SolarAPP+ permit application page with its Residential Photovoltaic System (PV) Submittal Checklist PDF (2026)."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "A printed large-format job copy of the approved plans, the printed permit card, and installation instructions must be available on site at the time of inspection",
+      "Required inspection: '703 Photovoltaic Final' (per the City's Residential PV Inspection Guidelines)"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"]
+  },
   "timeline_days": {
-    "value": { "min_days": 3, "max_days": 3, "notes": "Typical approval time is 3 business days, though complex projects requiring structural review may take longer. Separately, the utility interconnection process (Permission to Operate) can take 2-12 weeks after the system passes inspection; the system cannot legally export power to the grid until PTO is granted." },
-    "confidence": 0.8,
-    "source_ids": ["S1"]
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own SolarAPP+ page states eligible PV and combined PV/ESS projects 'can bypass the standard building permit process through automated review and instant building permit issuance for licensed contractors.' Non-qualifying projects (e.g. over 38.4kW, ground-mounted, non-single-family, electrical service upgrades) go through standard review instead, previously estimated at roughly 3 business days but not confirmed on this specific page this session. Separately, CPAU's utility interconnection ('Permission to Operate') can take 2-12 weeks after the system passes inspection."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S6"]
   },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential"],
-      "system_size_kw_ac_max": null,
+      "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
-      "program_or_pathway": "Electric Utilities Pre-Approval (CPAU) then building/electrical permit; SolarApp+ available for qualifying stand-alone roof-mounted PV systems without an electrical service upgrade",
+      "program_or_pathway": "SolarAPP+ automated permitting (single-family residential, roof-mounted); standard building/electrical permit + CPAU Interconnection Agreement for all other projects",
       "other_conditions": [
-        "Solar requires both a building/electrical permit from the city AND a separate utility interconnection agreement from CPAU — these are separate processes with separate timelines"
+        "SolarAPP+ limited to licensed (CSLB) contractors; unlicensed applicants must use the traditional building permit process",
+        "SolarAPP+ eligible only for: single-family residential, roof-mounted, new system (no upgrades/additions), PV and/or ESS each 38.4kW or less, electric service 400A or less with a 225A service disconnect switch and 225A busbars",
+        "SolarAPP+ NOT available for: homes on the City's Historic Registry, standalone energy storage, ground-mounted systems, building-integrated PV, electrical service panel upgrades, or non-single-family (multi-family/commercial/community/utility-scale) projects",
+        "Solar requires both a building/electrical permit from the city AND a separate CPAU Interconnection Agreement — these are separate processes with separate timelines"
       ]
     },
-    "confidence": 0.8,
-    "source_ids": ["S1"]
+    "confidence": 0.85,
+    "source_ids": ["S6"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": [
+      { "name": "SolarAPP+ Administration Fee", "amount_usd": 25, "unit": "flat fee", "notes": "Charged through the SolarAPP+ approval process, per the City's own SolarAPP+ page. This is separate from any standard City building permit fees, which were not confirmed this session." }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S6"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [], "notes": "CPAU's own 'Consider Solar' page states federal solar/battery tax credits expired December 31, 2025, and while it says CPAU 'continues to offer residents rebates to help electrify their homes,' its own 'Programs and incentives for solar and battery storage' section describes only a free phone-based Energy Advisor service, not a specific dollar-value solar or battery hardware rebate; no such rebate figure was found this session." },
   "official_contacts": {
     "value": [
       {
@@ -76,21 +104,37 @@
         "role": "City of Palo Alto Utilities (CPAU)",
         "phone": "650-566-4500",
         "email": null,
-        "url": "https://www.cityofpaloalto.org/gov/depts/utl/residents/resources/pcm/pv_permitting_and_interconnection.asp"
+        "url": "https://www.paloalto.gov/Departments/Utilities/Electrification/Electrify-My-Home/Consider-Solar"
       }
     ],
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
-      "title": "PV Permitting and Interconnection",
-      "url": "https://www.cityofpaloalto.org/gov/depts/utl/residents/resources/pcm/pv_permitting_and_interconnection.asp",
+      "title": "Consider Solar",
+      "url": "https://www.paloalto.gov/Departments/Utilities/Electrification/Electrify-My-Home/Consider-Solar",
       "publisher": "City of Palo Alto Utilities (CPAU)",
       "type": "utility",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S6",
+      "title": "Apply for a Residential SolarAPP+ Permit",
+      "url": "https://www.paloalto.gov/Departments/Planning-Development-Services/Development-Services/Start-the-Permit-Process/Apply-for-a-Residential-SolarAPP-Permit",
+      "publisher": "City of Palo Alto",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Residential Photovoltaic System (PV) Submittal Checklist (2026)",
+      "url": "https://www.paloalto.gov/files/assets/public/v/9/development-services/building-division/checklists/simplified/res-photovoltaic-pv-checklist-2026.pdf",
+      "publisher": "City of Palo Alto",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T23:09:45.218Z",
+  "evaluated_at": "2026-08-10T07:12:48.186Z",
   "record_count": 7,
   "records": [
     {
@@ -235,11 +235,11 @@
       "record_id": "ca-santa-clara-palo-alto-cpau",
       "city": "Palo Alto",
       "county": "Santa Clara County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 86.7,
+      "validation_score": 89,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -249,32 +249,33 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "inspection_steps",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "municipal",
       "separate_cca_present": false,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 78.1,
-    "average_validation_score": 96.4,
-    "ready_count": 5,
-    "limited_count": 2,
+    "average_completeness_pct": 80,
+    "average_validation_score": 95.1,
+    "ready_count": 6,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -286,10 +287,10 @@
       "interconnection_url": 0,
       "battery_programs": 3,
       "required_documents": 1,
-      "inspection_steps": 3,
+      "inspection_steps": 2,
       "timeline_days": 3,
       "eligibility_constraints": 0,
-      "permit_fees": 6,
+      "permit_fees": 5,
       "rebates": 7,
       "official_contacts": 0
     },
@@ -300,19 +301,19 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "battery_programs",
         "missing_in_records": 3
       },
       {
-        "field": "inspection_steps",
+        "field": "timeline_days",
         "missing_in_records": 3
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 3
+        "field": "inspection_steps",
+        "missing_in_records": 2
       },
       {
         "field": "required_documents",
@@ -321,7 +322,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 7,
-      "unsupported_claim": 1
+      "unsupported_claim": 2
     },
     "utility_coverage": [
       "IOU",
@@ -348,23 +349,20 @@
       "ca-san-mateo-belmont-pge",
       "ca-san-mateo-san-carlos-pge",
       "ca-san-mateo-atherton-pge",
-      "ca-san-mateo-woodside-pge"
+      "ca-san-mateo-woodside-pge",
+      "ca-santa-clara-palo-alto-cpau"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-san-mateo-portola-valley-pge",
         "city": "Portola Valley",
         "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
-      {
-        "record_id": "ca-santa-clara-palo-alto-cpau",
-        "city": "Palo Alto",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
-      "IOU"
+      "IOU",
+      "municipal"
     ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
