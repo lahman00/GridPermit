@@ -26,10 +26,10 @@
     "source_ids": ["S1"]
   },
   "interconnection_url": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The TDPUD solar/interconnection page found via search-engine indexing was confirmed HTTP 404 (dead) this session. As a public utility district, TDPUD's own interconnection review process applies rather than a statewide IOU NEM program, but a live replacement URL was not independently located."
+    "value": "https://www.tdpud.org/solar-wind-battery-interconnections",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "TDPUD's own current Solar/Wind/Battery Interconnections page (the earlier URL found via search-engine indexing was dead; this current URL was located and directly verified this session). As a public utility district, TDPUD runs its own interconnection review/approval process rather than a statewide IOU NEM program."
   },
   "battery_programs": {
     "value": null,
@@ -49,9 +49,12 @@
     "source_ids": ["S1"]
   },
   "inspection_steps": {
-    "value": ["Post-installation requires a solar assessment report from a CEC-approved tool, plus photographic documentation confirming the installed system matches the modeled design"],
-    "confidence": 0.75,
-    "source_ids": ["S1"]
+    "value": [
+      "Post-installation requires a solar assessment report from a CEC-approved tool, plus photographic documentation confirming the installed system matches the modeled design (Town of Truckee building permit requirement)",
+      "Separately, following construction, a TDPUD electrician conducts a site inspection to ensure the interconnection installation meets standards before the system may be energized (TDPUD Interconnection Agreement requirement)"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1", "S2"]
   },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
@@ -68,10 +71,11 @@
   },
   "permit_fees": {
     "value": [
-      { "name": "Symbium processing fee", "amount_usd": null, "unit": "paid to Symbium at submission, separate from the Town permit fee", "notes": "The Town permit fee is billed separately to the applicant afterward. Exception reviews are billed hourly (1-hour minimum)." }
+      { "name": "Symbium processing fee", "amount_usd": null, "unit": "paid to Symbium at submission, separate from the Town permit fee", "notes": "The Town permit fee is billed separately to the applicant afterward. Exception reviews are billed hourly (1-hour minimum)." },
+      { "name": "TDPUD Interconnection Agreement Fee", "amount_usd": 550, "unit": "flat fee", "notes": "Per TDPUD's own Solar/Wind/Battery Interconnections page, this is separate from and in addition to the Town of Truckee's own building permit fee." }
     ],
-    "confidence": 0.65,
-    "source_ids": ["S1"]
+    "confidence": 0.75,
+    "source_ids": ["S1", "S2"]
   },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
@@ -95,7 +99,15 @@
       "url": "https://www.townoftruckee.gov/184/Residential-Solar-and-Battery-Storage",
       "publisher": "Town of Truckee",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S2",
+      "title": "Solar/Wind/Battery Interconnections",
+      "url": "https://www.tdpud.org/solar-wind-battery-interconnections",
+      "publisher": "Truckee Donner Public Utility District (TDPUD)",
+      "type": "utility",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

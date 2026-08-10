@@ -1,25 +1,15 @@
 {
   "record_id": "ca-nevada-truckee-tdpud",
   "file": "data/localities/ca-nevada-truckee-tdpud.json",
-  "validated_at": "2026-08-09",
-  "status": "REVIEW",
-  "score": 95,
+  "validated_at": "2026-08-10",
+  "status": "PASS",
+  "score": 100,
   "errors": [],
-  "warnings": [
-    {
-      "field": "permit_fees",
-      "category": "unsupported_claim",
-      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
-    }
-  ],
+  "warnings": [],
   "recommendations": [
     {
       "field": "generation_supplier",
       "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "interconnection_url",
-      "message": "'interconnection_url' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "battery_programs",
@@ -37,7 +27,15 @@
   "url_checks": [
     {
       "url": "https://www.townoftruckee.gov/184/Residential-Solar-and-Battery-Storage",
-      "checked_at": "2026-08-09T05:25:42.705Z",
+      "checked_at": "2026-08-10T15:46:20.295Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.tdpud.org/solar-wind-battery-interconnections",
+      "checked_at": "2026-08-10T15:46:21.521Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
