@@ -36,19 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Santa Cruz Community Development, Building Safety Division",
-    "confidence": 0.65,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "santacruzca.gov returned HTTP 403 to automated fetch on every attempt this session, so the city's own SolarApp+ page could not be independently read; this record relies on search-engine-derived detail."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.santacruzca.gov/Government/City-Departments/Community-Development/Building-Safety/SolarApp",
-    "confidence": 0.45,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; the page returned HTTP 403 to automated fetch and its content was not independently verified this session."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -81,19 +81,33 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "SolarAPP+ Approval Document (generated only when approved)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ Inspection Checklist (generated only when approved; must be signed by a field solar representative confirming completion prior to inspection)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "City of Santa Cruz permit number (emailed after Solar APP+ sends the Approval Document and Inspection Checklist to the City)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Have a field solar representative verify and sign the Inspection Checklist confirming completion prior to inspection",
+      "Call (831) 420-5110 to schedule an inspection for an issued permit; inspections are posted by 8am the morning of the scheduled date",
+      "Requests made after 2pm do not qualify for next-business-day scheduling and are instead scheduled for the second business day",
+      "The Permit, SolarAPP+ Approval Document, and Inspection Checklist must be printed and kept at the job site at all times for inspection",
+      "A reinspection fee applies if work is not ready, documents aren't on site, or revisions weren't completed via SolarAPP+ before scheduling"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page is titled 'Instant and Affordable Solar Permit Available through SolarAPP+' and states 'For the City of Santa Cruz, SolarApp+ will instantly issue the permit after payment is complete.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
     "value": {
@@ -103,12 +117,15 @@
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
-      "program_or_pathway": "SolarAPP+ automated permitting (submitted at solarapp.nrel.gov)",
+      "program_or_pathway": "SolarAPP+ automated permitting (submitted at gosolarapp.org)",
       "other_conditions": [
-        "Only licensed contractors may use the automated SolarAPP+ review process; non-licensed owner-builders must apply for a regular Solar Permit through the standard plan check process"
+        "Only new rooftop solar PV on detached one- and two-family dwellings, townhomes, and related accessory structures (e.g. garage or ADU)",
+        "Only licensed contractors may use SolarAPP+; non-licensed owner-builders must apply for a regular Solar Permit through the standard plan check process",
+        "No stated total wattage limit, but service panel equipment is capped at up to 400A main service, 225A service disconnect switches, and 225A busbars",
+        "Properties with active code compliance cases, unverified compliance complaints, voided permits, or location in a flood zone may not participate"
       ]
     },
-    "confidence": 0.55,
+    "confidence": 0.8,
     "source_ids": [
       "S1"
     ]
@@ -116,7 +133,8 @@
   "permit_fees": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "The City's own page states 'all applicable permit fees will be assessed per the City of Santa Cruz Master Fee Schedule' but gives no specific dollar figure directly on this page."
   },
   "rebates": {
     "value": null,
@@ -124,19 +142,27 @@
     "source_ids": []
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": null,
+        "role": "City of Santa Cruz Building Division",
+        "phone": "831-420-5417",
+        "email": "bcounter@santacruzca.gov",
+        "url": "https://www.santacruzca.gov/Government/City-Departments/Community-Development/Building-Safety/SolarApp"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
-      "title": "SolarApp+ (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "title": "SolarApp+",
       "url": "https://www.santacruzca.gov/Government/City-Departments/Community-Development/Building-Safety/SolarApp",
       "publisher": "City of Santa Cruz",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",
