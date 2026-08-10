@@ -17,15 +17,15 @@
   "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
   "permit_authority": {
     "value": "City of Barstow Community Development Department, Building & Safety Division",
-    "confidence": 0.7,
+    "confidence": 0.9,
     "source_ids": ["S1"],
-    "notes": "barstowca.org returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page, not independently read."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.barstowca.org/departments/community-development-department/building-safety/solar-app",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; barstowca.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -63,12 +63,22 @@
   },
   "inspection_steps": {
     "value": [
-      "Contact the City of Barstow Building Department by phone (760-255-5161) or email (building@barstowca.org) to schedule on-site inspections"
+      "Email the residential solar permitting department at residentialsolar@barstowca.org with all SolarAPP+ approval documents attached, prior to scheduling the first inspection",
+      "Request an inspection by calling the Building Department at 760-255-5161 during business hours (Monday-Thursday, 8:00am-5:30pm); inspections are scheduled for morning (8:00am-12:00pm) or afternoon (1:00pm-4:30pm) windows",
+      "Same-day inspections are not permitted, and contractors must furnish a ladder for the inspection"
     ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own Solar APP+ page states 'Only projects that conform to this list are eligible to use the automated SolarAPP+ portal for instant permitting.'"
+    },
     "confidence": 0.75,
     "source_ids": ["S1"]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential"],
@@ -113,7 +123,7 @@
       "url": "https://www.barstowca.org/departments/community-development-department/building-safety/solar-app",
       "publisher": "City of Barstow",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",

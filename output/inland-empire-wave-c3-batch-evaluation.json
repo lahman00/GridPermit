@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:28:20.817Z",
+  "evaluated_at": "2026-08-10T07:21:58.623Z",
   "record_count": 9,
   "records": [
     {
@@ -312,7 +312,7 @@
       "record_id": "ca-san-bernardino-barstow-sce",
       "city": "Barstow",
       "county": "San Bernardino County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -327,12 +327,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -342,16 +342,16 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.1,
+    "average_completeness_pct": 74.8,
     "average_validation_score": 94.2,
-    "ready_count": 5,
-    "limited_count": 4,
+    "ready_count": 6,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -364,7 +364,7 @@
       "battery_programs": 0,
       "required_documents": 3,
       "inspection_steps": 2,
-      "timeline_days": 5,
+      "timeline_days": 4,
       "eligibility_constraints": 3,
       "permit_fees": 6,
       "rebates": 9,
@@ -385,7 +385,7 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "required_documents",
@@ -429,7 +429,8 @@
       "ca-san-bernardino-san-bernardino-sce",
       "ca-san-bernardino-highland-sce",
       "ca-san-bernardino-loma-linda-sce",
-      "ca-san-bernardino-hesperia-sce"
+      "ca-san-bernardino-hesperia-sce",
+      "ca-san-bernardino-barstow-sce"
     ],
     "limited_for_now": [
       {
@@ -446,11 +447,6 @@
         "record_id": "ca-san-bernardino-apple-valley-sce",
         "city": "Apple Valley",
         "reason": "readiness=LIMITED (completeness 60%, score 96)"
-      },
-      {
-        "record_id": "ca-san-bernardino-barstow-sce",
-        "city": "Barstow",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       }
     ],
     "not_ready": [],

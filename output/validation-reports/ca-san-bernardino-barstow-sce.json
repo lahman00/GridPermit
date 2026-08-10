@@ -1,7 +1,7 @@
 {
   "record_id": "ca-san-bernardino-barstow-sce",
   "file": "data/localities/ca-san-bernardino-barstow-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
   "score": 94,
   "errors": [],
@@ -14,22 +14,18 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
     {
       "field": "generation_supplier",
       "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "permit_fees",
@@ -43,7 +39,7 @@
   "url_checks": [
     {
       "url": "https://www.barstowca.org/departments/community-development-department/building-safety/solar-app",
-      "checked_at": "2026-08-08T18:56:06.971Z",
+      "checked_at": "2026-08-10T07:21:18.027Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -51,15 +47,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T18:56:07.225Z",
+      "checked_at": "2026-08-10T07:21:18.170Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T18:56:07.230Z",
+      "checked_at": "2026-08-10T07:21:28.173Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -67,7 +63,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T18:56:07.976Z",
+      "checked_at": "2026-08-10T07:21:28.964Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -75,11 +71,11 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T18:56:08.843Z",
+      "checked_at": "2026-08-10T07:21:29.636Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     }
   ]
 }
