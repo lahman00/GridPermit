@@ -8,10 +8,13 @@
     "notes": "The greater Truckee area has been served by the publicly-owned Truckee Donner Public Utility District (established 1927) since its founding, confirmed via TDPUD's own site and its membership in the Northern California Power Agency (NCPA). This is a public utility district, not PG&E, independently confirmed rather than assumed from county location."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No CCA was found serving Truckee this session; as a public utility district, TDPUD generally would not participate in a CCA."
+    "value": {
+      "name": "Truckee Donner Public Utility District (TDPUD)",
+      "type": "utility",
+      "notes": "TDPUD is a public utility district (not an IOU-served city), so it is structurally outside CCA enrollment the same way other municipal/public utility districts in this dataset are (e.g. Alameda Municipal Power, Gridley Electric Utility, Lompoc Utilities): a CCA only replaces the default generation of an underlying investor-owned utility's (PG&E/SCE/SDG&E) customers, and TDPUD customers are never IOU customers to begin with. Pioneer Community Energy's own homepage (directly re-verified this session) also confirms its current service area is limited to specific Placer/El Dorado County communities and does not include Truckee. TDPUD is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "city": { "value": "Truckee", "confidence": 1, "source_ids": ["S1"] },
   "county": { "value": "Nevada County", "confidence": 0.85, "source_ids": ["S1"], "notes": "Truckee straddles Nevada and Placer Counties; its Town Hall and primary municipal seat are in Nevada County." },

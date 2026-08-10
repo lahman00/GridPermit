@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T15:46:34.563Z",
+  "evaluated_at": "2026-08-10T19:21:55.206Z",
   "record_count": 5,
   "records": [
     {
@@ -159,13 +159,14 @@
       "record_id": "ca-nevada-truckee-tdpud",
       "city": "Truckee",
       "county": "Nevada County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
       "warning_count": 0,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -178,29 +179,28 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "battery_programs",
         "timeline_days",
         "rebates"
       ],
       "warning_categories": [],
       "utility_type": "municipal",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.7,
+    "average_completeness_pct": 76,
     "average_validation_score": 96.6,
-    "ready_count": 3,
-    "limited_count": 2,
+    "ready_count": 4,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 3,
+      "generation_supplier": 2,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -225,12 +225,12 @@
         "missing_in_records": 4
       },
       {
-        "field": "generation_supplier",
+        "field": "permit_fees",
         "missing_in_records": 3
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 3
+        "field": "generation_supplier",
+        "missing_in_records": 2
       },
       {
         "field": "inspection_steps",
@@ -274,23 +274,20 @@
     "recommended_publish_record_ids": [
       "ca-sutter-yuba-city-pge",
       "ca-nevada-grass-valley-pge",
-      "ca-nevada-nevada-city-pge"
+      "ca-nevada-nevada-city-pge",
+      "ca-nevada-truckee-tdpud"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-yuba-marysville-pge",
         "city": "Marysville",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-nevada-truckee-tdpud",
-        "city": "Truckee",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
       }
     ],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
-      "IOU"
+      "IOU",
+      "municipal"
     ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
