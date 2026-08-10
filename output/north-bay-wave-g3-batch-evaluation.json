@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T04:34:25.523Z",
+  "evaluated_at": "2026-08-10T22:00:00.950Z",
   "record_count": 6,
   "records": [
     {
@@ -120,13 +120,14 @@
       "record_id": "ca-solano-suisun-city-pge",
       "city": "Suisun City",
       "county": "Solano County",
-      "completeness_pct": 60,
-      "validation_score": 96,
+      "completeness_pct": 66.7,
+      "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -137,7 +138,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -148,7 +148,7 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
@@ -158,27 +158,27 @@
       "record_id": "ca-solano-vacaville-pge",
       "city": "Vacaville",
       "county": "Solano County",
-      "completeness_pct": 60,
-      "validation_score": 94,
+      "completeness_pct": 80,
+      "validation_score": 90,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 5,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
-        "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -186,11 +186,11 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-solano-dixon-pge",
@@ -232,14 +232,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.5,
-    "average_validation_score": 94.7,
-    "ready_count": 4,
-    "limited_count": 2,
+    "average_completeness_pct": 78.9,
+    "average_validation_score": 93.7,
+    "ready_count": 5,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 3,
+      "generation_supplier": 1,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -247,8 +247,8 @@
       "interconnection_url": 0,
       "battery_programs": 0,
       "required_documents": 3,
-      "inspection_steps": 2,
-      "timeline_days": 3,
+      "inspection_steps": 1,
+      "timeline_days": 2,
       "eligibility_constraints": 0,
       "permit_fees": 6,
       "rebates": 6,
@@ -264,20 +264,20 @@
         "missing_in_records": 6
       },
       {
-        "field": "generation_supplier",
-        "missing_in_records": 3
-      },
-      {
         "field": "required_documents",
         "missing_in_records": 3
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 3
+        "missing_in_records": 2
+      },
+      {
+        "field": "generation_supplier",
+        "missing_in_records": 1
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 2
+        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
@@ -304,18 +304,14 @@
       "ca-solano-vallejo-pge",
       "ca-solano-benicia-pge",
       "ca-solano-fairfield-pge",
+      "ca-solano-vacaville-pge",
       "ca-solano-dixon-pge"
     ],
     "limited_for_now": [
       {
         "record_id": "ca-solano-suisun-city-pge",
         "city": "Suisun City",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
-      },
-      {
-        "record_id": "ca-solano-vacaville-pge",
-        "city": "Vacaville",
-        "reason": "readiness=LIMITED (completeness 60%, score 94)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
       }
     ],
     "not_ready": [],
