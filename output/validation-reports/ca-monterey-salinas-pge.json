@@ -1,52 +1,56 @@
 {
   "record_id": "ca-monterey-salinas-pge",
   "file": "data/localities/ca-monterey-salinas-pge.json",
-  "validated_at": "2026-08-09",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 85,
   "errors": [],
   "warnings": [
     {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
       "field": "permit_url",
       "category": "broken_url",
-      "message": "https://www.salinas.gov/Residents/Permit-Center — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.salinas.gov/Residents/Permit-Center/Permit-Services — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
       "field": "interconnection_url",
       "category": "broken_url",
       "message": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "broken_url",
+      "message": "https://www.salinas.gov/Residents/Permit-Center — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S6].url",
+      "category": "broken_url",
+      "message": "https://www.salinas.gov/Residents/Permit-Center/Building-Inspections — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S7].url",
+      "category": "broken_url",
+      "message": "https://www.salinas.gov/files/sharedassets/city/v/1/finance-department/documents/fy-26-27-city-wide-schedule-of-fees-and-service-charges_final-post.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "official_contacts",
-      "message": "'official_contacts' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
-      "url": "https://www.salinas.gov/Residents/Permit-Center",
-      "checked_at": "2026-08-09T22:23:45.082Z",
+      "url": "https://www.salinas.gov/Residents/Permit-Center/Permit-Services",
+      "checked_at": "2026-08-10T17:16:01.656Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -54,7 +58,7 @@
     },
     {
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
-      "checked_at": "2026-08-09T22:23:45.339Z",
+      "checked_at": "2026-08-10T17:16:01.902Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -62,19 +66,43 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-09T22:23:45.377Z",
+      "checked_at": "2026-08-10T17:16:02.173Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
+      "url": "https://www.salinas.gov/Residents/Permit-Center",
+      "checked_at": "2026-08-10T17:16:03.141Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
       "url": "https://3cenergy.org/about-us/",
-      "checked_at": "2026-08-09T22:23:46.135Z",
+      "checked_at": "2026-08-10T17:16:03.280Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.salinas.gov/Residents/Permit-Center/Building-Inspections",
+      "checked_at": "2026-08-10T17:16:03.535Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.salinas.gov/files/sharedassets/city/v/1/finance-department/documents/fy-26-27-city-wide-schedule-of-fees-and-service-charges_final-post.pdf",
+      "checked_at": "2026-08-10T17:16:03.657Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }

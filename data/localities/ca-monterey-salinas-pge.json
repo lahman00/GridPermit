@@ -36,19 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Salinas Permit Center",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "salinas.gov returned HTTP 403 to automated fetch this session, so the city's own Permit Center page could not be independently read; this record relies on search-engine-derived detail."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
-    "value": "https://www.salinas.gov/Residents/Permit-Center",
-    "confidence": 0.45,
+    "value": "https://www.salinas.gov/Residents/Permit-Center/Permit-Services",
+    "confidence": 0.9,
     "source_ids": [
-      "S1"
+      "S5"
     ],
-    "notes": "URL identified via search-engine indexing; the page returned HTTP 403 to automated fetch and its content was not independently verified this session."
+    "notes": "The City's Permit Services page (a more specific URL than the general Permit Center landing page) has a dedicated SolarAPP+ section, rendered via a click-to-expand accordion and extracted via direct DOM id lookup."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -81,42 +81,62 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "SolarAPP+ Approval Documents (downloaded after submission and processing fee payment, uploaded into eTRAKiT)", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "SolarAPP+ Inspection Checklist", "required_when": "always", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "Per the City's own 'Automated Solar Permit' (SolarAPP+) page section. Applicants apply for the permit itself through eTRAKiT after obtaining SolarAPP+ approval."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Get ready: find the Permit Job Card, obtain inspection code(s), and have an on-site contact name and phone number",
+      "Request inspection by phone at (831) 758-7251 (Option 1) with inspection code(s) ready, or online via the eTRAKiT Portal (authorized users only; contractors may request access by emailing epermit@salinas.gov)",
+      "Choose a window: AM (8:30am-12:30pm) or PM (12:00pm-4:30pm); no exact arrival times given",
+      "To schedule for the next business day: request AM inspections by 12:00pm, PM inspections by 4:00pm",
+      "Someone 18+ must be on site during the window with City-stamped approved plans and the Permit Job Card printed and accessible",
+      "Re-inspection fees may apply for no-shows, same-day cancellations, or failed inspections; cancel at least 24 hours in advance when possible"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S6"],
+    "notes": "This is the City's general Building Inspections scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence. Inspection requests are not accepted by email or department voicemail."
   },
   "timeline_days": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "The City's own Automated Solar Permit page describes the SolarAPP+ pathway as 'streamline and expedite' the permitting process, but does not use explicit instant/automatic-issuance language, so no timeline figure was recorded per this project's evidentiary standard."
   },
   "eligibility_constraints": {
     "value": {
       "property_types": [
         "residential"
       ],
-      "system_size_kw_ac_max": 10,
+      "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
-      "program_or_pathway": "SolarAPP+ (available for qualifying systems under 10kW)",
+      "program_or_pathway": "Automated Solar Permit via SolarAPP+ (contractors only)",
       "other_conditions": [
-        "Reviewed under the 2022 California Building Code / IRC"
+        "Available exclusively to contractors registered with SolarAPP+; applies to residential roof-mounted PV installations, with or without energy storage systems",
+        "A main electrical service upgrade may optionally be included in the Automated Solar Permit application",
+        "Only systems listed in the SolarAPP+ Eligibility Checklist are eligible"
       ]
     },
-    "confidence": 0.45,
+    "confidence": 0.75,
     "source_ids": [
-      "S1"
+      "S5"
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Solar Plan Check (Residential)", "amount_usd": 215, "unit": "flat fee", "notes": "Per the City's own FY 2026/27 City-Wide Schedule of Fees and Service Charges, effective July 1, 2026." },
+      { "name": "Solar Permit Fee (Residential)", "amount_usd": 152, "unit": "flat fee", "notes": "Per the City's own FY 2026/27 City-Wide Schedule of Fees and Service Charges, effective July 1, 2026." },
+      { "name": "SolarApp+ OTC Permit Fee", "amount_usd": 370.50, "unit": "flat fee (2-hour minimum inspection time at $185.25/hour)", "notes": "Per the City's own FY 2026/27 City-Wide Schedule of Fees and Service Charges, effective July 1, 2026." },
+      { "name": "SolarApp+ Record Retention Fee", "amount_usd": 45, "unit": "flat fee", "notes": "Per the City's own FY 2026/27 City-Wide Schedule of Fees and Service Charges, effective July 1, 2026." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S7"]
   },
   "rebates": {
     "value": null,
@@ -124,19 +144,27 @@
     "source_ids": []
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": null,
+        "role": "City of Salinas Permit Center",
+        "phone": "831-758-7251",
+        "email": "epermit@salinas.gov",
+        "url": "https://www.salinas.gov/Residents/Permit-Center"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "last_verified": "2026-08-09",
   "sources": [
     {
       "id": "S1",
-      "title": "Permit Center (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "title": "Permit Center",
       "url": "https://www.salinas.gov/Residents/Permit-Center",
       "publisher": "City of Salinas",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",
@@ -161,6 +189,30 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Permit Services",
+      "url": "https://www.salinas.gov/Residents/Permit-Center/Permit-Services",
+      "publisher": "City of Salinas",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S6",
+      "title": "Building Inspections",
+      "url": "https://www.salinas.gov/Residents/Permit-Center/Building-Inspections",
+      "publisher": "City of Salinas",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "FY 2026/27 City-Wide Schedule of Fees and Service Charges",
+      "url": "https://www.salinas.gov/files/sharedassets/city/v/1/finance-department/documents/fy-26-27-city-wide-schedule-of-fees-and-service-charges_final-post.pdf",
+      "publisher": "City of Salinas",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
