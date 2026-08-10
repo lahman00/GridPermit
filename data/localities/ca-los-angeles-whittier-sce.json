@@ -11,9 +11,9 @@
     "value": {
       "name": "Clean Power Alliance (CPA)",
       "type": "cca",
-      "notes": "Whittier's own city government site hosts a page titled 'Clean Power Alliance and Green Projects | Whittier, CA' at cityofwhittier.org/services/whittier-transparent/clean-power-alliance, confirming a formal CPA relationship exists, though cityofwhittier.org returned HTTP 403 to direct fetch on every attempt this session so its exact content (join date, default tier) could not be read. Confidence reflects that this is indirect corroboration (a matching official page title on the city's own domain), not a directly-read primary-source page."
+      "notes": "Whittier's own 'Clean Power Alliance and Green Projects' page (directly re-verified via browser this session; an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block) confirms a formal CPA relationship exists as part of the City's sustainability initiatives, but does not itself state a specific join date or default product tier."
     },
-    "confidence": 0.6,
+    "confidence": 0.7,
     "source_ids": ["S1"]
   },
   "city": { "value": "Whittier", "confidence": 1, "source_ids": ["S1"] },
@@ -25,15 +25,15 @@
   },
   "permit_authority": {
     "value": "City of Whittier Building Safety Division",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "source_ids": ["S3"],
-    "notes": "cityofwhittier.org returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page title, but the SolarAPP+ page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.cityofwhittier.org/government/community-development/building-safety/solar-app",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S3"],
-    "notes": "URL identified via search-engine indexing; cityofwhittier.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -61,24 +61,49 @@
     "source_ids": ["S5"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "cityofwhittier.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's SolarAPP+ submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ account and City of Whittier online portal account", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Active City of Whittier business license (required before submitting for a SolarAPP+ permit; inspections cannot be scheduled without one)", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Approved SolarAPP+ documents and specifications sheet", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "LACFD Expedited PV/ESS Permitting Process - Inspection Checklist (completed)", "required_when": "always", "source_ids": ["S3"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "inspection_steps": {
+    "value": [
+      "First inspection is conducted by the LA County Fire Department (LACFD) at the nearest LACFD regional inspection office; must be completed and approved before proceeding",
+      "Then request a Building Inspection through the Building Division's online inspection portal",
+      "Have all approved paperwork, the permit, and the City of Whittier job card printed and present on site for the inspector"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own SolarAPP+ page states 'Only projects that conform to this list are eligible to use the automated SolarAPP+ portal for instant permitting,' and that once fees are paid, 'your permit and City of Whittier job card will be immediately issued, electronically.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential"],
-      "system_size_kw_ac_max": null,
+      "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
       "program_or_pathway": "SolarAPP+ (licensed contractors only) / regular solar permit with plan check (owner-builders and non-eligible projects)",
       "other_conditions": [
+        "Not eligible for SolarAPP+: main panel upgrades, or systems over 38.4kW",
         "Non-licensed/owner-builders must apply for a regular solar permit with plan check rather than SolarAPP+",
-        "Projects qualifying for SolarAPP+ do not require a city plan review"
+        "Fire department setback requirements apply: modules 3 feet from exterior bearing walls, on gabled ends 18 inches from ridge and 18 inches on either side of a valley; AC disconnect must be a knife-switch style within 6 feet of the main service panel and within sight"
       ]
     },
-    "confidence": 0.6,
-    "source_ids": ["S3"],
-    "notes": "Based on search-engine synthesis of the city's own page content, since the page itself could not be directly fetched this session (HTTP 403); recorded with reduced confidence accordingly."
+    "confidence": 0.85,
+    "source_ids": ["S3"]
   },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
@@ -103,7 +128,7 @@
       "url": "https://www.cityofwhittier.org/services/whittier-transparent/clean-power-alliance",
       "publisher": "City of Whittier",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",
@@ -119,7 +144,7 @@
       "url": "https://www.cityofwhittier.org/government/community-development/building-safety/solar-app",
       "publisher": "City of Whittier",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S4",

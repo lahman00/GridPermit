@@ -65,7 +65,15 @@
     "source_ids": ["S1"]
   },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page does not detail a specific inspection scheduling procedure." },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own Residential Solar page states 'Only projects that conform to this list below are eligible to use the SolarAPP+ permit process for instant permitting.'"
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential"],
@@ -80,7 +88,15 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states the SolarAPP+ platform offers three free revisions and that fees are payable online, but no dollar amount is given." },
+  "permit_fees": {
+    "value": [
+      { "name": "Electrical Permit - Solar Panels, Residential PV System (15kW or less)", "amount_usd": 448, "unit": "flat fee plus SB1473 Fee", "notes": "Per the City's own Adopted User Fee Schedule, effective July 1, 2026." },
+      { "name": "Electrical Permit - Solar Panels, Residential PV System (more than 15kW)", "amount_usd": 448, "unit": "flat fee plus SB1473 Fee", "notes": "Per the City's own Adopted User Fee Schedule, effective July 1, 2026." },
+      { "name": "Electrical Permit - Solar Panels, Residential Thermal System (10kW or less)", "amount_usd": 448, "unit": "flat fee plus SB1473 Fee", "notes": "Per the City's own Adopted User Fee Schedule, effective July 1, 2026." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S6"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -110,7 +126,7 @@
       "url": "https://cityofgardena.org/residential-solar/",
       "publisher": "City of Gardena",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",
@@ -143,6 +159,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Adopted User Fee Schedule (Effective July 1, 2026)",
+      "url": "https://cityofgardena.org/wp-content/uploads/2026/07/City-Fee-Schedule-Effective-July-1-2026.pdf",
+      "publisher": "City of Gardena",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

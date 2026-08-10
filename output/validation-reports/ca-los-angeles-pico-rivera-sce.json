@@ -1,34 +1,28 @@
 {
   "record_id": "ca-los-angeles-pico-rivera-sce",
   "file": "data/localities/ca-los-angeles-pico-rivera-sce.json",
-  "validated_at": "2026-08-06",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 98,
+  "score": 91,
   "errors": [],
   "warnings": [
     {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
+    },
+    {
+      "field": "sources[S2].url",
+      "category": "broken_url",
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -37,7 +31,7 @@
   "url_checks": [
     {
       "url": "https://www.pico-rivera.org/solar/",
-      "checked_at": "2026-08-06T19:42:11.524Z",
+      "checked_at": "2026-08-10T15:29:47.160Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,15 +39,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-06T19:42:13.212Z",
+      "checked_at": "2026-08-10T15:29:47.886Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-06T19:42:13.512Z",
+      "checked_at": "2026-08-10T15:29:57.886Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -61,7 +55,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-06T19:42:14.578Z",
+      "checked_at": "2026-08-10T15:29:58.776Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -69,7 +63,7 @@
     },
     {
       "url": "https://www.poweredbyprime.org/about",
-      "checked_at": "2026-08-06T19:42:15.510Z",
+      "checked_at": "2026-08-10T15:29:59.559Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -77,7 +71,15 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-06T19:42:16.279Z",
+      "checked_at": "2026-08-10T15:30:01.546Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "timeout"
+    },
+    {
+      "url": "https://www.pico-rivera.org/wp-content/uploads/2025/01/Pico-Rivera-Residential-Solar-Permit-Checklist.pdf",
+      "checked_at": "2026-08-10T15:30:11.547Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
