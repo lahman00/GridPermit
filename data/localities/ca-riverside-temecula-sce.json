@@ -36,19 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Temecula Building & Safety Division",
-    "confidence": 0.7,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "temeculaca.gov returned a connection error (ECONNRESET) to automated fetch this session. This department name and page content is confirmed only via search-engine indexing of the city's own page, not independently read."
+    "notes": "Directly re-verified via browser this session (an earlier connection error to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://temeculaca.gov/304/Photovoltaic-Systems",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; temeculaca.gov returned a connection error to automated fetch this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -81,33 +81,55 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "temeculaca.gov returned a connection error to automated fetch this session, blocking direct confirmation of solar-specific submittal requirements."
+    "value": [
+      { "name": "Digital plan submission meeting the City's Digital Submittal Requirements (CD-3)", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Plans and calculations, sealed/signed originals, designed under the 2025 California Building, Electrical, and Energy Codes", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Detailed plans for the photovoltaic module array", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Plot plan showing array location relative to property lines, setbacks, and locations of disconnects, inverters, and existing electrical meter(s)", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Site plan showing sleeping-room egress paths, ridge/roof setbacks, and Rapid Shutdown System (RSS) device initiator location", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Labels and signage per CEC 690.56, 690.13, and 705.10", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Structural engineering calculations showing panel loads imposed on the roof", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "Specifications for photovoltaic modules, panels, arrays, framing supports, conduit sizing/location, and wire sizes", "required_when": "always", "source_ids": ["S6"] },
+      { "name": "CD75 Online Declaration for Solar", "required_when": "conditional", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S6"],
+    "notes": "Per the City's own 'CD31 Residential Photovoltaic Requirements' bulletin (revised 02/06/26, current as of this session)."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates a Fire Department inspection is required for all SolarAPP+ applications, but this was not independently confirmed via direct fetch this session."
+    "value": [
+      "Request a Fire Inspection (required for all SolarAPP+ permitting) by calling (951) 308-6363; this must be scheduled, inspected, and passed before scheduling a Building Inspection",
+      "Request a Building Inspection at TemeculaCA.gov/inspect"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Directly confirmed via browser this session; steps 8-9 of the City's own SolarAPP+ process description."
   },
   "timeline_days": {
     "value": {
       "min_days": 3,
       "max_days": 12,
-      "notes": "Search-engine indexing of the city's own page indicates qualifying City Standard Plans PV systems may use an expedited process (3 business days), while all PV systems may be submitted through a regular process (10-12 business days). Not independently confirmed via direct fetch this session (temeculaca.gov returned a connection error)."
+      "notes": "The City's own page states: 'Expedited: Qualifying City Standard Plans PV systems may utilize our expedited process (3 business days).' and 'Standard: All PV systems may be submitted through our regular process (10-12 business days). Plans that are not City Standard Plans will not receive expedited review.'"
     },
-    "confidence": 0.5,
-    "source_ids": [
-      "S1"
-    ]
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates expansions to existing PV systems do not qualify for SolarAPP+ or expedited review, and Energy Storage Systems are not permitted in a garage unless the home has residential fire sprinklers, but this was not independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (automated) / City Standard Plans expedited review / standard review",
+      "other_conditions": [
+        "Expansions to existing PV systems do not qualify for SolarAPP+ or expedited review",
+        "Energy Storage Systems (ESS) are not permitted in a garage unless the home is equipped with a residential fire sprinkler system",
+        "A valid state contractor's license and City of Temecula business license are required for SolarAPP+",
+        "Fire Prevention Division requires a certificate of compliance for all materials/parts, provided at the time of Fire Inspection"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "permit_fees": {
     "value": null,
@@ -142,7 +164,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
@@ -183,6 +205,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "CD31 Residential Photovoltaic Requirements (Rev. 02/06/26)",
+      "url": "https://temeculaca.gov/DocumentCenter/View/266",
+      "publisher": "City of Temecula",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

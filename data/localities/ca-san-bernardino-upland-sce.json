@@ -83,7 +83,15 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": [
+      { "name": "Photovoltaic System (PV) 0-10 kVA", "amount_usd": 450, "unit": "flat fee", "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026 (Building section)." },
+      { "name": "Photovoltaic System (PV) 10.1-50 kVA", "amount_usd": 770, "unit": "flat fee", "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026." },
+      { "name": "Photovoltaic System (PV) 50.1 kVA and greater", "amount_usd": 1510, "unit": "flat fee", "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S7"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -151,6 +159,14 @@
       "id": "S6",
       "title": "Inspection Scheduling",
       "url": "https://www.uplandca.gov/development_services/building_safety/schedule_inspection.php",
+      "publisher": "City of Upland",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Master Fee Schedule, Effective January 13, 2026 (Building)",
+      "url": "https://www.uplandca.gov/Documents/Permits%20and%20Licenses/Building%20and%20Safety%20Forms/2026%20Master%20Fee%20Schedule%20(01.13.26)%20-%20Building.pdf",
       "publisher": "City of Upland",
       "type": "government",
       "accessed_date": "2026-08-10"
