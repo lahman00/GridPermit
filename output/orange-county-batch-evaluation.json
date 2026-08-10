@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:11:19.922Z",
+  "evaluated_at": "2026-08-10T00:00:59.317Z",
   "record_count": 10,
   "records": [
     {
@@ -351,11 +351,11 @@
       "record_id": "ca-orange-brea-sce",
       "city": "Brea",
       "county": "Orange County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -366,12 +366,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -381,16 +381,16 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 70,
-    "average_validation_score": 94.8,
-    "ready_count": 4,
-    "limited_count": 6,
+    "average_completeness_pct": 70.7,
+    "average_validation_score": 94.6,
+    "ready_count": 5,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -403,7 +403,7 @@
       "battery_programs": 0,
       "required_documents": 4,
       "inspection_steps": 4,
-      "timeline_days": 9,
+      "timeline_days": 8,
       "eligibility_constraints": 3,
       "permit_fees": 7,
       "rebates": 10,
@@ -415,11 +415,11 @@
         "missing_in_records": 10
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 9
+        "field": "generation_supplier",
+        "missing_in_records": 8
       },
       {
-        "field": "generation_supplier",
+        "field": "timeline_days",
         "missing_in_records": 8
       },
       {
@@ -471,7 +471,8 @@
       "ca-orange-anaheim-apu",
       "ca-orange-huntington-beach-sce",
       "ca-orange-tustin-sce",
-      "ca-orange-yorba-linda-sce"
+      "ca-orange-yorba-linda-sce",
+      "ca-orange-brea-sce"
     ],
     "limited_for_now": [
       {
@@ -498,11 +499,6 @@
         "record_id": "ca-orange-newport-beach-sce",
         "city": "Newport Beach",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-orange-brea-sce",
-        "city": "Brea",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [],

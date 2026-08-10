@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T23:02:08.181Z",
+  "evaluated_at": "2026-08-10T00:00:59.279Z",
   "record_count": 10,
   "records": [
     {
@@ -82,11 +82,11 @@
       "record_id": "ca-santa-clara-sunnyvale-pge",
       "city": "Sunnyvale",
       "county": "Santa Clara County",
-      "completeness_pct": 73.3,
-      "validation_score": 94,
+      "completeness_pct": 80,
+      "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -97,12 +97,12 @@
         "interconnection_url",
         "battery_programs",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -112,9 +112,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-santa-clara-cupertino-pge",
@@ -387,10 +387,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 78,
-    "average_validation_score": 94.5,
-    "ready_count": 8,
-    "limited_count": 2,
+    "average_completeness_pct": 78.7,
+    "average_validation_score": 94.3,
+    "ready_count": 9,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -403,7 +403,7 @@
       "battery_programs": 3,
       "required_documents": 3,
       "inspection_steps": 5,
-      "timeline_days": 5,
+      "timeline_days": 4,
       "eligibility_constraints": 0,
       "permit_fees": 7,
       "rebates": 10,
@@ -424,7 +424,7 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "battery_programs",
@@ -461,6 +461,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-santa-clara-santa-clara-svp",
+      "ca-santa-clara-sunnyvale-pge",
       "ca-santa-clara-cupertino-pge",
       "ca-santa-clara-campbell-pge",
       "ca-santa-clara-los-gatos-pge",
@@ -474,11 +475,6 @@
         "record_id": "ca-santa-clara-mountain-view-pge",
         "city": "Mountain View",
         "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
-      },
-      {
-        "record_id": "ca-santa-clara-sunnyvale-pge",
-        "city": "Sunnyvale",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       }
     ],
     "not_ready": [],

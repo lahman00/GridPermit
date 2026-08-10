@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T23:21:52.042Z",
+  "evaluated_at": "2026-08-10T00:00:59.237Z",
   "record_count": 9,
   "records": [
     {
@@ -311,7 +311,7 @@
       "record_id": "ca-ventura-santa-paula-sce",
       "city": "Santa Paula",
       "county": "Ventura County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -326,12 +326,12 @@
         "interconnection_url",
         "battery_programs",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -341,16 +341,16 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.8,
+    "average_completeness_pct": 75.6,
     "average_validation_score": 97.2,
-    "ready_count": 5,
-    "limited_count": 4,
+    "ready_count": 6,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -363,7 +363,7 @@
       "battery_programs": 1,
       "required_documents": 6,
       "inspection_steps": 2,
-      "timeline_days": 7,
+      "timeline_days": 6,
       "eligibility_constraints": 0,
       "permit_fees": 8,
       "rebates": 9,
@@ -379,11 +379,11 @@
         "missing_in_records": 8
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 7
+        "field": "required_documents",
+        "missing_in_records": 6
       },
       {
-        "field": "required_documents",
+        "field": "timeline_days",
         "missing_in_records": 6
       },
       {
@@ -426,7 +426,8 @@
       "ca-ventura-camarillo-sce",
       "ca-ventura-moorpark-sce",
       "ca-ventura-simi-valley-sce",
-      "ca-ventura-ojai-sce"
+      "ca-ventura-ojai-sce",
+      "ca-ventura-santa-paula-sce"
     ],
     "limited_for_now": [
       {
@@ -443,11 +444,6 @@
         "record_id": "ca-ventura-fillmore-sce",
         "city": "Fillmore",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-ventura-santa-paula-sce",
-        "city": "Santa Paula",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [],
