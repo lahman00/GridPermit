@@ -8,10 +8,13 @@
     "notes": "El Cajon is a well-documented San Diego County city within SDG&E's core service territory, consistent with SDG&E-territory records established elsewhere this session."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "El Cajon is not named as a member of either San Diego Community Power (San Diego, Chula Vista, Encinitas, Imperial Beach, La Mesa, National City) or Clean Energy Alliance (Carlsbad, Del Mar, Solana Beach, San Marcos, Escondido, Oceanside, Vista). No CCA was found serving El Cajon this session."
+    "value": {
+      "name": "San Diego Gas & Electric (SDG&E)",
+      "type": "utility",
+      "notes": "Directly re-verified this session via San Diego Community Power's own 'Our Community' page, which explicitly names its six member cities as San Diego, Chula Vista, Encinitas, Imperial Beach, La Mesa, and National City (plus unincorporated San Diego County) — El Cajon is not among them. El Cajon is also not named as a member of Clean Energy Alliance (Carlsbad, Del Mar, Solana Beach, San Marcos, Escondido, Oceanside, Vista), the only other CCA operating in San Diego County. SDG&E is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S4"]
   },
   "city": { "value": "El Cajon", "confidence": 1, "source_ids": ["S1"] },
   "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
@@ -121,6 +124,14 @@
       "publisher": "California Public Utilities Commission",
       "type": "cpuc",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S4",
+      "title": "Our Community (Who We Serve)",
+      "url": "https://sdcommunitypower.org/our-community/",
+      "publisher": "San Diego Community Power",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
