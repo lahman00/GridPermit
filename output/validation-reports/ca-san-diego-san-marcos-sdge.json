@@ -1,9 +1,9 @@
 {
   "record_id": "ca-san-diego-san-marcos-sdge",
   "file": "data/localities/ca-san-diego-san-marcos-sdge.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 94,
   "errors": [],
   "warnings": [
     {
@@ -15,20 +15,17 @@
       "field": "interconnection_url",
       "category": "broken_url",
       "message": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "broken_url",
+      "message": "https://www.sanmarcosca.gov/files/assets/city/v/1/building/documents/solar/eligibility-checklist-for-solar.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
     {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "inspection_steps",
       "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "permit_fees",
@@ -42,7 +39,7 @@
   "url_checks": [
     {
       "url": "https://www.sanmarcosca.gov/Business-Services/Building-Division/Building-Documents/Solar-Permits",
-      "checked_at": "2026-08-08T19:17:58.929Z",
+      "checked_at": "2026-08-10T05:34:44.092Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -50,7 +47,7 @@
     },
     {
       "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
-      "checked_at": "2026-08-08T19:17:59.063Z",
+      "checked_at": "2026-08-10T05:34:44.500Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -58,7 +55,7 @@
     },
     {
       "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-      "checked_at": "2026-08-08T19:17:59.107Z",
+      "checked_at": "2026-08-10T05:34:44.668Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -66,11 +63,19 @@
     },
     {
       "url": "https://thecleanenergyalliance.org/",
-      "checked_at": "2026-08-08T19:18:00.101Z",
+      "checked_at": "2026-08-10T05:34:46.801Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.sanmarcosca.gov/files/assets/city/v/1/building/documents/solar/eligibility-checklist-for-solar.pdf",
+      "checked_at": "2026-08-10T05:34:47.984Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }

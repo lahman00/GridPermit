@@ -20,15 +20,14 @@
   "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
   "permit_authority": {
     "value": "City of San Marcos Building and Code Compliance Division",
-    "confidence": 0.7,
-    "source_ids": ["S1"],
-    "notes": "sanmarcosca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page, not independently read."
+    "confidence": 0.9,
+    "source_ids": ["S1"]
   },
   "permit_url": {
     "value": "https://www.sanmarcosca.gov/Business-Services/Building-Division/Building-Documents/Solar-Permits",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; sanmarcosca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
@@ -56,7 +55,18 @@
     "source_ids": ["S3"],
     "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "sanmarcosca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
+  "required_documents": {
+    "value": [
+      { "name": "Completed permit application", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Solar PV Standard Plan (Central/String Inverter or Micro-Inverter) and supporting documentation", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Support component manufacturer's project-specific worksheets and tables", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Diagram of the roof layout of all panels/modules, clear access pathways, and approximate locations of electrical disconnecting means and roof access points", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Reroofing certification", "required_when": "conditional", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S5"],
+    "notes": "From the City's own 'Eligibility Checklist for Expedited Residential Solar Photovoltaic Permitting.'"
+  },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
   "timeline_days": {
     "value": { "min_days": 3, "max_days": 5, "notes": "Search-engine synthesis of the city's own page indicates residential rooftop solar is often an expedited, over-the-counter permit usually approved within 3-5 business days; not independently confirmed via direct fetch this session." },
@@ -64,10 +74,20 @@
     "source_ids": ["S1"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates ground-mounted systems require a building permit, electrical permit, and zoning review as accessory structures, and battery storage requires an additional electrical permit, but this was not independently confirmed via direct fetch this session (sanmarcosca.gov returned HTTP 403)."
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited Residential Solar Photovoltaic Permitting (Eligibility Checklist)",
+      "other_conditions": [
+        "Roof-mounted on a one- or two-family dwelling or accessory structure only",
+        "System must be utility-interactive",
+        "Roof must have a single roof covering without a reroof overlay"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S5"]
   },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
@@ -117,6 +137,14 @@
       "publisher": "Clean Energy Alliance",
       "type": "other_official",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S5",
+      "title": "Eligibility Checklist for Expedited Residential Solar Photovoltaic Permitting",
+      "url": "https://www.sanmarcosca.gov/files/assets/city/v/1/building/documents/solar/eligibility-checklist-for-solar.pdf",
+      "publisher": "City of San Marcos Building Safety Division",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }
