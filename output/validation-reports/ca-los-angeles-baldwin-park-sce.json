@@ -1,31 +1,33 @@
 {
   "record_id": "ca-los-angeles-baldwin-park-sce",
   "file": "data/localities/ca-los-angeles-baldwin-park-sce.json",
-  "validated_at": "2026-08-05",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 89,
   "errors": [],
   "warnings": [
     {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     },
     {
       "field": "official_contacts[1].url",
       "category": "broken_url",
       "message": "http://bproud.baldwinpark.com — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "broken_url",
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -35,10 +37,6 @@
       "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
@@ -46,7 +44,7 @@
   "url_checks": [
     {
       "url": "https://www.baldwinpark.com/157/Building-Safety",
-      "checked_at": "2026-08-05T22:48:41.556Z",
+      "checked_at": "2026-08-10T06:46:42.960Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -54,15 +52,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-05T22:48:42.988Z",
+      "checked_at": "2026-08-10T06:46:43.967Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T22:48:43.339Z",
+      "checked_at": "2026-08-10T06:46:53.951Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -70,7 +68,7 @@
     },
     {
       "url": "http://bproud.baldwinpark.com",
-      "checked_at": "2026-08-05T22:48:44.153Z",
+      "checked_at": "2026-08-10T06:46:55.005Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -78,7 +76,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-05T22:48:44.155Z",
+      "checked_at": "2026-08-10T06:46:55.194Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -86,7 +84,7 @@
     },
     {
       "url": "https://baldwinpark.granicus.com/MetaViewer.php?view_id=10&clip_id=2815&meta_id=258075",
-      "checked_at": "2026-08-05T22:48:44.959Z",
+      "checked_at": "2026-08-10T06:46:56.161Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -94,10 +92,26 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-05T22:48:45.800Z",
+      "checked_at": "2026-08-10T06:46:56.905Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://www.baldwinpark.com/DocumentCenter/View/93/Building-Permit---Plan-Check---Certificate-of-Occupancy-Application-PDF",
+      "checked_at": "2026-08-10T06:47:04.955Z",
       "status": "REACHABLE",
       "http_status": 200,
-      "method": "HEAD",
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.baldwinpark.com/DocumentCenter/View/97/Building-and-Safety-Fees-Fiscal-Year-2020-to-2021-PDF",
+      "checked_at": "2026-08-10T06:47:07.929Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
       "details": "HTTP 200"
     }
   ]

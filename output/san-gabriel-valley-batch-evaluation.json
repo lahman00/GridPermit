@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:36:34.301Z",
+  "evaluated_at": "2026-08-10T06:47:22.666Z",
   "record_count": 7,
   "records": [
     {
@@ -236,11 +236,11 @@
       "record_id": "ca-los-angeles-baldwin-park-sce",
       "city": "Baldwin Park",
       "county": "Los Angeles County",
-      "completeness_pct": 60,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 89,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -250,32 +250,33 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
-        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": true,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "required_documents_available": true,
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
-    "average_validation_score": 96,
-    "ready_count": 4,
-    "limited_count": 3,
+    "average_completeness_pct": 76.2,
+    "average_validation_score": 95,
+    "ready_count": 5,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -286,11 +287,11 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 0,
-      "required_documents": 3,
-      "inspection_steps": 2,
+      "required_documents": 2,
+      "inspection_steps": 1,
       "timeline_days": 5,
       "eligibility_constraints": 3,
-      "permit_fees": 5,
+      "permit_fees": 4,
       "rebates": 7,
       "official_contacts": 0
     },
@@ -305,14 +306,10 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 3
-      },
-      {
-        "field": "required_documents",
         "missing_in_records": 3
       },
       {
@@ -320,13 +317,17 @@
         "missing_in_records": 3
       },
       {
-        "field": "inspection_steps",
+        "field": "required_documents",
         "missing_in_records": 2
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
       "broken_url": 7,
-      "unsupported_claim": 2
+      "unsupported_claim": 3
     },
     "utility_coverage": [
       "IOU"
@@ -355,7 +356,8 @@
       "ca-los-angeles-monterey-park-sce",
       "ca-los-angeles-temple-city-sce",
       "ca-los-angeles-rosemead-sce",
-      "ca-los-angeles-el-monte-sce"
+      "ca-los-angeles-el-monte-sce",
+      "ca-los-angeles-baldwin-park-sce"
     ],
     "limited_for_now": [
       {
@@ -367,11 +369,6 @@
         "record_id": "ca-los-angeles-south-el-monte-sce",
         "city": "South El Monte",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-los-angeles-baldwin-park-sce",
-        "city": "Baldwin Park",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
       }
     ],
     "not_ready": [],
