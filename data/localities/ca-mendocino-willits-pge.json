@@ -10,10 +10,13 @@
     "notes": "Willits is confirmed to be within PG&E's electric service territory — independently checked rather than assumed, since neighboring Ukiah (also Mendocino County) operates its own municipal electric utility."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No CCA was found serving Willits this session."
+    "value": {
+      "name": "Sonoma Clean Power (SCP)",
+      "type": "cca",
+      "notes": "Directly re-verified this session via Sonoma Clean Power's own 'Who We Are' page, which explicitly states: 'Here in Sonoma and Mendocino Counties, our local CCA is Sonoma Clean Power (SCP)' and 'SCP replaced PG&E's power sources for electric customers in Sonoma and Mendocino County' -- a whole-county coverage statement, not a partial/unincorporated-only claim. Willits, a Mendocino County city, is therefore served by SCP. PG&E continues to deliver the power and provide billing/customer service."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S4"]
   },
   "city": {
     "value": "Willits",
@@ -171,6 +174,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Who We Are",
+      "url": "https://sonomacleanpower.org/who-we-are",
+      "publisher": "Sonoma Clean Power",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
