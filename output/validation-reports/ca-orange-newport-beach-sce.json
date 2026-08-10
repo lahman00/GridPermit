@@ -3,9 +3,14 @@
   "file": "data/localities/ca-orange-newport-beach-sce.json",
   "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 91,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -19,24 +24,8 @@
   ],
   "recommendations": [
     {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "rebates",
@@ -46,7 +35,7 @@
   "url_checks": [
     {
       "url": "https://www.newportbeachca.gov/government/departments/community-development-/building-division/solar-photovoltaic",
-      "checked_at": "2026-08-10T18:30:02.517Z",
+      "checked_at": "2026-08-10T21:01:42.135Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -54,7 +43,7 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-10T18:30:03.533Z",
+      "checked_at": "2026-08-10T21:01:42.549Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -62,7 +51,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-10T18:30:03.538Z",
+      "checked_at": "2026-08-10T21:01:42.555Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -70,7 +59,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-10T18:30:05.496Z",
+      "checked_at": "2026-08-10T21:01:43.548Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -78,7 +67,7 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-10T18:30:06.807Z",
+      "checked_at": "2026-08-10T21:01:44.787Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -86,7 +75,15 @@
     },
     {
       "url": "https://ocpower.org/",
-      "checked_at": "2026-08-10T18:30:06.811Z",
+      "checked_at": "2026-08-10T21:01:44.789Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.newportbeachca.gov/home/showpublisheddocument/21260/638351194682070000",
+      "checked_at": "2026-08-10T21:01:47.009Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

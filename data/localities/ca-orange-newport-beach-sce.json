@@ -37,19 +37,19 @@
   },
   "permit_authority": {
     "value": "City of Newport Beach Community Development Department, Building Division",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "newportbeachca.gov returned HTTP 403 to automated fetch on every attempt this session, and the alternate nbpd.newportbeachca.gov subdomain failed with a DNS error. This department name and page title are confirmed via search-engine indexing, but the page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.newportbeachca.gov/government/departments/community-development-/building-division/solar-photovoltaic",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; newportbeachca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session; the page links to a full Submittal Requirements information bulletin (curl+pypdf extracted), which itemizes documents, fees, and the inspection process."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -82,15 +82,26 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "newportbeachca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's solar submittal requirements."
+    "value": [
+      { "name": "Completed Solar Permit Application form", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Eligibility Checklist for Solar Photovoltaic Permitting (compliance demonstration)", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Completed Standard Electrical Plan (Solar PV Standard Plan, for systems 10kW or smaller) or a full electrical plan with disconnect locations, module/string counts, inverter specs, one-line diagram, grounding/conductor details, and equipment cut sheets", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Roof plan showing panel layout, roof access point, fire-code-compliant access pathways, fire classification, and required labels/markings", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Structural Criteria for Residential Rooftop Solar Energy Installations (expedited) or, for non-qualifying systems, stamped structural drawings/calculations from a licensed civil or structural engineer", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Credit Card Authorization Form (for electronic submittals, to pay the plan check fee at time of submittal)", "required_when": "conditional", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S7"],
+    "notes": "Per the City's own 'Submittal Requirements: Solar Photovoltaic Permitting for One- and Two-Family Dwellings' information bulletin, for systems 10kW or smaller using the standard (non-SolarAPP+) submittal path."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule an on-site inspection by calling the Building Division's inspection request line at (949) 644-3255, or electronically via the city's Building Permit Inspection Request/Status page",
+      "Requests received before 6:00 AM are scheduled for that same day",
+      "Be prepared to show conformance with all technical requirements in the field; the inspector verifies the installation matches the approved plans and applicable code, including module/model match, proper grounding, secure fastening, correct conductor sizing, and required PV/AC/switch signage"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S7"]
   },
   "timeline_days": {
     "value": null,
@@ -98,15 +109,27 @@
     "source_ids": []
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Newport Beach adopted Ordinance No. 2015-23 (Municipal Code Chapter 15.18) for expedited residential rooftop solar permitting and uses SolarAPP+ per search-engine summaries, but no size-cap or property-type figure could be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (single-family/duplex only) or the City's standard streamlined Combination permit path (systems 10kW or smaller, all other project types)",
+      "other_conditions": [
+        "A Combination permit is required for solar PV systems with a maximum power output of 10kW or less; Planning review is required for all solar PV installations",
+        "Single-family and duplex residential projects are only eligible through SolarAPP+; all other projects must be submitted through the City's CiViC portal"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1", "S7"]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Solar Photovoltaic Plan Check Fee", "amount_usd": 210, "unit": "flat fee", "notes": "Per the City's own Submittal Requirements bulletin, revised per AB 1414 (chaptered October 15, 2017). Due at time of electronic submittal." },
+      { "name": "Solar Photovoltaic Permit Fee", "amount_usd": 240, "unit": "flat fee", "notes": "Per the City's own Submittal Requirements bulletin. Due in person for permit issuance and plan release." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S7"]
   },
   "rebates": {
     "value": null,
@@ -128,7 +151,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
@@ -176,6 +199,14 @@
       "url": "https://ocpower.org/",
       "publisher": "Orange County Power Authority",
       "type": "other_official",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Submittal Requirements: Solar Photovoltaic Permitting for One- and Two-Family Dwellings",
+      "url": "https://www.newportbeachca.gov/home/showpublisheddocument/21260/638351194682070000",
+      "publisher": "City of Newport Beach",
+      "type": "government",
       "accessed_date": "2026-08-10"
     }
   ]
