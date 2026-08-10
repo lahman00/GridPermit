@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T23:55:28.763Z",
+  "evaluated_at": "2026-08-10T07:28:07.411Z",
   "record_count": 5,
   "records": [
     {
       "record_id": "ca-sutter-yuba-city-pge",
       "city": "Yuba City",
       "county": "Sutter County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -21,12 +21,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -36,9 +36,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-yuba-marysville-pge",
@@ -195,10 +195,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72,
+    "average_completeness_pct": 73.3,
     "average_validation_score": 95.6,
-    "ready_count": 2,
-    "limited_count": 3,
+    "ready_count": 3,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -211,7 +211,7 @@
       "battery_programs": 1,
       "required_documents": 0,
       "inspection_steps": 2,
-      "timeline_days": 5,
+      "timeline_days": 4,
       "eligibility_constraints": 1,
       "permit_fees": 3,
       "rebates": 5,
@@ -219,12 +219,12 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "timeline_days",
+        "field": "rebates",
         "missing_in_records": 5
       },
       {
-        "field": "rebates",
-        "missing_in_records": 5
+        "field": "timeline_days",
+        "missing_in_records": 4
       },
       {
         "field": "generation_supplier",
@@ -278,15 +278,11 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-sutter-yuba-city-pge",
       "ca-nevada-grass-valley-pge",
       "ca-nevada-nevada-city-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-sutter-yuba-city-pge",
-        "city": "Yuba City",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
       {
         "record_id": "ca-yuba-marysville-pge",
         "city": "Marysville",
