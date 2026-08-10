@@ -1,11 +1,16 @@
 {
   "record_id": "ca-placer-auburn-pge",
   "file": "data/localities/ca-placer-auburn-pge.json",
-  "validated_at": "2026-08-09",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 98,
+  "score": 93,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -18,18 +23,6 @@
       "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
@@ -37,7 +30,7 @@
   "url_checks": [
     {
       "url": "https://www.auburn.ca.gov/700/Symbium-Permits",
-      "checked_at": "2026-08-09T22:26:50.565Z",
+      "checked_at": "2026-08-10T15:51:17.120Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,7 +38,7 @@
     },
     {
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
-      "checked_at": "2026-08-09T22:26:52.060Z",
+      "checked_at": "2026-08-10T15:51:18.204Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -53,7 +46,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-09T22:26:52.099Z",
+      "checked_at": "2026-08-10T15:51:18.522Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -61,10 +54,26 @@
     },
     {
       "url": "https://www.auburn.ca.gov/411/Building-Division",
-      "checked_at": "2026-08-09T22:26:52.824Z",
+      "checked_at": "2026-08-10T15:51:19.353Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.auburn.ca.gov/755/Building-Inspections",
+      "checked_at": "2026-08-10T15:51:20.372Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.auburn.ca.gov/DocumentCenter/View/4398/Auburn---Adopted-Fee-Schedule---FY-2627",
+      "checked_at": "2026-08-10T15:51:21.224Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
       "details": "HTTP 200"
     }
   ]

@@ -124,14 +124,23 @@
     ]
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Call 530-823-4211 x389 to schedule an inspection, before 4:00pm the business day prior (Monday inspections must be requested by 4:00pm Thursday)",
+      "Inspections can also be scheduled online through the Civic Access portal",
+      "Inspections are conducted Monday-Thursday (none on Friday), in a morning (9am-noon) or afternoon (1pm-4pm) window"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S4"],
+    "notes": "This is the City's general Building Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page is titled 'Instructions to Apply for an Instant Solar Permit Through Symbium' and states SB 379 was passed 'to establish instantaneous plan review practices,' with the City's Symbium partnership providing 'instantaneous plan review approval.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
     "value": {
@@ -153,9 +162,13 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Residential Solar Photovoltaic System - Solar Permit (15kW or less)", "amount_usd": 347, "unit": "flat fee per permit", "notes": "Per the City's own Adopted Fee Schedule, effective July 1, 2026." },
+      { "name": "Residential Solar Photovoltaic System - Solar Permit (above 15kW)", "amount_usd": 450, "unit": "base fee plus $15 per kW for each kW above 15kW", "notes": "Per the City's own Adopted Fee Schedule, effective July 1, 2026." },
+      { "name": "Battery Backup Storage - Residential", "amount_usd": 174, "unit": "flat fee per permit", "notes": "Per the City's own Adopted Fee Schedule, effective July 1, 2026." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S5"]
   },
   "rebates": {
     "value": null,
@@ -202,6 +215,22 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Building Inspections",
+      "url": "https://www.auburn.ca.gov/755/Building-Inspections",
+      "publisher": "City of Auburn",
+      "type": "government",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S5",
+      "title": "Auburn - Adopted Fee Schedule - FY 26/27",
+      "url": "https://www.auburn.ca.gov/DocumentCenter/View/4398/Auburn---Adopted-Fee-Schedule---FY-2627",
+      "publisher": "City of Auburn",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
