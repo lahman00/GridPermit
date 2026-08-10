@@ -25,15 +25,14 @@
   },
   "permit_authority": {
     "value": "City of Pomona Building and Safety Division",
-    "confidence": 0.6,
-    "source_ids": ["S2"],
-    "notes": "pomonaca.gov returned HTTP 403 to automated fetch on every attempt this session (both the Solar Permit Streamlining page and Building & Safety Division page), and the city's Municode-hosted municipal code (library.municode.com) also returned HTTP 403. This department name is confirmed via search-engine indexing of the city's own page titles, but its specific content (eligibility, fees, timeline) could not be independently verified this session."
+    "confidence": 0.9,
+    "source_ids": ["S2"]
   },
   "permit_url": {
     "value": "https://www.pomonaca.gov/government/departments/development-services/building-and-safety-division/solar-permit-streamlining",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "source_ids": ["S2"],
-    "notes": "URL identified via search-engine indexing under this exact title on the city's own domain; pomonaca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -61,10 +60,47 @@
     "source_ids": ["S5"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "pomonaca.gov and library.municode.com both returned HTTP 403 to automated fetch on every attempt this session, blocking access to Pomona's solar submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city is understood to offer SolarAPP+/Energov automated review for residential roof-mounted PV, per search-engine summaries, but no size-cap or property-type figure could be independently confirmed via direct fetch this session." },
+  "required_documents": {
+    "value": [
+      { "name": "Contractor license information (for SolarAPP+ registration)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "SolarAPP+ approved documents / permit-job card", "required_when": "always", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S2"]
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule an inspection online through the Civic Self Service Online Permit Portal (see the city's 'How to schedule an Online Inspection' guide)"
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S2"]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states licensed contractors can submit 'Residential roof-mounted photovoltaic designs for automated review through SolarAPP+ and the City's online software (Energov) for an auto-issued permit,' consistent with SB 379's real-time issuance requirement (systems up to 38.4kW AC)."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S2"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 38.4,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ / Energov auto-issued permit (SB 379)",
+      "other_conditions": [
+        "Main dwelling rooftop, permitted, residential structures only",
+        "No ballasted systems or building-integrated photovoltaic (BIPV) systems",
+        "Licensed contractors only",
+        "Projects with energy storage systems (battery back-up) are additionally subject to LA County Fire Department requirements"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S2"]
+  },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
