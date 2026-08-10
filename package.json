@@ -10,7 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "seo-check": "node scripts/site-inventory.mjs --check",
     "freshness-report": "node scripts/source-freshness-report.mjs",
     "source-health-report": "node scripts/source-health-report.mjs"
