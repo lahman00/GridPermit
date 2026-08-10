@@ -37,19 +37,19 @@
   },
   "permit_authority": {
     "value": "City of Cypress Community Development Department, Building Division",
-    "confidence": 0.7,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "cypressca.org returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page title, but the SolarAPP+ page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.cypressca.org/departments/community-development/building-division/solarapp",
-    "confidence": 0.55,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; cypressca.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -88,21 +88,37 @@
     "notes": "cypressca.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's SolarAPP+ submittal requirements."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis references calling Building & Safety at (714) 229-6730 to schedule an inspection, but this could not be independently verified via direct fetch this session."
+    "value": [
+      "Call Building & Safety at (714) 229-6730 to schedule your inspection"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "Directly confirmed via browser this session; the City's own SolarAPP+ page describes this as the third step of the solar permit process."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis suggested same-day or 3-business-day issuance for electronic applications meeting the expedited checklist, but this could not be independently confirmed via direct fetch this session."
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own SolarAPP+ page states 'Only projects conforming to this list are eligible to use the automated SolarAPP+ portal for instant permitting.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated permitting (instant, for eligible projects)",
+      "other_conditions": [
+        "SolarAPP+ is designed for the majority of residential, roof-mounted, retrofit photovoltaic systems",
+        "Only projects conforming to the SolarAPP+ Eligibility Checklist are eligible for the automated instant-permitting pathway",
+        "Contractor license information must be available to complete the SolarAPP+ submission"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
   },
   "permit_fees": {
     "value": null,
@@ -129,7 +145,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T18:31:01.671Z",
+  "evaluated_at": "2026-08-10T20:56:12.278Z",
   "record_count": 6,
   "records": [
     {
@@ -122,7 +122,7 @@
       "record_id": "ca-orange-cypress-sce",
       "city": "Cypress",
       "county": "Orange County",
-      "completeness_pct": 60,
+      "completeness_pct": 80,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -136,13 +136,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
-        "timeline_days",
-        "eligibility_constraints",
         "permit_fees",
         "rebates"
       ],
@@ -152,9 +152,9 @@
       "utility_type": "IOU",
       "separate_cca_present": false,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-orange-stanton-sce",
@@ -235,10 +235,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.5,
+    "average_completeness_pct": 77.8,
     "average_validation_score": 92.8,
-    "ready_count": 4,
-    "limited_count": 2,
+    "ready_count": 5,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -250,9 +250,9 @@
       "interconnection_url": 0,
       "battery_programs": 0,
       "required_documents": 2,
-      "inspection_steps": 2,
-      "timeline_days": 5,
-      "eligibility_constraints": 2,
+      "inspection_steps": 1,
+      "timeline_days": 4,
+      "eligibility_constraints": 1,
       "permit_fees": 3,
       "rebates": 6,
       "official_contacts": 0
@@ -264,7 +264,7 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "generation_supplier",
@@ -280,11 +280,11 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 2
+        "missing_in_records": 1
       },
       {
         "field": "eligibility_constraints",
-        "missing_in_records": 2
+        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
@@ -313,14 +313,10 @@
       "ca-orange-placentia-sce",
       "ca-orange-buena-park-sce",
       "ca-orange-la-habra-sce",
+      "ca-orange-cypress-sce",
       "ca-orange-seal-beach-sce"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-orange-cypress-sce",
-        "city": "Cypress",
-        "reason": "readiness=LIMITED (completeness 60%, score 94)"
-      },
       {
         "record_id": "ca-orange-stanton-sce",
         "city": "Stanton",
