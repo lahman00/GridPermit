@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T23:09:45.162Z",
+  "evaluated_at": "2026-08-10T04:34:25.448Z",
   "record_count": 10,
   "records": [
     {
@@ -82,7 +82,7 @@
       "record_id": "ca-marin-mill-valley-pge",
       "city": "Mill Valley",
       "county": "Marin County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 80,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -96,13 +96,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -112,9 +112,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-marin-sausalito-pge",
@@ -272,11 +272,11 @@
       "record_id": "ca-marin-fairfax-pge",
       "city": "Fairfax",
       "county": "Marin County",
-      "completeness_pct": 66.7,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -286,25 +286,26 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": true,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-marin-san-anselmo-pge",
@@ -384,10 +385,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 75.3,
-    "average_validation_score": 95.4,
-    "ready_count": 6,
-    "limited_count": 4,
+    "average_completeness_pct": 78,
+    "average_validation_score": 94.9,
+    "ready_count": 8,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -399,21 +400,21 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 7,
-      "inspection_steps": 3,
-      "timeline_days": 5,
+      "inspection_steps": 1,
+      "timeline_days": 4,
       "eligibility_constraints": 0,
-      "permit_fees": 10,
+      "permit_fees": 9,
       "rebates": 10,
       "official_contacts": 1
     },
     "fields_most_often_missing": [
       {
-        "field": "permit_fees",
+        "field": "rebates",
         "missing_in_records": 10
       },
       {
-        "field": "rebates",
-        "missing_in_records": 10
+        "field": "permit_fees",
+        "missing_in_records": 9
       },
       {
         "field": "required_documents",
@@ -421,14 +422,14 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 5
-      },
-      {
-        "field": "inspection_steps",
-        "missing_in_records": 3
+        "missing_in_records": 4
       },
       {
         "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
         "missing_in_records": 1
       },
       {
@@ -437,7 +438,8 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 10
+      "broken_url": 10,
+      "unsupported_claim": 1
     },
     "utility_coverage": [
       "IOU"
@@ -458,9 +460,11 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-marin-san-rafael-pge",
+      "ca-marin-mill-valley-pge",
       "ca-marin-larkspur-pge",
       "ca-marin-corte-madera-pge",
       "ca-marin-tiburon-pge",
+      "ca-marin-fairfax-pge",
       "ca-marin-san-anselmo-pge",
       "ca-marin-ross-pge"
     ],
@@ -471,19 +475,9 @@
         "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
       },
       {
-        "record_id": "ca-marin-mill-valley-pge",
-        "city": "Mill Valley",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
-      },
-      {
         "record_id": "ca-marin-sausalito-pge",
         "city": "Sausalito",
         "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
-      },
-      {
-        "record_id": "ca-marin-fairfax-pge",
-        "city": "Fairfax",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       }
     ],
     "not_ready": [],

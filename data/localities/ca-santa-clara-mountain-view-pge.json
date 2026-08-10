@@ -36,19 +36,18 @@
   },
   "permit_authority": {
     "value": "City of Mountain View Development Services",
-    "confidence": 0.85,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
-    ],
-    "notes": "developmentpermits.mountainview.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing, not independently read."
+    ]
   },
   "permit_url": {
     "value": "https://developmentpermits.mountainview.gov/about-permits/apply-for-permit/building-permits/solar-permits",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; developmentpermits.mountainview.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -81,21 +80,55 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "developmentpermits.mountainview.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements."
+    "value": [
+      {
+        "name": "Photovoltaic (PV) System Installation handout materials (Single-Family Residential or Multifamily/Commercial version, required for the ePermitsMV non-SolarAPP+ pathway)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Proof of Mountain View business license and valid California contractor's license",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ approved permit (retained on-site during installation)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates SolarAPP+-issued permits are verified by a City Building Inspector at a site inspection, but the specific scheduling process was not independently confirmed via direct fetch this session."
+    "value": [
+      "For SolarAPP+ permits: one business day after SolarAPP+ approval, the City emails the contractor a Mountain View inspection permit number, which is used to schedule the inspection online",
+      "For ePermitsMV (non-SolarAPP+) permits: schedule the inspection online using the Mountain View permit number after fee payment and permit issuance",
+      "Code design and installation practices are verified by a City Building Inspector at a site inspection, scheduled by the contractor at least one business day after permit approval"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 5,
+      "notes": "SolarAPP+-eligible single-family permits are automatically issued instantly ('The online program will verify compliance...and automatically issue a permit'). Other solar permits submitted via ePermitsMV receive corrections/comments within 3 business days (single-family) or 5 business days (all other properties)."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -117,9 +150,54 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": "Single-family SolarAPP+ permit \u2014 solar installation only",
+        "amount_usd": 541.29,
+        "unit": "flat fee",
+        "notes": "$500 City permit fee + $35 SolarAPP+ fee + $16.29 convenience fee."
+      },
+      {
+        "name": "Single-family SolarAPP+ permit \u2014 solar installation and battery storage",
+        "amount_usd": 577.34,
+        "unit": "flat fee",
+        "notes": "$500 City permit fee + $60 SolarAPP+ fee + $17.34 convenience fee."
+      },
+      {
+        "name": "Single-family SolarAPP+ permit \u2014 solar installation and electrical panel upgrade",
+        "amount_usd": 541.29,
+        "unit": "flat fee",
+        "notes": "$500 City permit fee + $35 SolarAPP+ fee + $16.29 convenience fee."
+      },
+      {
+        "name": "Single-family SolarAPP+ permit \u2014 solar, battery storage, and electrical panel upgrade",
+        "amount_usd": 577.34,
+        "unit": "flat fee",
+        "notes": "$500 City permit fee + $60 SolarAPP+ fee + $17.34 convenience fee."
+      },
+      {
+        "name": "SolarAPP+ permit revision (City reinspection fee)",
+        "amount_usd": 213.3,
+        "unit": "flat fee",
+        "notes": "$207 City reinspection fee + $6.30 convenience fee."
+      },
+      {
+        "name": "Other solar permits (multifamily, commercial, etc.) \u2014 small project (valuation $50,000)",
+        "amount_usd": 1100,
+        "unit": "flat fee",
+        "notes": "Average permit fee range; actual fee depends on project construction valuation."
+      },
+      {
+        "name": "Other solar permits (multifamily, commercial, etc.) \u2014 large project (valuation $250,000)",
+        "amount_usd": 2300,
+        "unit": "flat fee",
+        "notes": "Average permit fee range; actual fee depends on project construction valuation."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
   },
   "rebates": {
     "value": null,
@@ -149,7 +227,7 @@
       "url": "https://developmentpermits.mountainview.gov/about-permits/apply-for-permit/building-permits/solar-permits",
       "publisher": "City of Mountain View",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-09"
     },
     {
       "id": "S2",

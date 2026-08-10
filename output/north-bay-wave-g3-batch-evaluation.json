@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T23:55:28.838Z",
+  "evaluated_at": "2026-08-10T04:34:25.523Z",
   "record_count": 6,
   "records": [
     {
       "record_id": "ca-solano-vallejo-pge",
       "city": "Vallejo",
       "county": "Solano County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 80,
       "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -20,13 +20,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -36,9 +36,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-solano-benicia-pge",
@@ -82,7 +82,7 @@
       "record_id": "ca-solano-fairfield-pge",
       "city": "Fairfield",
       "county": "Solano County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 86.7,
       "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -96,13 +96,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
-        "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -112,9 +112,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-solano-suisun-city-pge",
@@ -232,10 +232,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 68.9,
+    "average_completeness_pct": 74.5,
     "average_validation_score": 94.7,
-    "ready_count": 2,
-    "limited_count": 4,
+    "ready_count": 4,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -246,9 +246,9 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 0,
-      "required_documents": 4,
-      "inspection_steps": 4,
-      "timeline_days": 5,
+      "required_documents": 3,
+      "inspection_steps": 2,
+      "timeline_days": 3,
       "eligibility_constraints": 0,
       "permit_fees": 6,
       "rebates": 6,
@@ -264,20 +264,20 @@
         "missing_in_records": 6
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 5
+        "field": "generation_supplier",
+        "missing_in_records": 3
       },
       {
         "field": "required_documents",
-        "missing_in_records": 4
+        "missing_in_records": 3
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 3
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 4
-      },
-      {
-        "field": "generation_supplier",
-        "missing_in_records": 3
+        "missing_in_records": 2
       }
     ],
     "warning_category_recurrence": {
@@ -301,20 +301,12 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-solano-vallejo-pge",
       "ca-solano-benicia-pge",
+      "ca-solano-fairfield-pge",
       "ca-solano-dixon-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-solano-vallejo-pge",
-        "city": "Vallejo",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 92)"
-      },
-      {
-        "record_id": "ca-solano-fairfield-pge",
-        "city": "Fairfield",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 92)"
-      },
       {
         "record_id": "ca-solano-suisun-city-pge",
         "city": "Suisun City",

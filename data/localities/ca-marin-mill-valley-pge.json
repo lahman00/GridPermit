@@ -85,14 +85,23 @@
     "notes": "The Building Official has adopted a checklist for small residential rooftop solar energy systems, and a separate Structural Criteria document exists for expedited permitting, but the specific document list was not directly enumerated in the page content reviewed this session."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule inspections online (permits must have status 'issued'); have ETrakIT username/password, permit number, property address, and inspection type ready",
+      "Cutoff for scheduling is 3pm the day before the requested inspection date; requests can be made up to 7 days in advance",
+      "Approximate inspection time windows are 8-10am, 10am-noon, 1-3pm, and 3-5pm; no inspections on Fridays"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S5"],
+    "notes": "This is the City's general Building Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page is titled 'How to Apply for Instant Permits in Mill Valley' and describes 'Benefits of Instant Solar Permits' via its Symbium-based automated permitting platform (SB 379 compliance)."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
     "value": {
@@ -170,6 +179,14 @@
       "url": "https://www.selfgenca.com/home/about/",
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Building Inspections",
+      "url": "https://www.cityofmillvalley.gov/756/Building-Inspections",
+      "publisher": "City of Mill Valley",
+      "type": "government",
       "accessed_date": "2026-08-09"
     }
   ]

@@ -85,14 +85,23 @@
     "notes": "The page confirms Symbium-based SolarAPP+/SB 379 automated permitting exists, but a specific document checklist was not independently confirmed via direct fetch this session."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule online inspection requests no later than 3:00 PM the evening prior to the requested inspection date, or via the Interactive Voice Response (IVR) system at (707) 648-4384",
+      "Inspections are scheduled first-come, first-served; the City recommends scheduling at least 3 business days in advance (no guarantee of next-day inspections)",
+      "Requests are assigned an AM (8am-12pm) or PM (12pm-4pm) 4-hour window; cancellations can be made up to 6:30am the day of the scheduled inspection"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own Building Division page states 'Contractors and homeowners seeking to apply for residential solar or ESS permits under SB 379 will be able to apply for instantaneous permit issuance via this Symbium portal,' and separately advertises 'Apply now for an instant permit in Vallejo... Symbium has partnered with Vallejo to enable instant permits!' for Rooftop Solar or Battery Storage projects."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
     "value": {

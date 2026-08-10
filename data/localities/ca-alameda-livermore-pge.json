@@ -36,19 +36,18 @@
   },
   "permit_authority": {
     "value": "City of Livermore Building & Safety Division",
-    "confidence": 0.85,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
-    ],
-    "notes": "livermoreca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page, not independently read."
+    ]
   },
   "permit_url": {
     "value": "https://www.livermoreca.gov/departments/community-development/permit-center/residential-photovoltaic/solarapp",
-    "confidence": 0.6,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; livermoreca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -81,15 +80,23 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "livermoreca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements beyond a general search-engine summary indicating an active City of Livermore Business License is required before submitting solar permit applications."
+    "value": [
+      { "name": "Active City of Livermore Business License", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Approved SolarAPP+ documents", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Smoke Detector Compliance form (residential only)", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Job inspection card (printed, on-site at inspection)", "required_when": "always", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S5"]
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule the inspection through Online Permitting or call (925) 960-4430",
+      "Print and have on-site the permit, approved documents, job inspection card, and Smoke Detector Compliance form",
+      "The project will not be finaled without a completed Smoke Detector Compliance form (residential only)"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S5"]
   },
   "timeline_days": {
     "value": null,
@@ -172,6 +179,14 @@
       "url": "https://www.selfgenca.com/home/about/",
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "SolarApp+",
+      "url": "https://www.livermoreca.gov/departments/community-development/permit-center/residential-photovoltaic/solarapp",
+      "publisher": "City of Livermore",
+      "type": "government",
       "accessed_date": "2026-08-09"
     }
   ]

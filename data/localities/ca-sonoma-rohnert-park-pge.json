@@ -85,9 +85,13 @@
     "notes": "The page confirms applicants apply through the Symbium automated permitting platform but does not itself enumerate a specific document checklist."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule building inspections via the online portal at rpccrw.rpcity.org/etrakit3/ (Google Chrome recommended)",
+      "Inspections are offered Monday through Friday, 8:30 am to noon and 1 to 3 pm; an AM or PM time slot must be requested when scheduling"
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S5"],
+    "notes": "This is the City's general Building Division inspection scheduling process (the same FAQ covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": null,
@@ -115,9 +119,14 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Residential Photovoltaic System (1-15 kW) — plan check", "amount_usd": 223, "unit": "flat fee", "notes": "Per the City's own Building Fee Schedule effective July 1, 2025." },
+      { "name": "Residential Photovoltaic System (1-15 kW) — inspection", "amount_usd": 223, "unit": "flat fee", "notes": "Per the City's own Building Fee Schedule effective July 1, 2025." },
+      { "name": "Residential Photovoltaic System (16-31 kW) — plan check", "amount_usd": 232, "unit": "flat fee", "notes": "Per the City's own Building Fee Schedule effective July 1, 2025." },
+      { "name": "Residential Photovoltaic System (16-31 kW) — inspection", "amount_usd": 233, "unit": "flat fee", "notes": "Per the City's own Building Fee Schedule effective July 1, 2025." }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S6"]
   },
   "rebates": {
     "value": null,
@@ -171,6 +180,22 @@
       "url": "https://www.selfgenca.com/home/about/",
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "FAQ",
+      "url": "https://www.rpcity.ca.gov/842/FAQ",
+      "publisher": "City of Rohnert Park",
+      "type": "government",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S6",
+      "title": "Building Fee Schedule Effective July 1, 2025",
+      "url": "https://www.rpcity.org/DocumentCenter/View/192/Building-Fee-Schedule-Effective-July-1-2025-PDF",
+      "publisher": "City of Rohnert Park",
+      "type": "government",
       "accessed_date": "2026-08-09"
     }
   ]
