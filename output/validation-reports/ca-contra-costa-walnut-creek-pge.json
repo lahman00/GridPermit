@@ -3,7 +3,7 @@
   "file": "data/localities/ca-contra-costa-walnut-creek-pge.json",
   "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 92,
+  "score": 90,
   "errors": [],
   "warnings": [
     {
@@ -25,16 +25,17 @@
       "field": "sources[S3].url",
       "category": "broken_url",
       "message": "https://www.mcecleanenergy.org/service-area/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "broken_url",
+      "message": "https://www.walnutcreekca.gov/government/community-development-department/permits/building-permits/request-a-building-inspection — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "permit_fees",
@@ -48,7 +49,7 @@
   "url_checks": [
     {
       "url": "https://www.walnutcreekca.gov/government/community-development-department/permits/building-permits/building-and-land-use-regulations/solar-electrical-heating-and-plumbing",
-      "checked_at": "2026-08-10T06:56:45.042Z",
+      "checked_at": "2026-08-10T20:31:42.663Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -56,7 +57,7 @@
     },
     {
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
-      "checked_at": "2026-08-10T06:56:45.310Z",
+      "checked_at": "2026-08-10T20:31:43.279Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -64,7 +65,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-10T06:56:45.607Z",
+      "checked_at": "2026-08-10T20:31:43.544Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -72,7 +73,7 @@
     },
     {
       "url": "https://www.walnutcreekca.gov/government/community-development-department/permits/building-permits",
-      "checked_at": "2026-08-10T06:56:46.338Z",
+      "checked_at": "2026-08-10T20:31:44.317Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -80,7 +81,15 @@
     },
     {
       "url": "https://www.mcecleanenergy.org/service-area/",
-      "checked_at": "2026-08-10T06:56:46.430Z",
+      "checked_at": "2026-08-10T20:31:44.516Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.walnutcreekca.gov/government/community-development-department/permits/building-permits/request-a-building-inspection",
+      "checked_at": "2026-08-10T20:31:44.939Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",

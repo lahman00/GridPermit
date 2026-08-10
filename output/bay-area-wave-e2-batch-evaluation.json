@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T06:57:06.499Z",
+  "evaluated_at": "2026-08-10T20:32:01.221Z",
   "record_count": 7,
   "records": [
     {
@@ -82,11 +82,11 @@
       "record_id": "ca-contra-costa-walnut-creek-pge",
       "city": "Walnut Creek",
       "county": "Contra Costa County",
-      "completeness_pct": 73.3,
-      "validation_score": 92,
+      "completeness_pct": 80,
+      "validation_score": 90,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 4,
+      "warning_count": 5,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -96,13 +96,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -114,7 +114,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-contra-costa-lafayette-pge",
@@ -271,10 +271,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 81,
-    "average_validation_score": 94.7,
-    "ready_count": 6,
-    "limited_count": 1,
+    "average_completeness_pct": 81.9,
+    "average_validation_score": 94.4,
+    "ready_count": 7,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -286,7 +286,7 @@
       "interconnection_url": 0,
       "battery_programs": 2,
       "required_documents": 2,
-      "inspection_steps": 1,
+      "inspection_steps": 0,
       "timeline_days": 1,
       "eligibility_constraints": 0,
       "permit_fees": 6,
@@ -312,10 +312,6 @@
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 1
-      },
-      {
-        "field": "inspection_steps",
         "missing_in_records": 1
       },
       {
@@ -348,18 +344,13 @@
     "recommended_publish_record_ids": [
       "ca-contra-costa-martinez-pge",
       "ca-contra-costa-pleasant-hill-pge",
+      "ca-contra-costa-walnut-creek-pge",
       "ca-contra-costa-lafayette-pge",
       "ca-contra-costa-orinda-pge",
       "ca-contra-costa-moraga-pge",
       "ca-contra-costa-danville-pge"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-contra-costa-walnut-creek-pge",
-        "city": "Walnut Creek",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
       "IOU"

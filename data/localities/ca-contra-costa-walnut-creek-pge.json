@@ -87,9 +87,14 @@
     "notes": "walnutcreekca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Request an inspection online (via a linked Accela account), by email, or by phone; requests can be made up to 5 days in advance and must be submitted by midnight for next-day service",
+      "Confirm the inspection and timeframe the morning of the scheduled day between 8:00am-8:30am using the City's online confirmation tool, which goes live at 8am",
+      "Some permits require special inspections; check the job card or call (925) 943-5834 to confirm"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S5"],
+    "notes": "This is the City's general Building Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": {
@@ -179,6 +184,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Building Inspections",
+      "url": "https://www.walnutcreekca.gov/government/community-development-department/permits/building-permits/request-a-building-inspection",
+      "publisher": "City of Walnut Creek",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
