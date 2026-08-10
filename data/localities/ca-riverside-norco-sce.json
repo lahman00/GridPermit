@@ -17,15 +17,15 @@
   "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
   "permit_authority": {
     "value": "City of Norco Building Department",
-    "confidence": 0.7,
+    "confidence": 0.9,
     "source_ids": ["S1"],
-    "notes": "norco.ca.us returned HTTP 403 to automated fetch on every attempt this session. This department name and page content is confirmed only via search-engine indexing of the city's own page, not independently read."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.norco.ca.us/departments/building-safety/frequently-asked-questions",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; norco.ca.us returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block). This FAQ page includes a dedicated 'How Do I Submit a Solar Permit?' section describing three application options: in-person at City Hall, online via SolarAPP+ (after completing an IREC training module), or via email."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -53,7 +53,16 @@
     "source_ids": ["S4"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "norco.ca.us returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements beyond a general search-engine summary indicating some systems are SolarApp+-eligible." },
+  "required_documents": {
+    "value": [
+      { "name": "California Contractor's State License (wallet card) or property owner proof of identification", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Current City of Norco Business License (contractors, including all subcontractors)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ training completion certificate (IREC's 'How to Use SolarAPP+ For Rooftop Solar Projects,' or the storage-specific version if including batteries) — required once, before first SolarAPP+ submission", "required_when": "conditional", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "The general contractor/owner paperwork requirements apply to all Norco permits including solar; the SolarAPP+ training certificate requirement is specific to the online SolarAPP+ application option described on this same page."
+  },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis indicates a building permit is valid for 180 days after issuance, but a review/approval timeline itself was not confirmed." },
   "eligibility_constraints": {
@@ -102,7 +111,7 @@
       "url": "https://www.norco.ca.us/departments/building-safety/frequently-asked-questions",
       "publisher": "City of Norco",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",

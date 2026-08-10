@@ -58,7 +58,15 @@
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page directs applicants to the Symbium portal for the actual application, but does not itself enumerate a required-documents checklist." },
   "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page describes 'instantaneous solar plan review approval' via Symbium but does not state a specific number of days for any non-instant path." },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states 'Contractors and homeowners seeking to pull permits will be able to apply for instantaneous solar plan review approval...via this Symbium portal.'"
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential"],

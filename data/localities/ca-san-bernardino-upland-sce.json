@@ -57,7 +57,16 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states 'City permit approval is still required' regardless of pathway (SolarAPP+ or the CSS Portal), but does not enumerate specific required documents." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Call the Inspection Voicemail Line at (909) 931-4129 by 4:00pm the business day prior, providing project address, permit number, inspection type, AM/PM request, and contact info",
+      "Have the permit card and approved permit plans (downloadable via the CSS Portal) available at the job site",
+      "Inspections are conducted Monday-Thursday; to verify your inspection, call (909) 931-4110 the morning of the scheduled date"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S6"],
+    "notes": "This is the City's general Building & Safety inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
@@ -137,6 +146,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Inspection Scheduling",
+      "url": "https://www.uplandca.gov/development_services/building_safety/schedule_inspection.php",
+      "publisher": "City of Upland",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
