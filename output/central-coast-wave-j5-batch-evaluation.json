@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.529Z",
+  "evaluated_at": "2026-08-10T05:13:36.427Z",
   "record_count": 5,
   "records": [
     {
@@ -120,7 +120,7 @@
       "record_id": "ca-santa-barbara-goleta-sce",
       "city": "Goleta",
       "county": "Santa Barbara County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 73.3,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -134,12 +134,12 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -195,7 +195,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 65.3,
+    "average_completeness_pct": 66.7,
     "average_validation_score": 96.2,
     "ready_count": 1,
     "limited_count": 4,
@@ -210,7 +210,7 @@
       "interconnection_url": 1,
       "battery_programs": 1,
       "required_documents": 4,
-      "inspection_steps": 5,
+      "inspection_steps": 4,
       "timeline_days": 3,
       "eligibility_constraints": 0,
       "permit_fees": 4,
@@ -219,15 +219,15 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "inspection_steps",
-        "missing_in_records": 5
-      },
-      {
         "field": "rebates",
         "missing_in_records": 5
       },
       {
         "field": "required_documents",
+        "missing_in_records": 4
+      },
+      {
+        "field": "inspection_steps",
         "missing_in_records": 4
       },
       {
@@ -300,7 +300,7 @@
       {
         "record_id": "ca-santa-barbara-goleta-sce",
         "city": "Goleta",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       }
     ],
     "not_ready": [],

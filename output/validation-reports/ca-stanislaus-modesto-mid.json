@@ -1,7 +1,7 @@
 {
   "record_id": "ca-stanislaus-modesto-mid",
   "file": "data/localities/ca-stanislaus-modesto-mid.json",
-  "validated_at": "2026-08-05",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
   "score": 98,
   "errors": [],
@@ -16,10 +16,6 @@
     {
       "field": "battery_programs",
       "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "timeline_days",
@@ -37,7 +33,7 @@
   "url_checks": [
     {
       "url": "https://permits.modestogov.com/564/Building-Safety-Division",
-      "checked_at": "2026-08-05T22:52:38.421Z",
+      "checked_at": "2026-08-10T05:18:43.868Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,11 +41,19 @@
     },
     {
       "url": "https://www.mid.org/saving-energy-money/solar/",
-      "checked_at": "2026-08-05T22:52:39.788Z",
+      "checked_at": "2026-08-10T05:18:45.047Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "timeout"
+    },
+    {
+      "url": "https://permits.modestogov.com/1280/Building-Inspections",
+      "checked_at": "2026-08-10T05:18:55.050Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

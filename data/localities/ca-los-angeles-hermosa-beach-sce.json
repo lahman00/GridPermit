@@ -25,15 +25,14 @@
   },
   "permit_authority": {
     "value": "City of Hermosa Beach Community Development Department",
-    "confidence": 0.6,
-    "source_ids": ["S3"],
-    "notes": "hermosabeach.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page title, but the SolarAPP+ page's specific content (eligibility, fees, timeline, contacts) could not be independently verified."
+    "confidence": 0.9,
+    "source_ids": ["S3"]
   },
   "permit_url": {
     "value": "https://www.hermosabeach.gov/our-government/city-departments/community-development/solarapp-for-solar-installers",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S3"],
-    "notes": "URL identified via search-engine indexing; hermosabeach.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -70,13 +69,38 @@
     "source_ids": ["S3"],
     "notes": "Based on search-engine synthesis of the city's own page content, since the page itself could not be directly fetched this session (HTTP 403); recorded with reduced confidence accordingly."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Request inspections online via the Hermosa Beach Building Inspection Request link",
+      "Installers must have the approved plans, LA Fire-referenced ESS documents (if applicable), and the inspection checklist on-site for all inspections",
+      "Return the signed permit card to the City"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S3"]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states 'Only projects that conform to this list are eligible to use the automated SolarAPP+ portal for instant permitting.'"
+    },
+    "confidence": 0.75,
+    "source_ids": ["S3"]
+  },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates applications go through 'Hermosa Beach Online Permitting (ACA)' and contractors must be added to the SolarAPP+ program eligibility list, but no size-cap or property-type figure could be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated permitting via Hermosa Beach Online Permitting (ACA)",
+      "other_conditions": [
+        "PV systems including Energy Storage System (ESS) equipment require an LA County Fire expedited ESS/PV review (LACoFD ESS & PV Requirement Guide for R-3/R-4 occupancies)",
+        "Contractors must be added to the SolarAPP+ program eligibility list via team@solar-app.org"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S3"]
   },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },

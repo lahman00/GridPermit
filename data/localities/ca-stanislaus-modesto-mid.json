@@ -52,7 +52,16 @@
     "source_ids": ["S1"],
     "notes": "Derived from search-engine synthesis of the city's Forms & Applications page; the specific checklist document itself returned HTTP 404 on direct fetch this session."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Inspections are conducted from the ground up in a specific defined order; you may not move forward in construction without passing each inspection",
+      "Building Inspectors will not take inspection requests over the phone or in the field; schedule through the E-TRAKIT Permits Portal instead",
+      "The City is unable to accommodate appointments"
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S3"],
+    "notes": "This is the City's general Building Safety Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
     "value": {
@@ -112,6 +121,14 @@
       "publisher": "Modesto Irrigation District",
       "type": "utility",
       "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S3",
+      "title": "Building Inspections",
+      "url": "https://permits.modestogov.com/1280/Building-Inspections",
+      "publisher": "City of Modesto",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

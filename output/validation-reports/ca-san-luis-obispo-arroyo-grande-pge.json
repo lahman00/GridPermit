@@ -1,11 +1,16 @@
 {
   "record_id": "ca-san-luis-obispo-arroyo-grande-pge",
   "file": "data/localities/ca-san-luis-obispo-arroyo-grande-pge.json",
-  "validated_at": "2026-08-09",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 98,
+  "score": 93,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -13,10 +18,6 @@
     }
   ],
   "recommendations": [
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -26,10 +27,6 @@
       "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
@@ -37,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://www.arroyogrande.org/133/Building-Division",
-      "checked_at": "2026-08-09T22:23:58.319Z",
+      "checked_at": "2026-08-10T05:12:29.088Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,7 +42,7 @@
     },
     {
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
-      "checked_at": "2026-08-09T22:23:59.542Z",
+      "checked_at": "2026-08-10T05:12:30.591Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -53,7 +50,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-09T22:23:59.584Z",
+      "checked_at": "2026-08-10T05:12:30.989Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -61,10 +58,26 @@
     },
     {
       "url": "https://3cenergy.org/about-us/",
-      "checked_at": "2026-08-09T22:24:00.297Z",
+      "checked_at": "2026-08-10T05:12:31.742Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.arroyogrande.org/807/Building-Inspections",
+      "checked_at": "2026-08-10T05:12:31.946Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.arroyogrande.org/DocumentCenter/View/13690/Comprehensive-Fee-Schedule-FY-2025-26",
+      "checked_at": "2026-08-10T05:12:32.977Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
       "details": "HTTP 200"
     }
   ]
