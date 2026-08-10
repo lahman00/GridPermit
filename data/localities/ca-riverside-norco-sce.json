@@ -142,9 +142,13 @@
     "notes": "Derived from search-engine indexing of the city's zoning ordinance and building FAQ; norco.ca.us returned HTTP 403 to automated fetch, so this could not be independently confirmed by direct reading."
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Photovoltaic Systems - Residential Rooftop (up to 15 kW, plus $15/kW above 15 kW, $500 max per SB 1222)", "amount_usd": 644, "unit": "flat fee (includes 5% technology surcharge)", "notes": "Per the City's own FY 2026-27 Adopted Fee Schedule (Building and Safety Division, Table C)." },
+      { "name": "Photovoltaic Systems - Residential Ground Mount", "amount_usd": 826, "unit": "flat fee (includes 5% technology surcharge)", "notes": "Per the City's own FY 2026-27 Adopted Fee Schedule." },
+      { "name": "Solar Photovoltaic System Fire Prevention Review (Residential)", "amount_usd": 231, "unit": "hourly rate charged per hour or fraction thereof", "notes": "Per the City's own FY 2026-27 Adopted Fee Schedule (Fire Prevention Services Fee Schedule)." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S6"]
   },
   "rebates": {
     "value": null,
@@ -215,6 +219,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "FY 2026-2027 Adopted Fee Schedule",
+      "url": "https://norco.civicweb.net/filepro/document/214520/FY%202026-2027%20Adopted%20Fee%20Schedule.pdf",
+      "publisher": "City of Norco",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
