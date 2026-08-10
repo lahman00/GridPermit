@@ -10,10 +10,15 @@
     "notes": "The City of Industry is confirmed to be within SCE's distribution service territory."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No Community Choice Aggregator was found serving the City of Industry this session. The city's population is negligible (256 residents in 2024, ~73 total housing units per the last full census) and almost entirely industrial land use, which limits the relevance and availability of residential-focused CCA/solar-program information."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Clean Power Alliance's own homepage states it serves '38 communities across Los Angeles and Ventura counties' and names each one individually via its site's community directory; City of Industry is not among the named communities. No other Los Angeles/Ventura County CCA serving City of Industry was found, so Southern California Edison (SCE) is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S5"
+    ]
   },
   "city": {
     "value": "City of Industry",
@@ -153,6 +158,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Homepage (community directory listing all 38 CPA member communities)",
+      "url": "https://cleanpoweralliance.org/",
+      "publisher": "Clean Power Alliance",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

@@ -4,37 +4,58 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'San Dimas' by name among the cities in its service area."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No official San Dimas city page or Clean Power Alliance page confirming CCA membership was found this session. Left null rather than guessed."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Clean Power Alliance's own homepage states it serves '38 communities across Los Angeles and Ventura counties' and names each one individually via its site's community directory; San Dimas is not among the named communities. No other Los Angeles/Ventura County CCA serving San Dimas was found, so Southern California Edison (SCE) is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S6"
+    ]
   },
-  "city": { "value": "San Dimas", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "San Dimas",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "San Dimas is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of San Dimas Building and Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://files.sandimasca.gov/departments/community_development/building_and_safety/index.php",
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This general Building and Safety page references a dedicated 'Solar Permit Center' as a related resource, and the city is known (via search-engine indexing of a separate PDF handout titled 'Photovoltaic Systems 2022') to publish solar-specific guidance and Municipal Code Chapter 15.06 ('Expedited Permitting Process for Small Residential Rooftop Solar Energy Systems'), but the specific PDF returned HTTP 404 on every attempt this session and the main sandimasca.gov domain (as opposed to the files. subdomain) returned HTTP 403, so solar-specific eligibility, fees, and timeline content could not be independently verified."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -54,20 +75,43 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The specific solar submittal handout PDF returned HTTP 404 on every attempt this session." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The specific solar submittal handout PDF returned HTTP 404 on every attempt this session."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": null,
     "confidence": 0,
     "source_ids": [],
     "notes": "Search-engine synthesis indicates ground-mounted and commercial-building PV cannot use SolarAPP+ or the city's online permit center, only R3-occupancy roof-mounted residential PV, but this could not be independently confirmed via direct fetch this session."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -93,7 +137,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [
@@ -136,6 +183,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Homepage (community directory listing all 38 CPA member communities)",
+      "url": "https://cleanpoweralliance.org/",
+      "publisher": "Clean Power Alliance",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

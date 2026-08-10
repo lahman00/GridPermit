@@ -4,37 +4,58 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'South El Monte' by name among the cities in its service area. The city's own Utilities page confirms 'The City of South El Monte does not operate any public utilities' (i.e. no municipal utility), consistent with SCE as the investor-owned utility serving the city."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Neither South El Monte's own Utilities page nor Clean Power Alliance's own materials confirm CPA membership for South El Monte in either direction. Left null rather than guessed."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Clean Power Alliance's own homepage states it serves '38 communities across Los Angeles and Ventura counties' and names each one individually via its site's community directory; South El Monte is not among the named communities. No other Los Angeles/Ventura County CCA serving South El Monte was found, so Southern California Edison (SCE) is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S7"
+    ]
   },
-  "city": { "value": "South El Monte", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "South El Monte",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.85,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "South El Monte is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of South El Monte Building & Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityofsouthelmonte.org/474/Permits",
     "confidence": 0.7,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "General permitting services page — no solar/photovoltaic-specific page was found on the city's site this session. References LA County's adopted Building Code and an online Accela portal (aca-prod.accela.com/SOELMONTE), but no dedicated solar eligibility checklist, fee schedule, or SolarAPP+ program was found published for South El Monte specifically."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -54,22 +75,49 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "No solar-specific submittal checklist was found published for South El Monte this session." },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No solar-specific submittal checklist was found published for South El Monte this session."
+  },
   "inspection_steps": {
     "value": [
       "Building inspections occur Monday, Wednesday, and Thursday, 8:00am-9:00am or 12:00pm-1:00pm — general Building & Safety Division scheduling, not solar-specific"
     ],
     "confidence": 0.5,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "This is the Building & Safety Division's general inspection scheduling window, not a solar/PV-specific inspection procedure — no dedicated solar inspection process was published this session."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "No solar-specific eligibility checklist (size caps, property types, expedited program) was found published for South El Monte this session." },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "A general fee schedule PDF (effective September 1, 2023) is referenced on the city's Permits page, but no solar/PV-specific line item was confirmed this session." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No solar-specific eligibility checklist (size caps, property types, expedited program) was found published for South El Monte this session."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "A general fee schedule PDF (effective September 1, 2023) is referenced on the city's Permits page, but no solar/PV-specific line item was confirmed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -88,7 +136,10 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S2", "S6"]
+    "source_ids": [
+      "S2",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [
@@ -139,6 +190,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Homepage (community directory listing all 38 CPA member communities)",
+      "url": "https://cleanpoweralliance.org/",
+      "publisher": "Clean Power Alliance",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

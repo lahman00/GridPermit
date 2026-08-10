@@ -4,38 +4,59 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Walnut' by name among the cities in its service area. (This is the City of Walnut in Los Angeles County, distinct from Walnut Creek in Contra Costa County.)"
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No official Walnut city page or Clean Power Alliance page confirming CCA membership was found this session. Left null rather than guessed."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Clean Power Alliance's own homepage states it serves '38 communities across Los Angeles and Ventura counties' and names each one individually via its site's community directory; Walnut is not among the named communities. No other Los Angeles/Ventura County CCA serving Walnut was found, so Southern California Edison (SCE) is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S6"
+    ]
   },
-  "city": { "value": "Walnut", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Walnut",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Walnut is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Walnut Building & Safety Division",
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "walnutca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page title, but the page's specific content (eligibility, fees, timeline, contacts) could not be independently verified."
   },
   "permit_url": {
     "value": "https://www.walnutca.gov/For-Residents/Departments/Community-Development/Building-Safety-Division",
     "confidence": 0.55,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "URL identified via search-engine indexing; walnutca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -55,15 +76,42 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "walnutca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "walnutca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -75,7 +123,9 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [
@@ -118,6 +168,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Homepage (community directory listing all 38 CPA member communities)",
+      "url": "https://cleanpoweralliance.org/",
+      "publisher": "Clean Power Alliance",
+      "type": "other_official",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

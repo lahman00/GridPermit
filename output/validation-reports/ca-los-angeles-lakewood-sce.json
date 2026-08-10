@@ -1,9 +1,9 @@
 {
   "record_id": "ca-los-angeles-lakewood-sce",
   "file": "data/localities/ca-los-angeles-lakewood-sce.json",
-  "validated_at": "2026-08-07",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 96,
+  "score": 94,
   "errors": [],
   "warnings": [
     {
@@ -14,14 +14,15 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[S2].url",
+      "category": "broken_url",
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "generation_supplier",
-      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -50,7 +51,7 @@
   "url_checks": [
     {
       "url": "https://www.lakewoodcity.org/Building-Planning/Permits-Forms-and-Reference-Info/Solar-Roof-Mount-Permit",
-      "checked_at": "2026-08-07T15:54:03.876Z",
+      "checked_at": "2026-08-10T18:23:42.412Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -58,15 +59,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-07T15:54:04.358Z",
+      "checked_at": "2026-08-10T18:23:43.091Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "DNS failure (ENOTFOUND)"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-07T15:54:06.239Z",
+      "checked_at": "2026-08-10T18:23:43.094Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -74,7 +75,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-07T15:54:07.831Z",
+      "checked_at": "2026-08-10T18:23:43.979Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -82,7 +83,15 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-07T15:54:11.869Z",
+      "checked_at": "2026-08-10T18:23:44.736Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://cleanpoweralliance.org/",
+      "checked_at": "2026-08-10T18:23:44.738Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
