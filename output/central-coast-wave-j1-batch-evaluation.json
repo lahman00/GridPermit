@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T04:34:25.486Z",
+  "evaluated_at": "2026-08-10T04:46:33.978Z",
   "record_count": 4,
   "records": [
     {
@@ -83,11 +83,11 @@
       "record_id": "ca-santa-cruz-scotts-valley-pge",
       "city": "Scotts Valley",
       "county": "Santa Cruz County",
-      "completeness_pct": 66.7,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -97,25 +97,26 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": true,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-santa-cruz-watsonville-pge",
@@ -157,10 +158,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.4,
-    "average_validation_score": 96.3,
-    "ready_count": 2,
-    "limited_count": 2,
+    "average_completeness_pct": 76.7,
+    "average_validation_score": 95,
+    "ready_count": 3,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -172,10 +173,10 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 2,
-      "inspection_steps": 2,
+      "inspection_steps": 1,
       "timeline_days": 3,
       "eligibility_constraints": 0,
-      "permit_fees": 3,
+      "permit_fees": 2,
       "rebates": 4,
       "official_contacts": 1
     },
@@ -189,19 +190,19 @@
         "missing_in_records": 3
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 3
-      },
-      {
         "field": "required_documents",
         "missing_in_records": 2
       },
       {
-        "field": "inspection_steps",
+        "field": "permit_fees",
         "missing_in_records": 2
       },
       {
         "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
         "missing_in_records": 1
       },
       {
@@ -211,7 +212,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 4,
-      "unsupported_claim": 1
+      "unsupported_claim": 2
     },
     "utility_coverage": [
       "IOU"
@@ -232,6 +233,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-santa-cruz-capitola-pge",
+      "ca-santa-cruz-scotts-valley-pge",
       "ca-santa-cruz-watsonville-pge"
     ],
     "limited_for_now": [
@@ -239,11 +241,6 @@
         "record_id": "ca-santa-cruz-santa-cruz-pge",
         "city": "Santa Cruz",
         "reason": "readiness=LIMITED (completeness 60%, score 96)"
-      },
-      {
-        "record_id": "ca-santa-cruz-scotts-valley-pge",
-        "city": "Scotts Valley",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
       }
     ],
     "not_ready": [],

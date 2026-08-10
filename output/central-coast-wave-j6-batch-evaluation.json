@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T00:00:59.237Z",
+  "evaluated_at": "2026-08-10T04:55:44.742Z",
   "record_count": 9,
   "records": [
     {
@@ -44,7 +44,7 @@
       "record_id": "ca-ventura-oxnard-sce",
       "city": "Oxnard",
       "county": "Ventura County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 86.7,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -58,13 +58,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
-        "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -74,9 +74,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-ventura-camarillo-sce",
@@ -347,10 +347,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 75.6,
+    "average_completeness_pct": 77.8,
     "average_validation_score": 97.2,
-    "ready_count": 6,
-    "limited_count": 3,
+    "ready_count": 7,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -361,9 +361,9 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 1,
-      "required_documents": 6,
-      "inspection_steps": 2,
-      "timeline_days": 6,
+      "required_documents": 5,
+      "inspection_steps": 1,
+      "timeline_days": 5,
       "eligibility_constraints": 0,
       "permit_fees": 8,
       "rebates": 9,
@@ -380,15 +380,11 @@
       },
       {
         "field": "required_documents",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 6
-      },
-      {
-        "field": "inspection_steps",
-        "missing_in_records": 2
+        "missing_in_records": 5
       },
       {
         "field": "generation_supplier",
@@ -396,6 +392,10 @@
       },
       {
         "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
         "missing_in_records": 1
       }
     ],
@@ -423,6 +423,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-ventura-ventura-sce",
+      "ca-ventura-oxnard-sce",
       "ca-ventura-camarillo-sce",
       "ca-ventura-moorpark-sce",
       "ca-ventura-simi-valley-sce",
@@ -430,11 +431,6 @@
       "ca-ventura-santa-paula-sce"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-ventura-oxnard-sce",
-        "city": "Oxnard",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
-      },
       {
         "record_id": "ca-ventura-thousand-oaks-sce",
         "city": "Thousand Oaks",

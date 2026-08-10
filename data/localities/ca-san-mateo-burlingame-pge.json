@@ -59,8 +59,24 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's Symbium page and Solar Resources page do not enumerate a specific document checklist; the dedicated 'Solar Rooftop PV' page (which search-engine synthesis suggests would have this detail) returned HTTP 404 on direct fetch this session." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis suggested a 3-business-day contact commitment from the city's 'Solar Rooftop PV' page, but that exact page returned HTTP 404 on direct fetch this session, so this figure could not be independently verified and is not recorded." },
+  "inspection_steps": {
+    "value": [
+      "Email Buildinginspections@burlingame.org or call 650-558-7260 to schedule a Building Inspection",
+      "To cancel, call the Inspection Request line at 650-558-7260 before 9am on the day of the inspection"
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S9"],
+    "notes": "This is the City's general Building Division inspection scheduling process (the same FAQ covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page, titled 'Symbium for Instant Residential PV and ESS Permits,' states 'Contractors and homeowners seeking to pull permits under SB 379 are able to apply for instantaneous plan review via this Symbium portal.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S2"]
+  },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential"],
@@ -156,6 +172,14 @@
       "publisher": "WestLight Energy (formerly Peninsula Clean Energy)",
       "type": "other_official",
       "accessed_date": "2026-08-05"
+    },
+    {
+      "id": "S9",
+      "title": "How do I schedule a Building Inspection? (FAQ)",
+      "url": "https://burlingame.org/faq.aspx?qid=84",
+      "publisher": "City of Burlingame",
+      "type": "government",
+      "accessed_date": "2026-08-09"
     }
   ]
 }

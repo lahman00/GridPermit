@@ -85,14 +85,21 @@
     "notes": "The page confirms application documents for the expedited solar energy system process are made available on the town's website, but a specific document list was not independently confirmed via direct fetch this session."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Log in or set up an account at the OpenGov Building Permit Portal",
+      "Under the Building heading, click Schedule an Inspection and enter the permit number, then follow the prompts"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S5"]
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The Town's own SolarAPP+ Application Information page states licensed contractors can submit 'Residential roof-mounted photovoltaic designs for automated review through SolarAPP+; and an online application for an auto-issued permit.'"
+    },
+    "confidence": 0.75,
+    "source_ids": ["S5"]
   },
   "eligibility_constraints": {
     "value": {
@@ -170,6 +177,14 @@
       "url": "https://www.selfgenca.com/home/about/",
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
+      "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "SolarAPP+ Application Information",
+      "url": "https://www.townofyountville.com/571/solarapp-application-information",
+      "publisher": "Town of Yountville",
+      "type": "government",
       "accessed_date": "2026-08-09"
     }
   ]

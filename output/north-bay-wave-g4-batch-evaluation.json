@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T04:34:25.448Z",
+  "evaluated_at": "2026-08-10T04:55:44.704Z",
   "record_count": 10,
   "records": [
     {
@@ -44,7 +44,7 @@
       "record_id": "ca-marin-novato-pge",
       "city": "Novato",
       "county": "Marin County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 86.7,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -58,15 +58,15 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "inspection_steps",
-        "eligibility_constraints"
+        "timeline_days",
+        "eligibility_constraints",
+        "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
-        "timeline_days",
         "permit_fees",
-        "rebates",
-        "official_contacts"
+        "rebates"
       ],
       "warning_categories": [
         "broken_url"
@@ -74,9 +74,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-marin-mill-valley-pge",
@@ -385,10 +385,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 78,
+    "average_completeness_pct": 80,
     "average_validation_score": 94.9,
-    "ready_count": 8,
-    "limited_count": 2,
+    "ready_count": 9,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -399,13 +399,13 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 1,
-      "required_documents": 7,
+      "required_documents": 6,
       "inspection_steps": 1,
-      "timeline_days": 4,
+      "timeline_days": 3,
       "eligibility_constraints": 0,
       "permit_fees": 9,
       "rebates": 10,
-      "official_contacts": 1
+      "official_contacts": 0
     },
     "fields_most_often_missing": [
       {
@@ -418,11 +418,11 @@
       },
       {
         "field": "required_documents",
-        "missing_in_records": 7
+        "missing_in_records": 6
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "battery_programs",
@@ -430,10 +430,6 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 1
-      },
-      {
-        "field": "official_contacts",
         "missing_in_records": 1
       }
     ],
@@ -460,6 +456,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-marin-san-rafael-pge",
+      "ca-marin-novato-pge",
       "ca-marin-mill-valley-pge",
       "ca-marin-larkspur-pge",
       "ca-marin-corte-madera-pge",
@@ -469,11 +466,6 @@
       "ca-marin-ross-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-marin-novato-pge",
-        "city": "Novato",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 94)"
-      },
       {
         "record_id": "ca-marin-sausalito-pge",
         "city": "Sausalito",

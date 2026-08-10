@@ -36,19 +36,18 @@
   },
   "permit_authority": {
     "value": "City of Oxnard Community Development, Building and Engineering Division",
-    "confidence": 0.65,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
-    ],
-    "notes": "oxnard.gov returned HTTP 403 to automated fetch this session, so the city's own Residential Express Permits page could not be independently read; this record relies on search-engine-derived detail, including a dedicated Google-Sites-hosted SolarAPP+ walkthrough maintained by the city."
+    ]
   },
   "permit_url": {
     "value": "https://sites.google.com/oxnard.org/onlinesolarpermitswithsolarapp/home",
-    "confidence": 0.55,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "City-maintained SolarAPP+ walkthrough page; not independently fetched this session."
+    "notes": "City-maintained SolarAPP+ walkthrough page, directly re-verified via browser this session (Google Sites-hosted, not affected by the oxnard.gov domain block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -81,19 +80,30 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "SolarAPP+ approval documents (Approval ID, system kilowatts, number of panels)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "City of Oxnard Business Tax Certificate (Business License)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Click2Gov account associated with the contractor", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Request an inspection from the navigation buttons on the Click2Gov site after paying online and printing the permit",
+      "Inspections must be requested within 365 days of permit issuance"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"]
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own SolarApp+ landing page advertises 'online solar permit processing in real time' and states applicants can complete 'online application, payment and permit issuance in real time' through Click2Gov once SolarApp+-approved."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
     "value": {
@@ -142,7 +152,7 @@
   "sources": [
     {
       "id": "S1",
-      "title": "Online Solar Permits with SolarAPP+ (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "title": "Online Express Solar Processing with Solar App+ and the City of Oxnard",
       "url": "https://sites.google.com/oxnard.org/onlinesolarpermitswithsolarapp/home",
       "publisher": "City of Oxnard",
       "type": "government",

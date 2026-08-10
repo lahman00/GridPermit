@@ -59,8 +59,18 @@
     "source_ids": ["S5"],
     "notes": "Same statewide CPUC/PG&E-administered SGIP program already verified for the Fremont/Oakland/Berkeley records, reused here as a utility-level fact since PG&E's distribution role in Richmond is independently confirmed (S3)."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "Richmond's Residential Solar Systems and SolarAPP+ pages reference downloadable standard plans and a '2019 Solar Permitting Guidebook' but no specific document checklist was rendered as readable text this session." },
+  "required_documents": {
+    "value": [
+      { "name": "Current, valid CSLB contractor license", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Current, valid City of Richmond Business Tax Certificate (Business License)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "SolarAPP+ Approval Documents (attachment)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Signed permit application ('PAF Permit Application' attachment)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Certificate of Appropriateness from the Planning Division", "required_when": "conditional", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "The Certificate of Appropriateness is required only if the project site is listed on the Richmond Historic Register."
+  },
   "inspection_steps": {
     "value": [
       "Submit design through the SolarAPP+ platform to receive a SolarAPP+ Approval ID",
@@ -71,8 +81,15 @@
     "source_ids": ["S2"],
     "notes": "This is the SolarAPP+ application workflow described on Richmond's own SolarAPP+ page, not a field-inspection checklist — no separate document describing what inspectors check in the field was located this session."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "Neither Richmond's Residential Solar Systems page nor its SolarAPP+ page states a specific review/approval timeframe. Richmond Code of Ordinances Chapter 6.47 (Permitting Procedures for Small Residential Rooftop Solar Systems) likely contains this per California's AB 2188 model ordinance requirement, but library.municode.com returned HTTP 403 to automated fetch and no mirror could be located this session — left null rather than using an unverified third-party estimate." },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own SolarAPP+ page states 'An instant permit will be created for the user when all conditions below are satisfied' (valid CSLB license, valid City Business Tax Certificate, and the required SolarAPP+/application attachments uploaded), and separately that eligible projects use 'the automated SolarAPP+ portal for instant permitting.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S2"]
+  },
   "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [],
     "notes": "Richmond's SolarAPP+ page states installations on historic resources require a Certificate of Appropriateness from the Planning Division before submitting, but does not itself state system-size caps or property-type scope; Chapter 6.47 of the Richmond Code of Ordinances likely defines these but could not be read this session (municode.com blocked automated fetch). Left null rather than assuming the common 10kW AC/single-family-duplex pattern seen in other cities without direct confirmation for Richmond specifically." },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
