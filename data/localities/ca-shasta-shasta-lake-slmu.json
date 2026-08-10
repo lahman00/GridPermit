@@ -8,10 +8,13 @@
     "notes": "The City of Shasta Lake operates its own municipal electric utility, serving approximately 4,600 retail customers within city limits, confirmed via the city's own Electric Utility page. This is a municipal utility, not PG&E, independently confirmed rather than assumed from county location."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No Community Choice Aggregator was found serving Shasta Lake this session; as a municipal utility, it generally would not participate in a CCA."
+    "value": {
+      "name": "Shasta Lake Municipal Utility",
+      "type": "utility",
+      "notes": "Shasta Lake Municipal Utility is structurally outside CCA enrollment the same way as other municipal utilities in this dataset (Alameda Municipal Power, Gridley Electric Utility, Lompoc Utilities, TDPUD): a CCA only replaces the default generation of an underlying investor-owned utility's (PG&E/SCE/SDG&E) customers, and Shasta Lake's municipal-utility customers are never IOU customers. No CCA operating in Shasta County was found this session. The city's own municipal utility is recorded as both the distribution and generation provider."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "city": { "value": "Shasta Lake", "confidence": 1, "source_ids": ["S1"] },
   "county": { "value": "Shasta County", "confidence": 0.9, "source_ids": ["S1"] },

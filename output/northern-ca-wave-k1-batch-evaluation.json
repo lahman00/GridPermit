@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.980Z",
+  "evaluated_at": "2026-08-10T19:24:55.828Z",
   "record_count": 4,
   "records": [
     {
@@ -82,13 +82,14 @@
       "record_id": "ca-shasta-shasta-lake-slmu",
       "city": "Shasta Lake",
       "county": "Shasta County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
       "warning_count": 0,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -101,18 +102,17 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "battery_programs",
         "permit_fees",
         "rebates"
       ],
       "warning_categories": [],
       "utility_type": "municipal",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-tehama-red-bluff-pge",
@@ -154,14 +154,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 61.7,
+    "average_completeness_pct": 63.3,
     "average_validation_score": 97.5,
-    "ready_count": 0,
-    "limited_count": 4,
+    "ready_count": 1,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 4,
+      "generation_supplier": 3,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -178,16 +178,16 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "generation_supplier",
-        "missing_in_records": 4
-      },
-      {
         "field": "permit_fees",
         "missing_in_records": 4
       },
       {
         "field": "rebates",
         "missing_in_records": 4
+      },
+      {
+        "field": "generation_supplier",
+        "missing_in_records": 3
       },
       {
         "field": "timeline_days",
@@ -237,7 +237,9 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-shasta-shasta-lake-slmu"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-shasta-redding-reu",
@@ -250,18 +252,15 @@
         "reason": "readiness=LIMITED (completeness 60%, score 96)"
       },
       {
-        "record_id": "ca-shasta-shasta-lake-slmu",
-        "city": "Shasta Lake",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
-      },
-      {
         "record_id": "ca-tehama-red-bluff-pge",
         "city": "Red Bluff",
         "reason": "readiness=LIMITED (completeness 60%, score 96)"
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "municipal"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }
