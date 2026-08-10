@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T06:13:31.143Z",
+  "evaluated_at": "2026-08-10T18:42:40.640Z",
   "record_count": 8,
   "records": [
     {
@@ -82,13 +82,14 @@
       "record_id": "ca-riverside-temecula-sce",
       "city": "Temecula",
       "county": "Riverside County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
       "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -99,7 +100,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
@@ -110,7 +110,7 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": false,
@@ -158,13 +158,14 @@
       "record_id": "ca-riverside-lake-elsinore-sce",
       "city": "Lake Elsinore",
       "county": "Riverside County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
       "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -174,7 +175,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -186,7 +186,7 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
@@ -235,13 +235,14 @@
       "record_id": "ca-riverside-san-jacinto-sce",
       "city": "San Jacinto",
       "county": "Riverside County",
-      "completeness_pct": 73.3,
-      "validation_score": 94,
+      "completeness_pct": 80,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -254,7 +255,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "inspection_steps",
         "permit_fees",
         "rebates"
@@ -263,11 +263,11 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-riverside-beaumont-sce",
@@ -309,14 +309,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 70.8,
-    "average_validation_score": 95.4,
-    "ready_count": 4,
-    "limited_count": 4,
+    "average_completeness_pct": 73.3,
+    "average_validation_score": 95.6,
+    "ready_count": 5,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 7,
+      "generation_supplier": 4,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -337,12 +337,12 @@
         "missing_in_records": 8
       },
       {
-        "field": "generation_supplier",
+        "field": "permit_fees",
         "missing_in_records": 7
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 7
+        "field": "generation_supplier",
+        "missing_in_records": 4
       },
       {
         "field": "inspection_steps",
@@ -392,6 +392,7 @@
       "ca-riverside-menifee-sce",
       "ca-riverside-murrieta-sce",
       "ca-riverside-hemet-sce",
+      "ca-riverside-san-jacinto-sce",
       "ca-riverside-beaumont-sce"
     ],
     "limited_for_now": [
@@ -403,17 +404,12 @@
       {
         "record_id": "ca-riverside-temecula-sce",
         "city": "Temecula",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       },
       {
         "record_id": "ca-riverside-lake-elsinore-sce",
         "city": "Lake Elsinore",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
-      },
-      {
-        "record_id": "ca-riverside-san-jacinto-sce",
-        "city": "San Jacinto",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
+        "reason": "readiness=LIMITED (completeness 60%, score 96)"
       }
     ],
     "not_ready": [],

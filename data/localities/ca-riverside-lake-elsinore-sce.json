@@ -4,31 +4,56 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Lake Elsinore' by name among the cities in its service area. This is corroborated by search-engine indexing of the city's own site, which states Lake Elsinore homes are served by SCE."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Lake Elsinore is not a Western Community Energy member city (Eastvale, Hemet, Jurupa Valley, Norco, Perris, and Wildomar are); WCE itself deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021. No CCA was found serving Lake Elsinore this session."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Lake Elsinore was never a Western Community Energy member city (its member cities were Eastvale, Hemet, Jurupa Valley, Norco, Perris, and Wildomar), and WCE itself deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021 — so no CCA currently operates anywhere in Riverside County. SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S2"
+    ]
   },
-  "city": { "value": "Lake Elsinore", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Lake Elsinore",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Riverside County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Lake Elsinore Building & Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.lake-elsinore.org/268/Permits-Inspection",
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -48,15 +73,42 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's Permits & Inspection page provides only general building-permit process information; a 'Solar Requirements' document is referenced among the city's standard building handouts but its specific content was not fetched this session." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city's Permits & Inspection page provides only general building-permit process information; a 'Solar Requirements' document is referenced among the city's standard building handouts but its specific content was not fetched this session."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -75,7 +127,9 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

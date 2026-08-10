@@ -4,33 +4,58 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Eastvale' by name among the cities in its service area."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Eastvale is a named member city of Western Community Energy (WCE), but WCE deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021, with customers involuntarily returned to their default IOU. No currently-operating CCA was confirmed serving Eastvale this session, so left null rather than recording a defunct relationship as active."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Eastvale was a named member city of Western Community Energy (WCE), but WCE deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021 and no longer operates. No CCA currently serves Eastvale or anywhere in Riverside County. SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S2"
+    ]
   },
-  "city": { "value": "Eastvale", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Eastvale",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Riverside County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Eastvale Community Development Department, Building Safety Division",
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "eastvaleca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name and page content is confirmed only via search-engine indexing of the city's own page, not independently read."
   },
   "permit_url": {
     "value": "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions",
     "confidence": 0.55,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "URL identified via search-engine indexing; eastvaleca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -50,20 +75,43 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "eastvaleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements beyond a general search-engine summary indicating a 'Combination Building Permit' application and racking/attachment documentation are required." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "eastvaleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements beyond a general search-engine summary indicating a 'Combination Building Permit' application and racking/attachment documentation are required."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": null,
     "confidence": 0,
     "source_ids": [],
     "notes": "Search-engine synthesis indicates the Building Safety Division has piloted SolarApp+ for detached single-family residential PV installations, but this could not be independently confirmed via direct fetch this session."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -75,7 +123,9 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

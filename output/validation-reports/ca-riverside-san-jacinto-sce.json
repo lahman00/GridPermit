@@ -3,30 +3,21 @@
   "file": "data/localities/ca-riverside-san-jacinto-sce.json",
   "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 94,
+  "score": 96,
   "errors": [],
   "warnings": [
     {
-      "field": "permit_url",
-      "category": "broken_url",
-      "message": "https://www.sanjacintoca.gov/city_departments/community-development/building-safety/instant_solar_permit — HTTP 429: blocked/unverifiable, not confirmed broken — recommend a manual check"
-    },
-    {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "generation_supplier",
-      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "inspection_steps",
       "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -43,23 +34,23 @@
   "url_checks": [
     {
       "url": "https://www.sanjacintoca.gov/city_departments/community-development/building-safety/instant_solar_permit",
-      "checked_at": "2026-08-10T06:12:56.567Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 429,
+      "checked_at": "2026-08-10T18:41:27.410Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "HTTP 429: blocked/unverifiable, not confirmed broken"
+      "details": "HTTP 200"
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-10T06:12:56.684Z",
+      "checked_at": "2026-08-10T18:41:28.619Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-10T06:12:56.687Z",
+      "checked_at": "2026-08-10T18:41:38.622Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -67,7 +58,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-10T06:12:57.685Z",
+      "checked_at": "2026-08-10T18:41:39.390Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -75,11 +66,11 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-10T06:12:58.449Z",
+      "checked_at": "2026-08-10T18:41:40.081Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     }
   ]
 }
