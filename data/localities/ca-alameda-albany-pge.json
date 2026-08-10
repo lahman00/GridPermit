@@ -36,18 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Albany Building Division",
-    "confidence": 0.75,
+    "confidence": 0.9,
     "source_ids": [
-      "S1"
+      "S5"
     ],
-    "notes": "The city's solar ordinance (§12-14, via eCode360) was reviewed this session; a dedicated city-hosted solar permit page was not located."
+    "notes": "The City's own Building page (albanyca.gov, migrated from the earlier albanyca.org domain) has a dedicated 'SolarApp+ and PV permits' section, found and directly read this session."
   },
   "permit_url": {
-    "value": "https://ecode360.com/34839223",
-    "confidence": 0.7,
+    "value": "https://www.albanyca.gov/Departments/Community-Development/Building",
+    "confidence": 0.9,
     "source_ids": [
-      "S1"
-    ]
+      "S5"
+    ],
+    "notes": "The City's site migrated from albanyca.org to albanyca.gov; the previous ecode360.com citation (S1) remains a valid municipal-code reference but is not the applicant-facing page. The FAQ/accordion content on this page (SolarApp+ and PV permits, Inspections) is rendered client-side and was extracted via direct DOM element lookup rather than visible-text scraping."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -80,19 +81,32 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "SolarApp+ approval documents (emailed to permits@albanyca.org along with the Building Permit Application)", "required_when": "conditional", "source_ids": ["S5"] },
+      { "name": "City of Albany Building Permit Application", "required_when": "always", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "Per the City's own 'SolarApp+ and PV permits' page section. Projects not eligible for or not using SolarApp+ apply via email using the City's standard building-permit submittal process instead."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule inspections by calling (510) 528-5760 or emailing permits@albanyca.org; next-day inspections are typically possible, but allow up to 3 days lead time",
+      "To cancel a scheduled inspection, call no later than 9:00am on the day of the inspection",
+      "A five-working-day advance notice may be required for a Final Inspection"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S5"],
+    "notes": "This is the City's general Building Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states 'Licensed Contractors can apply for PV permits and receive instant plan review for qualifying residential projects through SolarApp+' and refers to 'instant permit approval.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S5"]
   },
   "eligibility_constraints": {
     "value": {
@@ -127,9 +141,17 @@
     "source_ids": []
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": null,
+        "role": "City of Albany Building Division",
+        "phone": "510-528-5760",
+        "email": "permits@albanyca.org",
+        "url": "https://www.albanyca.gov/Departments/Community-Development/Building"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S5"]
   },
   "last_verified": "2026-08-09",
   "sources": [
@@ -164,6 +186,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Building",
+      "url": "https://www.albanyca.gov/Departments/Community-Development/Building",
+      "publisher": "City of Albany",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
