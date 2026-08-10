@@ -37,19 +37,19 @@
   },
   "permit_authority": {
     "value": "City of Laguna Beach Community Development Department, Building & Permits Division",
-    "confidence": 0.7,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "lagunabeachcity.net returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page titles, but specific solar eligibility, fee, and timeline content could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block). The page is a general building-permit page, not solar-specific; no dedicated solar page was found."
   },
   "permit_url": {
     "value": "https://www.lagunabeachcity.net/government/departments/community-development/building-permits",
-    "confidence": 0.55,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; lagunabeachcity.net returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -88,9 +88,14 @@
     "notes": "lagunabeachcity.net returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Request inspections by emailing lbinspectors@lagunabeachcity.net before 4:00pm to receive an inspection the following business day (no same-day inspections); provide project address, permit number(s), inspection type(s), request date, and requestor name/mobile number",
+      "Confirm the inspection date/time via the city's Daily Inspections page or by calling (949) 497-0715 on the morning of the inspection after 8:30am; no confirmation call is placed to the requestor",
+      "Permits expire if inspections are not scheduled and passed every 180 days; a final 'passed' inspection is required to complete the permit"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": null,
@@ -135,7 +140,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",

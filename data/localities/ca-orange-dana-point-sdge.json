@@ -36,19 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Dana Point Community Development Department, Building Safety Division",
-    "confidence": 0.7,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "danapoint.org returned HTTP 403 to automated fetch on every attempt this session (the dedicated Solar Permit page and the alternate govaccess.org building services subdomain, which was unreachable via DNS/connection error). This department name is confirmed via search-engine indexing of the city's own page title, but specific eligibility, fee, and timeline content could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.danapoint.org/City-Government/Community-Development/Building-Safety/Solar-Permit",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; danapoint.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
@@ -87,20 +87,39 @@
     "notes": "danapoint.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Call the Inspection Request Line at (949) 248-3590 with the permit number, site address, inspection type, requested date, gate code (if applicable), and a callback phone number",
+      "Inspections must be scheduled by 4:00pm the prior business day to be scheduled for the next business day; inspections are normally performed 8:00am-4:00pm",
+      "A printed copy of all Symbium-approved documents must be on site for the field inspection",
+      "Confirm the inspection time window via the city's 'Daily Inspections' page by 8:00am the morning of the inspection, or call (949) 248-3564; cancellations must be made before 8:00am that same morning"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states SB 379 established 'instantaneous plan review practices' and that qualifying contractors 'can apply for instantaneous plan review approval via Symbium's portal,' with permits 'issued without manual review or an in-person visit.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates the city partners with Symbium for automated SB 379-compliant residential solar/ESS permitting, but this could not be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 38.4,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium instant permitting (SB 379) / standard eTRAKIT Permit Portal for non-qualifying projects",
+      "other_conditions": [
+        "Contractor must hold an active A, B, C-10, or C-46 license",
+        "Residential solar energy system must be no larger than 38.4 kW AC nameplate rating",
+        "Projects not meeting Symbium criteria must submit electronically through the eTRAKIT Permit Portal"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
   },
   "permit_fees": {
     "value": null,
@@ -127,7 +146,7 @@
       "S4"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
