@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T17:16:16.212Z",
+  "evaluated_at": "2026-08-10T17:24:32.455Z",
   "record_count": 5,
   "records": [
     {
@@ -159,11 +159,11 @@
       "record_id": "ca-monterey-king-city-pge",
       "city": "King City",
       "county": "Monterey County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -175,30 +175,31 @@
         "battery_programs",
         "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": true,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": false,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.7,
-    "average_validation_score": 95,
-    "ready_count": 2,
-    "limited_count": 3,
+    "average_completeness_pct": 76,
+    "average_validation_score": 94,
+    "ready_count": 3,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -213,7 +214,7 @@
       "inspection_steps": 1,
       "timeline_days": 4,
       "eligibility_constraints": 1,
-      "permit_fees": 4,
+      "permit_fees": 3,
       "rebates": 5,
       "official_contacts": 0
     },
@@ -232,7 +233,7 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "inspection_steps",
@@ -245,7 +246,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 5,
-      "unsupported_claim": 1
+      "unsupported_claim": 2
     },
     "utility_coverage": [
       "IOU"
@@ -266,7 +267,8 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-monterey-salinas-pge",
-      "ca-monterey-gonzales-pge"
+      "ca-monterey-gonzales-pge",
+      "ca-monterey-king-city-pge"
     ],
     "limited_for_now": [
       {
@@ -278,11 +280,6 @@
         "record_id": "ca-monterey-greenfield-pge",
         "city": "Greenfield",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-monterey-king-city-pge",
-        "city": "King City",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       }
     ],
     "not_ready": [],
