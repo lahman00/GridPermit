@@ -1,11 +1,16 @@
 {
   "record_id": "ca-san-diego-solana-beach-sdge",
   "file": "data/localities/ca-san-diego-solana-beach-sdge.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-10",
   "status": "REVIEW",
-  "score": 98,
+  "score": 93,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -22,10 +27,6 @@
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
@@ -33,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://cityofsolanabeach.ca.gov/en/solarpvpermits",
-      "checked_at": "2026-08-08T19:18:08.118Z",
+      "checked_at": "2026-08-10T07:44:09.005Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -41,7 +42,7 @@
     },
     {
       "url": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
-      "checked_at": "2026-08-08T19:18:09.523Z",
+      "checked_at": "2026-08-10T07:44:10.384Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -49,7 +50,7 @@
     },
     {
       "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-      "checked_at": "2026-08-08T19:18:09.589Z",
+      "checked_at": "2026-08-10T07:44:10.525Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -57,7 +58,15 @@
     },
     {
       "url": "https://thecleanenergyalliance.org/",
-      "checked_at": "2026-08-08T19:18:10.727Z",
+      "checked_at": "2026-08-10T07:44:12.614Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cityofsolanabeach.ca.gov/sites/default/files/Solana%20Beach/Finance/Fee%20Schedule/Master%20Fee%20Schedule.%20Effective%202026.pdf",
+      "checked_at": "2026-08-10T07:44:13.137Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

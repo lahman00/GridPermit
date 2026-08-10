@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T05:38:58.338Z",
+  "evaluated_at": "2026-08-10T07:44:30.160Z",
   "record_count": 8,
   "records": [
     {
@@ -234,11 +234,11 @@
       "record_id": "ca-san-diego-solana-beach-sdge",
       "city": "Solana Beach",
       "county": "San Diego County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -250,23 +250,24 @@
         "battery_programs",
         "required_documents",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "inspection_steps",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": true,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-diego-del-mar-sdge",
@@ -308,10 +309,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 76.7,
-    "average_validation_score": 95.3,
-    "ready_count": 6,
-    "limited_count": 2,
+    "average_completeness_pct": 77.5,
+    "average_validation_score": 94.6,
+    "ready_count": 7,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -326,18 +327,18 @@
       "inspection_steps": 3,
       "timeline_days": 4,
       "eligibility_constraints": 1,
-      "permit_fees": 8,
+      "permit_fees": 7,
       "rebates": 8,
       "official_contacts": 0
     },
     "fields_most_often_missing": [
       {
-        "field": "permit_fees",
+        "field": "rebates",
         "missing_in_records": 8
       },
       {
-        "field": "rebates",
-        "missing_in_records": 8
+        "field": "permit_fees",
+        "missing_in_records": 7
       },
       {
         "field": "timeline_days",
@@ -361,7 +362,8 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 8
+      "broken_url": 8,
+      "unsupported_claim": 1
     },
     "utility_coverage": [
       "IOU"
@@ -387,14 +389,10 @@
       "ca-san-diego-vista-sdge",
       "ca-san-diego-oceanside-sdge",
       "ca-san-diego-carlsbad-sdge",
-      "ca-san-diego-encinitas-sdge"
+      "ca-san-diego-encinitas-sdge",
+      "ca-san-diego-solana-beach-sdge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-san-diego-solana-beach-sdge",
-        "city": "Solana Beach",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
       {
         "record_id": "ca-san-diego-del-mar-sdge",
         "city": "Del Mar",

@@ -83,7 +83,14 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": [
+      { "name": "Single Family Residential Solar Plan Check", "amount_usd": 44, "unit": "flat fee (25% of Individual Electrical Permit Fee)", "notes": "Per the City's own Schedule of Fees, effective January 1, 2026 (fee code S-278)." },
+      { "name": "Single Family Residential Solar Permit/Inspection", "amount_usd": 176, "unit": "flat fee", "notes": "Per the City's own Schedule of Fees, effective January 1, 2026 (fee code S-279)." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S5"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -131,6 +138,14 @@
       "publisher": "Clean Energy Alliance",
       "type": "other_official",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S5",
+      "title": "Schedule of Fees (Master Fee Schedule, effective January 1, 2026)",
+      "url": "https://www.cityofsolanabeach.ca.gov/sites/default/files/Solana%20Beach/Finance/Fee%20Schedule/Master%20Fee%20Schedule.%20Effective%202026.pdf",
+      "publisher": "City of Solana Beach",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
