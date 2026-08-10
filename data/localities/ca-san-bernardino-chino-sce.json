@@ -95,7 +95,15 @@
     "source_ids": ["S1"],
     "notes": "This document describes the city's standard plan-review submittal process, not a SolarAPP+/automated instant-permitting pathway — no evidence of a separate SolarAPP+ program was found for Chino this session (unlike neighboring Chino Hills)."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": [
+      { "name": "Electrical Permit - Photovoltaic Systems (up to 15kW)", "amount_usd": 450, "unit": "base fee, capped at $500, plus $15/kW for each kW above 15kW", "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)." },
+      { "name": "Electrical Permit - Photovoltaic Systems (51kW-250kW)", "amount_usd": 922, "unit": "base fee, capped at $1,000, plus $7/kW between 51kW and 250kW", "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)." },
+      { "name": "Electrical Permit - Photovoltaic Systems (above 250kW)", "amount_usd": 1024, "unit": "base fee cap, plus $5/kW above 250kW", "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)." }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S8"]
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -173,6 +181,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S8",
+      "title": "Building Division Fee Schedule (Updated June 25, 2026, effective July 1, 2026)",
+      "url": "https://www.cityofchino.org/DocumentCenter/View/8335/Building-Fee-Schedule-Updated-June-25-2026-PDF",
+      "publisher": "City of Chino",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

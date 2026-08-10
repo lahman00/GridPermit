@@ -42,12 +42,12 @@
     ]
   },
   "permit_url": {
-    "value": "https://www.cityofgoleta.org/your-city/planning-and-environmental-review/building-planning/building-and-safety-division",
-    "confidence": 0.6,
+    "value": "https://www.cityofgoleta.org/your-city/planning-and-environmental-review/building-planning/building-and-safety-division/solarapp",
+    "confidence": 0.9,
     "source_ids": [
-      "S1"
+      "S5"
     ],
-    "notes": "The page returned HTTP 403 to automated fetch this session; detail below is drawn from search-engine summaries, including the city's own municipal code Chapter 15.14 (Streamlined Permitting Process for Small Residential Rooftop Solar Energy Systems)."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block); updated to the City's dedicated SolarAPP+ page, which was located this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -80,23 +80,33 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "SolarAPP+ Approval Number and Approval Document", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Photovoltaic plans", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Manufacturer's specifications and data sheets", "required_when": "always", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "Per the City's own SolarAPP+ page: after SolarAPP+ approval, applicants apply for a Building Permit via the Goleta Online Public Portal and must provide the SolarAPP+ approval number, upload the SolarAPP+ Approval Document, Photovoltaic plans, and manufacturer's specifications and data sheets."
   },
   "inspection_steps": {
     "value": [
-      "Call the Inspection Request Line at 805-961-7553 at least one business day before the requested inspection time",
-      "Leave a voicemail stating the job address, contact name and phone number, and type of inspection requested"
+      "Email Building & Safety Division at building.inspector@cityofgoleta.org at least 24 hours in advance of the requested inspection date (Building & Safety is closed every Friday)",
+      "Provide the Permit number, job address, type of inspection requested, and inspection date/time (AM or PM)",
+      "To cancel an inspection, email buildinggroup@cityofgoleta.org"
     ],
-    "confidence": 0.65,
-    "source_ids": ["S1"],
-    "notes": "This is the City's general Building & Safety Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+    "confidence": 0.85,
+    "source_ids": ["S5"],
+    "notes": "This is the City's SolarAPP+-specific inspection scheduling process (Step 3 on the SolarAPP+ page), superseding the general Building & Safety inspection line for SolarAPP+-permitted solar projects."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own SolarAPP+ page states 'Only projects conforming to this list are eligible to use the automated SolarAPP+ portal for instant permitting.'"
+    },
+    "confidence": 0.75,
+    "source_ids": ["S5"]
   },
   "eligibility_constraints": {
     "value": {
@@ -117,9 +127,13 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "SolarAPP+ Application Fee (PV only)", "amount_usd": 35, "unit": "flat fee", "notes": "Charged by SolarAPP+ for plan review, per the City's own SolarAPP+ page." },
+      { "name": "SolarAPP+ Application Fee (adding energy storage)", "amount_usd": 25, "unit": "additional flat fee", "notes": "Additional to the $35 PV fee, for a $60 total when adding storage, per the City's own SolarAPP+ page." },
+      { "name": "SolarAPP+ Processing Fee", "amount_usd": 0.30, "unit": "flat fee plus 2.9% of the total", "notes": "Per the City's own SolarAPP+ page." }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S5"]
   },
   "rebates": {
     "value": null,
@@ -145,11 +159,11 @@
   "sources": [
     {
       "id": "S1",
-      "title": "Building and Safety Division (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "title": "Building and Safety Division (directly re-verified via browser this session; an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)",
       "url": "https://www.cityofgoleta.org/your-city/planning-and-environmental-review/building-planning/building-and-safety-division",
       "publisher": "City of Goleta",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",
@@ -174,6 +188,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "SolarAPP+",
+      "url": "https://www.cityofgoleta.org/your-city/planning-and-environmental-review/building-planning/building-and-safety-division/solarapp",
+      "publisher": "City of Goleta",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }

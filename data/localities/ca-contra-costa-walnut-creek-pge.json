@@ -36,19 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Walnut Creek Community Development Department, Building Division",
-    "confidence": 0.8,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "walnutcreekca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page, not independently read."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.walnutcreekca.gov/government/community-development-department/permits/building-permits/building-and-land-use-regulations/solar-electrical-heating-and-plumbing",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; walnutcreekca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session; the page lists solar-specific submittal-requirement documents (Photovoltaic Array Systems / Alternative Energy Systems (IB-025); Storage Battery Systems in One- and Two-Family Dwelling With Solar Photovoltaic System), though the linked PDFs themselves returned HTTP 403 to both curl and direct browser download this session, so their specific content could not be extracted."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -154,7 +154,7 @@
       "url": "https://www.walnutcreekca.gov/government/community-development-department/permits/building-permits/building-and-land-use-regulations/solar-electrical-heating-and-plumbing",
       "publisher": "City of Walnut Creek",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",
