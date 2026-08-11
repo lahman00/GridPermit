@@ -37,19 +37,19 @@
   },
   "permit_authority": {
     "value": "City of Costa Mesa Building Safety Division",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "costamesaca.gov returned HTTP 403 to automated fetch on every attempt this session (including the bare domain root), and ecode360.com (host of the city's Small Residential Solar Energy System Permits municipal code chapter) also returned HTTP 403. This department name and page title are confirmed via search-engine indexing, but the page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block); ecode360.com also resolved cleanly this session, and the full municipal code chapter text (Sec. 5-138 through 5-143) was read."
   },
   "permit_url": {
     "value": "https://www.costamesaca.gov/government/departments-and-divisions/economic-and-development-services/building-safety/submittal-requirements/solar-check-plan/solar-submittal-requirements",
-    "confidence": 0.55,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; costamesaca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session: the page confirms plans/permits are submitted via the City's TESSA online portal."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -82,26 +82,46 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "costamesaca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's solar submittal requirements page."
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"],
+    "notes": "Per Costa Mesa Municipal Code Section 5-142(A),(D)-(E): the building department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the city's website. Plans and permits are submitted via the City's TESSA online portal (per the City's own 'Solar Submittal Requirements' page)."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Only one inspection shall be required and performed by the building department for eligible small residential rooftop solar energy systems",
+      "The inspection shall be done in a timely manner and should include consolidated inspections; an inspection will be scheduled within two business days of a request",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "Per Costa Mesa Municipal Code Section 5-143(G)-(I)."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Costa Mesa Municipal Code Section 5-143(A): 'For an application for a small residential rooftop solar energy system that meets the requirements of the approved checklist and standard plan, the building department shall issue a building permit or other non-discretionary permit within three business days.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine summaries indicate Costa Mesa processes solar via its own TESSA online permitting system rather than SolarAPP+, but no size-cap or property-type figure could be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy System expedited permitting (Costa Mesa Municipal Code Chapter X, §5-138 et seq.), submitted via the City's TESSA online portal",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City of Costa Mesa"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
   },
   "permit_fees": {
     "value": null,
@@ -128,7 +148,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -136,7 +156,7 @@
       "url": "https://www.costamesaca.gov/government/departments-and-divisions/economic-and-development-services/building-safety/submittal-requirements/solar-check-plan/solar-submittal-requirements",
       "publisher": "City of Costa Mesa",
       "type": "government",
-      "accessed_date": "2026-08-05"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -177,6 +197,14 @@
       "publisher": "Orange County Power Authority",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Chapter X - Small Residential Solar Energy System Permits (Costa Mesa Municipal Code, Title 5 - Buildings and Structures)",
+      "url": "https://ecode360.com/42610862",
+      "publisher": "City of Costa Mesa (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "record_id": "ca-orange-costa-mesa-sce",
   "file": "data/localities/ca-orange-costa-mesa-sce.json",
-  "validated_at": "2026-08-10",
+  "validated_at": "2026-08-11",
   "status": "REVIEW",
-  "score": 94,
+  "score": 92,
   "errors": [],
   "warnings": [
     {
@@ -14,31 +14,20 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
+    },
+    {
+      "field": "sources[S7].url",
+      "category": "broken_url",
+      "message": "https://ecode360.com/42610862 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
-    {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -51,7 +40,7 @@
   "url_checks": [
     {
       "url": "https://www.costamesaca.gov/government/departments-and-divisions/economic-and-development-services/building-safety/submittal-requirements/solar-check-plan/solar-submittal-requirements",
-      "checked_at": "2026-08-10T18:29:34.729Z",
+      "checked_at": "2026-08-11T22:32:41.656Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -59,15 +48,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-10T18:29:35.307Z",
+      "checked_at": "2026-08-11T22:32:42.082Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-10T18:29:35.312Z",
+      "checked_at": "2026-08-11T22:32:52.087Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -75,7 +64,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-10T18:29:36.171Z",
+      "checked_at": "2026-08-11T22:32:52.844Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -83,19 +72,27 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-10T18:29:37.224Z",
+      "checked_at": "2026-08-11T22:32:53.609Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://ocpower.org/",
-      "checked_at": "2026-08-10T18:29:37.229Z",
+      "checked_at": "2026-08-11T22:33:03.613Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
+    },
+    {
+      "url": "https://ecode360.com/42610862",
+      "checked_at": "2026-08-11T22:33:05.896Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }
