@@ -57,18 +57,49 @@
     "source_ids": ["S4"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city adopted a standard plan and checklist for expedited small residential rooftop solar review per search-engine synthesis, but clovisca.gov returned HTTP 403 to automated fetch, blocking independent verification of the specific checklist content." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": {
-    "value": { "min_days": 1, "max_days": 3, "notes": "Per search-engine synthesis of the city's own Building Department materials: permits are issued the following business day for over-the-counter applications deemed complete, or within three business days for electronic applications. Not independently confirmed via direct fetch this session." },
-    "confidence": 0.5,
-    "source_ids": ["S1"]
+  "required_documents": {
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S5"],
+    "notes": "Per Clovis Municipal Code Section 8.14.05(a),(d)-(e): the Building Department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the City's website."
   },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Only one inspection shall be required and performed by the Building Department for eligible small residential rooftop solar energy systems (a separate fire inspection may be performed if deemed required by the Clovis Fire Department)",
+      "The inspection shall be done in a timely manner and should include consolidated inspections; an inspection will be scheduled within two business days of a request and provide a four-hour inspection window",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "Per Clovis Municipal Code Section 8.14.06(h)-(j)."
+  },
+  "timeline_days": {
+    "value": { "min_days": 1, "max_days": 3, "notes": "Clovis Municipal Code Section 8.14.06(a): the Building Department 'shall issue a permit or other nondiscretionary permit the following business day for over-the-counter applications which are deemed complete or within three (3) business days for electronic applications' of receipt of a complete application." },
+    "confidence": 0.85,
+    "source_ids": ["S5"],
+    "notes": "Directly confirmed this session via the City's own municipal code (Chapter 8.14), replacing the prior search-engine-derived, unconfirmed value with the same figures now independently verified."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy Systems expedited permitting (Clovis Municipal Code Chapter 8.14)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City of Clovis"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S5"]
+  },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis indicates a 'new fee structure' exists on the city's Building web page, but no specific dollar figure was found or independently confirmed this session." },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": { "value": null, "confidence": 0, "source_ids": [] },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -101,6 +132,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "Chapter 8.14 - Small Residential Rooftop Solar Energy Systems (Clovis Municipal Code, Title 8 - Building Regulations)",
+      "url": "https://ecode360.com/50003302",
+      "publisher": "City of Clovis (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
