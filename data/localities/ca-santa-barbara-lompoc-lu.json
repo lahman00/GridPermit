@@ -36,19 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Lompoc Building & Safety Division",
-    "confidence": 0.65,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "cityoflompoc.com returned HTTP 403 to automated fetch this session, so the city's own SolarAPP+ page could not be independently read; this record relies on search-engine-derived detail."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block); the full page text was read."
   },
   "permit_url": {
     "value": "https://www.cityoflompoc.com/government/departments/building-and-safety-division/permits/solar",
-    "confidence": 0.45,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; the page returned HTTP 403 to automated fetch and its content was not independently verified this session."
+    "notes": "Directly re-verified via browser this session; page is explicitly marked '**PAGE UNDER CONSTRUCTION**' by the City but its content is otherwise complete and readable."
   },
   "interconnection_url": {
     "value": null,
@@ -62,25 +62,29 @@
     "source_ids": []
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "PV Installation and Interconnection Application (submitted to City of Lompoc Electric Utility division)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Signed/initialed 'Customer Owned Generation Rate Schedule G-1'", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ approval documents (downloaded after SolarAPP+ submittal and fee payment)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"],
+    "notes": "Per the City's own 'SolarAPP+' page, Steps 1-3: Electric Utility pre-approval and rate-schedule sign-off must precede the SolarAPP+ submittal, whose approval documents are then emailed to the Building Division."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Request an inspection through the City's 24-hour inspection request line at 805-875-8231, at least one day prior to the desired inspection date",
+      "Have all approval paperwork and the inspection sheet on site for the inspector"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Per the City's own 'SolarAPP+' page, Step 4 (Request Inspection and Interconnectivity)."
   },
   "timeline_days": {
-    "value": {
-      "min_days": 0,
-      "max_days": 3,
-      "notes": "Permits are issued same-day for over-the-counter applications, or within 1-3 business days for electronic applications, under the city's administrative nondiscretionary review process."
-    },
-    "confidence": 0.5,
-    "source_ids": [
-      "S1"
-    ]
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The previously-recorded 'same-day / 1-3 business days' figure was search-engine-derived and could not be corroborated: the City's own SolarAPP+ page was read in full this session and states no permit-approval timeframe (it describes the 4-step process and fee/inspection mechanics only). Reset to null rather than retain an unverified claim."
   },
   "eligibility_constraints": {
     "value": {
@@ -126,15 +130,15 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
-      "title": "SolarAPP+ (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "title": "SolarAPP+",
       "url": "https://www.cityoflompoc.com/government/departments/building-and-safety-division/permits/solar",
       "publisher": "City of Lompoc",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-08-11"
     }
   ]
 }
