@@ -57,7 +57,7 @@
     "source_ids": [
       "S3"
     ],
-    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+    "notes": "SCE's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
     "value": [
@@ -83,18 +83,46 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Roof layout", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Line diagram", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Equipment data sheets", "required_when": "always", "source_ids": ["S7"] }
+      {
+        "name": "Roof layout",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Line diagram",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Equipment data sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      }
     ],
     "confidence": 0.7,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per the City's own 'Torrance PV Automated Permitting Requirements' page: 'Please make sure to have a roof layout, line diagram, and all data sheets ready before beginning the application form.' The City's separate 'Photovoltaic/Solar Permit Plan Requirements Checklist' PDF (which likely itemizes further requirements) triggers a file-download dialog rather than a viewable page and could not be read."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Call the 24/7 Interactive Voice Response (IVR) Voice Permits Line at (310) 618-5901 to schedule or cancel an inspection",
+      "Have the Record (Permit) Number and a three-digit Inspection Code ready before calling",
+      "Cancellations must be requested before 6:00 AM the day of the inspection",
+      "A confirmation number is issued at the end of the call for reference"
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "This is the City's general Building & Safety inspection-scheduling process (covers Building and Electrical permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": null,
@@ -104,7 +132,9 @@
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -118,13 +148,15 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "permit_fees": {
     "value": null,
     "confidence": 0,
     "source_ids": [],
-    "notes": "The City's page cites AB 1414 (2017), which caps what permitting agencies may charge for a small rooftop solar system (10 kW AC or less) at $500 statewide — this is a legal ceiling, not confirmation of Torrance's actual charged fee, so it is not recorded as permit_fees."
+    "notes": "The City's page cites AB 1414 (2017), which caps what permitting agencies may charge for a small rooftop solar system (10 kW AC or less) at $500 statewide \u2014 this is a legal ceiling, not confirmation of Torrance's actual charged fee, so it is not recorded as permit_fees."
   },
   "rebates": {
     "value": null,
@@ -200,6 +232,14 @@
       "id": "S7",
       "title": "Torrance PV Automated Permitting Requirements",
       "url": "https://www.torranceca.gov/Government/Departments-Offices/Departments-Offices/Community-Development/Building-and-Safety/Solar-Photovoltaic-Information/Torrance-PV-Automated-Permitting-Requirements",
+      "publisher": "City of Torrance",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S8",
+      "title": "Schedule Building Inspection",
+      "url": "https://www.torranceca.gov/How-Do-I/Request/Building-Inspection",
       "publisher": "City of Torrance",
       "type": "government",
       "accessed_date": "2026-08-11"

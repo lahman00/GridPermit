@@ -4,7 +4,9 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Alhambra' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -14,31 +16,47 @@
       "notes": "Clean Power Alliance's own 'About' page explicitly names Alhambra among its member communities. The specific default product/tier name was not confirmed this session."
     },
     "confidence": 0.7,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
-  "city": { "value": "Alhambra", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Alhambra",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.85,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Alhambra is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Alhambra Building Division",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.alhambraca.gov/192/Building-Division",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This page references an 'Expedited Solar Photovoltaic Permitting for One and Two-Family Dwellings application (PDF)' hosted on Google Drive; the linked file now returns Google Drive's own 'page not found' error (dead link), so its content could not be used."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S2"],
-    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "SCE's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other SCE-territory records this session. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
   },
   "battery_programs": {
     "value": [
@@ -57,24 +75,40 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "Alhambra Municipal Code Chapter 20.19 (Small Residential Solar Energy Systems) likely details this, but codelibrary.amlegal.com returned HTTP 403 to automated fetch on every attempt this session." },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Alhambra Municipal Code Chapter 20.19 (Small Residential Solar Energy Systems) likely details this, but codelibrary.amlegal.com returned HTTP 403 to automated fetch on every attempt this session."
+  },
   "inspection_steps": {
     "value": [
       "For an expedited-eligible small residential rooftop solar energy system, only one inspection is required, conducted in a timely manner and which may be a consolidated inspection by the Building Official and Fire Chief together",
       "If the system fails inspection, a subsequent (re-)inspection is authorized, which does not need to conform to the single-consolidated-inspection requirement"
     ],
     "confidence": 0.85,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Alhambra Municipal Code Section 20.19.050(B), directly confirmed via codelibrary.amlegal.com (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Municipal code Section 20.19.050(B) requires the single expedited inspection be conducted 'in a timely manner' but does not state an explicit day count or business-day range for permit issuance itself; not stored per the mission's strict explicit-evidence bar for timeline_days." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Municipal code Section 20.19.050(B) requires the single expedited inspection be conducted 'in a timely manner' but does not state an explicit day count or business-day range for permit issuance itself; not stored per the mission's strict explicit-evidence bar for timeline_days."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -87,11 +121,35 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Alhambra Municipal Code Sections 20.19.030 (Definitions) and 20.19.050 (Permit Review and Inspection Requirements), directly confirmed via codelibrary.amlegal.com this session."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Fire Department Solar Permit, under 15kW",
+        "amount_usd": 125.0,
+        "unit": "flat fee per permit"
+      },
+      {
+        "name": "Fire Department Solar Permit, over 15kW",
+        "amount_usd": null,
+        "unit": "per hour ($180.00/hr)"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "Per the City's own Community Development Department Fee Schedule (Updated March 2026): this itemizes the Fire Department's own solar review/permit fee, not necessarily the Building Division's separate plan-check/permit fee (the document itself notes 'Please refer to the City Master Fee Schedule for a complete listing of fees' for other departments' charges, which was not located this session)."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -110,7 +168,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [
@@ -167,6 +228,14 @@
       "title": "Chapter 20.19: Small Residential Solar Energy Systems (Alhambra Municipal Code)",
       "url": "https://codelibrary.amlegal.com/codes/alhambra/latest/alhambra_ca/0-0-0-134248",
       "publisher": "City of Alhambra / American Legal Publishing",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S8",
+      "title": "Community Development Department Fee Schedule",
+      "url": "https://www.alhambraca.gov/DocumentCenter/View/7477/CDD-and-Other-Depts-Fee-Schedule",
+      "publisher": "City of Alhambra",
       "type": "government",
       "accessed_date": "2026-08-11"
     }
