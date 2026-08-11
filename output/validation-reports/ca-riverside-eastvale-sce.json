@@ -3,18 +3,23 @@
   "file": "data/localities/ca-riverside-eastvale-sce.json",
   "validated_at": "2026-08-11",
   "status": "REVIEW",
-  "score": 94,
+  "score": 92,
   "errors": [],
   "warnings": [
     {
       "field": "permit_url",
       "category": "broken_url",
-      "message": "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.eastvaleca.gov/government/community-development-department/building-safety/solar-app — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
       "field": "interconnection_url",
       "category": "broken_url",
       "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
+    },
+    {
+      "field": "sources[S1].url",
+      "category": "broken_url",
+      "message": "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
@@ -28,14 +33,6 @@
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
@@ -46,8 +43,8 @@
   ],
   "url_checks": [
     {
-      "url": "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions",
-      "checked_at": "2026-08-11T15:43:33.940Z",
+      "url": "https://www.eastvaleca.gov/government/community-development-department/building-safety/solar-app",
+      "checked_at": "2026-08-11T18:52:36.713Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -55,7 +52,7 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-11T15:43:34.108Z",
+      "checked_at": "2026-08-11T18:52:38.046Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -63,7 +60,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-11T15:43:44.113Z",
+      "checked_at": "2026-08-11T18:52:48.047Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -71,15 +68,23 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-11T15:43:44.895Z",
+      "checked_at": "2026-08-11T18:52:48.858Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
+      "url": "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions",
+      "checked_at": "2026-08-11T18:52:49.597Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-11T15:43:45.716Z",
+      "checked_at": "2026-08-11T18:52:49.701Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",

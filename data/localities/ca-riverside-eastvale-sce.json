@@ -43,12 +43,13 @@
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
-    "value": "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions",
-    "confidence": 0.8,
+    "value": "https://www.eastvaleca.gov/government/community-development-department/building-safety/solar-app",
+    "confidence": 0.9,
     "source_ids": [
-      "S1"
+      "S1",
+      "S6"
     ],
-    "notes": "Directly re-verified via browser this session. This general FAQ page does not itemize solar-specific submittal requirements, fees, or timelines."
+    "notes": "Corrected to the City's actual dedicated 'SolarAPP+' page (found via site search this session), directly read via browser."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -95,15 +96,28 @@
     "notes": "This is the City's general Building Safety inspection-scheduling process (the same FAQ page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence. A separate document for scheduling inspections without the portal is referenced but its link could not be resolved this session."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 1,
+      "notes": "The City's own SolarAPP+ page states: 'When residents submit solar plans in SolarAPP+, they will be automatically approved so long as they meet the minimum requirements... SolarAPP+ allows plans to be approved within the day.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S6"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates the Building Safety Division has piloted SolarApp+ for detached single-family residential PV installations, but this could not be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated residential solar and storage systems permit portal",
+      "other_conditions": [
+        "The City of Eastvale was one of the first California cities to integrate SolarAPP+ into its permitting services",
+        "Plans must meet SolarAPP+'s minimum eligibility requirements to be automatically approved"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": ["S6"]
   },
   "permit_fees": {
     "value": null,
@@ -171,6 +185,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "SolarAPP+",
+      "url": "https://www.eastvaleca.gov/government/community-development-department/building-safety/solar-app",
+      "publisher": "City of Eastvale",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
