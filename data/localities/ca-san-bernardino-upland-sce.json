@@ -4,37 +4,58 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Upland' by name among the cities in its service area."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No official Upland city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Western Community Energy (WCE), the only CCA ever formed to serve inland Southern California, deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021. Its own now-stale website (frozen since its original 2020 launch announcement) confirms its service area was limited to only six Riverside County cities (Norco, Perris, Wildomar, Jurupa Valley, Hemet, Eastvale) and never included any San Bernardino County city. No other CCA was found serving San Bernardino County in this dataset's research. SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S8"
+    ]
   },
-  "city": { "value": "Upland", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Upland",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Bernardino County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Upland is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Upland Building & Safety",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.uplandca.gov/development_services/building_safety/solar_permit_streamlining.php",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
-    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "SCE's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
     "value": [
@@ -53,10 +74,17 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states 'City permit approval is still required' regardless of pathway (SolarAPP+ or the CSS Portal), but does not enumerate specific required documents." },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page states 'City permit approval is still required' regardless of pathway (SolarAPP+ or the CSS Portal), but does not enumerate specific required documents."
+  },
   "inspection_steps": {
     "value": [
       "Call the Inspection Voicemail Line at (909) 931-4129 by 4:00pm the business day prior, providing project address, permit number, inspection type, AM/PM request, and contact info",
@@ -64,13 +92,22 @@
       "Inspections are conducted Monday-Thursday; to verify your inspection, call (909) 931-4110 the morning of the scheduled date"
     ],
     "confidence": 0.75,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "This is the City's general Building & Safety inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -81,18 +118,41 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Photovoltaic System (PV) 0-10 kVA", "amount_usd": 450, "unit": "flat fee", "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026 (Building section)." },
-      { "name": "Photovoltaic System (PV) 10.1-50 kVA", "amount_usd": 770, "unit": "flat fee", "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026." },
-      { "name": "Photovoltaic System (PV) 50.1 kVA and greater", "amount_usd": 1510, "unit": "flat fee", "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026." }
+      {
+        "name": "Photovoltaic System (PV) 0-10 kVA",
+        "amount_usd": 450,
+        "unit": "flat fee",
+        "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026 (Building section)."
+      },
+      {
+        "name": "Photovoltaic System (PV) 10.1-50 kVA",
+        "amount_usd": 770,
+        "unit": "flat fee",
+        "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026."
+      },
+      {
+        "name": "Photovoltaic System (PV) 50.1 kVA and greater",
+        "amount_usd": 1510,
+        "unit": "flat fee",
+        "notes": "Per the City's own Master Fee Schedule, effective January 13, 2026."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -111,9 +171,12 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -170,6 +233,14 @@
       "publisher": "City of Upland",
       "type": "government",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S8",
+      "title": "Western Community Energy (Homepage \u2014 stale, service area limited to 6 Riverside County cities)",
+      "url": "https://westerncommunityenergy.com",
+      "publisher": "Western Community Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

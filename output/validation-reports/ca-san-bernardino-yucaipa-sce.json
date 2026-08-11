@@ -1,7 +1,7 @@
 {
   "record_id": "ca-san-bernardino-yucaipa-sce",
   "file": "data/localities/ca-san-bernardino-yucaipa-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-11",
   "status": "REVIEW",
   "score": 89,
   "errors": [],
@@ -29,10 +29,6 @@
   ],
   "recommendations": [
     {
-      "field": "generation_supplier",
-      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
@@ -48,15 +44,15 @@
   "url_checks": [
     {
       "url": "https://yucaipa.gov/building-safety/",
-      "checked_at": "2026-08-08T18:55:50.677Z",
+      "checked_at": "2026-08-11T19:19:03.556Z",
       "status": "REACHABLE",
-      "http_status": 200,
+      "http_status": 202,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 202"
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T18:55:52.104Z",
+      "checked_at": "2026-08-11T19:19:04.452Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -64,7 +60,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T18:55:52.110Z",
+      "checked_at": "2026-08-11T19:19:04.456Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -72,7 +68,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T18:55:53.563Z",
+      "checked_at": "2026-08-11T19:19:05.177Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -80,7 +76,7 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T18:55:54.496Z",
+      "checked_at": "2026-08-11T19:19:05.979Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -88,11 +84,19 @@
     },
     {
       "url": "https://codelibrary.amlegal.com/codes/yucaipaca/latest/yucaipa_ca/0-0-0-7483",
-      "checked_at": "2026-08-08T18:55:54.499Z",
+      "checked_at": "2026-08-11T19:19:05.982Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://westerncommunityenergy.com",
+      "checked_at": "2026-08-11T19:19:06.386Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

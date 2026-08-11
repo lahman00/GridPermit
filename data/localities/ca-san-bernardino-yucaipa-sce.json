@@ -4,33 +4,59 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Yucaipa' by name among the cities in its service area."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No Community Choice Aggregator was confirmed serving the City of Yucaipa this session."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Western Community Energy (WCE), the only CCA ever formed to serve inland Southern California, deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021. Its own now-stale website (frozen since its original 2020 launch announcement) confirms its service area was limited to only six Riverside County cities (Norco, Perris, Wildomar, Jurupa Valley, Hemet, Eastvale) and never included any San Bernardino County city. No other CCA was found serving San Bernardino County in this dataset's research. SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S7"
+    ]
   },
-  "city": { "value": "Yucaipa", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Yucaipa",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Bernardino County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Yucaipa Building & Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "permit_url": {
     "value": "https://yucaipa.gov/building-safety/",
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The city's general Building & Safety page does not itself list solar-specific content; the municipal code (S6) confirms the small residential rooftop solar expedited permitting ordinance exists."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
-    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "SCE's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
     "value": [
@@ -49,22 +75,37 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis indicates standard plans and checklists exist for small residential rooftop solar systems, but the specific document list was not independently confirmed via direct fetch of a solar-specific page this session." },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Search-engine synthesis indicates standard plans and checklists exist for small residential rooftop solar systems, but the specific document list was not independently confirmed via direct fetch of a solar-specific page this session."
+  },
   "inspection_steps": {
     "value": [
       "Only one inspection required for small residential rooftop solar systems eligible for expedited review, per the municipal code",
       "The building official schedules the inspection within two business days of a request, providing a two-hour inspection window"
     ],
     "confidence": 0.7,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -72,16 +113,29 @@
       "other_conditions": []
     },
     "confidence": 0.7,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Residential rooftop solar permit (first 15kW)", "amount_usd": 275, "unit": "flat", "notes": "Search-engine synthesis of the city's fee schedule indicates roughly $275 for the first 15kW of a residential rooftop system; not independently confirmed via direct fetch of the fee schedule PDF this session." }
+      {
+        "name": "Residential rooftop solar permit (first 15kW)",
+        "amount_usd": 275,
+        "unit": "flat",
+        "notes": "Search-engine synthesis of the city's fee schedule indicates roughly $275 for the first 15kW of a residential rooftop system; not independently confirmed via direct fetch of the fee schedule PDF this session."
+      }
     ],
     "confidence": 0.45,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -100,9 +154,12 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -151,6 +208,14 @@
       "publisher": "City of Yucaipa Municipal Code (American Legal Publishing)",
       "type": "government",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S7",
+      "title": "Western Community Energy (Homepage \u2014 stale, service area limited to 6 Riverside County cities)",
+      "url": "https://westerncommunityenergy.com",
+      "publisher": "Western Community Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

@@ -4,37 +4,58 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Rialto' by name among the cities in its service area."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No official Rialto city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Western Community Energy (WCE), the only CCA ever formed to serve inland Southern California, deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021. Its own now-stale website (frozen since its original 2020 launch announcement) confirms its service area was limited to only six Riverside County cities (Norco, Perris, Wildomar, Jurupa Valley, Hemet, Eastvale) and never included any San Bernardino County city. No other CCA was found serving San Bernardino County in this dataset's research. SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S7"
+    ]
   },
-  "city": { "value": "Rialto", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Rialto",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Bernardino County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Rialto is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Rialto Building and Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.rialtoca.gov/871/Residential-Solar",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
-    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "SCE's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
     "value": [
@@ -53,30 +74,66 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Engineered stamped plans and calculations", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Manufacturer specifications for all products", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Main panel size documentation shown on plans", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Project scope details: kW DC capacity, module count, battery quantity, inverter count, and solar location", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Engineered stamped plans and calculations",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer specifications for all products",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Main panel size documentation shown on plans",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Project scope details: kW DC capacity, module count, battery quantity, inverter count, and solar location",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
       "Apply through the Online Permitting Center (OPC) using the SolarAPP+ code generated, pay fees, and schedule inspections through the OPC"
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -91,10 +148,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states SolarAPP+ charges its own processing fee and city fees are payable through the OPC, and that the first 3 revisions submitted through SolarAPP+ are free, but no specific dollar figure for the city's own permit fee was stated. Also checked the City's FY23 City Wide Department Fees PDF (yourrialto.com/234/City-Fees) this session, 28 pages; it contains no line item mentioning 'solar' or 'photovoltaic' anywhere." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page states SolarAPP+ charges its own processing fee and city fees are payable through the OPC, and that the first 3 revisions submitted through SolarAPP+ are free, but no specific dollar figure for the city's own permit fee was stated. Also checked the City's FY23 City Wide Department Fees PDF (yourrialto.com/234/City-Fees) this session, 28 pages; it contains no line item mentioning 'solar' or 'photovoltaic' anywhere."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -113,9 +181,12 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -156,6 +227,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Western Community Energy (Homepage \u2014 stale, service area limited to 6 Riverside County cities)",
+      "url": "https://westerncommunityenergy.com",
+      "publisher": "Western Community Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
