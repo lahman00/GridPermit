@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T17:26:52.169Z",
+  "evaluated_at": "2026-08-11T22:21:46.424Z",
   "record_count": 10,
   "records": [
     {
@@ -157,11 +157,11 @@
       "record_id": "ca-sacramento-rancho-cordova-smud",
       "city": "Rancho Cordova",
       "county": "Sacramento County",
-      "completeness_pct": 73.3,
-      "validation_score": 94,
+      "completeness_pct": 86.7,
+      "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -172,12 +172,12 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "inspection_steps",
-        "timeline_days",
         "permit_fees",
         "rebates"
       ],
@@ -187,9 +187,9 @@
       "utility_type": "municipal",
       "separate_cca_present": false,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-sacramento-citrus-heights-smud",
@@ -381,10 +381,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.7,
-    "average_validation_score": 96.6,
-    "ready_count": 7,
-    "limited_count": 3,
+    "average_completeness_pct": 76,
+    "average_validation_score": 96.4,
+    "ready_count": 8,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -396,8 +396,8 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 2,
-      "inspection_steps": 5,
-      "timeline_days": 7,
+      "inspection_steps": 4,
+      "timeline_days": 6,
       "eligibility_constraints": 3,
       "permit_fees": 8,
       "rebates": 10,
@@ -414,11 +414,11 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 7
+        "missing_in_records": 6
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "eligibility_constraints",
@@ -470,6 +470,7 @@
       "ca-sacramento-sacramento-smud",
       "ca-yolo-west-sacramento-pge",
       "ca-sacramento-folsom-smud",
+      "ca-sacramento-rancho-cordova-smud",
       "ca-sacramento-citrus-heights-smud",
       "ca-placer-roseville-re",
       "ca-yolo-davis-pge",
@@ -480,11 +481,6 @@
         "record_id": "ca-sacramento-elk-grove-smud",
         "city": "Elk Grove",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-sacramento-rancho-cordova-smud",
-        "city": "Rancho Cordova",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       },
       {
         "record_id": "ca-placer-rocklin-pge",

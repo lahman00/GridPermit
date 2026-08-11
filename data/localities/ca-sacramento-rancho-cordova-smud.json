@@ -61,27 +61,46 @@
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval documents (submitted via the Rancho Cordova Online portal)", "required_when": "always", "source_ids": ["S2"] }
+      { "name": "SolarAPP+ approval documents (submitted via the Rancho Cordova Online portal)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S5"] }
     ],
-    "confidence": 0.7,
-    "source_ids": ["S2"],
-    "notes": "Per the City's own Forms and Downloads page, SOLARAPP+ section: 'After receiving SolarAPP+ approval documents, submit on Rancho Cordova Online.' A separate 'Residential SolarAPP+ Permit Requirements' PDF likely itemizes further requirements but triggers a file-download dialog rather than a viewable page and could not be read."
+    "confidence": 0.75,
+    "source_ids": ["S2", "S5"],
+    "notes": "Per the City's own Forms and Downloads page (SolarAPP+ submission), and Rancho Cordova Municipal Code Section 16.07.050(D)-(E) (standard plan/checklist substantially conforming to the CA Solar Permitting Guidebook)."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Only one inspection shall be required and performed by the building department for eligible small residential rooftop solar energy systems (the local fire district may require a separate inspection)",
+      "The inspection shall be done in a timely manner and should include consolidated inspections; requested inspections shall be scheduled within one to three business days",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "Per Rancho Cordova Municipal Code Section 16.07.060(G)-(I)."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Rancho Cordova Municipal Code Section 16.07.060(A): 'The building department shall issue a building permit, the issuance of which is nondiscretionary, within three business days upon receipt of a complete application that meets the requirements of the approved checklist and standard plan.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S5"]
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
-      "system_size_kw_ac_max": null,
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
-      "thermal_capacity_kw_max": null,
-      "program_or_pathway": "SolarAPP+ automated permitting, submitted to the City via the Rancho Cordova Online portal",
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited Permit Process for Small Residential Rooftop Solar Energy Systems (Rancho Cordova Municipal Code Chapter 16.07), submitted to the City via SolarAPP+ and the Rancho Cordova Online portal",
       "other_conditions": [
-        "SolarAPP+ automates plan review and permit issuance for code-compliant residential photovoltaic (PV) systems only"
+        "System must be installed on a single- or two-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City"
       ]
     },
-    "confidence": 0.65,
-    "source_ids": ["S2"]
+    "confidence": 0.85,
+    "source_ids": ["S2", "S5"]
   },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
@@ -132,6 +151,14 @@
       "publisher": "Sacramento Municipal Utility District (SMUD)",
       "type": "utility",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Chapter 16.07 - Expedited Permit Process for Small Residential Rooftop Solar Energy Systems (Rancho Cordova Municipal Code, Title 16 - Buildings and Construction)",
+      "url": "https://ecode360.com/47916375",
+      "publisher": "City of Rancho Cordova (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
