@@ -1,19 +1,21 @@
 {
   "record_id": "ca-los-angeles-azusa-alw",
   "file": "data/localities/ca-los-angeles-azusa-alw.json",
-  "validated_at": "2026-08-06",
-  "status": "PASS",
-  "score": 100,
+  "validated_at": "2026-08-11",
+  "status": "REVIEW",
+  "score": 95,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
   "recommendations": [
     {
       "field": "battery_programs",
       "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "inspection_steps",
@@ -24,16 +26,8 @@
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "official_contacts",
@@ -43,7 +37,7 @@
   "url_checks": [
     {
       "url": "https://www.azusaca.gov/565/Solar-PV-System-Installation-Procedures",
-      "checked_at": "2026-08-06T05:05:28.111Z",
+      "checked_at": "2026-08-11T17:36:17.575Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -51,7 +45,7 @@
     },
     {
       "url": "https://www.azusaca.gov/1061/Schedule-NGP",
-      "checked_at": "2026-08-06T05:05:29.223Z",
+      "checked_at": "2026-08-11T17:36:19.412Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
