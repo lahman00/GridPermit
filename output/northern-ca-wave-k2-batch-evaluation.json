@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T18:09:30.241Z",
+  "evaluated_at": "2026-08-11T18:37:24.711Z",
   "record_count": 4,
   "records": [
     {
@@ -120,11 +120,11 @@
       "record_id": "ca-butte-gridley-geu",
       "city": "Gridley",
       "county": "Butte County",
-      "completeness_pct": 60,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "completeness_pct": 73.3,
+      "validation_score": 95,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 1,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -133,29 +133,31 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "required_documents",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "required_documents",
         "inspection_steps",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
-      "warning_categories": [],
+      "warning_categories": [
+        "unsupported_claim"
+      ],
       "utility_type": "municipal",
       "separate_cca_present": false,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
-      "required_documents_available": false,
+      "required_documents_available": true,
       "readiness": "LIMITED"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
-    "average_validation_score": 97.5,
+    "average_completeness_pct": 70,
+    "average_validation_score": 96.3,
     "ready_count": 1,
     "limited_count": 3,
     "not_ready_count": 0,
@@ -168,30 +170,30 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 1,
-      "required_documents": 3,
+      "required_documents": 2,
       "inspection_steps": 2,
       "timeline_days": 3,
       "eligibility_constraints": 2,
-      "permit_fees": 4,
+      "permit_fees": 3,
       "rebates": 4,
       "official_contacts": 0
     },
     "fields_most_often_missing": [
       {
-        "field": "permit_fees",
-        "missing_in_records": 4
-      },
-      {
         "field": "rebates",
         "missing_in_records": 4
       },
       {
-        "field": "required_documents",
+        "field": "timeline_days",
         "missing_in_records": 3
       },
       {
-        "field": "timeline_days",
+        "field": "permit_fees",
         "missing_in_records": 3
+      },
+      {
+        "field": "required_documents",
+        "missing_in_records": 2
       },
       {
         "field": "inspection_steps",
@@ -211,7 +213,8 @@
       }
     ],
     "warning_category_recurrence": {
-      "broken_url": 3
+      "broken_url": 3,
+      "unsupported_claim": 1
     },
     "utility_coverage": [
       "IOU",
@@ -249,7 +252,7 @@
       {
         "record_id": "ca-butte-gridley-geu",
         "city": "Gridley",
-        "reason": "readiness=LIMITED (completeness 60%, score 100)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 95)"
       }
     ],
     "not_ready": [],

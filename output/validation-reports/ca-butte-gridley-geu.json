@@ -1,19 +1,21 @@
 {
   "record_id": "ca-butte-gridley-geu",
   "file": "data/localities/ca-butte-gridley-geu.json",
-  "validated_at": "2026-08-10",
-  "status": "PASS",
-  "score": 100,
+  "validated_at": "2026-08-11",
+  "status": "REVIEW",
+  "score": 95,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
   "recommendations": [
     {
       "field": "battery_programs",
       "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "inspection_steps",
@@ -24,10 +26,6 @@
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
@@ -35,7 +33,7 @@
   "url_checks": [
     {
       "url": "https://www.gridleyca.gov/180/Electric-Department",
-      "checked_at": "2026-08-10T18:55:33.461Z",
+      "checked_at": "2026-08-11T18:37:11.870Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -43,7 +41,15 @@
     },
     {
       "url": "https://www.gridleyca.gov/183/Building-Inspection-Services",
-      "checked_at": "2026-08-10T18:55:34.730Z",
+      "checked_at": "2026-08-11T18:37:12.549Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.gridleyca.gov/Faq.aspx?TID=19",
+      "checked_at": "2026-08-11T18:37:12.966Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

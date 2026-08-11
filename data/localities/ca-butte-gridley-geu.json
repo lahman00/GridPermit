@@ -64,9 +64,13 @@
     "source_ids": []
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Application for Solar Installations in Gridley", "required_when": "always", "source_ids": ["S4"] },
+      { "name": "Gridley Interconnection Agreement", "required_when": "always", "source_ids": ["S4"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S4"],
+    "notes": "Per the City's own Electric Department FAQ, 'How to Enroll in the Gridley Solar 2.0 Program?'; all new systems and existing NEM systems expanding more than 10% must complete the Interconnection Agreement and obtain the proper permits."
   },
   "inspection_steps": {
     "value": null,
@@ -100,9 +104,13 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Application Review Fee - Photovoltaic/Solar Electric Generating Facility Rated at 10 kW or Less", "amount_usd": 160, "unit": "flat fee" },
+      { "name": "Application Review Fee - Photovoltaic/Solar Electric Generating Facility Rated Higher than 10 kW", "amount_usd": 320, "unit": "flat fee" }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S4"],
+    "notes": "Per the City's own Electric Department FAQ: 'The following Application Review Fees are due at the time of application submittals.' Customers installing solar are also assessed the cost of a multi-register meter upgrade/installation if one is not already present, per a separate FAQ answer, but no dollar amount was stated for that item."
   },
   "rebates": {
     "value": null,
@@ -124,7 +132,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -141,6 +149,14 @@
       "publisher": "City of Gridley",
       "type": "government",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Frequently Asked Questions - Electric Department (Solar 2.0 Program)",
+      "url": "https://www.gridleyca.gov/Faq.aspx?TID=19",
+      "publisher": "City of Gridley",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
