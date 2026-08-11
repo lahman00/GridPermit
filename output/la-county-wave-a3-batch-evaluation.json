@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T20:07:20.325Z",
+  "evaluated_at": "2026-08-11T23:25:17.106Z",
   "record_count": 10,
   "records": [
     {
@@ -121,11 +121,11 @@
       "record_id": "ca-los-angeles-hawthorne-sce",
       "city": "Hawthorne",
       "county": "Los Angeles County",
-      "completeness_pct": 66.7,
-      "validation_score": 92,
+      "completeness_pct": 86.7,
+      "validation_score": 90,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 4,
+      "warning_count": 5,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -135,13 +135,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
-        "timeline_days",
-        "eligibility_constraints",
         "permit_fees",
         "rebates"
       ],
@@ -151,9 +151,9 @@
       "utility_type": "IOU",
       "separate_cca_present": true,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-gardena-sce",
@@ -388,10 +388,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 82,
-    "average_validation_score": 93.2,
-    "ready_count": 9,
-    "limited_count": 1,
+    "average_completeness_pct": 84,
+    "average_validation_score": 93,
+    "ready_count": 10,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -402,10 +402,10 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 0,
-      "required_documents": 2,
+      "required_documents": 1,
       "inspection_steps": 2,
-      "timeline_days": 5,
-      "eligibility_constraints": 1,
+      "timeline_days": 4,
+      "eligibility_constraints": 0,
       "permit_fees": 6,
       "rebates": 10,
       "official_contacts": 0
@@ -421,11 +421,7 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 5
-      },
-      {
-        "field": "required_documents",
-        "missing_in_records": 2
+        "missing_in_records": 4
       },
       {
         "field": "inspection_steps",
@@ -436,7 +432,7 @@
         "missing_in_records": 1
       },
       {
-        "field": "eligibility_constraints",
+        "field": "required_documents",
         "missing_in_records": 1
       }
     ],
@@ -465,6 +461,7 @@
       "ca-los-angeles-redondo-beach-sce",
       "ca-los-angeles-manhattan-beach-sce",
       "ca-los-angeles-hermosa-beach-sce",
+      "ca-los-angeles-hawthorne-sce",
       "ca-los-angeles-gardena-sce",
       "ca-los-angeles-culver-city-sce",
       "ca-los-angeles-santa-monica-sce",
@@ -472,13 +469,7 @@
       "ca-los-angeles-west-hollywood-sce",
       "ca-los-angeles-malibu-sce"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-los-angeles-hawthorne-sce",
-        "city": "Hawthorne",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 92)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
       "IOU"

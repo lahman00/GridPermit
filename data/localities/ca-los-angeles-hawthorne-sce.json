@@ -61,23 +61,50 @@
     "source_ids": ["S5"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "cityofhawthorne.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements." },
+  "required_documents": {
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S8"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S8"],
+    "notes": "Per Hawthorne Municipal Code Section 15.70.060(A),(D)-(E): the building department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook. All documents must be submitted in person at the building department (the City is unable to accept electronic submittal or electronic signatures per Section 15.70.060(B)-(C))."
+  },
   "inspection_steps": {
     "value": [
       "Schedule inspections through the Hawthorne Citizen Self Service (CSS) web portal; permits issued before July 2022 require calling the office instead",
       "Inspection day is tentatively assigned based on the day the request is submitted within the business work week (excluding weekends, holidays, and closed Fridays); call before 9am on the inspection date to get the exact time slot",
-      "Cancellations must be made at least 24 hours before the scheduled inspection"
+      "Cancellations must be made at least 24 hours before the scheduled inspection",
+      "Only one inspection shall be required for eligible small residential rooftop solar energy systems (a separate fire inspection may be performed if no local-fire-authority agreement exists); an inspection will be scheduled within two business days of a request and provide a two-hour inspection window",
+      "If a system fails inspection, a subsequent inspection is authorized"
     ],
-    "confidence": 0.75,
-    "source_ids": ["S7"],
-    "notes": "This is the City's general Building & Safety inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+    "confidence": 0.8,
+    "source_ids": ["S7", "S8"],
+    "notes": "Combines the City's general Building & Safety inspection process with the solar-specific expedited-inspection provisions of Hawthorne Municipal Code Section 15.70.070(I)-(K)."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": {
+      "min_days": 1,
+      "max_days": 3,
+      "notes": "Hawthorne Municipal Code Section 15.70.060(B): 'The building department shall issue a building permit or use permit, within one to three days, for over-the-counter applications if it meets the requirements of the approved checklist and standard plan.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S8"]
+  },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis suggested a 10 kW AC cap for single- or duplex-family dwellings, consistent with the common statewide expedited-permitting ordinance pattern seen in other cities this session, but this could not be independently confirmed via direct fetch for Hawthorne specifically this session."
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited Streamlined Permitting Process for Small Residential Rooftop Solar Energy Systems (Hawthorne Municipal Code Chapter 15.70)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City of Hawthorne",
+        "The City does not accept electronic submittal or electronic signatures; all documents must be submitted in person"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S8"]
   },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
@@ -94,7 +121,7 @@
     "confidence": 0.6,
     "source_ids": ["S6"]
   },
-  "last_verified": "2026-08-10",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -151,6 +178,14 @@
       "publisher": "City of Hawthorne",
       "type": "government",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S8",
+      "title": "Chapter 15.70 - Expedited Streamlined Permitting Process for Small Residential Rooftop Solar Energy Systems (Hawthorne Municipal Code, Title 15 - Buildings and Construction)",
+      "url": "https://ecode360.com/42646710",
+      "publisher": "City of Hawthorne (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
