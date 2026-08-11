@@ -74,25 +74,42 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The city's Building Division page describes general plan review and inspection responsibilities but does not itself detail solar-specific submittal requirements."
+    "value": [
+      { "name": "Checklist of expedited-review requirements, published on the City's website", "required_when": "always", "source_ids": ["S4"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S4"],
+    "notes": "Per Atwater Municipal Code Section 15.04.130(D): the checklist shall be published on the City's internet website; the applicant may submit the permit application and associated documentation by personal, mailed, or electronic submittal together with any required permit processing and inspection fees. The code text itself does not itemize further documents beyond this checklist."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "For a small residential rooftop solar energy system eligible for expedited review, only one inspection shall be required, which shall be done in a timely manner and may include a consolidated inspection by the Building Official and Fire Chief",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S4"],
+    "notes": "Per Atwater Municipal Code Section 15.04.130(F)."
   },
   "timeline_days": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "Atwater Municipal Code Section 15.04.130 describes administrative approval of complete applications but does not state an explicit day-count turnaround figure."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy System expedited permitting (Atwater Municipal Code Section 15.04.130)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the authority having jurisdiction"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S4"]
   },
   "permit_fees": {
     "value": null,
@@ -119,7 +136,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -144,6 +161,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Chapter 15.04 - General Provision, Section 15.04.130 - Small residential rooftop solar energy system review process (Atwater Municipal Code, Title 15 - Buildings and Construction)",
+      "url": "https://library.municode.com/ca/atwater/codes/code_of_ordinances?nodeId=TIT15BUCO_CH15.04GEPR_15.04.050PEPP",
+      "publisher": "City of Atwater (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
