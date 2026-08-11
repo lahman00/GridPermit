@@ -17,15 +17,15 @@
   "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
   "permit_authority": {
     "value": "City of Victorville Building Department",
-    "confidence": 0.7,
+    "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "victorvilleca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name and page content is confirmed only via search-engine indexing of the city's own page, not independently read."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
-    "value": "https://www.victorvilleca.gov/government/city-departments/development/permit-center/solar",
-    "confidence": 0.55,
+    "value": "https://www.victorvilleca.gov/Government/City-Departments/Building",
+    "confidence": 0.75,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; victorvilleca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Corrected this session: the previously-cited solar-specific URL now 404s. A solar submittal-requirements PDF is linked from the Fees & Forms section (victorvilleca.gov/files/assets/city/v/1/building/documents/standards/solar_submittal_requirements.pdf) but triggers a file-download dialog rather than a viewable page and could not be read. Directly re-verified via browser."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -56,11 +56,12 @@
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "victorvilleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to solar-specific submittal requirements." },
   "inspection_steps": {
     "value": [
-      "Inspections scheduled online via the City's Citizen Self Service Portal",
-      "Inspection results (approved or failed) emailed to permit contacts immediately upon completion, with failure reasons included if applicable"
+      "Inspections are scheduled online via the City's Citizen Self Service Portal, with a choice of morning (8am-12pm) or afternoon (1pm-5pm, 1pm-4pm on Fridays) preference",
+      "Inspections are conducted Monday-Friday; to cancel, call the Building Division at (760) 955-5100"
     ],
-    "confidence": 0.65,
-    "source_ids": ["S1"]
+    "confidence": 0.75,
+    "source_ids": ["S6"],
+    "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence. Corrected this session from a prior entry citing the now-dead solar-specific URL."
   },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
@@ -91,15 +92,15 @@
     "confidence": 0.7,
     "source_ids": ["S1", "S5"]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
-      "title": "SolarApp+",
-      "url": "https://www.victorvilleca.gov/government/city-departments/development/permit-center/solar",
+      "title": "Building",
+      "url": "https://www.victorvilleca.gov/Government/City-Departments/Building",
       "publisher": "City of Victorville",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -132,6 +133,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S6",
+      "title": "Inspection Process",
+      "url": "https://www.victorvilleca.gov/Government/City-Departments/Building/Inspection-Process",
+      "publisher": "City of Victorville",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
