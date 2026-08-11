@@ -103,19 +103,36 @@
     ]
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Call the Building Inspection Line at (209) 869-6286 to request an inspection"
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building Division inspection line (the same page covers all building permit types, including solar); no further scheduling detail (cutoff time, hours) is published on this page. For Symbium-issued solar permits, no manual inspection is required at issuance per the City's own Solar Permits page."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own 'Solar Permits' page states the Symbium platform 'automatically checks for code compliance and issues permits in real time' and 'Permit Issued Instantly...Your permit is issued automatically—no manual review or in-person visit required.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S4"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium instant online permitting for Rooftop Solar or Battery Storage",
+      "other_conditions": [
+        "Symbium automatically verifies State and local code compliance as well as contractor and business license status",
+        "Revisions are handled through the Symbium dashboard (Revisions -> Start New Revision) with an applicable fee"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S4"]
   },
   "permit_fees": {
     "value": null,
@@ -143,7 +160,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -168,6 +185,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Solar Permits",
+      "url": "https://www.riverbank.org/685/Solar-Permits",
+      "publisher": "City of Riverbank",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

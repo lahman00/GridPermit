@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T22:27:37.614Z",
+  "evaluated_at": "2026-08-11T16:24:27.835Z",
   "record_count": 7,
   "records": [
     {
@@ -120,7 +120,7 @@
       "record_id": "ca-stanislaus-riverbank-pge",
       "city": "Riverbank",
       "county": "Stanislaus County",
-      "completeness_pct": 60,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -134,13 +134,13 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "inspection_steps",
-        "timeline_days",
-        "eligibility_constraints",
         "permit_fees",
         "rebates"
       ],
@@ -150,9 +150,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-stanislaus-oakdale-pge",
@@ -196,7 +196,7 @@
       "record_id": "ca-stanislaus-patterson-pge",
       "city": "Patterson",
       "county": "Stanislaus County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -210,15 +210,15 @@
         "interconnection_url",
         "battery_programs",
         "inspection_steps",
-        "eligibility_constraints"
+        "eligibility_constraints",
+        "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
         "required_documents",
         "timeline_days",
         "permit_fees",
-        "rebates",
-        "official_contacts"
+        "rebates"
       ],
       "warning_categories": [
         "broken_url"
@@ -270,10 +270,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 58.1,
+    "average_completeness_pct": 61.9,
     "average_validation_score": 97.1,
-    "ready_count": 0,
-    "limited_count": 7,
+    "ready_count": 1,
+    "limited_count": 6,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -285,12 +285,12 @@
       "interconnection_url": 0,
       "battery_programs": 0,
       "required_documents": 5,
-      "inspection_steps": 6,
-      "timeline_days": 6,
-      "eligibility_constraints": 4,
+      "inspection_steps": 5,
+      "timeline_days": 5,
+      "eligibility_constraints": 3,
       "permit_fees": 7,
       "rebates": 7,
-      "official_contacts": 2
+      "official_contacts": 1
     },
     "fields_most_often_missing": [
       {
@@ -306,24 +306,24 @@
         "missing_in_records": 7
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 6
-      },
-      {
-        "field": "timeline_days",
-        "missing_in_records": 6
-      },
-      {
         "field": "required_documents",
         "missing_in_records": 5
       },
       {
+        "field": "inspection_steps",
+        "missing_in_records": 5
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 5
+      },
+      {
         "field": "eligibility_constraints",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "official_contacts",
-        "missing_in_records": 2
+        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
@@ -348,7 +348,9 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "ca-stanislaus-riverbank-pge"
+    ],
     "limited_for_now": [
       {
         "record_id": "ca-san-joaquin-ripon-pge",
@@ -366,11 +368,6 @@
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
       },
       {
-        "record_id": "ca-stanislaus-riverbank-pge",
-        "city": "Riverbank",
-        "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
         "record_id": "ca-stanislaus-oakdale-pge",
         "city": "Oakdale",
         "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
@@ -378,7 +375,7 @@
       {
         "record_id": "ca-stanislaus-patterson-pge",
         "city": "Patterson",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       },
       {
         "record_id": "ca-stanislaus-newman-pge",
@@ -387,7 +384,9 @@
       }
     ],
     "not_ready": [],
-    "utilities_represented_in_recommended_set": [],
+    "utilities_represented_in_recommended_set": [
+      "IOU"
+    ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }
 }
