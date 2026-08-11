@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-11T15:48:28.282Z",
+  "evaluated_at": "2026-08-11T17:21:53.808Z",
   "record_count": 8,
   "records": [
     {
       "record_id": "ca-riverside-banning-beu",
       "city": "Banning",
       "county": "Riverside County",
-      "completeness_pct": 60,
+      "completeness_pct": 86.7,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -20,14 +20,14 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
-        "official_contacts"
-      ],
-      "missing_fields": [
-        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
         "rebates"
       ],
       "warning_categories": [
@@ -35,10 +35,10 @@
       ],
       "utility_type": "municipal",
       "separate_cca_present": false,
-      "permit_fees_available": false,
-      "timeline_available": false,
+      "permit_fees_available": true,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-riverside-menifee-sce",
@@ -309,10 +309,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 79.2,
+    "average_completeness_pct": 82.5,
     "average_validation_score": 95.1,
-    "ready_count": 7,
-    "limited_count": 1,
+    "ready_count": 8,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -324,10 +324,10 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 0,
-      "inspection_steps": 2,
-      "timeline_days": 2,
-      "eligibility_constraints": 1,
-      "permit_fees": 7,
+      "inspection_steps": 1,
+      "timeline_days": 1,
+      "eligibility_constraints": 0,
+      "permit_fees": 6,
       "rebates": 8,
       "official_contacts": 0
     },
@@ -338,26 +338,22 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 7
+        "missing_in_records": 6
       },
       {
         "field": "generation_supplier",
         "missing_in_records": 4
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 2
-      },
-      {
-        "field": "timeline_days",
-        "missing_in_records": 2
-      },
-      {
         "field": "battery_programs",
         "missing_in_records": 1
       },
       {
-        "field": "eligibility_constraints",
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 1
       }
     ],
@@ -385,6 +381,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-riverside-banning-beu",
       "ca-riverside-menifee-sce",
       "ca-riverside-temecula-sce",
       "ca-riverside-murrieta-sce",
@@ -393,15 +390,10 @@
       "ca-riverside-san-jacinto-sce",
       "ca-riverside-beaumont-sce"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-riverside-banning-beu",
-        "city": "Banning",
-        "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
+      "municipal",
       "IOU"
     ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."

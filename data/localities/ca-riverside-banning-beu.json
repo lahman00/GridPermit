@@ -44,15 +44,53 @@
     "confidence": 0.8,
     "source_ids": ["S1"]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The city's page provides Program Guidelines complying with California Senate Bill 1 and Standard Drawings/sizing guidance, but did not itself state specific system-size or eligibility limits in the content reviewed this session."
+  "inspection_steps": {
+    "value": [
+      "The Electric Utility MUST be contacted first for inspection, at (951) 922-3260",
+      "The Electric Utility inspects the complete PV system (module/inverter placement, disconnects, placarding, production meter socket, back-feed voltage, clearances) against the approved plans",
+      "Upon passing, the Electric Utility signs off on the Job Card/Permit and advises City of Banning Building and Safety, at which point the customer/contractor can schedule the City's own Building and Safety inspection",
+      "The Job Card/Permit must be onsite at the time of inspection"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"],
+    "notes": "Per the City's own 'Residential Self Generating Facility Program - Photovoltaic Systems' guidelines PDF, Section C (Electric Utility Inspection Process)."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 90,
+      "notes": "The City's own Program Guidelines PDF states two sequential Electric Utility review stages, each with an explicit ceiling: 'the application review process can take up to forty-five (45) days from the date a completed application...are received,' followed by 'the plan check process can take up to forty-five (45) days from the date completed plans are received' (up to 90 days combined). This covers only the Electric Utility's own application/plan-check stages; it does not include the separate City of Banning Building and Safety Department's own plan check/permitting time, which is not stated in this document."
+    },
+    "confidence": 0.7,
+    "source_ids": ["S3"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential Self Generating Facility Program (Photovoltaic Systems)",
+      "other_conditions": [
+        "Participant must be a City of Banning electric service customer at the address where service is provided",
+        "PV system sized not to exceed 100% of the participant's annual electrical usage; Energy Storage Systems sized according to the PV system",
+        "A City-owned Production Meter is required to monitor system production, at the participant's/contractor's cost",
+        "Requires approval from both the Electric Utility and the City of Banning Building and Safety Department (application, plan check, and inspection) before interconnection"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Production Meter (contribution in aid of construction)", "amount_usd": 245, "unit": "flat fee" },
+      { "name": "Application/plan-check/inspection review (up to 3 plan checks and up to 3 inspections)", "amount_usd": 255, "unit": "flat fee" },
+      { "name": "Additional plan check or inspection beyond the included set", "amount_usd": 60, "unit": "per occurrence (minimum)" }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"],
+    "notes": "Per the City's own Program Guidelines PDF, item 13: a $500.00 total contribution in aid of construction is due at application submission, itemized as $245.00 Production Meter + $255.00 application/plan-check/inspection review; any additional plan check/inspection beyond the included set is a $60.00 minimum service charge each."
+  },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -67,7 +105,7 @@
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -75,7 +113,7 @@
       "url": "https://banningca.gov/573/Solar",
       "publisher": "City of Banning Electric Utility",
       "type": "utility",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -84,6 +122,14 @@
       "publisher": "Southern California Edison",
       "type": "utility",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S3",
+      "title": "City of Banning Electric Utility - Residential Self Generating Facility Program Photovoltaic Systems (Program Description and Guidelines)",
+      "url": "https://banningca.gov/DocumentCenter/View/222/Self-Generating-Facility-Program-Guidelines-PV?bidId=",
+      "publisher": "City of Banning Electric Utility",
+      "type": "utility",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
