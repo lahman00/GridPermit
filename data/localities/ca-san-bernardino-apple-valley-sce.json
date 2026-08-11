@@ -56,10 +56,44 @@
     "source_ids": ["S4"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The town's dedicated solar permit page returned HTTP 403/404 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis of the town's dedicated solar permit page (since confirmed HTTP 404/removed) indicated two inspections are required, but with that page gone the fact could not be independently re-verified this session." },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis of the town's dedicated solar permit page (since confirmed HTTP 404/removed) indicated an approximate one-week review timeline, but with that page gone the fact could not be independently re-verified this session." },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "The town's dedicated solar permit page returned HTTP 403/404 to automated fetch on every attempt this session, blocking access to specific eligibility/size limits." },
+  "required_documents": {
+    "value": [
+      { "name": "Checklist, permit application, and sample documentation, published on a publicly accessible Town website", "required_when": "always", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"],
+    "notes": "Per Apple Valley Municipal Code Section 8.38.050(a): the Building Official makes the checklist, permit application, and sample documentation available on a publicly accessible Town website."
+  },
+  "inspection_steps": {
+    "value": [
+      "One inspection shall be required and performed by staff for eligible small residential rooftop solar energy systems, done in a timely manner",
+      "If a system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "Per Apple Valley Municipal Code Section 8.38.060."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Apple Valley Municipal Code Section 8.38.040(b) states staff shall issue a permit 'within a reasonable time' following a complete application — no explicit day-count figure."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Permitting Small Residential Rooftop Solar Systems (Apple Valley Municipal Code Chapter 8.38)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the Town"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
+  },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
@@ -82,7 +116,7 @@
     "confidence": 0.75,
     "source_ids": ["S1", "S6"]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -123,6 +157,14 @@
       "publisher": "Apple Valley Choice Energy",
       "type": "other_official",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S7",
+      "title": "Chapter 8.38 - Permitting Small Residential Rooftop Solar Systems (Apple Valley Municipal Code, Title 8 - Buildings and Construction)",
+      "url": "https://applevalley-ca.elaws.us/code/coor_title8_ch8.38",
+      "publisher": "Town of Apple Valley (via eLaws official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
