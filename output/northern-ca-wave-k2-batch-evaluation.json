@@ -1,30 +1,30 @@
 {
-  "evaluated_at": "2026-08-09T22:48:00.803Z",
+  "evaluated_at": "2026-08-11T18:09:30.241Z",
   "record_count": 4,
   "records": [
     {
       "record_id": "ca-butte-chico-pge",
       "city": "Chico",
       "county": "Butte County",
-      "completeness_pct": 53.3,
-      "validation_score": 98,
+      "completeness_pct": 66.7,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
-        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "permit_fees",
@@ -34,7 +34,7 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
@@ -44,13 +44,14 @@
       "record_id": "ca-butte-oroville-pge",
       "city": "Oroville",
       "county": "Butte County",
-      "completeness_pct": 53.3,
-      "validation_score": 98,
+      "completeness_pct": 60,
+      "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -60,7 +61,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
@@ -72,7 +72,7 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
@@ -120,13 +120,14 @@
       "record_id": "ca-butte-gridley-geu",
       "city": "Gridley",
       "county": "Butte County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 60,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
       "warning_count": 0,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -136,7 +137,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "battery_programs",
         "required_documents",
         "inspection_steps",
@@ -146,7 +146,7 @@
       ],
       "warning_categories": [],
       "utility_type": "municipal",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": false,
@@ -154,14 +154,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 60,
-    "average_validation_score": 98.5,
+    "average_completeness_pct": 66.7,
+    "average_validation_score": 97.5,
     "ready_count": 1,
     "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 4,
+      "generation_supplier": 1,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -169,7 +169,7 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 3,
-      "inspection_steps": 3,
+      "inspection_steps": 2,
       "timeline_days": 3,
       "eligibility_constraints": 2,
       "permit_fees": 4,
@@ -177,10 +177,6 @@
       "official_contacts": 0
     },
     "fields_most_often_missing": [
-      {
-        "field": "generation_supplier",
-        "missing_in_records": 4
-      },
       {
         "field": "permit_fees",
         "missing_in_records": 4
@@ -194,16 +190,20 @@
         "missing_in_records": 3
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 3
-      },
-      {
         "field": "timeline_days",
         "missing_in_records": 3
       },
       {
+        "field": "inspection_steps",
+        "missing_in_records": 2
+      },
+      {
         "field": "eligibility_constraints",
         "missing_in_records": 2
+      },
+      {
+        "field": "generation_supplier",
+        "missing_in_records": 1
       },
       {
         "field": "battery_programs",
@@ -239,17 +239,17 @@
       {
         "record_id": "ca-butte-chico-pge",
         "city": "Chico",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       },
       {
         "record_id": "ca-butte-oroville-pge",
         "city": "Oroville",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
+        "reason": "readiness=LIMITED (completeness 60%, score 96)"
       },
       {
         "record_id": "ca-butte-gridley-geu",
         "city": "Gridley",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 100)"
+        "reason": "readiness=LIMITED (completeness 60%, score 100)"
       }
     ],
     "not_ready": [],
