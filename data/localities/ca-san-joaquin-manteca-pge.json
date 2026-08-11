@@ -21,15 +21,15 @@
   },
   "permit_authority": {
     "value": "City of Manteca Development Services Department, Building Safety Division",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "manteca.gov returned HTTP 403 to automated fetch on every attempt this session (both the Instant Residential Solar and Energy Storage System Permits page and the general Building Safety page), and ecode360.com (host of the city's Small Residential Rooftop Solar Energy Systems municipal code chapter) also returned HTTP 403. This department name is confirmed via search-engine indexing, but the underlying pages' specific content could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.manteca.gov/?navid=524",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing (titled 'Instant Residential Solar and Energy Storage System Permits'); manteca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified. Search-engine synthesis suggests most systems are reviewed and approved 'over the counter' within one day, but this was not independently confirmed via direct fetch."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
@@ -58,9 +58,38 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "All inspections for Symbium-issued solar permits are scheduled through the Citizen Access Portal"
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S1"],
+    "notes": "Per the City's own 'Instant Residential Solar and Energy Storage System Permits' page."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states the Symbium platform 'issues permits in real time' and instructs applicants to 'Pay your permit fees and obtain your permit instantly!'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium instant online permitting for residential solar and energy storage systems",
+      "other_conditions": [
+        "Symbium instantly checks compliance with State and local regulations",
+        "Revisions to a previously-permitted Symbium permit are handled through the Symbium dashboard and the City's Citizen Access Portal"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
@@ -76,7 +105,7 @@
     "confidence": 0.6,
     "source_ids": ["S4"]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -84,7 +113,7 @@
       "url": "https://www.manteca.gov/?navid=524",
       "publisher": "City of Manteca",
       "type": "government",
-      "accessed_date": "2026-08-05"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
