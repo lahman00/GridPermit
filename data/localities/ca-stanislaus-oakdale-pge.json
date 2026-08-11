@@ -31,19 +31,19 @@
   },
   "permit_authority": {
     "value": "City of Oakdale Building Division",
-    "confidence": 0.75,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "The city's municipal code (Article XII, via eCode360) confirms the ordinance exists; ecode360.com returned HTTP 403 to automated fetch this session, so the full ordinance text could not be independently read."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block); the full municipal code Article XII text was read in full."
   },
   "permit_url": {
     "value": "https://ecode360.com/35217403",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; ecode360.com returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified beyond search-engine summary snippets."
+    "notes": "Directly re-verified via browser this session; the full ordinance text (Sections 7-80 through 7-85) was read."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -81,14 +81,23 @@
     "source_ids": []
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Only one inspection is required for small residential rooftop solar energy systems eligible for expedited review, performed by the Building Division",
+      "The inspection is scheduled within two business days of a request",
+      "If the system fails inspection, a subsequent (re-)inspection is authorized"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Per Oakdale Municipal Code Section 7-85(f)-(h), directly read via ecode360.com."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Oakdale Municipal Code Section 7-85(a) states expedited applications shall receive a permit 'within three business days.' The City's own current 'Instant Residential Solar, Battery Storage and Electric Vehicle Charger Permits' page (Symbium platform) confirms an even faster instant-issuance pathway is now also available: 'your permit will be issued automatically, without manual review or an in-person visit.' The general (non-expedited) 'two to four weeks' figure quoted on the Building Division page applies to ordinary building permits, not this solar-specific expedited/instant pathway, and is not used here."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1", "S4"]
   },
   "eligibility_constraints": {
     "value": {
@@ -96,20 +105,23 @@
         "residential",
         "duplex"
       ],
-      "system_size_kw_ac_max": null,
+      "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
-      "thermal_capacity_kw_max": null,
-      "program_or_pathway": "Small Residential Rooftop Solar Energy System Permitting (municipal code Article XII)",
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy System Permitting (municipal code Article XII); current applications are processed via the Symbium instant online permitting platform",
       "other_conditions": [
         "Systems must be installed on single- or duplex-family dwellings",
         "Solar panel arrays cannot exceed the maximum legal building height as defined by the city",
-        "Routine operation and maintenance or like-kind replacements do not require a permit"
+        "Routine operation and maintenance or like-kind replacements do not require a permit",
+        "Symbium automatically verifies State/local code compliance as well as contractor and business license status"
       ]
     },
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": [
-      "S1"
-    ]
+      "S1",
+      "S4"
+    ],
+    "notes": "Upgraded this session with directly-confirmed size caps (10kW AC / 30kW thermal) from Municipal Code Section 7-81's definition of 'Small residential rooftop solar energy system.'"
   },
   "permit_fees": {
     "value": null,
@@ -122,11 +134,20 @@
     "source_ids": []
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": null,
+        "role": "City of Oakdale Building Division, Community Development Department",
+        "phone": null,
+        "email": null,
+        "url": "https://ecode360.com/35217403"
+      }
+    ],
+    "confidence": 0.5,
+    "source_ids": ["S1"],
+    "notes": "Only the department name/structure is confirmed via the municipal code text; no direct phone/email was stated in this source."
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -134,7 +155,7 @@
       "url": "https://ecode360.com/35217403",
       "publisher": "City of Oakdale Municipal Code (eCode360)",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -151,6 +172,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Instant Residential Solar, Battery Storage and Electric Vehicle Charger Permits",
+      "url": "https://www.oakdalegov.com/instantpermits",
+      "publisher": "City of Oakdale",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
