@@ -1,9 +1,9 @@
 {
   "record_id": "ca-orange-lake-forest-sce",
   "file": "data/localities/ca-orange-lake-forest-sce.json",
-  "validated_at": "2026-08-10",
+  "validated_at": "2026-08-11",
   "status": "REVIEW",
-  "score": 94,
+  "score": 92,
   "errors": [],
   "warnings": [
     {
@@ -14,30 +14,23 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
+    },
+    {
+      "field": "sources[S7].url",
+      "category": "broken_url",
+      "message": "https://ecode360.com/43978463 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
     {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "permit_fees",
@@ -51,7 +44,7 @@
   "url_checks": [
     {
       "url": "https://www.lakeforestca.gov/departments/community_development/building/solar.php",
-      "checked_at": "2026-08-10T18:29:56.839Z",
+      "checked_at": "2026-08-11T22:46:03.780Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -59,15 +52,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-10T18:29:57.941Z",
+      "checked_at": "2026-08-11T22:46:04.715Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-10T18:29:57.946Z",
+      "checked_at": "2026-08-11T22:46:14.719Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -75,7 +68,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-10T18:29:58.997Z",
+      "checked_at": "2026-08-11T22:46:15.522Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -83,19 +76,27 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-10T18:29:59.964Z",
+      "checked_at": "2026-08-11T22:46:16.545Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://ocpower.org/",
-      "checked_at": "2026-08-10T18:29:59.968Z",
+      "checked_at": "2026-08-11T22:46:26.548Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
+    },
+    {
+      "url": "https://ecode360.com/43978463",
+      "checked_at": "2026-08-11T22:46:28.611Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }

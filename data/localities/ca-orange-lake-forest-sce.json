@@ -82,26 +82,43 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "lakeforestca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on a publicly accessible City website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"],
+    "notes": "Per Lake Forest Municipal Code Sections 8.72.040 and 8.72.060: the Director adopts standard plan(s) and checklist(s) substantially conforming to the CA Solar Permitting Guidebook, made available on a publicly accessible City website."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Only one inspection shall be required and performed by the Building Department for eligible small residential rooftop solar energy systems",
+      "The inspection shall be done in a timely manner",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "Per Lake Forest Municipal Code Section 8.72.095."
   },
   "timeline_days": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "Lake Forest Municipal Code Section 8.72.070(C) states City staff shall issue a permit 'within a reasonable period of time' after a complete application, with no explicit day-count figure stated."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates the city launched an automated SolarAPP+ platform for eligible residential roof-mounted retrofit PV systems effective September 25, 2023, but this could not be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Systems expedited permitting (Lake Forest Municipal Code Chapter 8.72)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
   },
   "permit_fees": {
     "value": null,
@@ -128,7 +145,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -177,6 +194,14 @@
       "publisher": "Orange County Power Authority",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Chapter 8.72 - Small Residential Rooftop Solar Systems (Lake Forest Municipal Code, Title 8 - Buildings and Construction)",
+      "url": "https://ecode360.com/43978463",
+      "publisher": "City of Lake Forest (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
