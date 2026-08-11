@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T23:16:50.648Z",
+  "evaluated_at": "2026-08-11T23:20:19.286Z",
   "record_count": 7,
   "records": [
     {
@@ -198,7 +198,7 @@
       "record_id": "ca-los-angeles-lakewood-sce",
       "city": "Lakewood",
       "county": "Los Angeles County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 86.7,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -212,13 +212,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "inspection_steps",
         "timeline_days",
+        "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
-        "eligibility_constraints",
         "permit_fees",
         "rebates"
       ],
@@ -229,8 +229,8 @@
       "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": true,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-torrance-sce",
@@ -272,10 +272,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 80.9,
+    "average_completeness_pct": 82.9,
     "average_validation_score": 91.1,
-    "ready_count": 5,
-    "limited_count": 2,
+    "ready_count": 6,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -286,10 +286,10 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 0,
-      "required_documents": 1,
+      "required_documents": 0,
       "inspection_steps": 1,
       "timeline_days": 4,
-      "eligibility_constraints": 2,
+      "eligibility_constraints": 1,
       "permit_fees": 5,
       "rebates": 7,
       "official_contacts": 0
@@ -308,15 +308,11 @@
         "missing_in_records": 4
       },
       {
-        "field": "eligibility_constraints",
-        "missing_in_records": 2
-      },
-      {
-        "field": "required_documents",
+        "field": "inspection_steps",
         "missing_in_records": 1
       },
       {
-        "field": "inspection_steps",
+        "field": "eligibility_constraints",
         "missing_in_records": 1
       }
     ],
@@ -348,6 +344,7 @@
       "ca-los-angeles-pico-rivera-sce",
       "ca-los-angeles-downey-sce",
       "ca-los-angeles-cerritos-sce",
+      "ca-los-angeles-lakewood-sce",
       "ca-los-angeles-torrance-sce"
     ],
     "limited_for_now": [
@@ -355,11 +352,6 @@
         "record_id": "ca-los-angeles-norwalk-sce",
         "city": "Norwalk",
         "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
-      },
-      {
-        "record_id": "ca-los-angeles-lakewood-sce",
-        "city": "Lakewood",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       }
     ],
     "not_ready": [],

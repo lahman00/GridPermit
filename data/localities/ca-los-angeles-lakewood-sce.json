@@ -82,10 +82,14 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "lakewoodcity.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's solar submittal checklist PDF."
+    "value": [
+      { "name": "SolarAPP+ eligibility requirements review (for eligible systems)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Submittal Checklist (for systems ineligible for SolarAPP+)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Contractor license information (for SolarAPP+ submittal)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "Per the City's own 'Solar Permitting for Homes' page: SolarAPP+-eligible projects apply via the automated portal; ineligible projects follow the City's Submittal Checklist and apply through the Online Permit Center."
   },
   "inspection_steps": {
     "value": [
@@ -106,9 +110,19 @@
     "source_ids": ["S1"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated instant permitting via the Online Permit Center",
+      "other_conditions": [
+        "SolarAPP+ is designed for the majority of residential, roof-mounted, retrofit photovoltaic systems only",
+        "Systems that do not meet SolarAPP+ eligibility requirements follow the City's Submittal Checklist and standard plan review instead"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
   },
   "permit_fees": {
     "value": null,
