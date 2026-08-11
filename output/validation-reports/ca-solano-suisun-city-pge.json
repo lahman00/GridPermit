@@ -1,9 +1,9 @@
 {
   "record_id": "ca-solano-suisun-city-pge",
   "file": "data/localities/ca-solano-suisun-city-pge.json",
-  "validated_at": "2026-08-10",
+  "validated_at": "2026-08-11",
   "status": "REVIEW",
-  "score": 94,
+  "score": 92,
   "errors": [],
   "warnings": [
     {
@@ -20,16 +20,17 @@
       "field": "sources[S4].url",
       "category": "broken_url",
       "message": "https://www.mcecleanenergy.org/service-area/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "broken_url",
+      "message": "https://www.suisun.com/Departments/Development-Services/Building-Department/Get-a-Building-Permit — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "timeline_days",
@@ -47,7 +48,7 @@
   "url_checks": [
     {
       "url": "https://www.suisun.com/Departments/Development-Services/Building-Department",
-      "checked_at": "2026-08-10T18:49:15.724Z",
+      "checked_at": "2026-08-11T14:19:13.807Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -55,7 +56,7 @@
     },
     {
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
-      "checked_at": "2026-08-10T18:49:16.419Z",
+      "checked_at": "2026-08-11T14:19:14.496Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -63,7 +64,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-10T18:49:16.677Z",
+      "checked_at": "2026-08-11T14:19:18.858Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -71,7 +72,15 @@
     },
     {
       "url": "https://www.mcecleanenergy.org/service-area/",
-      "checked_at": "2026-08-10T18:49:18.358Z",
+      "checked_at": "2026-08-11T14:19:20.949Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.suisun.com/Departments/Development-Services/Building-Department/Get-a-Building-Permit",
+      "checked_at": "2026-08-11T14:19:22.143Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
