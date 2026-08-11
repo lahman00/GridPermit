@@ -45,12 +45,12 @@
     "notes": "Confirmed via direct retrieval of the Permit Center page; the page describes a multi-department partnership rather than a single named department."
   },
   "permit_url": {
-    "value": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects",
-    "confidence": 0.75,
+    "value": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/single-family-duplex-properties/solar-storage-battery-projects",
+    "confidence": 0.9,
     "source_ids": [
       "S3"
     ],
-    "notes": "Content directly confirmed, but this is the general electrical-permit page, not solar-specific. A dedicated photovoltaic permit document (sanjoseca.gov/home/showdocument?id=670) exists but returned repeated HTTP 503 errors from the city's document system (Granicus) throughout this session on 2026-08-01 and could not be verified."
+    "notes": "Corrected to the City's actual dedicated 'Solar & Storage Battery Projects' page (found via site search this session), directly read via browser. The previously-cited page was the general electrical-projects page, not solar-specific."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
@@ -84,24 +84,50 @@
     "notes": "Rate figures confirmed directly from cpuc.ca.gov and selfgenca.com on 2026-08-01. 'effective_from' for the Residential Solar and Storage Equity tier is the reservation-opening date directly stated by the source (2025-06-02); its 'status' is 'unknown' because no source states a current active/expired status or end date for that tier. 'expires_on' for the Equity Resiliency tier (2025-12-31) is interpreted as end-of-year from the source's stated 'available through 2025' — no specific day was given. Since that date is before last_verified (2026-08-01), 'status' is set to 'expired'; this should be re-verified against selfgenca.com's live Program Metrics page before being shown to a user as current. Removed the previously-listed \"SGIP - Equity Resiliency\" line item on 2026-08-09: its expires_on (2025-12-31) has definitively elapsed and no renewal/replacement was confirmed this session, so it no longer represents a current program; the remaining item(s) here are still active/unknown-status per their own status field."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Building Permit Application", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Smoke and Carbon Monoxide Alarm Requirements form", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Site Plan (building footprint, PV panel/battery locations, utility interconnection point)", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Building Plans (framing/anchorage details, structural calculations for vertical/lateral loads)", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Electrical Plans (system configuration, conduit/disconnect/overcurrent details, short circuit current and open circuit voltage)", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Owner-Builder Acknowledgement and Verification of Information Form", "required_when": "conditional", "source_ids": ["S3"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"],
+    "notes": "Per the City's own 'Solar & Storage Battery Projects' page, Standard Plan Review Service submittal package (used when a project doesn't qualify for the online SJPermits fast path)."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "The issued Permit Card lists required inspections; schedule via SJPermits.org or call 408-535-3555",
+      "The Permit Card must be onsite and available to the inspector at all times",
+      "Have plans and manufacturer instructions available, and ensure access to all areas of the project work (provide a ladder if needed)",
+      "The City inspector reviews the electrical plan at the project site on the day of inspection, verifying UL-listed/labeled equipment, minimum working space, conductor sizing, and voltage calculations"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S3"],
+    "notes": "Per the City's own 'Solar & Storage Battery Projects' page's Inspections and 'Requirements for Solar/Battery Installations' sections."
   },
   "timeline_days": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "The City's page describes an online fast-path (SJPermits.org) for qualifying projects versus a Standard Plan Review Service for others, but states no explicit turnaround day-count for either path."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SJPermits.org online fast-path (qualifying projects) or Standard Plan Review Service (nonqualifying projects)",
+      "other_conditions": [
+        "To qualify for the SJPermits online fast path: rooftop installation on a single-family, duplex, or townhouse property; total panel weight (incl. frame) under 5 lbs/sq.ft.; max concentrated load under 40 lbs per support point; max height above roof surface 18 inches; panels not ballasted",
+        "Calculated PV system voltage must not exceed 600 volts",
+        "Battery installations require a City-approved anchorage detail or Master file, with bracket-anchorage inspection typically required before the battery is installed"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
   },
   "permit_fees": {
     "value": null,
@@ -136,7 +162,7 @@
       "S6"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -156,11 +182,11 @@
     },
     {
       "id": "S3",
-      "title": "Electrical Projects — Permit Requirements & Contact Info",
-      "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects",
+      "title": "Solar & Storage Battery Projects",
+      "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/single-family-duplex-properties/solar-storage-battery-projects",
       "publisher": "City of San José",
       "type": "government",
-      "accessed_date": "2026-08-01"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S4",

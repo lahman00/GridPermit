@@ -1,20 +1,25 @@
 {
   "record_id": "ca-santa-clara-san-jose-pge",
   "file": "data/localities/ca-santa-clara-san-jose-pge.json",
-  "validated_at": "2026-08-09",
+  "validated_at": "2026-08-11",
   "status": "REVIEW",
-  "score": 90,
+  "score": 88,
   "errors": [],
   "warnings": [
     {
       "field": "permit_url",
       "category": "broken_url",
-      "message": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/single-family-duplex-properties/solar-storage-battery-projects — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
       "field": "interconnection_url",
       "category": "broken_url",
       "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "broken_url",
+      "message": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
       "field": "sources[S1].url",
@@ -34,20 +39,8 @@
   ],
   "recommendations": [
     {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "permit_fees",
@@ -60,8 +53,8 @@
   ],
   "url_checks": [
     {
-      "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects",
-      "checked_at": "2026-08-09T21:11:04.058Z",
+      "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/single-family-duplex-properties/solar-storage-battery-projects",
+      "checked_at": "2026-08-11T18:01:10.909Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -69,7 +62,7 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-09T21:11:04.175Z",
+      "checked_at": "2026-08-11T18:01:11.050Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -77,15 +70,23 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-09T21:11:04.214Z",
+      "checked_at": "2026-08-11T18:01:11.341Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
+      "url": "https://www.sanjoseca.gov/businesses/development-services-permit-center/start-your-project/electrical-projects",
+      "checked_at": "2026-08-11T18:01:12.116Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-09T21:11:04.905Z",
+      "checked_at": "2026-08-11T18:01:12.183Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -93,7 +94,7 @@
     },
     {
       "url": "https://www.sanjoseca.gov/",
-      "checked_at": "2026-08-09T21:11:05.604Z",
+      "checked_at": "2026-08-11T18:01:12.897Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -101,7 +102,7 @@
     },
     {
       "url": "https://www.sanjoseca.gov/business/development-services-permit-center",
-      "checked_at": "2026-08-09T21:11:05.657Z",
+      "checked_at": "2026-08-11T18:01:12.949Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -109,7 +110,7 @@
     },
     {
       "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
-      "checked_at": "2026-08-09T21:11:05.695Z",
+      "checked_at": "2026-08-11T18:01:12.989Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -117,7 +118,7 @@
     },
     {
       "url": "https://www.sccgov.org/sites/rov/Pages/VignetteLinksInDatabase/City-of-San-Jose.aspx",
-      "checked_at": "2026-08-09T21:11:06.698Z",
+      "checked_at": "2026-08-11T18:01:15.118Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -125,11 +126,11 @@
     },
     {
       "url": "https://sanjosecleanenergy.org/greensource-terms-conditions/",
-      "checked_at": "2026-08-09T21:11:06.739Z",
+      "checked_at": "2026-08-11T18:01:15.527Z",
       "status": "REACHABLE",
-      "http_status": 200,
+      "http_status": 202,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 202"
     }
   ]
 }

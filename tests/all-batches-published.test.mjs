@@ -49,10 +49,14 @@ function loadAllEvaluatedRecords() {
 
 function citySlugFor(recordId) {
 	const record = JSON.parse(readFileSync(path.join(LOCALITIES_DIR, `${recordId}.json`), "utf8"));
-	// Mirrors scripts/generate-locality-pages.mjs's own slugify(): strip every
-	// non-alphanumeric run (not just whitespace) so names like "St. Helena"
-	// slug to "st-helena", matching the folder the generator actually writes.
+	// Mirrors scripts/generate-locality-pages.mjs's own slugify(): strip
+	// diacritics (so "San José" slugs to "san-jose", not "san-jos"), then
+	// strip every non-alphanumeric run (not just whitespace) so names like
+	// "St. Helena" slug to "st-helena", matching the folder the generator
+	// actually writes.
 	return record.city.value
+		.normalize("NFD")
+		.replace(/[̀-ͯ]/g, "")
 		.toLowerCase()
 		.replace(/[^a-z0-9]+/g, "-")
 		.replace(/^-+|-+$/g, "");
