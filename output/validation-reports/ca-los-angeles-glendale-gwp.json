@@ -1,20 +1,15 @@
 {
   "record_id": "ca-los-angeles-glendale-gwp",
   "file": "data/localities/ca-los-angeles-glendale-gwp.json",
-  "validated_at": "2026-08-07",
+  "validated_at": "2026-08-11",
   "status": "REVIEW",
-  "score": 96,
+  "score": 98,
   "errors": [],
   "warnings": [
     {
       "field": "permit_url",
       "category": "broken_url",
       "message": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-pv-interconnection-and-nem-for-under-15-kw-cec-ac-residential-systems — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
-    },
-    {
-      "field": "interconnection_url",
-      "category": "broken_url",
-      "message": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-interconnection — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -23,46 +18,18 @@
       "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "official_contacts",
-      "message": "'official_contacts' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-pv-interconnection-and-nem-for-under-15-kw-cec-ac-residential-systems",
-      "checked_at": "2026-08-07T18:06:35.485Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
-      "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
-    },
-    {
-      "url": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-interconnection",
-      "checked_at": "2026-08-07T18:06:35.703Z",
+      "checked_at": "2026-08-11T17:40:25.553Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",

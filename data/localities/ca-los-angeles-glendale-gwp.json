@@ -24,39 +24,104 @@
   },
   "permit_authority": {
     "value": "City of Glendale Building & Safety, in coordination with Glendale Water and Power",
-    "confidence": 0.55,
+    "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific eligibility, fee, and process content."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block); the full page text was read."
   },
   "permit_url": {
     "value": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-pv-interconnection-and-nem-for-under-15-kw-cec-ac-residential-systems",
-    "confidence": 0.5,
+    "confidence": 0.9,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session; a detailed 12-step process guide."
   },
   "interconnection_url": {
-    "value": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-interconnection",
-    "confidence": 0.5,
+    "value": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-pv-interconnection-and-nem-for-under-15-kw-cec-ac-residential-systems",
+    "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "Glendale's own Net Energy Metering (NEM) interconnection guide, identified via search-engine indexing; glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session. Search-engine synthesis indicates GWP runs its own 1:1 net metering program independent of the CPUC's NEM 3.0 mandate (which applies only to the three large investor-owned utilities), consistent with the general pattern already confirmed directly for other California municipal utilities this session (e.g. Anaheim Public Utilities), but this specific claim for Glendale was not independently verified via direct fetch."
+    "notes": "Directly re-verified via browser this session — the same 'Guide for Applying for PV Interconnection and NEM' page directly and comprehensively covers GWP's own interconnection/NEM process (PowerClerk application, Interconnection Agreement, GWP meter reprogramming), so is used for both permit_url and interconnection_url. An earlier, differently-titled 'guide-for-applying-for-interconnection' URL identified via search-engine indexing could not be independently confirmed to still exist and is no longer used."
   },
   "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "The statewide SGIP program (administered by the CPUC-regulated IOUs) is not applicable to Glendale, since GWP is a municipal utility outside SGIP's administering IOUs' territories. No GWP-specific battery incentive program was confirmed this session." },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "glendaleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the interconnection application requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis suggested a 15kW CEC-AC threshold separating a residential guide from a commercial/large-residential guide, and a 10kW exemption from a historical-usage cap, but this could not be independently confirmed via direct fetch this session." },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "PV Interconnection Application (+ optional Energy Storage), submitted via PowerClerk", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Signed Interconnection Agreement (IA)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Executed Election Form", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Full Plan Set (equipment data sheets, photos of existing main service panel, clearances, 3x3 working space)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Electric Service Spot Drawing", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Shading Analysis Report (waived for PV systems up to 10 kW CEC-AC, subject to a disclosure statement)", "required_when": "conditional", "source_ids": ["S1"] },
+      { "name": "Data Sheet for Energy Storage Device", "required_when": "conditional", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Per the City's own 'Guide for Applying for PV Interconnection and NEM for under 15 kW CEC-AC residential systems,' Step 1(a)-(f)."
+  },
+  "inspection_steps": {
+    "value": [
+      "After installation, the solar contractor uses their Glendale Permits account to schedule the inspection with Building & Safety",
+      "After the inspection and final sign-off, Building & Safety notifies GWP Engineering that the system passed inspection",
+      "GWP Engineering then submits a work order to GWP Field Services for NEM reprogramming of the electric meter, taking 7-10 working days",
+      "Once the meter is reprogrammed, GWP notifies the contractor/customer that the system can be turned on"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Per the City's own process guide, Steps 9-12."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 3,
+      "max_days": 5,
+      "notes": "The City's own guide states: 'The GWP Solar Team typically completes the initial review of your PV Interconnection Application (and optional energy storage) within 3-5 business days. This review occurs before your application moves on to Engineering, Building & Safety, or both.' This covers only GWP's own initial interconnection-application review stage (Step 2 of 12); it does not include the separate Building & Safety plan review/permit issuance time (Steps 4-7) or the post-inspection NEM meter reprogramming time (7-10 working days, Step 11), which are not given as day-count figures in this guide."
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 15,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "PV Interconnection and Net Energy Metering (NEM) for under 15 kW CEC-AC residential systems",
+      "other_conditions": [
+        "PV systems sized up to 10 kW CEC-AC: self-certification of system-size need is accepted within the PowerClerk application, and the Shading Analysis Report is waived (subject to a disclosure statement about nearby trees under 50 feet)",
+        "PV systems over 10 kW CEC-AC: GWP uses 110% of the customer's trailing 12-month kWh usage to establish anticipated annual load, compared against PowerClerk's estimated system production",
+        "Proposed system size must be primarily intended to offset part or all of the customer's own electrical requirements"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's guide states Building and Safety 'contacts the solar contractor for payment of fees, issuance of permit, etc.' but does not itself state a dollar amount." },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
-  "official_contacts": { "value": null, "confidence": 0, "source_ids": [] },
-  "last_verified": "2026-08-06",
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Glendale Building & Safety (permit process and requirements)",
+        "phone": "(818) 548-3200",
+        "email": null,
+        "url": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-pv-interconnection-and-nem-for-under-15-kw-cec-ac-residential-systems"
+      },
+      {
+        "name": null,
+        "role": "GWP Customer Service Department (questions regarding applicable solar credits)",
+        "phone": "855-550-4497",
+        "email": null,
+        "url": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-pv-interconnection-and-nem-for-under-15-kw-cec-ac-residential-systems"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
-      "title": "Guide for Applying for Interconnection (Net Energy Metering)",
-      "url": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-interconnection",
+      "title": "Guide for Applying for PV Interconnection and NEM for under 15 kW CEC-AC residential systems",
+      "url": "https://www.glendaleca.gov/government/departments/glendale-water-and-power/solar-education/guide-for-applying-for-pv-interconnection-and-nem-for-under-15-kw-cec-ac-residential-systems",
       "publisher": "City of Glendale / Glendale Water and Power",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-11"
     }
   ]
 }
