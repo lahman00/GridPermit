@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T22:58:28.960Z",
+  "evaluated_at": "2026-08-11T23:06:33.789Z",
   "record_count": 10,
   "records": [
     {
@@ -120,7 +120,7 @@
       "record_id": "ca-los-angeles-azusa-alw",
       "city": "Azusa",
       "county": "Los Angeles County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 80,
       "validation_score": 95,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -134,15 +134,15 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
-        "rebates"
+        "rebates",
+        "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "inspection_steps",
         "timeline_days",
-        "permit_fees",
-        "official_contacts"
+        "permit_fees"
       ],
       "warning_categories": [
         "unsupported_claim"
@@ -152,7 +152,7 @@
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-duarte-sce",
@@ -385,10 +385,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 80,
+    "average_completeness_pct": 81.3,
     "average_validation_score": 94.2,
-    "ready_count": 8,
-    "limited_count": 2,
+    "ready_count": 9,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -400,12 +400,12 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 1,
-      "inspection_steps": 1,
+      "inspection_steps": 0,
       "timeline_days": 5,
       "eligibility_constraints": 0,
       "permit_fees": 9,
       "rebates": 9,
-      "official_contacts": 1
+      "official_contacts": 0
     },
     "fields_most_often_missing": [
       {
@@ -430,14 +430,6 @@
       },
       {
         "field": "required_documents",
-        "missing_in_records": 1
-      },
-      {
-        "field": "inspection_steps",
-        "missing_in_records": 1
-      },
-      {
-        "field": "official_contacts",
         "missing_in_records": 1
       }
     ],
@@ -469,6 +461,7 @@
       "ca-los-angeles-west-covina-sce",
       "ca-los-angeles-covina-sce",
       "ca-los-angeles-glendora-sce",
+      "ca-los-angeles-azusa-alw",
       "ca-los-angeles-duarte-sce",
       "ca-los-angeles-monrovia-sce",
       "ca-los-angeles-san-dimas-sce",
@@ -477,11 +470,6 @@
     ],
     "limited_for_now": [
       {
-        "record_id": "ca-los-angeles-azusa-alw",
-        "city": "Azusa",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 95)"
-      },
-      {
         "record_id": "ca-los-angeles-walnut-sce",
         "city": "Walnut",
         "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
@@ -489,7 +477,8 @@
     ],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
-      "IOU"
+      "IOU",
+      "municipal"
     ],
     "note": "Applies the exact same deterministic thresholds already used for every prior batch (READY: completeness >=80% and score >=85 and 0 errors; LIMITED: completeness >=50% and score >=75 and 0 errors; else NOT_READY) — no record here was manually marked READY."
   }

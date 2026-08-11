@@ -51,8 +51,22 @@
     "source_ids": ["S1"],
     "notes": "Per the City's own 'Solar PV System Installation Procedures' page's numbered Steps One through Three."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "For a small residential rooftop solar energy system eligible for expedited review, only one inspection shall be required, which shall be done in a timely manner by the City of Azusa Building Division",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized",
+      "Call the Building Division Inspection Requests line at 626-812-5223 to request an inspection"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2", "S3"],
+    "notes": "Per Azusa Municipal Code Section 14-11(k), combined with the City's own Building Division contact page for the general inspection-request line."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Azusa Municipal Code Section 14-11(g) states the building official shall administratively approve the application and issue all required permits or authorizations 'within a reasonable period of time' — no explicit day-count figure."
+  },
   "eligibility_constraints": {
     "value": {
       "property_types": ["residential", "commercial"],
@@ -75,7 +89,26 @@
     "source_ids": ["S1"],
     "notes": "Confirmed absence, not an unresearched gap: the City's own page states 'Effective January 1, 2017, Senate Bill 1 (Murray, Chapter 132, Statues of 2006), the California Solar Initiative (CSI) expired and no additional rebate applications will be accepted after this date,' and no Azusa-specific replacement rebate program is mentioned on the page."
   },
-  "official_contacts": { "value": null, "confidence": 0, "source_ids": [], "notes": "A phone number and address appeared in search-engine synthesis, but per the rule against treating search snippets as evidence, no unverified contact details are recorded." },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Azusa Building Division",
+        "phone": "626-812-5234",
+        "email": null,
+        "url": "https://www.azusaca.gov/index.asp?nid=110"
+      },
+      {
+        "name": null,
+        "role": "City of Azusa Building Division (Inspection Requests)",
+        "phone": "626-812-5223",
+        "email": null,
+        "url": "https://www.azusaca.gov/index.asp?nid=110"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
   "last_verified": "2026-08-11",
   "sources": [
     {
@@ -83,6 +116,22 @@
       "title": "Solar PV System Installation Procedures",
       "url": "https://www.azusaca.gov/565/Solar-PV-System-Installation-Procedures",
       "publisher": "City of Azusa / Azusa Light & Water",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S2",
+      "title": "Building Division",
+      "url": "https://www.azusaca.gov/index.asp?nid=110",
+      "publisher": "City of Azusa",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S3",
+      "title": "Sec. 14-11 - Permitting process for small residential rooftop solar energy systems (Azusa Municipal Code, Chapter 14 - Buildings and Building Regulations)",
+      "url": "https://library.municode.com/ca/azusa/codes/code_of_ordinances?nodeId=MUCO_CH14BUBURE_ARTIINGE_S14-11PEPRSMREROSOENSY",
+      "publisher": "City of Azusa (via Municode official code host)",
       "type": "government",
       "accessed_date": "2026-08-11"
     }
