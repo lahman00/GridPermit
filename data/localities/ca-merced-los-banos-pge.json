@@ -10,10 +10,15 @@
     "notes": "Los Banos is a well-documented Merced County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No Community Choice Aggregator was found serving Los Banos this session."
+    "value": {
+      "name": "WestLight Energy (formerly Peninsula Clean Energy) - ECOplus (default)",
+      "type": "cca",
+      "notes": "WestLight Energy's own page confirms: 'The Los Banos City Council voted to join WestLight Energy in October 2020... We are proud to serve Los Banos since 2022.' PG&E continues to deliver the power and provide billing/customer service; enrollment is automatic (opt-out model)."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S4"
+    ]
   },
   "city": {
     "value": "Los Banos",
@@ -154,7 +159,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -179,6 +184,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Community Programs in Los Banos",
+      "url": "https://www.westlightenergy.org/in-the-community/los-banos/",
+      "publisher": "WestLight Energy (formerly Peninsula Clean Energy)",
+      "type": "other_official",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

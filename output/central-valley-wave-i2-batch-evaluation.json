@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T13:18:42.916Z",
+  "evaluated_at": "2026-08-11T19:12:22.623Z",
   "record_count": 7,
   "records": [
     {
@@ -44,13 +44,14 @@
       "record_id": "ca-merced-los-banos-pge",
       "city": "Los Banos",
       "county": "Merced County",
-      "completeness_pct": 73.3,
-      "validation_score": 96,
+      "completeness_pct": 80,
+      "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 1,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
@@ -63,7 +64,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "generation_supplier",
         "timeline_days",
         "permit_fees",
         "rebates"
@@ -72,11 +72,11 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": true,
       "permit_fees_available": false,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-madera-chowchilla-pge",
@@ -272,14 +272,14 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 67.6,
-    "average_validation_score": 96,
-    "ready_count": 3,
-    "limited_count": 4,
+    "average_completeness_pct": 68.6,
+    "average_validation_score": 96.3,
+    "ready_count": 4,
+    "limited_count": 3,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 7,
+      "generation_supplier": 6,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
@@ -296,12 +296,12 @@
     },
     "fields_most_often_missing": [
       {
-        "field": "generation_supplier",
+        "field": "rebates",
         "missing_in_records": 7
       },
       {
-        "field": "rebates",
-        "missing_in_records": 7
+        "field": "generation_supplier",
+        "missing_in_records": 6
       },
       {
         "field": "permit_fees",
@@ -355,6 +355,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-merced-los-banos-pge",
       "ca-madera-chowchilla-pge",
       "ca-fresno-selma-pge",
       "ca-fresno-kingsburg-pge"
@@ -364,11 +365,6 @@
         "record_id": "ca-merced-atwater-pge",
         "city": "Atwater",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-merced-los-banos-pge",
-        "city": "Los Banos",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-fresno-sanger-pge",
