@@ -89,14 +89,21 @@
     ]
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Request inspections by emailing buildinginspection@shafterca.gov, or via the online Commercial Inspection Request Form for commercial projects"
+    ],
+    "confidence": 0.5,
+    "source_ids": ["S1"],
+    "notes": "The City's own Building Permits page names this as the inspection-request contact, but does not itemize a fuller scheduling process (lead time, hours, confirmation) beyond the email address."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 1,
+      "max_days": 5,
+      "notes": "The City's own Building Permits page states, for its online residential permit applications (which explicitly list Solar as an eligible category): 'Every effort will be made to respond the same day if your application is received early in the day. Please allow one to five business days for processing.'"
+    },
+    "confidence": 0.75,
+    "source_ids": ["S4"]
   },
   "eligibility_constraints": {
     "value": {
@@ -166,6 +173,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permits",
+      "url": "https://www.shafterca.gov/54/Building-Permits",
+      "publisher": "City of Shafter",
+      "type": "government",
+      "accessed_date": "2026-08-10"
     }
   ]
 }
