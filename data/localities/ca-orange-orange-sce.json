@@ -82,15 +82,26 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "cityoforange.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's Express Checklist form content."
+    "value": [
+      { "name": "Express Checklist for Residential Solar Photovoltaic and Energy Storage System (uploaded to the Civic Portal and present at all inspections)", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Electrical single line diagram", "required_when": "always", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S7"],
+    "notes": "The Express Checklist form itself (a PDF) triggers a file-download dialog rather than a viewable page and could not be read for its itemized content; its existence and required use are confirmed via the City's own 'Building Inspections' page, which lists it among items that 'shall be present at the time of inspections.'"
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Contractor must be onsite at the time of inspection",
+      "A copy of the submitted plans, the uploaded Express Checklist, and the electrical single line diagram must be present at every inspection",
+      "If the installation or onsite conditions differ from what was submitted and permitted, revise drawings and upload them to the portal prior to the next scheduled inspection",
+      "If batteries are installed within a structure, Fire Department inspection and approval is required (714-288-2546 or 714-288-2536)",
+      "A ladder is required for inspection of the solar arrays and roof access clearances",
+      "No job card is needed onsite; all approvals are available in the Civic Portal"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S7"],
+    "notes": "Per the City's own 'Building Inspections' page, 'Residential Solar Inspection Procedures' section — a solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": null,
@@ -115,6 +126,13 @@
   "official_contacts": {
     "value": [
       {
+        "name": "Evan Zeisel",
+        "role": "City of Orange Chief Building Official",
+        "phone": "714-744-7200",
+        "email": null,
+        "url": "https://www.cityoforange.org/our-city/departments/community-development/building-and-safety-services"
+      },
+      {
         "name": null,
         "role": "SGIP Program Administrator (SCE territory)",
         "phone": null,
@@ -122,12 +140,13 @@
         "url": "https://www.selfgenca.com/home/contact/"
       }
     ],
-    "confidence": 0.6,
+    "confidence": 0.75,
     "source_ids": [
-      "S5"
+      "S5",
+      "S8"
     ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -176,6 +195,22 @@
       "publisher": "Orange County Power Authority",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Building Inspections",
+      "url": "https://www.cityoforange.org/our-city/departments/public-works/engineering-division/building-and-safety-services/building-inspections",
+      "publisher": "City of Orange",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S8",
+      "title": "Building and Safety Services",
+      "url": "https://www.cityoforange.org/our-city/departments/community-development/building-and-safety-services",
+      "publisher": "City of Orange",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
