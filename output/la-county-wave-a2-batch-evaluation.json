@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T19:40:54.324Z",
+  "evaluated_at": "2026-08-11T23:16:50.648Z",
   "record_count": 7,
   "records": [
     {
@@ -121,11 +121,11 @@
       "record_id": "ca-los-angeles-norwalk-sce",
       "city": "Norwalk",
       "county": "Los Angeles County",
-      "completeness_pct": 60,
-      "validation_score": 94,
+      "completeness_pct": 73.3,
+      "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -135,11 +135,11 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
+        "inspection_steps",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
-        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "permit_fees",
@@ -152,7 +152,7 @@
       "separate_cca_present": false,
       "permit_fees_available": false,
       "timeline_available": false,
-      "required_documents_available": false,
+      "required_documents_available": true,
       "readiness": "LIMITED"
     },
     {
@@ -272,8 +272,8 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 79,
-    "average_validation_score": 91.4,
+    "average_completeness_pct": 80.9,
+    "average_validation_score": 91.1,
     "ready_count": 5,
     "limited_count": 2,
     "not_ready_count": 0,
@@ -286,8 +286,8 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 0,
-      "required_documents": 2,
-      "inspection_steps": 2,
+      "required_documents": 1,
+      "inspection_steps": 1,
       "timeline_days": 4,
       "eligibility_constraints": 2,
       "permit_fees": 5,
@@ -308,16 +308,16 @@
         "missing_in_records": 4
       },
       {
-        "field": "required_documents",
+        "field": "eligibility_constraints",
         "missing_in_records": 2
+      },
+      {
+        "field": "required_documents",
+        "missing_in_records": 1
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 2
-      },
-      {
-        "field": "eligibility_constraints",
-        "missing_in_records": 2
+        "missing_in_records": 1
       }
     ],
     "warning_category_recurrence": {
@@ -354,7 +354,7 @@
       {
         "record_id": "ca-los-angeles-norwalk-sce",
         "city": "Norwalk",
-        "reason": "readiness=LIMITED (completeness 60%, score 94)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
       },
       {
         "record_id": "ca-los-angeles-lakewood-sce",

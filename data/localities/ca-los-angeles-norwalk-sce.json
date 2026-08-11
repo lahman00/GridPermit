@@ -82,26 +82,35 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Both norwalkca.gov and ci.norwalk.ca.us returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
+    "value": [
+      { "name": "Application form furnished by the Building Official, per the standard plan and checklist published on the City's website", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Verification that the support structure can transfer all wind, seismic, dead, and live loads to the building foundation (standard engineering evaluation techniques)", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Verification that the existing electrical system (line, load, ground, bonding wiring, panel/subpanel sizes) is adequately sized to carry the new photovoltaic electrical loads (standard electrical inspection techniques)", "required_when": "always", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "Per Norwalk Municipal Code Section 15.52.040(A)-(B)."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Only one inspection shall be required and performed by the Building Official for eligible small residential rooftop solar energy systems, done in a timely manner and may include a consolidated inspection by the Building Official and Fire Chief",
+      "If the system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "Per Norwalk Municipal Code Section 15.52.070."
   },
   "timeline_days": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "Norwalk Municipal Code Section 15.52.060(B) states the Building Official shall administratively approve a complete application and issue permits, but states no explicit day-count turnaround figure."
   },
   "eligibility_constraints": {
     "value": null,
     "confidence": 0,
     "source_ids": [],
-    "notes": "Search-engine synthesis indicates Norwalk adopted SolarAPP+ in 2025 for single-family rooftop solar and battery projects, with an Eligibility Checklist governing which projects qualify, but no specific size-cap figure could be independently confirmed via direct fetch this session."
+    "notes": "Norwalk Municipal Code Section 15.52.020 defines 'small residential rooftop solar energy systems' by direct reference to Government Code Section 65850.5(j)(3) rather than restating specific numeric size caps or dwelling-type limits in the ordinance text itself, so no eligibility_constraints figures are recorded here."
   },
   "permit_fees": {
     "value": null,
@@ -128,7 +137,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -177,6 +186,14 @@
       "publisher": "Clean Power Alliance",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Chapter 15.52 - Small Residential Rooftop Solar Systems (Norwalk Municipal Code, Title 15 - Buildings and Construction)",
+      "url": "https://ecode360.com/43501146",
+      "publisher": "City of Norwalk (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
