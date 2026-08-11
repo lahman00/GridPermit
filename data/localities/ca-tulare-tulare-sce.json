@@ -21,15 +21,15 @@
   },
   "permit_authority": {
     "value": "City of Tulare Community Development Department, Building Division",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "tulare.ca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name and page title are confirmed via search-engine indexing, but the page's specific content (eligibility, fees, timeline) could not be independently verified. Note: Tulare County's own SolarAPP+ program (tularecounty.ca.gov) explicitly applies only to unincorporated county areas, not the City of Tulare, so the county's program details were not used for this city record."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block); the full page text was read. Note: Tulare County's own SolarAPP+ program (tularecounty.ca.gov) explicitly applies only to unincorporated county areas, not the City of Tulare, so the county's program details were not used for this city record."
   },
   "permit_url": {
     "value": "https://www.tulare.ca.gov/government/departments/community-development/building/solar-app",
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; tulare.ca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -57,11 +57,44 @@
     "source_ids": ["S4"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's page directs installers to 'Eligibility Checklists' to confirm a project qualifies for SolarAPP+, but does not itself enumerate a required-documents list beyond the SolarAPP+-approved plans." },
+  "inspection_steps": {
+    "value": [
+      "Call or email the day before the desired inspection date: (559) 684-4270 or buildinginspections@tulare.ca.gov",
+      "Requests made before 4:00pm are scheduled for the following day; requests received after 4:00pm are scheduled for the 2nd day following the call",
+      "Have the Permit Number and Inspection Item Number ready, plus an A.M./P.M. time preference (not guaranteed)",
+      "The approved plans and all related documents must be available at the job site during inspection",
+      "To cancel an inspection request, call (559) 684-4218; inspectors can be reached Mon-Fri 8:00-8:30am at the same number"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Per the City's own 'Solar App+' page, effective March 1, 2022."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 1,
+      "notes": "The City's own page states installers 'Receive an email within 24 business hours containing the City of Tulare permit number needed for scheduling inspections,' and separately describes SolarAPP+ as 'the automated SolarAPP+ portal for instant permitting.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated instant permitting",
+      "other_conditions": [
+        "Designed for the majority of residential, roof-mounted, retrofit photovoltaic systems meeting the SolarAPP+ Eligibility Checklists",
+        "A valid State Contractors License and City Business Tax Certificate are required"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's page states 'A processing fee from SolarAPP+ and City of Tulare permit fees will be charged' but does not itself state a dollar amount for either." },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
     "value": [
@@ -76,15 +109,15 @@
     "confidence": 0.6,
     "source_ids": ["S5"]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
-      "title": "Solar App",
+      "title": "Solar App +",
       "url": "https://www.tulare.ca.gov/government/departments/community-development/building/solar-app",
       "publisher": "City of Tulare",
       "type": "government",
-      "accessed_date": "2026-08-05"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",

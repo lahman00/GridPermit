@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T16:45:39.275Z",
+  "evaluated_at": "2026-08-11T17:31:19.175Z",
   "record_count": 11,
   "records": [
     {
@@ -235,11 +235,11 @@
       "record_id": "ca-tulare-tulare-sce",
       "city": "Tulare",
       "county": "Tulare County",
-      "completeness_pct": 53.3,
-      "validation_score": 96,
+      "completeness_pct": 73.3,
+      "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -248,14 +248,14 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
         "required_documents",
-        "inspection_steps",
-        "timeline_days",
-        "eligibility_constraints",
         "permit_fees",
         "rebates"
       ],
@@ -265,7 +265,7 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
+      "timeline_available": true,
       "required_documents_available": false,
       "readiness": "LIMITED"
     },
@@ -422,8 +422,8 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72.1,
-    "average_validation_score": 95.3,
+    "average_completeness_pct": 73.9,
+    "average_validation_score": 95.1,
     "ready_count": 7,
     "limited_count": 4,
     "not_ready_count": 0,
@@ -437,9 +437,9 @@
       "interconnection_url": 0,
       "battery_programs": 3,
       "required_documents": 4,
-      "inspection_steps": 3,
-      "timeline_days": 4,
-      "eligibility_constraints": 3,
+      "inspection_steps": 2,
+      "timeline_days": 3,
+      "eligibility_constraints": 2,
       "permit_fees": 9,
       "rebates": 11,
       "official_contacts": 1
@@ -462,20 +462,20 @@
         "missing_in_records": 4
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 4
-      },
-      {
         "field": "battery_programs",
         "missing_in_records": 3
       },
       {
-        "field": "inspection_steps",
+        "field": "timeline_days",
         "missing_in_records": 3
       },
       {
+        "field": "inspection_steps",
+        "missing_in_records": 2
+      },
+      {
         "field": "eligibility_constraints",
-        "missing_in_records": 3
+        "missing_in_records": 2
       },
       {
         "field": "official_contacts",
@@ -538,7 +538,7 @@
       {
         "record_id": "ca-tulare-tulare-sce",
         "city": "Tulare",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       },
       {
         "record_id": "ca-san-joaquin-manteca-pge",
