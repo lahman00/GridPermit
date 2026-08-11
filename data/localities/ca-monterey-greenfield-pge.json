@@ -85,9 +85,14 @@
     "source_ids": []
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Inspection services are offered Tuesdays and Thursdays only, 8:30am-4:00pm",
+      "Call (831) 304-0333 or email inspections@ci.greenfield.ca.us no later than 4:30pm, at least 24 hours before the preferred inspection date/time, providing permit number, jobsite address, inspection type, and contact info",
+      "Have the permit card and approved plans on-site; canceling on the day of inspection (rather than by 4:30pm the day before) counts as a failed inspection, and failing twice triggers a $149.50 re-inspection fee"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": null,
@@ -100,9 +105,16 @@
     "source_ids": []
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": "Residential Photovoltaic Systems (includes plan check)",
+        "amount_usd": 392,
+        "unit": "flat fee",
+        "notes": "Per the City's own Fee Schedule for Building Permits (Resolution 2014-81, effective 2/7/2015 — still the current schedule linked from the City's Building Division page as of this session)."
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S6"]
   },
   "rebates": {
     "value": null,
@@ -124,7 +136,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -157,6 +169,22 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Inspection Services",
+      "url": "https://www.greenfieldca.gov/412/Inspection-Services",
+      "publisher": "City of Greenfield",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S6",
+      "title": "Fee Schedule for Building Permits (Resolution 2014-81)",
+      "url": "https://ci.greenfield.ca.us/DocumentCenter/View/133/Fee-Schedule-for-Building-Permits-PDF",
+      "publisher": "City of Greenfield",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

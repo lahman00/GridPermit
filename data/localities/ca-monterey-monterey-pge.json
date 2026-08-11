@@ -36,19 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Monterey Community Development, Building and Safety Services",
-    "confidence": 0.65,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "monterey.gov returned HTTP 403 to automated fetch this session, so the city's own Building and Safety Services page could not be independently read; this record relies on search-engine-derived detail."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://monterey.gov/your_city_hall/departments/community_development/building_and_safety_services/",
-    "confidence": 0.45,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; the page returned HTTP 403 to automated fetch and its content was not independently verified this session."
+    "notes": "Directly re-verified via browser this session, including the linked 'Solar Checklist' PDF (S5)."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -81,9 +81,17 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Completed Building Permit Application (submitted via the online portal or emailed to gogreen@monterey.gov)", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Solar Photovoltaic (PV) Systems Expedited Submittal Checklist, completed and signed by the owner or licensed contractor", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Plans (minimum sheet size 11\"x17\", PDF format), including a Site Plan, Single Line Diagram, and Sheet Index", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Manufacturer's Equipment Specifications/cut sheets (panels, racking, inverter, microinverter/power optimizers)", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Smoke and Carbon Monoxide Detector Affidavit", "required_when": "always", "source_ids": ["S5"] },
+      { "name": "Statement or engineering analysis confirming existing roof framing can support the added solar panel load (full engineering analysis required for ballasted systems)", "required_when": "conditional", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S5"],
+    "notes": "Per the City's own 'Solar Photovoltaic (PV) Systems Expedited Submittal Checklist' (Rev. 12/30/2024), for residential solar PV systems under 10kW; condensed from the full itemized checklist."
   },
   "inspection_steps": {
     "value": null,
@@ -100,18 +108,18 @@
       "property_types": [
         "residential"
       ],
-      "system_size_kw_ac_max": null,
+      "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
-      "program_or_pathway": "SolarAPP+ automated permitting, plus a fillable-PDF building permit application submitted through the city's Online Permit Portal",
+      "program_or_pathway": "Solar PV Expedited Submittal Checklist review, submitted via the City's Online Permit Portal (mymontereyportal.org, effective 1/7/2026) or by email",
       "other_conditions": [
-        "After uploading required documentation and entering the SolarAPP+ pre-approval ID number, and once all applicable fees are paid, the permit is issued electronically"
+        "The expedited checklist applies to Residential Solar PV Systems under 10kW; Energy Storage System (ESS) installations use a separate ESS checklist",
+        "Permits may only be issued to the property owner or a properly licensed contractor"
       ]
     },
-    "confidence": 0.5,
-    "source_ids": [
-      "S1"
-    ]
+    "confidence": 0.85,
+    "source_ids": ["S5"],
+    "notes": "Corrected this session: the prior entry described a SolarAPP+ pathway that is not mentioned anywhere on the City's own Building and Safety Services page or its Solar Checklist; the City's actual process is its own Online Permit Portal plus an expedited paper/PDF checklist review."
   },
   "permit_fees": {
     "value": null,
@@ -124,19 +132,27 @@
     "source_ids": []
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": null,
+        "role": "City of Monterey Building and Safety Division",
+        "phone": "831-646-3890",
+        "email": "gogreen@monterey.gov",
+        "url": "https://monterey.gov/your_city_hall/departments/community_development/building_and_safety_services/"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
-      "title": "Building and Safety Services (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "title": "Building and Safety Services",
       "url": "https://monterey.gov/your_city_hall/departments/community_development/building_and_safety_services/",
       "publisher": "City of Monterey",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -161,6 +177,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Solar Photovoltaic (PV) Systems Expedited Submittal Checklist (Rev. 12/30/2024)",
+      "url": "https://monterey.gov/Document-Center/Departments/Community-Development/Building-Safety/Building-Forms/Solar-Checklist.pdf",
+      "publisher": "City of Monterey",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
