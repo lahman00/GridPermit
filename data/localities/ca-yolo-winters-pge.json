@@ -104,9 +104,13 @@
     "source_ids": []
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Photovoltaic System - Roof Mounted", "amount_usd": 345, "unit": "flat fee" },
+      { "name": "Photovoltaic System - Rack Mounted", "amount_usd": 408, "unit": "flat fee" }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S6"],
+    "notes": "Per the City's own Building Fee Schedule (Resolution 2026-31)."
   },
   "rebates": {
     "value": null,
@@ -166,6 +170,14 @@
       "id": "S5",
       "title": "Buildings & Code Enforcement FAQs",
       "url": "https://cityofwinters.org/338/Buildings-Code-Enforcement-FAQs",
+      "publisher": "City of Winters",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S6",
+      "title": "Building Fee Schedule (Resolution 2026-31)",
+      "url": "https://www.cityofwinters.org/DocumentCenter/View/1697/2627-Building-Fee-Schedule",
       "publisher": "City of Winters",
       "type": "government",
       "accessed_date": "2026-08-11"

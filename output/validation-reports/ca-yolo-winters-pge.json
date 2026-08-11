@@ -3,9 +3,14 @@
   "file": "data/localities/ca-yolo-winters-pge.json",
   "validated_at": "2026-08-11",
   "status": "REVIEW",
-  "score": 98,
+  "score": 93,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -26,10 +31,6 @@
       "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "rebates",
       "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
@@ -37,7 +38,7 @@
   "url_checks": [
     {
       "url": "https://cityofwinters.org/224/Building-Division",
-      "checked_at": "2026-08-11T15:39:15.474Z",
+      "checked_at": "2026-08-11T18:59:34.402Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,7 +46,7 @@
     },
     {
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
-      "checked_at": "2026-08-11T15:39:16.519Z",
+      "checked_at": "2026-08-11T18:59:35.454Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -53,7 +54,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-11T15:39:16.761Z",
+      "checked_at": "2026-08-11T18:59:35.662Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -61,7 +62,7 @@
     },
     {
       "url": "https://valleycleanenergy.org/about-us/our-story/",
-      "checked_at": "2026-08-11T15:39:17.586Z",
+      "checked_at": "2026-08-11T18:59:36.719Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -69,10 +70,18 @@
     },
     {
       "url": "https://cityofwinters.org/338/Buildings-Code-Enforcement-FAQs",
-      "checked_at": "2026-08-11T15:39:19.177Z",
+      "checked_at": "2026-08-11T18:59:38.364Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cityofwinters.org/DocumentCenter/View/1697/2627-Building-Fee-Schedule",
+      "checked_at": "2026-08-11T18:59:39.415Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
       "details": "HTTP 200"
     }
   ]
