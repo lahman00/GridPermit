@@ -81,37 +81,47 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S5"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S5"],
+    "notes": "Per Pacific Grove Municipal Code Section 18.45.050(a)-(e): the building department creates a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available to the public via the city website."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Only one inspection may be required and performed by the building department for eligible small residential rooftop solar energy systems",
+      "The inspection shall be done in a timely manner and should include consolidated inspections; an inspection will be scheduled within two business days of a request",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "Per Pacific Grove Municipal Code Section 18.45.060(h)-(j)."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Pacific Grove Municipal Code Section 18.45.060(a): the building department 'shall issue a building permit or other nondiscretionary permit within three business days for over-the-counter applications or up to three business days for electronic applications' of receipt of a complete application."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S5"]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": [
-        "residential"
-      ],
-      "system_size_kw_ac_max": null,
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
-      "thermal_capacity_kw_max": null,
-      "program_or_pathway": "Expedited small residential rooftop solar permitting (municipal code Chapter 18.45)",
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited small residential rooftop solar permitting (Pacific Grove Municipal Code Chapter 18.45)",
       "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the city planning commission",
         "Electronic submittal of required applications/documents is available by email, internet, or fax, and electronic signatures are accepted in lieu of wet signatures"
       ]
     },
-    "confidence": 0.55,
-    "source_ids": [
-      "S1"
-    ]
+    "confidence": 0.85,
+    "source_ids": ["S5"]
   },
   "permit_fees": {
     "value": [
@@ -147,7 +157,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -180,6 +190,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Chapter 18.45 - Residential Rooftop Solar System (Pacific Grove Municipal Code, Title 18 - Buildings and Construction)",
+      "url": "https://ecode360.com/48187832",
+      "publisher": "City of Pacific Grove (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
