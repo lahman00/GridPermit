@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T19:07:26.742Z",
+  "evaluated_at": "2026-08-11T21:08:52.650Z",
   "record_count": 11,
   "records": [
     {
@@ -83,7 +83,7 @@
       "record_id": "ca-merced-merced-pge",
       "city": "Merced",
       "county": "Merced County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 73.3,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -96,14 +96,14 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "required_documents",
-        "inspection_steps",
         "timeline_days",
-        "eligibility_constraints",
         "permit_fees",
         "rebates"
       ],
@@ -114,7 +114,7 @@
       "separate_cca_present": null,
       "permit_fees_available": false,
       "timeline_available": false,
-      "required_documents_available": false,
+      "required_documents_available": true,
       "readiness": "LIMITED"
     },
     {
@@ -422,7 +422,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 74.5,
+    "average_completeness_pct": 76.4,
     "average_validation_score": 95.1,
     "ready_count": 8,
     "limited_count": 3,
@@ -436,10 +436,10 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 3,
-      "required_documents": 4,
-      "inspection_steps": 2,
+      "required_documents": 3,
+      "inspection_steps": 1,
       "timeline_days": 3,
-      "eligibility_constraints": 2,
+      "eligibility_constraints": 1,
       "permit_fees": 9,
       "rebates": 11,
       "official_contacts": 1
@@ -458,11 +458,11 @@
         "missing_in_records": 7
       },
       {
-        "field": "required_documents",
-        "missing_in_records": 4
+        "field": "battery_programs",
+        "missing_in_records": 3
       },
       {
-        "field": "battery_programs",
+        "field": "required_documents",
         "missing_in_records": 3
       },
       {
@@ -471,11 +471,11 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 2
+        "missing_in_records": 1
       },
       {
         "field": "eligibility_constraints",
-        "missing_in_records": 2
+        "missing_in_records": 1
       },
       {
         "field": "official_contacts",
@@ -529,7 +529,7 @@
       {
         "record_id": "ca-merced-merced-pge",
         "city": "Merced",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "ca-fresno-clovis-pge",
