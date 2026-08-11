@@ -43,12 +43,13 @@
     ]
   },
   "permit_url": {
-    "value": "https://files.sandimasca.gov/departments/community_development/building_and_safety/index.php",
-    "confidence": 0.75,
+    "value": "https://files.sandimasca.gov/departments/community_development/building_and_safety/online_permit_center.php",
+    "confidence": 0.85,
     "source_ids": [
-      "S1"
+      "S1",
+      "S7"
     ],
-    "notes": "This general Building and Safety page references a dedicated 'Solar Permit Center' as a related resource, and the city is known (via search-engine indexing of a separate PDF handout titled 'Photovoltaic Systems 2022') to publish solar-specific guidance and Municipal Code Chapter 15.06 ('Expedited Permitting Process for Small Residential Rooftop Solar Energy Systems'), but the specific PDF returned HTTP 404 on every attempt this session and the main sandimasca.gov domain (as opposed to the files. subdomain) returned HTTP 403, so solar-specific eligibility, fees, and timeline content could not be independently verified."
+    "notes": "Directly re-verified this session: the Building & Safety index page links a dedicated 'Solar Permit Center' page (S7), which fully describes the SolarAPP+ eligibility, application steps, and Planning Division site requirements. The main sandimasca.gov domain (as opposed to the files. subdomain used here) still returns HTTP 403."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -81,26 +82,46 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The specific solar submittal handout PDF returned HTTP 404 on every attempt this session."
+    "value": [
+      { "name": "Approved SolarAPP+ documents and SolarAPP+ Approval number", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Structural calculations", "required_when": "conditional", "source_ids": ["S7"] },
+      { "name": "Manufacturer spec sheets", "required_when": "conditional", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "Per the City's own 'Solar Permit Center' page, Step 4 of the online permit application: 'upload the approved SolarAPP+ documents, and any additional information relevant to your project such as structural calculations, spec sheets, etc.'"
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule inspections through the City's online portal (Schedule Inspection tool)",
+      "The permit remains valid only if progress is verified by a passed inspection at least every six months"
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S8"],
+    "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence. The page describes full-construction inspection stages (foundation, framing, etc.) in more detail than would apply to a typical rooftop PV installation, so only the generally-applicable scheduling/validity facts are recorded here."
   },
   "timeline_days": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "The City's own 'Solar Permit Center' page describes the SolarAPP+ and online-permit-center application steps in detail but does not state an explicit day count or 'instant'/'instantaneous' issuance language, so no timeline figure is recorded per the mission's strict explicit-evidence bar."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates ground-mounted and commercial-building PV cannot use SolarAPP+ or the city's online permit center, only R3-occupancy roof-mounted residential PV, but this could not be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (roof-mounted residential PV, R3 occupancies only)",
+      "other_conditions": [
+        "Ground-mounted PV (residential or commercial) and PV on commercial buildings cannot use SolarAPP+ or the City's online permitting center; call the Building Division for submittal requirements",
+        "Conduit must be painted to match the adjacent surface",
+        "Modules must maintain a minimum 12-inch distance from roof edges and ridges",
+        "The City prefers flush-mounted modules with no more than 6 inches between the finished roof and the bottom of the module"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
   },
   "permit_fees": {
     "value": null,
@@ -142,7 +163,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -150,7 +171,7 @@
       "url": "https://files.sandimasca.gov/departments/community_development/building_and_safety/index.php",
       "publisher": "City of San Dimas",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -191,6 +212,22 @@
       "publisher": "Clean Power Alliance",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Solar Permit Center",
+      "url": "https://files.sandimasca.gov/departments/community_development/building_and_safety/online_permit_center.php",
+      "publisher": "City of San Dimas",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S8",
+      "title": "Inspections",
+      "url": "https://files.sandimasca.gov/departments/community_development/building_and_safety/inspections.php",
+      "publisher": "City of San Dimas",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
