@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T04:36:28.544Z",
+  "evaluated_at": "2026-08-11T17:00:49.611Z",
   "record_count": 7,
   "records": [
     {
@@ -159,11 +159,11 @@
       "record_id": "ca-sonoma-healdsburg-hed",
       "city": "Healdsburg",
       "county": "Sonoma County",
-      "completeness_pct": 80,
-      "validation_score": 95,
+      "completeness_pct": 100,
+      "validation_score": 85,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -174,21 +174,20 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
+        "permit_fees",
+        "rebates",
         "official_contacts"
       ],
-      "missing_fields": [
-        "inspection_steps",
-        "permit_fees",
-        "rebates"
-      ],
+      "missing_fields": [],
       "warning_categories": [
         "unsupported_claim"
       ],
       "utility_type": "municipal",
       "separate_cca_present": false,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": true,
       "required_documents_available": true,
       "readiness": "READY"
@@ -271,8 +270,8 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 80,
-    "average_validation_score": 96,
+    "average_completeness_pct": 82.9,
+    "average_validation_score": 94.6,
     "ready_count": 7,
     "limited_count": 0,
     "not_ready_count": 0,
@@ -286,20 +285,16 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 5,
-      "inspection_steps": 1,
+      "inspection_steps": 0,
       "timeline_days": 1,
       "eligibility_constraints": 0,
-      "permit_fees": 6,
-      "rebates": 7,
+      "permit_fees": 5,
+      "rebates": 6,
       "official_contacts": 0
     },
     "fields_most_often_missing": [
       {
         "field": "rebates",
-        "missing_in_records": 7
-      },
-      {
-        "field": "permit_fees",
         "missing_in_records": 6
       },
       {
@@ -307,11 +302,11 @@
         "missing_in_records": 5
       },
       {
-        "field": "battery_programs",
-        "missing_in_records": 1
+        "field": "permit_fees",
+        "missing_in_records": 5
       },
       {
-        "field": "inspection_steps",
+        "field": "battery_programs",
         "missing_in_records": 1
       },
       {

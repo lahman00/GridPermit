@@ -1,35 +1,32 @@
 {
   "record_id": "ca-sonoma-healdsburg-hed",
   "file": "data/localities/ca-sonoma-healdsburg-hed.json",
-  "validated_at": "2026-08-09",
+  "validated_at": "2026-08-11",
   "status": "REVIEW",
-  "score": 95,
+  "score": 85,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "battery_programs",
       "category": "unsupported_claim",
       "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
-    }
-  ],
-  "recommendations": [
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
       "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
     }
   ],
+  "recommendations": [],
   "url_checks": [
     {
       "url": "https://healdsburg.gov/832/Expedited-Permitting-for-Solar-and-EV-Ch",
-      "checked_at": "2026-08-09T23:51:26.301Z",
+      "checked_at": "2026-08-11T17:00:31.829Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -37,7 +34,7 @@
     },
     {
       "url": "https://www.ci.healdsburg.ca.us/228/Electric",
-      "checked_at": "2026-08-09T23:51:27.498Z",
+      "checked_at": "2026-08-11T17:00:32.788Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,7 +42,7 @@
     },
     {
       "url": "https://sonomacleanpower.org/",
-      "checked_at": "2026-08-09T23:51:29.043Z",
+      "checked_at": "2026-08-11T17:00:33.744Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -53,10 +50,18 @@
     },
     {
       "url": "https://www.cityofhealdsburg.org/FAQ.aspx?QID=135",
-      "checked_at": "2026-08-09T23:51:29.997Z",
+      "checked_at": "2026-08-11T17:00:34.660Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.ci.healdsburg.ca.us/DocumentCenter/View/11289/Expedited-Residential-Rooftop-Photovoltaic-PV-Systems",
+      "checked_at": "2026-08-11T17:00:35.938Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
       "details": "HTTP 200"
     }
   ]
