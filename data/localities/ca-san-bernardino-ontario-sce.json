@@ -56,8 +56,24 @@
     "source_ids": ["S5"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page directs applicants to the Symbium portal for the actual application, but does not itself enumerate a required-documents checklist." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"],
+    "notes": "Per Ontario Municipal Code Section 8-8.03(a),(d)-(e): the Building Department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the City's website."
+  },
+  "inspection_steps": {
+    "value": [
+      "Only one inspection shall be required and performed by the Building Department for eligible small residential rooftop solar energy systems",
+      "The inspection shall be done in a timely manner and should include consolidated inspections",
+      "If a system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "Per Ontario Municipal Code Section 8-8.04(e)-(g)."
+  },
   "timeline_days": {
     "value": {
       "min_days": 0,
@@ -105,7 +121,7 @@
     "confidence": 0.85,
     "source_ids": ["S2", "S6"]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -154,6 +170,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Chapter 8 - Small Residential Rooftop Solar Energy Systems (Ontario Municipal Code, Volume II, Title 8 - Building Regulations)",
+      "url": "https://ontario-ca.elaws.us/code/muco_volii_t8_ch8",
+      "publisher": "City of Ontario (via eLaws official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
