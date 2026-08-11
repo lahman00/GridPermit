@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T21:46:41.017Z",
+  "evaluated_at": "2026-08-11T15:33:24.331Z",
   "record_count": 10,
   "records": [
     {
@@ -42,27 +42,27 @@
       "record_id": "ca-yolo-west-sacramento-pge",
       "city": "West Sacramento",
       "county": "Yolo County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 86.7,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
       "warning_count": 2,
       "populated_fields": [
         "utility",
+        "generation_supplier",
         "city",
         "county",
         "permit_authority",
         "permit_url",
         "interconnection_url",
         "battery_programs",
-        "official_contacts"
-      ],
-      "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
         "permit_fees",
         "rebates"
       ],
@@ -70,11 +70,11 @@
         "broken_url"
       ],
       "utility_type": "IOU",
-      "separate_cca_present": null,
+      "separate_cca_present": false,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-sacramento-elk-grove-smud",
@@ -380,24 +380,24 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 67.3,
+    "average_completeness_pct": 70.7,
     "average_validation_score": 97.3,
-    "ready_count": 5,
-    "limited_count": 5,
+    "ready_count": 6,
+    "limited_count": 4,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
-      "generation_supplier": 1,
+      "generation_supplier": 0,
       "city": 0,
       "county": 0,
       "permit_authority": 0,
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 1,
-      "required_documents": 5,
-      "inspection_steps": 6,
-      "timeline_days": 9,
-      "eligibility_constraints": 5,
+      "required_documents": 4,
+      "inspection_steps": 5,
+      "timeline_days": 8,
+      "eligibility_constraints": 4,
       "permit_fees": 9,
       "rebates": 10,
       "official_contacts": 3
@@ -408,32 +408,28 @@
         "missing_in_records": 10
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 9
-      },
-      {
         "field": "permit_fees",
         "missing_in_records": 9
       },
       {
+        "field": "timeline_days",
+        "missing_in_records": 8
+      },
+      {
         "field": "inspection_steps",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "required_documents",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "eligibility_constraints",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "official_contacts",
         "missing_in_records": 3
-      },
-      {
-        "field": "generation_supplier",
-        "missing_in_records": 1
       },
       {
         "field": "battery_programs",
@@ -471,17 +467,13 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-sacramento-sacramento-smud",
+      "ca-yolo-west-sacramento-pge",
       "ca-sacramento-citrus-heights-smud",
       "ca-placer-roseville-re",
       "ca-yolo-davis-pge",
       "ca-yolo-woodland-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-yolo-west-sacramento-pge",
-        "city": "West Sacramento",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
-      },
       {
         "record_id": "ca-sacramento-elk-grove-smud",
         "city": "Elk Grove",
