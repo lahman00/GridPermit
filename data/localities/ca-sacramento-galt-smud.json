@@ -54,7 +54,14 @@
     "source_ids": ["S3"]
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "cityofgalt.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Call the 24-Hour Inspection Line at 209-745-1337 to request an inspection"
+    ],
+    "confidence": 0.55,
+    "source_ids": ["S2"],
+    "notes": "This is the City's general Building Division inspection line (the same page covers all building permit types, including solar); no further scheduling detail (cutoff time, confirmation process) is published on this page. The City's own '2022 Residential PV Solar Checklist' PDF hits the familiar CivicPlus file-download dead end and could not be read."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
@@ -79,7 +86,7 @@
     "confidence": 0.8,
     "source_ids": ["S2"]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
