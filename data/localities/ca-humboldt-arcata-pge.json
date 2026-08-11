@@ -84,9 +84,15 @@
     "source_ids": []
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Call the Building Department's main line at (707) 822-5956 at least 24 hours ahead of the requested inspection time",
+      "The inspector arrives on-site at or near the scheduled time; inspections are recorded on the Inspection Record Card issued with the building permit",
+      "Electric and/or Gas Tags are required by PG&E prior to connection of services",
+      "A Final Inspection concludes the project, with both the Job Copy and Office Copy of the Inspection Record Card signed"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S5"],
+    "notes": "Per the City's own 'Inspection Services and Guidelines FAQ's' PDF; this is the general Building Division inspection process (covers all permit types, including solar), not a solar-specific sequence."
   },
   "timeline_days": {
     "value": null,
@@ -123,11 +129,26 @@
     "source_ids": []
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": null,
+        "role": "City of Arcata Building Department (main line)",
+        "phone": "707-822-5956",
+        "email": null,
+        "url": "https://www.cityofarcata.org/DocumentCenter/View/7935/Inspection-Services--Guidelines---FAQs-PDF"
+      },
+      {
+        "name": null,
+        "role": "City of Arcata Building Official",
+        "phone": "707-825-2138",
+        "email": null,
+        "url": "https://www.cityofarcata.org/DocumentCenter/View/7935/Inspection-Services--Guidelines---FAQs-PDF"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -160,6 +181,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Inspection Services and Guidelines FAQ's",
+      "url": "https://www.cityofarcata.org/DocumentCenter/View/7935/Inspection-Services--Guidelines---FAQs-PDF",
+      "publisher": "City of Arcata",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
