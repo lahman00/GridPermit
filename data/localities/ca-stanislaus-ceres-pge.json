@@ -75,28 +75,46 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The city's Building Permits page does not list solar-specific submittal requirements; plan checks are routed through Stanislaus County's own Accela portal."
+    "value": [
+      { "name": "Checklist of expedited-review requirements, published on the City's website", "required_when": "always", "source_ids": ["S4"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S4"],
+    "notes": "Per Ceres Municipal Code Section 15.04.040(C)(2)-(3): the building official develops a checklist of all requirements, published on the City's website; applicant submits by personal or, if available, electronic submittal."
   },
   "inspection_steps": {
     "value": [
-      "Call the Building Inspections line at 209-525-6557 to request an inspection"
+      "Call the Building Inspections line at 209-525-6557 to request an inspection",
+      "For a small residential rooftop solar energy system eligible for expedited review, only one inspection shall be required, done in a timely manner and may include a consolidated inspection by the Building Inspector and Fire Department designee",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
     ],
-    "confidence": 0.5,
-    "source_ids": ["S1"],
-    "notes": "This is the City's general Building Division inspection contact line (the same page covers all building permit types, including solar); no further scheduling detail (cutoff time, hours, confirmation process) is published on this page."
+    "confidence": 0.75,
+    "source_ids": ["S1", "S4"],
+    "notes": "Combines the City's general Building Division inspection contact line with the solar-specific inspection provisions of Ceres Municipal Code Section 15.04.040(C)(5)."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 1,
+      "max_days": 3,
+      "notes": "Ceres Municipal Code Section 15.04.040(C)(7): the building official shall administratively approve the application and issue all required permits or authorizations 'within one to three working days in which the permit application is submitted.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S4"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy System expedited permitting (Ceres Municipal Code Section 15.04.040(C))",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the authority having jurisdiction"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S4"]
   },
   "permit_fees": {
     "value": null,
@@ -148,6 +166,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Chapter 04 - Solar/Photovoltaic Power, Section 15.04.040 (Ceres Municipal Code, Title 15 - Buildings and Construction)",
+      "url": "https://library.municode.com/ca/ceres/codes/municipal_code?nodeId=TIT15BUCO_CH04SOPHPO_15.04.040SOPHPOSY",
+      "publisher": "City of Ceres (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

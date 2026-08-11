@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T16:28:28.725Z",
+  "evaluated_at": "2026-08-11T21:56:50.538Z",
   "record_count": 7,
   "records": [
     {
@@ -82,7 +82,7 @@
       "record_id": "ca-stanislaus-ceres-pge",
       "city": "Ceres",
       "county": "Stanislaus County",
-      "completeness_pct": 53.3,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -95,14 +95,14 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
-        "official_contacts"
-      ],
-      "missing_fields": [
-        "generation_supplier",
         "required_documents",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
         "permit_fees",
         "rebates"
       ],
@@ -112,9 +112,9 @@
       "utility_type": "IOU",
       "separate_cca_present": null,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-stanislaus-riverbank-pge",
@@ -270,10 +270,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 64.7,
+    "average_completeness_pct": 68.6,
     "average_validation_score": 97.1,
-    "ready_count": 1,
-    "limited_count": 6,
+    "ready_count": 2,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -284,10 +284,10 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 0,
-      "required_documents": 5,
-      "inspection_steps": 4,
-      "timeline_days": 4,
-      "eligibility_constraints": 3,
+      "required_documents": 4,
+      "inspection_steps": 3,
+      "timeline_days": 3,
+      "eligibility_constraints": 2,
       "permit_fees": 7,
       "rebates": 7,
       "official_contacts": 0
@@ -307,19 +307,19 @@
       },
       {
         "field": "required_documents",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "eligibility_constraints",
-        "missing_in_records": 3
+        "missing_in_records": 2
       }
     ],
     "warning_category_recurrence": {
@@ -345,6 +345,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-stanislaus-ceres-pge",
       "ca-stanislaus-riverbank-pge"
     ],
     "limited_for_now": [
@@ -356,11 +357,6 @@
       {
         "record_id": "ca-san-joaquin-escalon-pge",
         "city": "Escalon",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
-      },
-      {
-        "record_id": "ca-stanislaus-ceres-pge",
-        "city": "Ceres",
         "reason": "readiness=LIMITED (completeness 53.3%, score 98)"
       },
       {
