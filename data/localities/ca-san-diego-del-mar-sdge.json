@@ -13,7 +13,7 @@
     "value": {
       "name": "Clean Energy Alliance (CEA)",
       "type": "cca",
-      "notes": "CEA's own homepage confirms Del Mar as one of its 7 member cities (Carlsbad, Del Mar, Escondido, Oceanside, San Marcos, Solana Beach, Vista) — Carlsbad, Del Mar, and Solana Beach were CEA's founding cities in 2019. Per CEA's own description: 'Clean Energy Alliance purchases power directly from power providers and/or builds energy generation sources' while 'SDG&E delivers energy, handles billing and serves customers.'"
+      "notes": "CEA's own homepage confirms Del Mar as one of its 7 member cities (Carlsbad, Del Mar, Escondido, Oceanside, San Marcos, Solana Beach, Vista) \u2014 Carlsbad, Del Mar, and Solana Beach were CEA's founding cities in 2019. Per CEA's own description: 'Clean Energy Alliance purchases power directly from power providers and/or builds energy generation sources' while 'SDG&E delivers energy, handles billing and serves customers.'"
     },
     "confidence": 0.85,
     "source_ids": [
@@ -80,10 +80,34 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No dedicated solar-specific submittal-requirements page was located this session; the general Building Services page states permits are handled via electronic submittal through the eTRAKiT portal."
+    "value": [
+      {
+        "name": "Eligibility Checklist (per City of Del Mar Municipal Code Section 23.21.050(C))",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Standard engineering evaluation verifying the support structure is adequate for wind/seismic/dead/live loads",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Verification the existing electrical system (line, load, ground, bonding, panel/subpanel sizing) can carry the new PV load",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S5"
+    ],
+    "notes": "Per Del Mar Municipal Code Section 23.21.050 (Applications and Documents)."
   },
   "inspection_steps": {
     "value": [
@@ -91,7 +115,9 @@
       "Inspection requests are available Monday-Friday (except City holidays); call the inspection line by 4:00pm to schedule an inspection for the next day"
     ],
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This is the City's general Building Division inspection-request process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
@@ -100,9 +126,26 @@
     "source_ids": []
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited Small Residential Rooftop Solar Systems permitting (Del Mar Municipal Code Ch. 23.21)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City",
+        "Only one consolidated inspection is required for eligible systems (may combine with the Fire Marshal)",
+        "Approval does not itself authorize grid interconnection; the applicant must separately obtain the local utility provider\u2019s approval"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S5"
+    ]
   },
   "permit_fees": {
     "value": null,
@@ -162,6 +205,14 @@
       "publisher": "California Public Utilities Commission",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S5",
+      "title": "Chapter 23.21 - Small Residential Rooftop Solar Systems (Del Mar Municipal Code, Title 23 - Building Construction)",
+      "url": "https://library.municode.com/ca/del_mar/codes/municipal_code?nodeId=TIT23BUCO_CH23.21SMREROSOSY",
+      "publisher": "City of Del Mar (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

@@ -4,7 +4,9 @@
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Redwood City is a well-documented San Mateo County city, and San Mateo County is uniformly PG&E territory, consistent with PG&E service already established for other San Mateo County records this session."
   },
   "generation_supplier": {
@@ -14,31 +16,47 @@
       "notes": "Redwood City is the headquarters location of WestLight Energy/Peninsula Clean Energy per multiple sources this session, and is a San Mateo County city. San Mateo County's CCA program enrolls all county jurisdictions' customers by default (opt-out model), consistent with the default-enrollment pattern directly confirmed for other San Mateo County cities (e.g. South San Francisco, Daly City) this session, though redwoodcity.org itself returned HTTP 403 to automated fetch and could not be directly read to confirm Redwood City's own page content."
     },
     "confidence": 0.7,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Redwood City", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Redwood City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Mateo County",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_authority": {
     "value": "City of Redwood City Building Inspection & Code Enforcement Division",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block). The City's own 'SolarAPP+ Permitting Guide' PDF, however, triggers a file-download dialog rather than a viewable page and could not be read."
   },
   "permit_url": {
     "value": "https://www.redwoodcity.org/departments/community-development-and-transportation/building-inspection-code-enforcement/solarapp-automatic-permitting",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly re-verified via browser this session. The page itself is thin (no explicit fee, timeline, or eligibility detail beyond naming SolarAPP+ and E-TRAKiT)."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S4"],
-    "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "PG&E's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other PG&E-territory records in this dataset."
   },
   "battery_programs": {
     "value": [
@@ -57,10 +75,27 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "redwoodcity.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's SolarAPP+ submittal requirements." },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Standard Plan and Checklist (per the California Solar Permitting Guidebook), adopted by the City Building Department",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "Per Redwood City Code Section 9.215(D)-(E): the City's Building Department has adopted a standard plan and checklist substantially conforming to the California Solar Permitting Guidebook; the code text itself does not itemize further documents beyond this standard plan/checklist pair."
+  },
   "inspection_steps": {
     "value": [
       "Submit an online building inspection request via eTRAKiT, providing the permit number, project address, inspection type(s), and contact name/number",
@@ -68,13 +103,54 @@
       "Cancellations can currently also be made by calling the Inspection Line at (650) 780-7361"
     ],
     "confidence": 0.75,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "This is the City's general Building Division inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine summaries indicate the city offers 'SolarAPP+ Automatic Permitting' via its E-TRAKiT portal, but no size-cap or property-type figure could be independently confirmed via direct fetch this session." },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Redwood City Code Section 9.216(A): 'The Building Official shall issue a building permit or other nondiscretionary permit the same day for over-the-counter applications or within one (1) to three (3) business days of receipt of a complete application...for electronic applications.'"
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S8"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited Residential Rooftop Solar Energy Systems permitting (City Code Ch. 9, Article XII)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City",
+        "Only one consolidated inspection is required for eligible systems, scheduled within 2 business days of request",
+        "Approval cannot be conditioned on approval of an association (HOA)"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S8"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -86,7 +162,9 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [
@@ -143,6 +221,14 @@
       "title": "Schedule a Building Inspection",
       "url": "https://www.redwoodcity.org/departments/community-development-department/building-inspection-code-enforcement/inspections/schedule-a-building-inspection",
       "publisher": "City of Redwood City",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S8",
+      "title": "Article XII - Residential Rooftop Solar Energy Systems (Redwood City City Code, Chapter 9 - Buildings)",
+      "url": "https://library.municode.com/ca/redwood_city/codes/city_code?nodeId=CH9BU_ARTXIIREROSOENSY",
+      "publisher": "City of Redwood City (via Municode official code host)",
       "type": "government",
       "accessed_date": "2026-08-11"
     }
