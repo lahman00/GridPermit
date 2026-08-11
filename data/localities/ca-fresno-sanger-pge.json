@@ -75,25 +75,42 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No solar-specific submittal checklist was located for Sanger this session."
+    "value": [
+      { "name": "Checklist of expedited-review requirements, published on the City's website", "required_when": "always", "source_ids": ["S4"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S4"],
+    "notes": "Per Sanger Municipal Code Section 14-93(b)(1)-(2): the community development department develops a checklist of all requirements, published on the city's internet website; applicant may submit by personal, mailed, or electronic submittal. The code text itself does not itemize further documents beyond this checklist."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "For a small residential rooftop solar energy system eligible for expedited review, only one inspection shall be required, which shall be done in a timely manner",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S4"],
+    "notes": "Per Sanger Municipal Code Section 14-93(b)(4)."
   },
   "timeline_days": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "Sanger Municipal Code Section 14-93(b)(6) states the building official shall 'administratively approve' a complete application but does not state an explicit day-count turnaround figure."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy System expedited permitting (Sanger Municipal Code Section 14-93)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City of Sanger"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S4"]
   },
   "permit_fees": {
     "value": null,
@@ -120,7 +137,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -145,6 +162,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Chapter 14 - Buildings and Building Regulations, Sec. 14-93 - Small residential rooftop solar energy system review process (Sanger Municipal Code)",
+      "url": "https://library.municode.com/ca/sanger/codes/code_of_ordinances?nodeId=CICO_CH14BUBURE_ARTII.VRECO_S14-93SMREROSOENSYREPR",
+      "publisher": "City of Sanger (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
