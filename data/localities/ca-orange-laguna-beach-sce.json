@@ -82,35 +82,52 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "lagunabeachcity.net returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S7"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"],
+    "notes": "Per Laguna Beach Municipal Code Section 14.84.050(a),(d)-(e): the building department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the city's website."
   },
   "inspection_steps": {
     "value": [
       "Request inspections by emailing lbinspectors@lagunabeachcity.net before 4:00pm to receive an inspection the following business day (no same-day inspections); provide project address, permit number(s), inspection type(s), request date, and requestor name/mobile number",
       "Confirm the inspection date/time via the city's Daily Inspections page or by calling (949) 497-0715 on the morning of the inspection after 8:30am; no confirmation call is placed to the requestor",
-      "Permits expire if inspections are not scheduled and passed every 180 days; a final 'passed' inspection is required to complete the permit"
+      "Only one inspection shall be required and performed by the building division for eligible small residential rooftop solar energy systems, scheduled within two business days of a request; a subsequent inspection is authorized if the first fails"
     ],
-    "confidence": 0.75,
-    "source_ids": ["S1"],
-    "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+    "confidence": 0.8,
+    "source_ids": ["S1", "S7"],
+    "notes": "Combines the City's general Building Division inspection contact process with the solar-specific expedited-inspection provisions of Laguna Beach Municipal Code Section 14.84.070(g)-(i)."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Laguna Beach Municipal Code Section 14.84.070(a): 'For an application for a small residential rooftop solar energy system that meets the requirements of the approved checklist and standard plan, the building department shall issue a building permit or other non-discretionary permit within three business days.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Solar Energy System expedited permitting (Laguna Beach Municipal Code Chapter 14.84)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City of Laguna Beach"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
   },
   "permit_fees": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "Laguna Beach Municipal Code Section 14.84.060 states the building permit fee 'shall not exceed ten percent of the original system cost, but in no case more than one thousand dollars' — this is a legal fee CAP, not a stated actual charged fee amount, so it is deliberately not recorded here per this project's evidentiary rule distinguishing fee ceilings from actual fees."
   },
   "rebates": {
     "value": null,
@@ -140,7 +157,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-10",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -189,6 +206,14 @@
       "publisher": "Orange County Power Authority",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Chapter 14.84 - Small Residential Solar Energy System Permits (Laguna Beach Municipal Code, Title 14 - Buildings and Construction)",
+      "url": "https://ecode360.com/42894680",
+      "publisher": "City of Laguna Beach (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
