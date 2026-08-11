@@ -36,20 +36,20 @@
     "notes": "Duarte is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
-    "value": "City of Duarte Building Department",
-    "confidence": 0.6,
+    "value": "City of Duarte Building & Safety Division (contracted to Charles Abbott Associates)",
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "cityofduarte.ca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page titles, but the page's specific content (eligibility, fees, timeline, contacts) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block). The correct Building & Safety page — distinct from the City's separate Public Works & Engineering right-of-way permits page previously cited — includes a dedicated SolarAPP+ section."
   },
   "permit_url": {
-    "value": "https://www.cityofduarte.ca.gov/government/departments/community-development/public-works/permits",
-    "confidence": 0.55,
+    "value": "https://www.cityofduarte.ca.gov/government/departments/community-development/building-safety-copy",
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; cityofduarte.ca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified — including whether it contains solar-specific content at all."
+    "notes": "Corrected this session: the previously-cited URL (Public Works & Engineering's right-of-way/transportation permits page) was the wrong department; this is the City's actual Building & Safety page, which includes a dedicated SolarAPP+ section with eligibility, application steps, and inspection information."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -82,25 +82,46 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "cityofduarte.ca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
+    "value": [
+      { "name": "SolarAPP+ Eligibility Checklist compliance", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ ID (generated upon SolarAPP+ approval)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "SolarAPP+ Checklist (uploaded to the Duarte Permit Center documents area)", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Contact the Building & Safety Division at (626) 357-7931 ext. 536 to schedule an inspection; if leaving voicemail, provide the building permit number, address, inspection type, requested day, and contact info",
+      "In almost every case, the inspection is provided on the next working day"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building & Safety inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states that SolarAPP+-eligible projects can use 'the automated SolarAPP+ portal for instant permitting.'"
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ automated permitting (via the Duarte Permit Center)",
+      "other_conditions": [
+        "Only projects that conform to the SolarAPP+ Eligibility Checklist are eligible for the automated, instant-permitting pathway",
+        "A SolarAPP+ processing fee is charged separately by the SolarAPP+ platform for plan review"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
   },
   "permit_fees": {
     "value": null,
@@ -116,26 +137,34 @@
     "value": [
       {
         "name": null,
+        "role": "City of Duarte Building & Safety Division",
+        "phone": "626-357-7931",
+        "email": null,
+        "url": "https://www.cityofduarte.ca.gov/government/departments/community-development/building-safety-copy"
+      },
+      {
+        "name": null,
         "role": "SGIP Program Administrator (SCE territory)",
         "phone": null,
         "email": "SGIPGroup@sce.com",
         "url": "https://www.selfgenca.com/home/contact/"
       }
     ],
-    "confidence": 0.6,
+    "confidence": 0.75,
     "source_ids": [
+      "S1",
       "S5"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
-      "title": "Permits",
-      "url": "https://www.cityofduarte.ca.gov/government/departments/community-development/public-works/permits",
+      "title": "Building & Safety",
+      "url": "https://www.cityofduarte.ca.gov/government/departments/community-development/building-safety-copy",
       "publisher": "City of Duarte",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",

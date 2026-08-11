@@ -32,7 +32,7 @@
     "value": "https://www.alhambraca.gov/192/Building-Division",
     "confidence": 0.8,
     "source_ids": ["S1"],
-    "notes": "This page references an 'Expedited Solar Photovoltaic Permitting for One and Two-Family Dwellings application (PDF)' but the direct PDF link/URL could not be extracted from the page content this session."
+    "notes": "This page references an 'Expedited Solar Photovoltaic Permitting for One and Two-Family Dwellings application (PDF)' hosted on Google Drive; the linked file now returns Google Drive's own 'page not found' error (dead link), so its content could not be used."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -62,9 +62,34 @@
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [],
     "notes": "Alhambra Municipal Code Chapter 20.19 (Small Residential Solar Energy Systems) likely details this, but codelibrary.amlegal.com returned HTTP 403 to automated fetch on every attempt this session." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "For an expedited-eligible small residential rooftop solar energy system, only one inspection is required, conducted in a timely manner and which may be a consolidated inspection by the Building Official and Fire Chief together",
+      "If the system fails inspection, a subsequent (re-)inspection is authorized, which does not need to conform to the single-consolidated-inspection requirement"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S7"],
+    "notes": "Per Alhambra Municipal Code Section 20.19.050(B), directly confirmed via codelibrary.amlegal.com (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Municipal code Section 20.19.050(B) requires the single expedited inspection be conducted 'in a timely manner' but does not state an explicit day count or business-day range for permit issuance itself; not stored per the mission's strict explicit-evidence bar for timeline_days." },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy Systems expedited permitting (Alhambra Municipal Code Ch. 20.19, adopted per Civil Code 714 and Gov. Code 65850.5)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Panel/module array must not exceed the maximum legal building height",
+        "System must conform to all applicable state fire, structural, and electrical codes as adopted by the City",
+        "Only utility-interactive systems eligible for the expedited pathway are covered by this chapter's streamlined process"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"],
+    "notes": "Per Alhambra Municipal Code Sections 20.19.030 (Definitions) and 20.19.050 (Permit Review and Inspection Requirements), directly confirmed via codelibrary.amlegal.com this session."
+  },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
@@ -87,7 +112,7 @@
     "confidence": 0.85,
     "source_ids": ["S1", "S6"]
   },
-  "last_verified": "2026-08-04",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -95,7 +120,7 @@
       "url": "https://www.alhambraca.gov/192/Building-Division",
       "publisher": "City of Alhambra",
       "type": "government",
-      "accessed_date": "2026-08-04"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -136,6 +161,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Chapter 20.19: Small Residential Solar Energy Systems (Alhambra Municipal Code)",
+      "url": "https://codelibrary.amlegal.com/codes/alhambra/latest/alhambra_ca/0-0-0-134248",
+      "publisher": "City of Alhambra / American Legal Publishing",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
