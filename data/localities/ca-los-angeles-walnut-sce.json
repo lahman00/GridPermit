@@ -37,19 +37,20 @@
   },
   "permit_authority": {
     "value": "City of Walnut Building & Safety Division",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "walnutca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page title, but the page's specific content (eligibility, fees, timeline, contacts) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
-    "value": "https://www.walnutca.gov/For-Residents/Departments/Community-Development/Building-Safety-Division",
-    "confidence": 0.55,
+    "value": "https://www.walnutca.gov/For-Residents/Departments/Community-Development/Building-Safety-Division/Solar-Energy-Systems-And-Inspections",
+    "confidence": 0.85,
     "source_ids": [
-      "S1"
+      "S1",
+      "S7"
     ],
-    "notes": "URL identified via search-engine indexing; walnutca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Corrected to the City's dedicated 'Solar Energy Systems And Inspections' subpage (S7), directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -88,9 +89,12 @@
     "notes": "walnutca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Call (909) 598-5241 and leave a voicemail with the project address, contact information, and type of inspection"
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building & Safety inspection-request process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": null,
@@ -98,14 +102,26 @@
     "source_ids": []
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited Small Residential Rooftop Solar Energy Systems permitting (implementing AB 2188)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Panel/module array must not exceed the maximum legal building height per the Walnut Municipal Code",
+        "System must conform to all applicable state fire, structural, and electrical codes as adopted by the City"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S7"]
   },
   "permit_fees": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "The City publishes a dedicated 'Solar System Fee Schedule' PDF, but it triggers a file-download dialog rather than a viewable page and could not be read this session (confirmed dead end, not retried further)."
   },
   "rebates": {
     "value": null,
@@ -127,7 +143,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -135,7 +151,7 @@
       "url": "https://www.walnutca.gov/For-Residents/Departments/Community-Development/Building-Safety-Division",
       "publisher": "City of Walnut",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -176,6 +192,14 @@
       "publisher": "Clean Power Alliance",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Solar Energy Systems And Inspections",
+      "url": "https://www.walnutca.gov/For-Residents/Departments/Community-Development/Building-Safety-Division/Solar-Energy-Systems-And-Inspections",
+      "publisher": "City of Walnut",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

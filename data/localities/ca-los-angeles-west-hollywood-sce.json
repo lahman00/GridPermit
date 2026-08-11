@@ -25,15 +25,15 @@
   },
   "permit_authority": {
     "value": "City of West Hollywood Building and Safety Division",
-    "confidence": 0.7,
+    "confidence": 0.9,
     "source_ids": ["S3"],
-    "notes": "weho.org returned HTTP 403 to automated fetch on every attempt this session (the 'Solar West Hollywood' page and its Solar Handouts subpage). This department name is confirmed via search-engine indexing of the city's own page titles, but the pages' specific eligibility, fee, and timeline content could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
-    "value": "https://www.weho.org/city-government/city-departments/community-development-department/building-and-safety/solar-west-hollywood",
-    "confidence": 0.55,
+    "value": "https://www.weho.org/city-government/city-departments/community-development-department/building-and-safety/building-and-safety-plan-check-services/solar-west-hollywood",
+    "confidence": 0.9,
     "source_ids": ["S3"],
-    "notes": "URL identified via search-engine indexing; weho.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Corrected this session: the previously-cited URL 404s (the page moved under a new 'Building and Safety Plan Check Services' subsection). Directly re-verified via browser."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -61,20 +61,45 @@
     "source_ids": ["S5"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "weho.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's solar handouts/checklists." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's own page references guides/checklists for each system type (PV, SWH, SPH) but links them as generic 'Learn More' buttons whose destination could not be resolved to a specific itemized document list this session." },
+  "inspection_steps": {
+    "value": [
+      "Schedule inspections through the Building and Safety Division's automated inspection request line at (323) 848-6335",
+      "Requests received within business hours (8:00am-6:00pm) are typically scheduled for the next business day"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"],
+    "notes": "Per the City's own 'Solar West Hollywood' page, Inspections section."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis indicates expedited approval for Simple PV systems of 10kW or less and Solar Water/Pool Heating systems of 30kWth or less, but this could not be independently confirmed via direct fetch this session."
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Streamlined/expedited permitting for qualifying small residential rooftop solar systems (implementing AB 2188)",
+      "other_conditions": [
+        "Covers Simple Photovoltaic (PV) systems 10kW or less, Solar Water Heating (SWH) systems 30kW thermal or less, and Solar Pool Heating (SPH) systems 30kW thermal or less on single- or duplex-family dwellings",
+        "Processed similar to a nondiscretionary Zone Clearance permit; systems exceeding zoning height limits or adversely impacting public health/safety do not qualify",
+        "LA County Fire Department review/approval for these installations is deferred to the City's Building and Safety Division",
+        "SCE interconnection approval is separate from the City's approval and may take up to 30 days"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S3"]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis suggested the city waives building/electrical/plumbing plan-check and permit fees for qualifying residential rooftop solar (a Planning Division zone-clearance fee and any state/outside-agency fees would still apply), but this distinctive claim could not be independently verified via direct fetch this session, so it is not recorded per the rule against using search snippets as evidence."
+    "value": [
+      {
+        "name": "Building, electrical, and plumbing plan check and permit fees for qualifying residential rooftop solar",
+        "amount_usd": 0,
+        "unit": "flat fee",
+        "notes": "The City's own page states these fees 'have been waived by the City of West Hollywood' for qualifying systems. A Planning Division zone clearance fee, any required structural-upgrade permit fees, and any State/outside-agency fees still apply and are not waived."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S3"]
   },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
   "official_contacts": {
@@ -90,7 +115,7 @@
     "confidence": 0.6,
     "source_ids": ["S6"]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -111,10 +136,10 @@
     {
       "id": "S3",
       "title": "Solar West Hollywood",
-      "url": "https://www.weho.org/city-government/city-departments/community-development-department/building-and-safety/solar-west-hollywood",
+      "url": "https://www.weho.org/city-government/city-departments/community-development-department/building-and-safety/building-and-safety-plan-check-services/solar-west-hollywood",
       "publisher": "City of West Hollywood",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S4",
