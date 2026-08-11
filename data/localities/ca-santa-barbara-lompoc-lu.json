@@ -51,15 +51,16 @@
     "notes": "Directly re-verified via browser this session; page is explicitly marked '**PAGE UNDER CONSTRUCTION**' by the City but its content is otherwise complete and readable."
   },
   "interconnection_url": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "As a municipal utility, Lompoc's own interconnection process (via its Electric Division) applies rather than a statewide IOU NEM program; a dedicated Lompoc Utilities interconnection page was not independently confirmed this session."
+    "value": "https://www.cityoflompoc.com/government/departments/utilities/electric",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "The City of Lompoc Electric Division's own page, which hosts its full 10-step 'Solar and Self-generation Electric Facility and Energy Storage Installation Information' process, the Self-generating Electric Facility Installation and Interconnection Application, the Interconnection Agreement, and the Customer Owned Generation - Distribution Rate Schedule G-1. As a municipal utility, this replaces a statewide IOU NEM program."
   },
   "battery_programs": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [],
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "Confirmed absence, not a guess: the City of Lompoc Electric Division's own page states, in its 'Solar and Self-generation Electric Facility and Energy Storage Installation Information' section (which explicitly covers Energy Storage Systems/ESS), 'The City of Lompoc does not currently provide rebates for self-generation systems.' No separate battery/storage incentive program was found."
   },
   "required_documents": {
     "value": [
@@ -111,9 +112,10 @@
     "source_ids": []
   },
   "rebates": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [],
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "Confirmed absence, not a guess: the City of Lompoc Electric Division's own page explicitly states 'The City of Lompoc does not currently provide rebates for self-generation systems,' directing applicants instead to the federal solar tax credit."
   },
   "official_contacts": {
     "value": [
@@ -138,6 +140,14 @@
       "url": "https://www.cityoflompoc.com/government/departments/building-and-safety-division/permits/solar",
       "publisher": "City of Lompoc",
       "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S2",
+      "title": "Electric Division",
+      "url": "https://www.cityoflompoc.com/government/departments/utilities/electric",
+      "publisher": "City of Lompoc",
+      "type": "utility",
       "accessed_date": "2026-08-11"
     }
   ]
