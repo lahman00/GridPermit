@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T18:37:24.711Z",
+  "evaluated_at": "2026-08-11T18:41:33.659Z",
   "record_count": 4,
   "records": [
     {
@@ -44,7 +44,7 @@
       "record_id": "ca-butte-oroville-pge",
       "city": "Oroville",
       "county": "Butte County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -58,11 +58,11 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "inspection_steps",
         "official_contacts"
       ],
       "missing_fields": [
         "required_documents",
-        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "permit_fees",
@@ -156,7 +156,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 70,
+    "average_completeness_pct": 71.7,
     "average_validation_score": 96.3,
     "ready_count": 1,
     "limited_count": 3,
@@ -171,7 +171,7 @@
       "interconnection_url": 0,
       "battery_programs": 1,
       "required_documents": 2,
-      "inspection_steps": 2,
+      "inspection_steps": 1,
       "timeline_days": 3,
       "eligibility_constraints": 2,
       "permit_fees": 3,
@@ -196,10 +196,6 @@
         "missing_in_records": 2
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 2
-      },
-      {
         "field": "eligibility_constraints",
         "missing_in_records": 2
       },
@@ -209,6 +205,10 @@
       },
       {
         "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
         "missing_in_records": 1
       }
     ],
@@ -247,7 +247,7 @@
       {
         "record_id": "ca-butte-oroville-pge",
         "city": "Oroville",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
       },
       {
         "record_id": "ca-butte-gridley-geu",
