@@ -25,15 +25,15 @@
   },
   "permit_authority": {
     "value": "City of Manhattan Beach Building and Safety Division",
-    "confidence": 0.7,
+    "confidence": 0.85,
     "source_ids": ["S3"],
-    "notes": "manhattanbeach.gov returned HTTP 403 to automated fetch on every attempt this session. This department name is confirmed via search-engine indexing of the city's own page title, but specific eligibility, fee, and timeline content could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block). The page's own 'PV Solar Panel Plan Guidelines' PDF (linked from the Forms and Handouts subpage) triggers a file-download dialog rather than a viewable page and could not be read."
   },
   "permit_url": {
     "value": "https://www.manhattanbeach.gov/departments/community-development/building-and-safety",
-    "confidence": 0.55,
+    "confidence": 0.8,
     "source_ids": ["S3"],
-    "notes": "URL identified via search-engine indexing; manhattanbeach.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -62,7 +62,16 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "manhattanbeach.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Request inspections through the Citizen Self Service (CSS) Portal no later than 3:00pm the business day before the requested date; the inspector is scheduled for the following business day",
+      "Requests made after 3:00pm, or on a weekend/holiday, are pushed to the next business day",
+      "Only an active contact listed on the permit may request inspections, and a maximum of 3 inspections per project may be requested per day"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S3"],
+    "notes": "This is the City's general Building & Safety inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "The Manhattan Beach Municipal Code is understood (via search-engine indexing) to include a 'Solar energy system permit expediting' section, but its specific eligibility criteria could not be independently confirmed via direct fetch this session." },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
@@ -80,7 +89,7 @@
     "confidence": 0.6,
     "source_ids": ["S6"]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -104,7 +113,7 @@
       "url": "https://www.manhattanbeach.gov/departments/community-development/building-and-safety",
       "publisher": "City of Manhattan Beach",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S4",

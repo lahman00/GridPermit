@@ -37,19 +37,19 @@
   },
   "permit_authority": {
     "value": "City of Glendora Building and Safety Division",
-    "confidence": 0.6,
+    "confidence": 0.8,
     "source_ids": [
       "S1"
     ],
-    "notes": "cityofglendora.gov returned HTTP 403 to automated fetch on every attempt this session (both the Forms and Documents page and the general Building and Safety page), and ecode360.com (host of the city's Small Residential Solar Energy System Permits municipal code chapter) also returned HTTP 403. This department name is confirmed via search-engine indexing of the city's own page titles, but the page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block). ecode360.com (host of the city's municipal code) presents a Cloudflare bot-challenge screen and was not bypassed."
   },
   "permit_url": {
     "value": "https://www.cityofglendora.gov/Services/Development-Services/Building-And-Safety/Forms-and-Documents",
-    "confidence": 0.55,
+    "confidence": 0.75,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; cityofglendora.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session. The Solar Photovoltaic section states SolarAPP+ streamlined permitting is 'Coming Soon' (not yet live), so no instant-issuance timeline is recorded; only a LA County Fire Dept solar/ESS notification PDF is linked, and that PDF triggers a file-download dialog rather than a viewable page (dead-end)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -88,9 +88,14 @@
     "notes": "cityofglendora.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's solar submittal requirements."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "Schedule inspections through the Civic Access portal (My Work tab); requests must be submitted by 4:00pm the business day prior to the requested inspection",
+      "For legacy permits issued before July 2025, call the eTrakit Inspection Request Line at (626) 657-7273 instead",
+      "Verify the scheduled inspection time via the Civic Access dashboard after 8:00am on the day of inspection; inspection hours are Monday-Friday 9:00am-3:30pm"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "This is the City's general Building Division inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
     "value": null,
@@ -128,7 +133,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -136,7 +141,7 @@
       "url": "https://www.cityofglendora.gov/Services/Development-Services/Building-And-Safety/Forms-and-Documents",
       "publisher": "City of Glendora",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",
@@ -177,6 +182,14 @@
       "publisher": "Clean Power Alliance",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S7",
+      "title": "Inspections",
+      "url": "https://www.cityofglendora.gov/Services/Development-Services/Building-And-Safety/Inspections",
+      "publisher": "City of Glendora",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
