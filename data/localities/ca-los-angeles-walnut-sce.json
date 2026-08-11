@@ -83,23 +83,30 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "walnutca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements."
+    "value": [
+      { "name": "Building Permit application (carbon form, filled out at City Hall)", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Electrical Permit application (carbon form, filled out at City Hall)", "required_when": "always", "source_ids": ["S7"] },
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S8"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7", "S8"],
+    "notes": "Per the City's own 'Solar Energy Systems And Inspections' page (Building Permit and Electrical Permit application forms) and Walnut Municipal Code Section 2.36.040(A),(D)-(E) (standard plan/checklist substantially conforming to the CA Solar Permitting Guidebook)."
   },
   "inspection_steps": {
     "value": [
-      "Call (909) 598-5241 and leave a voicemail with the project address, contact information, and type of inspection"
+      "Call (909) 598-5241 and leave a voicemail with the project address, contact information, and type of inspection",
+      "When applicable, only one inspection shall be required and performed by the building division for eligible small residential rooftop solar energy systems (a separate fire inspection may be performed if deemed necessary); the inspection shall be done in a timely manner and should include consolidated inspections",
+      "If a system fails inspection, a subsequent inspection is authorized"
     ],
-    "confidence": 0.65,
-    "source_ids": ["S1"],
-    "notes": "This is the City's general Building & Safety inspection-request process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+    "confidence": 0.8,
+    "source_ids": ["S1", "S8"],
+    "notes": "Combines the City's general Building & Safety inspection-request process with the solar-specific expedited-inspection provisions of Walnut Municipal Code Section 2.36.050(J)-(L)."
   },
   "timeline_days": {
     "value": null,
     "confidence": 0,
-    "source_ids": []
+    "source_ids": [],
+    "notes": "Walnut Municipal Code Section 2.36.050(A),(C) states the Building Division shall issue a permit after receipt of a complete application, and applications will be 'processed in a timely manner' — no explicit day-count figure."
   },
   "eligibility_constraints": {
     "value": {
@@ -198,6 +205,14 @@
       "title": "Solar Energy Systems And Inspections",
       "url": "https://www.walnutca.gov/For-Residents/Departments/Community-Development/Building-Safety-Division/Solar-Energy-Systems-And-Inspections",
       "publisher": "City of Walnut",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S8",
+      "title": "Chapter 2.36 - Solar Energy Systems and Inspections (Walnut Municipal Code, Title 2 - Buildings and Building Regulations)",
+      "url": "https://ecode360.com/44204853",
+      "publisher": "City of Walnut (via eCode360 official code host)",
       "type": "government",
       "accessed_date": "2026-08-11"
     }
