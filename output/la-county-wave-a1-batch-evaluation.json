@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T17:36:50.864Z",
+  "evaluated_at": "2026-08-11T22:58:28.960Z",
   "record_count": 10,
   "records": [
     {
@@ -82,11 +82,11 @@
       "record_id": "ca-los-angeles-glendora-sce",
       "city": "Glendora",
       "county": "Los Angeles County",
-      "completeness_pct": 66.7,
-      "validation_score": 92,
+      "completeness_pct": 86.7,
+      "validation_score": 90,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 4,
+      "warning_count": 5,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -96,13 +96,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
-        "timeline_days",
-        "eligibility_constraints",
         "permit_fees",
         "rebates"
       ],
@@ -112,9 +112,9 @@
       "utility_type": "IOU",
       "separate_cca_present": false,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-los-angeles-azusa-alw",
@@ -385,10 +385,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 78,
-    "average_validation_score": 94.4,
-    "ready_count": 7,
-    "limited_count": 3,
+    "average_completeness_pct": 80,
+    "average_validation_score": 94.2,
+    "ready_count": 8,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -399,10 +399,10 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 1,
-      "required_documents": 2,
+      "required_documents": 1,
       "inspection_steps": 1,
-      "timeline_days": 6,
-      "eligibility_constraints": 1,
+      "timeline_days": 5,
+      "eligibility_constraints": 0,
       "permit_fees": 9,
       "rebates": 9,
       "official_contacts": 1
@@ -418,26 +418,22 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "generation_supplier",
         "missing_in_records": 3
       },
       {
-        "field": "required_documents",
-        "missing_in_records": 2
-      },
-      {
         "field": "battery_programs",
         "missing_in_records": 1
       },
       {
-        "field": "inspection_steps",
+        "field": "required_documents",
         "missing_in_records": 1
       },
       {
-        "field": "eligibility_constraints",
+        "field": "inspection_steps",
         "missing_in_records": 1
       },
       {
@@ -472,6 +468,7 @@
     "recommended_publish_record_ids": [
       "ca-los-angeles-west-covina-sce",
       "ca-los-angeles-covina-sce",
+      "ca-los-angeles-glendora-sce",
       "ca-los-angeles-duarte-sce",
       "ca-los-angeles-monrovia-sce",
       "ca-los-angeles-san-dimas-sce",
@@ -479,11 +476,6 @@
       "ca-los-angeles-diamond-bar-sce"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-los-angeles-glendora-sce",
-        "city": "Glendora",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 92)"
-      },
       {
         "record_id": "ca-los-angeles-azusa-alw",
         "city": "Azusa",

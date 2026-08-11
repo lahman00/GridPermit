@@ -82,31 +82,48 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "cityofglendora.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's solar submittal requirements."
+    "value": [
+      { "name": "Plan check submittal requirements, eligibility checklist, solar standard plan, and inspection guide checklist, published on the City's website (permit application form also downloadable at energycenter.org/PermittingToolkit)", "required_when": "always", "source_ids": ["S8"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S8"],
+    "notes": "Per Glendora Municipal Code Section 19.21.050(a),(d)-(e): the building official implements plan check submittal requirements, an eligibility checklist, a solar standard plan, and an inspection guide checklist, substantially conforming to the CA Solar Permitting Guidebook."
   },
   "inspection_steps": {
     "value": [
       "Schedule inspections through the Civic Access portal (My Work tab); requests must be submitted by 4:00pm the business day prior to the requested inspection",
       "For legacy permits issued before July 2025, call the eTrakit Inspection Request Line at (626) 657-7273 instead",
-      "Verify the scheduled inspection time via the Civic Access dashboard after 8:00am on the day of inspection; inspection hours are Monday-Friday 9:00am-3:30pm"
+      "Verify the scheduled inspection time via the Civic Access dashboard after 8:00am on the day of inspection; inspection hours are Monday-Friday 9:00am-3:30pm",
+      "Only one inspection shall be required for eligible small residential rooftop solar energy systems (a separate LA County Fire Department inspection may be required for some submittals); an inspection will be scheduled within two business days of a request and provide a two-hour inspection window",
+      "If a system fails inspection, a subsequent inspection is authorized; additional inspections may incur a re-inspection fee"
     ],
-    "confidence": 0.8,
-    "source_ids": ["S7"],
-    "notes": "This is the City's general Building Division inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+    "confidence": 0.85,
+    "source_ids": ["S7", "S8"],
+    "notes": "Combines the City's general Building Division inspection-scheduling process with the solar-specific expedited-inspection provisions of Glendora Municipal Code Section 19.21.060(h)-(j)."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Search-engine synthesis suggested a 3-day expedited timeline consistent with the city's expedited-permitting ordinance, but the underlying page could not be directly fetched this session (HTTP 403), so no figure is recorded per the rule against using search snippets as evidence."
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Glendora Municipal Code Section 19.21.060(a): 'The building division shall issue a building permit or other nondiscretionary permit within three days of receipt of a complete application that meets the requirements of the expedited approved checklist and standard plan.'"
+    },
+    "confidence": 0.85,
+    "source_ids": ["S8"]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Solar Energy System expedited permitting (Glendora Municipal Code Chapter 19.21)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the City of Glendora"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S8"]
   },
   "permit_fees": {
     "value": null,
@@ -188,6 +205,14 @@
       "title": "Inspections",
       "url": "https://www.cityofglendora.gov/Services/Development-Services/Building-And-Safety/Inspections",
       "publisher": "City of Glendora",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S8",
+      "title": "Chapter 19.21 - Small Residential Solar Energy System Permits (Glendora Municipal Code, Title 19 - Buildings and Construction)",
+      "url": "https://ecode360.com/43766029",
+      "publisher": "City of Glendora (via eCode360 official code host)",
       "type": "government",
       "accessed_date": "2026-08-11"
     }
