@@ -4,7 +4,9 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Manhattan Beach' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -14,32 +16,48 @@
       "notes": "Confirmed via a directly-fetched California Community Choice Association (CalCCA) press release: Manhattan Beach is explicitly named among the communities that transitioned to 100% Green Power as their default CPA energy option beginning October 2022. Customers may choose another CPA option or opt out at any time. Manhattan Beach's own city government site also separately hosts a page titled 'Clean Power Alliance | City of Manhattan Beach', consistent with this, though manhattanbeach.gov itself returned HTTP 403 to direct fetch on every attempt this session."
     },
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
-  "city": { "value": "Manhattan Beach", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Manhattan Beach",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Manhattan Beach is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Manhattan Beach Building and Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block). The page's own 'PV Solar Panel Plan Guidelines' PDF (linked from the Forms and Handouts subpage) triggers a file-download dialog rather than a viewable page and could not be read."
   },
   "permit_url": {
     "value": "https://www.manhattanbeach.gov/departments/community-development/building-and-safety",
     "confidence": 0.8,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
-    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "SCE's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
     "value": [
@@ -58,10 +76,34 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "manhattanbeach.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements." },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Standard Plan (per the California Solar Permitting Guidebook)",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Expedited-review Checklist (per the California Solar Permitting Guidebook)",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "Per Manhattan Beach Municipal Code Section 9.06.040(D)-(E): the City's standard plan and checklist for small residential rooftop solar systems must 'substantially conform' to the checklist and standard plans in the California Solar Permitting Guidebook. The code text itself does not itemize further documents beyond referencing this standard plan/checklist pair."
+  },
   "inspection_steps": {
     "value": [
       "Request inspections through the Citizen Self Service (CSS) Portal no later than 3:00pm the business day before the requested date; the inspector is scheduled for the following business day",
@@ -69,13 +111,54 @@
       "Only an active contact listed on the permit may request inspections, and a maximum of 3 inspections per project may be requested per day"
     ],
     "confidence": 0.8,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "This is the City's general Building & Safety inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "The Manhattan Beach Municipal Code is understood (via search-engine indexing) to include a 'Solar energy system permit expediting' section, but its specific eligibility criteria could not be independently confirmed via direct fetch this session." },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Manhattan Beach Municipal Code Section 9.06.050(A): 'The permit shall be issued the same day for over-the-counter applications or within three (3) business days for electronic application,' unless the Building Official requires a Solar Use Permit due to a specific, adverse health/safety impact."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S8"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy System Permit Expediting (MBMC Chapter 9.06)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height per MBMC Title 10, Chapter 10.60",
+        "Only one consolidated inspection is required for eligible systems",
+        "The City cannot condition approval of an application on approval of an association (HOA)"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S8"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -87,7 +170,9 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [
@@ -146,6 +231,14 @@
       "publisher": "California Community Choice Association (CalCCA)",
       "type": "other_official",
       "accessed_date": "2026-08-06"
+    },
+    {
+      "id": "S8",
+      "title": "Chapter 9.06 - Solar Energy System Permit Expediting (Manhattan Beach Municipal Code)",
+      "url": "https://citymb-ca.elaws.us/code/coor_title9_ch9.06_sec9.06.050",
+      "publisher": "City of Manhattan Beach (via eLaws official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }

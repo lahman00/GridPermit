@@ -48,7 +48,7 @@
     "source_ids": [
       "S2"
     ],
-    "notes": "General permitting services page — no solar/photovoltaic-specific page was found on the city's site this session. References LA County's adopted Building Code and an online Accela portal (aca-prod.accela.com/SOELMONTE), but no dedicated solar eligibility checklist, fee schedule, or SolarAPP+ program was found published for South El Monte specifically."
+    "notes": "General permitting services page \u2014 no solar/photovoltaic-specific page was found on the city's site this session. References LA County's adopted Building Code and an online Accela portal (aca-prod.accela.com/SOELMONTE), but no dedicated solar eligibility checklist, fee schedule, or SolarAPP+ program was found published for South El Monte specifically."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -56,7 +56,7 @@
     "source_ids": [
       "S4"
     ],
-    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+    "notes": "SCE's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
     "value": [
@@ -81,31 +81,69 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No solar-specific submittal checklist was found published for South El Monte this session."
+    "value": [
+      {
+        "name": "Permit application meeting Building Code Section 106.4 requirements",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Plans conforming to the checklist and standard plans in LA County Building Code Manual 6807, Article 1 (per the California Solar Permitting Guidebook)",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "Per LA County Code Title 26 (Building Code), Chapter 68 (Expedited Permitting for Small Residential Rooftop Solar Energy Systems), Sections 6803 and 6807.3. South El Monte's own Permits page states the City has adopted the LA County Building Code, so LA County's own code chapter directly governs."
   },
   "inspection_steps": {
     "value": [
-      "Building inspections occur Monday, Wednesday, and Thursday, 8:00am-9:00am or 12:00pm-1:00pm — general Building & Safety Division scheduling, not solar-specific"
+      "Building inspections occur Monday, Wednesday, and Thursday, 8:00am-9:00am or 12:00pm-1:00pm \u2014 general Building & Safety Division scheduling, not solar-specific"
     ],
     "confidence": 0.5,
     "source_ids": [
       "S2"
     ],
-    "notes": "This is the Building & Safety Division's general inspection scheduling window, not a solar/PV-specific inspection procedure — no dedicated solar inspection process was published this session."
+    "notes": "This is the Building & Safety Division's general inspection scheduling window, not a solar/PV-specific inspection procedure \u2014 no dedicated solar inspection process was published this session."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "LA County Code Chapter 68, Section 6803: 'Upon receipt of a complete small residential rooftop solar energy system application, plan check review will be completed within one to three business days.'"
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S8"
+    ]
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No solar-specific eligibility checklist (size caps, property types, expedited program) was found published for South El Monte this session."
+    "value": {
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited Permitting for Small Residential Rooftop Solar Energy Systems (LA County Code Title 26, Chapter 68)",
+      "other_conditions": [
+        "System must be installed on a one- or two-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height per LA County Planning and Zoning Code",
+        "Photovoltaic systems must be listed for the application per the Electrical Code; solar thermal systems must be certified by the Solar Rating and Certification Corporation or an approved listing agency"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S8"
+    ]
   },
   "permit_fees": {
     "value": null,
@@ -141,7 +179,7 @@
       "S6"
     ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -198,6 +236,14 @@
       "publisher": "Clean Power Alliance",
       "type": "other_official",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S8",
+      "title": "Chapter 68 - Expedited Permitting for Small Residential Rooftop Solar Energy Systems (Los Angeles County Code, Title 26 - Building Code)",
+      "url": "https://library.municode.com/ca/los_angeles_county/codes/code_of_ordinances?nodeId=TIT26BUCO_CH68EXPESMREROSOENSY",
+      "publisher": "County of Los Angeles (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
