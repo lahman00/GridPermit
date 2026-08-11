@@ -4,34 +4,59 @@
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Victorville' by name among the cities in its service area."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No Community Choice Aggregator was confirmed serving the City of Victorville this session."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "Western Community Energy (WCE), the only CCA ever formed to serve inland Southern California, deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021. Its own now-stale website (frozen since its original 2020 launch announcement) confirms its service area was limited to only six Riverside County cities (Norco, Perris, Wildomar, Jurupa Valley, Hemet, Eastvale) and never included any San Bernardino County city. No other CCA was found serving San Bernardino County in this dataset's research. SCE is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S8"
+    ]
   },
-  "city": { "value": "Victorville", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Victorville",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Bernardino County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Victorville Building Department",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.victorvilleca.gov/Government/City-Departments/Building",
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Corrected this session: the previously-cited solar-specific URL now 404s. A solar submittal-requirements PDF is linked from the Fees & Forms section (victorvilleca.gov/files/assets/city/v/1/building/documents/standards/solar_submittal_requirements.pdf) but triggers a file-download dialog rather than a viewable page and could not be read. Directly re-verified via browser."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
-    "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "SCE's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
     "value": [
@@ -50,28 +75,73 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "victorvilleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to solar-specific submittal requirements." },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Checklist published on the City's website, completed and submitted with the application",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Standard engineering evaluation verifying the support structure is adequate for wind/seismic/dead/live loads",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Verification the existing electrical system (line, load, ground, bonding, panel/subpanel sizing) can carry the new PV load",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S7"
+    ],
+    "notes": "Per Victorville Municipal Code Title 16, Chapter 5, Article 19 (Small Residential Rooftop Solar Energy System Review Process), Section 16-5.19.010."
+  },
   "inspection_steps": {
     "value": [
       "Inspections are scheduled online via the City's Citizen Self Service Portal, with a choice of morning (8am-12pm) or afternoon (1pm-5pm, 1pm-4pm on Fridays) preference",
       "Inspections are conducted Monday-Friday; to cancel, call the Building Division at (760) 955-5100"
     ],
     "confidence": 0.75,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence. Corrected this session from a prior entry citing the now-dead solar-specific URL."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": null,
     "confidence": 0,
     "source_ids": [],
     "notes": "Search-engine synthesis confirms SolarAPP+ is used for most residential, roof-mounted, retrofit photovoltaic systems, but specific size/eligibility limits were not independently confirmed via direct fetch this session (victorvilleca.gov returned HTTP 403)."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -90,7 +160,10 @@
       }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [
@@ -140,6 +213,22 @@
       "url": "https://www.victorvilleca.gov/Government/City-Departments/Building/Inspection-Process",
       "publisher": "City of Victorville",
       "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S7",
+      "title": "Article 19: Small Residential Rooftop Solar Energy System Review Process (Victorville Municipal Code, Title 16 - Development Code)",
+      "url": "https://library.municode.com/ca/victorville/codes/code_of_ordinances?nodeId=TIT16DECO_CH5BUFIRE_ART19SMREROSOENSYREPR",
+      "publisher": "City of Victorville (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S8",
+      "title": "Western Community Energy (Homepage \u2014 stale, service area limited to 6 Riverside County cities)",
+      "url": "https://westerncommunityenergy.com",
+      "publisher": "Western Community Energy",
+      "type": "other_official",
       "accessed_date": "2026-08-11"
     }
   ]

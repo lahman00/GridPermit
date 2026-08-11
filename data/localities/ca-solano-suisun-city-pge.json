@@ -16,7 +16,9 @@
       "notes": "Directly re-verified this session via MCE's own service-area page, which explicitly lists its Solano County service as exactly four communities: Benicia, Fairfield, Vallejo, and unincorporated Solano County. Suisun City is not among them, and no other CCA was found serving Solano County. PG&E is recorded as both the distribution and generation utility."
     },
     "confidence": 0.8,
-    "source_ids": ["S4"]
+    "source_ids": [
+      "S4"
+    ]
   },
   "city": {
     "value": "Suisun City",
@@ -77,9 +79,20 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": "Checklist adopted by the Building Official, substantially conforming to the California Solar Permitting Guidebook",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S6"
+    ],
+    "notes": "Per Suisun City Municipal Code Section 15.04.390(E): the Building Official adopts a checklist for small residential rooftop solar energy systems substantially conforming to the California Solar Permitting Guidebook; the code text itself does not itemize further documents beyond this checklist."
   },
   "inspection_steps": {
     "value": [
@@ -88,13 +101,21 @@
       "No work beyond the point of each successive inspection may proceed without prior approval from the Building Division"
     ],
     "confidence": 0.75,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "This is the City's general Building Division inspection process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Suisun City Municipal Code Section 15.04.390(F)(1): 'The building official shall issue a building permit or other nondiscretionary permit the same day for applications that meet the requirements of the approved checklist or within three business days for electronic applications after receipt of a complete application.'"
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S6"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -141,7 +162,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-10",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -182,6 +203,14 @@
       "publisher": "Suisun City",
       "type": "government",
       "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S6",
+      "title": "Section 15.04.390 - Residential solar projects (Suisun City Municipal Code, Title 15 - Buildings and Construction)",
+      "url": "https://library.municode.com/ca/suisun_city/codes/code_of_ordinances?nodeId=TIT15BUCO_CH15.04PENICO_15.04.390RESOPR",
+      "publisher": "City of Suisun City (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
