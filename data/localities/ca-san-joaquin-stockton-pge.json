@@ -85,48 +85,46 @@
     "notes": "Same statewide CPUC/PG&E-administered SGIP program and figures already confirmed for the San Jose/Fremont/Oakland/Fresno records, reused on the same reasoning: SGIP is administered per IOU distribution territory (PG&E), not per city. 'Available through 2025' read as expiring 2025-12-31, before last_verified, hence 'expired'; the other tier's status is 'unknown' since no end/current-status is stated. Re-check against selfgenca.com's live Program Metrics page before showing as current. Removed the previously-listed \"SGIP - Equity Resiliency\" line item on 2026-08-09: its expires_on (2025-12-31) has definitively elapsed and no renewal/replacement was confirmed this session, so it no longer represents a current program; the remaining item(s) here are still active/unknown-status per their own status field."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Sources describe an online SolarAPP+ application ('Residential Solar One Stop') resulting in an auto-issued permit, but no specific document/submittal checklist was directly confirmed this session — stocktonca.gov could not be fetched directly to check further."
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S8"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S8"],
+    "notes": "Per Stockton Municipal Code Section 15.78.040(A),(D)-(E): the Building Department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the City's website. The City's own SolarAPP+ / 'Residential Solar One Stop' online application (S1) is the modern submission channel for eligible systems."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No specific inspection-scheduling procedure was found in the sources reviewed this session."
+    "value": [
+      "Only one inspection shall be required for eligible small residential rooftop solar energy systems (a separate fire inspection may apply absent a local fire-authority agreement); an inspection will be scheduled within two business days of a request and provide a two-hour inspection window",
+      "The inspection shall be done in a timely manner and should include consolidated inspections",
+      "If a system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S8"],
+    "notes": "Per Stockton Municipal Code Section 15.78.050(H)-(J)."
   },
   "timeline_days": {
     "value": {
       "min_days": 0,
-      "max_days": 0,
-      "notes": "Sources describe Stockton's SolarAPP+ program as resulting in an 'auto-issued permit' for qualifying systems — read as same-day/immediate issuance for SolarAPP+-eligible residential rooftop systems. No source found states a timeline for the standard (non-SolarAPP+) permit path."
+      "max_days": 3,
+      "notes": "Stockton Municipal Code Section 15.78.050(A): the Building Department shall issue a permit '(the same day for over-the-counter applications or within one to three business days for electronic applications)' of receipt of a complete application. Directly confirmed this session via the City's own municipal code, replacing the prior lower-confidence (0.6), search-engine-derived 'instant issuance' claim with this more specific, code-based figure."
     },
-    "confidence": 0.6,
-    "source_ids": [
-      "S1"
-    ],
-    "notes": null
+    "confidence": 0.85,
+    "source_ids": ["S8"]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": [
-        "residential rooftop"
-      ],
-      "system_size_kw_ac_max": null,
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
-      "thermal_capacity_kw_max": null,
-      "program_or_pathway": "SolarAPP+ (automated residential solar permitting)",
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Rooftop Solar Energy Systems expedited permitting (Stockton Municipal Code Chapter 15.78), submitted via the City's SolarAPP+/Residential Solar One Stop online application",
       "other_conditions": [
-        "Sources describe SolarAPP+ eligibility in Stockton as limited to qualifying systems 'under 10 kW' without specifying whether this is an AC or DC rating — recorded here as a condition rather than a specific size-cap field to avoid asserting an unstated unit.",
-        "Application must be submitted by a licensed contractor via the online SolarAPP+ / Residential Solar One Stop process"
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the authority having jurisdiction"
       ]
     },
-    "confidence": 0.6,
-    "source_ids": [
-      "S1"
-    ],
-    "notes": null
+    "confidence": 0.85,
+    "source_ids": ["S8"]
   },
   "permit_fees": {
     "value": null,
@@ -164,7 +162,7 @@
     ],
     "notes": "The Permit Center phone number was consistently cited across independent search results (unlike Fresno's, where multiple conflicting numbers appeared)."
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -213,6 +211,14 @@
       "publisher": "Ava Community Energy (Joint Powers Authority)",
       "type": "government",
       "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S8",
+      "title": "Chapter 15.78 - Small Residential Rooftop Solar Energy Systems (Stockton Municipal Code, Title 15 - Buildings and Construction)",
+      "url": "https://ecode360.com/43712261",
+      "publisher": "City of Stockton (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
