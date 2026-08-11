@@ -4,38 +4,59 @@
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Search-engine synthesis of Manteca solar reporting references 'PG&E power bills' as the relevant utility context for Manteca residents' solar incentives; manteca.gov itself returned HTTP 403 to automated fetch on every attempt this session, so a direct city-page confirmation could not be independently obtained."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No official Manteca city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
+    "value": {
+      "name": "Pacific Gas and Electric Company (PG&E)",
+      "type": "utility",
+      "notes": "Ava Community Energy (the CCA serving neighboring San Joaquin County cities Lathrop, Stockton, and Tracy) publishes a complete jurisdiction-by-jurisdiction service list on its own 'Communities We Serve' page; Manteca is not among the listed cities (only Lathrop, Stockton, Tracy, and unincorporated San Joaquin County appear for the county). No other CCA was found serving Manteca. PG&E is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S5"
+    ]
   },
-  "city": { "value": "Manteca", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Manteca",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Joaquin County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Manteca Development Services Department, Building Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.manteca.gov/?navid=524",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly re-verified via browser this session."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S2"],
-    "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "PG&E's own Net Energy Metering (NEM) program page \u2014 a utility-wide fact already established for other PG&E-territory records in this dataset."
   },
   "battery_programs": {
     "value": [
@@ -54,16 +75,24 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "inspection_steps": {
     "value": [
       "All inspections for Symbium-issued solar permits are scheduled through the Citizen Access Portal"
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Per the City's own 'Instant Residential Solar and Energy Storage System Permits' page."
   },
   "timeline_days": {
@@ -73,11 +102,15 @@
       "notes": "The City's own page states the Symbium platform 'issues permits in real time' and instructs applicants to 'Pay your permit fees and obtain your permit instantly!'"
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -88,10 +121,20 @@
       ]
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -103,7 +146,9 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"]
+    "source_ids": [
+      "S4"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [
@@ -138,6 +183,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S5",
+      "title": "Communities We Serve",
+      "url": "https://avaenergy.org/community/who-we-serve/",
+      "publisher": "Ava Community Energy",
+      "type": "other_official",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
