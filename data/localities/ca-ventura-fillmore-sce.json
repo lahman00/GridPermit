@@ -116,9 +116,16 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": "P.V. (photovoltaic) electrical permit fee",
+        "amount_usd": 130,
+        "unit": "flat fee",
+        "notes": "Per the City of Fillmore's own 'Fee Schedule A' document (linked from the Building & Safety department page), which lists a handwritten 'P.V.' line item with an arrow pointing to '130.00' within the printed ELECTRICAL fee table (alongside other electrical permit fees like new service and temporary power pole). The amount is a handwritten update to the printed schedule rather than a typeset entry; no separate revision date is shown."
+      }
+    ],
+    "confidence": 0.55,
+    "source_ids": ["S6"]
   },
   "rebates": {
     "value": null,
@@ -140,7 +147,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-10",
   "sources": [
     {
       "id": "S1",
@@ -148,7 +155,7 @@
       "url": "https://www.fillmoreca.gov/165/Building-Safety",
       "publisher": "City of Fillmore",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-08-10"
     },
     {
       "id": "S2",
@@ -180,6 +187,14 @@
       "url": "https://cleanpoweralliance.org/",
       "publisher": "Clean Power Alliance",
       "type": "other_official",
+      "accessed_date": "2026-08-10"
+    },
+    {
+      "id": "S6",
+      "title": "Fee Schedule A",
+      "url": "https://www.fillmoreca.gov/DocumentCenter/View/129/Fee-Schedule-A-PDF",
+      "publisher": "City of Fillmore",
+      "type": "government",
       "accessed_date": "2026-08-10"
     }
   ]
