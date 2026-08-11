@@ -1,12 +1,12 @@
 {
-  "evaluated_at": "2026-08-09T21:46:40.938Z",
+  "evaluated_at": "2026-08-11T23:50:52.944Z",
   "record_count": 10,
   "records": [
     {
       "record_id": "ca-fresno-fresno-pge",
       "city": "Fresno",
       "county": "Fresno County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 92,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -20,13 +20,13 @@
         "interconnection_url",
         "battery_programs",
         "required_documents",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "inspection_steps",
         "permit_fees",
         "rebates"
       ],
@@ -38,7 +38,7 @@
       "permit_fees_available": false,
       "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-joaquin-stockton-pge",
@@ -384,10 +384,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 80.7,
+    "average_completeness_pct": 81.3,
     "average_validation_score": 93.3,
-    "ready_count": 8,
-    "limited_count": 2,
+    "ready_count": 9,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -399,7 +399,7 @@
       "interconnection_url": 1,
       "battery_programs": 2,
       "required_documents": 2,
-      "inspection_steps": 4,
+      "inspection_steps": 3,
       "timeline_days": 1,
       "eligibility_constraints": 0,
       "permit_fees": 9,
@@ -417,7 +417,7 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 4
+        "missing_in_records": 3
       },
       {
         "field": "battery_programs",
@@ -471,6 +471,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-fresno-fresno-pge",
       "ca-sonoma-santa-rosa-pge",
       "ca-orange-irvine-sce",
       "ca-orange-fullerton-sce",
@@ -481,11 +482,6 @@
       "ca-alameda-alameda-amp"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-fresno-fresno-pge",
-        "city": "Fresno",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
-      },
       {
         "record_id": "ca-san-joaquin-stockton-pge",
         "city": "Stockton",

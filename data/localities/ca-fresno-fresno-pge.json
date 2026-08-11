@@ -81,6 +81,7 @@
   },
   "required_documents": {
     "value": [
+      { "name": "Eligibility Checklist for Expedited Solar Photovoltaic Permitting, completed by the applicant", "required_when": "always", "source_ids": ["S7"] },
       {
         "name": "SolarAPP+ approval confirmation",
         "required_when": "SolarAPP+-eligible residential rooftop systems (single-family and duplex only)",
@@ -89,17 +90,18 @@
         ]
       }
     ],
-    "confidence": 0.55,
-    "source_ids": [
-      "S1"
-    ],
-    "notes": "Only the SolarAPP+ confirmation-upload step was explicitly and consistently described across independent sources (contractor submits project details to SolarAPP+, then uploads the resulting confirmation to the city's Accela Citizens Access system as proof of code compliance). A dedicated 'Residential Solar Plan Check Submittal' PDF exists on fresno.gov (referenced by title in search results) but could not be directly fetched this session to confirm its specific document checklist — not listed here to avoid inventing items not directly confirmed."
+    "confidence": 0.7,
+    "source_ids": ["S1", "S7"],
+    "notes": "Per Fresno Municipal Code Section 11-111(b)(2): an Eligibility Checklist for Expedited Solar Photovoltaic Permitting shall be completed to determine if the project qualifies. The SolarAPP+ confirmation-upload step is independently confirmed via the City's own SolarAPP+ page (S1)."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No specific inspection-scheduling procedure (comparable to Fremont's municipal-code text or Oakland's mobile-app process) was found in the sources reviewed this session; fresno.gov could not be directly fetched to check further."
+    "value": [
+      "For a Small Residential Rooftop Solar Energy System eligible for expedited review, only one inspection shall be required, which may include a consolidated inspection",
+      "If a system fails the inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S7"],
+    "notes": "Per Fresno Municipal Code Section 11-111(c)."
   },
   "timeline_days": {
     "value": {
@@ -171,7 +173,7 @@
     ],
     "notes": "A phone number for Fresno's Building and Safety Services Division appeared in search results but was inconsistent across sources (multiple different numbers attributed to the same office with no single canonical page confirming one) — omitted rather than recording a possibly-incorrect number. The office's own URL is included instead."
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -220,6 +222,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-02"
+    },
+    {
+      "id": "S7",
+      "title": "SEC. 11-111 - Small Residential Rooftop Solar Energy System Review Process (Fresno Municipal Code, Chapter 11 - Building Permits and Regulations)",
+      "url": "https://library.municode.com/ca/fresno/codes/code_of_ordinances?nodeId=MUCOFR_CH11BUPERE_ART1CABUREELMEPLENCO_S11-111SMREROSOENSYREPR",
+      "publisher": "City of Fresno (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
