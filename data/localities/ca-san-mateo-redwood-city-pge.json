@@ -24,15 +24,15 @@
   },
   "permit_authority": {
     "value": "City of Redwood City Building Inspection & Code Enforcement Division",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "redwoodcity.org returned HTTP 403 to automated fetch on every attempt this session (including its Peninsula Clean Energy/WestLight Energy page). This department name and page title are confirmed via search-engine indexing, but the page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block). The City's own 'SolarAPP+ Permitting Guide' PDF, however, triggers a file-download dialog rather than a viewable page and could not be read."
   },
   "permit_url": {
     "value": "https://www.redwoodcity.org/departments/community-development-and-transportation/building-inspection-code-enforcement/solarapp-automatic-permitting",
-    "confidence": 0.55,
+    "confidence": 0.8,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; redwoodcity.org returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session. The page itself is thin (no explicit fee, timeline, or eligibility detail beyond naming SolarAPP+ and E-TRAKiT)."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
@@ -61,7 +61,16 @@
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
   "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "redwoodcity.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to the city's SolarAPP+ submittal requirements." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Submit an online building inspection request via eTRAKiT, providing the permit number, project address, inspection type(s), and contact name/number",
+      "Inspections are available Monday-Friday 9am-4pm; check Today's Building Inspections after 9am on the day of your inspection for your estimated 2-hour arrival window",
+      "Cancellations can currently also be made by calling the Inspection Line at (650) 780-7361"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S7"],
+    "notes": "This is the City's general Building Division inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
+  },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine summaries indicate the city offers 'SolarAPP+ Automatic Permitting' via its E-TRAKiT portal, but no size-cap or property-type figure could be independently confirmed via direct fetch this session." },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
@@ -79,7 +88,7 @@
     "confidence": 0.6,
     "source_ids": ["S6"]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -128,6 +137,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S7",
+      "title": "Schedule a Building Inspection",
+      "url": "https://www.redwoodcity.org/departments/community-development-department/building-inspection-code-enforcement/inspections/schedule-a-building-inspection",
+      "publisher": "City of Redwood City",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
