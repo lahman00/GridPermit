@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-09T23:31:11.070Z",
+  "evaluated_at": "2026-08-11T04:56:54.287Z",
   "record_count": 7,
   "records": [
     {
@@ -82,11 +82,11 @@
       "record_id": "ca-madera-chowchilla-pge",
       "city": "Chowchilla",
       "county": "Madera County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 80,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -98,23 +98,24 @@
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": null,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-fresno-sanger-pge",
@@ -271,10 +272,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 64.7,
-    "average_validation_score": 96.7,
-    "ready_count": 1,
-    "limited_count": 6,
+    "average_completeness_pct": 65.7,
+    "average_validation_score": 96,
+    "ready_count": 2,
+    "limited_count": 5,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -289,7 +290,7 @@
       "inspection_steps": 4,
       "timeline_days": 6,
       "eligibility_constraints": 2,
-      "permit_fees": 7,
+      "permit_fees": 6,
       "rebates": 7,
       "official_contacts": 1
     },
@@ -299,15 +300,15 @@
         "missing_in_records": 7
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 7
-      },
-      {
         "field": "rebates",
         "missing_in_records": 7
       },
       {
         "field": "timeline_days",
+        "missing_in_records": 6
+      },
+      {
+        "field": "permit_fees",
         "missing_in_records": 6
       },
       {
@@ -329,6 +330,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 7,
+      "unsupported_claim": 1,
       "duplicate_source": 1
     },
     "utility_coverage": [
@@ -353,6 +355,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-madera-chowchilla-pge",
       "ca-fresno-kingsburg-pge"
     ],
     "limited_for_now": [
@@ -365,11 +368,6 @@
         "record_id": "ca-merced-los-banos-pge",
         "city": "Los Banos",
         "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
-      },
-      {
-        "record_id": "ca-madera-chowchilla-pge",
-        "city": "Chowchilla",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
       },
       {
         "record_id": "ca-fresno-sanger-pge",
