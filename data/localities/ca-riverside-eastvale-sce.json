@@ -36,19 +36,19 @@
   },
   "permit_authority": {
     "value": "City of Eastvale Community Development Department, Building Safety Division",
-    "confidence": 0.7,
+    "confidence": 0.85,
     "source_ids": [
       "S1"
     ],
-    "notes": "eastvaleca.gov returned HTTP 403 to automated fetch on every attempt this session. This department name and page content is confirmed only via search-engine indexing of the city's own page, not independently read."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions",
-    "confidence": 0.55,
+    "confidence": 0.8,
     "source_ids": [
       "S1"
     ],
-    "notes": "URL identified via search-engine indexing; eastvaleca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session. This general FAQ page does not itemize solar-specific submittal requirements, fees, or timelines."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -87,9 +87,12 @@
     "notes": "eastvaleca.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to any solar-specific submittal requirements beyond a general search-engine summary indicating a 'Combination Building Permit' application and racking/attachment documentation are required."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      "If you applied online, log in to the Eastvale Permit Portal, go to My Records, select your permit, then Record Info, then Inspections, to select the next available or a future inspection time"
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S1"],
+    "notes": "This is the City's general Building Safety inspection-scheduling process (the same FAQ page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence. A separate document for scheduling inspections without the portal is referenced but its link could not be resolved this session."
   },
   "timeline_days": {
     "value": null,
@@ -127,7 +130,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -135,7 +138,7 @@
       "url": "https://www.eastvaleca.gov/government/community-development-department/building-safety/frequently-asked-questions",
       "publisher": "City of Eastvale",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-08-11"
     },
     {
       "id": "S2",

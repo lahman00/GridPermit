@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-10T21:42:44.755Z",
+  "evaluated_at": "2026-08-11T15:48:28.282Z",
   "record_count": 8,
   "records": [
     {
@@ -158,7 +158,7 @@
       "record_id": "ca-riverside-lake-elsinore-sce",
       "city": "Lake Elsinore",
       "county": "Riverside County",
-      "completeness_pct": 60,
+      "completeness_pct": 86.7,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -172,13 +172,13 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
-        "official_contacts"
-      ],
-      "missing_fields": [
         "required_documents",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
         "permit_fees",
         "rebates"
       ],
@@ -188,9 +188,9 @@
       "utility_type": "IOU",
       "separate_cca_present": false,
       "permit_fees_available": false,
-      "timeline_available": false,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "timeline_available": true,
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-riverside-hemet-sce",
@@ -309,10 +309,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 75.8,
+    "average_completeness_pct": 79.2,
     "average_validation_score": 95.1,
-    "ready_count": 6,
-    "limited_count": 2,
+    "ready_count": 7,
+    "limited_count": 1,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -323,10 +323,10 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 1,
-      "required_documents": 1,
-      "inspection_steps": 3,
-      "timeline_days": 3,
-      "eligibility_constraints": 2,
+      "required_documents": 0,
+      "inspection_steps": 2,
+      "timeline_days": 2,
+      "eligibility_constraints": 1,
       "permit_fees": 7,
       "rebates": 8,
       "official_contacts": 0
@@ -346,14 +346,10 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 3
+        "missing_in_records": 2
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 3
-      },
-      {
-        "field": "eligibility_constraints",
         "missing_in_records": 2
       },
       {
@@ -361,7 +357,7 @@
         "missing_in_records": 1
       },
       {
-        "field": "required_documents",
+        "field": "eligibility_constraints",
         "missing_in_records": 1
       }
     ],
@@ -392,6 +388,7 @@
       "ca-riverside-menifee-sce",
       "ca-riverside-temecula-sce",
       "ca-riverside-murrieta-sce",
+      "ca-riverside-lake-elsinore-sce",
       "ca-riverside-hemet-sce",
       "ca-riverside-san-jacinto-sce",
       "ca-riverside-beaumont-sce"
@@ -401,11 +398,6 @@
         "record_id": "ca-riverside-banning-beu",
         "city": "Banning",
         "reason": "readiness=LIMITED (completeness 60%, score 98)"
-      },
-      {
-        "record_id": "ca-riverside-lake-elsinore-sce",
-        "city": "Lake Elsinore",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
       }
     ],
     "not_ready": [],
