@@ -1,0 +1,117 @@
+{
+  "record_id": "az-maricopa-mesa-mesaelectric",
+  "schema_version": "1.4.0",
+  "state": "AZ",
+  "utility": {
+    "value": "City of Mesa Energy Resources Department (Mesa Electric, municipal utility)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Mesa operates its own municipal electric utility for part of the city; the utility's own Solar Program page explicitly states 'SRP customers, please visit SRP's website' — confirming Mesa is genuinely split between two separate electric providers depending on address, similar to Phoenix's APS/SRP split. This record is scoped to Mesa's own municipal electric service area only; SRP-served Mesa addresses are NOT covered by this record and should not be assumed to follow the same interconnection/net-metering process."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "City of Mesa Energy Resources Department",
+      "type": "utility",
+      "notes": "Municipal net metering program (FY25-26): Mesa purchases excess PV generation from qualified net metering customers on a monthly basis, applied as a bill credit; no CCA applicable (municipal utility, not investor-owned). Initial credit rate is determined by the date of customer interconnection, per Mesa's own Solar Program page — a specific numeric rate was not published on this page and was not independently found this session."
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Mesa", "confidence": 1, "source_ids": ["S1", "S2"] },
+  "county": { "value": "Maricopa County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Mesa Development Services Department, Permit Services (construction permit only where triggered); City of Mesa Energy Resources Department (interconnection)",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Genuinely distinct from Phoenix and Tucson: Mesa's own Residential Construction FAQ states directly, 'solar power systems under 10,000 square feet that are certified by a recognized agency and installed by a licensed Arizona contractor... do not need a construction permit. However, new electric meters or circuits will require a permit.' So most residential rooftop solar in Mesa does not go through the City's DIMES building-permit process at all unless the installation adds a new electric meter or circuit — the substantive gatekeeping step is Energy Resources' interconnection application, not a construction permit. This is a real, city-specific difference, not an assumption; recorded verbatim from Mesa's own page rather than inferred from Phoenix/Tucson's pattern."
+  },
+  "permit_url": {
+    "value": "https://www.mesaaz.gov/Business-Development/Development-Services/Building-Permit-Plan-Review/Residential-Construction/Residential-Construction-FAQ",
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": {
+    "value": "https://www.mesaaz.gov/Utilities/Energy/Electric/Solar-Program",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "Mesa's Solar Program page sets a higher system-size allowance for systems WITH storage (see eligibility_constraints) but does not describe a separate battery incentive/rebate program; left null rather than inferred." },
+  "required_documents": {
+    "value": [
+      { "name": "Plan submittal (spec sheet, protection equipment, electrical three-line, control schematics and connection diagrams, signage and labeling, as one uploaded file)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Customer System Quotation and Contract", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Copy of Customer Utility Bill", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Evidence of Property Ownership", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Signed Customer Acknowledgement Document", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Solar Installer/Electric Contractor Application Acknowledgement", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Certificate of Qualified Installer/Electrical Contractor", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Per Mesa Energy Resources' own Solar Program page (interconnection application checklist, Step 1)."
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "Mesa's Solar Program page requires a roof photo of the completed PV system prior to interconnection but does not describe a formal City building-inspection procedure, consistent with most Mesa solar installs not requiring a construction permit at all (see permit_authority notes); left unresolved rather than inferred." },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "commercial"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": 5,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Mesa Energy Resources interconnection application (net metering)",
+      "other_conditions": [
+        "Residential systems WITHOUT storage: module capacity may not exceed 5 kW and inverter capacity may not exceed 5 kW",
+        "Residential systems WITH storage: module capacity may not exceed 10 kW and inverter capacity may not exceed 11.5 kW",
+        "Inverter capacity limits are based on rated capability, not programmed output — derating a higher-rated inverter to comply is explicitly not permitted",
+        "PV modules and inverters must be on the California SB1-approved equipment list",
+        "Installer must hold an eligible Arizona contractor license classification (e.g. B-, C-05 Solar, CR-11/R-11, KB-1, KB-2, KO- Solar, K-05 Solar, K-11, or other City-approved license)",
+        "Inverter must be UL 1741 compliant; all equipment UL-listed",
+        "Customer is solely responsible for obtaining any permits/inspections/approvals required by applicable jurisdictions",
+        "Applications must be received and accepted for interconnection prior to installation"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "Neither the Solar Program page nor the Residential Construction FAQ published a specific solar interconnection or permit fee amount this session; not guessed." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Carnell Martin",
+        "role": "City of Mesa Energy Resources (Solar Program)",
+        "phone": "480-644-3683",
+        "email": "carnell.martin@mesaaz.gov",
+        "url": "https://www.mesaaz.gov/Utilities/Energy/Electric/Solar-Program"
+      },
+      {
+        "name": null,
+        "role": "City of Mesa Development Services, Permit Services",
+        "phone": "480-644-4273",
+        "email": "permitservices@mesaaz.gov",
+        "url": "https://www.mesaaz.gov/Business-Development/Development-Services/Building-Permit-Plan-Review/Residential-Construction/Residential-Construction-FAQ"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1", "S2"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Program",
+      "url": "https://www.mesaaz.gov/Utilities/Energy/Electric/Solar-Program",
+      "publisher": "City of Mesa, Energy Resources Department",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Residential Construction Frequently Asked Questions",
+      "url": "https://www.mesaaz.gov/Business-Development/Development-Services/Building-Permit-Plan-Review/Residential-Construction/Residential-Construction-FAQ",
+      "publisher": "City of Mesa, Development Services Department",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

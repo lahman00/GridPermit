@@ -1,0 +1,60 @@
+{
+  "record_id": "az-pima-tucson-tep",
+  "file": "data/localities/az-pima-tucson-tep.json",
+  "validated_at": "2026-08-12",
+  "status": "REVIEW",
+  "score": 93,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.tucsonaz.gov/Departments/Planning-Development-Services/Permits/Residential-Solar-Permits — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "inspection_steps",
+      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.tucsonaz.gov/Departments/Planning-Development-Services/Permits/Residential-Solar-Permits",
+      "checked_at": "2026-08-12T19:32:02.087Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.tep.com/residential-interconnection/",
+      "checked_at": "2026-08-12T19:32:02.362Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.tep.com/net-metering/",
+      "checked_at": "2026-08-12T19:32:02.616Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

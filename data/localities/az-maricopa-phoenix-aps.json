@@ -1,0 +1,125 @@
+{
+  "record_id": "az-maricopa-phoenix-aps",
+  "schema_version": "1.4.0",
+  "state": "AZ",
+  "utility": {
+    "value": "Arizona Public Service (APS)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "APS is Arizona's largest electric utility, serving most of the Phoenix metro area (though parts of Phoenix and neighboring cities are served by the Salt River Project (SRP), a separate public power district — this record is scoped to APS territory only, not assumed for all of Phoenix)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Arizona Public Service (APS)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Arizona this session (Arizona does not have a CCA framework comparable to California's). APS's own page describes its 'Resource Comparison Proxy (RCP) Export Rider' — a net billing structure that credits excess solar generation at a monthly RCP purchase rate (rolled over month to month, with an annual refund check if the credit exceeds $25), rather than traditional one-to-one net metering."
+    },
+    "confidence": 0.65,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Phoenix", "confidence": 1, "source_ids": ["S2"] },
+  "county": { "value": "Maricopa County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Phoenix Planning & Development Department (PDD)",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "permit_url": {
+    "value": "https://www.phoenix.gov/administration/departments/pdd/residential-building/resident-plan-reviews/solarapp-photovoltaic.html",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": {
+    "value": "https://www.aps.com/en/Residential/Service-Plans/Compare-Service-Plans/Renewable-Energy-Riders",
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's own SolarAPP+ eligibility rules explicitly exclude battery/energy storage systems from the streamlined SolarAPP+ pathway ('No battery storage'), and no separate APS battery-specific program was independently confirmed this session." },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ approval document and approvals upload document (includes manufacturer specification sheets)", "required_when": "always, for SolarAPP+ submittals", "source_ids": ["S2"] },
+      { "name": "Three-line diagram", "required_when": "always, for SolarAPP+ submittals", "source_ids": ["S2"] },
+      { "name": "Plot plan", "required_when": "always, for SolarAPP+ submittals", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Per the City's own 'SolarAPP/Photovoltaic Projects' page. These documents are emailed to pdd.records@phoenix.gov with the PDD permit number and property address in the subject line; the SolarAPP+ approved checklist, three-line diagram, and plot plan must all correlate or inspection delays occur. The Phoenix Fire Department separately requires its own permit for PV and battery energy storage systems."
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule inspection online by entering the permit number and web inspection key",
+      "Call 602-262-7811 if additional assistance is required"
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S2"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ streamlined permitting",
+      "other_conditions": [
+        "Must be an Arizona-licensed contractor",
+        "Single-family or duplex residence, rooftop installations only",
+        "No battery storage; no ballasted or ground-mounted systems",
+        "Not located within a Historic Preservation district or FEMA Special Flood Hazard Area",
+        "No existing PV or energy storage systems; no panel upgrades or derating",
+        "PV system roof loading not to exceed 4 psf dead load",
+        "400-amp maximum electrical service, single phase only",
+        "Maximum of 2 DC strings in parallel; only one module type; up to two inverter types for string inverters or one inverter type for microinverters (one module per microinverter)"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "SolarAPP+ record/revision change fee", "amount_usd": 37.50, "unit": "flat fee, per revision", "notes": "Charged when a SolarAPP+ revision requires PDD staff to update an existing permit record. The base SolarAPP+ permit fee itself was not confirmed this session — the City's general PDD fee schedule PDF could not be read (file-download dialog, not a viewable page)." }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S2"]
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Phoenix Planning & Development Department (PDD) Records",
+        "phone": "602-262-7811",
+        "email": "pdd.records@phoenix.gov",
+        "url": "https://www.phoenix.gov/administration/departments/pdd/residential-building/resident-plan-reviews/solarapp-photovoltaic.html"
+      },
+      {
+        "name": null,
+        "role": "City of Phoenix PDD, SolarAPP+ Revisions",
+        "phone": "602-534-5934",
+        "email": "pdd.residential.solarapp@phoenix.gov",
+        "url": "https://www.phoenix.gov/administration/departments/pdd/residential-building/resident-plan-reviews/solarapp-photovoltaic.html"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Renewable Energy Riders",
+      "url": "https://www.aps.com/en/Residential/Service-Plans/Compare-Service-Plans/Renewable-Energy-Riders",
+      "publisher": "Arizona Public Service (APS)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "SolarAPP/Photovoltaic Projects",
+      "url": "https://www.phoenix.gov/administration/departments/pdd/residential-building/resident-plan-reviews/solarapp-photovoltaic.html",
+      "publisher": "City of Phoenix",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

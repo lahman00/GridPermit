@@ -1,0 +1,78 @@
+{
+  "record_id": "az-maricopa-scottsdale-aps",
+  "schema_version": "1.4.0",
+  "state": "AZ",
+  "utility": {
+    "value": "Arizona Public Service (APS)",
+    "confidence": 0.75,
+    "source_ids": ["S3"],
+    "notes": "The City of Scottsdale's own 'Special Assessments and Improvement Districts' finance page directly describes an APS-owned 69kV power line project 'located north of Raintree Drive and 90th Street' within Scottsdale, and the City's own hosted utility-easement documents reference APS easements on Scottsdale properties — the City's own website, not a third-party source, naming APS as the electric provider. APS's and SRP's own service-area pages could not be directly loaded this session (Cloudflare/connection blocks), so this is recorded at moderate rather than high confidence; a small part of Scottsdale bordering Tempe/Mesa may fall in SRP territory and was not independently ruled out."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Arizona Public Service (APS)",
+      "type": "utility",
+      "notes": "Not independently re-verified for Scottsdale specifically this session; assumed consistent with the APS RCP Export Rider structure already documented in az-maricopa-phoenix-aps.json (same statewide-utility reusable fact, applicable only within confirmed APS territory)."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Scottsdale", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Maricopa County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Scottsdale Planning & Development Services, Permit Services",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.scottsdaleaz.gov/planning-development/permit-services",
+    "confidence": 0.8,
+    "source_ids": ["S1"],
+    "notes": "The City's own solar-specific document, 'Residential Solar Plan Review/Permit: Quality Submittal Guidelines' (previously hosted at ww2.scottsdaleaz.gov), was blocked this session by a Cloudflare bot-verification challenge on the ww2 subdomain; a direct WebFetch attempt returned HTTP 403; a bibliographic listing on planning.org linked back to the same blocked URL rather than mirroring its content; and a Wayback Machine lookup could not be read this session due to a tool access restriction. Per the mission's blocked-source-recovery policy, this specific document is classified as officially blocked after exhausting reasonable alternate paths; this record instead relies on the City's general Permit Services page, which confirms 'Solar heater installation' as an example of a project requiring a building permit and that all permits are submitted through the Scottsdale SPUR portal, but does not itemize solar-specific fees, timelines, or eligibility constraints."
+  },
+  "interconnection_url": {
+    "value": "https://www.aps.com/en/Residential/Service-Plans/Compare-Service-Plans/Renewable-Energy-Riders",
+    "confidence": 0.5,
+    "source_ids": ["S3"],
+    "notes": "Reused from the statewide APS Renewable Energy Riders page (same as az-maricopa-phoenix-aps.json) since APS's interconnection/rider structure is a statewide utility-level fact, applicable within confirmed APS territory; not independently reloaded this session (aps.com direct navigation failed)."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's solar-specific submittal-guidelines PDF (which would contain this checklist) was blocked this session; see permit_url notes. Not inferred from the general Permit Services page or from Phoenix/Tucson's document lists, since Scottsdale's own requirements were not independently confirmed." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Third-party commercial permit-expediting sites (permitmint.com, doineedapermit.org, etc.) published specific fee/timeline figures for Scottsdale solar permits, but per the mission's source-hierarchy rule these are explicitly not valid evidence and were not used." },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "Third-party sites described a 'Small Scope Review (SSR)' expedited path tied to a July 2024 'Solar Panel Placement Guidelines' document, but this was not independently confirmed against the City's own blocked source this session, so it is not recorded here." },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Scottsdale Permit Services / One Stop Shop",
+        "phone": "480-312-2500",
+        "email": null,
+        "url": "https://www.scottsdaleaz.gov/planning-development/permit-services"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Permit Services",
+      "url": "https://www.scottsdaleaz.gov/planning-development/permit-services",
+      "publisher": "City of Scottsdale",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Special Assessments and Improvement Districts (APS 69kV underground utility improvement district)",
+      "url": "https://www.scottsdaleaz.gov/finance/special-assessments-and-improvement-districts",
+      "publisher": "City of Scottsdale, Finance Department",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

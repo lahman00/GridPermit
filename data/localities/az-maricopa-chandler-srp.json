@@ -1,0 +1,73 @@
+{
+  "record_id": "az-maricopa-chandler-srp",
+  "schema_version": "1.4.0",
+  "state": "AZ",
+  "utility": {
+    "value": "Salt River Project (SRP)",
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "The City of Chandler's own website directly confirms SRP as Chandler's electric provider: the City's 'SRP High Tech Interconnect Project' page describes an SRP transmission project built specifically to serve Intel's Chandler campus expansion, and a separate City utility-relocation page references 'the future Salt River Project (SRP) 230 kV project to Intel' within Chandler. This is the City's own official page, not a third-party source. SRP's own service-area/solar pages could not be loaded this session (Cloudflare bot-verification challenge on srpnet.com), so a small part of Chandler served by APS was not independently ruled out."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Salt River Project (SRP)",
+      "type": "utility",
+      "notes": "SRP is a not-for-profit community-based utility, structurally distinct from investor-owned APS; its specific solar compensation structure (SRP uses a distinct price plan approach rather than APS's RCP Export Rider) was not independently confirmed this session since srpnet.com could not be loaded (Cloudflare bot-verification challenge, encountered twice)."
+    },
+    "confidence": 0.4,
+    "source_ids": ["S2"]
+  },
+  "city": { "value": "Chandler", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Maricopa County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Chandler Development Services Department, Building Safety",
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.chandleraz.gov/government/departments/development-services/building-safety-plan-review-permits-and-inspections",
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "The City's own 55-page 'Homeowner's Building Permit Manual' (April 2026 revision) was fully read this session and covers dozens of specific project types (patio covers, room additions, pools, accessory buildings, etc.) in detail, but contains no dedicated section on solar photovoltaic systems — unlike Phoenix, Tucson, and Mesa, no City of Chandler solar-specific permit checklist, fee, or SolarAPP+ page was found this session despite targeted searches. This may indicate Chandler routes solar through its standard/generic electrical and building permit process (see the manual's general 'Electrical and Gas Permits' and fee sections) rather than a dedicated solar pathway, but that inference was not independently confirmed by the City and is not recorded as fact."
+  },
+  "interconnection_url": { "value": null, "confidence": 0, "source_ids": [], "notes": "SRP's own interconnection/solar page could not be loaded this session (Cloudflare bot-verification challenge on srpnet.com)." },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "No Chandler-specific solar document checklist was found this session; the City's general Building Permit Application (Appendix C of the Homeowner's Building Permit Manual) applies to construction permits generally but does not itemize solar-specific requirements." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The Homeowner's Building Permit Manual states a general minimum building permit fee of $60 (based on a $500 or less valuation) using ICC Building Valuation Data, but this is a generic construction-permit fee formula, not a solar-specific fee, so it is not recorded here as a solar permit_fees entry." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Chandler Development Services, Plan Reviewer of the Day",
+        "phone": "480-782-3078",
+        "email": "prod@chandleraz.gov",
+        "url": "https://www.chandleraz.gov/government/departments/development-services/building-safety-plan-review-permits-and-inspections"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Homeowner's Building Permit Manual (April 2026)",
+      "url": "https://www.chandleraz.gov/sites/default/files/departments/development-services/City-of-Chandler-Home-Owners-Building-Permit-Manual.pdf",
+      "publisher": "City of Chandler, Development Services Department",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Chandler SRP High Tech Interconnect Project",
+      "url": "https://www.chandleraz.gov/government/departments/development-services/telecommunications-and-utility-franchise/srp-high-tech-interconnect-project",
+      "publisher": "City of Chandler",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

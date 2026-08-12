@@ -1,0 +1,236 @@
+{
+  "state": "AZ",
+  "generated_at": "2026-08-12T19:44:16.731Z",
+  "records": [
+    {
+      "record_id": "az-maricopa-chandler-srp",
+      "state": "AZ",
+      "city": "Chandler",
+      "county": "Maricopa County",
+      "completeness_pct": 46.7,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [],
+      "readiness": "NOT_READY"
+    },
+    {
+      "record_id": "az-maricopa-mesa-mesaelectric",
+      "state": "AZ",
+      "city": "Mesa",
+      "county": "Maricopa County",
+      "completeness_pct": 66.7,
+      "validation_score": 96,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "az-maricopa-phoenix-aps",
+      "state": "AZ",
+      "city": "Phoenix",
+      "county": "Maricopa County",
+      "completeness_pct": 80,
+      "validation_score": 95,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "unsupported_claim"
+      ],
+      "readiness": "READY"
+    },
+    {
+      "record_id": "az-maricopa-scottsdale-aps",
+      "state": "AZ",
+      "city": "Scottsdale",
+      "county": "Maricopa County",
+      "completeness_pct": 53.3,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [],
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "az-pima-tucson-tep",
+      "state": "AZ",
+      "city": "Tucson",
+      "county": "Pima County",
+      "completeness_pct": 80,
+      "validation_score": 93,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "inspection_steps",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "unsupported_claim"
+      ],
+      "readiness": "READY"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 65.3,
+    "average_validation_score": 96.8,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 5
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 5
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 4
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 4
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 3
+      },
+      {
+        "field": "required_documents",
+        "missing_in_records": 2
+      },
+      {
+        "field": "eligibility_constraints",
+        "missing_in_records": 2
+      },
+      {
+        "field": "interconnection_url",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [
+      "az-maricopa-phoenix-aps",
+      "az-pima-tucson-tep"
+    ],
+    "limited_for_now": [
+      {
+        "record_id": "az-maricopa-mesa-mesaelectric",
+        "city": "Mesa",
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
+      },
+      {
+        "record_id": "az-maricopa-scottsdale-aps",
+        "city": "Scottsdale",
+        "reason": "readiness=LIMITED (completeness 53.3%, score 100)"
+      }
+    ],
+    "not_ready": [
+      {
+        "record_id": "az-maricopa-chandler-srp",
+        "city": "Chandler",
+        "reason": "readiness=NOT_READY (error_count=0)"
+      }
+    ]
+  }
+}
