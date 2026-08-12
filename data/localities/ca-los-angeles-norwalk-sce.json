@@ -1,6 +1,7 @@
 {
   "record_id": "ca-los-angeles-norwalk-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -83,12 +84,32 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Application form furnished by the Building Official, per the standard plan and checklist published on the City's website", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Verification that the support structure can transfer all wind, seismic, dead, and live loads to the building foundation (standard engineering evaluation techniques)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Verification that the existing electrical system (line, load, ground, bonding wiring, panel/subpanel sizes) is adequately sized to carry the new photovoltaic electrical loads (standard electrical inspection techniques)", "required_when": "always", "source_ids": ["S7"] }
+      {
+        "name": "Application form furnished by the Building Official, per the standard plan and checklist published on the City's website",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Verification that the support structure can transfer all wind, seismic, dead, and live loads to the building foundation (standard engineering evaluation techniques)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Verification that the existing electrical system (line, load, ground, bonding wiring, panel/subpanel sizes) is adequately sized to carry the new photovoltaic electrical loads (standard electrical inspection techniques)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Norwalk Municipal Code Section 15.52.040(A)-(B)."
   },
   "inspection_steps": {
@@ -97,7 +118,9 @@
       "If the system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Norwalk Municipal Code Section 15.52.070."
   },
   "timeline_days": {

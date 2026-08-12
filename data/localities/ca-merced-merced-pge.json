@@ -1,10 +1,13 @@
 {
   "record_id": "ca-merced-merced-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Merced is confirmed as PG&E territory per search-engine synthesis referencing 'Merced residents in PG&E territory' qualifying for the federal solar tax credit and SGIP; cityofmerced.gov itself returned HTTP 403 to automated fetch on every attempt this session, so a direct city-page confirmation could not be independently obtained."
   },
   "generation_supplier": {
@@ -13,28 +16,42 @@
     "source_ids": [],
     "notes": "No official Merced city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Merced", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Merced",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Merced County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Merced Building Permits Division",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.cityofmerced.gov/business-and-development/building-permits/solar-permits",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly re-verified via browser this session: page confirms SolarAPP is used and links to a solar checklist folder."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
   },
   "battery_programs": {
@@ -54,15 +71,25 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Checklist of expedited-review requirements, published on the City's website", "required_when": "always", "source_ids": ["S6"] }
+      {
+        "name": "Checklist of expedited-review requirements, published on the City's website",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Per Merced Municipal Code Section 17.05.040(A)-(B): the Building Official develops a checklist of all requirements, published on a publicly accessible website; the code text itself does not itemize further documents beyond this checklist."
   },
   "inspection_steps": {
@@ -70,13 +97,23 @@
       "Small residential rooftop solar energy systems eligible for expedited review require only one inspection, unless the installation is found out of compliance or a separate fire safety inspection is required"
     ],
     "confidence": 0.8,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Per Merced Municipal Code Section 17.05.050 (Small residential solar systems—Inspection process)."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Merced Municipal Code Section 17.05.040(D) states the Building Division shall 'promptly approve or deny the application in writing' but does not state an explicit day-count turnaround figure." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Merced Municipal Code Section 17.05.040(D) states the Building Division shall 'promptly approve or deny the application in writing' but does not state an explicit day-count turnaround figure."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -87,10 +124,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -109,7 +156,10 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S7", "S5"]
+    "source_ids": [
+      "S7",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [

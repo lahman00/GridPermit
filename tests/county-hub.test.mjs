@@ -13,8 +13,9 @@ import { buildCountyHubs, countySlug, MIN_READY_CITIES_FOR_HUB } from "../src/li
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 
-function makeRecord({ city, county, utility, permitAuthority = null }) {
+function makeRecord({ city, county, utility, permitAuthority = null, state = "CA" }) {
 	return {
+		state,
 		city: { value: city },
 		county: { value: county },
 		utility: { value: utility },

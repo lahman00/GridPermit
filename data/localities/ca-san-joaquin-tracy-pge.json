@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-joaquin-tracy-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.75,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Tracy is a San Joaquin County city; PG&E is already confirmed as the utility for other San Joaquin County cities in this dataset (Stockton, Lodi, Manteca). cityoftracy.org returned HTTP 403 to automated fetch on every attempt this session, so a direct city-page confirmation could not be independently obtained."
   },
   "generation_supplier": {
@@ -13,28 +16,42 @@
     "source_ids": [],
     "notes": "No official Tracy city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Tracy", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Tracy",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Joaquin County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Tracy Building Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.cityoftracy.org/Departments/Community-and-Economic-Development/Building-Safety/Permit-Process-and-Fees",
     "confidence": 0.9,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Directly re-verified via browser this session. The City has a dedicated photovoltaic@cityoftracy.org intake email for solar submittals, separate from the general plancheck@cityoftracy.org address."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
   },
   "battery_programs": {
@@ -54,21 +71,67 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Completed Building Permit Application (new submittals) or Resubmittal/Revision Form", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "All plans (drawings) combined into one PDF, 11\"x17\" format, properly sorted and oriented", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Specification sheets for modules, inverters, optimizers, micro-inverters, RSS relays, combiner boxes, disconnects, racking systems, roof stand-offs, flashings, and sealants", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Scaled site plan (min. 1/8\"=1') with roof plan view showing access points, setbacks, pathways, vents, fireplaces, and furnace/water heater vents", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Single-line electrical diagram (strings/modules per string, combiner boxes, conductor/conduit type and size, inverter model, load centers)", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Main service panel rating, busbar rating, and backfed breaker overcurrent protection rating", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Conductor ampacity calculations, complete labeling schedule, bonding/grounding lug type, manufacturer listing information, and clear interior photos of the electrical service panel", "required_when": "always", "source_ids": ["S6"] }
+      {
+        "name": "Completed Building Permit Application (new submittals) or Resubmittal/Revision Form",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "All plans (drawings) combined into one PDF, 11\"x17\" format, properly sorted and oriented",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Specification sheets for modules, inverters, optimizers, micro-inverters, RSS relays, combiner boxes, disconnects, racking systems, roof stand-offs, flashings, and sealants",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Scaled site plan (min. 1/8\"=1') with roof plan view showing access points, setbacks, pathways, vents, fireplaces, and furnace/water heater vents",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Single-line electrical diagram (strings/modules per string, combiner boxes, conductor/conduit type and size, inverter model, load centers)",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Main service panel rating, busbar rating, and backfed breaker overcurrent protection rating",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Conductor ampacity calculations, complete labeling schedule, bonding/grounding lug type, manufacturer listing information, and clear interior photos of the electrical service panel",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Per the City's own 'Electronic Photovoltaic Plan Review Submittal Requirements' handout (revised January 21, 2026), for residential R-3/R-3.1 occupancies. Submittals are emailed to Photovoltaic@cityoftracy.org."
   },
   "inspection_steps": {
@@ -76,13 +139,21 @@
       "Request inspections via e-TRAKiT or by calling (209) 831-6400 (Monday-Thursday 8:00am-6:00pm, and every other Friday 8:00am-5:00pm), providing the building permit number or address and inspection type"
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This is the city's general inspection-request process, not solar-specific; no dedicated solar inspection procedure was independently confirmed this session."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -93,17 +164,35 @@
       ]
     },
     "confidence": 0.6,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Solar (PV) System - Residential (up to 15kW)", "amount_usd": 450, "unit": "flat fee", "notes": "Per the City's own FY2026-2027 Citywide Master Fee Schedule (state-mandated fee)." },
-      { "name": "Solar (PV) System - Residential (per kW above 15kW)", "amount_usd": 15, "unit": "per additional kW", "notes": "Per the City's own FY2026-2027 Citywide Master Fee Schedule (state-mandated fee)." }
+      {
+        "name": "Solar (PV) System - Residential (up to 15kW)",
+        "amount_usd": 450,
+        "unit": "flat fee",
+        "notes": "Per the City's own FY2026-2027 Citywide Master Fee Schedule (state-mandated fee)."
+      },
+      {
+        "name": "Solar (PV) System - Residential (per kW above 15kW)",
+        "amount_usd": 15,
+        "unit": "per additional kW",
+        "notes": "Per the City's own FY2026-2027 Citywide Master Fee Schedule (state-mandated fee)."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -122,7 +211,10 @@
       }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1", "S4"]
+    "source_ids": [
+      "S1",
+      "S4"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

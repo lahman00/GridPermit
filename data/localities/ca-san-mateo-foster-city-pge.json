@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-mateo-foster-city-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Foster City is a well-documented San Mateo County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
@@ -14,36 +17,86 @@
       "notes": "WestLight Energy's own site confirms it is San Mateo County's CCA, formed in 2015 after every city council in the county voted to establish it, serving the entire county (all cities/towns, including Foster City) since 2017. PG&E continues to deliver the power and provide billing/customer service. Note: this organization rebranded from 'Peninsula Clean Energy' to 'WestLight Energy' — confirmed via a live 301 redirect from peninsulacleanenergy.com to westlightenergy.org this session; earlier records in this dataset citing 'Peninsula Clean Energy' by that name were not retroactively renamed this session and are flagged as a candidate for a future correction pass."
     },
     "confidence": 0.8,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Foster City", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Mateo County", "confidence": 0.95, "source_ids": ["S1"] },
+  "city": {
+    "value": "Foster City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Mateo County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Foster City Community Development Department, Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.fostercity.org/424/Solar-Permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
     "confidence": 0.55,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "Active City of Foster City Business License", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Residential PV Submittal Checklist", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ Approval Document", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Completed online permit application (job value, project location)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Active City of Foster City Business License",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Residential PV Submittal Checklist",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Approval Document",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Completed online permit application (job value, project location)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -51,12 +104,20 @@
       "Maintain the Inspection Checklist for review during the inspection"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -66,16 +127,29 @@
       ]
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ design revision (4th and later)", "amount_usd": 25, "unit": "flat", "notes": "First three design revisions are free; building permit fees also apply when filing through the Online Permit Center." }
+      {
+        "name": "SolarAPP+ design revision (4th and later)",
+        "amount_usd": 25,
+        "unit": "flat",
+        "notes": "First three design revisions are free; building permit fees also apply when filing through the Online Permit Center."
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -87,7 +161,9 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

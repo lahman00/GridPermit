@@ -1,10 +1,13 @@
 {
   "record_id": "ca-alameda-hayward-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.85,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "City of Hayward's own announcement confirms: 'Beginning with your next billing cycle, the generation page of your PG&E bill will show the Ava name' — PG&E remains the underlying transmission/distribution/billing utility, with Ava Community Energy as a separate default generation supplier (see generation_supplier)."
   },
   "generation_supplier": {
@@ -14,29 +17,45 @@
       "notes": "Per the City of Hayward's own announcement: 'In 2018, the City of Hayward voted to change our default energy provider from PG&E to Ava Community Energy, formerly East Bay Community Energy (EBCE).' The specific default product/tier name (e.g. Renewable 100 vs. Bright Choice) is not stated on this page, unlike the Berkeley and San Leandro records, so it is left unspecified here rather than assumed."
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Hayward", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Hayward",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Alameda County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Directly confirmed by the City of Hayward's own Residential Solar Requirements handout, which instructs applicants to 'Verify the address is within the City of Hayward and not within unincorporated Alameda County' — an explicit statement of the city-county relationship, stronger than the structural/indirect confirmations used for county in several other records this session."
   },
   "permit_authority": {
     "value": "City of Hayward Development Services Department (Building Division / 'Solar Tuesday' program)",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://www.hayward-ca.gov/sites/default/files/documents/005-Residential-Solar-Checklist.pdf",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same PG&E-wide Net Energy Metering program URL already verified for other PG&E-territory records this session — reused as a utility-level fact. pge.com returns HTTP 403 to automated fetch; confirmed to exist via search engine indexing under its expected title."
   },
   "battery_programs": {
@@ -56,20 +75,60 @@
       }
     ],
     "confidence": 0.65,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC/PG&E-administered SGIP program already verified for other PG&E-territory records this session, reused here as a utility-level fact since PG&E's distribution role in Hayward is independently confirmed (S3)."
   },
   "required_documents": {
     "value": [
-      { "name": "Roof Plan (north arrow, required Fire Department access clearances, location of disconnects/service panel/inverter)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Attachment Details and Structural Information (listed mounting hardware, cut sheets, flashing/counter-flashing details)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Structural calculations, stamped and signed by an engineer", "required_when": "only if panels are tilted at a steeper angle than the roof (non-flush-mounted) or use unconventional mounting", "source_ids": ["S2"] },
-      { "name": "Single Line Diagram (with cut sheets for inverters, disconnects, and PV modules; must communicate compliance with California Electrical Code Articles 690 & 705)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Required Warning Labels diagram (per California Electrical Code Article 690: conduit/enclosure labels, main service disconnect label, inverter label, directory plaque if applicable)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "FAA Form 7460-1 and a glare study (Solar Glare Hazard Analysis Tool)", "required_when": "only if the project address is within Hayward's Airport Safety Zone", "source_ids": ["S2"] }
+      {
+        "name": "Roof Plan (north arrow, required Fire Department access clearances, location of disconnects/service panel/inverter)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Attachment Details and Structural Information (listed mounting hardware, cut sheets, flashing/counter-flashing details)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural calculations, stamped and signed by an engineer",
+        "required_when": "only if panels are tilted at a steeper angle than the roof (non-flush-mounted) or use unconventional mounting",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Single Line Diagram (with cut sheets for inverters, disconnects, and PV modules; must communicate compliance with California Electrical Code Articles 690 & 705)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Required Warning Labels diagram (per California Electrical Code Article 690: conduit/enclosure labels, main service disconnect label, inverter label, directory plaque if applicable)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "FAA Form 7460-1 and a glare study (Solar Glare Hazard Analysis Tool)",
+        "required_when": "only if the project address is within Hayward's Airport Safety Zone",
+        "source_ids": [
+          "S2"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "From the City of Hayward Development Services Department's 'Residential Solar Requirements' handout (revised 4-8-20). Submittal requires 3 sets of plans plus cut sheets for all specified equipment."
   },
   "inspection_steps": {
@@ -79,16 +138,26 @@
       "Smoke and Carbon Monoxide alarm inspection: residence must be open for electrical inspection of Smoke & CO detectors in all locations designated by the California Residential Code (halls and bedrooms at each level); a Smoke and Carbon Monoxide Alarm Self-Certification may be submitted to the Building Inspector during Final Inspection as an exception"
     ],
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 7, "notes": "The Residential Solar Requirements handout states: 'Flush mounted solar panel installations (less than 10 kilowatts) for single-family homes are reviewed over the counter when submitted on Tuesdays from 9:00 a.m. to 11:30 a.m. as part of Hayward's \"Solar Tuesday\" program. If not submitted on Tuesday, the application will be taken in and reviewed by the following Tuesday.' This implies same-day (0 days) review for eligible projects submitted during the Tuesday window, or up to about a week's wait if submitted on another day. Non-flush-mounted systems requiring structural calculations are not covered by this over-the-counter timeline." },
+    "value": {
+      "min_days": 0,
+      "max_days": 7,
+      "notes": "The Residential Solar Requirements handout states: 'Flush mounted solar panel installations (less than 10 kilowatts) for single-family homes are reviewed over the counter when submitted on Tuesdays from 9:00 a.m. to 11:30 a.m. as part of Hayward's \"Solar Tuesday\" program. If not submitted on Tuesday, the application will be taken in and reviewed by the following Tuesday.' This implies same-day (0 days) review for eligible projects submitted during the Tuesday window, or up to about a week's wait if submitted on another day. Non-flush-mounted systems requiring structural calculations are not covered by this over-the-counter timeline."
+    },
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["single-family"],
+      "property_types": [
+        "single-family"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -99,17 +168,35 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Residential Solar Panel Permit Fee (flush-mounted systems)", "amount_usd": 300, "unit": "flat fee, includes plan review and inspection", "notes": "'Single-family residential solar panel permit fees are subsidized by the City to encourage their installation. There is a total flat fee of $300 for flush mounted systems. This includes plan review and inspection.'" },
-      { "name": "Structural Review Fee (non-flush-mounted or unconventional mounting)", "amount_usd": null, "unit": "hourly", "notes": "'For installations that require structural calculations such as non-flush mounted panels or unconventional mounting, additional structural review fees will apply.' Hourly rate not stated on this document." }
+      {
+        "name": "Residential Solar Panel Permit Fee (flush-mounted systems)",
+        "amount_usd": 300,
+        "unit": "flat fee, includes plan review and inspection",
+        "notes": "'Single-family residential solar panel permit fees are subsidized by the City to encourage their installation. There is a total flat fee of $300 for flush mounted systems. This includes plan review and inspection.'"
+      },
+      {
+        "name": "Structural Review Fee (non-flush-mounted or unconventional mounting)",
+        "amount_usd": null,
+        "unit": "hourly",
+        "notes": "'For installations that require structural calculations such as non-flush mounted panels or unconventional mounting, additional structural review fees will apply.' Hourly rate not stated on this document."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -128,7 +215,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2", "S6"]
+    "source_ids": [
+      "S2",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-03",
   "sources": [

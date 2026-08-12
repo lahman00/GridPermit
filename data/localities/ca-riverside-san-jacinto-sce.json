@@ -1,10 +1,13 @@
 {
   "record_id": "ca-riverside-san-jacinto-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'San Jacinto' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -14,24 +17,44 @@
       "notes": "CORRECTION (2026-08-10): an earlier session incorrectly recorded this field as SCE-direct, reasoning from Western Community Energy's 2021 dissolution without checking for a separate, single-city CCA. San Jacinto Power is confirmed via its own official site (sanjacintopower.com, linked directly from the City's own site) as a real, currently operating CCA exclusive to San Jacinto, with automatic/default customer enrollment (the site states 'As a San Jacinto Power customer, you have several options,' describing SJP PrimePower as the default rate plan, SJP PureGreen as an opt-up, and an explicit Opt Out page to return to standard SCE service). SCE continues to deliver the power and provide billing/customer service."
     },
     "confidence": 0.9,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
-  "city": { "value": "San Jacinto", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "San Jacinto",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Riverside County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of San Jacinto Community Development Department, Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.sanjacintoca.gov/city_departments/community-development/building-safety/instant_solar_permit",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -51,18 +74,38 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Eligibility Checklist verification", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ registered contractor confirmation", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ Eligibility Checklist verification",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ registered contractor confirmation",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "timeline_days": {
     "value": {
       "min_days": 0,
@@ -70,11 +113,15 @@
       "notes": "The City's own page, titled 'Instant Solar Permit,' states the permit is issued 'instantly' for code-compliant systems submitted through SolarAPP+."
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -87,10 +134,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -109,7 +166,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

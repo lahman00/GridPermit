@@ -1,6 +1,7 @@
 {
   "record_id": "ca-santa-barbara-goleta-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.85,
@@ -81,12 +82,32 @@
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Approval Number and Approval Document", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Photovoltaic plans", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Manufacturer's specifications and data sheets", "required_when": "always", "source_ids": ["S5"] }
+      {
+        "name": "SolarAPP+ Approval Number and Approval Document",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Photovoltaic plans",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Manufacturer's specifications and data sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Per the City's own SolarAPP+ page: after SolarAPP+ approval, applicants apply for a Building Permit via the Goleta Online Public Portal and must provide the SolarAPP+ approval number, upload the SolarAPP+ Approval Document, Photovoltaic plans, and manufacturer's specifications and data sheets."
   },
   "inspection_steps": {
@@ -96,7 +117,9 @@
       "To cancel an inspection, email buildinggroup@cityofgoleta.org"
     ],
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "This is the City's SolarAPP+-specific inspection scheduling process (Step 3 on the SolarAPP+ page), superseding the general Building & Safety inspection line for SolarAPP+-permitted solar projects."
   },
   "timeline_days": {
@@ -106,7 +129,9 @@
       "notes": "The City's own SolarAPP+ page states 'Only projects conforming to this list are eligible to use the automated SolarAPP+ portal for instant permitting.'"
     },
     "confidence": 0.75,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -128,12 +153,29 @@
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ Application Fee (PV only)", "amount_usd": 35, "unit": "flat fee", "notes": "Charged by SolarAPP+ for plan review, per the City's own SolarAPP+ page." },
-      { "name": "SolarAPP+ Application Fee (adding energy storage)", "amount_usd": 25, "unit": "additional flat fee", "notes": "Additional to the $35 PV fee, for a $60 total when adding storage, per the City's own SolarAPP+ page." },
-      { "name": "SolarAPP+ Processing Fee", "amount_usd": 0.30, "unit": "flat fee plus 2.9% of the total", "notes": "Per the City's own SolarAPP+ page." }
+      {
+        "name": "SolarAPP+ Application Fee (PV only)",
+        "amount_usd": 35,
+        "unit": "flat fee",
+        "notes": "Charged by SolarAPP+ for plan review, per the City's own SolarAPP+ page."
+      },
+      {
+        "name": "SolarAPP+ Application Fee (adding energy storage)",
+        "amount_usd": 25,
+        "unit": "additional flat fee",
+        "notes": "Additional to the $35 PV fee, for a $60 total when adding storage, per the City's own SolarAPP+ page."
+      },
+      {
+        "name": "SolarAPP+ Processing Fee",
+        "amount_usd": 0.3,
+        "unit": "flat fee plus 2.9% of the total",
+        "notes": "Per the City's own SolarAPP+ page."
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "rebates": {
     "value": null,

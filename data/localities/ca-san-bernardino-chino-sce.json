@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-chino-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Chino' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "No official Chino city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Chino", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Chino",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Bernardino County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Chino is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Chino Development Services Department, Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityofchino.org/DocumentCenter/View/3820/Solar-Photovoltaic-System-Submittal-Requirements_2023-PDF",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,20 +70,60 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Site plan, roof plan, structural calculations, and electrical plan (submitted online via the Citizen Access portal)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "All manufacturer specification sheets, installation instructions, and U.L. listings, attached to the plans", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Chino Valley Fire District approval (separate submittal, at 14011 City Center Drive, Chino Hills)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Partial roof framing plan showing new/existing rafters, beams, headers, spacing, sheathing, and roofing materials", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Structural support calculations by a licensed professional engineer or architect (existing and proposed loads)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Lateral calculations by a licensed professional engineer or architect per 2022 CBC 3403.2.3.1#2 (existing lateral resisting elements no more than 10% overstressed)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Site plan, roof plan, structural calculations, and electrical plan (submitted online via the Citizen Access portal)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "All manufacturer specification sheets, installation instructions, and U.L. listings, attached to the plans",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Chino Valley Fire District approval (separate submittal, at 14011 City Center Drive, Chino Hills)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Partial roof framing plan showing new/existing rafters, beams, headers, spacing, sheathing, and roofing materials",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural support calculations by a licensed professional engineer or architect (existing and proposed loads)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Lateral calculations by a licensed professional engineer or architect per 2022 CBC 3403.2.3.1#2 (existing lateral resisting elements no more than 10% overstressed)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -75,13 +132,21 @@
       "For additional information, contact the Development Services Department, Building Division at 909-334-3251"
     ],
     "confidence": 0.7,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "This is the City's general Building Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -92,19 +157,42 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This document describes the city's standard plan-review submittal process, not a SolarAPP+/automated instant-permitting pathway — no evidence of a separate SolarAPP+ program was found for Chino this session (unlike neighboring Chino Hills)."
   },
   "permit_fees": {
     "value": [
-      { "name": "Electrical Permit - Photovoltaic Systems (up to 15kW)", "amount_usd": 450, "unit": "base fee, capped at $500, plus $15/kW for each kW above 15kW", "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)." },
-      { "name": "Electrical Permit - Photovoltaic Systems (51kW-250kW)", "amount_usd": 922, "unit": "base fee, capped at $1,000, plus $7/kW between 51kW and 250kW", "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)." },
-      { "name": "Electrical Permit - Photovoltaic Systems (above 250kW)", "amount_usd": 1024, "unit": "base fee cap, plus $5/kW above 250kW", "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)." }
+      {
+        "name": "Electrical Permit - Photovoltaic Systems (up to 15kW)",
+        "amount_usd": 450,
+        "unit": "base fee, capped at $500, plus $15/kW for each kW above 15kW",
+        "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)."
+      },
+      {
+        "name": "Electrical Permit - Photovoltaic Systems (51kW-250kW)",
+        "amount_usd": 922,
+        "unit": "base fee, capped at $1,000, plus $7/kW between 51kW and 250kW",
+        "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)."
+      },
+      {
+        "name": "Electrical Permit - Photovoltaic Systems (above 250kW)",
+        "amount_usd": 1024,
+        "unit": "base fee cap, plus $5/kW above 250kW",
+        "notes": "Per the City's own Building Division Fee Schedule (effective July 1, 2026)."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S8"]
+    "source_ids": [
+      "S8"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -130,7 +218,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

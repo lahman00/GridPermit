@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-pico-rivera-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Pico Rivera' by name among the cities in its service area. PRIME's own site also confirms: 'PRIME purchases power on behalf of its customers while Southern California Edison (SCE) delivers it.'"
   },
   "generation_supplier": {
@@ -14,31 +17,47 @@
       "notes": "PRIME is the City of Pico Rivera's own Community Choice Aggregation (CCA) program (not Clean Power Alliance), confirmed directly via its own official site (poweredbyprime.org/about): 'the locally run, not-for-profit, public energy service created by the City of Pico Rivera.' Primary service tiers are 'PRIME Power' (50% renewable) and 'PRIME Future' (100% renewable); the site does not explicitly name a single default among them. Opt-out to direct SCE service is available."
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Pico Rivera", "confidence": 1, "source_ids": ["S3"] },
+  "city": {
+    "value": "Pico Rivera",
+    "confidence": 1,
+    "source_ids": [
+      "S3"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Pico Rivera is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Pico Rivera Community and Economic Development, Building Division",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.pico-rivera.org/solar/",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -58,20 +77,60 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Approval Document with inspection checklist", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Solar contractor name and contractor license number", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Site Plan (location of major components on the property)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Electrical Diagram (PV/ESS configuration, wiring, overcurrent protection, inverter, disconnects, required signs, AC connection)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Specification sheets and installation details for all manufactured components (PV modules, inverters, combiner box, disconnects, mounting system)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Signed Solar Affidavit (must be completed before the inspection date)", "required_when": "always", "source_ids": ["S7"] }
+      {
+        "name": "SolarAPP+ Approval Document with inspection checklist",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Solar contractor name and contractor license number",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Site Plan (location of major components on the property)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Electrical Diagram (PV/ESS configuration, wiring, overcurrent protection, inverter, disconnects, required signs, AC connection)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Specification sheets and installation details for all manufactured components (PV modules, inverters, combiner box, disconnects, mounting system)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Signed Solar Affidavit (must be completed before the inspection date)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per the City's own Residential Solar Permit Checklist (updated 1/16/2025)."
   },
   "inspection_steps": {
@@ -81,7 +140,9 @@
       "One inspection covers PV system, electrical, structural, and fire safety compliance; typically completed within 1 day of the appointment"
     ],
     "confidence": 0.9,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "timeline_days": {
     "value": {
@@ -90,11 +151,15 @@
       "notes": "The City's own Residential Solar Permit Checklist states 'Residential permits processed through Solar APP+ are typically processed within 2 to 3 days' (not guaranteed). Residential installations with battery storage, or systems that don't qualify for SolarAPP+, are typically processed within 2 to 4 business weeks instead."
     },
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -106,18 +171,41 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ Administrative Fee", "amount_usd": 25, "unit": "flat fee per project submission", "notes": "Per the City's own Residential Solar Permit Checklist." },
-      { "name": "Sample total permit fee, roof-mounted 3.28 kW DC system (<10kW, no battery)", "amount_usd": 500, "unit": "sample total (Building Permit Issuance, Building Permit Valuation, Electrical Permit Issuance, Solar System SFR 0-10kW, and surcharges combined)", "notes": "Illustrative sample from the City's own Residential Solar Permit Checklist, drawn from the City's Citywide User Fee Schedule (adopted 2022); actual fees vary by project valuation and scope." },
-      { "name": "Sample total permit fee, 11.05 kW DC system with energy storage (>10kW, with ESS)", "amount_usd": 921.05, "unit": "sample total (Building/Electrical fees, Plan Check, and surcharges combined)", "notes": "Illustrative sample from the City's own Residential Solar Permit Checklist for a system requiring standard (non-SolarAPP+) review; actual fees vary by project valuation and scope." }
+      {
+        "name": "SolarAPP+ Administrative Fee",
+        "amount_usd": 25,
+        "unit": "flat fee per project submission",
+        "notes": "Per the City's own Residential Solar Permit Checklist."
+      },
+      {
+        "name": "Sample total permit fee, roof-mounted 3.28 kW DC system (<10kW, no battery)",
+        "amount_usd": 500,
+        "unit": "sample total (Building Permit Issuance, Building Permit Valuation, Electrical Permit Issuance, Solar System SFR 0-10kW, and surcharges combined)",
+        "notes": "Illustrative sample from the City's own Residential Solar Permit Checklist, drawn from the City's Citywide User Fee Schedule (adopted 2022); actual fees vary by project valuation and scope."
+      },
+      {
+        "name": "Sample total permit fee, 11.05 kW DC system with energy storage (>10kW, with ESS)",
+        "amount_usd": 921.05,
+        "unit": "sample total (Building/Electrical fees, Plan Check, and surcharges combined)",
+        "notes": "Illustrative sample from the City's own Residential Solar Permit Checklist for a system requiring standard (non-SolarAPP+) review; actual fees vary by project valuation and scope."
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -136,7 +224,10 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S7", "S6"]
+    "source_ids": [
+      "S7",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-10",
   "sources": [

@@ -1,10 +1,13 @@
 {
   "record_id": "ca-orange-tustin-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Tustin' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "Orange County Power Authority (OCPA), the CCA operating in Orange County, currently names Buena Park, Fullerton, and Irvine as members (with Fountain Valley reported joining in 2027) — Tustin was not named among current or announced members this session. Left null rather than asserted either way."
   },
-  "city": { "value": "Tustin", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Tustin",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Tustin is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Tustin Community Development Department",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.tustinca.org/1436/SolarApp-for-Solar-Installers",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,18 +70,46 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Job Card and permit documentation", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Site layout plan and single-line diagram", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarApp+ approval document", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Equipment specification sheet", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Job Card and permit documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site layout plan and single-line diagram",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarApp+ approval document",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Equipment specification sheet",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -73,12 +118,20 @@
       "Call inspectors between 7:30am and 8:00am on the inspection day for a timeframe, using the phone numbers on the job card"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -89,7 +142,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
@@ -101,10 +156,16 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Confirmed via direct download and read of the City's own published comprehensive fee schedule PDF, which lists a distinct 'Solar / PV System' line item separate from general building permit fees."
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -130,7 +191,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

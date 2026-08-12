@@ -1,10 +1,13 @@
 {
   "record_id": "ca-orange-anaheim-apu",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Anaheim Public Utilities (APU)",
     "confidence": 0.95,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Anaheim Public Utilities is the City of Anaheim's own municipal electric utility. Anaheim is notably absent from SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (which lists neighboring Orange County cities like Orange, Garden Grove, Tustin, Costa Mesa, Huntington Beach, Newport Beach, Westminster, Brea, and Yorba Linda but not Anaheim), consistent with Anaheim having its own municipal utility rather than SCE service."
   },
   "generation_supplier": {
@@ -14,28 +17,44 @@
       "notes": "APU is a vertically-integrated municipal utility (like LADWP, Pasadena Water and Power, and Alameda Municipal Power) — it generates/procures and delivers its own power rather than sitting alongside a separate CCA. No Community Choice Aggregator was found serving Anaheim in the sources reviewed this session."
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Anaheim", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Anaheim",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.95,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Anaheim Planning & Building Department",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.anaheim.net/636/Solar-Energy-and-Net-Metering",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.anaheim.net/636/Solar-Energy-and-Net-Metering",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Anaheim Public Utilities' own page states Anaheim uses 'NEM 2.0,' described as 'a wholesale-based rate NEM program,' and that the city 'is not going to NEM 3.0' — a distinctive municipal-utility policy choice, since NEM 3.0 (NBT) is a CPUC mandate that applies only to the three large investor-owned utilities (PG&E, SCE, SDG&E), not to municipal utilities like APU."
   },
   "battery_programs": {
@@ -55,14 +74,24 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "required_documents": {
     "value": [
-      { "name": "Engineering plans (submitted to Anaheim Planning & Building online for review)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Engineering plans (submitted to Anaheim Planning & Building online for review)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The page does not enumerate a detailed checklist beyond referencing engineering plan submittal."
   },
   "inspection_steps": {
@@ -70,12 +99,20 @@
       "Customer can operate the system after Anaheim Planning & Building signs off — Anaheim Public Utilities does not itself issue Permission to Operate"
     ],
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -86,10 +123,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "No fee amount is listed on the city's page." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No fee amount is listed on the city's page."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -101,7 +149,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

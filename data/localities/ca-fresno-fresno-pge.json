@@ -1,6 +1,7 @@
 {
   "record_id": "ca-fresno-fresno-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.9,
@@ -81,7 +82,13 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Eligibility Checklist for Expedited Solar Photovoltaic Permitting, completed by the applicant", "required_when": "always", "source_ids": ["S7"] },
+      {
+        "name": "Eligibility Checklist for Expedited Solar Photovoltaic Permitting, completed by the applicant",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
       {
         "name": "SolarAPP+ approval confirmation",
         "required_when": "SolarAPP+-eligible residential rooftop systems (single-family and duplex only)",
@@ -91,7 +98,10 @@
       }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1", "S7"],
+    "source_ids": [
+      "S1",
+      "S7"
+    ],
     "notes": "Per Fresno Municipal Code Section 11-111(b)(2): an Eligibility Checklist for Expedited Solar Photovoltaic Permitting shall be completed to determine if the project qualifies. The SolarAPP+ confirmation-upload step is independently confirmed via the City's own SolarAPP+ page (S1)."
   },
   "inspection_steps": {
@@ -100,7 +110,9 @@
       "If a system fails the inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Fresno Municipal Code Section 11-111(c)."
   },
   "timeline_days": {

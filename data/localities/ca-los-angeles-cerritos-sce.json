@@ -1,10 +1,14 @@
 {
   "record_id": "ca-los-angeles-cerritos-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.85,
-    "source_ids": ["S3", "S2"],
+    "source_ids": [
+      "S3",
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Cerritos' by name among the cities in its service area. Note: the City of Cerritos separately operates its own small municipal utility, Cerritos Electric Utility (CEU), confirmed via SCPPA's own member page — but CEU explicitly 'serves educational institutions, City-owned facilities and major retail businesses' (about 449 non-residential accounts) rather than general residential customers, so this does not change the applicable utility for a residential solar permit."
   },
   "generation_supplier": {
@@ -14,29 +18,45 @@
       "notes": "Clean Power Alliance's own homepage states it serves '38 communities across Los Angeles and Ventura counties' and names each one individually via its site's community directory; Cerritos is not among the named communities. No other Los Angeles County CCA serving Cerritos was found, so SCE is recorded as both the distribution and generation utility."
     },
     "confidence": 0.75,
-    "source_ids": ["S8"]
+    "source_ids": [
+      "S8"
+    ]
   },
-  "city": { "value": "Cerritos", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Cerritos",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Cerritos is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Cerritos Department of Community Development",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.cerritos.gov/home-property/home-improvement-and-renovations/apply-for-a-residential-permitplanning-approval/",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -56,22 +76,49 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Solar Energy System Application form (standard pathway)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Residential Solar Energy System Express Acknowledgment (Express Solar Roof Mount pathway, via LA County's EPIC-LA Portal)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Solar Energy System Application form (standard pathway)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Residential Solar Energy System Express Acknowledgment (Express Solar Roof Mount pathway, via LA County's EPIC-LA Portal)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states processing timeframes depend on application completeness but gives no specific number of days." },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page states processing timeframes depend on application completeness but gives no specific number of days."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -82,16 +129,29 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "City Planning Permit Fee - Solar (Residential, Over-the-Counter)", "amount_usd": 360, "unit": "flat fee", "notes": "Per the City's own Master Fee Schedule (revised 7/13/2026); this is the City Planning fee only. The City contracts its Building and Safety services to Los Angeles County, whose separate Plan Check, Building Permit, and Permit Issuance fees (assessed by project valuation) are additional and not itemized on this schedule." }
+      {
+        "name": "City Planning Permit Fee - Solar (Residential, Over-the-Counter)",
+        "amount_usd": 360,
+        "unit": "flat fee",
+        "notes": "Per the City's own Master Fee Schedule (revised 7/13/2026); this is the City Planning fee only. The City contracts its Building and Safety services to Los Angeles County, whose separate Plan Check, Building Permit, and Permit Issuance fees (assessed by project valuation) are additional and not itemized on this schedule."
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -110,7 +170,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

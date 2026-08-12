@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-rosemead-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Rosemead' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "No official Rosemead city page or Clean Power Alliance page confirming or naming Rosemead as a CPA member community was found this session. Left null rather than guessed in either direction."
   },
-  "city": { "value": "Rosemead", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Rosemead",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.85,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Rosemead is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Rosemead Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://rosemeadca.hosted.civiclive.com/government/city_departments/community_development/building_and_safety/solar_app__submittals",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,30 +70,61 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approved plans (downloaded after automated review)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "City of Rosemead permit application worksheet", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ eligibility checklist", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ approved plans (downloaded after automated review)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "City of Rosemead permit application worksheet",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ eligibility checklist",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
       "Schedule inspections online through the City of Rosemead's building inspection request system"
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The page references an online inspection request system but does not name the specific portal URL."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page does not state a specific number of days for plan review or permit issuance." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page does not state a specific number of days for plan review or permit issuance."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -87,17 +135,30 @@
       ]
     },
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "No specific kW size cap is stated on the page for Rosemead."
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ processing fee", "amount_usd": 35, "unit": "flat", "notes": "Stated as subject to change." }
+      {
+        "name": "SolarAPP+ processing fee",
+        "amount_usd": 35,
+        "unit": "flat",
+        "notes": "Stated as subject to change."
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -116,7 +177,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

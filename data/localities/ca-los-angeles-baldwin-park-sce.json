@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-baldwin-park-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Baldwin Park' by name among the cities in its service area. Baldwin Park's own BPROUD program materials also confirm BPROUD 'is available exclusively to those residents and businesses within Baldwin Park that are currently served by Southern California Edison,' with SCE continuing to handle metering, billing, and outages."
   },
   "generation_supplier": {
@@ -14,30 +17,46 @@
       "notes": "BPROUD is the City of Baldwin Park's own Community Choice Aggregation (CCA) program (not Clean Power Alliance), begun serving customers October 1, 2020. Confirmed via an official City of Baldwin Park City Council staff report (August 17, 2022) covering BPROUD's 2021 Power Content Label, which names 'Smart Choice' as the default product and 'Green Choice' as an optional 100%-renewable-leaning tier, and lists a net-metering option for customers who generate their own solar or wind power."
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Baldwin Park", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Baldwin Park",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Baldwin Park is a well-documented Los Angeles County city ('Hub of the San Gabriel Valley' per its own city seal, visible in the BPROUD staff report letterhead); also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Baldwin Park Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.baldwinpark.com/157/Building-Safety",
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "General Building & Safety Division page — no dedicated solar-specific page was found on the city's site this session. The city's Municipal Code Chapter 156 ('Small Residential Solar Energy System Permits,' covering expedited permit review, inspection requirements, and fees) is confirmed to exist via search indexing, but codelibrary.amlegal.com returned HTTP 403 to automated fetch on every attempt this session, so its specific eligibility/fee/timeline provisions could not be verified and are not included in this record."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -57,17 +76,39 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Building Permit/Certificate of Occupancy Application (general form; includes a 'Photovoltaic Panels' scope-of-work checkbox used for solar submittals)", "required_when": "always", "source_ids": ["S8"] },
-      { "name": "Electrical Plans", "required_when": "conditional", "source_ids": ["S8"] },
-      { "name": "Title 24 Energy Calculations", "required_when": "conditional", "source_ids": ["S8"] }
+      {
+        "name": "Building Permit/Certificate of Occupancy Application (general form; includes a 'Photovoltaic Panels' scope-of-work checkbox used for solar submittals)",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Electrical Plans",
+        "required_when": "conditional",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Title 24 Energy Calculations",
+        "required_when": "conditional",
+        "source_ids": [
+          "S8"
+        ]
+      }
     ],
     "confidence": 0.6,
-    "source_ids": ["S8"],
+    "source_ids": [
+      "S8"
+    ],
     "notes": "The City's Municipal Code Chapter 156 ('Small Residential Solar Energy System Permits') likely specifies a more tailored submittal checklist, but codelibrary.amlegal.com returned a Cloudflare challenge page to automated/browser fetch on every attempt this session (retried again this pass; still blocked). This record instead uses the City's general Building Permit/Certificate of Occupancy Application form, which explicitly includes 'Photovoltaic Panels' as a scope-of-work option and lists standard plan-check submittal items; the City does not publish a separate, solar-specific document checklist page that could be independently verified this session."
   },
   "inspection_steps": {
@@ -76,21 +117,50 @@
       "Inspections are performed Monday through Friday"
     ],
     "confidence": 0.7,
-    "source_ids": ["S8"],
+    "source_ids": [
+      "S8"
+    ],
     "notes": "This is the City's general Building & Safety inspection-request process (stated on the same general Building Permit/Certificate of Occupancy Application form used for all permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "No SolarAPP+, Symbium, or other automated/instant-permitting page was found on the City's site this session, and Municipal Code Chapter 156 (which may specify an expedited review timeline) remains inaccessible (codelibrary.amlegal.com blocked)." },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "Municipal Code Chapter 156 likely specifies solar-specific eligibility constraints, but codelibrary.amlegal.com remains blocked (Cloudflare challenge) to both automated and browser fetch this session." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No SolarAPP+, Symbium, or other automated/instant-permitting page was found on the City's site this session, and Municipal Code Chapter 156 (which may specify an expedited review timeline) remains inaccessible (codelibrary.amlegal.com blocked)."
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Municipal Code Chapter 156 likely specifies solar-specific eligibility constraints, but codelibrary.amlegal.com remains blocked (Cloudflare challenge) to both automated and browser fetch this session."
+  },
   "permit_fees": {
     "value": [
-      { "name": "Building Permit - Photovoltaic System (Residential, AB1414)", "amount_usd": 447, "unit": "up to 15kW, plus $15/kW for each additional kW", "notes": "Per the City's own Building Permit, Plan Check & Inspection Fee Schedule." },
-      { "name": "Building Permit - Photovoltaic System (Commercial, AB1414)", "amount_usd": 1000, "unit": "up to 50kW, plus $7/kW between 51-250kW, plus $5/kW above 251kW", "notes": "Per the City's own Building Permit, Plan Check & Inspection Fee Schedule." }
+      {
+        "name": "Building Permit - Photovoltaic System (Residential, AB1414)",
+        "amount_usd": 447,
+        "unit": "up to 15kW, plus $15/kW for each additional kW",
+        "notes": "Per the City's own Building Permit, Plan Check & Inspection Fee Schedule."
+      },
+      {
+        "name": "Building Permit - Photovoltaic System (Commercial, AB1414)",
+        "amount_usd": 1000,
+        "unit": "up to 50kW, plus $7/kW between 51-250kW, plus $5/kW above 251kW",
+        "notes": "Per the City's own Building Permit, Plan Check & Inspection Fee Schedule."
+      }
     ],
     "confidence": 0.5,
-    "source_ids": ["S9"],
+    "source_ids": [
+      "S9"
+    ],
     "notes": "This fee schedule document is titled 'Fiscal Year 2020 to 2021' and states fees are 'Effective September 16, 2019' and 'Remain Unchanged from Prior Fiscal Year' — it is the only official fee schedule found on the City's site this session, and no more recent version could be located via site search. The figures follow the standard statewide AB1414 solar permit fee cap structure also seen in several other California cities' current fee schedules, but given the document's age (originally published 2019-2021), confidence is reduced and this should be treated as indicative rather than confirmed-current pricing."
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [], "notes": "No BPROUD-specific or City-specific solar rebate/incentive program was found this session; BPROUD's own materials describe net-metering and rate tiers but no separate rebate program." },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No BPROUD-specific or City-specific solar rebate/incentive program was found this session; BPROUD's own materials describe net-metering and rate tiers but no separate rebate program."
+  },
   "official_contacts": {
     "value": [
       {
@@ -116,7 +186,11 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S3", "S7"]
+    "source_ids": [
+      "S1",
+      "S3",
+      "S7"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

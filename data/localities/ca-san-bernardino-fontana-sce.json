@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-fontana-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Fontana' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "A City of Fontana bid solicitation references a completed CCA feasibility study and an active search for a partner to help launch or join a CCA program, indicating no operational CCA program exists for Fontana yet. Left null rather than asserting a program that is still in a pre-launch/exploratory stage."
   },
-  "city": { "value": "Fontana", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Fontana",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Bernardino County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Fontana is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Fontana Building and Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.fontanaca.gov/3682/Solar-PV-Permit-with-SolarAPP",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,17 +70,39 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Approval Document", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ Spec Sheets", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ Approval ID", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ Approval Document",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Spec Sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Approval ID",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -71,12 +110,20 @@
       "Schedule inspections through the BUILD FONTANA portal or call (909) 350-7693 for automated scheduling"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -88,16 +135,29 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ processing fee", "amount_usd": 25, "unit": "flat", "notes": "Charged by SolarAPP+ itself. Additional city permit fees are also due when submitting through the BUILD FONTANA portal, but no specific city fee amount was stated on the page." }
+      {
+        "name": "SolarAPP+ processing fee",
+        "amount_usd": 25,
+        "unit": "flat",
+        "notes": "Charged by SolarAPP+ itself. Additional city permit fees are also due when submitting through the BUILD FONTANA portal, but no specific city fee amount was stated on the page."
+      }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -116,7 +176,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

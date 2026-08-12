@@ -1,6 +1,7 @@
 {
   "record_id": "ca-los-angeles-glendora-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -83,10 +84,18 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Plan check submittal requirements, eligibility checklist, solar standard plan, and inspection guide checklist, published on the City's website (permit application form also downloadable at energycenter.org/PermittingToolkit)", "required_when": "always", "source_ids": ["S8"] }
+      {
+        "name": "Plan check submittal requirements, eligibility checklist, solar standard plan, and inspection guide checklist, published on the City's website (permit application form also downloadable at energycenter.org/PermittingToolkit)",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S8"],
+    "source_ids": [
+      "S8"
+    ],
     "notes": "Per Glendora Municipal Code Section 19.21.050(a),(d)-(e): the building official implements plan check submittal requirements, an eligibility checklist, a solar standard plan, and an inspection guide checklist, substantially conforming to the CA Solar Permitting Guidebook."
   },
   "inspection_steps": {
@@ -98,7 +107,10 @@
       "If a system fails inspection, a subsequent inspection is authorized; additional inspections may incur a re-inspection fee"
     ],
     "confidence": 0.85,
-    "source_ids": ["S7", "S8"],
+    "source_ids": [
+      "S7",
+      "S8"
+    ],
     "notes": "Combines the City's general Building Division inspection-scheduling process with the solar-specific expedited-inspection provisions of Glendora Municipal Code Section 19.21.060(h)-(j)."
   },
   "timeline_days": {
@@ -108,11 +120,16 @@
       "notes": "Glendora Municipal Code Section 19.21.060(a): 'The building division shall issue a building permit or other nondiscretionary permit within three days of receipt of a complete application that meets the requirements of the expedited approved checklist and standard plan.'"
     },
     "confidence": 0.85,
-    "source_ids": ["S8"]
+    "source_ids": [
+      "S8"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -123,7 +140,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S8"]
+    "source_ids": [
+      "S8"
+    ]
   },
   "permit_fees": {
     "value": null,

@@ -2,12 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://mygridpermit.com/schema/locality-record-v1.json",
   "title": "GridPermit Locality Record",
-  "description": "Master schema for every structured California residential solar/battery/permitting data record. One record = one (city, utility) pair. Produced by agents/data-collector.md. Every future page, calculator, and content-generation tool must read data through this schema, not invent its own shape. See docs/DATA_ARCHITECTURE.md.",
+  "description": "Master schema for every structured U.S. residential solar/battery/permitting data record — California and (starting schema v1.4.0) other states. One record = one (city, utility) pair. Produced by agents/data-collector.md. Every future page, calculator, and content-generation tool must read data through this schema, not invent its own shape. See docs/DATA_ARCHITECTURE.md.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "record_id",
     "schema_version",
+    "state",
     "utility",
     "generation_supplier",
     "city",
@@ -30,12 +31,17 @@
     "record_id": {
       "type": "string",
       "pattern": "^[a-z]{2}(-[a-z0-9]+){3,}$",
-      "description": "Naming rule: <state-code>-<county-slug>-<city-slug>-<utility-slug>, lowercase kebab-case only, no underscores. Must exactly match the record's filename (minus .json) under data/localities/. Note: this pattern cannot mechanically distinguish where one segment ends and the next begins when county/city names are themselves multi-word (e.g. 'santa-clara', 'san-jose') — segment boundaries are a documentation convention (see docs/DATA_ARCHITECTURE.md), not something this regex enforces beyond overall shape."
+      "description": "Naming rule: <state-code>-<county-slug>-<city-slug>-<utility-slug>, lowercase kebab-case only, no underscores. Must exactly match the record's filename (minus .json) under data/localities/. The leading 2-letter segment must equal this record's own `state` field, lowercased (enforced by scripts/validate-record.mjs, not by this regex, since the regex alone cannot tell a state-code segment from a county/city segment). Note: this pattern cannot mechanically distinguish where one segment ends and the next begins when county/city names are themselves multi-word (e.g. 'santa-clara', 'san-jose') — segment boundaries are a documentation convention (see docs/DATA_ARCHITECTURE.md), not something this regex enforces beyond overall shape."
     },
     "schema_version": {
       "type": "string",
-      "const": "1.3.0",
-      "description": "Version of this schema the record was produced against. 1.3.0 added value_usd_per_watt as a new optional field on programItem (battery_programs/rebates items) — additive only, not added to programItem's required list, so no existing record needed migration to remain schema-valid (all four existing records were migrated anyway, for consistency, per docs/DATA_ARCHITECTURE.md). 1.2.0 added generation_supplier and eligibility_constraints as new required fields, extended battery_programs/rebates items with effective_from/expires_on/status, and replaced required_documents' plain-string items with structured {name, required_when, source_ids} objects. 1.1.0 tightened record_id to lowercase kebab-case, no underscores. Bump on further changes; see docs/DATA_ARCHITECTURE.md for the migration rule."
+      "const": "1.4.0",
+      "description": "Version of this schema the record was produced against. 1.4.0 added `state` as a new required top-level field (plain 2-letter USPS code, e.g. 'CA', 'RI', 'DE', 'VT') so every record carries explicit state identity instead of relying on file location or record_id parsing — required for the multi-state expansion (see docs/DATA_ARCHITECTURE.md); all pre-existing California records were mechanically migrated to add \"state\": \"CA\" via scripts/migrate-add-state-field.mjs, a factual, deterministic stamp requiring no re-research. 1.4.0 also added 'puc' as a generic alternative to source.type's California-specific 'cpuc' value (kept for backward compatibility) — use 'puc' for any state's public utilities commission. 1.3.0 added value_usd_per_watt as a new optional field on programItem (battery_programs/rebates items) — additive only, not added to programItem's required list, so no existing record needed migration to remain schema-valid (all four existing records were migrated anyway, for consistency, per docs/DATA_ARCHITECTURE.md). 1.2.0 added generation_supplier and eligibility_constraints as new required fields, extended battery_programs/rebates items with effective_from/expires_on/status, and replaced required_documents' plain-string items with structured {name, required_when, source_ids} objects. 1.1.0 tightened record_id to lowercase kebab-case, no underscores. Bump on further changes; see docs/DATA_ARCHITECTURE.md for the migration rule."
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "USPS 2-letter state code this locality is in (e.g. 'CA', 'RI', 'DE', 'VT') — explicit state identity, independent of file location, folder, or record_id parsing. Must match the record_id's leading segment, lowercased (validator-enforced, see scripts/validate-record.mjs). This is a structural identity fact, not a researched fact, so it is a plain string rather than a FieldEnvelope."
     },
 
     "utility": { "$ref": "#/$defs/stringField" },
@@ -339,7 +345,8 @@
         "publisher": { "type": ["string", "null"] },
         "type": {
           "type": "string",
-          "enum": ["government", "utility", "cpuc", "program_administrator", "other_official"]
+          "enum": ["government", "utility", "cpuc", "puc", "program_administrator", "other_official"],
+          "description": "'cpuc' = California Public Utilities Commission specifically (kept for backward compatibility with existing CA records). 'puc' = any state's public utilities/service commission generically (use this for RI/DE/VT/etc. — e.g. Rhode Island PUC, Delaware PSC, Vermont PUC)."
         },
         "accessed_date": { "type": "string", "format": "date" }
       }

@@ -1,6 +1,7 @@
 {
   "record_id": "ca-ventura-thousand-oaks-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.85,
@@ -80,11 +81,25 @@
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval (obtained via the SolarAPP+ website)", "required_when": "conditional", "source_ids": ["S6"] },
-      { "name": "City of Thousand Oaks TO/24 online permit application, with SolarAPP+ approval submitted and permit fees paid, to receive the City-issued State Solar Permit", "required_when": "always", "source_ids": ["S6"] }
+      {
+        "name": "SolarAPP+ approval (obtained via the SolarAPP+ website)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "City of Thousand Oaks TO/24 online permit application, with SolarAPP+ approval submitted and permit fees paid, to receive the City-issued State Solar Permit",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Per the City's own Solar PV Systems page: any SolarAPP+ web-based approval is not itself a construction permit until applied for and submitted through TO/24 and fees are paid, at which point the City issues the State Solar Permit."
   },
   "inspection_steps": {
@@ -103,7 +118,9 @@
       "notes": "The City's own Solar PV Systems page states the 'Pre-Approved OR Preauthorized Solar Inspection Permit' (SolarApp+ permit type) 'is an express permit that allows instant permit issuance for compliant systems to licensed contractors installing on residential properties.'"
     },
     "confidence": 0.75,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -122,7 +139,10 @@
       ]
     },
     "confidence": 0.8,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "permit_fees": {
     "value": null,

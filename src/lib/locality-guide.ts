@@ -6,6 +6,8 @@
 // module enforces: never display a value without its confidence and source,
 // and never blend a null/unverified field into looking like a real answer.
 
+import { STATE_META, stateMeta, stateName, stateSlug } from "./state-meta.ts";
+
 export const SITE_ORIGIN = "https://mygridpermit.com";
 export const NOT_VERIFIED = "Not yet verified.";
 
@@ -88,6 +90,9 @@ export interface TimelineValue {
 // researched") and the template must render NOT_VERIFIED for it.
 export interface LocalityRecord {
 	record_id: string;
+	// USPS 2-letter state code (e.g. "CA", "RI", "DE", "VT") — explicit state
+	// identity, schema v1.4.0+. See src/lib/state-meta.ts.
+	state: string;
 	city: FieldEnvelope<string>;
 	county: FieldEnvelope<string>;
 	utility: FieldEnvelope<string>;
@@ -230,8 +235,31 @@ export function citySlug(cityValue: string): string {
 		.replace(/^-+|-+$/g, "");
 }
 
-export function guideUrlForCitySlug(slug: string): string {
-	return `/california/${slug}/solar-permit-guide/`;
+// `state` is a USPS 2-letter code (e.g. "CA", "RI") — the URL's state
+// segment is always derived from it via src/lib/state-meta.ts, never
+// hardcoded, so a locality's page always lives under its own state's path
+// and two same-named cities in different states can never collide.
+export function guideUrlForCitySlug(state: string, slug: string): string {
+	return `/${stateSlug(state)}/${slug}/solar-permit-guide/`;
+}
+
+export function cityIndexUrlForCitySlug(state: string, slug: string): string {
+	return `/${stateSlug(state)}/${slug}/`;
+}
+
+export function stateIndexUrl(state: string): string {
+	return `/${stateSlug(state)}/`;
+}
+
+// California has two separate pages (a full hero/marketing index at
+// /california/ and a dedicated guide-list index at
+// /california/solar-permit-guides/) — both pre-existing and indexed. A new
+// state starts with far fewer READY records, so it gets one combined
+// index+guide-list page at /<state-slug>/ instead of two thin pages; see
+// docs/DATA_ARCHITECTURE.md's multi-state section. Revisit splitting a
+// state's index once it has enough content to justify two pages.
+export function stateGuidesIndexUrl(state: string): string {
+	return state === "CA" ? "/california/solar-permit-guides/" : `/${stateSlug(state)}/`;
 }
 
 // The permit authority is named exactly as the record states it — never
@@ -260,9 +288,13 @@ export interface PageMeta {
 export function buildPageMeta(record: LocalityRecord, pagePath: string): PageMeta {
 	const canonicalUrl = `${SITE_ORIGIN}${pagePath}`;
 	const shortName = utilityShortName(record.utility.value);
-	const title = `${record.city.value} Solar Permit Guide | GridPermit`;
+	// State code (not full name) keeps titles short across all four
+	// supported states and disambiguates same-named cities across state
+	// lines (e.g. Newark, CA vs Newark, DE) — see docs/DATA_ARCHITECTURE.md
+	// and tests/locality-guide.test.mjs's title-uniqueness regression test.
+	const title = `${record.city.value}, ${record.state} Solar Permit Guide | GridPermit`;
 	const description =
-		`${record.city.value}, CA solar permit facts: permit authority, utility, fees, and inspection steps — ` +
+		`${record.city.value}, ${record.state} solar permit facts: permit authority, utility, fees, and inspection steps — ` +
 		`sourced and confidence-scored. Verified ${record.last_verified}.`;
 	return { canonicalUrl, title, description, utilityShortName: shortName };
 }
@@ -281,9 +313,10 @@ export function buildBreadcrumbItems(
 	opts: BreadcrumbOptions,
 ): BreadcrumbItem[] {
 	const pageLabel = opts.pageLabel ?? "Solar Permit Guide";
+	const state = stateMeta(record.state);
 	return [
 		{ name: "Home", url: `${SITE_ORIGIN}/` },
-		{ name: "California", url: `${SITE_ORIGIN}/california/` },
+		{ name: state.name, url: `${SITE_ORIGIN}/${state.slug}/` },
 		{ name: record.city.value, url: `${SITE_ORIGIN}${opts.cityPath}` },
 		{ name: pageLabel, url: opts.pageUrl },
 	];
@@ -313,7 +346,7 @@ export function buildFaqs(record: LocalityRecord): FaqEntry[] {
 
 	if (record.utility.value) {
 		faqs.push({
-			q: `What utility serves solar customers in ${record.city.value}, California?`,
+			q: `What utility serves solar customers in ${record.city.value}, ${stateName(record.state)}?`,
 			a:
 				`${record.utility.value} is the interconnection and distribution utility for ${record.city.value}.` +
 				(generationSupplier
@@ -387,6 +420,12 @@ export interface LocalityIndexEntry {
 	lastVerified: string;
 	citySlug: string;
 	guideUrl: string;
+	// USPS 2-letter state code and its display metadata — carried on every
+	// entry so cross-state lists (search, "related cities") can filter/label
+	// by state instead of assuming California.
+	state: string;
+	stateName: string;
+	stateSlug: string;
 }
 
 // Shared by both the locality index page (Phase 3) and each locality page's
@@ -406,6 +445,7 @@ export function buildLocalityIndexEntries(
 		const record = recordsById.get(evalRecord.record_id);
 		if (!record) continue;
 		const slug = citySlug(record.city.value);
+		const state = stateMeta(record.state);
 		entries.push({
 			recordId: evalRecord.record_id,
 			city: record.city.value,
@@ -415,10 +455,20 @@ export function buildLocalityIndexEntries(
 			completenessPct: evalRecord.completeness_pct,
 			lastVerified: record.last_verified,
 			citySlug: slug,
-			guideUrl: guideUrlForCitySlug(slug),
+			guideUrl: guideUrlForCitySlug(record.state, slug),
+			state: state.code,
+			stateName: state.name,
+			stateSlug: state.slug,
 		});
 	}
-	return entries.sort((a, b) => a.city.localeCompare(b.city));
+	// Sort by state first (fixed registration order, not alphabetical — see
+	// SUPPORTED_STATE_CODES) then city name, so a multi-state list groups
+	// naturally by state instead of interleaving same-letter cities from
+	// different states.
+	const stateOrder = new Map(Object.keys(STATE_META).map((code, i) => [code, i]));
+	return entries.sort(
+		(a, b) => (stateOrder.get(a.state) ?? 99) - (stateOrder.get(b.state) ?? 99) || a.city.localeCompare(b.city),
+	);
 }
 
 // Used by each locality page's "Other verified California guides" cross-link
@@ -457,7 +507,11 @@ export function buildRelatedLocalities(
 	allEntries: LocalityIndexEntry[],
 	limit: number = 6,
 ): RelatedLocalityEntry[] {
-	const candidates = excludeCurrentEntry(allEntries, current.recordId);
+	// Same-state only: a "related locality" must never cross state lines —
+	// county/utility/generation-supplier names are not unique across states
+	// (see docs/DATA_ARCHITECTURE.md multi-state section), so filtering to
+	// `current.state` first is required for correctness, not just relevance.
+	const candidates = excludeCurrentEntry(allEntries, current.recordId).filter((e) => e.state === current.state);
 	// Compared by short name (e.g. "PG&E"), not the raw full utility string —
 	// this dataset has more than one full-name spelling on file for the same
 	// utility (e.g. "Pacific Gas & Electric (PG&E)" vs "Pacific Gas and

@@ -1,6 +1,7 @@
 {
   "record_id": "ca-san-diego-chula-vista-sdge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "San Diego Gas & Electric (SDG&E)",
     "confidence": 0.8,
@@ -85,12 +86,32 @@
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ unique ID number and forms/plans packet (from SolarAPP+)", "required_when": "SolarAPP+ expedited path", "source_ids": ["S1"] },
-      { "name": "Building Permit Application", "required_when": "standard path (property owner)", "source_ids": ["S1"] },
-      { "name": "2 sets of plans", "required_when": "standard path (property owner)", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ unique ID number and forms/plans packet (from SolarAPP+)",
+        "required_when": "SolarAPP+ expedited path",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Building Permit Application",
+        "required_when": "standard path (property owner)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "2 sets of plans",
+        "required_when": "standard path (property owner)",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Confirmed via direct browser read of the City's own Residential Solar Energy Permits page (chulavistaca.gov), which had returned blocked/unfetchable results to WebFetch earlier this session but rendered correctly via direct browser navigation."
   },
   "inspection_steps": {
@@ -101,7 +122,9 @@
       "Make the completed Circuit Card and, if applicable, SDG&E Work Order available on site at the time of inspection"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Confirmed via direct browser read of the City's own Residential Solar Energy Permits page, which had returned blocked/unfetchable results to WebFetch earlier this session but rendered correctly via direct browser navigation."
   },
   "timeline_days": {

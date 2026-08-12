@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-temple-city-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.95,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City of Temple City's own 'Power' page states directly: 'Southern California Edison (SCE) serves Temple City with electric service.'"
   },
   "generation_supplier": {
@@ -14,29 +17,45 @@
       "notes": "The City of Temple City's own 'Power' page states the city joined Clean Power Alliance in December 2017 via a City Council vote."
     },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Temple City", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Temple City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Temple City participates in the San Gabriel Valley Energy Wise Partnership alongside the San Gabriel Valley Council of Governments, confirming its Los Angeles County / San Gabriel Valley location."
   },
   "permit_authority": {
     "value": "City of Temple City Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://www.templecityca.gov/870/Solar-Energy-System-Permits",
     "confidence": 0.95,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -56,20 +75,60 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Solar Eligibility Checklist", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Solar Submittal Requirements form", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Solar Combination Permit Application", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Solar Structural Criteria documentation", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Solar PV Standard Plan (Microinverter/ACM or String Inverter Systems, as applicable)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Single line drawing (for SolarApp+ submissions)", "required_when": "conditional", "source_ids": ["S3"] }
+      {
+        "name": "Solar Eligibility Checklist",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Solar Submittal Requirements form",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Solar Combination Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Solar Structural Criteria documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Solar PV Standard Plan (Microinverter/ACM or String Inverter Systems, as applicable)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Single line drawing (for SolarApp+ submissions)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S3"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -77,12 +136,23 @@
       "Obtain a Los Angeles County Fire Department final inspection prior to use of the PV or energy storage system installation, required for all systems"
     ],
     "confidence": 0.85,
-    "source_ids": ["S2", "S3"]
+    "source_ids": [
+      "S2",
+      "S3"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Neither the Solar Energy System Permits page nor the SolarAPP page states a specific number of days for plan review or permit issuance." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the Solar Energy System Permits page nor the SolarAPP page states a specific number of days for plan review or permit issuance."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -94,19 +164,58 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page states plan check fees are required upfront, payable by Visa, MasterCard, or eCheck, but no dollar amount is given." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city's page states plan check fees are required upfront, payable by Visa, MasterCard, or eCheck, but no dollar amount is given."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
-      { "name": null, "role": "City of Temple City Building Department (general questions)", "phone": "(626) 285-0488", "email": "building@templecity.us", "url": "https://www.templecityca.gov/870/Solar-Energy-System-Permits" },
-      { "name": null, "role": "City of Temple City Building and Safety Division (inspections)", "phone": "(626) 656-7327", "email": null, "url": "https://www.templecityca.gov/1440/SolarAPP" },
-      { "name": null, "role": "Los Angeles County Fire Department, Fire Prevention Division", "phone": "(323) 890-4125", "email": null, "url": "https://fire.lacounty.gov/fire-prevention-expeditedpvess/" },
-      { "name": null, "role": "SGIP Program Administrator (SCE territory)", "phone": null, "email": "SGIPGroup@sce.com", "url": "https://www.selfgenca.com/home/contact/" }
+      {
+        "name": null,
+        "role": "City of Temple City Building Department (general questions)",
+        "phone": "(626) 285-0488",
+        "email": "building@templecity.us",
+        "url": "https://www.templecityca.gov/870/Solar-Energy-System-Permits"
+      },
+      {
+        "name": null,
+        "role": "City of Temple City Building and Safety Division (inspections)",
+        "phone": "(626) 656-7327",
+        "email": null,
+        "url": "https://www.templecityca.gov/1440/SolarAPP"
+      },
+      {
+        "name": null,
+        "role": "Los Angeles County Fire Department, Fire Prevention Division",
+        "phone": "(323) 890-4125",
+        "email": null,
+        "url": "https://fire.lacounty.gov/fire-prevention-expeditedpvess/"
+      },
+      {
+        "name": null,
+        "role": "SGIP Program Administrator (SCE territory)",
+        "phone": null,
+        "email": "SGIPGroup@sce.com",
+        "url": "https://www.selfgenca.com/home/contact/"
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2", "S3", "S7"]
+    "source_ids": [
+      "S2",
+      "S3",
+      "S7"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

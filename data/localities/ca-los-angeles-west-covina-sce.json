@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-west-covina-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'West Covina' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "No official West Covina city page or Clean Power Alliance page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "West Covina", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "West Covina",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "West Covina is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of West Covina Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.westcovina.gov/229/Solar-Panel-Permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,16 +70,32 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval documentation (downloaded after online submission)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "For non-flush-mounted or street-facing panel designs: licensed engineer analysis showing redesign would increase cost by more than $1,000 or reduce energy production by more than 10%", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ approval documentation (downloaded after online submission)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "For non-flush-mounted or street-facing panel designs: licensed engineer analysis showing redesign would increase cost by more than $1,000 or reduce energy production by more than 10%",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -70,16 +103,26 @@
       "Schedule inspection by calling 626-939-8425 (Monday-Thursday, 7:30am-4pm)"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 0, "notes": "The City's own Solar Panel Permits page describes its SolarAPP+ process as automating plan reviews so applicants 'receive an automated permit' after submitting design and paying fees online — i.e. same-day/instant issuance for SolarAPP+-eligible projects." },
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own Solar Panel Permits page describes its SolarAPP+ process as automating plan reviews so applicants 'receive an automated permit' after submitting design and paying fees online — i.e. same-day/instant issuance for SolarAPP+-eligible projects."
+    },
     "confidence": 0.65,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -90,10 +133,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -112,7 +165,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

@@ -21,7 +21,10 @@ export async function getStaticPaths() {
 		{ default: { records: UtilityEvaluationSummary[] } }
 	>;
 	const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
-	const hubs = buildUtilityHubs(allEvaluatedRecords, recordsById);
+	// This route is physically rooted at /california/utility/ — restrict to
+	// California hubs only; see the identical fix/comment in
+	// src/pages/california/county/[slug].astro.
+	const hubs = buildUtilityHubs(allEvaluatedRecords, recordsById).filter((hub) => hub.state === "CA");
 
 	return hubs.map((hub) => ({
 		params: { slug: hub.utilitySlug },

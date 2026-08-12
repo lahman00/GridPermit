@@ -1,10 +1,13 @@
 {
   "record_id": "ca-mendocino-ukiah-eu",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "City of Ukiah Electric Utility",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City of Ukiah operates its own municipal electric utility (a City department, NCPA member, operator of the Lake Mendocino Hydroelectric Plant), confirmed via the city's own Electric Utility page. This is a municipal utility, not PG&E, independently confirmed rather than assumed from county location."
   },
   "generation_supplier": {
@@ -13,42 +16,90 @@
     "source_ids": [],
     "notes": "No CCA was found serving Ukiah this session; as a municipal utility with its own renewable generation mix (over 38% geothermal/hydroelectric as of 2021), Ukiah generally would not participate in a CCA."
   },
-  "city": { "value": "Ukiah", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Mendocino County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Ukiah",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Mendocino County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Ukiah Community Development Department, Building Services",
     "confidence": 0.75,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://cityofukiah.com/community-development/building-services/",
     "confidence": 0.75,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "interconnection_url": {
     "value": "https://cityofukiah.com/electric-utility/",
     "confidence": 0.5,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "As a municipal utility, Ukiah's own Electric Utility interconnection process applies rather than a statewide IOU NEM program; this specific page returned HTTP 503 to automated fetch this session, so its interconnection procedure was not independently read."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
       "program_or_pathway": "Expedited building permit review for small residential rooftop solar energy systems",
-      "other_conditions": ["All City departments review on the same day, shortening the review timeline"]
+      "other_conditions": [
+        "All City departments review on the same day, shortening the review timeline"
+      ]
     },
     "confidence": 0.6,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -60,7 +111,9 @@
       }
     ],
     "confidence": 0.75,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

@@ -54,6 +54,13 @@ const KNOWN_UTILITIES = [
   ["PG&E", "PACIFIC GAS"],
   ["SCE", "SOUTHERN CALIFORNIA EDISON"],
   ["SDG&E", "SAN DIEGO GAS"],
+  // Multi-state expansion (RI/DE/VT) — same alias-matching purpose, not a
+  // claim about which of these actually appears in any given record.
+  ["NATIONAL GRID"],
+  ["DELMARVA", "DELMARVA POWER"],
+  ["GMP", "GREEN MOUNTAIN POWER"],
+  ["VEC", "VERMONT ELECTRIC COOPERATIVE"],
+  ["BED", "BURLINGTON ELECTRIC"],
 ];
 const STALE_DAYS_THRESHOLD = 180;
 const FETCH_TIMEOUT_MS = 10_000;
@@ -231,6 +238,23 @@ export async function validate(filePath) {
   for (const key of schema.required ?? []) {
     if (!(key in record)) {
       addFinding(errors, key, "missing_required_field", `top-level key '${key}' is absent`);
+    }
+  }
+
+  // 2b. state_record_id_mismatch — multi-state identity check (schema
+  // v1.4.0+): `state` must equal the record_id's own leading segment,
+  // lowercased. This is what actually enforces "locality identity cannot
+  // collide" across states, beyond what record_id's own kebab-case regex
+  // can check — see data/schema.json's `state` field description.
+  if (typeof record.state === "string" && typeof record.record_id === "string") {
+    const expectedPrefix = `${record.state.toLowerCase()}-`;
+    if (!record.record_id.startsWith(expectedPrefix)) {
+      addFinding(
+        errors,
+        "state",
+        "state_record_id_mismatch",
+        `state '${record.state}' does not match record_id '${record.record_id}' — record_id must start with '${expectedPrefix}'`,
+      );
     }
   }
 

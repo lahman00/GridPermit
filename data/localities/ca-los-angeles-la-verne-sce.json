@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-la-verne-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'La Verne' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -14,29 +17,45 @@
       "notes": "Clean Power Alliance's own homepage states it serves '38 communities across Los Angeles and Ventura counties' and names each one individually via its site's community directory; La Verne is not among the named communities. No other Los Angeles County CCA serving La Verne was found, so SCE is recorded as both the distribution and generation utility."
     },
     "confidence": 0.75,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
-  "city": { "value": "La Verne", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "La Verne",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "La Verne is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of La Verne Building Department",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.laverneca.gov/557/Residential-Solar-Building-Permit",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -56,15 +75,25 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval and approval number (linked back to the City Permit Portal application)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ approval and approval number (linked back to the City Permit Portal application)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The page references a separate 'Solar Guidelines for Residential Photovoltaic Power Systems' handout for full submittal detail, not independently fetched this session."
   },
   "inspection_steps": {
@@ -74,12 +103,20 @@
       "Available Monday-Thursday (closed Fridays); online scheduling or call 909-596-8706"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": 10,
       "thermal_capacity_kw_max": null,
@@ -91,11 +128,22 @@
       ]
     },
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The 'under 10 KW-DC' streamlining threshold was described in search-engine synthesis of the city's SolarAPP+ implementation but not independently confirmed via the directly-fetched page content, so recorded with reduced confidence."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states 'a processing fee will be charged by SolarAPP+ for each application submitted' but gives no dollar amount." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page states 'a processing fee will be charged by SolarAPP+ for each application submitted' but gives no dollar amount."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -114,7 +162,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

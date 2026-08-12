@@ -1,10 +1,13 @@
 {
   "record_id": "ca-stanislaus-turlock-tid",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Turlock Irrigation District (TID)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "TID is a publicly-owned (municipal) electric utility serving Turlock, distinct from PG&E. Confirmed via TID's own rate-schedule materials for customers installing solar/self-generation facilities within the Turlock Irrigation District service area, and TID's own 'Go Solar' program page."
   },
   "generation_supplier": {
@@ -14,28 +17,44 @@
       "notes": "TID is a vertically-integrated municipal utility (also providing irrigation) — it generates/procures and delivers its own power rather than sitting alongside a separate CCA, consistent with the pattern already established for MID, SMUD, and Roseville Electric this session. TID notably does not allow virtual net energy metering (VNEM), requiring a separate PV system per dwelling unit for multi-unit properties."
     },
     "confidence": 0.8,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "city": { "value": "Turlock", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Turlock",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Stanislaus County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Turlock Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://ci.turlock.ca.us/buildinginturlock/buildingsafety/buildingpermits/residentialsolar.asp",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.tid.org/customer-service/go-solar/",
     "confidence": 0.6,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "TID's own 'Go Solar' program page, identified via search-engine indexing; not independently fetched this session."
   },
   "battery_programs": {
@@ -46,14 +65,46 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Residential Solar Checklist", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Electronic Submittal Guide (compliance)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ Approval Document (generated upon approval)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Inspection Checklist (generated upon approval)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Printed permit and approval documents present at the job site during inspection", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Residential Solar Checklist",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electronic Submittal Guide (compliance)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Approval Document (generated upon approval)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Inspection Checklist (generated upon approval)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Printed permit and approval documents present at the job site during inspection",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -63,16 +114,26 @@
       "Maintain printed permit and approval documents on-site"
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 1, "max_days": 1, "notes": "The City of Turlock issues a permit number within 24 business hours of receiving SolarAPP+ approval documents. Separately, inspection requests received before 4:00pm are scheduled for the next workday; requests after 4:00pm are scheduled 2 days later." },
+    "value": {
+      "min_days": 1,
+      "max_days": 1,
+      "notes": "The City of Turlock issues a permit number within 24 business hours of receiving SolarAPP+ approval documents. Separately, inspection requests received before 4:00pm are scheduled for the next workday; requests after 4:00pm are scheduled 2 days later."
+    },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -83,10 +144,22 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1", "S2"]
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page references a SolarApp+ NREL processing fee, City of Turlock Master Fee Schedule permit fees, a plan-change fee for revisions, and a reinspection fee, but no specific dollar amounts are given." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page references a SolarApp+ NREL processing fee, City of Turlock Master Fee Schedule permit fees, a plan-change fee for revisions, and a reinspection fee, but no specific dollar amounts are given."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -98,7 +171,9 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

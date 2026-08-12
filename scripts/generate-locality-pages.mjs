@@ -37,12 +37,38 @@ const LOCALITIES_DIR = process.env.LOCALITY_PAGES_LOCALITIES_DIR
 const EVALUATION_PATH = process.env.LOCALITY_PAGES_EVALUATION_PATH
   ? path.resolve(process.env.LOCALITY_PAGES_EVALUATION_PATH)
   : path.join(REPO_ROOT, "output", "pilot-evaluation.json");
-const PAGES_ROOT = process.env.LOCALITY_PAGES_OUTPUT_ROOT
+// Overriding LOCALITY_PAGES_OUTPUT_ROOT pins every record to that one root
+// regardless of its own `state` (used by tests for a single-state fixture
+// tree). Real usage never sets this — PAGES_ROOT is instead computed
+// per-record from record.state below, via STATE_SLUGS.
+const PAGES_ROOT_OVERRIDE = process.env.LOCALITY_PAGES_OUTPUT_ROOT
   ? path.resolve(process.env.LOCALITY_PAGES_OUTPUT_ROOT)
-  : path.join(REPO_ROOT, "src", "pages", "california");
+  : null;
 const LAYOUT_PATH = process.env.LOCALITY_PAGES_LAYOUT_PATH
   ? path.resolve(process.env.LOCALITY_PAGES_LAYOUT_PATH)
   : path.join(REPO_ROOT, "src", "layouts", "LocalityGuideLayout.astro");
+
+// Mirrors src/lib/state-meta.ts's STATE_META — kept as a separate literal
+// here (not imported) so this script, like its slugify() below, has no
+// dependency on the TS rendering-side lib. Keep both in sync when a new
+// state is registered.
+const STATE_SLUGS = {
+  CA: "california",
+  RI: "rhode-island",
+  DE: "delaware",
+  VT: "vermont",
+};
+
+function pagesRootFor(record) {
+  if (PAGES_ROOT_OVERRIDE) return PAGES_ROOT_OVERRIDE;
+  const slug = STATE_SLUGS[record.state];
+  if (!slug) {
+    throw new Error(
+      `generate-locality-pages: record_id "${record.record_id}" has unrecognized state "${record.state}" — register it in STATE_SLUGS (and src/lib/state-meta.ts) before generating its page`,
+    );
+  }
+  return path.join(REPO_ROOT, "src", "pages", slug);
+}
 
 function stripDiacritics(str) {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -88,10 +114,16 @@ async function loadLocalityRecords() {
 
 function planFor({ recordId, filePath, record }, { readyIds, force }) {
   const citySlug = slugify(record.city?.value ?? recordId);
-  const cityDir = path.join(PAGES_ROOT, citySlug);
+  const stateSlug = PAGES_ROOT_OVERRIDE ? null : STATE_SLUGS[record.state];
+  const pagesRoot = pagesRootFor(record);
+  const cityDir = path.join(pagesRoot, citySlug);
   const pageFile = path.join(cityDir, "solar-permit-guide.astro");
-  const pagePath = `/california/${citySlug}/solar-permit-guide/`;
-  const cityPath = `/california/${citySlug}/`;
+  // stateSlug is null only under PAGES_ROOT_OVERRIDE (test fixtures), which
+  // always model a single already-known state — "california" there matches
+  // every existing fixture's expectations.
+  const urlStateSlug = stateSlug ?? "california";
+  const pagePath = `/${urlStateSlug}/${citySlug}/solar-permit-guide/`;
+  const cityPath = `/${urlStateSlug}/${citySlug}/`;
 
   const isReady = readyIds.has(recordId);
   const pageExists = existsSync(pageFile);

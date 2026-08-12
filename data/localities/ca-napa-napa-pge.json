@@ -1,10 +1,13 @@
 {
   "record_id": "ca-napa-napa-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City of Napa is a well-documented Napa County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
@@ -14,54 +17,126 @@
       "notes": "MCE's own service-area page confirms Napa as one of 6 Napa County communities it serves (alongside American Canyon, Calistoga, St. Helena, Yountville, and unincorporated Napa County). PG&E continues to deliver the power and provide billing/customer service."
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Napa", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Napa County", "confidence": 0.95, "source_ids": ["S1"] },
+  "city": {
+    "value": "Napa",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Napa County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Napa Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityofnapa.org/1037/Solar-PV",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
     "confidence": 0.55,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "Building permit application (one per project)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Two full sets of plans (title page, site plan, structural calculations, single-line electrical, attachment details)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Footing details (ground-mounted systems)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Equipment cut sheets", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Signed homeowner contract", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Active City of Napa Business License (contractor)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Building permit application (one per project)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Two full sets of plans (title page, site plan, structural calculations, single-line electrical, attachment details)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Footing details (ground-mounted systems)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Equipment cut sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed homeowner contract",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Active City of Napa Business License (contractor)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
       "Call the automated inspection line at 707-257-1063"
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 3, "max_days": 3, "notes": "Search-engine synthesis indicates typical approval time is 3 business days, with more complex projects requiring structural review or variances taking longer; not independently confirmed via direct fetch of the Solar PV page's own timeline statement." },
+    "value": {
+      "min_days": 3,
+      "max_days": 3,
+      "notes": "Search-engine synthesis indicates typical approval time is 3 business days, with more complex projects requiring structural review or variances taking longer; not independently confirmed via direct fetch of the Solar PV page's own timeline statement."
+    },
     "confidence": 0.55,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -73,10 +148,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page references a Master Fee Schedule available online but does not itself state solar-specific permit costs." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page references a Master Fee Schedule available online but does not itself state solar-specific permit costs."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -88,7 +174,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

@@ -1,10 +1,13 @@
 {
   "record_id": "ca-kings-hanford-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Hanford is confirmed as within PG&E's electric service territory (ZIP codes 93230 and 93232), and Kings County's own economic development materials reference collaboration with PG&E on energy initiatives."
   },
   "generation_supplier": {
@@ -13,26 +16,40 @@
     "source_ids": [],
     "notes": "No official Hanford city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Hanford", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Hanford",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Kings County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Hanford Development Services Department",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityofhanfordca.com/1517/SolarAPP",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
   },
   "battery_programs": {
@@ -52,17 +69,39 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Pre-approved SolarAPP+ Approval Document", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ Approval ID number", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Solar project specification sheets", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Pre-approved SolarAPP+ Approval Document",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Approval ID number",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Solar project specification sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -71,16 +110,26 @@
       "The contractor schedules inspection through the online inspection request system"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 0, "notes": "The City's own SolarAPP+ page states that once a SolarAPP+ application is complete, 'the City of Hanford automatically issues a permit to the contractor' — i.e. same-day/instant issuance for SolarAPP+-eligible projects." },
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own SolarAPP+ page states that once a SolarAPP+ application is complete, 'the City of Hanford automatically issues a permit to the contractor' — i.e. same-day/instant issuance for SolarAPP+-eligible projects."
+    },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -91,10 +140,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -113,7 +172,10 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

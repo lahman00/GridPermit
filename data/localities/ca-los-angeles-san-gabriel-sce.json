@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-san-gabriel-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "The City of San Gabriel's own Utilities page states: 'SCE is responsible for electrical service connection/disconnection and/or to report power outages,' listing SCE's own contact number (800.655.4555) for electricity service."
   },
   "generation_supplier": {
@@ -14,30 +17,47 @@
       "notes": "The City of San Gabriel's own Utilities page names only SCE for electric service, with no Community Choice Aggregator (e.g. Clean Power Alliance) mentioned anywhere on the page — unlike neighboring Sierra Madre, whose city site prominently describes its own CPA enrollment. Recorded as SCE directly (not a CCA) based on this absence, rather than assumed; if San Gabriel later joins a CCA this should be re-verified."
     },
     "confidence": 0.65,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "city": { "value": "San Gabriel", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "San Gabriel",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "San Gabriel's own SolarAPP+ page instructs applicants to 'Verify your address is in incorporated San Gabriel (not LA County unincorporated areas)' using an LA County service locator tool, structurally confirming the city-county relationship."
   },
   "permit_authority": {
     "value": "City of San Gabriel Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1", "S3"]
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
   },
   "permit_url": {
     "value": "https://www.sangabrielcity.com/1740/Solar-APP",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This is the City's current live SolarAPP+ page. An older 'Residential Solar Power Systems Permit Issuance Checklist' (2021, AB 2188 standard-plan-review pathway) was found and read earlier this session but has since been removed from the city's site (confirmed 404 on a live re-check before this record was finalized) and is not cited here — replaced with this current page as the sole primary source."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for the Irvine, Fullerton, and Sierra Madre records this session. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
   },
   "battery_programs": {
@@ -57,17 +77,39 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused here as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Contractor license information (licensed contractors only)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "City of San Gabriel Business License number (a receipt may be submitted as temporary proof)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Solar/photovoltaic design specifications, submitted and approved via SolarAPP+ (solarapp.nrel.gov)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Contractor license information (licensed contractors only)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "City of San Gabriel Business License number (a receipt may be submitted as temporary proof)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Solar/photovoltaic design specifications, submitted and approved via SolarAPP+ (solarapp.nrel.gov)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "From the City's current SolarAPP+ page. The city also references the SolarAPP+ platform's own 'Eligibility Checklist' at help.solar-app.org, which was not independently fetched this session."
   },
   "inspection_steps": {
@@ -77,13 +119,21 @@
       "Check the 'Inspection Schedule' around 7:30 AM on the inspection day to verify the appointment"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "The SolarAPP+ page does not state a specific number of days for plan review or permit issuance." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The SolarAPP+ page does not state a specific number of days for plan review or permit issuance."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -95,18 +145,31 @@
       ]
     },
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "No specific kW size cap is stated on the current SolarAPP+ page (unlike the now-removed 2021 checklist, which stated 'less than 10 kilowatts' for its own separate standard-plan-review pathway) — left null rather than carried over from a source that is no longer live and citable."
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ processing fee (covers up to 3 revisions) plus City of San Gabriel fees", "amount_usd": null, "unit": null, "notes": "'A processing fee will be charged by SolarApp+ NREL' and applicants must separately pay 'City of San Gabriel fees on Stripe' — no dollar amounts are stated on the page for either fee. 'The initial processing fee covers up to three revisions.'" }
+      {
+        "name": "SolarAPP+ processing fee (covers up to 3 revisions) plus City of San Gabriel fees",
+        "amount_usd": null,
+        "unit": null,
+        "notes": "'A processing fee will be charged by SolarApp+ NREL' and applicants must separately pay 'City of San Gabriel fees on Stripe' — no dollar amounts are stated on the page for either fee. 'The initial processing fee covers up to three revisions.'"
+      }
     ],
     "confidence": 0.5,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Confidence reflects a verified fact about fee structure (two separate fees, revision policy), not a verified dollar amount — no amount is invented."
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -125,7 +188,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3", "S6"]
+    "source_ids": [
+      "S3",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-03",
   "sources": [

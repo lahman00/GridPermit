@@ -1,10 +1,13 @@
 {
   "record_id": "ca-orange-san-clemente-sdge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "San Diego Gas & Electric (SDG&E)",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Corrected during this session's research: San Clemente is absent from SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (re-verified directly this session), consistent with San Clemente instead being in SDG&E territory. SDG&E's own service description states it 'provides natural gas and electricity to San Diego County and southern Orange County,' and independent business-directory sources confirm an SDG&E service location within San Clemente itself."
   },
   "generation_supplier": {
@@ -13,26 +16,40 @@
     "source_ids": [],
     "notes": "San Clemente is reported to be 'considering' joining the Clean Energy Alliance (CEA), one of the two CCAs operating in SDG&E territory (the other being San Diego Community Power), but is not a confirmed current member of either. Left null rather than asserted either way."
   },
-  "city": { "value": "San Clemente", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "San Clemente",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.95,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of San Clemente Building Services",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.sanclemente.gov/departments-services/building-services/permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session (San Diego, Chula Vista, Escondido)."
   },
   "battery_programs": {
@@ -52,18 +69,46 @@
       }
     ],
     "confidence": 0.75,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
   },
   "required_documents": {
     "value": [
-      { "name": "Solar Permit Application (standard pathway)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Plans and calculations (PDF format only, submitted electronically to SolarPermits@San-Clemente.org)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ Approval Document (SolarAPP+ pathway)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Revision Submittal Form (for post-issuance changes)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Solar Permit Application (standard pathway)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plans and calculations (PDF format only, submitted electronically to SolarPermits@San-Clemente.org)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Approval Document (SolarAPP+ pathway)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Revision Submittal Form (for post-issuance changes)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -71,12 +116,21 @@
       "Applicants must have their Online Permit Inspection Job Card printed and available on-site"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page does not state a specific standard review timeframe." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page does not state a specific standard review timeframe."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -87,16 +141,29 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ processing fee", "amount_usd": 25, "unit": "flat", "notes": "City permit fees also apply separately when filing through e-Trakit; standard solar permit fees are outlined in a separate 'Solar Permit Fees' document not independently fetched this session." }
+      {
+        "name": "SolarAPP+ processing fee",
+        "amount_usd": 25,
+        "unit": "flat",
+        "notes": "City permit fees also apply separately when filing through e-Trakit; standard solar permit fees are outlined in a separate 'Solar Permit Fees' document not independently fetched this session."
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -115,7 +182,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S4"]
+    "source_ids": [
+      "S1",
+      "S4"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

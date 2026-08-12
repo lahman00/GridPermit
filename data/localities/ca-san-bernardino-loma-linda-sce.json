@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-loma-linda-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Loma Linda' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,23 +16,41 @@
     "source_ids": [],
     "notes": "No Community Choice Aggregator was confirmed serving the City of Loma Linda this session."
   },
-  "city": { "value": "Loma Linda", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Loma Linda",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Bernardino County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Loma Linda Building and Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.lomalinda-ca.gov/our_city/departments/community_development/Building%20and%20Safety/building_and_safety_f_a_q_s",
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The city's Building and Safety FAQ page describes only general building-permit process information; no solar-specific page was located this session."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -49,17 +70,39 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Panel layout and electrical schematics", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Engineering certification verifying existing roof structure can support additional dead load", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Preliminary site plan/plot plan showing size and shape of the property", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Panel layout and electrical schematics",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Engineering certification verifying existing roof structure can support additional dead load",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Preliminary site plan/plot plan showing size and shape of the property",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -67,22 +110,46 @@
       "Inspections conducted 11:00 AM-1:00 PM"
     ],
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 15, "max_days": 30, "notes": "The city's general permit FAQ states more complex projects typically require 15 to 30 working days, though simpler installations may process faster; this is a general figure, not solar-specific." },
+    "value": {
+      "min_days": 15,
+      "max_days": 30,
+      "notes": "The city's general permit FAQ states more complex projects typically require 15 to 30 working days, though simpler installations may process faster; this is a general figure, not solar-specific."
+    },
     "confidence": 0.5,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "No solar-specific eligibility page was located this session; the general permit FAQ does not address solar system size or eligibility limits." },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No solar-specific eligibility page was located this session; the general permit FAQ does not address solar system size or eligibility limits."
+  },
   "permit_fees": {
     "value": [
-      { "name": "Building permit fee (general, varies by project scope)", "amount_usd": 39.5, "unit": "flat", "notes": "The city's general FAQ states fees range 'from $39.50 and up' depending on project scope; not a solar-specific figure." }
+      {
+        "name": "Building permit fee (general, varies by project scope)",
+        "amount_usd": 39.5,
+        "unit": "flat",
+        "notes": "The city's general FAQ states fees range 'from $39.50 and up' depending on project scope; not a solar-specific figure."
+      }
     ],
     "confidence": 0.45,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -101,7 +168,10 @@
       }
     ],
     "confidence": 0.75,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

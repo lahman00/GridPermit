@@ -1,10 +1,13 @@
 {
   "record_id": "ca-santa-clara-milpitas-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.75,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Silicon Valley Clean Energy's own 2020 Community Benefits Summary for Milpitas footnotes emissions figures as 'based on reported PG&E and SVCE carbon emissions factors,' consistent with PG&E remaining the underlying transmission/distribution/billing utility while SVCE is a separate default generation supplier (see generation_supplier) — the same structure independently confirmed for every other PG&E-territory CCA city this session, though this specific document does not contain an explicit 'PG&E delivers/bills' sentence the way some other cities' CCA pages do."
   },
   "generation_supplier": {
@@ -14,29 +17,46 @@
       "notes": "Silicon Valley Clean Energy's own 2020 Community Benefits Summary states: 'In 2016, the City of Milpitas and twelve other local communities formed Silicon Valley Clean Energy (SVCE) to provide the region with clean electricity at competitive rates.' The specific default product/tier name (e.g. GreenStart vs. GreenPrime) is not stated in this document, so it is left unspecified rather than assumed."
     },
     "confidence": 0.85,
-    "source_ids": ["S4"]
+    "source_ids": [
+      "S4"
+    ]
   },
-  "city": { "value": "Milpitas", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Milpitas",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Santa Clara County",
     "confidence": 0.8,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SVCE's own summary describes Milpitas as one of 'the City of Milpitas and twelve other local communities' that formed the county-wide Silicon Valley Clean Energy agency, structurally confirming Milpitas's place within Santa Clara County (SVCE's well-established service area)."
   },
   "permit_authority": {
     "value": "City of Milpitas Office of Building Safety",
     "confidence": 0.9,
-    "source_ids": ["S1", "S2"]
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://www.milpitas.gov/220/Solar-Panel-Photovoltaic",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same PG&E-wide Net Energy Metering program URL already verified for other PG&E-territory records this session — reused as a utility-level fact. pge.com returns HTTP 403 to automated fetch; confirmed to exist via search engine indexing under its expected title."
   },
   "battery_programs": {
@@ -56,18 +76,47 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Same statewide CPUC/PG&E-administered SGIP program already verified for other PG&E-territory records this session, reused here as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ PV Eligibility Checklist (for photovoltaic-only systems)", "required_when": "SolarAPP+ pathway, PV only", "source_ids": ["S3"] },
-      { "name": "SolarAPP+ PV+Battery Storage Eligibility Checklist", "required_when": "SolarAPP+ pathway, systems including battery storage", "source_ids": ["S3"] },
-      { "name": "Complete set of design drawings and documents (for standard/non-SolarAPP+ submittals)", "required_when": "standard electronic plan submittal", "source_ids": ["S3"] },
-      { "name": "Electrical plans provided to the City inspector at the job site", "required_when": "standard permit types (ONL SOL, ONL SOL WITH PANEL)", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ PV Eligibility Checklist (for photovoltaic-only systems)",
+        "required_when": "SolarAPP+ pathway, PV only",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "SolarAPP+ PV+Battery Storage Eligibility Checklist",
+        "required_when": "SolarAPP+ pathway, systems including battery storage",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Complete set of design drawings and documents (for standard/non-SolarAPP+ submittals)",
+        "required_when": "standard electronic plan submittal",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Electrical plans provided to the City inspector at the job site",
+        "required_when": "standard permit types (ONL SOL, ONL SOL WITH PANEL)",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1", "S3"],
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
     "notes": "The two SolarAPP+ eligibility checklist URLs (solarapp.nrel.gov) are the national SolarAPP+ platform's own standard checklists referenced by Milpitas's SolarAPP+ page, not a Milpitas-specific document."
   },
   "inspection_steps": {
@@ -78,13 +127,21 @@
       "Schedule an inspection following the City's Building Inspection Request Procedures"
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "No specific permit review/issuance timeline (in days) was stated on either Milpitas page reviewed this session." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific permit review/issuance timeline (in days) was stated on either Milpitas page reviewed this session."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": 10,
       "thermal_capacity_kw_max": null,
@@ -96,11 +153,17 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Milpitas's own page states these caps explicitly as DC (unlike several other cities' AC-stated or unit-unspecified caps) — recorded under system_size_kw_dc_max rather than system_size_kw_ac_max to preserve that distinction."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "Milpitas's Solar Panel page references 'Solar Panel Permit Fees can be found in the Building Fee Schedule on page 10' but does not state a specific dollar amount on the page itself, and the fee schedule document was not located/read this session." },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Milpitas's Solar Panel page references 'Solar Panel Permit Fees can be found in the Building Fee Schedule on page 10' but does not state a specific dollar amount on the page itself, and the fee schedule document was not located/read this session."
+  },
   "rebates": {
     "value": [
       {
@@ -118,7 +181,9 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Directly quoted from SVCE's Milpitas Community Benefits Summary: 'Customers can make their homes more energy resilient and receive an additional $1,250 in rebates when you install solar + home battery storage.' This document (dated 2020) does not state current eligibility rules, an expiration date, or whether the program is still active — status recorded as 'unknown' rather than assumed active or expired."
   },
   "official_contacts": {
@@ -139,7 +204,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2", "S7"]
+    "source_ids": [
+      "S2",
+      "S7"
+    ]
   },
   "last_verified": "2026-08-03",
   "sources": [

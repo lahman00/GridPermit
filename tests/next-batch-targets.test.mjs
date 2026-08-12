@@ -132,7 +132,7 @@ test("every target's locality file exists on disk and is a valid, matching recor
 		assert.ok(existsSync(localityPath), `${target.locality_file} should exist — this batch has been collected`);
 		const record = JSON.parse(readFileSync(localityPath, "utf8"));
 		assert.equal(record.record_id, target.record_id);
-		assert.equal(record.schema_version, "1.3.0");
+		assert.equal(record.schema_version, "1.4.0");
 	}
 });
 

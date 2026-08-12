@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-ontario-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Ontario' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "No official Ontario city page or CCA program page confirming CCA membership was found this session. Community Choice Aggregators such as Clean Power Alliance operate only in Los Angeles and Ventura counties (per their own materials cited elsewhere this session), not in San Bernardino County, but no direct city-level confirmation of the absence of any CCA program was found either, so this is left null rather than asserted."
   },
-  "city": { "value": "Ontario", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Ontario",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Bernardino County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Ontario is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Ontario Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.ontarioca.gov/government/community-development/building/apply-residential-reroof-and-solar-permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,15 +70,25 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S7"] }
+      {
+        "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Ontario Municipal Code Section 8-8.03(a),(d)-(e): the Building Department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the City's website."
   },
   "inspection_steps": {
@@ -71,7 +98,9 @@
       "If a system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Ontario Municipal Code Section 8-8.04(e)-(g)."
   },
   "timeline_days": {
@@ -81,11 +110,15 @@
       "notes": "The City's own page states 'Contractors and homeowners seeking to pull permits will be able to apply for instantaneous solar plan review approval...via this Symbium portal.'"
     },
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -97,10 +130,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -119,7 +162,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2", "S6"]
+    "source_ids": [
+      "S2",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [

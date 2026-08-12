@@ -1,6 +1,7 @@
 {
   "record_id": "ca-orange-costa-mesa-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -83,10 +84,18 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S7"] }
+      {
+        "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Costa Mesa Municipal Code Section 5-142(A),(D)-(E): the building department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the city's website. Plans and permits are submitted via the City's TESSA online portal (per the City's own 'Solar Submittal Requirements' page)."
   },
   "inspection_steps": {
@@ -96,7 +105,9 @@
       "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per Costa Mesa Municipal Code Section 5-143(G)-(I)."
   },
   "timeline_days": {
@@ -106,11 +117,16 @@
       "notes": "Costa Mesa Municipal Code Section 5-143(A): 'For an application for a small residential rooftop solar energy system that meets the requirements of the approved checklist and standard plan, the building department shall issue a building permit or other non-discretionary permit within three business days.'"
     },
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -121,7 +137,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "permit_fees": {
     "value": null,

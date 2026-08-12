@@ -84,6 +84,7 @@ test("withFallback renders null/undefined values as Not yet verified.", () => {
 
 function buildRecord(overrides = {}) {
 	return {
+		state: "CA",
 		city: { value: "Oakland" },
 		utility: { value: "Pacific Gas and Electric Company (PG&E)" },
 		generation_supplier: { value: null },
@@ -217,6 +218,7 @@ test("buildBreadcrumbItems supports a custom page label and keeps Home/Californi
 
 test("buildFaqs does not crash when generation_supplier, timeline_days, and official_contacts are entirely absent from the record", () => {
 	const sparseRecord = {
+		state: "CA",
 		city: { value: "Oakland" },
 		utility: { value: "Pacific Gas and Electric Company (PG&E)" },
 		generation_supplier: { value: null },

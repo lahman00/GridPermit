@@ -1,10 +1,13 @@
 {
   "record_id": "ca-santa-clara-palo-alto-cpau",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "City of Palo Alto Utilities (CPAU)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "CPAU is the City of Palo Alto's own municipal utility, providing electricity, water, wastewater, natural gas, and fiber optics, with its own net-metering rules and rebate programs distinct from PG&E. Palo Alto is not served by PG&E for electric delivery."
   },
   "generation_supplier": {
@@ -14,45 +17,138 @@
       "notes": "CPAU is a vertically-integrated municipal utility (like Riverside Public Utilities, Banning Electric Utility, Burbank Water and Power, and Glendale Water and Power) — it generates/procures and delivers its own power rather than sitting alongside a separate CCA. No Community Choice Aggregator was found serving Palo Alto in the sources reviewed this session."
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Palo Alto", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Santa Clara County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Palo Alto",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Santa Clara County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Palo Alto Utilities (CPAU) / Development Services",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Palo Alto requires a two-step process: Electric Utilities Pre-Approval from CPAU, then a building/electrical permit from Development Services."
   },
   "permit_url": {
     "value": "https://www.paloalto.gov/Departments/Planning-Development-Services/Development-Services/Start-the-Permit-Process/Apply-for-a-Residential-SolarAPP-Permit",
     "confidence": 0.9,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "The City's website migrated from cityofpaloalto.org to paloalto.gov; the previous permit_url (cityofpaloalto.org) now 404s. Updated to the current live 'Apply for a Residential SolarAPP+ Permit' page, found this session."
   },
   "interconnection_url": {
     "value": "https://www.paloalto.gov/Departments/Utilities/Electrification/Electrify-My-Home/Consider-Solar",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "CPAU's own 'Consider Solar' page (current domain, paloalto.gov); Palo Alto's interconnection ('Permission to Operate') process is run by CPAU itself rather than an outside IOU. The previous cityofpaloalto.org interconnection_url is dead (404) after the City's site migration; S1 updated to the current live page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "Site Plan/Roof Plan (existing main panel/amperage, proposed PV location, related equipment, roof penetrations, setbacks)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Elevation Plan (only if structure/equipment is in a flood plain and equipment is installed outside)", "required_when": "conditional", "source_ids": ["S7"] },
-      { "name": "Structural Attachment Details and Waterproofing Details", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Three-Line Electrical Diagram", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Signage and Labeling Plan (rapid shutdown means)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Structural Calculation (ballast system, standing seam roofs, tilt-up systems, etc., as applicable)", "required_when": "conditional", "source_ids": ["S7"] },
-      { "name": "Residential Electrical Load Calculation", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "CPAU Electrification Load Sheet", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "CPAU Interconnection Agreement (signed by owner)", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "PV/ESS/Inverter manufacturer technical datasheets", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "SolarAPP+ Approval Document and SolarAPP+ Spec Sheet (SolarAPP+ pathway only)", "required_when": "conditional", "source_ids": ["S6"] }
+      {
+        "name": "Site Plan/Roof Plan (existing main panel/amperage, proposed PV location, related equipment, roof penetrations, setbacks)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Elevation Plan (only if structure/equipment is in a flood plain and equipment is installed outside)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Structural Attachment Details and Waterproofing Details",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Three-Line Electrical Diagram",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Signage and Labeling Plan (rapid shutdown means)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Structural Calculation (ballast system, standing seam roofs, tilt-up systems, etc., as applicable)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Residential Electrical Load Calculation",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "CPAU Electrification Load Sheet",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "CPAU Interconnection Agreement (signed by owner)",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "PV/ESS/Inverter manufacturer technical datasheets",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Approval Document and SolarAPP+ Spec Sheet (SolarAPP+ pathway only)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S6"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S6", "S7"],
+    "source_ids": [
+      "S6",
+      "S7"
+    ],
     "notes": "Combines the City's own step-by-step SolarAPP+ permit application page with its Residential Photovoltaic System (PV) Submittal Checklist PDF (2026)."
   },
   "inspection_steps": {
@@ -61,7 +157,9 @@
       "Required inspection: '703 Photovoltaic Final' (per the City's Residential PV Inspection Guidelines)"
     ],
     "confidence": 0.75,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "timeline_days": {
     "value": {
@@ -70,11 +168,15 @@
       "notes": "The City's own SolarAPP+ page states eligible PV and combined PV/ESS projects 'can bypass the standard building permit process through automated review and instant building permit issuance for licensed contractors.' Non-qualifying projects (e.g. over 38.4kW, ground-mounted, non-single-family, electrical service upgrades) go through standard review instead, previously estimated at roughly 3 business days but not confirmed on this specific page this session. Separately, CPAU's utility interconnection ('Permission to Operate') can take 2-12 weeks after the system passes inspection."
     },
     "confidence": 0.75,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -87,16 +189,30 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ Administration Fee", "amount_usd": 25, "unit": "flat fee", "notes": "Charged through the SolarAPP+ approval process, per the City's own SolarAPP+ page. This is separate from any standard City building permit fees, which were not confirmed this session." }
+      {
+        "name": "SolarAPP+ Administration Fee",
+        "amount_usd": 25,
+        "unit": "flat fee",
+        "notes": "Charged through the SolarAPP+ approval process, per the City's own SolarAPP+ page. This is separate from any standard City building permit fees, which were not confirmed this session."
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [], "notes": "CPAU's own 'Consider Solar' page states federal solar/battery tax credits expired December 31, 2025, and while it says CPAU 'continues to offer residents rebates to help electrify their homes,' its own 'Programs and incentives for solar and battery storage' section describes only a free phone-based Energy Advisor service, not a specific dollar-value solar or battery hardware rebate; no such rebate figure was found this session." },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "CPAU's own 'Consider Solar' page states federal solar/battery tax credits expired December 31, 2025, and while it says CPAU 'continues to offer residents rebates to help electrify their homes,' its own 'Programs and incentives for solar and battery storage' section describes only a free phone-based Energy Advisor service, not a specific dollar-value solar or battery hardware rebate; no such rebate figure was found this session."
+  },
   "official_contacts": {
     "value": [
       {
@@ -108,7 +224,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-10",
   "sources": [

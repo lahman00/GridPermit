@@ -1,10 +1,14 @@
 {
   "record_id": "ca-orange-mission-viejo-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.75,
-    "source_ids": ["S2", "S1"],
+    "source_ids": [
+      "S2",
+      "S1"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Mission Viejo' by name among the cities in its service area. IMPORTANT CAVEAT: the City of Mission Viejo's own Eligibility Checklist for Expedited Solar Photovoltaic Permitting explicitly includes a checkbox for applicants to specify their electric utility as either 'SDG&E' or 'SCE', directly confirming Mission Viejo (like neighboring Laguna Niguel and Laguna Hills) is split between SCE and San Diego Gas & Electric territory. This record covers the SCE-served portion of the city only. Confidence reduced from the usual 0.9 to reflect this genuine split-territory complexity."
   },
   "generation_supplier": {
@@ -13,27 +17,41 @@
     "source_ids": [],
     "notes": "Orange County Power Authority (OCPA), the CCA operating in Orange County, currently names Buena Park, Fullerton, Irvine, and Fountain Valley as members — Mission Viejo was not named among current members this session (only identified as a city that theoretically 'may want to join'). Left null rather than asserted either way."
   },
-  "city": { "value": "Mission Viejo", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Mission Viejo",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Mission Viejo is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Mission Viejo Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.missionviejo.gov/sites/default/files/Documents/2017-PV-Eligibility-&-Structural-Criteria-Checklists.pdf",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.55,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — applies only to the SCE-served portion of Mission Viejo; SDG&E-served residents would use SDG&E's own NEM program instead, which was not researched for this city this session."
   },
   "battery_programs": {
@@ -53,18 +71,46 @@
       }
     ],
     "confidence": 0.55,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact — applies to the SCE-served portion of the city only."
   },
   "required_documents": {
     "value": [
-      { "name": "Completed Eligibility Checklist for Expedited Solar Photovoltaic Permitting (job address, contractor/engineer license info, system size, module count, disconnects, conduit length, inverter count)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Permit application", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Structural Criteria documentation, or (if any structural checklist item fails) project-specific drawings and calculations wet-stamped and signed by a California-licensed civil or structural engineer", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Roof plan/diagram of module and anchor layout, clear access pathways, and electrical disconnect/roof access point locations", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Completed Eligibility Checklist for Expedited Solar Photovoltaic Permitting (job address, contractor/engineer license info, system size, module count, disconnects, conduit length, inverter count)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Permit application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural Criteria documentation, or (if any structural checklist item fails) project-specific drawings and calculations wet-stamped and signed by a California-licensed civil or structural engineer",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan/diagram of module and anchor layout, clear access pathways, and electrical disconnect/roof access point locations",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -72,13 +118,21 @@
       "Inspections are conducted the next business day; requests must be submitted before 4:00 PM the day before the desired inspection date"
     ],
     "confidence": 0.7,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "This is the City's general Building Services inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -93,17 +147,35 @@
       ]
     },
     "confidence": 0.95,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Residential Solar Systems up to and including 15kW (AB 1414)", "amount_usd": 450, "unit": "flat fee", "notes": "Per the City's own Building Division Fee Schedule (effective April 1, 2023)." },
-      { "name": "Residential Solar Systems per kW above 15kW (AB 1414)", "amount_usd": 15, "unit": "per kW", "notes": "Per the City's own Building Division Fee Schedule (effective April 1, 2023)." }
+      {
+        "name": "Residential Solar Systems up to and including 15kW (AB 1414)",
+        "amount_usd": 450,
+        "unit": "flat fee",
+        "notes": "Per the City's own Building Division Fee Schedule (effective April 1, 2023)."
+      },
+      {
+        "name": "Residential Solar Systems per kW above 15kW (AB 1414)",
+        "amount_usd": 15,
+        "unit": "per kW",
+        "notes": "Per the City's own Building Division Fee Schedule (effective April 1, 2023)."
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -122,7 +194,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

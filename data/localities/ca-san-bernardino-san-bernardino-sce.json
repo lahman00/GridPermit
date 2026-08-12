@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-san-bernardino-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'San Bernardino' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,22 +16,40 @@
     "source_ids": [],
     "notes": "No Community Choice Aggregator was confirmed serving the City of San Bernardino this session."
   },
-  "city": { "value": "San Bernardino", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "San Bernardino",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Bernardino County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of San Bernardino Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.sanbernardino.gov/1650/Apply-for-Residential-Solar-Permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -48,36 +69,86 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Permit Application", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Contractor/Owner Builders Declarations", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Eligibility Checklist for Expedited Residential Solar Permitting", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Hard copies of plans (11x17), specifications, calculations, and job card", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Active City Business License", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Notarized authorization letter (if signed by contractor representative)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Contractor/Owner Builders Declarations",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Eligibility Checklist for Expedited Residential Solar Permitting",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Hard copies of plans (11x17), specifications, calculations, and job card",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Active City Business License",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Notarized authorization letter (if signed by contractor representative)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
       "Legible site maps (11x14), single-line diagrams, specification sheets (8x11), inspection checklists, and job cards must be onsite in hard-copy format during inspection"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 1, "max_days": 3, "notes": "Permit processing for expedited/streamlined application types may take approximately 1-3 business days, depending on staff availability; standard review may take longer." },
+    "value": {
+      "min_days": 1,
+      "max_days": 3,
+      "notes": "Permit processing for expedited/streamlined application types may take approximately 1-3 business days, depending on staff availability; standard review may take longer."
+    },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -89,10 +160,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -111,7 +192,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

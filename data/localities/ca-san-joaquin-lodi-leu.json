@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-joaquin-lodi-leu",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Lodi Electric Utility (LEU)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Lodi Electric Utility is the City of Lodi's own municipal electric utility, distinct from PG&E. The city's own materials confirm 'solar/battery interconnection goes through LEU not PG&E' and that all residential solar installations require LEU pre-approval before a City building permit can be obtained."
   },
   "generation_supplier": {
@@ -14,28 +17,44 @@
       "notes": "LEU is a vertically-integrated municipal utility — it generates/procures and delivers its own power rather than sitting alongside a separate CCA, consistent with the pattern already established for MID, TID, SMUD, and Roseville Electric this session."
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Lodi", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Lodi",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Joaquin County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Lodi Community Development Department, Building and Safety Inspection Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.lodi.gov/1291/Steps-for-Going-Solar",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.lodi.gov/DocumentCenter/View/2845/Rule-No-21-PDF",
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Lodi Electric Utility's own interconnection rule (Rule No. 21), identified via search-engine indexing; not independently fetched this session."
   },
   "battery_programs": {
@@ -46,12 +65,32 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Last 12 months of utility bill usage history (used to determine maximum allowable system size)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Written estimates from at least three solar contractors", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "System plans and proposed system size, submitted by the contractor to LEU for pre-approval", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Last 12 months of utility bill usage history (used to determine maximum allowable system size)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Written estimates from at least three solar contractors",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "System plans and proposed system size, submitted by the contractor to LEU for pre-approval",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -60,16 +99,26 @@
       "After meter installation, authorization to energize the system is issued, and a Permission to Operate (PTO) certificate is generated"
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 10, "max_days": 14, "notes": "LEU's pre-approval review (required before a building permit can be obtained) can take up to two weeks; after passing final inspection, solar meter installation occurs within 10 business days." },
+    "value": {
+      "min_days": 10,
+      "max_days": 14,
+      "notes": "LEU's pre-approval review (required before a building permit can be obtained) can take up to two weeks; after passing final inspection, solar meter installation occurs within 10 business days."
+    },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -80,10 +129,21 @@
       ]
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page does not specify fee amounts." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city's page does not specify fee amounts."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -109,7 +169,9 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

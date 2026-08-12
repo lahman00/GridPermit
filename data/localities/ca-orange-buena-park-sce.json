@@ -1,10 +1,13 @@
 {
   "record_id": "ca-orange-buena-park-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Buena Park' by name among the cities in its service area. Buena Park's own OCPA page also confirms SCE handles transmission, distribution, metering, and billing."
   },
   "generation_supplier": {
@@ -14,29 +17,45 @@
       "notes": "Confirmed directly via the City of Buena Park's own page: 'New customer accounts will be automatically enrolled at Smart Choice' as the default 2026 energy plan. Buena Park is a founding OCPA member city. Customers may switch plans or opt out to SCE generation at any time without fees."
     },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Buena Park", "confidence": 1, "source_ids": ["S3"] },
+  "city": {
+    "value": "Buena Park",
+    "confidence": 1,
+    "source_ids": [
+      "S3"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Buena Park is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Buena Park Building Division",
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "permit_url": {
     "value": "https://www.buenapark.com/_T2_R298.php",
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -56,20 +75,61 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Completed Eligibility Checklist for Expedited Solar Voltaic Permitting (job address, permit number, and initialed general/electrical/structural/fire-safety items)", "required_when": "conditional", "source_ids": ["S6"] },
-      { "name": "Completed permit application", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Solar PV Plan and supporting documentation", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Structural Criteria and supporting documentation", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Roof layout diagram showing all panels, modules, clear access pathways, and approximate locations of electrical disconnects and roof access points", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Valid contractor's license and business license (verified automatically by Symbium)", "required_when": "always", "source_ids": ["S3"] }
+      {
+        "name": "Completed Eligibility Checklist for Expedited Solar Voltaic Permitting (job address, permit number, and initialed general/electrical/structural/fire-safety items)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Completed permit application",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Solar PV Plan and supporting documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Structural Criteria and supporting documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Roof layout diagram showing all panels, modules, clear access pathways, and approximate locations of electrical disconnects and roof access points",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Valid contractor's license and business license (verified automatically by Symbium)",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S3", "S6"]
+    "source_ids": [
+      "S3",
+      "S6"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -77,12 +137,21 @@
       "The inspector conducts a plan review and inspection of the system, comparing it to the checklist — any deviation requires new plans to be submitted for review under the standard (non-expedited) process"
     ],
     "confidence": 0.85,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page describes Symbium as providing 'no wait time for City review' for eligible expedited submissions, but does not state a specific number of days for the standard review pathway." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city's page describes Symbium as providing 'no wait time for City review' for eligible expedited submissions, but does not state a specific number of days for the standard review pathway."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -96,10 +165,21 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "Permit fees are paid directly through the Symbium platform, but no dollar amount is stated on the city's page." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Permit fees are paid directly through the Symbium platform, but no dollar amount is stated on the city's page."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -118,7 +198,10 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S6", "S7"]
+    "source_ids": [
+      "S6",
+      "S7"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

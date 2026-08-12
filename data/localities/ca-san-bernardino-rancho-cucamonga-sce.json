@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-rancho-cucamonga-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Rancho Cucamonga' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "No official Rancho Cucamonga city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Rancho Cucamonga", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Rancho Cucamonga",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Bernardino County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Rancho Cucamonga is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Rancho Cucamonga Building and Safety Department",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityofrc.us/community-development/building-safety/solar-permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,16 +70,32 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Solar submittal checklist appropriate to project type (detached single-family, attached single-family, multi-family, ADU, or mixed-use)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ certified-installer plan review approval (for eligible single-family/duplex projects only)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Solar submittal checklist appropriate to project type (detached single-family, attached single-family, multi-family, ADU, or mixed-use)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ certified-installer plan review approval (for eligible single-family/duplex projects only)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The city references a comprehensive submittal checklist document by project type but the specific line items were not extracted from the page content this session."
   },
   "inspection_steps": {
@@ -71,12 +104,21 @@
       "For inspection questions or issues, text (909) 303-1786 or call (909) 477-2710, 7:30 am to 6:00 pm"
     ],
     "confidence": 0.75,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -87,18 +129,41 @@
       ]
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Solar/Photovoltaic up to 15 kW (Residential)", "amount_usd": 181, "unit": "flat fee", "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26." },
-      { "name": "Solar/Photovoltaic - each kW over 15 kW (Residential)", "amount_usd": 14, "unit": "per kW", "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26." },
-      { "name": "Energy Storage System", "amount_usd": 233, "unit": "flat fee", "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26." }
+      {
+        "name": "Solar/Photovoltaic up to 15 kW (Residential)",
+        "amount_usd": 181,
+        "unit": "flat fee",
+        "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26."
+      },
+      {
+        "name": "Solar/Photovoltaic - each kW over 15 kW (Residential)",
+        "amount_usd": 14,
+        "unit": "per kW",
+        "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26."
+      },
+      {
+        "name": "Energy Storage System",
+        "amount_usd": 233,
+        "unit": "flat fee",
+        "notes": "Per the City's own Community Development Fee Schedule, effective 7/1/26."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S8"]
+    "source_ids": [
+      "S8"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -117,7 +182,10 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

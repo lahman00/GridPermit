@@ -1,10 +1,13 @@
 {
   "record_id": "ca-orange-la-habra-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'La Habra' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "Orange County Power Authority (OCPA), the CCA operating in Orange County, currently names Buena Park, Fullerton, Irvine, and Fountain Valley as members — La Habra was not named among current members this session. Left null rather than asserted either way."
   },
-  "city": { "value": "La Habra", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "La Habra",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "La Habra is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of La Habra Building and Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://lahabraca.gov/DocumentCenter/View/4307/PV-Toolkit_1-revised",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,19 +70,53 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Completed permit application form", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Eligibility checklist for expedited permitting (Toolkit Document 2)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Standard Electrical Plan (Toolkit Document 3 or 4, for systems 10kW or less) or a full electrical plan with equipment cut sheets, labeling, and site diagram", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Roof plan showing layout, PV panels, and fire safety items (access point, access pathways, fire classification, required labels/markings)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Expedited Structural Criteria (Toolkit Document 5) for qualifying systems, or full structural drawings/calculations stamped by a California-licensed Civil or Structural Engineer for non-qualifying systems", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Completed permit application form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Eligibility checklist for expedited permitting (Toolkit Document 2)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Standard Electrical Plan (Toolkit Document 3 or 4, for systems 10kW or less) or a full electrical plan with equipment cut sheets, labeling, and site diagram",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan showing layout, PV panels, and fire safety items (access point, access pathways, fire classification, required labels/markings)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Expedited Structural Criteria (Toolkit Document 5) for qualifying systems, or full structural drawings/calculations stamped by a California-licensed Civil or Structural Engineer for non-qualifying systems",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.95,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -74,16 +125,26 @@
       "Approved plans must be on the job site and accessible to the inspector, or a re-inspection fee applies"
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 3, "max_days": 3, "notes": "Per the city's own Submittal Requirements Bulletin (Rev. 01/26): 'Permit applications should be reviewed in three working days.'" },
+    "value": {
+      "min_days": 3,
+      "max_days": 3,
+      "notes": "Per the city's own Submittal Requirements Bulletin (Rev. 01/26): 'Permit applications should be reviewed in three working days.'"
+    },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -94,16 +155,29 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Standard-plan solar photovoltaic permit fee", "amount_usd": 500, "unit": "flat_not_to_exceed", "notes": "Per the city's own bulletin: 'Fees will not exceed $500.00 for systems utilizing the standard plan.' Plan check fee is hourly (1-hour minimum) if a standard plan is not used; permit fees for non-standard-plan systems are based on construction valuation. Electrical permits apply only if an electrical panel upgrade is proposed (separate permit). Strong Motion Tax and CBSC fees also apply. Re-inspection fees apply if more than one inspection is required." }
+      {
+        "name": "Standard-plan solar photovoltaic permit fee",
+        "amount_usd": 500,
+        "unit": "flat_not_to_exceed",
+        "notes": "Per the city's own bulletin: 'Fees will not exceed $500.00 for systems utilizing the standard plan.' Plan check fee is hourly (1-hour minimum) if a standard plan is not used; permit fees for non-standard-plan systems are based on construction valuation. Electrical permits apply only if an electrical panel upgrade is proposed (separate permit). Strong Motion Tax and CBSC fees also apply. Re-inspection fees apply if more than one inspection is required."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -122,7 +196,10 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

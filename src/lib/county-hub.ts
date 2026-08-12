@@ -5,6 +5,7 @@
 // city guides themselves use; nothing county-specific is invented.
 
 import { citySlug, guideUrlForCitySlug, utilityShortName, type LocalityRecord } from "./locality-guide.ts";
+import { stateMeta } from "./state-meta.ts";
 
 // Below this many READY cities, a county hub would be a link list with no
 // real navigation or context value — see docs/DATA_ARCHITECTURE.md and the
@@ -32,6 +33,9 @@ export interface CountyCityEntry {
 export interface CountyHubData {
 	county: string;
 	countySlug: string;
+	state: string;
+	stateName: string;
+	stateSlug: string;
 	cities: CountyCityEntry[];
 	utilities: string[]; // short names, deduped, alphabetical
 	countyContractedCities: string[]; // city names only
@@ -63,38 +67,47 @@ export function buildCountyHubs(
 	evaluationRecords: ReadyEvaluationSummary[],
 	recordsById: Map<string, LocalityRecord>,
 ): CountyHubData[] {
-	const byCounty = new Map<string, CountyCityEntry[]>();
+	// Keyed by "STATE::County Name", not county name alone — a county name is
+	// not unique across states (and even where it happens to be, its READY
+	// cities must never be mixed into one hub page spanning two states). See
+	// the identical fix in src/lib/utility-hub.ts.
+	const byCounty = new Map<string, { state: string; county: string; cities: CountyCityEntry[] }>();
 	for (const evalRecord of evaluationRecords) {
 		if (evalRecord.readiness !== "READY") continue;
 		const record = recordsById.get(evalRecord.record_id);
 		if (!record || !record.county?.value) continue;
 		const county = record.county.value;
+		const key = `${record.state}::${county}`;
 		const slug = citySlug(record.city.value);
 		const entry: CountyCityEntry = {
 			city: record.city.value,
 			citySlug: slug,
-			guideUrl: guideUrlForCitySlug(slug),
+			guideUrl: guideUrlForCitySlug(record.state, slug),
 			utility: record.utility.value,
 			utilityShort: utilityShortName(record.utility.value),
 			permitAuthority: record.permit_authority?.value ?? null,
 			countyContracted: isCountyContracted(record.permit_authority?.value ?? null, county),
 		};
-		if (!byCounty.has(county)) byCounty.set(county, []);
-		byCounty.get(county)!.push(entry);
+		if (!byCounty.has(key)) byCounty.set(key, { state: record.state, county, cities: [] });
+		byCounty.get(key)!.cities.push(entry);
 	}
 
 	const hubs: CountyHubData[] = [];
-	for (const [county, cities] of byCounty) {
+	for (const { state, county, cities } of byCounty.values()) {
 		if (cities.length < MIN_READY_CITIES_FOR_HUB) continue;
 		cities.sort((a, b) => a.city.localeCompare(b.city));
 		const utilities = [...new Set(cities.map((c) => c.utilityShort).filter((u): u is string => Boolean(u)))].sort();
+		const stateInfo = stateMeta(state);
 		hubs.push({
 			county,
 			countySlug: countySlug(county),
+			state: stateInfo.code,
+			stateName: stateInfo.name,
+			stateSlug: stateInfo.slug,
 			cities,
 			utilities,
 			countyContractedCities: cities.filter((c) => c.countyContracted).map((c) => c.city),
 		});
 	}
-	return hubs.sort((a, b) => a.county.localeCompare(b.county));
+	return hubs.sort((a, b) => a.stateSlug.localeCompare(b.stateSlug) || a.county.localeCompare(b.county));
 }

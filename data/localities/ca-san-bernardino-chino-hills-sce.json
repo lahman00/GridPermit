@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-chino-hills-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Chino Hills' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "No official Chino Hills city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Chino Hills", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Chino Hills",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Bernardino County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Chino Hills is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Chino Hills Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.chinohills.org/1926/Residential-Solar",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,30 +70,60 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Project-specific SolarApp+ approval documentation (for SolarApp+ applicants)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Chino Valley Fire District approved project plans (separate submittal)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Signed Smoke and Carbon Monoxide Detector/Alarm form (upon plan approval, for SolarApp+ applicants)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Project-specific SolarApp+ approval documentation (for SolarApp+ applicants)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Chino Valley Fire District approved project plans (separate submittal)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed Smoke and Carbon Monoxide Detector/Alarm form (upon plan approval, for SolarApp+ applicants)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
       "Inspections occur during the installation process to verify compliance with approved plans"
     ],
     "confidence": 0.5,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The city's page describes this in general terms without a specific step-by-step scheduling procedure."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -88,21 +135,54 @@
       ]
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Photovoltaic Permit - Single-Family Home, Roof Mounted", "amount_usd": 450, "unit": "flat", "notes": "Per Gov Code 66015. General Plan Surcharge Fee and Technology Fee (6% of building fees) also apply." },
-      { "name": "Photovoltaic Permit - Multi-Family or Commercial, Roof Mounted", "amount_usd": 1000, "unit": "flat", "notes": "Per Gov Code 66015." },
-      { "name": "Photovoltaic Permit - Residential, Ground Mounted", "amount_usd": 450, "unit": "flat", "notes": "Per Gov Code 66015." },
-      { "name": "Photovoltaic Permit - Commercial, Ground Mounted", "amount_usd": 1000, "unit": "flat", "notes": "Per Gov Code 66015." },
-      { "name": "Energy Storage System (not integrated with PV system)", "amount_usd": 269, "unit": "flat", "notes": null }
+      {
+        "name": "Photovoltaic Permit - Single-Family Home, Roof Mounted",
+        "amount_usd": 450,
+        "unit": "flat",
+        "notes": "Per Gov Code 66015. General Plan Surcharge Fee and Technology Fee (6% of building fees) also apply."
+      },
+      {
+        "name": "Photovoltaic Permit - Multi-Family or Commercial, Roof Mounted",
+        "amount_usd": 1000,
+        "unit": "flat",
+        "notes": "Per Gov Code 66015."
+      },
+      {
+        "name": "Photovoltaic Permit - Residential, Ground Mounted",
+        "amount_usd": 450,
+        "unit": "flat",
+        "notes": "Per Gov Code 66015."
+      },
+      {
+        "name": "Photovoltaic Permit - Commercial, Ground Mounted",
+        "amount_usd": 1000,
+        "unit": "flat",
+        "notes": "Per Gov Code 66015."
+      },
+      {
+        "name": "Energy Storage System (not integrated with PV system)",
+        "amount_usd": 269,
+        "unit": "flat",
+        "notes": null
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "From the City of Chino Hills Building Services fee schedule, effective July 1, 2026 (the current schedule as of this session). SolarApp+ submissions separately incur a third-party administrative fee charged by SolarApp+ itself, not a city fee."
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -128,7 +208,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

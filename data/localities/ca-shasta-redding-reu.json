@@ -1,10 +1,13 @@
 {
   "record_id": "ca-shasta-redding-reu",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Redding Electric Utility (REU)",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City of Redding has operated its own municipal electric utility for over 100 years (celebrated its centennial in 2021), confirmed via the city's own REU pages. This is a municipal utility, not PG&E, independently confirmed rather than assumed from county location."
   },
   "generation_supplier": {
@@ -14,40 +17,82 @@
       "notes": "REU is a municipal utility, structurally outside CCA enrollment the same way as other municipal utilities in this dataset (Alameda Municipal Power, Gridley Electric Utility, Lompoc Utilities, TDPUD, Shasta Lake Municipal Utility, MID): a CCA only replaces the default generation of an underlying investor-owned utility's (PG&E/SCE/SDG&E) customers, and REU customers are never IOU customers. No CCA operating in Shasta County was found. REU is recorded as both the distribution and generation utility."
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Redding", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Shasta County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Redding",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Shasta County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "Redding Electric Utility (interconnection), then City of Redding Building Division (permit)",
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityofredding.gov/government/departments/redding_electric_utility/going_green/solar_photovoltaic_(pv)_program.php",
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The page returned HTTP 403 to automated fetch this session; detail is drawn from search-engine summaries."
   },
   "interconnection_url": {
     "value": "https://www.cityofredding.gov/government/departments/redding_electric_utility/going_green/solar_photovoltaic_(pv)_program.php",
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "REU's own Solar PV Program page; as a municipal utility, REU's own interconnection process applies rather than a statewide IOU NEM program."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "REU Solar PV Forms and Documents checklist (submitted to REU Customer Service before applying for a building permit)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "REU Solar PV Forms and Documents checklist (submitted to REU Customer Service before applying for a building permit)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -58,11 +103,25 @@
       ]
     },
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
-  "official_contacts": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "official_contacts": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "last_verified": "2026-08-09",
   "sources": [
     {

@@ -1,6 +1,7 @@
 {
   "record_id": "ca-santa-barbara-lompoc-lu",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Lompoc Utilities (Electric Division, City of Lompoc)",
     "confidence": 0.85,
@@ -53,23 +54,47 @@
   "interconnection_url": {
     "value": "https://www.cityoflompoc.com/government/departments/utilities/electric",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "The City of Lompoc Electric Division's own page, which hosts its full 10-step 'Solar and Self-generation Electric Facility and Energy Storage Installation Information' process, the Self-generating Electric Facility Installation and Interconnection Application, the Interconnection Agreement, and the Customer Owned Generation - Distribution Rate Schedule G-1. As a municipal utility, this replaces a statewide IOU NEM program."
   },
   "battery_programs": {
     "value": [],
     "confidence": 0.8,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Confirmed absence, not a guess: the City of Lompoc Electric Division's own page states, in its 'Solar and Self-generation Electric Facility and Energy Storage Installation Information' section (which explicitly covers Energy Storage Systems/ESS), 'The City of Lompoc does not currently provide rebates for self-generation systems.' No separate battery/storage incentive program was found."
   },
   "required_documents": {
     "value": [
-      { "name": "PV Installation and Interconnection Application (submitted to City of Lompoc Electric Utility division)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Signed/initialed 'Customer Owned Generation Rate Schedule G-1'", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ approval documents (downloaded after SolarAPP+ submittal and fee payment)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "PV Installation and Interconnection Application (submitted to City of Lompoc Electric Utility division)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed/initialed 'Customer Owned Generation Rate Schedule G-1'",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ approval documents (downloaded after SolarAPP+ submittal and fee payment)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Per the City's own 'SolarAPP+' page, Steps 1-3: Electric Utility pre-approval and rate-schedule sign-off must precede the SolarAPP+ submittal, whose approval documents are then emailed to the Building Division."
   },
   "inspection_steps": {
@@ -78,7 +103,9 @@
       "Have all approval paperwork and the inspection sheet on site for the inspector"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Per the City's own 'SolarAPP+' page, Step 4 (Request Inspection and Interconnectivity)."
   },
   "timeline_days": {
@@ -114,7 +141,9 @@
   "rebates": {
     "value": [],
     "confidence": 0.8,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Confirmed absence, not a guess: the City of Lompoc Electric Division's own page explicitly states 'The City of Lompoc does not currently provide rebates for self-generation systems,' directing applicants instead to the federal solar tax credit."
   },
   "official_contacts": {

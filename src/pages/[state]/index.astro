@@ -1,0 +1,268 @@
+---
+// One combined index + guide-list page per non-California state (California
+// keeps its own two pre-existing, already-indexed pages:
+// src/pages/california/index.astro and
+// src/pages/california/solar-permit-guides.astro — see
+// src/lib/locality-guide.ts's stateGuidesIndexUrl). A new state starts with
+// far fewer READY records than California, so one honest page beats two
+// thin ones; see docs/DATA_ARCHITECTURE.md's multi-state section and the
+// mission's own instruction not to manufacture pages with no real content.
+//
+// Entirely data-driven from output/*-evaluation.json + data/localities/*.json
+// via buildLocalityIndexEntries, filtered to this page's own state — no
+// city, utility, or supplier name is hardcoded here, matching
+// src/pages/california/solar-permit-guides.astro's approach exactly.
+import {
+	SITE_ORIGIN,
+	buildLocalityIndexEntries,
+	buildBreadcrumbSchema,
+	type LocalityRecord,
+} from "../../lib/locality-guide";
+import { STATE_META, SUPPORTED_STATE_CODES } from "../../lib/state-meta";
+import Analytics from "../../components/Analytics.astro";
+
+export async function getStaticPaths() {
+	// California is excluded — it has its own dedicated static pages, not
+	// this generic per-state template.
+	return SUPPORTED_STATE_CODES.filter((code) => code !== "CA").map((code) => ({
+		params: { state: STATE_META[code].slug },
+		props: { stateCode: code },
+	}));
+}
+
+const { stateCode } = Astro.props;
+const stateInfo = STATE_META[stateCode];
+
+const localityModules = import.meta.glob("../../../data/localities/*.json", { eager: true }) as Record<
+	string,
+	{ default: LocalityRecord & { record_id: string } }
+>;
+const recordsById = new Map(Object.values(localityModules).map((mod) => [mod.default.record_id, mod.default]));
+
+const evaluationModules = import.meta.glob("../../../output/*-evaluation.json", { eager: true }) as Record<
+	string,
+	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
+>;
+const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
+const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById).filter((e) => e.state === stateCode);
+
+const lettersPresent = [...new Set(entries.map((e) => e.city[0]!.toUpperCase()))];
+
+const PAGE_PATH = `/${stateInfo.slug}/`;
+const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
+const title = `${stateInfo.name} Solar Permit Guides by City | GridPermit`;
+const description =
+	`Source-linked, confidence-scored solar permitting guides by ${stateInfo.name} city: permit authority, required documents, fees, and eligibility.`;
+
+const breadcrumbItems = [
+	{ name: "Home", url: `${SITE_ORIGIN}/` },
+	{ name: stateInfo.name, url: CANONICAL_URL },
+];
+const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
+
+const collectionSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: title,
+	description,
+	url: CANONICAL_URL,
+	mainEntity: {
+		"@type": "ItemList",
+		numberOfItems: entries.length,
+		itemListElement: entries.map((entry, i) => ({
+			"@type": "ListItem",
+			position: i + 1,
+			name: `${entry.city}, ${entry.state} Solar Permit Guide`,
+			url: `${SITE_ORIGIN}${entry.guideUrl}`,
+		})),
+	},
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<Analytics />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<link rel="canonical" href={CANONICAL_URL} />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
+	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={CANONICAL_URL} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+</head>
+<body>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+	<div class="top-banner">
+		Independent Educational Guide: {stateInfo.name} residential solar and battery estimates. Illustrative only — not utility-specific.
+	</div>
+
+	<nav class="navbar">
+		<div class="nav-container">
+			<a href="/" class="brand-logo" aria-label="GridPermit Home">
+				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
+			</a>
+			<div class="nav-links">
+				<a href="/#calculator">ROI Calculator</a>
+				<a href="/how-it-works">How It Works</a>
+				<a href="/blog">Blog</a>
+				<a href="/methodology">Methodology</a>
+			</div>
+			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
+			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+		</div>
+	</nav>
+
+	<div class="page-container">
+		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+			{breadcrumbItems.map((item, i) => (
+				<>
+					{i > 0 && <span class="crumb-sep">/</span>}
+					{i === breadcrumbItems.length - 1
+						? <span class="crumb-current">{item.name}</span>
+						: <a href={item.url.replace(SITE_ORIGIN, "")}>{item.name}</a>}
+				</>
+			))}
+		</nav>
+
+		<main class="content-card" id="main-content" tabindex="-1">
+			<h1>{stateInfo.name} Solar Permit Guides</h1>
+			<p class="subtitle">City-by-city permitting facts, sourced and confidence-scored — {entries.length} {entries.length === 1 ? "city" : "cities"} currently listed</p>
+
+			<div class="trust-note">
+				Only cities that clear GridPermit's verification threshold — see our <a href="/methodology#ready-criteria">READY criteria</a> — are listed. GridPermit is expanding state by state; more {stateInfo.name} cities are added as their official sources are verified.
+			</div>
+
+			{entries.length === 0 ? (
+				<p class="empty-state">No {stateInfo.name} cities have cleared the verification threshold yet. Check back soon.</p>
+			) : (
+				<>
+					{lettersPresent.length > 1 && (
+						<nav class="az-jump-nav" aria-label="Jump to city by first letter">
+							{lettersPresent.map((letter) => (
+								<a href={`#letter-${letter}`}>{letter}</a>
+							))}
+						</nav>
+					)}
+
+					<section>
+						{lettersPresent.map((letter) => (
+							<div class="letter-group">
+								<h2 id={`letter-${letter}`} class="letter-heading">{letter}</h2>
+								<div class="guide-grid">
+									{entries.filter((entry) => entry.city[0]!.toUpperCase() === letter).map((entry) => (
+										<a href={entry.guideUrl} class="guide-card" data-track-click="permit_guide_clicked">
+											<h3>{entry.city}</h3>
+											<p class="card-field"><strong>Utility:</strong> {entry.utility}</p>
+											{entry.generationSupplierName && (
+												<p class="card-field"><strong>Generation supplier:</strong> {entry.generationSupplierName}</p>
+											)}
+											<p class="card-field"><strong>Completeness:</strong> {entry.completenessPct}%</p>
+											<p class="card-field"><strong>Last verified:</strong> {entry.lastVerified}</p>
+											<span class="card-link">View full guide →</span>
+										</a>
+									))}
+								</div>
+							</div>
+						))}
+					</section>
+				</>
+			)}
+
+			<div class="footer-disclaimer">
+				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Each city's guide links to its own official sources — verify current requirements directly with the relevant permitting authority and utility before starting a project.</p>
+				<p><a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
+			</div>
+		</main>
+	</div>
+
+	<footer class="footer">
+		<div class="footer-container">
+			<p>© 2026 GridPermit. All rights reserved.</p>
+			<p class="affiliate-disclosure">
+				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
+			</p>
+			<div class="footer-links">
+				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+			</div>
+		</div>
+	</footer>
+
+	<style>
+		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
+		.skip-link { position: absolute; top: -3rem; left: 0; background: var(--primary); color: white; padding: 0.75rem 1.25rem; z-index: 1000; text-decoration: none; font-weight: 700; border-radius: 0 0 8px 0; transition: top 0.15s ease; }
+		.skip-link:focus { top: 0; }
+		* { box-sizing: border-box; }
+		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
+		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
+		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+		.brand-logo { text-decoration: none; }
+		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
+		.logo-bold { font-weight: 800; }
+		.nav-links { display: flex; gap: 1.25rem; }
+		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
+		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
+		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
+		@media (max-width: 640px) {
+			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
+			.nav-links { flex-wrap: wrap; justify-content: center; }
+		}
+
+		.page-container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
+		.crumb-sep { margin: 0 0.4rem; }
+		.crumb-current { color: var(--text-main); font-weight: 600; }
+
+		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
+		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
+		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
+		p { margin: 0 0 0.75rem; }
+
+		.trust-note { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.75rem; }
+		.empty-state { color: var(--text-muted); font-size: 0.95rem; padding: 1rem 0; }
+
+		.az-jump-nav { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem; }
+		.az-jump-nav a { display: flex; align-items: center; justify-content: center; width: 1.9rem; height: 1.9rem; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 6px; color: var(--primary); text-decoration: none; font-size: 0.82rem; font-weight: 700; }
+		.az-jump-nav a:hover, .az-jump-nav a:focus-visible { border-color: var(--primary); background: #eff6ff; }
+
+		.letter-group { scroll-margin-top: 1rem; }
+		.letter-heading { font-size: 1.1rem; font-weight: 800; color: var(--text-muted); margin: 1.75rem 0 0.85rem; padding: 0; border: none; }
+		.letter-group:first-of-type .letter-heading { margin-top: 0.5rem; }
+
+		.guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 0.5rem; }
+		.guide-card { display: block; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem 1.4rem; text-decoration: none; color: var(--text-main); transition: border-color 0.15s ease; }
+		.guide-card:hover { border-color: var(--primary); }
+		.guide-card h3 { font-size: 1.15rem; font-weight: 800; margin: 0 0 0.6rem; color: var(--text-main); }
+		.card-field { font-size: 0.85rem; color: #334155; margin-bottom: 0.35rem; }
+		.card-field strong { color: var(--text-main); }
+		.card-link { display: inline-block; margin-top: 0.5rem; font-size: 0.85rem; font-weight: 700; color: var(--primary); }
+
+		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
+		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
+
+		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
+		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
+		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
+	</style>
+</body>
+</html>

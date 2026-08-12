@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-monterey-park-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Monterey Park' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -14,30 +17,46 @@
       "notes": "Clean Power Alliance's own materials describe it as the default electricity provider for 32 communities in Los Angeles and Ventura counties and name Monterey Park among them. The specific default product/tier name was not confirmed this session."
     },
     "confidence": 0.65,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
-  "city": { "value": "Monterey Park", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Monterey Park",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Monterey Park is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Monterey Park Building and Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.montereypark.ca.gov/1694/Solar-APP",
     "confidence": 0.9,
-    "source_ids": ["S8"],
+    "source_ids": [
+      "S8"
+    ],
     "notes": "The city's SolarAPP+ landing page. The detailed eligibility/submittal/fee/inspection facts on this record come from the city's companion PDF bundle (S1: 'Eligibility Checklist for Expedited Solar Photovoltaic Permitting for One- and Two-Family Dwellings', at montereypark.ca.gov/DocumentCenter/View/4670/Photovoltaic-)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session. sce.com returned a DNS-level/403 failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
   },
   "battery_programs": {
@@ -57,19 +76,53 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Solar PV permit application", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Completed Eligibility Checklist for Expedited Solar Photovoltaic Permitting (One- and Two-Family Dwellings)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Standard Electrical Plan (per the city's Solar PV Standard Plan bulletin)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Roof plan showing fire-safety access/pathway items", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Expedited Structural Criteria compliance documentation, OR full engineer-stamped structural calculations for systems that do not qualify for the expedited criteria", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Solar PV permit application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Completed Eligibility Checklist for Expedited Solar Photovoltaic Permitting (One- and Two-Family Dwellings)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Standard Electrical Plan (per the city's Solar PV Standard Plan bulletin)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan showing fire-safety access/pathway items",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Expedited Structural Criteria compliance documentation, OR full engineer-stamped structural calculations for systems that do not qualify for the expedited criteria",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly enumerated as submittal requirements (a) through (e) in the city's official Photovoltaic document bundle."
   },
   "inspection_steps": {
@@ -79,16 +132,26 @@
       "If the next business day is not available, the inspection should occur within a five-day window"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 1, "max_days": 3, "notes": "Applies to plan review for permits not approved over-the-counter; over-the-counter (same-day) approval is available for fully-conforming standard-plan submittals." },
+    "value": {
+      "min_days": 1,
+      "max_days": 3,
+      "notes": "Applies to plan review for permits not approved over-the-counter; over-the-counter (same-day) approval is available for fully-conforming standard-plan submittals."
+    },
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -100,17 +163,30 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The requirement for both Planning and Fire Department review, even for expedited/eligible-size systems, is a specific deviation from the more common pattern of no planning review at this size seen in other California cities' expedited ordinances."
   },
   "permit_fees": {
     "value": [
-      { "name": "Expedited residential solar PV permit fee", "amount_usd": 500, "unit": "flat_not_to_exceed", "notes": "Document states the fee for this expedited permit type is 'Not to exceed $500.'" }
+      {
+        "name": "Expedited residential solar PV permit fee",
+        "amount_usd": 500,
+        "unit": "flat_not_to_exceed",
+        "notes": "Document states the fee for this expedited permit type is 'Not to exceed $500.'"
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -143,7 +219,11 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S7", "S8"],
+    "source_ids": [
+      "S1",
+      "S7",
+      "S8"
+    ],
     "notes": "The Planning Division and Fire Prevention contact phone numbers are drawn from the city's PDF document bundle (S1); the Building Permit Counter contact is drawn from the SolarAPP+ landing page (S8)."
   },
   "last_verified": "2026-08-05",

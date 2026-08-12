@@ -1,6 +1,7 @@
 {
   "record_id": "ca-contra-costa-san-pablo-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.9,
@@ -81,17 +82,67 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Drawings (3 sets; 4 sets if system is over 10kW): Site Plan, Structural Plan/Foundation Plan (if ground-mounted), Cross Sections, Structural Framing Details, Electrical Plan (18\"x24\" suggested minimum size)", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Calculations/Specifications (2 sets): Structural Calculations (if applicable), specifications for all manufactured components (PV modules, inverter, combiner box, disconnects, mounting system)", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Colored photos, inside and outside, of existing main service panels and sub-panels that are part of the photovoltaic system", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Building Permit Application", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Owner/Builder Form", "required_when": "conditional", "source_ids": ["S5"] },
-      { "name": "Expedited Photovoltaic (PV Permits) form", "required_when": "conditional", "source_ids": ["S5"] },
-      { "name": "Fire District Solar-Photovoltaic Notification Form (Contra Costa Fire Protection District)", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Copy of fully executed contract between vendor and customer (for contractor submittals)", "required_when": "conditional", "source_ids": ["S5"] }
+      {
+        "name": "Drawings (3 sets; 4 sets if system is over 10kW): Site Plan, Structural Plan/Foundation Plan (if ground-mounted), Cross Sections, Structural Framing Details, Electrical Plan (18\"x24\" suggested minimum size)",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Calculations/Specifications (2 sets): Structural Calculations (if applicable), specifications for all manufactured components (PV modules, inverter, combiner box, disconnects, mounting system)",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Colored photos, inside and outside, of existing main service panels and sub-panels that are part of the photovoltaic system",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Building Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Owner/Builder Form",
+        "required_when": "conditional",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Expedited Photovoltaic (PV Permits) form",
+        "required_when": "conditional",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Fire District Solar-Photovoltaic Notification Form (Contra Costa Fire Protection District)",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Copy of fully executed contract between vendor and customer (for contractor submittals)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S5"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Per the City's own Photovoltaic/Solar Panel Installation Checklist. This is not stated to be a complete list; additional information may be required after initial plan review."
   },
   "inspection_steps": {
@@ -106,7 +157,9 @@
       "notes": "The City's own Photovoltaic Checklist states: 'Typical plan review time for residential (one and two family dwelling) project is ten (10) working days for the first and all subsequent review cycles. Non-residential systems may take up to fifteen (15) working days for the first review cycle and ten (10) working for all subsequent review cycles.' The 10-15 range here reflects the residential (10-day) to non-residential (up to 15-day) figures; residential is the more typical case at 10 working days per cycle."
     },
     "confidence": 0.8,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -148,7 +201,9 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

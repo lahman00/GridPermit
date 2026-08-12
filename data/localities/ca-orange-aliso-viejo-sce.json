@@ -1,10 +1,13 @@
 {
   "record_id": "ca-orange-aliso-viejo-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Aliso Viejo' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "Orange County Power Authority (OCPA), the CCA operating in Orange County, currently names Buena Park, Fullerton, Irvine, and Fountain Valley as members. Aliso Viejo has been identified only as a potential future candidate for OCPA membership, not a current member. Left null rather than asserted either way."
   },
-  "city": { "value": "Aliso Viejo", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Aliso Viejo",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Aliso Viejo is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Aliso Viejo Building & Safety",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://avcity.org/400/Solar-Permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,17 +70,39 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval documents (submitted through the City's online permitting portal)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ Eligibility Checklist", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "OCFA approval (for garage-installed energy storage systems, obtained at inspection)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ approval documents (submitted through the City's online permitting portal)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Eligibility Checklist",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "OCFA approval (for garage-installed energy storage systems, obtained at inspection)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -72,12 +111,21 @@
       "Daily inspection schedules are available online"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's Instant Solar Permit page does not state a formal review timeline for SolarAPP+ approval." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city's Instant Solar Permit page does not state a formal review timeline for SolarAPP+ approval."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -90,16 +138,29 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ processing fee", "amount_usd": 25, "unit": "flat", "notes": "Additional standard permit fees also apply, payable online or in person at City Hall; specific additional amounts not stated on the page." }
+      {
+        "name": "SolarAPP+ processing fee",
+        "amount_usd": 25,
+        "unit": "flat",
+        "notes": "Additional standard permit fees also apply, payable online or in person at City Hall; specific additional amounts not stated on the page."
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -118,7 +179,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

@@ -1,10 +1,14 @@
 {
   "record_id": "ca-orange-fountain-valley-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S3", "S2"],
+    "source_ids": [
+      "S3",
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Fountain Valley' by name among the cities in its service area. The city's own OCPA page separately confirms SCE as the delivery utility residents can return to if they opt out of OCPA."
   },
   "generation_supplier": {
@@ -13,27 +17,41 @@
     "source_ids": [],
     "notes": "Confirmed directly via the City of Fountain Valley's own OCPA page: the City Council voted to join Orange County Power Authority (OCPA) in late 2024, but as of this session (2026-08-06) service has not yet begun — the page states OCPA 'will launch service in the city of Fountain Valley in April 27' (2027). Left null since the CCA relationship is confirmed but not yet operational."
   },
-  "city": { "value": "Fountain Valley", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Fountain Valley",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Fountain Valley is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Fountain Valley Building Department",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.fountainvalley.gov/988/Solar-Permit-Process",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,35 +71,80 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Completed permit application form", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Eligibility checklist demonstrating compliance for expedited permitting", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Electrical plan (standard plan for simplified systems, or custom plan with technical details)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Roof plan showing roof layout, PV panels, and fire safety items", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Structural criteria documentation or engineer-stamped calculations", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Completed permit application form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Eligibility checklist demonstrating compliance for expedited permitting",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical plan (standard plan for simplified systems, or custom plan with technical details)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan showing roof layout, PV panels, and fire safety items",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural criteria documentation or engineer-stamped calculations",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
       "Inspection requests received prior to 3:00pm are typically scheduled for the next business day, or within five days if unavailable"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 1, "max_days": 3, "notes": "Applies to permits not approved over-the-counter; over-the-counter approval is available for standard-plan submissions." },
+    "value": {
+      "min_days": 1,
+      "max_days": 3,
+      "notes": "Applies to permits not approved over-the-counter; over-the-counter approval is available for standard-plan submissions."
+    },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -91,16 +154,29 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Residential solar plan review and permit fee", "amount_usd": 500, "unit": "flat_not_to_exceed", "notes": null }
+      {
+        "name": "Residential solar plan review and permit fee",
+        "amount_usd": 500,
+        "unit": "flat_not_to_exceed",
+        "notes": null
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -119,7 +195,10 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1", "S6"]
+    "source_ids": [
+      "S1",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

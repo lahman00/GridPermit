@@ -1,0 +1,46 @@
+// Central lookup from a record's `state` (USPS 2-letter code) to the
+// display name and URL slug used everywhere a page needs to say what state
+// a locality is in. This is the one place new states get registered — see
+// docs/DATA_ARCHITECTURE.md's multi-state section. Adding a state here does
+// NOT publish anything by itself; a locality only gets a public page once
+// its own record clears READY (see scripts/evaluate-*.mjs).
+//
+// "CA" -> slug "california" is deliberately unchanged from the site's
+// original single-state URL shape, so every existing indexed California URL
+// (/california/<city>/...) keeps working with zero migration.
+
+export interface StateMeta {
+	code: string; // USPS 2-letter code, e.g. "CA"
+	name: string; // Full display name, e.g. "California"
+	slug: string; // URL path segment, e.g. "california"
+}
+
+export const STATE_META: Record<string, StateMeta> = {
+	CA: { code: "CA", name: "California", slug: "california" },
+	RI: { code: "RI", name: "Rhode Island", slug: "rhode-island" },
+	DE: { code: "DE", name: "Delaware", slug: "delaware" },
+	VT: { code: "VT", name: "Vermont", slug: "vermont" },
+};
+
+// Every currently-supported state, in the fixed order above (not alphabetical
+// by code) — the order this site introduced them in, used anywhere a stable,
+// deterministic listing order matters (e.g. a states index page).
+export const SUPPORTED_STATE_CODES: string[] = Object.keys(STATE_META);
+
+export function stateMeta(code: string): StateMeta {
+	const meta = STATE_META[code];
+	if (!meta) {
+		throw new Error(
+			`state-meta: unrecognized state code "${code}" — register it in src/lib/state-meta.ts before publishing any locality record for it`,
+		);
+	}
+	return meta;
+}
+
+export function stateSlug(code: string): string {
+	return stateMeta(code).slug;
+}
+
+export function stateName(code: string): string {
+	return stateMeta(code).name;
+}

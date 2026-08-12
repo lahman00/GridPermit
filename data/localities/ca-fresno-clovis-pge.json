@@ -1,10 +1,13 @@
 {
   "record_id": "ca-fresno-clovis-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.8,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Clovis is a Fresno County city immediately adjacent to the City of Fresno, which is already confirmed PG&E territory in this dataset; clovisca.gov returned HTTP 403 to automated fetch on every attempt this session, so a direct city-page confirmation could not be independently obtained."
   },
   "generation_supplier": {
@@ -13,28 +16,42 @@
     "source_ids": [],
     "notes": "No official Clovis city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Clovis", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Clovis",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Fresno County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Clovis Building Division",
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "clovisca.gov returned HTTP 403 to automated fetch on every attempt this session, and ecode360.com / codepublishing.com (hosts of the city's Small Residential Rooftop Solar Energy Systems municipal code chapter) also returned HTTP 403. This department name is confirmed via search-engine indexing, but the underlying pages' specific content (fees, required documents) could not be independently verified."
   },
   "permit_url": {
     "value": "https://www.clovisca.gov/services/planning_development/building/index.php",
     "confidence": 0.55,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "URL identified via search-engine indexing; clovisca.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
   },
   "battery_programs": {
@@ -54,15 +71,25 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S5"] }
+      {
+        "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Per Clovis Municipal Code Section 8.14.05(a),(d)-(e): the Building Department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the City's website."
   },
   "inspection_steps": {
@@ -72,18 +99,29 @@
       "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Per Clovis Municipal Code Section 8.14.06(h)-(j)."
   },
   "timeline_days": {
-    "value": { "min_days": 1, "max_days": 3, "notes": "Clovis Municipal Code Section 8.14.06(a): the Building Department 'shall issue a permit or other nondiscretionary permit the following business day for over-the-counter applications which are deemed complete or within three (3) business days for electronic applications' of receipt of a complete application." },
+    "value": {
+      "min_days": 1,
+      "max_days": 3,
+      "notes": "Clovis Municipal Code Section 8.14.06(a): the Building Department 'shall issue a permit or other nondiscretionary permit the following business day for over-the-counter applications which are deemed complete or within three (3) business days for electronic applications' of receipt of a complete application."
+    },
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Directly confirmed this session via the City's own municipal code (Chapter 8.14), replacing the prior search-engine-derived, unconfirmed value with the same figures now independently verified."
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -94,11 +132,26 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis indicates a 'new fee structure' exists on the city's Building web page, but no specific dollar figure was found or independently confirmed this session." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
-  "official_contacts": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Search-engine synthesis indicates a 'new fee structure' exists on the city's Building web page, but no specific dollar figure was found or independently confirmed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "official_contacts": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "last_verified": "2026-08-11",
   "sources": [
     {

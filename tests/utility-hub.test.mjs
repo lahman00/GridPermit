@@ -11,8 +11,9 @@ import { buildUtilityHubs, utilitySlug, MIN_READY_CITIES_FOR_UTILITY_HUB } from 
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 
-function makeRecord({ city, county = null, utility, interconnectionUrl = null }) {
+function makeRecord({ city, county = null, utility, interconnectionUrl = null, state = "CA" }) {
 	return {
+		state,
 		city: { value: city },
 		county: { value: county },
 		utility: { value: utility },

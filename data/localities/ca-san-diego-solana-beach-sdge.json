@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-diego-solana-beach-sdge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "San Diego Gas & Electric (SDG&E)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Solana Beach is a well-documented San Diego County city within SDG&E's core service territory, consistent with SDG&E-territory records established elsewhere this session."
   },
   "generation_supplier": {
@@ -14,24 +17,44 @@
       "notes": "CEA's own homepage confirms Solana Beach as one of its 7 member cities (Carlsbad, Del Mar, Escondido, Oceanside, San Marcos, Solana Beach, Vista) — Carlsbad, Del Mar, and Solana Beach were CEA's founding cities in 2019. Per CEA's own description: 'Clean Energy Alliance purchases power directly from power providers and/or builds energy generation sources' while 'SDG&E delivers energy, handles billing and serves customers.'"
     },
     "confidence": 0.85,
-    "source_ids": ["S4"]
+    "source_ids": [
+      "S4"
+    ]
   },
-  "city": { "value": "Solana Beach", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
+  "city": {
+    "value": "Solana Beach",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Diego County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Solana Beach Building Services Department",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://cityofsolanabeach.ca.gov/en/solarpvpermits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session."
   },
   "battery_programs": {
@@ -51,26 +74,77 @@
       }
     ],
     "confidence": 0.75,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
   },
   "required_documents": {
     "value": [
-      { "name": "Building Permit Application (2022 version)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Submittal Requirements form", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Signed Eligibility Checklist", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Solar PV Standard Plan or Microinverter Standard Plan", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Structural Criteria documentation", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Letter from the solar company (required for tilt-mounted panels due to coastal view-corridor sensitivity)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Building Permit Application (2022 version)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Submittal Requirements form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed Eligibility Checklist",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Solar PV Standard Plan or Microinverter Standard Plan",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural Criteria documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Letter from the solar company (required for tilt-mounted panels due to coastal view-corridor sensitivity)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city provides an Inspection Guide detailing requirements, but the page content reviewed this session did not itself describe the inspection-scheduling process." },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city provides an Inspection Guide detailing requirements, but the page content reviewed this session did not itself describe the inspection-scheduling process."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -81,17 +155,35 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Single Family Residential Solar Plan Check", "amount_usd": 44, "unit": "flat fee (25% of Individual Electrical Permit Fee)", "notes": "Per the City's own Schedule of Fees, effective January 1, 2026 (fee code S-278)." },
-      { "name": "Single Family Residential Solar Permit/Inspection", "amount_usd": 176, "unit": "flat fee", "notes": "Per the City's own Schedule of Fees, effective January 1, 2026 (fee code S-279)." }
+      {
+        "name": "Single Family Residential Solar Plan Check",
+        "amount_usd": 44,
+        "unit": "flat fee (25% of Individual Electrical Permit Fee)",
+        "notes": "Per the City's own Schedule of Fees, effective January 1, 2026 (fee code S-278)."
+      },
+      {
+        "name": "Single Family Residential Solar Permit/Inspection",
+        "amount_usd": 176,
+        "unit": "flat fee",
+        "notes": "Per the City's own Schedule of Fees, effective January 1, 2026 (fee code S-279)."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -103,7 +195,9 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

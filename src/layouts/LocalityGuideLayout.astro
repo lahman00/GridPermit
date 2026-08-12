@@ -24,6 +24,8 @@ import {
 import { buildCountyHubs, countySlug } from "../lib/county-hub";
 import { buildUtilityHubs, utilitySlug } from "../lib/utility-hub";
 import { getAllBlogPosts, relatedPostsForUtility } from "../lib/blog-posts";
+import { stateGuidesIndexUrl } from "../lib/locality-guide";
+import { stateMeta } from "../lib/state-meta";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
 import Analytics from "../components/Analytics.astro";
 
@@ -63,6 +65,7 @@ const allReadyEntries = buildLocalityIndexEntries(allEvaluatedRecords, allRecord
 // allReadyEntries) so related-locality ranking still works even in the
 // defensive case where this page's own record_id isn't present in the
 // evaluation data passed in.
+const currentStateMeta = stateMeta(record.state);
 const currentEntry = {
 	recordId: record.record_id,
 	city: record.city.value,
@@ -73,6 +76,9 @@ const currentEntry = {
 	lastVerified: record.last_verified,
 	citySlug: "",
 	guideUrl: "",
+	state: currentStateMeta.code,
+	stateName: currentStateMeta.name,
+	stateSlug: currentStateMeta.slug,
 };
 const relatedLocalities = buildRelatedLocalities(currentEntry, allReadyEntries, 6);
 
@@ -82,16 +88,18 @@ const relatedLocalities = buildRelatedLocalities(currentEntry, allReadyEntries, 
 // to exist, so this is null far more often than not.
 const countyHubs = buildCountyHubs(allEvaluatedRecords, allRecordsById);
 const countyHub = record.county?.value
-	? countyHubs.find((h) => h.countySlug === countySlug(record.county.value))
+	? countyHubs.find((h) => h.state === record.state && h.countySlug === countySlug(record.county.value))
 	: undefined;
-const countyHubUrl = countyHub ? `/california/county/${countyHub.countySlug}/` : null;
+const countyHubUrl = countyHub ? `/${countyHub.stateSlug}/county/${countyHub.countySlug}/` : null;
 
 // Utility hub link — same idea, keyed by short name so it still matches
 // regardless of which full-name spelling this record used (see the same
 // fix in buildRelatedLocalities).
 const utilityHubs = buildUtilityHubs(allEvaluatedRecords, allRecordsById);
-const utilityHub = utilityShort ? utilityHubs.find((h) => h.utilitySlug === utilitySlug(utilityShort)) : undefined;
-const utilityHubUrl = utilityHub ? `/california/utility/${utilityHub.utilitySlug}/` : null;
+const utilityHub = utilityShort
+	? utilityHubs.find((h) => h.state === record.state && h.utilitySlug === utilitySlug(utilityShort))
+	: undefined;
+const utilityHubUrl = utilityHub ? `/${utilityHub.stateSlug}/utility/${utilityHub.utilitySlug}/` : null;
 
 // "Related articles" — blog posts matching this locality's utility, via the
 // same shared post list/category logic the blog index itself uses.
@@ -168,7 +176,7 @@ const tocItems = [
 	<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
 
 	<div class="top-banner">
-		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
+		Independent Educational Guide: {currentStateMeta.name} residential solar and battery estimates. Illustrative only — not utility-specific.
 	</div>
 
 	<nav class="navbar">
@@ -179,7 +187,7 @@ const tocItems = [
 			<div class="nav-links">
 				<a href="/#calculator">ROI Calculator</a>
 				<a href="/how-it-works">How It Works</a>
-				<a href="/california/solar-permit-guides/">California Guides</a>
+				<a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} Guides</a>
 				<a href="/blog">Blog</a>
 				<a href="/methodology">Methodology</a>
 			</div>
@@ -220,7 +228,7 @@ const tocItems = [
 			<section id="overview">
 				<h2>Overview</h2>
 				<p>
-					GridPermit collects California residential solar and permitting facts directly from official sources — city and county government sites, utilities, and CPUC — and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology">our methodology</a> for the rules this page follows.
+					GridPermit collects {currentStateMeta.name} residential solar and permitting facts directly from official sources — city, county, and state government sites, utilities, and public utilities commissions — and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology">our methodology</a> for the rules this page follows.
 				</p>
 
 				{hasTimeline && timeline && td && (
@@ -448,12 +456,12 @@ const tocItems = [
 				</section>
 			)}
 
-			<!-- ===== Related California guides ===== -->
+			<!-- ===== Related same-state guides ===== -->
 			{relatedLocalities.length > 0 && (
 				<section id="other-guides">
-					<h2>Related California cities</h2>
+					<h2>Related {currentStateMeta.name} cities</h2>
 					<p>
-						Other verified cities related to {record.city.value} — see all cities on the <a href="/california/solar-permit-guides/">California solar permit guide index</a>.
+						Other verified cities related to {record.city.value} — see all cities on the <a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} solar permit guide index</a>.
 					</p>
 					<ul class="fact-list other-guides-list">
 						{relatedLocalities.map((g) => (
@@ -477,7 +485,7 @@ const tocItems = [
 
 			<div class="footer-disclaimer">
 				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Requirements, fees, and program terms change. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before starting a project. Last verified {record.last_verified}.</p>
-				<p><a href="/california/solar-permit-guides/">All California Guides</a> · <a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
+				<p><a href={stateGuidesIndexUrl(record.state)}>All {currentStateMeta.name} Guides</a> · <a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
 			</div>
 		</main>
 		<aside class="toc-sidebar">
@@ -500,7 +508,7 @@ const tocItems = [
 				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
 			</p>
 			<div class="footer-links">
-				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} Guides</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
 			</div>
 		</div>
 	</footer>

@@ -1,6 +1,7 @@
 {
   "record_id": "ca-santa-clara-san-jose-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 1,
@@ -85,15 +86,53 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Building Permit Application", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Smoke and Carbon Monoxide Alarm Requirements form", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Site Plan (building footprint, PV panel/battery locations, utility interconnection point)", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Building Plans (framing/anchorage details, structural calculations for vertical/lateral loads)", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Electrical Plans (system configuration, conduit/disconnect/overcurrent details, short circuit current and open circuit voltage)", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Owner-Builder Acknowledgement and Verification of Information Form", "required_when": "conditional", "source_ids": ["S3"] }
+      {
+        "name": "Building Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Smoke and Carbon Monoxide Alarm Requirements form",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Site Plan (building footprint, PV panel/battery locations, utility interconnection point)",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Building Plans (framing/anchorage details, structural calculations for vertical/lateral loads)",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Electrical Plans (system configuration, conduit/disconnect/overcurrent details, short circuit current and open circuit voltage)",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Owner-Builder Acknowledgement and Verification of Information Form",
+        "required_when": "conditional",
+        "source_ids": [
+          "S3"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Per the City's own 'Solar & Storage Battery Projects' page, Standard Plan Review Service submittal package (used when a project doesn't qualify for the online SJPermits fast path)."
   },
   "inspection_steps": {
@@ -104,7 +143,9 @@
       "The City inspector reviews the electrical plan at the project site on the day of inspection, verifying UL-listed/labeled equipment, minimum working space, conductor sizing, and voltage calculations"
     ],
     "confidence": 0.8,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Per the City's own 'Solar & Storage Battery Projects' page's Inspections and 'Requirements for Solar/Battery Installations' sections."
   },
   "timeline_days": {
@@ -115,7 +156,9 @@
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -127,7 +170,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "permit_fees": {
     "value": null,

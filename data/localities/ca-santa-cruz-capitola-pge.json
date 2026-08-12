@@ -1,10 +1,13 @@
 {
   "record_id": "ca-santa-cruz-capitola-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Capitola is a well-documented Santa Cruz County city within PG&E's core Northern California service territory."
   },
   "generation_supplier": {
@@ -14,48 +17,120 @@
       "notes": "3CE's own official site confirms Capitola as one of its member communities. PG&E continues to deliver the power and provide billing/customer service."
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Capitola", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Santa Cruz County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Capitola",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Santa Cruz County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Capitola Building Department",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityofcapitola.gov/371/Solar-Application",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
     "confidence": 0.55,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "Manufacturer specifications for all array components", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Proof of compliance with the SolarAPP+ Eligibility Checklist", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Electrical plans with single-line diagram, main service/utility disconnect location, and system specifications", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Roof plan documenting PV system fire classification and required label locations", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Structural criteria documentation", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Smoke detector and carbon monoxide detector self-certification form", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Manufacturer specifications for all array components",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Proof of compliance with the SolarAPP+ Eligibility Checklist",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical plans with single-line diagram, main service/utility disconnect location, and system specifications",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan documenting PV system fire classification and required label locations",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural criteria documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Smoke detector and carbon monoxide detector self-certification form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
-    "value": ["Inspections are conducted Monday through Friday from 1pm to 4pm; schedule at least 48 hours in advance using the Building Inspection Request Form, including permit number, address, contact details, and preferred date"],
+    "value": [
+      "Inspections are conducted Monday through Friday from 1pm to 4pm; schedule at least 48 hours in advance using the Building Inspection Request Form, including permit number, address, contact details, and preferred date"
+    ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -66,18 +141,41 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Solar Photovoltaic Permit", "amount_usd": 498, "unit": "flat fee", "notes": null },
-      { "name": "Energy Storage System (ESS) Permit", "amount_usd": null, "unit": "based on valuation", "notes": null },
-      { "name": "Revisions (ESS / out-of-scope)", "amount_usd": 159.5, "unit": "per hour", "notes": null }
+      {
+        "name": "Solar Photovoltaic Permit",
+        "amount_usd": 498,
+        "unit": "flat fee",
+        "notes": null
+      },
+      {
+        "name": "Energy Storage System (ESS) Permit",
+        "amount_usd": null,
+        "unit": "based on valuation",
+        "notes": null
+      },
+      {
+        "name": "Revisions (ESS / out-of-scope)",
+        "amount_usd": 159.5,
+        "unit": "per hour",
+        "notes": null
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -89,7 +187,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

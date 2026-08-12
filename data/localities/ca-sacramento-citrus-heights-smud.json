@@ -1,10 +1,13 @@
 {
   "record_id": "ca-sacramento-citrus-heights-smud",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Sacramento Municipal Utility District (SMUD)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City of Citrus Heights' own solar permit page requires 'SMUD interconnection pre-approval' as part of the submittal process, directly confirming SMUD as the electric utility."
   },
   "generation_supplier": {
@@ -14,28 +17,44 @@
       "notes": "SMUD is a vertically-integrated municipal utility — it generates/procures and delivers its own power rather than sitting alongside a separate CCA, consistent with the pattern already established for other SMUD-territory records this session."
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Citrus Heights", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Citrus Heights",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Sacramento County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Citrus Heights Community Development Department",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.citrusheights.net/865/Solar-Energy-Permit-Electronic-Submittal",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.smud.org/Going-Green/Solar-for-Your-Home",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SMUD's own solar hub page, which the city's page links to for the required 'SMUD interconnection pre-approval' step and which itself includes an 'Interconnection process' FAQ topic."
   },
   "battery_programs": {
@@ -55,17 +74,45 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Approval Document", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Specifications and plans", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "One-line diagram and Metro Fire approval, if applicable", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Building inspection card presented at time of inspection", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ Approval Document",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Specifications and plans",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "One-line diagram and Metro Fire approval, if applicable",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Building inspection card presented at time of inspection",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -73,12 +120,20 @@
       "Documentation failure results in cancellation and re-inspection fees"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -94,10 +149,21 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states a processing fee (via SolarAPP+/invoice) applies and re-inspection fees apply for documentation failures, but no dollar amounts are given." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page states a processing fee (via SolarAPP+/invoice) applies and re-inspection fees apply for documentation failures, but no dollar amounts are given."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -109,7 +175,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

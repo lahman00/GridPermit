@@ -1,6 +1,7 @@
 {
   "record_id": "ca-santa-cruz-watsonville-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.85,
@@ -81,13 +82,39 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Permit application", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Solar PV Standard Plan and supporting documentation", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Structural Criteria and supporting documentation", "required_when": "conditional", "source_ids": ["S5"] },
-      { "name": "Diagram of the roof layout of all panels/modules, clear access pathways, and approximate locations of electrical disconnecting means and roof access points", "required_when": "always", "source_ids": ["S5"] }
+      {
+        "name": "Permit application",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Solar PV Standard Plan and supporting documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Structural Criteria and supporting documentation",
+        "required_when": "conditional",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Diagram of the roof layout of all panels/modules, clear access pathways, and approximate locations of electrical disconnecting means and roof access points",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "From the City's own 'Eligibility Checklist for SolarAPP+', which requires system size 10kW AC CEC or less, roof-mounted on a one- or two-family dwelling, and utility-interactive without battery storage; larger or ineligible projects go through standard plan review instead."
   },
   "inspection_steps": {
@@ -95,7 +122,9 @@
       "Call the Building Inspection request line at 831-768-3060 to schedule an inspection"
     ],
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This is the City's general Building Division inspection scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
@@ -105,7 +134,9 @@
       "notes": "The City's own SolarAPP+ how-to guide states 'Once you've paid all applicable fees your permit will be immediately issued electronically' and that 'SolarAPP+ issues permit instantly and sends outputs to the City of Watsonville.'"
     },
     "confidence": 0.8,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {

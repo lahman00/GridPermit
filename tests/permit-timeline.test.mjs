@@ -14,8 +14,9 @@ import { buildTimelineInsights } from "../src/lib/permit-timeline.ts";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 
-function makeRecord({ city, county = "Test County", utility = "PG&E", timeline = null }) {
+function makeRecord({ city, county = "Test County", utility = "PG&E", timeline = null, state = "CA" }) {
 	return {
+		state,
 		city: { value: city },
 		county: { value: county },
 		utility: { value: utility },

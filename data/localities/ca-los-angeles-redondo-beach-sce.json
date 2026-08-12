@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-redondo-beach-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Redondo Beach' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -14,29 +17,45 @@
       "notes": "Confirmed via a directly-fetched California Community Choice Association (CalCCA) press release (October 24, 2022): Redondo Beach was named among 'Seven cities and one county within Clean Power Alliance's (CPA) service territory' that 'chosen 100% Green Power as their default energy option' beginning October 2022. Customers may choose another CPA option or opt out at any time."
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Redondo Beach", "confidence": 1, "source_ids": ["S3"] },
+  "city": {
+    "value": "Redondo Beach",
+    "confidence": 1,
+    "source_ids": [
+      "S3"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Redondo Beach is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Redondo Beach Building and Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "permit_url": {
     "value": "https://www.redondo.org/departments/community_development/building_and_safety/solar_photovoltaic_permits.php",
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -56,19 +75,53 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Completed permit application via the Citizen Portal", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Eligibility checklist for expedited permitting", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Standard electrical plan (systems <=10 kW) or custom plan with inverter specs, one-line diagram, grounding/bonding details, equipment cut sheets, and code labeling", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Roof plan showing panel layout, fire safety access pathways, and PV system classification", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Structural criteria documentation (expedited form for qualifying systems; engineered drawings/calculations by a California-licensed engineer for non-qualifying systems)", "required_when": "conditional", "source_ids": ["S3"] }
+      {
+        "name": "Completed permit application via the Citizen Portal",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Eligibility checklist for expedited permitting",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Standard electrical plan (systems <=10 kW) or custom plan with inverter specs, one-line diagram, grounding/bonding details, equipment cut sheets, and code labeling",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Roof plan showing panel layout, fire safety access pathways, and PV system classification",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Structural criteria documentation (expedited form for qualifying systems; engineered drawings/calculations by a California-licensed engineer for non-qualifying systems)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S3"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -77,12 +130,20 @@
       "Inspections scheduled before 3:00pm are typically inspected the next business day"
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -92,16 +153,29 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Residential solar plan review and permit fee", "amount_usd": 500, "unit": "flat_not_to_exceed", "notes": null }
+      {
+        "name": "Residential solar plan review and permit fee",
+        "amount_usd": 500,
+        "unit": "flat_not_to_exceed",
+        "notes": null
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -120,7 +194,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3", "S6"]
+    "source_ids": [
+      "S3",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

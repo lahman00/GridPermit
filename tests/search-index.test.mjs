@@ -6,8 +6,8 @@ import { buildSearchIndex, searchEntries } from "../src/lib/search-index.ts";
 function makeParams() {
 	return {
 		localityEntries: [
-			{ recordId: "ca-alameda-oakland-pge", city: "Oakland", county: "Alameda County", utility: "Pacific Gas and Electric Company (PG&E)", generationSupplierName: "Ava Community Energy", completenessPct: 86.7, lastVerified: "2026-08-01", citySlug: "oakland", guideUrl: "/california/oakland/solar-permit-guide/" },
-			{ recordId: "ca-los-angeles-pasadena-pwp", city: "Pasadena", county: "Los Angeles County", utility: "Pasadena Water and Power", generationSupplierName: null, completenessPct: 93.3, lastVerified: "2026-08-01", citySlug: "pasadena", guideUrl: "/california/pasadena/solar-permit-guide/" },
+			{ recordId: "ca-alameda-oakland-pge", city: "Oakland", county: "Alameda County", utility: "Pacific Gas and Electric Company (PG&E)", generationSupplierName: "Ava Community Energy", completenessPct: 86.7, lastVerified: "2026-08-01", citySlug: "oakland", guideUrl: "/california/oakland/solar-permit-guide/", state: "CA", stateName: "California", stateSlug: "california" },
+			{ recordId: "ca-los-angeles-pasadena-pwp", city: "Pasadena", county: "Los Angeles County", utility: "Pasadena Water and Power", generationSupplierName: null, completenessPct: 93.3, lastVerified: "2026-08-01", citySlug: "pasadena", guideUrl: "/california/pasadena/solar-permit-guide/", state: "CA", stateName: "California", stateSlug: "california" },
 		],
 		blogPosts: [
 			{ title: "SCE NEM 3.0 Guide", description: "SCE customers are losing thousands under NEM 3.0.", url: "/blog/sce-guide/", category: "SCE", displayDate: "x", sortDate: "2026-07-26", hasExactDate: true },
@@ -16,6 +16,9 @@ function makeParams() {
 			{
 				county: "Alameda County",
 				countySlug: "alameda",
+				state: "CA",
+				stateName: "California",
+				stateSlug: "california",
 				cities: [{ city: "Oakland" }, { city: "Berkeley" }],
 				utilities: ["PG&E"],
 				countyContractedCities: [],
@@ -25,6 +28,9 @@ function makeParams() {
 			{
 				utilityShort: "PG&E",
 				utilitySlug: "pge",
+				state: "CA",
+				stateName: "California",
+				stateSlug: "california",
 				cities: [{ city: "Oakland" }, { city: "Berkeley" }],
 				counties: ["Alameda County"],
 				commonInterconnectionUrl: null,
@@ -149,7 +155,9 @@ test("searchEntries ranks a title match above a description-only match for the s
 
 test("searchEntries puts an exact title match first", () => {
 	const index = buildSearchIndex(makeParams());
-	const results = searchEntries(index, "oakland solar permit guide");
+	// Title now includes the state for cross-state disambiguation (e.g.
+	// "Oakland, CA Solar Permit Guide") — query the exact resulting title.
+	const results = searchEntries(index, "oakland, ca solar permit guide");
 	assert.equal(results[0]?.url, "/california/oakland/solar-permit-guide/");
 });
 

@@ -76,35 +76,38 @@ export function buildSearchIndex(params: {
 	});
 
 	for (const e of params.localityEntries) {
-		// County is folded into the description (not just the title) so a
-		// query for a county name — one of the terms this index is explicitly
-		// stress-tested against — surfaces every city in it, not just a city
-		// whose own name happens to match.
+		// State is in the title itself (not just the description) so two
+		// same-named cities in different states (e.g. Newark, CA vs Newark,
+		// DE) are always distinguishable at a glance in search results — see
+		// docs/DATA_ARCHITECTURE.md's multi-state section. County is folded
+		// into the description so a query for a county name — one of the
+		// terms this index is explicitly stress-tested against — surfaces
+		// every city in it, not just a city whose own name happens to match.
 		const descriptionParts = [e.utility, e.generationSupplierName, e.county ? `${e.county}` : null].filter(
 			(part): part is string => Boolean(part),
 		);
 		entries.push({
-			title: `${e.city} Solar Permit Guide`,
+			title: `${e.city}, ${e.state} Solar Permit Guide`,
 			description: descriptionParts.join(" · "),
 			url: e.guideUrl,
-			category: "California Guide",
+			category: `${e.stateName} Guide`,
 		});
 	}
 
 	for (const hub of params.countyHubs ?? []) {
 		entries.push({
-			title: `${hub.county} Solar Permit Guides`,
-			description: `${hub.cities.length} verified ${hub.cities.length === 1 ? "city" : "cities"} in ${hub.county}: ${hub.cities.map((c) => c.city).join(", ")}.`,
-			url: `/california/county/${hub.countySlug}/`,
+			title: `${hub.county}, ${hub.state} Solar Permit Guides`,
+			description: `${hub.cities.length} verified ${hub.cities.length === 1 ? "city" : "cities"} in ${hub.county}, ${hub.stateName}: ${hub.cities.map((c) => c.city).join(", ")}.`,
+			url: `/${hub.stateSlug}/county/${hub.countySlug}/`,
 			category: "County",
 		});
 	}
 
 	for (const hub of params.utilityHubs ?? []) {
 		entries.push({
-			title: `${hub.utilityShort} Solar Permit Guides`,
-			description: `${hub.cities.length} verified ${hub.cities.length === 1 ? "city" : "cities"} served by ${hub.utilityShort}: ${hub.cities.map((c) => c.city).join(", ")}.`,
-			url: `/california/utility/${hub.utilitySlug}/`,
+			title: `${hub.utilityShort} Solar Permit Guides (${hub.state})`,
+			description: `${hub.cities.length} verified ${hub.cities.length === 1 ? "city" : "cities"} served by ${hub.utilityShort} in ${hub.stateName}: ${hub.cities.map((c) => c.city).join(", ")}.`,
+			url: `/${hub.stateSlug}/utility/${hub.utilitySlug}/`,
 			category: "Utility",
 		});
 	}

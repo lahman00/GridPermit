@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-whittier-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Whittier' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -14,31 +17,47 @@
       "notes": "Whittier's own 'Clean Power Alliance and Green Projects' page (directly re-verified via browser this session; an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block) confirms a formal CPA relationship exists as part of the City's sustainability initiatives, but does not itself state a specific join date or default product tier."
     },
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Whittier", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Whittier",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Whittier is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Whittier Building Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.cityofwhittier.org/government/community-development/building-safety/solar-app",
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated WebFetch was intermittent, not a persistent block)."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -58,18 +77,46 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ account and City of Whittier online portal account", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Active City of Whittier business license (required before submitting for a SolarAPP+ permit; inspections cannot be scheduled without one)", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "Approved SolarAPP+ documents and specifications sheet", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "LACFD Expedited PV/ESS Permitting Process - Inspection Checklist (completed)", "required_when": "always", "source_ids": ["S3"] }
+      {
+        "name": "SolarAPP+ account and City of Whittier online portal account",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Active City of Whittier business license (required before submitting for a SolarAPP+ permit; inspections cannot be scheduled without one)",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Approved SolarAPP+ documents and specifications sheet",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "LACFD Expedited PV/ESS Permitting Process - Inspection Checklist (completed)",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -78,7 +125,9 @@
       "Have all approved paperwork, the permit, and the City of Whittier job card printed and present on site for the inspector"
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "timeline_days": {
     "value": {
@@ -87,11 +136,15 @@
       "notes": "The City's own SolarAPP+ page states 'Only projects that conform to this list are eligible to use the automated SolarAPP+ portal for instant permitting,' and that once fees are paid, 'your permit and City of Whittier job card will be immediately issued, electronically.'"
     },
     "confidence": 0.8,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -103,10 +156,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -118,7 +181,9 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S6"]
+    "source_ids": [
+      "S6"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

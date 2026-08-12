@@ -1,10 +1,14 @@
 {
   "record_id": "ca-riverside-banning-beu",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Banning Electric Utility (BEU)",
     "confidence": 0.9,
-    "source_ids": ["S1", "S2"],
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
     "notes": "Banning Electric Utility is the City of Banning's own municipal electric utility, a member of the Southern California Public Power Authority (SCPPA). Banning is notably absent from SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet, consistent with Banning having its own municipal utility rather than SCE service."
   },
   "generation_supplier": {
@@ -14,35 +18,79 @@
       "notes": "BEU is a vertically-integrated municipal utility (like Riverside Public Utilities, Burbank Water and Power, and Glendale Water and Power) — it procures and delivers its own power (a mixed portfolio including nuclear, geothermal, solar, landfill gas-to-energy, and hydro, reported 54% renewable in 2021) rather than sitting alongside a separate CCA. No Community Choice Aggregator was found serving Banning in the sources reviewed this session."
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Banning", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Banning",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Riverside County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Banning Electric Utility",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://banningca.gov/573/Solar",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://banningca.gov/573/Solar",
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Banning Electric Utility's own solar program page, which hosts the Solar Application form and interconnection-related program guidelines."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "Solar Application form", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "PV Application Checklist (Rev 3-3-20)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Panel Upgrade Questionnaire", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Solar Application form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "PV Application Checklist (Rev 3-3-20)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Panel Upgrade Questionnaire",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -52,7 +100,9 @@
       "The Job Card/Permit must be onsite at the time of inspection"
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Per the City's own 'Residential Self Generating Facility Program - Photovoltaic Systems' guidelines PDF, Section C (Electric Utility Inspection Process)."
   },
   "timeline_days": {
@@ -62,11 +112,15 @@
       "notes": "The City's own Program Guidelines PDF states two sequential Electric Utility review stages, each with an explicit ceiling: 'the application review process can take up to forty-five (45) days from the date a completed application...are received,' followed by 'the plan check process can take up to forty-five (45) days from the date completed plans are received' (up to 90 days combined). This covers only the Electric Utility's own application/plan-check stages; it does not include the separate City of Banning Building and Safety Department's own plan check/permitting time, which is not stated in this document."
     },
     "confidence": 0.7,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -79,19 +133,39 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Production Meter (contribution in aid of construction)", "amount_usd": 245, "unit": "flat fee" },
-      { "name": "Application/plan-check/inspection review (up to 3 plan checks and up to 3 inspections)", "amount_usd": 255, "unit": "flat fee" },
-      { "name": "Additional plan check or inspection beyond the included set", "amount_usd": 60, "unit": "per occurrence (minimum)" }
+      {
+        "name": "Production Meter (contribution in aid of construction)",
+        "amount_usd": 245,
+        "unit": "flat fee"
+      },
+      {
+        "name": "Application/plan-check/inspection review (up to 3 plan checks and up to 3 inspections)",
+        "amount_usd": 255,
+        "unit": "flat fee"
+      },
+      {
+        "name": "Additional plan check or inspection beyond the included set",
+        "amount_usd": 60,
+        "unit": "per occurrence (minimum)"
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Per the City's own Program Guidelines PDF, item 13: a $500.00 total contribution in aid of construction is due at application submission, itemized as $245.00 Production Meter + $255.00 application/plan-check/inspection review; any additional plan check/inspection beyond the included set is a $60.00 minimum service charge each."
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -103,7 +177,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [

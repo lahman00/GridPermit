@@ -1,6 +1,7 @@
 {
   "record_id": "ca-los-angeles-walnut-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -84,12 +85,33 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Building Permit application (carbon form, filled out at City Hall)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Electrical Permit application (carbon form, filled out at City Hall)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S8"] }
+      {
+        "name": "Building Permit application (carbon form, filled out at City Hall)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Electrical Permit application (carbon form, filled out at City Hall)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S7", "S8"],
+    "source_ids": [
+      "S7",
+      "S8"
+    ],
     "notes": "Per the City's own 'Solar Energy Systems And Inspections' page (Building Permit and Electrical Permit application forms) and Walnut Municipal Code Section 2.36.040(A),(D)-(E) (standard plan/checklist substantially conforming to the CA Solar Permitting Guidebook)."
   },
   "inspection_steps": {
@@ -99,7 +121,10 @@
       "If a system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1", "S8"],
+    "source_ids": [
+      "S1",
+      "S8"
+    ],
     "notes": "Combines the City's general Building & Safety inspection-request process with the solar-specific expedited-inspection provisions of Walnut Municipal Code Section 2.36.050(J)-(L)."
   },
   "timeline_days": {
@@ -110,7 +135,10 @@
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -122,7 +150,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "permit_fees": {
     "value": null,

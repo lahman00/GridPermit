@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-diego-el-cajon-sdge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "San Diego Gas & Electric (SDG&E)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "El Cajon is a well-documented San Diego County city within SDG&E's core service territory, consistent with SDG&E-territory records established elsewhere this session."
   },
   "generation_supplier": {
@@ -14,24 +17,44 @@
       "notes": "Directly re-verified this session via San Diego Community Power's own 'Our Community' page, which explicitly names its six member cities as San Diego, Chula Vista, Encinitas, Imperial Beach, La Mesa, and National City (plus unincorporated San Diego County) — El Cajon is not among them. El Cajon is also not named as a member of Clean Energy Alliance (Carlsbad, Del Mar, Solana Beach, San Marcos, Escondido, Oceanside, Vista), the only other CCA operating in San Diego County. SDG&E is recorded as both the distribution and generation utility."
     },
     "confidence": 0.8,
-    "source_ids": ["S4"]
+    "source_ids": [
+      "S4"
+    ]
   },
-  "city": { "value": "El Cajon", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Diego County", "confidence": 0.95, "source_ids": ["S1"] },
+  "city": {
+    "value": "El Cajon",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Diego County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of El Cajon Building & Fire Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.elcajon.gov/your-government/departments/community-development/building-fire-safety/photovoltaic",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sdge.com/residential/savings-center/solar-power-renewable-energy/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SDG&E's own utility-wide Net Energy Metering (NEM) interconnection page, already established for other SDG&E-territory records this session."
   },
   "battery_programs": {
@@ -51,10 +74,17 @@
       }
     ],
     "confidence": 0.75,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Reused as a utility-level fact from other SDG&E-territory records this session."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "Search-engine synthesis indicates only projects conforming to the SolarAPP+ eligibility list may use automated instant permitting, with all others requiring a regular Building Permit, but the specific document checklist was not independently confirmed via direct fetch this session (elcajon.gov returned HTTP 403)." },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Search-engine synthesis indicates only projects conforming to the SolarAPP+ eligibility list may use automated instant permitting, with all others requiring a regular Building Permit, but the specific document checklist was not independently confirmed via direct fetch this session (elcajon.gov returned HTTP 403)."
+  },
   "inspection_steps": {
     "value": [
       "Complete the third-party inspection declaration on the permit and upload it to PACO (the City's online permit/inspection portal)",
@@ -62,17 +92,27 @@
       "No other City inspections are required beyond this final review/release step"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Confirmed via direct browser read of the City's own Photovoltaic page (elcajon.gov), which had returned HTTP 403 to WebFetch earlier this session but was successfully rendered via direct browser navigation."
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 0, "notes": "The City's own page states eligible SolarAPP+ systems can receive permits issued in as little as 30 minutes, confirmed via direct browser read (elcajon.gov returned HTTP 403 to WebFetch but rendered correctly via direct browser navigation)." },
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own page states eligible SolarAPP+ systems can receive permits issued in as little as 30 minutes, confirmed via direct browser read (elcajon.gov returned HTTP 403 to WebFetch but rendered correctly via direct browser navigation)."
+    },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -82,10 +122,21 @@
       ]
     },
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's own Fee Schedule document was located this session (linked from the Community Development Fee Schedule page, which redirects to elcajon.gov/home/showdocument?id=30110), but the document host returned HTTP 403 to curl and the browser tab triggered a file-download dialog rather than rendering, so its content could not be extracted this session." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own Fee Schedule document was located this session (linked from the Community Development Fee Schedule page, which redirects to elcajon.gov/home/showdocument?id=30110), but the document host returned HTTP 403 to curl and the browser tab triggered a file-download dialog rather than rendering, so its content could not be extracted this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -97,7 +148,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

@@ -1,6 +1,7 @@
 {
   "record_id": "ca-los-angeles-lakewood-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -83,12 +84,32 @@
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ eligibility requirements review (for eligible systems)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Submittal Checklist (for systems ineligible for SolarAPP+)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Contractor license information (for SolarAPP+ submittal)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ eligibility requirements review (for eligible systems)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Submittal Checklist (for systems ineligible for SolarAPP+)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Contractor license information (for SolarAPP+ submittal)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Per the City's own 'Solar Permitting for Homes' page: SolarAPP+-eligible projects apply via the automated portal; ineligible projects follow the City's Submittal Checklist and apply through the Online Permit Center."
   },
   "inspection_steps": {
@@ -97,7 +118,9 @@
       "To cancel an inspection, call the Building & Safety Division at 562-866-9771 ext. 2350"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Per the City's own 'Solar Permitting for Homes' page, Step 2 of the SolarAPP+ application process."
   },
   "timeline_days": {
@@ -107,11 +130,15 @@
       "notes": "The City's own page states 'Only projects that meet these requirements are eligible to use the automated SolarAPP+ portal for instant permitting.'"
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -122,7 +149,9 @@
       ]
     },
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": null,

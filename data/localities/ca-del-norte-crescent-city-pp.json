@@ -1,10 +1,13 @@
 {
   "record_id": "ca-del-norte-crescent-city-pp",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Power (PacifiCorp)",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Crescent City and Del Norte County are confirmed to be served by Pacific Power (PacifiCorp), not PG&E — independently checked rather than assumed, since PG&E's own service-area documentation does not include this area (PG&E's territory ends south of Del Norte County). This is a notable exception among this dataset's far-Northern-California cities, most of which are PG&E territory."
   },
   "generation_supplier": {
@@ -13,36 +16,91 @@
     "source_ids": [],
     "notes": "Redwood Coast Energy Authority (RCEA), the CCA serving most of neighboring Humboldt County, does not serve Del Norte County — RCEA's own confirmed member-jurisdiction list is limited to Humboldt County entities. No separate CCA was found serving Crescent City this session."
   },
-  "city": { "value": "Crescent City", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Del Norte County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Crescent City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Del Norte County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Crescent City Building Department",
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.crescentcity.org/departments/Building",
     "confidence": 0.7,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The fetched page covers general building permit documentation requirements but did not itemize solar-specific requirements, despite the city's own municipal code (via ecode360.com) containing a dedicated 'Small Residential Rooftop Solar Energy Systems' section."
   },
   "interconnection_url": {
     "value": "https://www.pacificpower.net/savings-energy-choices/customer-generation.html",
     "confidence": 0.6,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Pacific Power's own Customer Generation (net metering/interconnection) page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "Checklist of all requirements, adopted by the building official and published on the City's website, may reference the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "4 complete sets of construction plans, drawn to scale with professional seals", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "4 copies of Title 24 energy compliance calculations", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Proof of ownership and current assessor's parcel map", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Plot plan showing property details", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Checklist of all requirements, adopted by the building official and published on the City's website, may reference the California Solar Permitting Guidebook",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "4 complete sets of construction plans, drawn to scale with professional seals",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "4 copies of Title 24 energy compliance calculations",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Proof of ownership and current assessor's parcel map",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plot plan showing property details",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1", "S3"],
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
     "notes": "Per Crescent City Municipal Code Section 15.40.030: the building official adopts a checklist of all requirements, published on the City's website, which may reference the CA Solar Permitting Guidebook. Combined with the city's general building-permit submittal list (S1)."
   },
   "inspection_steps": {
@@ -51,7 +109,9 @@
       "If a system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Per Crescent City Municipal Code Section 15.40.030."
   },
   "timeline_days": {
@@ -62,7 +122,10 @@
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -73,10 +136,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -88,7 +161,9 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [

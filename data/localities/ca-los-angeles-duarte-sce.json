@@ -1,6 +1,7 @@
 {
   "record_id": "ca-los-angeles-duarte-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -83,12 +84,32 @@
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Eligibility Checklist compliance", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ ID (generated upon SolarAPP+ approval)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ Checklist (uploaded to the Duarte Permit Center documents area)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ Eligibility Checklist compliance",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ ID (generated upon SolarAPP+ approval)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Checklist (uploaded to the Duarte Permit Center documents area)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -96,7 +117,9 @@
       "In almost every case, the inspection is provided on the next working day"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This is the City's general Building & Safety inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
@@ -106,11 +129,15 @@
       "notes": "The City's own page states that SolarAPP+-eligible projects can use 'the automated SolarAPP+ portal for instant permitting.'"
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -121,7 +148,9 @@
       ]
     },
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": null,

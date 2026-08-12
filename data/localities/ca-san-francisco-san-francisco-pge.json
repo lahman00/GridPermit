@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-francisco-san-francisco-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "San Francisco is served by PG&E for electric transmission and distribution; the San Francisco Public Utilities Commission (SFPUC) separately serves a limited set of municipal/institutional customers (not general residential customers), and CleanPowerSF (also operated by SFPUC) is the default generation supplier riding on PG&E's delivery infrastructure."
   },
   "generation_supplier": {
@@ -14,36 +17,86 @@
       "notes": "CleanPowerSF, operated by the San Francisco Public Utilities Commission (SFPUC), is the default electricity generation provider for San Francisco (except customers already directly served by SFPUC). PG&E continues to own and operate the electric grid, deliver electricity, and issue a single combined monthly bill that includes CleanPowerSF's generation charges in place of PG&E's own generation charges."
     },
     "confidence": 0.9,
-    "source_ids": ["S4"]
+    "source_ids": [
+      "S4"
+    ]
   },
-  "city": { "value": "San Francisco", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Francisco County", "confidence": 0.95, "source_ids": ["S1"] },
+  "city": {
+    "value": "San Francisco",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Francisco County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "San Francisco Department of Building Inspection (DBI)",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.sf.gov/step-by-step--get-permit-solar-photovoltaic-system",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
     "confidence": 0.55,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Approval ID, Inspection Checklist, and Specification Sheet", "required_when": "SolarAPP+-eligible projects (existing single/two-family R3 homes, 4kWdc and under, PV-only, no ballasted/ground-mount, no new service/panel upgrade)", "source_ids": ["S1"] },
-      { "name": "Plan drawings", "required_when": "Solar Permit and PV Plans electrical permit applications", "source_ids": ["S1"] },
-      { "name": "Data sheets", "required_when": "Solar Permit and PV Plans electrical permit applications", "source_ids": ["S1"] },
-      { "name": "Structural drawings and calculations, stamped and signed by a California-licensed civil or structural engineer (roof coverings, framing type/size/spacing, panel weight/support/attachment method, any roof-strengthening framing, site-specific structural calculations, and racking-system documentation)", "required_when": "Solar Permit and PV Plans electrical permit applications", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ Approval ID, Inspection Checklist, and Specification Sheet",
+        "required_when": "SolarAPP+-eligible projects (existing single/two-family R3 homes, 4kWdc and under, PV-only, no ballasted/ground-mount, no new service/panel upgrade)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plan drawings",
+        "required_when": "Solar Permit and PV Plans electrical permit applications",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Data sheets",
+        "required_when": "Solar Permit and PV Plans electrical permit applications",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural drawings and calculations, stamped and signed by a California-licensed civil or structural engineer (roof coverings, framing type/size/spacing, panel weight/support/attachment method, any roof-strengthening framing, site-specific structural calculations, and racking-system documentation)",
+        "required_when": "Solar Permit and PV Plans electrical permit applications",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -51,12 +104,20 @@
       "Some system types may also require a separate DBI building inspection"
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -66,16 +127,29 @@
       ]
     },
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Residential solar permit fee cap (systems up to 15kW, under AB 1132)", "amount_usd": 450, "unit": "flat", "notes": "AB 1132 caps residential solar permit fees at $450 for systems up to 15kW, effective through 2034." }
+      {
+        "name": "Residential solar permit fee cap (systems up to 15kW, under AB 1132)",
+        "amount_usd": 450,
+        "unit": "flat",
+        "notes": "AB 1132 caps residential solar permit fees at $450 for systems up to 15kW, effective through 2034."
+      }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -94,7 +168,10 @@
       }
     ],
     "confidence": 0.7,
-    "source_ids": ["S1", "S4"]
+    "source_ids": [
+      "S1",
+      "S4"
+    ]
   },
   "last_verified": "2026-08-09",
   "sources": [

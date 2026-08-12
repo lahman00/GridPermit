@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-hesperia-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Hesperia' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,22 +16,40 @@
     "source_ids": [],
     "notes": "No Community Choice Aggregator was confirmed serving the City of Hesperia this session."
   },
-  "city": { "value": "Hesperia", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Hesperia",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Bernardino County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Hesperia Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.hesperiaca.gov/1520/SolarAPP",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -48,18 +69,46 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "City of Hesperia Business License", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Valid California State Contractors License", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarAPP+ approval documents", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Job card present at inspections", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "City of Hesperia Business License",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Valid California State Contractors License",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ approval documents",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Job card present at inspections",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -68,16 +117,26 @@
       "All required documents must be available during inspection"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 2, "notes": "The city states applicants receive a City of Hesperia-issued permit within 2 business days of SolarAPP+ approval." },
+    "value": {
+      "min_days": 0,
+      "max_days": 2,
+      "notes": "The city states applicants receive a City of Hesperia-issued permit within 2 business days of SolarAPP+ approval."
+    },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 38,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -90,10 +149,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states applicants must pay the SolarAPP+ processing fee plus applicable City of Hesperia fees, but does not state specific dollar amounts." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page states applicants must pay the SolarAPP+ processing fee plus applicable City of Hesperia fees, but does not state specific dollar amounts."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -112,7 +182,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

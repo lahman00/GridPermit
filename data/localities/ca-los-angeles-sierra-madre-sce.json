@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-sierra-madre-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.8,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Clean Power Alliance's own notice to Sierra Madre residents compares its rates against 'SCE's default rate' and directs CARE/FERA enrollment 'through SCE by calling 800-798-5723 or visiting sce.com/care' — consistent with SCE remaining the delivery/billing utility while CPA supplies generation (see generation_supplier)."
   },
   "generation_supplier": {
@@ -14,30 +17,46 @@
       "notes": "Per Clean Power Alliance's own co-branded notice with the City of Sierra Madre: 'Clean Power Alliance has been the electricity provider for the City of Sierra Madre since 2019... As of October 2020, Sierra Madre residents and businesses are receiving 100% Green Power (100% renewable energy) as their default rate product. The Sierra Madre City Council voted in February 2020 to adopt Clean Power Alliance's 100% Green Power as the default rate.' Customers may switch to CPA's Lean Power (36% renewable) or Clean Power (50% renewable) tiers at no cost."
     },
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Sierra Madre", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Sierra Madre",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Confirmed by the U.S. Census Bureau's QuickFacts page, titled 'Sierra Madre city, California; Los Angeles County, California.'"
   },
   "permit_authority": {
     "value": "City of Sierra Madre Planning & Community Preservation Department, Building Division",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://cdnsm5-hosted.civiclive.com/UserFiles/Servers/Server_212309/File/Departments/Planning%20&%20Community%20Preservation%20Department/Solar%20Project%20Info/Residential%20Solar%20Checklist_Revised%20October%202019.pdf",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This is the City of Sierra Madre's own hosted 'Residential Solar Plan Check Submittal Checklist' (letterhead: 'CITY OF SIERRA MADRE, Planning & Community Preservation Department, 232 W. Sierra Madre Boulevard, Sierra Madre, CA 91204, Phone (626) 355.7138'), directly read and confirmed this session. Found via a search that initially suggested it was a Mountain View, CA document (the two cities share the same third-party CDN host, civiclive.com) — the actual document content was read in full before use and confirmed to belong to Sierra Madre, not Mountain View."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact (same URL applies to every city in SCE's distribution territory, including Sierra Madre), already established for the Irvine and Fullerton records this session. sce.com returned a DNS-level failure to automated fetch; the URL is confirmed to exist under this exact title on SCE's own domain via search engine indexing."
   },
   "battery_programs": {
@@ -57,21 +76,67 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for the PG&E-territory records and for Irvine/Fullerton (SCE); the general-market tier's own eligibility text directly names both PG&E and SCE customers."
   },
   "required_documents": {
     "value": [
-      { "name": "Three sets of plans, including site/plot plan", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Manufacturer specification sheets, installation instructions, and U.L. listings attached to the plans", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Plans signed by a State of California licensed contractor (classification A, B, C-46, or C-10), licensed electrical engineer, or licensed architect, with signature and license number on each sheet", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Owner's name and address on all plan sheets, specific to the project", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Signed and dated 'Structural Guideline for Plan Check Submittal on Solar Panel Support' form", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Roof plan showing location/dimensions of PV equipment and arrays, partial roof framing plan (rafter/beam/header size, span, spacing), roofing materials, and support/flashing details", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Electrical drawings (2007 CEC compliance), single line diagram, inverter information, PV module information, and required system labels/warnings per NEC Article 690", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Three sets of plans, including site/plot plan",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer specification sheets, installation instructions, and U.L. listings attached to the plans",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plans signed by a State of California licensed contractor (classification A, B, C-46, or C-10), licensed electrical engineer, or licensed architect, with signature and license number on each sheet",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Owner's name and address on all plan sheets, specific to the project",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed and dated 'Structural Guideline for Plan Check Submittal on Solar Panel Support' form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan showing location/dimensions of PV equipment and arrays, partial roof framing plan (rafter/beam/header size, span, spacing), roofing materials, and support/flashing details",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical drawings (2007 CEC compliance), single line diagram, inverter information, PV module information, and required system labels/warnings per NEC Article 690",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "From the City of Sierra Madre Building Division's 'Residential Solar Plan Check Submittal Checklist' (revised October 8, 2019)."
   },
   "inspection_steps": {
@@ -81,7 +146,9 @@
       "Do not connect the solar voltaic system to the main power supply until after final approval by the city inspector"
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
     "value": null,
@@ -91,7 +158,9 @@
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -103,11 +172,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The cogenerated-electricity tax (Municipal Code 3.36.060) is a genuinely distinctive, verified local requirement not seen in other cities' records this session — included as a condition since it directly affects solar system owners, not as a permit_fees entry since it is legally a tax, not a permit fee."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -126,7 +205,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S7"],
+    "source_ids": [
+      "S1",
+      "S7"
+    ],
     "notes": "SGIP's own Contact page, directly fetched this session, lists an email (SGIPGroup@sce.com) and mailing address for SCE's SGIP administrator but explicitly no phone number — unlike PG&E's listing on the same page, which includes one."
   },
   "last_verified": "2026-08-03",

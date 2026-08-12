@@ -26,7 +26,8 @@ function baseRecord() {
 	const nullField = { value: null, confidence: 0, source_ids: [] };
 	return {
 		record_id: "ca-test-county-testville-pge",
-		schema_version: "1.3.0",
+		schema_version: "1.4.0",
+		state: "CA",
 		utility: { value: "Test Utility", confidence: 0.9, source_ids: ["S1"] },
 		generation_supplier: nullField,
 		city: { value: "Testville", confidence: 1, source_ids: ["S1"] },
@@ -165,7 +166,7 @@ test("an unsupported protocol URL (e.g. ftp://) is a CONFIRMED_BROKEN broken_url
 	assert.equal(check.status, "CONFIRMED_BROKEN");
 });
 
-test("schema_version must be exactly '1.3.0' — any other value is a schema_violation error", async () => {
+test("schema_version must be exactly '1.4.0' — any other value is a schema_violation error", async () => {
 	const r = baseRecord();
 	r.schema_version = "1.2.0";
 	const report = await validate(writeFixture(r));

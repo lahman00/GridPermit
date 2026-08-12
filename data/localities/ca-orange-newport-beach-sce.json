@@ -1,6 +1,7 @@
 {
   "record_id": "ca-orange-newport-beach-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -83,15 +84,53 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Completed Solar Permit Application form", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Eligibility Checklist for Solar Photovoltaic Permitting (compliance demonstration)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Completed Standard Electrical Plan (Solar PV Standard Plan, for systems 10kW or smaller) or a full electrical plan with disconnect locations, module/string counts, inverter specs, one-line diagram, grounding/conductor details, and equipment cut sheets", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Roof plan showing panel layout, roof access point, fire-code-compliant access pathways, fire classification, and required labels/markings", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Structural Criteria for Residential Rooftop Solar Energy Installations (expedited) or, for non-qualifying systems, stamped structural drawings/calculations from a licensed civil or structural engineer", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Credit Card Authorization Form (for electronic submittals, to pay the plan check fee at time of submittal)", "required_when": "conditional", "source_ids": ["S7"] }
+      {
+        "name": "Completed Solar Permit Application form",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Eligibility Checklist for Solar Photovoltaic Permitting (compliance demonstration)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Completed Standard Electrical Plan (Solar PV Standard Plan, for systems 10kW or smaller) or a full electrical plan with disconnect locations, module/string counts, inverter specs, one-line diagram, grounding/conductor details, and equipment cut sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Roof plan showing panel layout, roof access point, fire-code-compliant access pathways, fire classification, and required labels/markings",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Structural Criteria for Residential Rooftop Solar Energy Installations (expedited) or, for non-qualifying systems, stamped structural drawings/calculations from a licensed civil or structural engineer",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Credit Card Authorization Form (for electronic submittals, to pay the plan check fee at time of submittal)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S7"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per the City's own 'Submittal Requirements: Solar Photovoltaic Permitting for One- and Two-Family Dwellings' information bulletin, for systems 10kW or smaller using the standard (non-SolarAPP+) submittal path."
   },
   "inspection_steps": {
@@ -101,7 +140,9 @@
       "Be prepared to show conformance with all technical requirements in the field; the inspector verifies the installation matches the approved plans and applicable code, including module/model match, proper grounding, secure fastening, correct conductor sizing, and required PV/AC/switch signage"
     ],
     "confidence": 0.85,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "timeline_days": {
     "value": null,
@@ -110,7 +151,9 @@
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -121,15 +164,30 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1", "S7"]
+    "source_ids": [
+      "S1",
+      "S7"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Solar Photovoltaic Plan Check Fee", "amount_usd": 210, "unit": "flat fee", "notes": "Per the City's own Submittal Requirements bulletin, revised per AB 1414 (chaptered October 15, 2017). Due at time of electronic submittal." },
-      { "name": "Solar Photovoltaic Permit Fee", "amount_usd": 240, "unit": "flat fee", "notes": "Per the City's own Submittal Requirements bulletin. Due in person for permit issuance and plan release." }
+      {
+        "name": "Solar Photovoltaic Plan Check Fee",
+        "amount_usd": 210,
+        "unit": "flat fee",
+        "notes": "Per the City's own Submittal Requirements bulletin, revised per AB 1414 (chaptered October 15, 2017). Due at time of electronic submittal."
+      },
+      {
+        "name": "Solar Photovoltaic Permit Fee",
+        "amount_usd": 240,
+        "unit": "flat fee",
+        "notes": "Per the City's own Submittal Requirements bulletin. Due in person for permit issuance and plan release."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S7"]
+    "source_ids": [
+      "S7"
+    ]
   },
   "rebates": {
     "value": null,

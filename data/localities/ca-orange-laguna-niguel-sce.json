@@ -1,10 +1,13 @@
 {
   "record_id": "ca-orange-laguna-niguel-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.75,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Laguna Niguel' by name among the cities in its service area. IMPORTANT CAVEAT confirmed via a separate search this session: Laguna Niguel is split between SCE and San Diego Gas & Electric (SDG&E) territory, with the boundary running along Crown Valley Parkway. This record covers the SCE-served portion of the city only; residents south/east of that boundary may be SDG&E customers instead. Confidence reduced from the usual 0.9 to reflect this genuine split-territory complexity rather than presenting SCE as the sole utility for the entire city."
   },
   "generation_supplier": {
@@ -13,27 +16,41 @@
     "source_ids": [],
     "notes": "Orange County Power Authority (OCPA), the CCA operating in Orange County, currently names Buena Park, Fullerton, Irvine, and Fountain Valley as members — Laguna Niguel was not named among current members this session (only identified as a city that theoretically 'may join'). Left null rather than asserted either way."
   },
-  "city": { "value": "Laguna Niguel", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Laguna Niguel",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Orange County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Laguna Niguel is a well-documented Orange County city; also listed under Orange County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Laguna Niguel Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityoflagunaniguel.org/1705/Residential-Solar-Permits-with-SolarAPP",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.55,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — applies only to the SCE-served portion of Laguna Niguel; SDG&E-served residents would use SDG&E's own NEM program instead, which was not researched for this city this session."
   },
   "battery_programs": {
@@ -53,18 +70,46 @@
       }
     ],
     "confidence": 0.55,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact — applies to the SCE-served portion of the city only."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval ID number", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Complete submittal documents per SolarAPP+ requirements", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Plans and SolarAPP+ approval document (must be available for inspection)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Revised checklists (if modifications occur after initial approval)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ approval ID number",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Complete submittal documents per SolarAPP+ requirements",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plans and SolarAPP+ approval document (must be available for inspection)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Revised checklists (if modifications occur after initial approval)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -73,16 +118,26 @@
       "Work must match the approved scope before scheduling"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 0, "notes": "Per the city's own page: permit is 'issued (same day)' after application completion and fee payment." },
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Per the city's own page: permit is 'issued (same day)' after application completion and fee payment."
+    },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": 38.4,
       "thermal_capacity_kw_max": null,
@@ -96,16 +151,29 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ administration fee", "amount_usd": 25, "unit": "flat", "notes": "Paid directly to the SolarAPP+ platform. City permitting fees additionally apply per the Master Fee Schedule (amount not stated). First 3 revisions are free; subsequent revisions cost $25 each." }
+      {
+        "name": "SolarAPP+ administration fee",
+        "amount_usd": 25,
+        "unit": "flat",
+        "notes": "Paid directly to the SolarAPP+ platform. City permitting fees additionally apply per the Master Fee Schedule (amount not stated). First 3 revisions are free; subsequent revisions cost $25 each."
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -124,7 +192,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

@@ -1,44 +1,119 @@
 {
   "record_id": "ca-riverside-corona-multi",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": null,
     "confidence": 0,
     "source_ids": [],
     "notes": "Corona is confirmed to be genuinely split between two separate electric providers, with no majority established this session. The City's own Expedited Permits page states applicants must obtain 'a separate application process and approval from the electric utility authority for your address' — naming both 'Southern California Edison' and the 'Corona Utilities Department' as the possible provider depending on address. Southern California Edison's own 'Incorporated Cities and Counties Served by SCE' fact sheet also lists Corona. The City of Corona Department of Water and Power (DWP) is confirmed to be a real, separate municipal electric utility (not a fringe/pocket service) with a stated peak electric demand of 25.8 MW, its own Electric Service and Direct Access programs, and a dedicated solar contact. Neither provider's percentage of Corona's total service territory could be confirmed this session, so utility is left null rather than guessed."
   },
-  "generation_supplier": { "value": null, "confidence": 0, "source_ids": [], "notes": "Cannot be determined without first resolving which of the two utilities (SCE vs. Corona DWP) serves a given address; Corona is not a Western Community Energy member." },
-  "city": { "value": "Corona", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Riverside County", "confidence": 0.95, "source_ids": ["S1"] },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Cannot be determined without first resolving which of the two utilities (SCE vs. Corona DWP) serves a given address; Corona is not a Western Community Energy member."
+  },
+  "city": {
+    "value": "Corona",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Riverside County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Corona Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.coronaca.gov/departments/building-division/expedited-permits",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.coronaca.gov/departments/utilities/customer-care/services/solar-generator-interconnection-request-application-and-process",
     "confidence": 0.7,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "This is the Corona Utilities Department (municipal)'s own interconnection process, directly read this session — it applies only to addresses served by Corona DWP, not SCE. Addresses served by SCE instead use SCE's own statewide NEM interconnection process (recorded on other SCE-territory records in this dataset). Recorded here as the City-specific process since Corona DWP's process cannot be found anywhere else in this dataset, with this caveat noted rather than implying it is the only applicable process for all of Corona."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "Corona DWP's Net Energy Metering (NEM) / Eligible Renewable Generation (ERG) rate schedules govern solar generation credit, not a distinct battery/storage incentive program; the statewide SGIP program's applicability to Corona DWP (a municipal utility outside the IOUs' SGIP-administering territories) was not confirmed this session." },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Corona DWP's Net Energy Metering (NEM) / Eligible Renewable Generation (ERG) rate schedules govern solar generation credit, not a distinct battery/storage incentive program; the statewide SGIP program's applicability to Corona DWP (a municipal utility outside the IOUs' SGIP-administering territories) was not confirmed this session."
+  },
   "required_documents": {
     "value": [
-      { "name": "Expedited Solar Permit Application Form", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Eligibility Checklist", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Standard Plan", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Structural Criteria Form", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Roof Plan", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Installation/specification sheets (PDF, max 11x17)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Separate application and approval from the applicable electric utility authority (SCE or Corona DWP, depending on address)", "required_when": "always", "source_ids": ["S1", "S2", "S3"] }
+      {
+        "name": "Expedited Solar Permit Application Form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Eligibility Checklist",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Standard Plan",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural Criteria Form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof Plan",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Installation/specification sheets (PDF, max 11x17)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Separate application and approval from the applicable electric utility authority (SCE or Corona DWP, depending on address)",
+        "required_when": "always",
+        "source_ids": [
+          "S1",
+          "S2",
+          "S3"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -46,7 +121,10 @@
       "For Corona DWP-served addresses, commercial/industrial systems additionally require a Third-Party Certification verifying the installation matches approved specifications, performed after the City's own inspection has approved construction; upon acceptance, DWP issues a work order for the bi-directional meter change-out"
     ],
     "confidence": 0.7,
-    "source_ids": ["S5", "S4"],
+    "source_ids": [
+      "S5",
+      "S4"
+    ],
     "notes": "Per the City's own 'Permitting Guide for Symbium Solar' handout and the Corona Utilities Department's own interconnection process page."
   },
   "timeline_days": {
@@ -56,11 +134,15 @@
       "notes": "The City's own 'Permitting Guide for Symbium Solar' handout states: 'City staff will review your submittal at the latest within one business day. If all requested information, documents, and fees have been provided, the building permit will be issued immediately.' This covers the Symbium/eTrakit building-permit pathway only; the separate Corona DWP interconnection agreement/meter change-out process (required before system activation) is not given a day-count figure."
     },
     "confidence": 0.8,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -71,21 +153,50 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Building Division - Solar Photovoltaic, Residential 15 kW or Less (Inspection)", "amount_usd": 305.57, "unit": "flat fee" },
-      { "name": "Building Division - Solar Photovoltaic, Residential 15 kW or Less (Plan Check, PME included)", "amount_usd": 180.43, "unit": "flat fee" },
-      { "name": "Building Division - Solar Photovoltaic, Residential, each additional kW above 15 kW (Inspection)", "amount_usd": 7.90, "unit": "per kW" },
-      { "name": "Building Division - Solar Photovoltaic, Residential, each additional kW above 15 kW (Plan Check)", "amount_usd": 9.02, "unit": "per kW" },
-      { "name": "Corona Utilities Department (DWP) Solar Review Fee", "amount_usd": 866, "unit": "flat fee", "notes": "Fee code UD-370, effective 12/16/2024 per Resolution 2024-100; applies only to Corona DWP-served addresses, in addition to the Building Division fees above." }
+      {
+        "name": "Building Division - Solar Photovoltaic, Residential 15 kW or Less (Inspection)",
+        "amount_usd": 305.57,
+        "unit": "flat fee"
+      },
+      {
+        "name": "Building Division - Solar Photovoltaic, Residential 15 kW or Less (Plan Check, PME included)",
+        "amount_usd": 180.43,
+        "unit": "flat fee"
+      },
+      {
+        "name": "Building Division - Solar Photovoltaic, Residential, each additional kW above 15 kW (Inspection)",
+        "amount_usd": 7.9,
+        "unit": "per kW"
+      },
+      {
+        "name": "Building Division - Solar Photovoltaic, Residential, each additional kW above 15 kW (Plan Check)",
+        "amount_usd": 9.02,
+        "unit": "per kW"
+      },
+      {
+        "name": "Corona Utilities Department (DWP) Solar Review Fee",
+        "amount_usd": 866,
+        "unit": "flat fee",
+        "notes": "Fee code UD-370, effective 12/16/2024 per Resolution 2024-100; applies only to Corona DWP-served addresses, in addition to the Building Division fees above."
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Per the City's own 'Master Fee Recovery Schedule' (Building Division Table D: Electrical, and the Utilities Department's non-market-based fee table). Commercial Solar PV fees (50 kW or less: $680.62 inspection + $360.87 plan check) also appear in the same source but are not recorded here since this record's eligibility focus is residential."
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -104,7 +215,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S3"]
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [

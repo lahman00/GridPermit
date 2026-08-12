@@ -1,6 +1,7 @@
 {
   "record_id": "ca-riverside-temecula-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -82,18 +83,74 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Digital plan submission meeting the City's Digital Submittal Requirements (CD-3)", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Plans and calculations, sealed/signed originals, designed under the 2025 California Building, Electrical, and Energy Codes", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Detailed plans for the photovoltaic module array", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Plot plan showing array location relative to property lines, setbacks, and locations of disconnects, inverters, and existing electrical meter(s)", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Site plan showing sleeping-room egress paths, ridge/roof setbacks, and Rapid Shutdown System (RSS) device initiator location", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Labels and signage per CEC 690.56, 690.13, and 705.10", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Structural engineering calculations showing panel loads imposed on the roof", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "Specifications for photovoltaic modules, panels, arrays, framing supports, conduit sizing/location, and wire sizes", "required_when": "always", "source_ids": ["S6"] },
-      { "name": "CD75 Online Declaration for Solar", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Digital plan submission meeting the City's Digital Submittal Requirements (CD-3)",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Plans and calculations, sealed/signed originals, designed under the 2025 California Building, Electrical, and Energy Codes",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Detailed plans for the photovoltaic module array",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Plot plan showing array location relative to property lines, setbacks, and locations of disconnects, inverters, and existing electrical meter(s)",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Site plan showing sleeping-room egress paths, ridge/roof setbacks, and Rapid Shutdown System (RSS) device initiator location",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Labels and signage per CEC 690.56, 690.13, and 705.10",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Structural engineering calculations showing panel loads imposed on the roof",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Specifications for photovoltaic modules, panels, arrays, framing supports, conduit sizing/location, and wire sizes",
+        "required_when": "always",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "CD75 Online Declaration for Solar",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Per the City's own 'CD31 Residential Photovoltaic Requirements' bulletin (revised 02/06/26, current as of this session)."
   },
   "inspection_steps": {
@@ -102,7 +159,9 @@
       "Request a Building Inspection at TemeculaCA.gov/inspect"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly confirmed via browser this session; steps 8-9 of the City's own SolarAPP+ process description."
   },
   "timeline_days": {
@@ -112,11 +171,15 @@
       "notes": "The City's own page states: 'Expedited: Qualifying City Standard Plans PV systems may utilize our expedited process (3 business days).' and 'Standard: All PV systems may be submitted through our regular process (10-12 business days). Plans that are not City Standard Plans will not receive expedited review.'"
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -129,7 +192,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": null,

@@ -1,10 +1,13 @@
 {
   "record_id": "ca-los-angeles-beverly-hills-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Beverly Hills' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -14,29 +17,45 @@
       "notes": "Confirmed via a directly-fetched California Community Choice Association (CalCCA) press release: Beverly Hills is explicitly named among the communities that transitioned to 100% Green Power as their default CPA energy option beginning October 2022. Customers may choose another CPA option or opt out at any time."
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Beverly Hills", "confidence": 1, "source_ids": ["S3"] },
+  "city": {
+    "value": "Beverly Hills",
+    "confidence": 1,
+    "source_ids": [
+      "S3"
+    ]
+  },
   "county": {
     "value": "Los Angeles County",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Beverly Hills is a well-documented Los Angeles County city; also listed under Los Angeles County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Beverly Hills Development Services",
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "permit_url": {
     "value": "https://www.beverlyhills.org/766/Solar-Panels",
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -56,19 +75,53 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Completed Plan Review & Permit Application (over-the-counter pathway)", "required_when": "conditional", "source_ids": ["S3"] },
-      { "name": "SolarAPP+ Approval Document (automated pathway)", "required_when": "conditional", "source_ids": ["S3"] },
-      { "name": "Contractor authorization letter (if application is not signed by the license holder)", "required_when": "conditional", "source_ids": ["S3"] },
-      { "name": "Approved plans and issued permit must be available on-site during inspection", "required_when": "always", "source_ids": ["S3"] },
-      { "name": "For ballasted (unattached, flat-roof) PV systems: seismic/wind compliance documentation per SEAOC PV1-2012 and PV2-2012, sliding friction testing, structural analysis, and a recorded maintenance affidavit", "required_when": "conditional", "source_ids": ["S3"] }
+      {
+        "name": "Completed Plan Review & Permit Application (over-the-counter pathway)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "SolarAPP+ Approval Document (automated pathway)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Contractor authorization letter (if application is not signed by the license holder)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Approved plans and issued permit must be available on-site during inspection",
+        "required_when": "always",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "For ballasted (unattached, flat-roof) PV systems: seismic/wind compliance documentation per SEAOC PV1-2012 and PV2-2012, sliding friction testing, structural analysis, and a recorded maintenance affidavit",
+        "required_when": "conditional",
+        "source_ids": [
+          "S3"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -77,12 +130,20 @@
       "Approved plans and the issued permit must be available on-site when the inspector arrives"
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -93,10 +154,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page describes multiple fee payment steps but does not state a specific dollar amount." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page describes multiple fee payment steps but does not state a specific dollar amount."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -115,7 +187,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3", "S6"]
+    "source_ids": [
+      "S3",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-06",
   "sources": [

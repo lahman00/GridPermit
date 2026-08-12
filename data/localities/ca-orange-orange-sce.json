@@ -1,6 +1,7 @@
 {
   "record_id": "ca-orange-orange-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -83,11 +84,25 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Express Checklist for Residential Solar Photovoltaic and Energy Storage System (uploaded to the Civic Portal and present at all inspections)", "required_when": "always", "source_ids": ["S7"] },
-      { "name": "Electrical single line diagram", "required_when": "always", "source_ids": ["S7"] }
+      {
+        "name": "Express Checklist for Residential Solar Photovoltaic and Energy Storage System (uploaded to the Civic Portal and present at all inspections)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Electrical single line diagram",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      }
     ],
     "confidence": 0.7,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "The Express Checklist form itself (a PDF) triggers a file-download dialog rather than a viewable page and could not be read for its itemized content; its existence and required use are confirmed via the City's own 'Building Inspections' page, which lists it among items that 'shall be present at the time of inspections.'"
   },
   "inspection_steps": {
@@ -100,7 +115,9 @@
       "No job card is needed onsite; all approvals are available in the Civic Portal"
     ],
     "confidence": 0.85,
-    "source_ids": ["S7"],
+    "source_ids": [
+      "S7"
+    ],
     "notes": "Per the City's own 'Building Inspections' page, 'Residential Solar Inspection Procedures' section — a solar-specific inspection sequence."
   },
   "timeline_days": {

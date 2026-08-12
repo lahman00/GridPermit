@@ -1,10 +1,13 @@
 {
   "record_id": "ca-alameda-pleasanton-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.85,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Ava Community Energy's own Pleasanton page confirms PG&E's continued role: 'PG&E rates' are used as the pricing baseline and 'PG&E delivers that electricity to your home or business... Ava provides generation service and PG&E continues to provide delivery service.'"
   },
   "generation_supplier": {
@@ -14,29 +17,45 @@
       "notes": "Per Ava's own Pleasanton page: 'In July 2021 the Pleasanton City Council voted to set the default electricity option for Pleasanton residents (except those on CARE, FERA, and/or Medical Baseline rates) to Ava's Renewable 100 service starting in January 2022.' Customers may choose Ava's Bright Choice service or return to PG&E generation at any time."
     },
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Pleasanton", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Pleasanton",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Alameda County",
     "confidence": 0.75,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Ava Community Energy is Alameda County's CCA; Pleasanton's participation in Ava (S3) structurally confirms the city-county relationship. No single page was found this session stating the relationship as one direct standalone sentence, the same limitation documented for county fields in other records this session."
   },
   "permit_authority": {
     "value": "City of Pleasanton Community Development Department, Building and Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://www.cityofpleasantonca.gov/assets/our-government/community-development/handouts/photovoltaic-submittal-requirements.pdf",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same PG&E-wide Net Energy Metering program URL already verified for other PG&E-territory records this session — reused as a utility-level fact. pge.com returns HTTP 403 to automated fetch; confirmed to exist via search engine indexing under its expected title."
   },
   "battery_programs": {
@@ -56,17 +75,39 @@
       }
     ],
     "confidence": 0.65,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Same statewide CPUC/PG&E-administered SGIP program already verified for other PG&E-territory records this session, reused here as a utility-level fact since PG&E's distribution role in Pleasanton is independently confirmed (S3)."
   },
   "required_documents": {
     "value": [
-      { "name": "Building Permit Application", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Project Plans: Site Plan, Electrical Plan (one-line diagram), Roof Plan (fire safety items and access pathways), Specification Sheets (equipment cut sheets) — 3 sets, 11x17 minimum, drawn to scale", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Structural drawings and calculations stamped and signed by a California-licensed civil or structural engineer", "required_when": "only for rooftop systems triggering 5 lb/sf roof loading", "source_ids": ["S2"] }
+      {
+        "name": "Building Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Project Plans: Site Plan, Electrical Plan (one-line diagram), Roof Plan (fire safety items and access pathways), Specification Sheets (equipment cut sheets) — 3 sets, 11x17 minimum, drawn to scale",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural drawings and calculations stamped and signed by a California-licensed civil or structural engineer",
+        "required_when": "only for rooftop systems triggering 5 lb/sf roof loading",
+        "source_ids": [
+          "S2"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "From the City of Pleasanton Community Development Department, Building and Safety Division's 'Solar Photovoltaic (PV) Projects' handout, scoped to PV projects 10 kW or smaller."
   },
   "inspection_steps": {
@@ -76,12 +117,20 @@
       "Inspector checks: PV modules match plans/specifications; array conductors and grounding are correctly installed; array is fastened and sealed per attachment detail; required signage (DC disconnect PV power source sign, AC point of connection sign, alternative power system switch sign) is properly constructed and displayed; and equipment ratings (inverter, DC/AC overcurrent protection devices) are consistent with the application and installed signage"
     ],
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 5, "notes": "'Permit submittals utilizing a standard plan may be approved \"over the counter\" at our Permit Center by appointment only' (implying same-day approval for eligible standard-plan submittals), and 'Permits not approved \"over the counter\" should be reviewed in approximately three to five business days.'" },
+    "value": {
+      "min_days": 0,
+      "max_days": 5,
+      "notes": "'Permit submittals utilizing a standard plan may be approved \"over the counter\" at our Permit Center by appointment only' (implying same-day approval for eligible standard-plan submittals), and 'Permits not approved \"over the counter\" should be reviewed in approximately three to five business days.'"
+    },
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -96,12 +145,22 @@
       ]
     },
     "confidence": 0.75,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "The source document states its scope as 'solar photovoltaic (PV) projects 10 kW in size or smaller' without specifying whether this is an AC or DC nameplate rating, and does not restrict eligibility to a specific property type (single-family, duplex, etc.) the way some other cities' ordinances do — property_types left empty rather than assumed, and the 10kW cap recorded with this ambiguity noted rather than silently treated as equivalent to other cities' explicit '10kW AC' figures."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [],
-    "notes": "The Solar Photovoltaic (PV) Projects handout describes the plan review and inspection process but does not state a specific permit fee amount or fee schedule." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Solar Photovoltaic (PV) Projects handout describes the plan review and inspection process but does not state a specific permit fee amount or fee schedule."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -120,7 +179,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2", "S6"]
+    "source_ids": [
+      "S2",
+      "S6"
+    ]
   },
   "last_verified": "2026-08-03",
   "sources": [

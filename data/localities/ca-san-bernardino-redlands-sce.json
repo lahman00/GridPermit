@@ -1,10 +1,14 @@
 {
   "record_id": "ca-san-bernardino-redlands-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S4", "S3"],
+    "source_ids": [
+      "S4",
+      "S3"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Redlands' by name among the cities in its service area. The City of Redlands' own Municipal Utilities and Engineering Department page confirms its utility operations are limited to 'Water Production and Distribution; Non-Potable Water Distribution; Wastewater Collection, Treatment, and Disposal' — i.e. no municipal electric utility — consistent with SCE serving as the electric provider."
   },
   "generation_supplier": {
@@ -13,27 +17,41 @@
     "source_ids": [],
     "notes": "No official Redlands city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Redlands", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Redlands",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "San Bernardino County",
     "confidence": 0.9,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Redlands is a well-documented San Bernardino County city; also listed under San Bernardino County in SCE's own service-area fact sheet."
   },
   "permit_authority": {
     "value": "City of Redlands Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://www.redlands.gov/guidelines-solar-plan-submittal/",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -53,16 +71,32 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Eligibility Checklist for Expedited Solar Photovoltaic Permitting (systems <= 10 kW AC, no battery backup)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Structural engineering calculations (footings and bolting specifications, required for systems > 10 kW AC and all ground-mounted installations)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Eligibility Checklist for Expedited Solar Photovoltaic Permitting (systems <= 10 kW AC, no battery backup)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural engineering calculations (footings and bolting specifications, required for systems > 10 kW AC and all ground-mounted installations)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -70,16 +104,26 @@
       "Inspectors answer phone questions between 7:00am and 8:00am daily, with inspection schedules posted after 8:00am"
     ],
     "confidence": 0.75,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 10, "notes": "Roof-mounted PV arrays 10 kW AC or less (no battery backup) qualify for same-day 'over the counter' review and permit issuance. Roof-mounted arrays over 10 kW AC, and all ground-mounted arrays, require formal plan review with a 10-business-day turnaround." },
+    "value": {
+      "min_days": 0,
+      "max_days": 10,
+      "notes": "Roof-mounted PV arrays 10 kW AC or less (no battery backup) qualify for same-day 'over the counter' review and permit issuance. Roof-mounted arrays over 10 kW AC, and all ground-mounted arrays, require formal plan review with a 10-business-day turnaround."
+    },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -90,10 +134,20 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -112,7 +166,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2", "S7"]
+    "source_ids": [
+      "S2",
+      "S7"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

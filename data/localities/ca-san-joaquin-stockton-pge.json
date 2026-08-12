@@ -1,6 +1,7 @@
 {
   "record_id": "ca-san-joaquin-stockton-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.9,
@@ -86,10 +87,18 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S8"] }
+      {
+        "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook",
+        "required_when": "always",
+        "source_ids": [
+          "S8"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S8"],
+    "source_ids": [
+      "S8"
+    ],
     "notes": "Per Stockton Municipal Code Section 15.78.040(A),(D)-(E): the Building Department adopts a standard plan and checklist substantially conforming to the CA Solar Permitting Guidebook, made available on the City's website. The City's own SolarAPP+ / 'Residential Solar One Stop' online application (S1) is the modern submission channel for eligible systems."
   },
   "inspection_steps": {
@@ -99,7 +108,9 @@
       "If a system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S8"],
+    "source_ids": [
+      "S8"
+    ],
     "notes": "Per Stockton Municipal Code Section 15.78.050(H)-(J)."
   },
   "timeline_days": {
@@ -109,11 +120,16 @@
       "notes": "Stockton Municipal Code Section 15.78.050(A): the Building Department shall issue a permit '(the same day for over-the-counter applications or within one to three business days for electronic applications)' of receipt of a complete application. Directly confirmed this session via the City's own municipal code, replacing the prior lower-confidence (0.6), search-engine-derived 'instant issuance' claim with this more specific, code-based figure."
     },
     "confidence": 0.85,
-    "source_ids": ["S8"]
+    "source_ids": [
+      "S8"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -124,7 +140,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S8"]
+    "source_ids": [
+      "S8"
+    ]
   },
   "permit_fees": {
     "value": null,

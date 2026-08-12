@@ -1,6 +1,7 @@
 {
   "record_id": "ca-merced-atwater-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.85,
@@ -75,10 +76,18 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Checklist of expedited-review requirements, published on the City's website", "required_when": "always", "source_ids": ["S4"] }
+      {
+        "name": "Checklist of expedited-review requirements, published on the City's website",
+        "required_when": "always",
+        "source_ids": [
+          "S4"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Per Atwater Municipal Code Section 15.04.130(D): the checklist shall be published on the City's internet website; the applicant may submit the permit application and associated documentation by personal, mailed, or electronic submittal together with any required permit processing and inspection fees. The code text itself does not itemize further documents beyond this checklist."
   },
   "inspection_steps": {
@@ -87,7 +96,9 @@
       "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Per Atwater Municipal Code Section 15.04.130(F)."
   },
   "timeline_days": {
@@ -97,11 +108,16 @@
       "notes": "The City's own 'Automated Solar Permitting' page states that eligible projects 'use the automated SolarAPP+ portal for instant permitting.' Atwater Municipal Code Section 15.04.130 separately describes administrative approval of complete applications for the underlying expedited-review ordinance without a day-count figure, so this instant-permitting value applies specifically to SolarAPP+-eligible submissions."
     },
     "confidence": 0.75,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -112,14 +128,23 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S4"]
+    "source_ids": [
+      "S4"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ processing fee", "amount_usd": 25, "unit": "flat", "notes": "Charged by the SolarAPP+ website (solarapp.nrel.gov) upon submission; covers up to three revisions. Separate City of Atwater permit fees also apply via Cloudpermit but no dollar figure for those was stated on the page." }
+      {
+        "name": "SolarAPP+ processing fee",
+        "amount_usd": 25,
+        "unit": "flat",
+        "notes": "Charged by the SolarAPP+ website (solarapp.nrel.gov) upon submission; covers up to three revisions. Separate City of Atwater permit fees also apply via Cloudpermit but no dollar figure for those was stated on the page."
+      }
     ],
     "confidence": 0.8,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Directly verified via the City's own 'Automated Solar Permitting' page this session: 'A $25 processing fee will be charged by the SolarAPP+ website.'"
   },
   "rebates": {

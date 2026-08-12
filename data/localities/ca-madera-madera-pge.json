@@ -1,10 +1,13 @@
 {
   "record_id": "ca-madera-madera-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas and Electric Company (PG&E)",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Madera is confirmed as within PG&E's electric service territory."
   },
   "generation_supplier": {
@@ -13,26 +16,40 @@
     "source_ids": [],
     "notes": "No official Madera city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Madera", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Madera",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Madera County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Madera Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.madera.gov/business-building-development/solar-power/automated-residential-solar-permits/",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "PG&E's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other PG&E-territory records in this dataset."
   },
   "battery_programs": {
@@ -52,16 +69,32 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other PG&E-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Approval Document and Inspection Checklist (generated upon approval)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "System specifications printouts and City permit documentation, maintained on-site", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ Approval Document and Inspection Checklist (generated upon approval)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "System specifications printouts and City permit documentation, maintained on-site",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -71,16 +104,26 @@
       "Reinspection fees apply if the site is unready or revisions are incomplete"
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 1, "max_days": 2, "notes": "Inspection requests received before 4:00pm are scheduled for the next workday; requests received after 4:00pm are scheduled 2 days later." },
+    "value": {
+      "min_days": 1,
+      "max_days": 2,
+      "notes": "Inspection requests received before 4:00pm are scheduled for the next workday; requests received after 4:00pm are scheduled 2 days later."
+    },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -91,10 +134,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states SolarAPP+ charges a processing fee and City fees follow the Master Fee Schedule, but no specific dollar amounts are given." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page states SolarAPP+ charges a processing fee and City fees follow the Master Fee Schedule, but no specific dollar amounts are given."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -120,7 +174,10 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

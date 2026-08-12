@@ -1,6 +1,7 @@
 {
   "record_id": "ca-riverside-lake-elsinore-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
@@ -80,14 +81,46 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Plans and specifications for the PV modules, panels, arrays, and framing supports (3 sets)", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Plot plan showing the array's location relative to property lines/setbacks and the locations of disconnects, inverters, and existing electrical meter(s) (3 copies)", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Engineering calculations (2 copies)", "required_when": "conditional", "source_ids": ["S5"] },
-      { "name": "Electrical single-line diagram showing panel count/voltage/kW ratings, main panel bussing amperage, and PV circuit breaker amperage", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Manufacturer's information brochures for the inverter, PV modules, and mounting system", "required_when": "always", "source_ids": ["S5"] }
+      {
+        "name": "Plans and specifications for the PV modules, panels, arrays, and framing supports (3 sets)",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Plot plan showing the array's location relative to property lines/setbacks and the locations of disconnects, inverters, and existing electrical meter(s) (3 copies)",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Engineering calculations (2 copies)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Electrical single-line diagram showing panel count/voltage/kW ratings, main panel bussing amperage, and PV circuit breaker amperage",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Manufacturer's information brochures for the inverter, PV modules, and mounting system",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Per the City's own 'Solar Requirements' handout (Building and Safety Department), condensed from the full itemized list."
   },
   "inspection_steps": {
@@ -97,7 +130,9 @@
       "Inspections are not currently scheduled through the CSS Portal"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This is the City's general Building & Safety inspection-scheduling process (the same page covers all building permit types, including solar); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
@@ -107,11 +142,15 @@
       "notes": "The City's own 'Solar Requirements' handout states: 'As of January 1, 2019 Permits for Solar Systems will no longer be issued over the counter, there will be a 1-3 day plan check review.'"
     },
     "confidence": 0.75,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -123,7 +162,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "permit_fees": {
     "value": null,

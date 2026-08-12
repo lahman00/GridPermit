@@ -1,6 +1,7 @@
 {
   "record_id": "ca-kern-wasco-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.85,
@@ -40,7 +41,8 @@
     "value": "https://www.cityofwasco.org/392/Solar-App-For-Solar-Installers",
     "confidence": 0.9,
     "source_ids": [
-      "S1", "S4"
+      "S1",
+      "S4"
     ],
     "notes": "Corrected to the City's actual dedicated 'Solar App+ For Solar Installers' page, directly read this session."
   },
@@ -76,12 +78,32 @@
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Approval Checklist", "required_when": "always", "source_ids": ["S4"] },
-      { "name": "Solar Equipment Spec Sheets", "required_when": "always", "source_ids": ["S4"] },
-      { "name": "One-Line Diagram (Electrical)", "required_when": "always", "source_ids": ["S4"] }
+      {
+        "name": "SolarAPP+ Approval Checklist",
+        "required_when": "always",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Solar Equipment Spec Sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "One-Line Diagram (Electrical)",
+        "required_when": "always",
+        "source_ids": [
+          "S4"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Per the City's own 'Solar App+ For Solar Installers' page: 'Three (3) Required Documents' uploaded to the City's MYGOV permitting system, received from SolarApp+."
   },
   "inspection_steps": {
@@ -91,7 +113,9 @@
       "When ready, call (661) 758-7250 to request an inspection"
     ],
     "confidence": 0.8,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Per the City's own 'Solar App+ For Solar Installers' page."
   },
   "timeline_days": {
@@ -101,7 +125,9 @@
       "notes": "The City's own page states, in capitals for emphasis: 'A PERMIT WILL BE ISSUED AUTOMATICALLY' upon submitting the completed SolarAPP+/MYGOV request with all three required documents attached."
     },
     "confidence": 0.8,
-    "source_ids": ["S4"]
+    "source_ids": [
+      "S4"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -124,12 +150,26 @@
   },
   "permit_fees": {
     "value": [
-      { "name": "Residential Solar Photovoltaic System - Solar Permit, 15 kW or less", "amount_usd": 322, "unit": "flat fee" },
-      { "name": "Residential Solar Photovoltaic System - Solar Permit, above 15 kW (base)", "amount_usd": 322, "unit": "flat fee" },
-      { "name": "Residential Solar Photovoltaic System - Solar Permit, above 15 kW (per additional kW)", "amount_usd": 15, "unit": "per kW" }
+      {
+        "name": "Residential Solar Photovoltaic System - Solar Permit, 15 kW or less",
+        "amount_usd": 322,
+        "unit": "flat fee"
+      },
+      {
+        "name": "Residential Solar Photovoltaic System - Solar Permit, above 15 kW (base)",
+        "amount_usd": 322,
+        "unit": "flat fee"
+      },
+      {
+        "name": "Residential Solar Photovoltaic System - Solar Permit, above 15 kW (per additional kW)",
+        "amount_usd": 15,
+        "unit": "per kW"
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Per the City's own Master Fee Schedule FY 2025-26 (Building Fees, item 3). Commercial Solar Photovoltaic System permit fees also appear in the same source ($1,000 for 50kW or less, escalating above that) but are not recorded here since this record's eligibility focus is residential."
   },
   "rebates": {

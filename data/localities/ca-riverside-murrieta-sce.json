@@ -1,10 +1,13 @@
 {
   "record_id": "ca-riverside-murrieta-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Murrieta' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,22 +16,40 @@
     "source_ids": [],
     "notes": "Murrieta is not a Western Community Energy member city (Eastvale, Hemet, Jurupa Valley, Norco, Perris, and Wildomar are); WCE itself deregistered with the CPUC and dissolved via Chapter 9 bankruptcy in 2021. No CCA was found serving Murrieta this session."
   },
-  "city": { "value": "Murrieta", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Riverside County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Murrieta",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Riverside County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Murrieta Building & Safety Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.murrietaca.gov/1368/Self--Issuing-Permits-Solar-App",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -48,17 +69,39 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarApp+ inspection checklist (IB-133)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "SolarApp+ approval documentation", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Printed permit and specifications (kept on job site)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarApp+ inspection checklist (IB-133)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarApp+ approval documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Printed permit and specifications (kept on job site)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -69,16 +112,26 @@
       "Failed inspections or incomplete work trigger reinspection fees"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 15, "max_days": 15, "notes": "The city states current permit processing is 15 business days." },
+    "value": {
+      "min_days": 15,
+      "max_days": 15,
+      "notes": "The city states current permit processing is 15 business days."
+    },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -89,10 +142,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The city's page states a SolarApp+ processing fee applies, and that service panel upgrades and additional inspection visits beyond the first two incur separate fees, but does not state specific dollar amounts." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city's page states a SolarApp+ processing fee applies, and that service panel upgrades and additional inspection visits beyond the first two incur separate fees, but does not state specific dollar amounts."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -111,7 +175,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

@@ -1,10 +1,13 @@
 {
   "record_id": "ca-san-bernardino-highland-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "SCE's own 'Incorporated Cities and Counties Served by SCE' fact sheet (updated 3/17/2025) explicitly lists 'Highland' by name among the cities in its service area."
   },
   "generation_supplier": {
@@ -13,22 +16,40 @@
     "source_ids": [],
     "notes": "No Community Choice Aggregator was confirmed serving the City of Highland this session."
   },
-  "city": { "value": "Highland", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "San Bernardino County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Highland",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "San Bernardino County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Highland Building & Safety",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.highlandca.gov/357/Photovoltaic-Energy-Systems-SOLAR",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -48,19 +69,53 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "Completed Building Permit Application (in-person)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Two sets of plans and two sets of structural calculations (in-person)", "required_when": "conditional", "source_ids": ["S1"] },
-      { "name": "Signed contractor declarations", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Current business license verification", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Notarized authorization letter (if a representative signs)", "required_when": "conditional", "source_ids": ["S1"] }
+      {
+        "name": "Completed Building Permit Application (in-person)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Two sets of plans and two sets of structural calculations (in-person)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed contractor declarations",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Current business license verification",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Notarized authorization letter (if a representative signs)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -69,16 +124,26 @@
       "Final inspection confirms proper installation"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 1, "max_days": 3, "notes": "Electronic portal submittals are typically reviewed within 1-3 business days (most same-day); standard in-person review is expedited to 1-2 days. SolarAPP+ provides instant approval eligibility determination." },
+    "value": {
+      "min_days": 1,
+      "max_days": 3,
+      "notes": "Electronic portal submittals are typically reviewed within 1-3 business days (most same-day); standard in-person review is expedited to 1-2 days. SolarAPP+ provides instant approval eligibility determination."
+    },
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 38.4,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -89,10 +154,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page states application fees are collected at submittal, and that SolarAPP+ includes a processing fee covering up to three revisions, but does not state specific dollar amounts." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page states application fees are collected at submittal, and that SolarAPP+ includes a processing fee covering up to three revisions, but does not state specific dollar amounts."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -111,7 +187,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-08",
   "sources": [

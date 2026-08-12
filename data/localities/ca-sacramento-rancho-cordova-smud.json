@@ -1,10 +1,13 @@
 {
   "record_id": "ca-sacramento-rancho-cordova-smud",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Sacramento Municipal Utility District (SMUD)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Rancho Cordova is confirmed as an SMUD-served city, corroborated by multiple sources this session including SMUD's own SB379-adjacent municipal code chapter references and general knowledge that Rancho Cordova is within SMUD's core Sacramento County service territory alongside the City of Sacramento, Elk Grove, and Citrus Heights."
   },
   "generation_supplier": {
@@ -14,30 +17,46 @@
       "notes": "SMUD is a vertically-integrated municipal utility — it generates/procures and delivers its own power rather than sitting alongside a separate CCA, consistent with the pattern already established for other SMUD-territory records this session."
     },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Rancho Cordova", "confidence": 1, "source_ids": ["S2"] },
+  "city": {
+    "value": "Rancho Cordova",
+    "confidence": 1,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "county": {
     "value": "Sacramento County",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_authority": {
     "value": "City of Rancho Cordova Building and Safety Division",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block). codepublishing.com (host of the city's Small Residential Rooftop Solar Energy Systems municipal code chapter, S1) presents a Cloudflare bot-challenge screen and was not bypassed."
   },
   "permit_url": {
     "value": "https://www.cityofranchocordova.org/departments/community-development/building-and-safety/forms-and-downloads",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Corrected/refined to the City's own Forms and Downloads page (directly re-verified via browser this session), which includes a dedicated SOLARAPP+ section confirming the SolarAPP+ + 'Rancho Cordova Online' submission process."
   },
   "interconnection_url": {
     "value": "https://www.smud.org/Going-Green/Solar-for-Your-Home",
     "confidence": 0.85,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "SMUD's own solar hub page, which includes an 'Interconnection process' FAQ topic — utility-wide, not city-specific."
   },
   "battery_programs": {
@@ -57,15 +76,32 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval documents (submitted via the Rancho Cordova Online portal)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S5"] }
+      {
+        "name": "SolarAPP+ approval documents (submitted via the Rancho Cordova Online portal)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Standard plan and checklist of all requirements, published on the City's website, substantially conforming to the California Solar Permitting Guidebook",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S2", "S5"],
+    "source_ids": [
+      "S2",
+      "S5"
+    ],
     "notes": "Per the City's own Forms and Downloads page (SolarAPP+ submission), and Rancho Cordova Municipal Code Section 16.07.050(D)-(E) (standard plan/checklist substantially conforming to the CA Solar Permitting Guidebook)."
   },
   "inspection_steps": {
@@ -75,7 +111,9 @@
       "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is authorized"
     ],
     "confidence": 0.8,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Per Rancho Cordova Municipal Code Section 16.07.060(G)-(I)."
   },
   "timeline_days": {
@@ -85,11 +123,16 @@
       "notes": "Rancho Cordova Municipal Code Section 16.07.060(A): 'The building department shall issue a building permit, the issuance of which is nondiscretionary, within three business days upon receipt of a complete application that meets the requirements of the approved checklist and standard plan.'"
     },
     "confidence": 0.85,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": 30,
@@ -100,10 +143,21 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S2", "S5"]
+    "source_ids": [
+      "S2",
+      "S5"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -115,7 +169,9 @@
       }
     ],
     "confidence": 0.55,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Contact details found via search-engine indexing of the city's own page content; cityofranchocordova.org itself returned HTTP 403 to direct fetch and could not be independently read to confirm."
   },
   "last_verified": "2026-08-11",

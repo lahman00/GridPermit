@@ -1,10 +1,13 @@
 {
   "record_id": "ca-tulare-visalia-sce",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Southern California Edison (SCE)",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Visalia is confirmed as SCE territory via multiple corroborating sources this session (the Visalia Chamber of Commerce's own utility-member listing for SCE, and SCE program listings specific to Visalia), consistent with SCE's service territory extending into parts of Tulare County alongside neighboring Central Valley cities like Tulare, Porterville, Exeter, Farmersville, Lindsay, and Woodlake."
   },
   "generation_supplier": {
@@ -13,26 +16,40 @@
     "source_ids": [],
     "notes": "No official Visalia city page or CCA program page confirming CCA membership was found this session. Left null rather than guessed."
   },
-  "city": { "value": "Visalia", "confidence": 1, "source_ids": ["S1"] },
+  "city": {
+    "value": "Visalia",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "county": {
     "value": "Tulare County",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_authority": {
     "value": "City of Visalia Engineering & Building Division",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.visalia.gov/269/SolarApp",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
     "confidence": 0.6,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "SCE's own Net Energy Metering (NEM) program page — a utility-wide fact already established for other SCE-territory records this session."
   },
   "battery_programs": {
@@ -52,17 +69,39 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S4"],
+    "source_ids": [
+      "S4"
+    ],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ Approval Documents (obtained after automated review)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Single-line diagram (required at inspection)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Load calculations (required at inspection)", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "SolarAPP+ Approval Documents (obtained after automated review)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Single-line diagram (required at inspection)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Load calculations (required at inspection)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "inspection_steps": {
     "value": [
@@ -70,16 +109,26 @@
       "Bring the single-line diagram and load calculations to the inspection"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": 0, "max_days": 0, "notes": "Per the city's own page, the permit auto-issues within seconds after online fee payment for SolarAPP+-eligible submissions." },
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Per the city's own page, the permit auto-issues within seconds after online fee payment for SolarAPP+-eligible submissions."
+    },
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -87,11 +136,22 @@
       "other_conditions": []
     },
     "confidence": 0.6,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The page refers applicants to SolarAPP+'s own general eligible-systems guide rather than stating a specific size cap or property-type restriction itself."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The page does not list specific permit costs, referring applicants to SolarAPP+'s own general cost information instead." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The page does not list specific permit costs, referring applicants to SolarAPP+'s own general cost information instead."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "official_contacts": {
     "value": [
       {
@@ -110,7 +170,10 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S5"]
+    "source_ids": [
+      "S1",
+      "S5"
+    ]
   },
   "last_verified": "2026-08-05",
   "sources": [

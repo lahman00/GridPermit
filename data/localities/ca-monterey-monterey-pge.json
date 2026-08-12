@@ -1,6 +1,7 @@
 {
   "record_id": "ca-monterey-monterey-pge",
-  "schema_version": "1.3.0",
+  "schema_version": "1.4.0",
+  "state": "CA",
   "utility": {
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.85,
@@ -82,15 +83,53 @@
   },
   "required_documents": {
     "value": [
-      { "name": "Completed Building Permit Application (submitted via the online portal or emailed to gogreen@monterey.gov)", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Solar Photovoltaic (PV) Systems Expedited Submittal Checklist, completed and signed by the owner or licensed contractor", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Plans (minimum sheet size 11\"x17\", PDF format), including a Site Plan, Single Line Diagram, and Sheet Index", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Manufacturer's Equipment Specifications/cut sheets (panels, racking, inverter, microinverter/power optimizers)", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Smoke and Carbon Monoxide Detector Affidavit", "required_when": "always", "source_ids": ["S5"] },
-      { "name": "Statement or engineering analysis confirming existing roof framing can support the added solar panel load (full engineering analysis required for ballasted systems)", "required_when": "conditional", "source_ids": ["S5"] }
+      {
+        "name": "Completed Building Permit Application (submitted via the online portal or emailed to gogreen@monterey.gov)",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Solar Photovoltaic (PV) Systems Expedited Submittal Checklist, completed and signed by the owner or licensed contractor",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Plans (minimum sheet size 11\"x17\", PDF format), including a Site Plan, Single Line Diagram, and Sheet Index",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Manufacturer's Equipment Specifications/cut sheets (panels, racking, inverter, microinverter/power optimizers)",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Smoke and Carbon Monoxide Detector Affidavit",
+        "required_when": "always",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Statement or engineering analysis confirming existing roof framing can support the added solar panel load (full engineering analysis required for ballasted systems)",
+        "required_when": "conditional",
+        "source_ids": [
+          "S5"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Per the City's own 'Solar Photovoltaic (PV) Systems Expedited Submittal Checklist' (Rev. 12/30/2024), for residential solar PV systems under 10kW; condensed from the full itemized checklist."
   },
   "inspection_steps": {
@@ -101,7 +140,9 @@
       "Inspection requests received before 2:00pm are scheduled for the next business day; requests received after 4:00pm may be scheduled for the following day"
     ],
     "confidence": 0.7,
-    "source_ids": ["S6"],
+    "source_ids": [
+      "S6"
+    ],
     "notes": "This is the City's general Building Permit & Inspection Services construction-inspection process (covers all permit types, including solar PV building permits per the City's own Building Permit Application); the City does not publish a separate, solar-specific inspection sequence."
   },
   "timeline_days": {
@@ -124,7 +165,9 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Corrected this session: the prior entry described a SolarAPP+ pathway that is not mentioned anywhere on the City's own Building and Safety Services page or its Solar Checklist; the City's actual process is its own Online Permit Portal plus an expedited paper/PDF checklist review."
   },
   "permit_fees": {
@@ -148,7 +191,9 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "last_verified": "2026-08-11",
   "sources": [

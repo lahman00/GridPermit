@@ -24,7 +24,12 @@ export async function getStaticPaths() {
 		{ default: { records: ReadyEvaluationSummary[] } }
 	>;
 	const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
-	const hubs = buildCountyHubs(allEvaluatedRecords, recordsById);
+	// This route is physically rooted at /california/county/ — restrict to
+	// California hubs only, so a future state's county hub (once it clears
+	// MIN_READY_CITIES_FOR_HUB) gets its own /<state-slug>/county/[slug].astro
+	// route instead of silently rendering under the wrong state's URL prefix,
+	// or worse, colliding with a same-named CA county's slug here.
+	const hubs = buildCountyHubs(allEvaluatedRecords, recordsById).filter((hub) => hub.state === "CA");
 
 	return hubs.map((hub) => ({
 		params: { slug: hub.countySlug },
