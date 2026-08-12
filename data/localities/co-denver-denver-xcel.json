@@ -1,0 +1,149 @@
+{
+  "record_id": "co-denver-denver-xcel",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Public Service Company of Colorado (Xcel Energy)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Directly confirmed via Xcel Energy's own Colorado customer portal. Xcel Energy is Colorado's largest electric utility, dominant across the Front Range/Denver metro."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Public Service Company of Colorado (Xcel Energy)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Denver this session; Xcel Energy is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Denver", "confidence": 1, "source_ids": ["S2"] },
+  "county": { "value": "Denver County", "confidence": 0.9, "source_ids": ["S2"], "notes": "Denver is a consolidated city-county government (City and County of Denver) — one of only a few in the U.S." },
+  "permit_authority": {
+    "value": "City and County of Denver, Community Planning and Development (CPD)",
+    "confidence": 0.9,
+    "source_ids": ["S2", "S3"],
+    "notes": "Denver is NOT part of Colorado's State Electrical Board 'state inspected areas' — Denver is explicitly named on DORA's own 'Electrical Local Inspection Areas' list, meaning the City itself (not the state) is the electrical permitting/inspection authority here, in addition to its own building permit authority. This is the opposite arrangement from the ~200+ smaller/rural Colorado jurisdictions that rely on DORA's State Electrical Board — see the state-level note in this record's notes/sources for the correct, non-overgeneralized scope of that state program."
+  },
+  "permit_url": {
+    "value": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Single-Family-and-Duplex-Projects/Solar-Permits",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.8,
+    "source_ids": ["S1"],
+    "notes": "Xcel Energy's own Colorado Net Energy Metering page. All solar customers receive net energy metering; excess generation is banked against future bills. Eligibility requires an active Xcel Energy account, UL 1741 SB-certified equipment, and (for larger systems) general liability insurance — no insurance requirement applies below 1 MW AC, so this does not affect typical residential systems."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "Xcel Energy's own page references a 'Solar*Rewards' incentivized REC-payment program as a separate track from net metering, but this session did not independently verify whether it includes a battery/storage-specific component or dollar figures — left null rather than guessed." },
+  "required_documents": {
+    "value": [
+      { "name": "Site plan showing the location of all buildings on the property", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Roof layout of solar PV panel locations demonstrating compliance with DRC 324.6 roof access/pathway requirements", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Manufacturer's specification sheets and listing information for PV equipment, inverters, and other special equipment", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "One-Line Diagram (conductor sizes/insulation types, conduit sizes, fuse/circuit breaker ratings, inverter ratings, GFPD, AC/DC disconnect ratings, grounding electrode system)", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "Conductor ampacity calculations per NEC 690.8 (or a licensed PE-stamped design for systems over 100kW)", "required_when": "always", "source_ids": ["S3"] },
+      { "name": "SolarApp+ Inspections Checklist and all SolarApp+ documentation output", "required_when": "for projects using the SolarApp+ Quick Permit pathway", "source_ids": ["S2", "S3"] },
+      { "name": "Structural calculations by a Colorado-registered PE, OR a sealed structural integrity letter from a Colorado-licensed structural engineer", "required_when": "required unless approved SolarApp+ documentation is submitted instead", "source_ids": ["S3"] },
+      { "name": "Certificate of Appropriateness from Landmark Preservation", "required_when": "only if the property is in a historic district or a designated landmark", "source_ids": ["S2", "S3"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "Per the City's own 'Residential Solar Photovoltaic (PV) Energy Systems Permits' building code policy (DRC R324, reissued January 31, 2024)."
+  },
+  "inspection_steps": {
+    "value": [
+      "A qualified person (licensed master/journeyman electrician, residential wireman, or — for systems with 400A service or less — a NABCEP-certified solar installer capable of testing rapid shutdown) must be present at the PV electrical inspection",
+      "If structural enhancements are required (beyond blocking/sistering of rafters, joists, or truss top chords), a rough framing inspection must also be requested",
+      "At inspection, the contractor must submit written documentation that grounding/bonding was performed per NEC 690.41-690.47 and all roof-mounted equipment complies with NEC guidelines",
+      "The rapid shutdown system must be tested at the final electrical inspection with the inspector present"
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S3"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "No explicit day-count review/inspection timeline was found on the City's own solar-permit or building-permit-policy pages this session. The 'Average Plan Review Times' dashboard page exists but renders as an embedded interactive dashboard, not extractable static text; the Xcel Energy interconnection process guide PDF also could not be read (image-based)." },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarApp+ Quick Permit (Electrical) for eligible single-family/duplex projects; standard electrical + building permit review otherwise",
+      "other_conditions": [
+        "SolarApp+ eligibility: single-family or duplex home, utility service of 400A or less, DC rating under 10kW, no service upgrades/new AC panels/EV chargers/home rewiring/solar shingles in scope",
+        "A zoning permit is required first if panels are not flush-mounted, or if a generator/energy storage system will be located on the exterior of the structure",
+        "A Certificate of Appropriateness from Landmark Preservation is required first if the property is in a historic district or a designated landmark",
+        "Engineered plans with a PE seal are not required for 1-2 family homes/townhomes unless the system is 10kW or more, or includes a generator or solar shingles",
+        "Roof access/pathway requirements apply: two 36-inch-wide access pathways on separate roof slopes, at least one on the street/driveway side; ridge setbacks of 18-36 inches depending on roof coverage"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S2", "S3"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Solar Photovoltaic (PV) and other renewable energy building permit fee (flat, replaces the standard valuation-based fee)", "amount_usd": 50, "unit": "flat fee per permit (including each subsequent modified permit for PV-related scope)", "notes": "Applies to both single-family residential and commercial PV installations. Where non-solar work is also part of the project, this flat fee applies only to the solar PV portion; non-PV work is billed at the standard valuation-based rate." },
+      { "name": "Plan review fee for PV or other renewable energy system permits", "amount_usd": 0, "unit": "flat (waived)", "notes": "The standard plan review fee (normally 50% of the permit fee) is $0 for PV/renewable-energy permits." }
+    ],
+    "confidence": 0.95,
+    "source_ids": ["S4"],
+    "notes": "Directly extracted from the City's own 'Building and Related Fees' policy (ADMIN 125/138, revised May 21, 2024), Table 1's 'Special Fee Modifications — Fee Reductions' row, which is explicitly and unambiguously labeled 'Solar Photovoltaic (PV) and other renewable energy (RE) projects' — not a general fee cap or an unrelated category."
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [], "notes": "Xcel Energy's own page references a separate 'Solar*Rewards' incentivized REC-payment program, but no dollar figure or rate was independently confirmed this session." },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Denver Community Planning and Development, Residential Zoning",
+        "phone": "720-865-2710",
+        "email": "residentialpermits@denvergov.org",
+        "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Single-Family-and-Duplex-Projects/Solar-Permits"
+      },
+      {
+        "name": null,
+        "role": "Denver Landmark Preservation",
+        "phone": "720-865-2719",
+        "email": "landmark@denvergov.org",
+        "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Single-Family-and-Duplex-Projects/Solar-Permits"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Solar Permits for Photovoltaic and Hot Water Panels",
+      "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Single-Family-and-Duplex-Projects/Solar-Permits",
+      "publisher": "City and County of Denver",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Building Permit Policy: Residential Solar Photovoltaic (PV) Energy Systems Permits (DRC R324 - 2023 NEC)",
+      "url": "https://denvergov.org/files/assets/public/community-planning-and-development/documents/ds/building-codes/policies/drc-r324_2023-nec.pdf",
+      "publisher": "City and County of Denver, Community Planning and Development",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permit Policy: Building and Related Fees (ADMIN 125 and 138)",
+      "url": "https://denvergov.org/files/assets/public/v/9/community-planning-and-development/documents/ds/building-codes/policies/admin_138.pdf",
+      "publisher": "City and County of Denver, Community Planning and Development",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

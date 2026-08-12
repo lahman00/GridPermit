@@ -57,6 +57,11 @@ const STATE_SLUGS = {
   RI: "rhode-island",
   DE: "delaware",
   VT: "vermont",
+  CO: "colorado",
+  AZ: "arizona",
+  HI: "hawaii",
+  OR: "oregon",
+  NM: "new-mexico",
 };
 
 function pagesRootFor(record) {

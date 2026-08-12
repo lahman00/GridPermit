@@ -31,7 +31,10 @@ const COVERAGE_FIELDS = [
   "official_contacts",
 ];
 
-const STATE_SLUGS = { CA: "california", RI: "rhode-island", DE: "delaware", VT: "vermont" };
+const STATE_SLUGS = {
+  CA: "california", RI: "rhode-island", DE: "delaware", VT: "vermont",
+  CO: "colorado", AZ: "arizona", HI: "hawaii", OR: "oregon", NM: "new-mexico",
+};
 
 function classifyReadiness({ completenessPct, score, errorCount }) {
   if (errorCount > 0) return "NOT_READY";

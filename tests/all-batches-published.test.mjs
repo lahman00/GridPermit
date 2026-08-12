@@ -23,13 +23,23 @@ import { fileURLToPath } from "node:url";
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const OUTPUT_DIR = path.join(REPO_ROOT, "output");
 const LOCALITIES_DIR = path.join(REPO_ROOT, "data", "localities");
-const CALIFORNIA_PAGES_DIR = path.join(REPO_ROOT, "src", "pages", "california");
 const NETLIFY_TOML_PATH = path.join(REPO_ROOT, "netlify.toml");
+
+// Mirrors src/lib/state-meta.ts's STATE_META — kept as a separate literal
+// here for the same isolation reason scripts/generate-locality-pages.mjs's
+// own STATE_SLUGS documents. Every state a READY record can exist for must
+// be registered here, or this file's own assertions (rather than a build
+// failure) will catch the gap first.
+const STATE_SLUGS = {
+	CA: "california", RI: "rhode-island", DE: "delaware", VT: "vermont",
+	CO: "colorado", AZ: "arizona", HI: "hawaii", OR: "oregon", NM: "new-mexico",
+};
 
 const AGGREGATOR_FILES = [
 	path.join(REPO_ROOT, "src", "pages", "california", "solar-permit-guides.astro"),
 	path.join(REPO_ROOT, "src", "pages", "search.astro"),
 	path.join(REPO_ROOT, "src", "layouts", "LocalityGuideLayout.astro"),
+	path.join(REPO_ROOT, "src", "pages", "[state]", "index.astro"),
 ];
 
 function evaluationFileNames() {
@@ -47,8 +57,12 @@ function loadAllEvaluatedRecords() {
 	return all;
 }
 
+function localityRecordFor(recordId) {
+	return JSON.parse(readFileSync(path.join(LOCALITIES_DIR, `${recordId}.json`), "utf8"));
+}
+
 function citySlugFor(recordId) {
-	const record = JSON.parse(readFileSync(path.join(LOCALITIES_DIR, `${recordId}.json`), "utf8"));
+	const record = localityRecordFor(recordId);
 	// Mirrors scripts/generate-locality-pages.mjs's own slugify(): strip
 	// diacritics (so "San José" slugs to "san-jose", not "san-jos"), then
 	// strip every non-alphanumeric run (not just whitespace) so names like
@@ -62,8 +76,18 @@ function citySlugFor(recordId) {
 		.replace(/^-+|-+$/g, "");
 }
 
-function pageFileFor(citySlug) {
-	return path.join(CALIFORNIA_PAGES_DIR, citySlug, "solar-permit-guide.astro");
+// Every locality record carries explicit state identity (schema v1.4.0+) —
+// the page's state-prefixed path is derived from the record's own `state`,
+// never assumed to be California. See src/lib/state-meta.ts.
+function stateSlugFor(recordId) {
+	const record = localityRecordFor(recordId);
+	const slug = STATE_SLUGS[record.state];
+	assert.ok(slug, `record_id "${recordId}" has unrecognized state "${record.state}" — register it in STATE_SLUGS at the top of this test file`);
+	return slug;
+}
+
+function pageFileFor(stateSlug, citySlug) {
+	return path.join(REPO_ROOT, "src", "pages", stateSlug, citySlug, "solar-permit-guide.astro");
 }
 
 // Every aggregator file loads output/*-evaluation.json via import.meta.glob
@@ -86,10 +110,11 @@ test("at least one batch evaluation file exists and contains at least one READY 
 
 test("every READY record has a generated public page", () => {
 	for (const r of readyRecords) {
-		const slug = citySlugFor(r.record_id);
+		const stateSlug = stateSlugFor(r.record_id);
+		const citySlug = citySlugFor(r.record_id);
 		assert.ok(
-			existsSync(pageFileFor(slug)),
-			`${r.record_id} (${r.city}) is READY in ${r.evaluationFile} but has no page at src/pages/california/${slug}/solar-permit-guide.astro`,
+			existsSync(pageFileFor(stateSlug, citySlug)),
+			`${r.record_id} (${r.city}) is READY in ${r.evaluationFile} but has no page at src/pages/${stateSlug}/${citySlug}/solar-permit-guide.astro`,
 		);
 	}
 });
@@ -97,12 +122,13 @@ test("every READY record has a generated public page", () => {
 test("every READY record has a matching netlify.toml redirect", () => {
 	const netlifyToml = readFileSync(NETLIFY_TOML_PATH, "utf8");
 	for (const r of readyRecords) {
-		const slug = citySlugFor(r.record_id);
-		const fromLine = `from = "/california/${slug}/"`;
-		const toLine = `to = "/california/${slug}/solar-permit-guide/"`;
+		const stateSlug = stateSlugFor(r.record_id);
+		const citySlug = citySlugFor(r.record_id);
+		const fromLine = `from = "/${stateSlug}/${citySlug}/"`;
+		const toLine = `to = "/${stateSlug}/${citySlug}/solar-permit-guide/"`;
 		assert.ok(
 			netlifyToml.includes(fromLine) && netlifyToml.includes(toLine),
-			`${r.record_id} (${r.city}) is READY but netlify.toml has no redirect for /california/${slug}/`,
+			`${r.record_id} (${r.city}) is READY but netlify.toml has no redirect for /${stateSlug}/${citySlug}/`,
 		);
 	}
 });
@@ -125,10 +151,11 @@ test("every aggregator file loads every output/*-evaluation.json via glob (not a
 
 test("every LIMITED or NOT_READY record has NO generated public page", () => {
 	for (const r of nonReadyRecords) {
-		const slug = citySlugFor(r.record_id);
+		const stateSlug = stateSlugFor(r.record_id);
+		const citySlug = citySlugFor(r.record_id);
 		assert.ok(
-			!existsSync(pageFileFor(slug)),
-			`${r.record_id} (${r.city}) is ${r.readiness} in ${r.evaluationFile} but a page exists at src/pages/california/${slug}/solar-permit-guide.astro — a non-READY record must never be published`,
+			!existsSync(pageFileFor(stateSlug, citySlug)),
+			`${r.record_id} (${r.city}) is ${r.readiness} in ${r.evaluationFile} but a page exists at src/pages/${stateSlug}/${citySlug}/solar-permit-guide.astro — a non-READY record must never be published`,
 		);
 	}
 });

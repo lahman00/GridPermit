@@ -188,13 +188,30 @@ async function loadSitemapUrls() {
 	return locs.map((u) => u.replace("https://mygridpermit.com", "") || "/");
 }
 
+// Mirrors src/lib/state-meta.ts's registered slugs — kept as a separate
+// literal here for the same isolation reason every other script in this
+// repo documents (see scripts/generate-locality-pages.mjs's STATE_SLUGS).
+// A locality/hub page under an unregistered state slug falls through to
+// "static" rather than crashing, so this classifier degrades gracefully
+// ahead of the next state's registration rather than throwing mid-inventory.
+const STATE_SLUGS_SET = new Set([
+	"california", "rhode-island", "delaware", "vermont",
+	"colorado", "arizona", "hawaii", "oregon", "new-mexico",
+]);
+const STATE_SLUG_PATTERN = [...STATE_SLUGS_SET].join("|");
+
 function classifyPageFamily(url) {
 	if (url === "/") return "home";
-	if (/^\/california\/[^/]+\/solar-permit-guide\/$/.test(url)) return "locality-guide";
+	if (new RegExp(`^/(?:${STATE_SLUG_PATTERN})/[^/]+/solar-permit-guide/$`).test(url)) return "locality-guide";
 	if (url === "/california/solar-permit-guides/") return "locality-directory";
 	if (url === "/california/") return "california-hub";
-	if (/^\/california\/county\/[^/]+\/$/.test(url)) return "county-hub";
-	if (/^\/california\/utility\/[^/]+\/$/.test(url)) return "utility-hub";
+	// Every non-California state gets one combined index+directory page at
+	// /<state-slug>/ (see src/pages/[state]/index.astro) instead of
+	// California's two separate pages — a distinct family, not a
+	// mis-classified "static" page.
+	if (new RegExp(`^/(?:${STATE_SLUG_PATTERN})/$`).test(url) && url !== "/california/") return "state-hub";
+	if (new RegExp(`^/(?:${STATE_SLUG_PATTERN})/county/[^/]+/$`).test(url)) return "county-hub";
+	if (new RegExp(`^/(?:${STATE_SLUG_PATTERN})/utility/[^/]+/$`).test(url)) return "utility-hub";
 	if (/^\/blog\/[^/]+\/$/.test(url)) return "blog-post";
 	if (url === "/blog/") return "blog-index";
 	if (url === "/search/") return "search";
