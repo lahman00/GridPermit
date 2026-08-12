@@ -35,28 +35,45 @@
   "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
   "required_documents": {
     "value": [
+      { "name": "Checklist of all requirements, adopted by the building official and published on the City's website, may reference the California Solar Permitting Guidebook", "required_when": "always", "source_ids": ["S3"] },
       { "name": "4 complete sets of construction plans, drawn to scale with professional seals", "required_when": "always", "source_ids": ["S1"] },
       { "name": "4 copies of Title 24 energy compliance calculations", "required_when": "always", "source_ids": ["S1"] },
       { "name": "Proof of ownership and current assessor's parcel map", "required_when": "always", "source_ids": ["S1"] },
       { "name": "Plot plan showing property details", "required_when": "always", "source_ids": ["S1"] }
     ],
-    "confidence": 0.6,
-    "source_ids": ["S1"],
-    "notes": "These are the city's general building-permit submittal requirements; a solar-specific checklist distinct from this general list was not confirmed this session."
+    "confidence": 0.7,
+    "source_ids": ["S1", "S3"],
+    "notes": "Per Crescent City Municipal Code Section 15.40.030: the building official adopts a checklist of all requirements, published on the City's website, which may reference the CA Solar Permitting Guidebook. Combined with the city's general building-permit submittal list (S1)."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": [
+      "Only one inspection may be required, done in a timely manner, and may include a consolidated inspection by the building official and fire chief",
+      "If a system fails inspection, a subsequent inspection is authorized"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S3"],
+    "notes": "Per Crescent City Municipal Code Section 15.40.030."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Crescent City Municipal Code Section 15.40.060(B) states a complete application 'will be promptly processed' and the building official shall approve and issue permits — no explicit day-count figure."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
-      "system_size_kw_ac_max": null,
+      "property_types": ["residential", "duplex"],
+      "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
-      "thermal_capacity_kw_max": null,
-      "program_or_pathway": "Expedited, streamlined permitting process for small residential rooftop solar energy systems (municipal ordinance)",
-      "other_conditions": []
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited, streamlined permitting process for small residential rooftop solar energy systems (Crescent City Municipal Code Chapter 15.40)",
+      "other_conditions": [
+        "System must be installed on a single- or duplex-family dwelling",
+        "Solar panel/module array must not exceed the maximum legal building height as defined by the authority having jurisdiction"
+      ]
     },
-    "confidence": 0.55,
-    "source_ids": ["S1"]
+    "confidence": 0.85,
+    "source_ids": ["S3"]
   },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
   "rebates": { "value": null, "confidence": 0, "source_ids": [] },
@@ -73,7 +90,7 @@
     "confidence": 0.8,
     "source_ids": ["S1"]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-08-11",
   "sources": [
     {
       "id": "S1",
@@ -90,6 +107,14 @@
       "publisher": "Pacific Power (PacifiCorp)",
       "type": "utility",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S3",
+      "title": "Chapter 15.40 - Small Residential Rooftop Solar Energy Systems (Crescent City Municipal Code, Title 15 - Buildings and Construction)",
+      "url": "https://ecode360.com/44240747",
+      "publisher": "Crescent City (via eCode360 official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
     }
   ]
 }
