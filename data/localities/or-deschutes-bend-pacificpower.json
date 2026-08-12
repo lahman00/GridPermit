@@ -1,0 +1,72 @@
+{
+  "record_id": "or-deschutes-bend-pacificpower",
+  "schema_version": "1.4.0",
+  "state": "OR",
+  "utility": {
+    "value": "Pacific Power (PacifiCorp)",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "The City of Bend's own franchise ordinance (No. NS-2346) states directly: 'PacifiCorp dba Pacific Power (Pacific Power) provides electric power distribution utility services in a portion of the City of Bend.' A separate City electrification-policy study estimated the City's electric utility mix as weighted approximately 85% Pacific Power and 15% Central Electric Cooperative (CEC) — Bend is a genuine two-utility city, similar in structure to Phoenix (APS/SRP) and Mesa (municipal/SRP). This record is scoped to the Pacific Power-served majority only; Central Electric Cooperative customers within Bend are NOT covered by this record and would need independent verification of CEC's own interconnection process."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Pacific Power (PacifiCorp)",
+      "type": "utility",
+      "notes": "Pacific Power's own Oregon Distribution Interconnection Handbook (hosted on the Oregon PUC's own edocs system) governs net metering interconnection under Oregon PUC Division 39 rules. Specific residential net-metering terms/rates were not independently loaded this session; PowerClerk (pacificorpnetmetering.powerclerk.com) is Pacific Power's own interconnection application portal, confirmed via search results but not independently reloaded and read this session."
+    },
+    "confidence": 0.55,
+    "source_ids": ["S2"]
+  },
+  "city": { "value": "Bend", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Deschutes County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Bend, Community Development Department, Permit Center",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.bendoregon.gov/service/permit-center/",
+    "confidence": 0.8,
+    "source_ids": ["S1"],
+    "notes": "The City's own solar-specific document, 'Solar Systems Prescriptive Installation Checklist' (which per its own title demonstrates compliance with OSSC Sections 3111.3.5.3 and 3111.3.4.8), was blocked this session: WebFetch returned HTTP 403, and direct browser navigation triggered a file-download dialog rather than a viewable page. Per the mission's blocked-source-recovery policy, this specific document is classified as blocked after both reasonable access paths were exhausted; this record instead relies on the City's general Permit Center page."
+  },
+  "interconnection_url": {
+    "value": "https://edocs.puc.state.or.us/efdocs/HTB/um2322htb331321025.pdf",
+    "confidence": 0.6,
+    "source_ids": ["S2"],
+    "notes": "Pacific Power's Oregon Distribution Interconnection Handbook, hosted on the Oregon PUC's own document system (a state government host, not a third-party mirror)."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's solar-specific prescriptive-installation checklist was blocked this session; see permit_url notes." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "The blocked checklist's own title indicates Bend uses the same statewide Oregon Structural Specialty Code prescriptive-PV pathway (Sections 3111.3.5.3 and 3111.3.4.8) documented for Portland in or-multnomah-portland-pge.json, but this specific applicability to Bend was not independently confirmed by reading the City's own document this session, so it is not recorded here as a sourced fact." },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "City of Bend Permit Center", "phone": "541-388-5580", "email": "permitcenter@bendoregon.gov", "url": "https://www.bendoregon.gov/service/permit-center/" }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Permit Center",
+      "url": "https://www.bendoregon.gov/service/permit-center/",
+      "publisher": "City of Bend",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Pacific Power Franchise Agreement (Ordinance No. NS-2346)",
+      "url": "https://www.bendoregon.gov/wp-content/uploads/2025/12/Pacific-Power-Franchise-Agreement.pdf",
+      "publisher": "City of Bend",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

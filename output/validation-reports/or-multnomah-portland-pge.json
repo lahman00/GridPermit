@@ -1,0 +1,64 @@
+{
+  "record_id": "or-multnomah-portland-pge",
+  "file": "data/localities/or-multnomah-portland-pge.json",
+  "validated_at": "2026-08-12",
+  "status": "REVIEW",
+  "score": 93,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "broken_url",
+      "message": "https://investors.portlandgeneral.com/static-files/cc4267b3-b24f-4215-8560-8815b04cbb8c — timeout — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "interconnection_url",
+      "message": "'interconnection_url' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.portland.gov/ppd/solar-development/solar-permits",
+      "checked_at": "2026-08-12T20:22:13.375Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.oregon.gov/puc/utilities/Pages/Energy-Who-We-Regulate.aspx",
+      "checked_at": "2026-08-12T20:22:13.962Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://investors.portlandgeneral.com/static-files/cc4267b3-b24f-4215-8560-8815b04cbb8c",
+      "checked_at": "2026-08-12T20:22:15.648Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "timeout"
+    }
+  ]
+}

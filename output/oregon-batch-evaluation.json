@@ -1,0 +1,163 @@
+{
+  "state": "OR",
+  "generated_at": "2026-08-12T20:32:32.396Z",
+  "records": [
+    {
+      "record_id": "or-deschutes-bend-pacificpower",
+      "state": "OR",
+      "city": "Bend",
+      "county": "Deschutes County",
+      "completeness_pct": 53.3,
+      "validation_score": 94,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 3,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "or-lane-eugene-eweb",
+      "state": "OR",
+      "city": "Eugene",
+      "county": "Lane County",
+      "completeness_pct": 86.7,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days",
+        "permit_fees"
+      ],
+      "warning_categories": [],
+      "readiness": "READY"
+    },
+    {
+      "record_id": "or-multnomah-portland-pge",
+      "state": "OR",
+      "city": "Portland",
+      "county": "Multnomah County",
+      "completeness_pct": 73.3,
+      "validation_score": 93,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "interconnection_url",
+        "battery_programs",
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url",
+        "unsupported_claim"
+      ],
+      "readiness": "LIMITED"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 71.1,
+    "average_validation_score": 95.7,
+    "fields_most_often_missing": [
+      {
+        "field": "timeline_days",
+        "missing_in_records": 3
+      },
+      {
+        "field": "battery_programs",
+        "missing_in_records": 2
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 2
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 2
+      },
+      {
+        "field": "interconnection_url",
+        "missing_in_records": 1
+      },
+      {
+        "field": "required_documents",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "eligibility_constraints",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [
+      "or-lane-eugene-eweb"
+    ],
+    "limited_for_now": [
+      {
+        "record_id": "or-deschutes-bend-pacificpower",
+        "city": "Bend",
+        "reason": "readiness=LIMITED (completeness 53.3%, score 94)"
+      },
+      {
+        "record_id": "or-multnomah-portland-pge",
+        "city": "Portland",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
+      }
+    ],
+    "not_ready": []
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "record_id": "or-lane-eugene-eweb",
+  "schema_version": "1.4.0",
+  "state": "OR",
+  "utility": {
+    "value": "Eugene Water & Electric Board (EWEB)",
+    "confidence": 0.95,
+    "source_ids": ["S2"],
+    "notes": "EWEB is a community-owned (municipal) utility, structurally distinct from investor-owned PGE and Pacific Power and from PUC regulation — confirmed directly via EWEB's own site. Not to be assumed for any other Oregon city; each municipal-utility city must be independently verified."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Eugene Water & Electric Board (EWEB)",
+      "type": "utility",
+      "notes": "Per EWEB's own Residential Solar PV Program page: net metering is available up to a maximum system size of 25 kW AC output; excess generation is calculated and trued-up MONTHLY and does NOT roll over to subsequent months (a genuinely distinct policy from many utilities' annual true-up — EWEB explicitly warns that systems sized for a yearly true-up policy 'may be oversized in EWEB service territory'). An alternative 'Direct Generation' rate sells all solar output directly to EWEB rather than net-metering on-site use. EWEB also offers a residential incentive of $0.40 per AC watt (max $2,500), funded by its voluntary Greenpower program, subject to an annually-renewed budget (73% of the $125,000 2026 budget was allocated as of the page's own July 20, 2026 update)."
+    },
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "city": { "value": "Eugene", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Lane County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Eugene, Planning and Development, Building & Permit Services",
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.eugene-or.gov/2757/Solar-Submittal-Requirements",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.eweb.org/environment-and-climate/solar-electric/residential-solar-electric",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "EWEB Zero-Interest Backup Power Loan",
+        "administrator": "Eugene Water & Electric Board (EWEB)",
+        "description": "Residential loan of up to $5,000 at zero interest for backup power systems, including battery storage; a solar+battery pairing can also provide temporary backup power during outages.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": 5000,
+        "value_usd_per_watt": null,
+        "eligibility": "If a solar system is paired with batteries, the battery must never be able to dispatch onto EWEB's electrical distribution system.",
+        "url": "https://www.eweb.org/environment-and-climate/solar-electric/residential-solar-electric",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Roof-mounted: Architect/Engineer design calculations (seismic/wind, snow, and uplift)", "required_when": "only if the system is engineered rather than prescriptive", "source_ids": ["S3"] },
+      { "name": "Roof-mounted: Roof framing plan (framing members identified, truss/rafter spacing, span)", "required_when": "always, roof-mounted systems", "source_ids": ["S3"] },
+      { "name": "Roof-mounted: Roof plan showing solar array location/dimensions, roof features (ridges, valleys, chimneys, skylights), roof covering type, and firefighter access pathways", "required_when": "always, roof-mounted systems", "source_ids": ["S3"] },
+      { "name": "Racking and attachment: manufacturer's spec sheet, attachment locations/spacing, weight", "required_when": "always, roof-mounted systems", "source_ids": ["S3"] },
+      { "name": "Electric circuits added: number of new circuits, new service or relocated service", "required_when": "if applicable", "source_ids": ["S3"] },
+      { "name": "Pole-mounted: Site plan (min. 11x17in) with property lines/dimensions, north arrow, scale, adjacent streets/alleys/sidewalks/easements, site elevations/contours, existing and proposed structures with setbacks and distances", "required_when": "only for pole-mounted (free-standing) systems", "source_ids": ["S3"] },
+      { "name": "Pole-mounted: Structural/footing details, engineering design/calculations, elevations, connections/mounting", "required_when": "only for pole-mounted (free-standing) systems", "source_ids": ["S3"] },
+      { "name": "EWEB: at least two contractor bids from the Oregon Dept. of Energy approved-contractor list", "required_when": "always, for EWEB interconnection/incentive application", "source_ids": ["S2"] },
+      { "name": "EWEB: completed Power Purchase Agreement (PPA) with supporting documentation, pre-approved by EWEB before installation begins", "required_when": "always, for EWEB interconnection", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S2", "S3"],
+    "notes": "Two independent tracks: the City's own Residential Solar Checklist (Form F-408, updated July 2023) governs the building/roof-mounted or pole-mounted structural permit; EWEB's separate application/PPA process governs interconnection and incentive eligibility. EWEB explicitly requires passing City or County inspection before it will install the interconnection meter."
+  },
+  "inspection_steps": {
+    "value": [
+      "City or County building inspection must pass on the solar installation",
+      "After inspection passes and all required documentation is submitted to EWEB, EWEB installs a new (net) meter",
+      "EWEB approval is required before the solar system may be energized; EWEB may verify the system for program compliance"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "EWEB states incentive payments are mailed 'approximately four to six weeks' after EWEB approves the installation, but this is a payment timeline, not a permit-issuance or interconnection-approval timeline, so it was not recorded in this field." },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 25,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "EWEB Residential Solar PV Program",
+      "other_conditions": [
+        "Maximum net-metered system size is 25 kW AC output",
+        "Excess generation is trued-up MONTHLY, not annually — systems sized assuming an annual true-up may be oversized for EWEB's territory",
+        "Installation must be performed by a contractor on the Oregon Dept. of Energy's Oregon Solar + Storage Rebate Program approved-contractor list to qualify for any EWEB incentive",
+        "All PV inverters and battery energy storage systems (including power control systems) must be listed on the California Energy Commission's Solar Equipment List",
+        "Project must meet a minimum Total Solar Resource Factor (TSRF) of 85% for incentive qualification only (not required for interconnection itself)",
+        "Batteries paired with solar must never be able to dispatch onto EWEB's electrical distribution system",
+        "Customers must obtain at least two contractor bids before beginning the application process"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's Residential Solar Checklist and Solar Submittal Requirements page do not publish a specific solar permit fee; EWEB's page does not charge an interconnection application fee that was stated. Not guessed." },
+  "rebates": {
+    "value": [
+      {
+        "name": "EWEB Residential Solar Incentive",
+        "administrator": "Eugene Water & Electric Board (EWEB)",
+        "description": "Direct cash incentive for residential net-metered solar installations, funded by EWEB's voluntary Greenpower program.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.40,
+        "eligibility": "Must use a contractor on the Oregon Dept. of Energy approved-contractor list; project must meet minimum 85% TSRF; first-come-first-served against an annual budget.",
+        "url": "https://www.eweb.org/environment-and-climate/solar-electric/residential-solar-electric",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S2"],
+    "notes": "$0.40/AC watt, maximum $2,500 per project. The page's own July 20, 2026 update states 73% of the $125,000 2026 program budget had already been allocated — this is a live, budget-limited program, not a permanent guarantee, and should be re-verified close to any given customer's application date."
+  },
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "City of Eugene Building & Permit Services (Residential Plans Examiner)", "phone": "541-682-5611", "email": null, "url": "https://www.eugene-or.gov/2757/Solar-Submittal-Requirements" },
+      { "name": null, "role": "EWEB Solar Team", "phone": "541-685-7088", "email": "ems.answers@eweb.org", "url": "https://www.eweb.org/environment-and-climate/solar-electric/residential-solar-electric" }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1", "S2"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Submittal Requirements",
+      "url": "https://www.eugene-or.gov/2757/Solar-Submittal-Requirements",
+      "publisher": "City of Eugene, Planning and Development",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Residential Solar PV Program",
+      "url": "https://www.eweb.org/environment-and-climate/solar-electric/residential-solar-electric",
+      "publisher": "Eugene Water & Electric Board (EWEB)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Residential Solar Checklist (Form F-408)",
+      "url": "https://www.eugene-or.gov/DocumentCenter/View/4902/Residential-Solar-Checklist",
+      "publisher": "City of Eugene, Planning and Development, Building & Permit Services",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}
