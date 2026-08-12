@@ -1,0 +1,101 @@
+{
+  "record_id": "nm-santafe-santafe-pnm",
+  "schema_version": "1.4.0",
+  "state": "NM",
+  "utility": {
+    "value": "Public Service Company of New Mexico (PNM)",
+    "confidence": 0.95,
+    "source_ids": ["S1", "S3"],
+    "notes": "Confirmed directly by two independent City of Santa Fe sources: the City's own electric franchise ordinance ('granting to PNM the right to use any public highway, street, alley, road, or other public place within the present or future municipal limits of the City of Santa Fe') and the City's own Sustainability Dashboard, which states plainly: 'Electrical power is supplied by the Public Service Company of New Mexico (PNM), which generates and purchases power from a mix of sources.'"
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Public Service Company of New Mexico (PNM)",
+      "type": "utility",
+      "notes": "Reused from the statewide PNM interconnection/net-metering facts already documented in nm-bernalillo-albuquerque-pnm.json (NMPRC Rule 17.9.568 Small Solar Interconnection and Net Metering Rules, PowerClerk application portal) — a genuine statewide-utility reusable fact for any confirmed PNM-territory record, not independently reloaded this session. The City's own Sustainability Dashboard separately notes PNM is transitioning toward 100% carbon-free energy (per its own state-mandated Energy Transition Act obligations, not independently detailed here)."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Santa Fe", "confidence": 1, "source_ids": ["S2"] },
+  "county": { "value": "Santa Fe County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Santa Fe, Planning and Land Use Department, Building Division",
+    "confidence": 0.95,
+    "source_ids": ["S2"]
+  },
+  "permit_url": {
+    "value": "https://santafenm.gov/land-use/building-permits/construction-permit-submittal-checklists",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": { "value": null, "confidence": 0, "source_ids": [], "notes": "Reuses the statewide PNM interconnection process already documented for Albuquerque (nm-bernalillo-albuquerque-pnm.json); left null here rather than duplicating an unverified URL, since PNM's own site could not be independently loaded this session for either record." },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Solar Escarpment Acknowledgement Letter", "required_when": "for properties within Santa Fe's designated Escarpment overlay area (a City-specific geological/hillside development zone)", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.5,
+    "source_ids": ["S2"],
+    "notes": "The City's own 'Construction Permit Submittal Checklists' page lists dedicated checklists for 'Photovoltaic Systems (Roof-Mounted)' and 'Photovoltaic Systems (Ground- or Awning-Mounted),' plus a distinct 'Solar Escarpment Acknowledgement Letter' — a genuinely Santa Fe-specific requirement tied to the city's historic escarpment/hillside terrain protections, not present in any other jurisdiction researched this session. The two PV-specific checklist PDFs themselves were not opened and read this session (time-limited); only their existence and the escarpment-letter requirement are recorded, at reduced confidence, from the checklist index page directly."
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solarize Santa Fe",
+        "administrator": "City of Santa Fe (Office of Sustainability)",
+        "description": "A city-run bulk-purchasing solar campaign offering negotiated contractor discounts and consumer protections to residents, run in two rounds (2021-2022 and 2022-2023) per the City's own Sustainability Dashboard.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": null,
+        "url": "https://sustainability.santafenm.gov/category/energy",
+        "effective_from": "2021-01-01",
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S3"],
+    "notes": "Status recorded as 'unknown' rather than 'active' since the City's own page describes the 2021-2022 and 2022-2023 campaign rounds in the past tense without stating whether a current/ongoing round exists; not inferred as still active. The same page also states residential solar permits in Santa Fe increased over 780% in the 13 years prior, reaching 4.4 permits per 1,000 residents in 2022 — a City-published adoption metric, not a program itself, so not recorded as a rebate/program entry."
+  },
+  "official_contacts": {
+    "value": [
+      { "name": "Richard Trujillo", "role": "City of Santa Fe Building Division Director", "phone": null, "email": "ratrujillo@santafenm.gov", "url": "https://santafenm.gov/land-use/building-permits" },
+      { "name": "Robert Ortiz", "role": "City of Santa Fe Residential Green Building Specialist", "phone": null, "email": "roortiz@santafenm.gov", "url": "https://santafenm.gov/land-use/building-permits" }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Electric Franchise Ordinance granting PNM rights within City of Santa Fe",
+      "url": "https://santafenm.gov/archive_center/document/19748",
+      "publisher": "City of Santa Fe",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Building Permits / Construction Permit Submittal Checklists",
+      "url": "https://santafenm.gov/land-use/building-permits/construction-permit-submittal-checklists",
+      "publisher": "City of Santa Fe, Planning and Land Use Department",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Expanding Cleaner, Greener Energy in Santa Fe / Energy — Sustainability Dashboard",
+      "url": "https://sustainability.santafenm.gov/category/energy",
+      "publisher": "City of Santa Fe, Office of Sustainability",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

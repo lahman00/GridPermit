@@ -1,0 +1,113 @@
+{
+  "record_id": "nm-bernalillo-albuquerque-pnm",
+  "schema_version": "1.4.0",
+  "state": "NM",
+  "utility": {
+    "value": "Public Service Company of New Mexico (PNM)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Confirmed both via the City of Albuquerque's own Solar Resources page (which links 'PNM's Customer Solar Program Page' and explicitly names PNM as the relevant utility for Community Solar participation by 'Albuquerque residents') and PNM's own site description as 'New Mexico's largest electricity provider.' PNM's own consumer site (pnm.com) could not be directly loaded this session — browser navigation was denied and WebFetch returned a connection-refused error — so utility-side specifics below are sourced from PNM's own indexed page text (via search-result snippets of PNM's own site, not third-party commentary) at moderate rather than full confidence."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Public Service Company of New Mexico (PNM)",
+      "type": "utility",
+      "notes": "Per PNM's own site (accessed via indexed snippet text, not a directly loaded page this session): the PNM Customer Solar Energy Program applies to grid-tied solar PV and solar thermal electric systems, with a maximum system size of 10 MWAC. Customers choose between net metering and/or Renewable Energy Certificate (REC) sales via a 'Small Solar' application and interconnection agreement. New Mexico's Small Solar Interconnection and Net Metering Rules are codified at NMPRC Rule 17.9.568, used together with PNM's own New Mexico Interconnection Manual. Interconnection Requests are submitted to PNM via PowerClerk with an appropriate processing fee/deposit. These specifics should be re-verified directly against pnm.com once accessible, since they were not read from a fully loaded primary page this session."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Albuquerque", "confidence": 1, "source_ids": ["S1"] },
+  "county": { "value": "Bernalillo County", "confidence": 0.9, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City of Albuquerque, Planning Department, Building Safety Division",
+    "confidence": 0.95,
+    "source_ids": ["S1", "S2"]
+  },
+  "permit_url": {
+    "value": "https://www.cabq.gov/sustainability/solar/solar-resources",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.pnm.com/solar/",
+    "confidence": 0.5,
+    "source_ids": ["S1"],
+    "notes": "URL confirmed to exist via search indexing and the City's own link to it, but the page's live content could not be independently loaded this session (see utility field notes)."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Two complete sets of plans meeting the Building Permit Submittal Checklist", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Completed Building Permit Application", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Scaled, legible Site Plan (property address, building footprint, north arrow, PV array configuration, supporting equipment/sub-panels/main service location, dimensions and clearances)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "Framing plan showing PV installation layout on existing roof framing members", "required_when": "roof-mounted systems", "source_ids": ["S2"] },
+      { "name": "Existing roof information (roofing type, number of roof coverings) and proposed roof-penetration weatherproofing method", "required_when": "roof-mounted systems", "source_ids": ["S2"] },
+      { "name": "Manufacturer's specifications and installation instructions for all PV modules, inverter(s), combiner box, disconnects, and mounting system(s)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "New Mexico-licensed engineer's stamped review of the existing roof structure", "required_when": "only if: more than one existing roof covering; over-spanned trusses/rafters/joists; added dead load >5 lbs/sq ft; added point load >45 lbs; added dead load >200 lbs on any one truss/rafter/joist; or a unique mounting-system design", "source_ids": ["S2"] },
+      { "name": "Electrical one-line diagram (three-line diagram if system exceeds 10 kW)", "required_when": "always", "source_ids": ["S2"] },
+      { "name": "New Mexico-licensed electrical engineer's stamped design", "required_when": "only if the PV system exceeds 200 amps", "source_ids": ["S2"] },
+      { "name": "Albuquerque Fire Department site plan (access pathways, array/disconnect/signage locations) and elevation views (array placement, ridgelines/eave lines, roof obstructions)", "required_when": "always", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.95,
+    "source_ids": ["S2"],
+    "notes": "Extracted directly from the City's own 'Roof Mounted Solar Checklist' (Building Permit Submittal Checklist for Photovoltaic Systems, rev. 12/18/12). Both a building permit AND an electrical permit are required; the electrical permit must be pulled by a licensed contractor per the City's Solar Resources page."
+  },
+  "inspection_steps": {
+    "value": [
+      "The City offers dedicated inspection APPOINTMENT TIMES for solar projects, rather than general appointment windows, per the City's own Solar Resources page"
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": {
+    "value": { "min_days": null, "max_days": 3, "notes": "Per the City's own Solar Resources page, under its 'Permitting' commitments: 'Processing small rooftop solar PV permit applications in less than 3 business days.'" },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "commercial"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City of Albuquerque Roof/Ground Mounted Solar Building Permit",
+      "other_conditions": [
+        "Both a building permit and an electrical permit are required; the electrical permit must be pulled by a licensed contractor",
+        "Historic Preservation District approval is a required pre-requisite for the building permit application if the property is within such a district",
+        "The City has been awarded SolSmart Gold designation for solar-friendly permitting best practices",
+        "New Mexico Community Solar Act (statewide, reusable statewide fact): reserves at least 30% of community solar project power for low-income households or low-income-serving organizations; interested PNM-territory customers must select from the state's awarded Community Solar project list"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1", "S2"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's Solar Resources page links to an 'Electrical Permit Fee Calculator' and 'Building Permit Fees' page/tool rather than publishing a static fee table; these interactive tools were not independently run this session to extract a specific dollar figure." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "City of Albuquerque Building and Safety Division", "phone": "505-924-3320", "email": "sustainability@cabq.gov", "url": "https://www.cabq.gov/sustainability/solar/solar-resources" }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Resources",
+      "url": "https://www.cabq.gov/sustainability/solar/solar-resources",
+      "publisher": "City of Albuquerque, Environmental Health Department / Sustainability",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Roof Mounted Solar Checklist (Building Permit Submittal Checklist for Photovoltaic Systems)",
+      "url": "https://www.cabq.gov/planning/documents/RoofMountedSolarChecklist.pdf",
+      "publisher": "City of Albuquerque, Planning Department, Building and Safety",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}
