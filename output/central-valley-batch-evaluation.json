@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T21:48:59.390Z",
+  "evaluated_at": "2026-08-12T02:45:05.206Z",
   "record_count": 11,
   "records": [
     {
@@ -84,10 +84,10 @@
       "city": "Merced",
       "county": "Merced County",
       "completeness_pct": 73.3,
-      "validation_score": 96,
+      "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "city",
@@ -235,7 +235,7 @@
       "record_id": "ca-tulare-tulare-sce",
       "city": "Tulare",
       "county": "Tulare County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 94,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -248,6 +248,7 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
@@ -255,7 +256,6 @@
       ],
       "missing_fields": [
         "generation_supplier",
-        "required_documents",
         "permit_fees",
         "rebates"
       ],
@@ -266,8 +266,8 @@
       "separate_cca_present": null,
       "permit_fees_available": false,
       "timeline_available": true,
-      "required_documents_available": false,
-      "readiness": "LIMITED"
+      "required_documents_available": true,
+      "readiness": "READY"
     },
     {
       "record_id": "ca-kings-hanford-pge",
@@ -422,10 +422,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 78.2,
-    "average_validation_score": 94.9,
-    "ready_count": 8,
-    "limited_count": 3,
+    "average_completeness_pct": 78.8,
+    "average_validation_score": 94.7,
+    "ready_count": 9,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -436,7 +436,7 @@
       "permit_url": 0,
       "interconnection_url": 0,
       "battery_programs": 3,
-      "required_documents": 2,
+      "required_documents": 1,
       "inspection_steps": 0,
       "timeline_days": 3,
       "eligibility_constraints": 0,
@@ -467,7 +467,7 @@
       },
       {
         "field": "required_documents",
-        "missing_in_records": 2
+        "missing_in_records": 1
       },
       {
         "field": "official_contacts",
@@ -512,6 +512,7 @@
       "ca-stanislaus-turlock-tid",
       "ca-madera-madera-pge",
       "ca-tulare-visalia-sce",
+      "ca-tulare-tulare-sce",
       "ca-kings-hanford-pge",
       "ca-san-joaquin-lodi-leu",
       "ca-san-joaquin-manteca-pge",
@@ -521,17 +522,12 @@
       {
         "record_id": "ca-merced-merced-pge",
         "city": "Merced",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       },
       {
         "record_id": "ca-fresno-clovis-pge",
         "city": "Clovis",
         "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
-      },
-      {
-        "record_id": "ca-tulare-tulare-sce",
-        "city": "Tulare",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 94)"
       }
     ],
     "not_ready": [],

@@ -21,15 +21,15 @@
   },
   "permit_authority": {
     "value": "City of Merced Building Permits Division",
-    "confidence": 0.6,
+    "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "cityofmerced.gov returned HTTP 403 to automated fetch on every attempt this session. This department name and page title are confirmed via search-engine indexing, but the page's specific content (eligibility, fees, timeline) could not be independently verified."
+    "notes": "Directly re-verified via browser this session (an earlier HTTP 403 to automated fetch was intermittent, not a persistent block)."
   },
   "permit_url": {
     "value": "https://www.cityofmerced.gov/business-and-development/building-permits/solar-permits",
-    "confidence": 0.55,
+    "confidence": 0.85,
     "source_ids": ["S1"],
-    "notes": "URL identified via search-engine indexing; cityofmerced.gov returned HTTP 403 to automated fetch on every attempt this session, so its content could not be independently read or verified."
+    "notes": "Directly re-verified via browser this session: page confirms SolarAPP is used and links to a solar checklist folder."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
@@ -95,14 +95,21 @@
     "value": [
       {
         "name": null,
+        "role": "City of Merced Building Permits Division (fee estimates and general inquiries)",
+        "phone": null,
+        "email": "inspectionservicesweb@cityofmerced.gov",
+        "url": "https://www.cityofmerced.gov/business-and-development/building-permits/fees"
+      },
+      {
+        "name": null,
         "role": "SGIP Program Administrator (PG&E territory)",
         "phone": null,
         "email": null,
         "url": "https://www.selfgenca.com/home/contact/"
       }
     ],
-    "confidence": 0.6,
-    "source_ids": ["S5"]
+    "confidence": 0.8,
+    "source_ids": ["S7", "S5"]
   },
   "last_verified": "2026-08-11",
   "sources": [
@@ -143,6 +150,14 @@
       "title": "Chapter 17.05 - Small Residential Solar Systems (Merced Municipal Code, Title 17 - Buildings and Construction)",
       "url": "https://library.municode.com/ca/merced/codes/code_of_ordinances?nodeId=TIT17BUCO_CH17.05RECO_ARTIIADPR_17.05.030SMRESOSYEF",
       "publisher": "City of Merced (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S7",
+      "title": "Fees",
+      "url": "https://www.cityofmerced.gov/business-and-development/building-permits/fees",
+      "publisher": "City of Merced",
       "type": "government",
       "accessed_date": "2026-08-11"
     }

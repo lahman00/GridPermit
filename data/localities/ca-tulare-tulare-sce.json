@@ -57,7 +57,16 @@
     "source_ids": ["S4"],
     "notes": "Same statewide CPUC-administered SGIP program already confirmed for other SCE-territory records this session, reused as a utility-level fact."
   },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's page directs installers to 'Eligibility Checklists' to confirm a project qualifies for SolarAPP+, but does not itself enumerate a required-documents list beyond the SolarAPP+-approved plans." },
+  "required_documents": {
+    "value": [
+      { "name": "SolarAPP+ Eligibility Checklist (confirms the project qualifies for automated review)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Design submission through the SolarAPP+ portal; approved plans and all related documents must be available at the job site during any inspection activity", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Valid State Contractors License and City Business Tax Certificate", "required_when": "always", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "Directly re-verified via browser this session: the City's own Solar App+ page does not itemize a traditional document checklist beyond the SolarAPP+ Eligibility Checklist and the automated design submission itself, plus a licensing requirement stated for inspection."
+  },
   "inspection_steps": {
     "value": [
       "Call or email the day before the desired inspection date: (559) 684-4270 or buildinginspections@tulare.ca.gov",

@@ -1,16 +1,16 @@
 {
-  "evaluated_at": "2026-08-11T21:23:03.125Z",
+  "evaluated_at": "2026-08-12T02:45:05.252Z",
   "record_count": 7,
   "records": [
     {
       "record_id": "ca-merced-atwater-pge",
       "city": "Atwater",
       "county": "Merced County",
-      "completeness_pct": 73.3,
-      "validation_score": 98,
+      "completeness_pct": 86.7,
+      "validation_score": 93,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "city",
@@ -21,24 +21,25 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "timeline_days",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "generation_supplier",
-        "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "utility_type": "IOU",
       "separate_cca_present": null,
-      "permit_fees_available": false,
-      "timeline_available": false,
+      "permit_fees_available": true,
+      "timeline_available": true,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-merced-los-banos-pge",
@@ -272,10 +273,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 76.2,
-    "average_validation_score": 96,
-    "ready_count": 4,
-    "limited_count": 3,
+    "average_completeness_pct": 78.1,
+    "average_validation_score": 95.3,
+    "ready_count": 5,
+    "limited_count": 2,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -288,9 +289,9 @@
       "battery_programs": 0,
       "required_documents": 0,
       "inspection_steps": 0,
-      "timeline_days": 5,
+      "timeline_days": 4,
       "eligibility_constraints": 0,
-      "permit_fees": 6,
+      "permit_fees": 5,
       "rebates": 7,
       "official_contacts": 1
     },
@@ -305,11 +306,11 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 5
+        "missing_in_records": 4
       },
       {
         "field": "official_contacts",
@@ -318,7 +319,7 @@
     ],
     "warning_category_recurrence": {
       "broken_url": 7,
-      "unsupported_claim": 1,
+      "unsupported_claim": 2,
       "duplicate_source": 1
     },
     "utility_coverage": [
@@ -343,17 +344,13 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "ca-merced-atwater-pge",
       "ca-merced-los-banos-pge",
       "ca-madera-chowchilla-pge",
       "ca-fresno-selma-pge",
       "ca-fresno-kingsburg-pge"
     ],
     "limited_for_now": [
-      {
-        "record_id": "ca-merced-atwater-pge",
-        "city": "Atwater",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
-      },
       {
         "record_id": "ca-fresno-sanger-pge",
         "city": "Sanger",

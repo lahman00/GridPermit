@@ -76,31 +76,34 @@
     "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "Standard plan and checklist of all requirements, published on the City's website, conforming to the most current state codes", "required_when": "always", "source_ids": ["S4"] },
+      { "name": "Electronic notarized proof of ownership of the property", "required_when": "always", "source_ids": ["S4"] },
+      { "name": "Proof of current contractor's license and insurance", "required_when": "always", "source_ids": ["S4"] }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S4"],
+    "notes": "Directly verified this session via Porterville City Code Section 7-17(B)-(C)."
   },
   "inspection_steps": {
     "value": [
-      "One inspection is required for small residential rooftop solar energy systems eligible for expedited review, covering roof clearances, ingress/egress, flashing installation, smoke alarms, and carbon monoxide detectors",
-      "Inspections are scheduled within two business days of a request, with a two-hour inspection window"
+      "Only one inspection shall be required and performed by the Engineering and Building Division, covering roof clearances, ingress/egress, flashing installation, smoke alarms, carbon monoxide detectors, and SB 407 noncompliant-plumbing-fixture replacement",
+      "The inspection shall be done in a timely manner and should include consolidated inspections; an inspection will be scheduled within two business days of a request and assigned a two-hour inspection window",
+      "If a small residential rooftop solar energy system fails inspection, a subsequent inspection is required"
     ],
-    "confidence": 0.55,
-    "source_ids": [
-      "S1"
-    ],
-    "notes": "Derived from search-engine summaries of the city's municipal code and process; not independently re-confirmed via direct page fetch this session."
+    "confidence": 0.85,
+    "source_ids": ["S4"],
+    "notes": "Directly re-verified via browser this session (ci.porterville.ca.us remained blocked, but the City's own code is independently hosted by American Legal Publishing): Porterville City Code Section 7-18(H)-(J)."
   },
   "timeline_days": {
     "value": {
       "min_days": 0,
       "max_days": 3,
-      "notes": "Building permit issued same day for over-the-counter applications, or within 1-3 business days for electronic applications, under the city's administrative nondiscretionary review process for small residential rooftop solar."
+      "notes": "Porterville City Code Section 7-18(A): the Engineering and Building Division 'shall issue a building permit or other nondiscretionary permit the same day for over the counter application or within one to three (3) business days for electronic application' of receipt of a complete application."
     },
-    "confidence": 0.55,
-    "source_ids": [
-      "S1"
-    ]
+    "confidence": 0.85,
+    "source_ids": ["S4"],
+    "notes": "Directly re-verified via browser this session, replacing the prior search-engine-derived, unconfirmed value with the same figures now independently verified against the City's own code."
   },
   "eligibility_constraints": {
     "value": {
@@ -168,6 +171,14 @@
       "publisher": "Self-Generation Incentive Program (SGIP)",
       "type": "cpuc",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "S4",
+      "title": "Article V. Residential Rooftop Solar Energy Systems, Sections 7-16 through 7-18 (Porterville City Code, Chapter 7 - Building Regulations)",
+      "url": "https://codelibrary.amlegal.com/codes/portervilleca/latest/porterville_ca/0-0-0-2848",
+      "publisher": "City of Porterville (via American Legal Publishing official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-12"
     }
   ]
 }

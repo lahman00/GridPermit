@@ -91,10 +91,13 @@
     "notes": "Per Atwater Municipal Code Section 15.04.130(F)."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Atwater Municipal Code Section 15.04.130 describes administrative approval of complete applications but does not state an explicit day-count turnaround figure."
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "The City's own 'Automated Solar Permitting' page states that eligible projects 'use the automated SolarAPP+ portal for instant permitting.' Atwater Municipal Code Section 15.04.130 separately describes administrative approval of complete applications for the underlying expedited-review ordinance without a day-count figure, so this instant-permitting value applies specifically to SolarAPP+-eligible submissions."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S5"]
   },
   "eligibility_constraints": {
     "value": {
@@ -112,9 +115,12 @@
     "source_ids": ["S4"]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      { "name": "SolarAPP+ processing fee", "amount_usd": 25, "unit": "flat", "notes": "Charged by the SolarAPP+ website (solarapp.nrel.gov) upon submission; covers up to three revisions. Separate City of Atwater permit fees also apply via Cloudpermit but no dollar figure for those was stated on the page." }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S5"],
+    "notes": "Directly verified via the City's own 'Automated Solar Permitting' page this session: 'A $25 processing fee will be charged by the SolarAPP+ website.'"
   },
   "rebates": {
     "value": null,
@@ -167,6 +173,14 @@
       "title": "Chapter 15.04 - General Provision, Section 15.04.130 - Small residential rooftop solar energy system review process (Atwater Municipal Code, Title 15 - Buildings and Construction)",
       "url": "https://library.municode.com/ca/atwater/codes/code_of_ordinances?nodeId=TIT15BUCO_CH15.04GEPR_15.04.050PEPP",
       "publisher": "City of Atwater (via Municode official code host)",
+      "type": "government",
+      "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S5",
+      "title": "Automated Solar Permitting",
+      "url": "https://www.atwater.org/building-permits/",
+      "publisher": "City of Atwater",
       "type": "government",
       "accessed_date": "2026-08-11"
     }
