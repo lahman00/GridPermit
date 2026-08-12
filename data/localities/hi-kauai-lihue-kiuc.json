@@ -1,0 +1,93 @@
+{
+  "record_id": "hi-kauai-lihue-kiuc",
+  "schema_version": "1.4.0",
+  "state": "HI",
+  "utility": {
+    "value": "Kauai Island Utility Cooperative (KIUC)",
+    "confidence": 0.95,
+    "source_ids": ["S2", "S3"],
+    "notes": "KIUC is a genuinely distinct entity from the Hawaiian Electric Industries family (which owns HECO/MECO/HELCO) — it is a member-owned, not-for-profit electric cooperative and the only one of its kind in Hawaii, confirmed via both KIUC's own site and the Hawaii PUC's own page listing it as a separate PUC-regulated electric utility. Its interconnection rules (Schedule Q, its own Tariff No. 2 'Distributed Generation Interconnection Policies and Procedures') are entirely separate from Hawaiian Electric's Smart DER framework and must not be assumed to follow the same terms."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Kauai Island Utility Cooperative (KIUC)",
+      "type": "utility",
+      "notes": "Per KIUC's own 'Rooftop Solar' page: customers must submit an interconnection request application for engineering review before installing a system (required by Hawaii PUC rules). KIUC's own compensation mechanism for exported PV energy is governed by 'Tariff No. 1, Schedule Q Modified — Purchase from Qualified Facilities 100 kW or less,' distinct from HECO/MECO/HELCO's NEM/Smart DER programs. KIUC also curtails (temporarily limits) Schedule Q customer exports at times, per its own published Curtailment FAQ — a distinct, KIUC-specific operational reality not present in the Smart DER islands' documentation reviewed this session."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "city": { "value": "Lihue", "confidence": 0.7, "source_ids": ["S1"], "notes": "Kauai County covers the entire island of Kaua'i (and Ni'ihau) under a single county government, not separate incorporated municipalities. This record represents the county-wide AHJ; per the mission's Hawaii-specific instruction, no separate sub-county city pages are created beneath it. 'Lihue' (the County seat and Building Division's own address) is used as the representative city identifier." },
+  "county": { "value": "County of Kaua'i", "confidence": 1, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "County of Kaua'i Department of Public Works, Building Division",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.kauai.gov/Government/Departments-Agencies/Public-Works/Building-Division/Permitting",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://kiuc.coop/rooftop-solar",
+    "confidence": 0.9,
+    "source_ids": ["S2"]
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The County's own solar-specific permitting document (Kauai County Chapter 12 Building Code's 'Solar Permits' provision, and a State Energy Office-hosted 'Residential Photovoltaic Systems' guide summarizing the County's process) were both blocked this session: the Chapter 12 PDF triggered a file-download dialog in the browser and returned HTTP 403 via WebFetch; the energy.hawaii.gov mirror returned a Cloudflare challenge via browser and HTTP 403 via WebFetch. A search-result snippet indicated Kauai issues a single combined 'solar permit' covering building/electrical/plumbing code requirements, but per the rule against using snippets as evidence, this was not recorded as a sourced fact — only the County's general Building Permit Guide (loaded directly) was used." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "KIUC Interconnection Application",
+      "other_conditions": [
+        "KIUC uses two distinct interconnection application forms depending on system size: one for systems less than 10 kW, and a separate one for systems greater than 10 kW",
+        "Customers must submit and receive engineering review approval of an interconnection request application before installing a PV system, per Hawaii PUC rules"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "KIUC's own FAQ list includes 'How much does the application cost?' as a question, but the collapsed FAQ answer text was not captured this session (accordion content not expanded); not guessed." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "County of Kaua'i Building Division", "phone": "808-241-4854", "email": null, "url": "https://www.kauai.gov/Government/Departments-Agencies/Public-Works/Building-Division/Permitting" },
+      { "name": null, "role": "KIUC Rooftop Solar / Interconnection", "phone": null, "email": null, "url": "https://kiuc.coop/rooftop-solar" }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S1", "S2"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permit Guide",
+      "url": "https://www.kauai.gov/Government/Departments-Agencies/Public-Works/Building-Division/Permitting",
+      "publisher": "County of Kaua'i, Department of Public Works, Building Division",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Rooftop Solar",
+      "url": "https://kiuc.coop/rooftop-solar",
+      "publisher": "Kauai Island Utility Cooperative (KIUC)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Energy — Electric Utilities Regulated by the Hawaii PUC",
+      "url": "https://puc.hawaii.gov/energy/",
+      "publisher": "Hawaii Public Utilities Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

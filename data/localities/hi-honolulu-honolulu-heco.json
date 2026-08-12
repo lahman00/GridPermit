@@ -1,0 +1,121 @@
+{
+  "record_id": "hi-honolulu-honolulu-heco",
+  "schema_version": "1.4.0",
+  "state": "HI",
+  "utility": {
+    "value": "Hawaiian Electric Company (HECO)",
+    "confidence": 0.9,
+    "source_ids": ["S3"],
+    "notes": "Hawaiian Electric is the sole electric utility for the island of Oahu (City and County of Honolulu), confirmed via the utility's own site."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Hawaiian Electric Company (HECO)",
+      "type": "utility",
+      "notes": "Per Hawaiian Electric's own 'Smart Renewable Energy Programs' page: as of the program's rollout (beginning ~April 2024), most new residential rooftop solar customers choose between 'Smart Renewable Energy (SRE) Export' (export bill credits, no project size limit) and 'SRE Non-Export' (no export credits, no size limit); a 'Bring Your Own Device Plus (BYOD Plus)' incentive is available for battery installations dispatched during specified periods. Legacy 'Net Energy Metering (NEM)' and 'NEM Plus' customers are NOT required to transition and may instead enroll additional capacity under 'NEM Plus' or 'NEM Plus Limited Export.' Older programs (Customer Grid-Supply, Customer Grid-Supply Plus, Smart Export, Standard Interconnection Agreement, Customer Self-Supply) are closed to new customers and are being transitioned into the SRE framework over time (transitions after 7 years in-program began Oct. 1, 2024). All Smart Renewable Energy participants must have an advanced (smart) meter."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Honolulu", "confidence": 0.9, "source_ids": ["S1"], "notes": "The City and County of Honolulu is a consolidated city-county government covering the entire island of Oahu — there are no separate incorporated municipalities on Oahu, so this single record represents the real AHJ for all of Oahu, not just the city center. Per the mission's Hawaii-specific instruction, no separate sub-county city pages are created beneath this county-level AHJ." },
+  "county": { "value": "City and County of Honolulu", "confidence": 1, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "City and County of Honolulu, Department of Planning and Permitting (DPP)",
+    "confidence": 0.9,
+    "source_ids": ["S1", "S2"]
+  },
+  "permit_url": {
+    "value": "https://www.honolulu.gov/dpp/solar-permit/",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
+    "confidence": 0.85,
+    "source_ids": ["S3"]
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Bring Your Own Device Plus (BYOD Plus)",
+        "administrator": "Hawaiian Electric Company (HECO)",
+        "description": "Incentive program for customers who install a new battery and agree to dispatch it during specified time periods, replacing the previous 'Battery Bonus' program.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": null,
+        "url": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S3"],
+    "notes": "Specific per-kWh or per-device incentive dollar amounts were not published on this overview page; the program's PDF flyer (linked from the page but not separately loaded this session) likely contains those figures."
+  },
+  "required_documents": {
+    "value": [
+      { "name": "Manufacturer Specification Sheet", "required_when": "when an MM# (pre-approved module/inverter combination number) is not provided", "source_ids": ["S1"] },
+      { "name": "Installation and Operations Manual", "required_when": "when an MM# is not provided", "source_ids": ["S1"] },
+      { "name": "UL or other national testing laboratory listing", "required_when": "when an MM# is not provided", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S1"],
+    "notes": "Per DPP's own Solar Permit page, submitted via the City's 'HNL Build' online portal. A pre-approved MM# (module/manufacturer combination number) can substitute for these three documents."
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "DPP's Solar Permit page focuses on the HNL Build application workflow (Quick Permit flags, contractor consent, phases-of-work formatting) rather than a post-issuance inspection checklist; not found this session." },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "townhome"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": 20,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Solar Quick Permit (HNL Build) / Expedited Clean Energy BPA for townhomes",
+      "other_conditions": [
+        "Standard Solar Quick Permits process even if the property is in a Special Management Area (SMA), Special District, subject to a Unilateral Agreement, subject to Ewa Highway Impact Fee, refers to DLNR, or is a Lot Flags Slide Lot — applicant must answer 'Yes' to the first HNL Build question to avoid being blocked by these flags",
+        "The separate expedited 'Clean Energy' Building Permit Application pathway (Revised Ordinances of Honolulu Section 18-5-10) is limited to 20 kW systems and primarily targets townhomes; eligible project types include solar PV (with or without energy storage), solar thermal/electric hot water heating, and EV charging stations"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": ["S1", "S2"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "DPP's own solar-specific pages did not publish a fee schedule this session; the City's general building-permit fee schedule was not located/confirmed as solar-specific." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "DPP HNL Build Support", "phone": null, "email": "HNLBuild@honolulu.gov", "url": "https://www.honolulu.gov/dpp/solar-permit/" },
+      { "name": null, "role": "DPP Permit Issuance Branch (PIB)", "phone": null, "email": "dppissuepermits@honolulu.gov", "url": "https://www.honolulu.gov/dpp/solar-permit/" }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permit",
+      "url": "https://www.honolulu.gov/dpp/solar-permit/",
+      "publisher": "City and County of Honolulu, Department of Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Clean Energy (Expedited Building Permit Application)",
+      "url": "https://www.honolulu.gov/dpp/permitting/building-permits-home/building-permit/clean-energy/",
+      "publisher": "City and County of Honolulu, Department of Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Smart Renewable Energy Programs",
+      "url": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
+      "publisher": "Hawaiian Electric Company (HECO)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

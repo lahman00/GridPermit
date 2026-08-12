@@ -1,0 +1,120 @@
+{
+  "record_id": "hi-maui-kahului-meco",
+  "schema_version": "1.4.0",
+  "state": "HI",
+  "utility": {
+    "value": "Maui Electric Company (MECO)",
+    "confidence": 0.9,
+    "source_ids": ["S3", "S4"],
+    "notes": "Confirmed via the Hawaii Public Utilities Commission's own page and Hawaiian Electric's corporate site; MECO is a Hawaiian Electric Industries subsidiary serving Maui, Lanai, and Molokai under its own tariff, distinct from HECO (Oahu) and HELCO (Hawaii Island). Also directly named on Maui County's own Electrical Permit page ('Maui Electric Company's Engineering Office')."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Maui Electric Company (MECO)",
+      "type": "utility",
+      "notes": "Hawaiian Electric's Smart Renewable Energy (Smart DER) framework is described on Hawaiian Electric's own site as a company-wide program; this record reuses the same statewide-HEI-family program facts documented in hi-honolulu-honolulu-heco.json at reduced confidence since a MECO-specific page was not independently reloaded this session."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Kahului", "confidence": 0.7, "source_ids": ["S1"], "notes": "Maui County covers the islands of Maui, Lanai, and Molokai under a single county government (Department of Public Works, Development Services Administration), not separate incorporated municipalities. This record represents the county-wide AHJ; per the mission's Hawaii-specific instruction, no separate sub-county city pages are created beneath it. 'Kahului' (the Electrical Permit Section's own office location) is used as the representative city identifier." },
+  "county": { "value": "County of Maui", "confidence": 1, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "County of Maui Department of Public Works, Development Services Administration (Electrical Permit and Inspection Section)",
+    "confidence": 0.95,
+    "source_ids": ["S1", "S2"]
+  },
+  "permit_url": {
+    "value": "https://www.mauicounty.gov/1219/Electrical-Permit-and-Inspection-Section",
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
+    "confidence": 0.6,
+    "source_ids": ["S3"]
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "Not independently confirmed for MECO's territory specifically this session; see generation_supplier notes." },
+  "required_documents": {
+    "value": [
+      { "name": "Letter and related forms from a Hawaii-licensed architect or structural engineer verifying the roof assembly (including module mounting system) is structurally adequate", "required_when": "always, for roof-mounted PV systems, as part of the electrical permit application", "source_ids": ["S2"] },
+      { "name": "Schematic diagrams showing PV system connections, equipment locations, configuration, and ratings", "required_when": "always, submitted with the electrical permit application", "source_ids": ["S2"] },
+      { "name": "Schematic diagrams prepared, stamped, and signed by a Hawaii-licensed electrical engineer", "required_when": "only if the system is rated 30 kW or more", "source_ids": ["S2"] },
+      { "name": "Building permit plans (site plan, foundation plan, elevations, framing plans, structural details, module mounting details) stamped by a Hawaii-licensed architect or structural engineer", "required_when": "only if a building permit is required — see eligibility_constraints", "source_ids": ["S2"] }
+    ],
+    "confidence": 0.95,
+    "source_ids": ["S2"],
+    "notes": "Extracted directly from the County's own Departmental Policy DSA 18.0, 'Permit Requirements for Photovoltaic Systems, Wind Turbines and Windmills' (effective 1-1-2010)."
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": { "min_days": null, "max_days": 30, "notes": "Per the County's own Electrical Permit and Inspection Section page: 'The electrical permit will be issued within 30 days after the application is deemed complete.'" },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "commercial"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "DSA 18.0 Roof-Mounted PV Procedure",
+      "other_conditions": [
+        "Roof-mounted PV: an electrical permit is always required; a BUILDING permit is required ONLY IF the licensed architect/structural engineer determines the existing roof truss system cannot support the added weight without additional structural reinforcing — otherwise no building permit is needed for the PV system itself",
+        "A C-13 licensed electrical contractor is required to obtain the electrical permit; the electrical contractor is responsible for PV system design and installation",
+        "Free-standing (ground-mounted) PV systems always require BOTH a building permit and an electrical permit, with scaled/detailed site, foundation, elevation, framing, and mounting plans",
+        "PV systems rated 30 kW or more require schematics prepared, stamped, and signed by a Hawaii-licensed electrical engineer (not just an architect/structural engineer letter)",
+        "PV systems are allowed on buildings exempt from a building permit under Maui County Code 16.26.106.2 exemptions 1 and 16, but are NOT allowed on structures that were illegally constructed without a required building permit",
+        "Electrical permits expire if the initial required inspection is not approved within 1 year of issuance; once the initial inspection is approved, the permit remains active up to 5 years from issuance or until final inspection, whichever occurs first",
+        "Permits for photovoltaic systems may require a separate Fire Permit from the Fire Prevention Bureau"
+      ]
+    },
+    "confidence": 0.95,
+    "source_ids": ["S1", "S2"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The County's own page states electrical permit fees 'are based on the size and quantities of the installation and are set by budget ordinance' but does not publish the specific fee schedule/table on this page; the referenced budget ordinance was not independently located and read this session." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "County of Maui Electrical Permit and Inspection Section", "phone": "808-270-7255", "email": null, "url": "https://www.mauicounty.gov/1219/Electrical-Permit-and-Inspection-Section" },
+      { "name": null, "role": "Maui Electric Company's Engineering Office", "phone": "808-871-2390", "email": null, "url": "https://www.mauicounty.gov/1219/Electrical-Permit-and-Inspection-Section" }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Electrical Permit and Inspection Section",
+      "url": "https://www.mauicounty.gov/1219/Electrical-Permit-and-Inspection-Section",
+      "publisher": "County of Maui, Department of Public Works",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "DSA 18.0 — Permit Requirements for Photovoltaic Systems, Wind Turbines and Windmills",
+      "url": "https://www.mauicounty.gov/DocumentCenter/View/12699/Permit-Req-For-PV-Systems-and-Wind-Turbines",
+      "publisher": "County of Maui, Department of Public Works, Development Services Administration",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Smart Renewable Energy Programs",
+      "url": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
+      "publisher": "Hawaiian Electric (parent company of MECO)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S4",
+      "title": "Energy — Electric Utilities Regulated by the Hawaii PUC",
+      "url": "https://puc.hawaii.gov/energy/",
+      "publisher": "Hawaii Public Utilities Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

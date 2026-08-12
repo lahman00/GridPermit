@@ -1,0 +1,68 @@
+{
+  "record_id": "hi-hawaii-hilo-helco",
+  "file": "data/localities/hi-hawaii-hilo-helco.json",
+  "validated_at": "2026-08-12",
+  "status": "REVIEW",
+  "score": 93,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.dpw.hawaiicounty.gov/divisions/building — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.dpw.hawaiicounty.gov/divisions/building",
+      "checked_at": "2026-08-12T19:56:19.771Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
+      "checked_at": "2026-08-12T19:56:20.285Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://records.hawaiicounty.gov/Weblink/1/edoc/76875/Permitting%20a%20Residential%20Photovoltaic%20System2.19.16.pdf",
+      "checked_at": "2026-08-12T19:56:23.171Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://puc.hawaii.gov/energy/",
+      "checked_at": "2026-08-12T19:56:25.375Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "record_id": "hi-hawaii-hilo-helco",
+  "schema_version": "1.4.0",
+  "state": "HI",
+  "utility": {
+    "value": "Hawaii Electric Light Company (HELCO)",
+    "confidence": 0.9,
+    "source_ids": ["S3", "S4"],
+    "notes": "Confirmed via the Hawaii Public Utilities Commission's own page (which names Hawai'i Electric Light Company as the utility serving 'The Big Island', one of four PUC-regulated electric utilities, each island having its own unconnected grid) and Hawaiian Electric's own corporate site. HELCO is a subsidiary of Hawaiian Electric Industries operating under its own tariff for Hawaii Island, distinct from HECO (Oahu) and MECO (Maui)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Hawaii Electric Light Company (HELCO)",
+      "type": "utility",
+      "notes": "Hawaiian Electric's Smart Renewable Energy (Smart DER) framework — SRE Export, SRE Non-Export, and Bring Your Own Device Plus — is a company-wide program described on Hawaiian Electric's own site without an island-specific carve-out, so this record reuses the same statewide-HEI-family program facts documented in hi-honolulu-honolulu-heco.json (see that record's generation_supplier.notes for the fuller Smart DER description), applied here at moderate confidence since this session did not independently reload a HELCO-specific page confirming identical terms apply to Hawaii Island."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S3"]
+  },
+  "city": { "value": "Hilo", "confidence": 0.7, "source_ids": ["S1"], "notes": "Hawaii County (the entire island of Hawai'i / 'the Big Island') is governed by a single county government with two Department of Public Works Building Division offices — East Hawai'i (Hilo) and West Hawai'i (Kailua-Kona) — rather than separate incorporated municipalities. This record represents the county-wide AHJ; per the mission's Hawaii-specific instruction, no separate sub-county city pages are created beneath it. 'Hilo' is used as the representative city/county-seat identifier." },
+  "county": { "value": "County of Hawai'i", "confidence": 1, "source_ids": ["S1"] },
+  "permit_authority": {
+    "value": "County of Hawai'i Department of Public Works, Building Division",
+    "confidence": 0.95,
+    "source_ids": ["S1"]
+  },
+  "permit_url": {
+    "value": "https://www.dpw.hawaiicounty.gov/divisions/building",
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
+  "interconnection_url": {
+    "value": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
+    "confidence": 0.6,
+    "source_ids": ["S3"]
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "Not independently confirmed for HELCO's Hawaii Island territory specifically this session; see generation_supplier notes." },
+  "required_documents": {
+    "value": [
+      { "name": "Structural Evaluation Worksheet (Steps 1 and 2)", "required_when": "always, attached to drawings", "source_ids": ["S1"] },
+      { "name": "Location/site plan showing major structures (1\"=20' or larger preferred)", "required_when": "always, for both building and electrical submittals", "source_ids": ["S1"] },
+      { "name": "Roof plan (1\"=8') showing PV array with 3' clear space along the roof ridge, array supports, framing members, and mounting structure construction", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Standard electrical diagram showing PV array configuration, wiring, overcurrent protection, inverter, disconnects, required markings/labels, and AC connection to the building", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Specification sheets and installation manuals for all manufactured components (PV modules, inverters, combiner box, mounting system)", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Two sets of drawings/site plans stamped by a Hawai'i-registered electrical engineer (per Hawai'i County Code Chapter 9, Sec. 9-33(b) and HRS Section 444)", "required_when": "always, for all residential and non-residential PV installations", "source_ids": ["S1"] },
+      { "name": "Completed Building Permit Worksheet and Electrical Permit Application", "required_when": "always", "source_ids": ["S1"] },
+      { "name": "Framing plan showing rafter-strengthening detail", "required_when": "only if combined PV array weight exceeds 5 lbs/sq ft, rafters are over-spanned per the guide's supplied span tables, or per-attachment dead load exceeds 45 lbs", "source_ids": ["S1"] },
+      { "name": "Licensed Hawai'i state architect or structural engineer review/approval (professional stamp)", "required_when": "only for Iron Ridge/Unirac/Solar Mount roof-mounted systems installed above 30 ft, OR within Wind Exposure D (within 1/4 mile of the ocean), OR within Seismic Zones E or F — per County PV Bulletin PV 2012-01", "source_ids": ["S1"] }
+    ],
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": "Extracted directly from the County's own 'Guidelines for Permitting a Residential Photovoltaic (PV) System' (rev. 10.10.12) and its attached PV Bulletin PV 2012-01 (Aug. 24, 2012), read via PDF extraction of the County's own document."
+  },
+  "inspection_steps": {
+    "value": [
+      "Building and electrical inspections may be requested in any order following installation of panels on the roof (per PV Bulletin PV 2012-01)",
+      "For roof-mounted systems, the Building Division provides ladders to inspectors; in the interim, contractors must provide ladders and fall protection at the time of inspection"
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited Permit Process for PV Systems",
+      "other_conditions": [
+        "All photovoltaic systems for residential and non-residential installations require a building permit (Hawai'i County Code Chapter 9, Sec. 9-33(b))",
+        "Electrical design drawings and specifications must bear the approval of a Hawai'i-registered electrical engineer",
+        "Permits are issued only to Hawai'i State licensed building, electrical, or photovoltaic contractors (HRS Section 444)",
+        "Fasteners must not occur in roof framing beyond the exterior wall line without engineered calculations",
+        "Roof-mounted systems using Iron Ridge, Unirac, or Solar Mount mounting systems are pre-approved (no professional stamp required) up to 30 ft height in Wind Zones A/B/C and Seismic Zones A/B/C/D; systems in Wind Exposure D (within 1/4 mile of the ocean) or Seismic Zones E/F require licensed architect/structural engineer review",
+        "No material deviation from reviewed plans/specifications is permitted without prior electrical-engineer-of-record approval"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": {
+    "value": [
+      { "name": "Electrical permit fee — alternate energy power source (generators, capacitors, reactors, transformers), not more than 5 kW", "amount_usd": 10, "unit": "flat fee", "notes": "Hawai'i County Code Chapter 9, Section 9-40(q). 1 kW is treated as equivalent to 1 kVA for this fee." },
+      { "name": "Electrical permit fee — alternate energy power source, over 5 kW but not over 15 kW", "amount_usd": 24, "unit": "flat fee", "notes": "Hawai'i County Code Chapter 9, Section 9-40(q)." },
+      { "name": "Electrical permit fee — alternate energy power source, over 15 kW", "amount_usd": 40, "unit": "flat fee", "notes": "Hawai'i County Code Chapter 9, Section 9-40(q)." },
+      { "name": "Building permit fee — $0 to $500 estimated valuation", "amount_usd": 10, "unit": "flat fee", "notes": "Hawai'i County Code Chapter 5, Section 5-35, Table 1-A." },
+      { "name": "Building permit fee — $501 to $2,000 estimated valuation", "amount_usd": 10, "unit": "plus $1.50 per additional $100 or fraction thereof up to $2,000", "notes": "Hawai'i County Code Chapter 5, Section 5-35, Table 1-A." },
+      { "name": "Building permit fee — $2,001 to $25,000 estimated valuation", "amount_usd": 32.5, "unit": "plus $7.50 per additional $1,000 or fraction thereof up to $25,000", "notes": "Hawai'i County Code Chapter 5, Section 5-35, Table 1-A." }
+    ],
+    "confidence": 0.95,
+    "source_ids": ["S1"],
+    "notes": "Both the electrical permit fee (specific to alternate energy power sources, tiered by system kW) and the general building permit fee (tiered by estimated construction valuation) apply, since a PV installation requires both a building permit and an electrical permit under Hawai'i County Code. Higher building-permit valuation tiers ($25,001-$50,000 and $50,001+) also exist in the source table but are less relevant to typical residential PV systems and were omitted for brevity; see source PDF for the complete table."
+  },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      { "name": null, "role": "DPW Building Division — East Hawai'i (Hilo)", "phone": "808-961-8331", "email": "cohbuild@hawaiicounty.gov", "url": "https://www.dpw.hawaiicounty.gov/divisions/building" },
+      { "name": null, "role": "DPW Building Division — West Hawai'i (Kailua-Kona)", "phone": "808-323-4720", "email": "cohbuild@hawaiicounty.gov", "url": "https://www.dpw.hawaiicounty.gov/divisions/building" }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S1"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Guidelines for Permitting a Residential Photovoltaic (PV) System (rev. 10.10.12) and PV Bulletin PV 2012-01",
+      "url": "https://records.hawaiicounty.gov/Weblink/1/edoc/76875/Permitting%20a%20Residential%20Photovoltaic%20System2.19.16.pdf",
+      "publisher": "County of Hawai'i, Department of Public Works, Building Division",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Smart Renewable Energy Programs",
+      "url": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
+      "publisher": "Hawaiian Electric (parent company of HELCO)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S4",
+      "title": "Energy — Electric Utilities Regulated by the Hawaii PUC",
+      "url": "https://puc.hawaii.gov/energy/",
+      "publisher": "Hawaii Public Utilities Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}
