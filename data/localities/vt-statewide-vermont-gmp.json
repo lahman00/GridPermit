@@ -1,0 +1,120 @@
+{
+  "record_id": "vt-statewide-vermont-gmp",
+  "schema_version": "1.4.0",
+  "state": "VT",
+  "utility": {
+    "value": "Green Mountain Power (GMP)",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Green Mountain Power is Vermont's largest electric utility by customer count, directly confirmed via GMP's own site. Vermont also has several other utilities not covered by this record, including Vermont Electric Cooperative, Burlington Electric Department (a municipal utility), and a number of smaller municipal utilities — each would need its own separately-researched record rather than being assumed to follow GMP's specific interconnection timelines."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Green Mountain Power (GMP)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Vermont this session; GMP is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "city": {
+    "value": "Vermont (Statewide)",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Directly confirmed via the Vermont Public Utility Commission's own site: 'The Public Utility Commission regulates the construction and operation of net-metering systems.' Unlike California, Rhode Island, and Delaware, Vermont does NOT use a municipal building-department permitting model for grid-connected residential solar — siting/approval authority for net-metering systems is centralized at the state Public Utility Commission via a Certificate of Public Good (CPG) or streamlined Registration process, governed by PUC Rule 5.100 and Rule 5.500 (30 V.S.A. Section 8010). This record intentionally represents that statewide structure rather than fabricating dozens of municipality-specific pages that would all describe the same state-level process."
+  },
+  "county": { "value": null, "confidence": 0, "source_ids": [], "notes": "Not applicable — this record represents a statewide process, not a county-specific one." },
+  "permit_authority": {
+    "value": "Vermont Public Utility Commission (PUC) — statewide net-metering Certificate of Public Good / Registration process",
+    "confidence": 0.85,
+    "source_ids": ["S2", "S3"],
+    "notes": "Directly confirmed via both the PUC's own site and GMP's own interconnection page. As of the PUC's March 1, 2024 rule change (Rules 5.100 and 5.500), interconnection and net-metering CPG processes are formally separated (with partial crossover for projects <=15kW)."
+  },
+  "permit_url": {
+    "value": "https://puc.vermont.gov/electric/net-metering",
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": {
+    "value": "https://greenmountainpower.com/help/net-metering-project-requirements-process/",
+    "confidence": 0.85,
+    "source_ids": ["S3"],
+    "notes": "GMP's own interconnection page, directly verified this session, describing the process specifically for projects 0-15kW (the typical residential rooftop solar case): apply through the Vermont PUC's ePUC portal via Net-Metering Registration; GMP emails about any issues with the project by the 15th day following a complete application; the PUC then issues or denies the CPG."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": {
+    "value": [
+      { "name": "Net-Metering Registration Form (filed via the Vermont PUC's ePUC portal)", "required_when": "always — for roof-mounted PV systems up to 500kW, the eligible streamlined path", "source_ids": ["S3"] }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S3"],
+    "notes": "Per GMP's own page: roof-mounted photovoltaic systems up to 500kW use the simpler ePUC 'Registration' path (vs. the fuller 'Application' path required for ground-mounted systems over 15kW), after first receiving GMP's interconnection approval."
+  },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 15,
+      "notes": "GMP's own page states that for projects of 0-15kW (the typical single-family residential rooftop solar case), 'GMP emails you about any issues with the project by the 15th day following complete application' — a business-day figure for GMP's own review step under the state-centralized process. This is not a total end-to-end timeline including the PUC's own CPG issuance/denial step, which was not separately stated with a day-count."
+    },
+    "confidence": 0.75,
+    "source_ids": ["S3"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 15,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Net-Metering Registration (streamlined path, PUC Rule 5.100/5.500)",
+      "other_conditions": [
+        "Roof-mounted photovoltaic systems up to 500kW are eligible for the simpler ePUC 'Registration' path; ground-mounted systems are only eligible for Registration up to 15kW, and require the fuller 'Application'/CPG process above that",
+        "Interconnection approval from GMP is required before Net-Metering Registration for most system sizes; systems of 15kW or less are exempt from the separate interconnection-approval step per GMP's page"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S3"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The Vermont PUC's own net-metering page references an 'Agency of Natural Resources Application Fee Form' and a 'Department of Public Service and Public Utility Commission Application Fee Form,' confirming application fees exist for some net-metering filings, but no specific dollar figure applicable to a typical residential rooftop registration was found this session." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "GMP Distributed Resources team",
+        "phone": "802-770-3399",
+        "email": "DR@greenmountainpower.com",
+        "url": "https://greenmountainpower.com/help/net-metering-project-requirements-process/"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S3"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Green Mountain Power (homepage)",
+      "url": "https://greenmountainpower.com",
+      "publisher": "Green Mountain Power",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Net-Metering",
+      "url": "https://puc.vermont.gov/electric/net-metering",
+      "publisher": "Vermont Public Utility Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Interconnecting Customer Generation",
+      "url": "https://greenmountainpower.com/help/net-metering-project-requirements-process/",
+      "publisher": "Green Mountain Power",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

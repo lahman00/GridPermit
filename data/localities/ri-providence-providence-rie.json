@@ -1,0 +1,142 @@
+{
+  "record_id": "ri-providence-providence-rie",
+  "schema_version": "1.4.0",
+  "state": "RI",
+  "utility": {
+    "value": "Rhode Island Energy",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Rhode Island Energy (a PPL Corporation subsidiary, formerly National Grid's Rhode Island electric/gas business) is the investor-owned utility serving Providence, directly confirmed via the utility's own site. Most Rhode Island municipalities are Rhode Island Energy territory; a small number (e.g. Burrillville's Pascoag/Clear River Electric & Water District, and Block Island) are served by separate municipal/cooperative utilities and are NOT assumed to be Rhode Island Energy territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Rhode Island Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator or other separate generation supplier was found serving Providence this session; Rhode Island Energy is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "Providence", "confidence": 1, "source_ids": ["S2"] },
+  "county": { "value": "Providence County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "City of Providence Department of Inspection and Standards (DIS)",
+    "confidence": 0.85,
+    "source_ids": ["S2"],
+    "notes": "Directly confirmed via the City's own site. DIS relocated to 780 Allens Avenue as of December 12, 2025."
+  },
+  "permit_url": {
+    "value": "https://www.providenceri.gov/inspection-standards/",
+    "confidence": 0.85,
+    "source_ids": ["S2"]
+  },
+  "interconnection_url": {
+    "value": "https://portalconnect.rienergy.com/RI/s/ri-process",
+    "confidence": 0.8,
+    "source_ids": ["S3"],
+    "notes": "Rhode Island Energy's own interconnection process page. Confirms a 'Simplified Interconnection Process' for small renewable systems using a single UL1741-listed inverter with aggregate DG size <=25kW AC — the typical residential rooftop solar case. This is a utility-wide process, not city-specific, and applies to every Rhode Island Energy-territory municipality."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Energy Storage Rebate (ESR) Program",
+        "administrator": "Rhode Island Office of Energy Resources (OER)",
+        "description": "Statewide rebate for behind-the-meter battery energy storage systems up to 250kW, funded by Regional Greenhouse Gas Initiative (RGGI) proceeds. Tier 1 (<=25kW AC): $250/kWh base incentive ($8,000 project max) or $500/kWh income-eligible incentive ($16,000 project max), max rebate reached at 32kWh. Tier 2 (25-250kW AC): $175/kWh, $45,500 project max. Total program funding $2,000,000 ($1,300,000 Tier 1 / $700,000 Tier 2), first-come first-reserved. Eligible to property owners with an active account with Rhode Island Energy, Clear River Electric and Water (CREW) District, or Block Island Utility District — a genuinely statewide program, directly confirmed via OER's own program page.",
+        "value_usd_per_kwh": 250,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Property owner with an active electric account with Rhode Island Energy, Clear River Electric and Water District, or Block Island Utility District; new behind-the-meter grid-connected battery installation; installation agreement dated on or after the program's April 10 launch date; residential systems capped at 50kW AC (Tier 1 base rate applies up to 25kW AC).",
+        "url": "https://energy.ri.gov/storage/energy-storage-rebates",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S4"],
+    "notes": "Directly confirmed via the Rhode Island Office of Energy Resources' own Energy Storage Rebates page this session. A statewide program applicable to every Rhode Island municipality served by an eligible utility, not city-specific — reused as a state-level fact per docs/DATA_ARCHITECTURE.md's multi-state reuse rule. The page's 'launch date' is referenced as 'April 10' without an explicit year stated on the page; recorded as effective_from: null rather than guessed."
+  },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's official 'Checklist for Solar PV Installations' PDF exists but is a scanned/image-based document that could not be read this session; no other City page enumerated a solar-specific document checklist." },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential", "commercial"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Standard City of Providence building/electrical permit process",
+      "other_conditions": [
+        "Solar panels are allowed on homes and businesses everywhere in Providence, per the City's own 'Go Solar Providence' page",
+        "Properties in a historic district or downtown require an additional review before installation"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": ["S5"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "Rhode Island's Building Code Commission (ribcc.ri.gov) and RI Dept. of State (rules.sos.ri.gov, 510-RICR-00-00-21) both reference a 'Statewide Permit Formula' governing municipal building-permit fees, but the exact formula/rate could not be independently read this session (dynamic page content did not render text via automated fetch), so no dollar figure is recorded." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Providence Department of Inspection and Standards (DIS), Boards of Review",
+        "phone": "401-680-5375",
+        "email": null,
+        "url": "https://www.providenceri.gov/inspection-standards/"
+      },
+      {
+        "name": null,
+        "role": "Rhode Island Office of Energy Resources, Energy Storage Rebate Program",
+        "phone": null,
+        "email": "Energy.Storage@energy.ri.gov",
+        "url": "https://energy.ri.gov/storage/energy-storage-rebates"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S2", "S4"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Rhode Island Energy (homepage)",
+      "url": "https://www.rienergy.com",
+      "publisher": "Rhode Island Energy (PPL Corporation)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Inspection & Standards",
+      "url": "https://www.providenceri.gov/inspection-standards/",
+      "publisher": "City of Providence",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Rhode Island Process (Interconnection Process)",
+      "url": "https://portalconnect.rienergy.com/RI/s/ri-process",
+      "publisher": "Rhode Island Energy",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S4",
+      "title": "Energy Storage Rebates",
+      "url": "https://energy.ri.gov/storage/energy-storage-rebates",
+      "publisher": "Rhode Island Office of Energy Resources",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S5",
+      "title": "Go Solar Providence",
+      "url": "https://www.providenceri.gov/sustainability/go-solar-providence/",
+      "publisher": "City of Providence",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}

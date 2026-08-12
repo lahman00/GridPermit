@@ -1,0 +1,101 @@
+{
+  "record_id": "de-new-castle-new-castle-county-delmarva",
+  "schema_version": "1.4.0",
+  "state": "DE",
+  "utility": {
+    "value": "Delmarva Power (an Exelon company)",
+    "confidence": 0.9,
+    "source_ids": ["S1"],
+    "notes": "Directly confirmed via Delmarva Power's own site as Delaware's only investor-owned electric utility. New Castle County also contains areas served by the Delaware Electric Cooperative and by municipal utilities (e.g. the City of Newark's own municipal electric utility) — this record covers unincorporated New Castle County / the County's own permitting authority, which is Delmarva Power territory, not those exceptions."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Delmarva Power (an Exelon company)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Delaware this session; Delmarva Power is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": ["S1"]
+  },
+  "city": { "value": "New Castle County", "confidence": 0.85, "source_ids": ["S2"], "notes": "Value is the county name itself, not a city — Delaware has only 3 counties and a limited number of incorporated municipalities; New Castle County's own Land Use Department is the permitting authority for unincorporated areas of the county (distinct from incorporated cities within the county, such as Wilmington or Newark, which run their own building departments). Recorded as a county-level record rather than fabricated city-level granularity, per this dataset's Delaware AHJ-structure finding." },
+  "county": { "value": "New Castle County", "confidence": 0.9, "source_ids": ["S2"] },
+  "permit_authority": {
+    "value": "New Castle County Department of Land Use",
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "Directly confirmed via the County's own site. All construction activity, including most alterations, requires a permit unless exempted by New Castle County Code Chapter 6, Section 06.03.012."
+  },
+  "permit_url": {
+    "value": "https://www.newcastlede.gov/2507/Get-a-Permit",
+    "confidence": 0.8,
+    "source_ids": ["S2"],
+    "notes": "Permits are processed through the County's eServices/ePlans system. No solar-specific residential permit page was found this session; the County's solar-related published material found was a Solar-Ready Ordinance for large non-residential buildings, not a residential rooftop solar checklist."
+  },
+  "interconnection_url": {
+    "value": "https://www.delmarva.com/smart-energy/my-green-power-connection/developers-contractors/educational-materials/connecting-your-system-to-the-grid",
+    "confidence": 0.85,
+    "source_ids": ["S1"],
+    "notes": "Delmarva Power's own interconnection page, directly verified this session. For Level 1 (10kW AC inverter nameplate capacity or less — the typical residential rooftop solar case), the interconnection application fee is explicitly stated as 'No fee.' This is a statewide, utility-wide fact applicable to every Delmarva Power-territory Delaware locality, not county-specific."
+  },
+  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 77,
+      "notes": "Delmarva Power's own 'Connecting Your System to the Grid' page states: 'This complete interconnection process takes approximately 77 business days.' This figure covers Delmarva Power's own interconnection process end-to-end (application, installation, inspection, net meter installation) — it is a utility interconnection timeline, not the County's own building-permit review timeline, which was not separately found this session."
+    },
+    "confidence": 0.7,
+    "source_ids": ["S1"]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Delmarva Power Level 1 Interconnection (inverter-based, 10kW AC nameplate capacity or less)",
+      "other_conditions": [
+        "Level 1 is for lab-certified inverter-based small generator facilities of 10kW AC or less — the typical single-family residential rooftop solar case",
+        "Larger or non-inverter-based systems require a higher interconnection level (2, 3, or 4) with an associated application fee"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": ["S1"]
+  },
+  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "No New Castle County building-permit fee schedule specific to residential solar was found this session. Delmarva Power's own Level 1 interconnection application fee is explicitly 'No fee' (recorded in interconnection_url notes instead, since it is a utility fee, not a building permit fee)." },
+  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "New Castle County Department of Land Use, Permits & Inspections",
+        "phone": null,
+        "email": null,
+        "url": "https://www.newcastlede.gov/193/Permits"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": ["S2"]
+  },
+  "last_verified": "2026-08-12",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Connecting Your System to the Grid",
+      "url": "https://www.delmarva.com/smart-energy/my-green-power-connection/developers-contractors/educational-materials/connecting-your-system-to-the-grid",
+      "publisher": "Delmarva Power (an Exelon company)",
+      "type": "utility",
+      "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S2",
+      "title": "Permits & Inspections",
+      "url": "https://www.newcastlede.gov/193/Permits",
+      "publisher": "New Castle County, Delaware",
+      "type": "government",
+      "accessed_date": "2026-08-12"
+    }
+  ]
+}
