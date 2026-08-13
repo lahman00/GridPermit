@@ -28,7 +28,12 @@ const evaluationModules = import.meta.glob("../../../output/*-evaluation.json", 
 	string,
 	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
 >;
-const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
+// Scoped to CA only — buildTimelineInsights itself aggregates every READY
+// record sitewide; this page is explicitly a California-specific guide, so
+// its aggregate counts and examples must not include other states' cities.
+const allEvaluatedRecords = Object.values(evaluationModules)
+	.flatMap((mod) => mod.default.records)
+	.filter((r) => recordsById.get(r.record_id)?.state === "CA");
 const insights = buildTimelineInsights(allEvaluatedRecords, recordsById);
 
 const PAGE_PATH = "/california/solar-permit-timeline/";

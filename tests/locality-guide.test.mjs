@@ -56,11 +56,11 @@ test("getDisplayablePrograms returns an empty array for null/undefined/empty inp
 	assert.deepEqual(getDisplayablePrograms([]), []);
 });
 
-test("formatTimeline scopes a 0/0 range to SolarAPP+ eligibility, never a general same-day claim", () => {
+test("formatTimeline scopes a 0/0 range to expedited-permit eligibility, never a general same-day claim or an unconfirmed platform name", () => {
 	const result = formatTimeline({ min_days: 0, max_days: 0 });
 	assert.equal(result.isSameDaySolarAppOnly, true);
-	assert.equal(result.label, "Same-day review for eligible SolarAPP+ projects");
-	assert.match(result.label, /SolarAPP\+/);
+	assert.equal(result.label, "Same-day review for eligible expedited-permit projects");
+	assert.doesNotMatch(result.label, /SolarAPP\+/);
 	assert.doesNotMatch(result.label, /^Same day$/);
 	assert.equal(result.standardPathCaveat, "No verified standard-path permit timeline is available.");
 });
@@ -111,15 +111,26 @@ test("buildFaqs omits generation-supplier, timeline, documents, and contact fact
 	assert.doesNotMatch(joined, /contact about solar permits/);
 });
 
-test("buildFaqs' timeline entry is scoped to SolarAPP+ eligibility and carries the standard-path caveat", () => {
+test("buildFaqs' timeline entry is scoped to expedited-permit eligibility (no unconfirmed platform name) and carries the standard-path caveat", () => {
 	const faqs = buildFaqs(
 		buildRecord({ timeline_days: { value: { min_days: 0, max_days: 0, notes: null }, confidence: 0.75 } }),
 	);
 	const timelineFaq = faqs.find((f) => /permit take in Oakland/.test(f.q));
 	assert.ok(timelineFaq, "expected a timeline FAQ entry");
-	assert.match(timelineFaq.q, /SolarAPP\+-eligible/);
+	assert.match(timelineFaq.q, /expedited-eligible/);
+	assert.doesNotMatch(timelineFaq.q, /SolarAPP\+/);
 	assert.doesNotMatch(timelineFaq.a, /^Same day/);
 	assert.match(timelineFaq.a, /No verified standard-path permit timeline is available\./);
+});
+
+test("buildFaqs' timeline question does not claim expedited/SolarAPP+ eligibility for a real (non-0/0) day range", () => {
+	const faqs = buildFaqs(
+		buildRecord({ timeline_days: { value: { min_days: 5, max_days: 10, notes: null }, confidence: 0.75 } }),
+	);
+	const timelineFaq = faqs.find((f) => /permit take in Oakland/.test(f.q));
+	assert.ok(timelineFaq, "expected a timeline FAQ entry");
+	assert.doesNotMatch(timelineFaq.q, /expedited-eligible/);
+	assert.doesNotMatch(timelineFaq.q, /SolarAPP\+/);
 });
 
 test("buildFaqs adds a documents entry only when required_documents is populated", () => {

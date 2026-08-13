@@ -174,8 +174,14 @@ export interface TimelineDisplay {
 }
 
 // Trust rule: never render a general "same day" claim. A 0/0 range means
-// same-day review only for SolarAPP+-eligible projects, with no verified
-// timeline for the standard permit path — both facts must show together.
+// same-day review only for projects meeting the jurisdiction's own
+// expedited-review eligibility, with no verified timeline for the standard
+// permit path — both facts must show together. The label deliberately does
+// not name a specific platform (e.g. "SolarAPP+") unless a given record's
+// own sources confirm that platform — many jurisdictions run their own
+// same-day/expedited program (a proprietary portal, an in-house electrical
+// permit fast-track, etc.) that is not SolarAPP+, and naming the wrong
+// platform would be an unsupported claim.
 // A record can also have a non-null timeline_days object with min_days/
 // max_days themselves null (e.g. Santa Ana: the source describes review
 // speed qualitatively but states no day range) — that must render
@@ -185,7 +191,7 @@ export function formatTimeline(td: TimelineValue): TimelineDisplay {
 	if (isSameDaySolarAppOnly) {
 		return {
 			isSameDaySolarAppOnly: true,
-			label: "Same-day review for eligible SolarAPP+ projects",
+			label: "Same-day review for eligible expedited-permit projects",
 			standardPathCaveat: "No verified standard-path permit timeline is available.",
 		};
 	}
@@ -364,7 +370,9 @@ export function buildFaqs(record: LocalityRecord): FaqEntry[] {
 			td.notes ??
 			(td.min_days !== null && td.max_days !== null ? `${td.min_days}–${td.max_days} days.` : NOT_VERIFIED);
 		faqs.push({
-			q: `How long does a SolarAPP+-eligible residential solar permit take in ${record.city.value}?`,
+			q: timeline.isSameDaySolarAppOnly
+				? `How long does an expedited-eligible residential solar permit take in ${record.city.value}?`
+				: `How long does a residential solar permit take in ${record.city.value}?`,
 			a: timeline.standardPathCaveat ? `${baseAnswer} ${timeline.standardPathCaveat}` : baseAnswer,
 		});
 	}
