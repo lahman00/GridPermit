@@ -1,0 +1,157 @@
+{
+  "record_id": "ga-fulton-atlanta-georgiapower",
+  "schema_version": "1.4.0",
+  "state": "GA",
+  "utility": {
+    "value": "Georgia Power",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Georgia Power (a Southern Company subsidiary) is Atlanta's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Georgia Power",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Atlanta's residential solar customers this session; Georgia Power is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Atlanta",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Fulton County",
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City of Atlanta spans parts of both Fulton and DeKalb Counties; this record covers the City's own permitting authority (which applies citywide regardless of county line) and is recorded under Fulton County as the city's primary county."
+  },
+  "permit_authority": {
+    "value": "City of Atlanta Office of Buildings (Department of City Planning)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Georgia has no single statewide permitting agency — each of Georgia's 159 counties and its municipalities administers its own building department under the state's minimum standard codes (adopted IRC/IBC/NEC with Georgia Amendments), making Georgia a genuinely fragmented AHJ landscape compared to several other states researched this session. The City of Atlanta's own Office of Buildings is the permitting authority within city limits."
+  },
+  "permit_url": {
+    "value": "https://www.atlantaga.gov/government/departments/city-planning/about-dcp/office-of-buildings",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.georgiapower.com/residential/solutions/solar/rooftop-installations/how-it-works.html",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Georgia Power does not offer traditional retail-rate net metering. Per the utility's own page, residential rooftop solar customers choose between two PowerClerk-administered programs: 'RNR Instantaneous Netting' (systems up to 250kW AC; excess energy is credited at the utility's annual Solar Avoided Energy Cost Rate per kWh, summed monthly and applied to reduce the bill; a $100 interconnection fee applies) or 'Energy Offset' (no system size limit, but the system is not designed to export to the grid and receives no compensation for excess generation; this is the default enrollment for any customer who does not select RNR). A separate 'Qualifying Facilities' program exists for customers who want to sell all or excess generation to Georgia Power."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own Office of Buildings page confirms permits are processed via the Accela Citizen Access (ACA) online portal and references a general Document Library of applications/checklists, but no dedicated solar-specific document checklist was located and confirmed this session."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed from a solar-specific source this session. The City's page does describe a general private-provider inspection report process (reports due within 2 business days of inspection, ICC-certified inspector credentials required) effective 2026-07-01, but this is a general Office of Buildings policy, not solar-specific."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No solar-specific review timeline was confirmed this session. Note: as of 2025-02-01, the City's Express Permit process (for minor projects with a 30-minute in-office turnaround) requires in-person submission only — online submission for express permits was discontinued — but it is not confirmed whether residential solar qualifies for this express workstream."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Effective for permit submissions beginning 2026-01-01 (fully mandatory from 2026-02-01), the City adopted the 2024 IRC/IBC/IMC/IFGC/IPC/ISPSC with Georgia Amendments and the 2023 NEC with Georgia Amendments",
+        "Any permit application with potential tree impact requires a completed Arborist Meeting before submission, per an ordinance effective 2025-06-25 — potentially relevant for ground-mounted systems"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No solar-specific City of Atlanta permit fee figure was independently confirmed from a primary source this session (a $200-$400 range for typical residential solar valuations was found via search synthesis only, not confirmed against the City's own fee schedule document, so it is not recorded here)."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Per Georgia Power's own page, neither Georgia Power nor the State of Georgia currently offers incentives or rebates for residential solar installations (only the federal 30% investment tax credit applies) — recorded as null/no-program rather than a populated rebate entry, consistent with the 'absent' rather than 'unresearched' distinction."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Atlanta Office of Buildings",
+        "phone": "404-330-6150",
+        "email": null,
+        "url": "https://www.atlantaga.gov/government/departments/city-planning/about-dcp/office-of-buildings"
+      },
+      {
+        "name": null,
+        "role": "Residential Workstream",
+        "phone": "404-330-6906",
+        "email": "residential-oob@atlantaga.gov",
+        "url": null
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Office of Buildings",
+      "url": "https://www.atlantaga.gov/government/departments/city-planning/about-dcp/office-of-buildings",
+      "publisher": "City of Atlanta, Department of City Planning",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "How it Works — Rooftop Solar Installation Options",
+      "url": "https://www.georgiapower.com/residential/solutions/solar/rooftop-installations/how-it-works.html",
+      "publisher": "Georgia Power",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

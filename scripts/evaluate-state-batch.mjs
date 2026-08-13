@@ -38,6 +38,7 @@ const STATE_SLUGS = {
   VA: "virginia",
   NC: "north-carolina",
   SC: "south-carolina",
+  GA: "georgia",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

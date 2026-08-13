@@ -1,0 +1,63 @@
+{
+  "record_id": "ga-richmond-augusta-georgiapower",
+  "file": "data/localities/ga-richmond-augusta-georgiapower.json",
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 95,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.augustaga.gov/FAQ.aspx?QID=549",
+      "checked_at": "2026-08-13T22:01:49.251Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.georgiapower.com/residential/solutions/solar/rooftop-installations/how-it-works.html",
+      "checked_at": "2026-08-13T22:01:49.785Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.augustaga.gov/1105/Permit-Information",
+      "checked_at": "2026-08-13T22:01:50.345Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.augustaga.gov/1112/Permit-Fees",
+      "checked_at": "2026-08-13T22:01:50.753Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

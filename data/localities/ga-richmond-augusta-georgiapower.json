@@ -1,0 +1,201 @@
+{
+  "record_id": "ga-richmond-augusta-georgiapower",
+  "schema_version": "1.4.0",
+  "state": "GA",
+  "utility": {
+    "value": "Georgia Power",
+    "confidence": 0.8,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Georgia Power (a Southern Company subsidiary) is the well-established dominant electric utility for the Augusta area — not independently cross-checked against a dedicated Georgia Power service-territory map this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Georgia Power",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Augusta's residential solar customers this session; Georgia Power is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Augusta",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Richmond County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Augusta and Richmond County operate a consolidated city-county government; the License and Inspection Department is the single permitting authority for the entire consolidated jurisdiction."
+  },
+  "permit_authority": {
+    "value": "Augusta-Richmond County License and Inspection Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Georgia has no single statewide permitting agency — each of Georgia's 159 counties and its municipalities administers its own building department under the state's minimum standard codes (adopted IRC/IBC/NEC with Georgia Amendments). Augusta-Richmond County's consolidated government gives it a single permitting authority for the whole jurisdiction, similar in structure to Durham, NC and Sumter, SC's consolidated city-county departments researched earlier this session."
+  },
+  "permit_url": {
+    "value": "https://www.augustaga.gov/FAQ.aspx?QID=549",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.georgiapower.com/residential/solutions/solar/rooftop-installations/how-it-works.html",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "See the identical Georgia Power interconnection program notes on the Atlanta record (ga-fulton-atlanta-georgiapower) — Georgia Power does not offer retail-rate net metering; residential customers choose between 'RNR Instantaneous Netting' (up to 250kW AC, Solar Avoided Energy Cost Rate credit, $100 interconnection fee) or 'Energy Offset' (no size limit, no grid compensation, default enrollment)."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Two sets of plans covering mounting and electrical work",
+        "required_when": "always for residential systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural evaluation report from an engineer confirming the roof can support the solar panels and associated equipment",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the Department's own FAQ page confirming a permit is required for solar panel installation. Commercial installations require three sets of plans prepared by a licensed engineer (not applicable to this residential record)."
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections are requested online through the Department's own Inspection Request form"
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was published on the Department's permit information page this session."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Per the Department's general residential permitting page, single-family permits are issued to licensed contractors, or to the homeowner directly only if the homeowner will own and occupy the house"
+      ]
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Electrical permit",
+        "amount_usd": 50,
+        "unit": "flat fee per house",
+        "notes": "Per the Department's own Permit Fees page — this is the general residential electrical permit fee, applicable to a solar installation's electrical work; not a dedicated solar line item."
+      },
+      {
+        "name": "Building permit",
+        "amount_usd": null,
+        "unit": "$0.06 per square foot under roof",
+        "notes": "Per the Department's own Permit Fees page — this is the general residential building permit formula based on the house's square footage under roof, not a dedicated solar valuation-based fee."
+      }
+    ],
+    "confidence": 0.65,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Both figures are the Department's general residential permit fee schedule (not solar-specific line items); the Permit Fees page itself notes it contains no dedicated information on solar panel installations."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Per Georgia Power's own statement (see interconnection_url notes on the Atlanta record), neither Georgia Power nor the State of Georgia currently offers incentives or rebates for residential solar — recorded as null/no-program rather than unresearched."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "License and Inspection Department",
+        "phone": "706-312-5050",
+        "email": null,
+        "url": "https://www.augustaga.gov/1105/Permit-Information"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "FAQs — Is a permit required for solar panels?",
+      "url": "https://www.augustaga.gov/FAQ.aspx?QID=549",
+      "publisher": "Augusta, GA (Augusta-Richmond County)",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Permit Information",
+      "url": "https://www.augustaga.gov/1105/Permit-Information",
+      "publisher": "Augusta-Richmond County License and Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "How it Works — Rooftop Solar Installation Options",
+      "url": "https://www.georgiapower.com/residential/solutions/solar/rooftop-installations/how-it-works.html",
+      "publisher": "Georgia Power",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "Permit Fees",
+      "url": "https://www.augustaga.gov/1112/Permit-Fees",
+      "publisher": "Augusta-Richmond County License and Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

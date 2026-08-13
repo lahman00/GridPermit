@@ -1,0 +1,117 @@
+{
+  "state": "GA",
+  "generated_at": "2026-08-13T22:01:51.268Z",
+  "records": [
+    {
+      "record_id": "ga-fulton-atlanta-georgiapower",
+      "state": "GA",
+      "city": "Atlanta",
+      "county": "Fulton County",
+      "completeness_pct": 60,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "ga-richmond-augusta-georgiapower",
+      "state": "GA",
+      "city": "Augusta",
+      "county": "Richmond County",
+      "completeness_pct": 80,
+      "validation_score": 95,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "unsupported_claim"
+      ],
+      "readiness": "READY"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 70,
+    "average_validation_score": 96.5,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 2
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 2
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 2
+      },
+      {
+        "field": "required_documents",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [
+      "ga-richmond-augusta-georgiapower"
+    ],
+    "limited_for_now": [
+      {
+        "record_id": "ga-fulton-atlanta-georgiapower",
+        "city": "Atlanta",
+        "reason": "readiness=LIMITED (completeness 60%, score 98)"
+      }
+    ],
+    "not_ready": []
+  }
+}
