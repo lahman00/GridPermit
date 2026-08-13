@@ -1,7 +1,7 @@
 {
   "record_id": "ca-riverside-beaumont-sce",
   "file": "data/localities/ca-riverside-beaumont-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
   "score": 96,
   "errors": [],
@@ -9,12 +9,12 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -34,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://beaumontpd.org/1456/Photovoltaic-Permit-Streamlining",
-      "checked_at": "2026-08-08T18:47:15.384Z",
+      "checked_at": "2026-08-13T06:23:56.987Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -42,15 +42,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T18:47:16.753Z",
+      "checked_at": "2026-08-13T06:23:57.949Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T18:47:16.757Z",
+      "checked_at": "2026-08-13T06:24:07.953Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -58,7 +58,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T18:47:17.461Z",
+      "checked_at": "2026-08-13T06:24:08.780Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -66,11 +66,11 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T18:47:19.828Z",
+      "checked_at": "2026-08-13T06:24:09.906Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
+      "details": "timeout"
     }
   ]
 }

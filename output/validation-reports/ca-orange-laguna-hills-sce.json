@@ -1,7 +1,7 @@
 {
   "record_id": "ca-orange-laguna-hills-sce",
   "file": "data/localities/ca-orange-laguna-hills-sce.json",
-  "validated_at": "2026-08-08",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
   "score": 96,
   "errors": [],
@@ -9,12 +9,12 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — timeout — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
     },
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -34,7 +34,7 @@
   "url_checks": [
     {
       "url": "https://lagunahillsca.gov/557/SolarAPP",
-      "checked_at": "2026-08-08T17:47:16.370Z",
+      "checked_at": "2026-08-13T06:22:11.447Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -42,15 +42,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-08T17:47:17.467Z",
+      "checked_at": "2026-08-13T06:22:12.470Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "timeout"
+      "details": "DNS failure (ENOTFOUND)"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-08T17:47:27.470Z",
+      "checked_at": "2026-08-13T06:22:12.475Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -58,7 +58,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-08T17:47:28.350Z",
+      "checked_at": "2026-08-13T06:22:13.212Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -66,11 +66,11 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-08T17:47:29.096Z",
+      "checked_at": "2026-08-13T06:22:13.928Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
-      "details": "timeout"
+      "details": "DNS failure (ENOTFOUND)"
     }
   ]
 }

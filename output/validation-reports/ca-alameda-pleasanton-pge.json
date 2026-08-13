@@ -1,11 +1,17 @@
 {
   "record_id": "ca-alameda-pleasanton-pge",
   "file": "data/localities/ca-alameda-pleasanton-pge.json",
-  "validated_at": "2026-08-04",
-  "status": "PASS",
-  "score": 100,
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 98,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
   "recommendations": [
     {
       "field": "permit_fees",
@@ -19,7 +25,7 @@
   "url_checks": [
     {
       "url": "https://www.cityofpleasantonca.gov/assets/our-government/community-development/handouts/photovoltaic-submittal-requirements.pdf",
-      "checked_at": "2026-08-04T22:08:31.042Z",
+      "checked_at": "2026-08-13T06:13:06.279Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -27,15 +33,15 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-04T22:08:31.471Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-13T06:13:06.392Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-04T22:08:31.767Z",
+      "checked_at": "2026-08-13T06:13:06.440Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -43,7 +49,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-04T22:08:32.788Z",
+      "checked_at": "2026-08-13T06:13:07.294Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -51,7 +57,7 @@
     },
     {
       "url": "https://www.cityofpleasantonca.gov",
-      "checked_at": "2026-08-04T22:08:33.709Z",
+      "checked_at": "2026-08-13T06:13:08.287Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -59,7 +65,7 @@
     },
     {
       "url": "https://avaenergy.org/community/who-we-serve/pleasanton/",
-      "checked_at": "2026-08-04T22:08:33.843Z",
+      "checked_at": "2026-08-13T06:13:08.576Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

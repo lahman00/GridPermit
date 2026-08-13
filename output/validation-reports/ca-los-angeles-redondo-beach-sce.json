@@ -1,9 +1,9 @@
 {
   "record_id": "ca-los-angeles-redondo-beach-sce",
   "file": "data/localities/ca-los-angeles-redondo-beach-sce.json",
-  "validated_at": "2026-08-07",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 93,
+  "score": 91,
   "errors": [],
   "warnings": [
     {
@@ -14,7 +14,12 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[S2].url",
+      "category": "broken_url",
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -30,7 +35,7 @@
   "url_checks": [
     {
       "url": "https://www.redondo.org/departments/community_development/building_and_safety/solar_photovoltaic_permits.php",
-      "checked_at": "2026-08-07T16:23:59.938Z",
+      "checked_at": "2026-08-13T06:18:17.083Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -38,15 +43,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-07T16:24:00.707Z",
+      "checked_at": "2026-08-13T06:18:17.932Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "DNS failure (ENOTFOUND)"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-07T16:24:01.064Z",
+      "checked_at": "2026-08-13T06:18:18.463Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -54,7 +59,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-07T16:24:02.029Z",
+      "checked_at": "2026-08-13T06:18:19.455Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -62,19 +67,19 @@
     },
     {
       "url": "https://cal-cca.org/eight-more-clean-power-alliance-communities-choose-100-green-power-as-their-primary-energy-option-to-create-a-healthier-and-more-sustainable-future/",
-      "checked_at": "2026-08-07T16:24:02.755Z",
+      "checked_at": "2026-08-13T06:18:20.249Z",
       "status": "REACHABLE",
-      "http_status": 200,
+      "http_status": 202,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 202"
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-07T16:24:05.017Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-13T06:18:20.931Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "DNS failure (ENOTFOUND)"
     }
   ]
 }

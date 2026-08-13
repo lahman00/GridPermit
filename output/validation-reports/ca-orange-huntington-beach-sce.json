@@ -1,7 +1,7 @@
 {
   "record_id": "ca-orange-huntington-beach-sce",
   "file": "data/localities/ca-orange-huntington-beach-sce.json",
-  "validated_at": "2026-08-05",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
   "score": 91,
   "errors": [],
@@ -14,12 +14,12 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
     },
     {
       "field": "sources[S3].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -31,7 +31,7 @@
   "url_checks": [
     {
       "url": "https://www.huntingtonbeachca.gov/departments/community_development/building___inspection/solar_app.php",
-      "checked_at": "2026-08-05T22:49:49.913Z",
+      "checked_at": "2026-08-13T06:21:54.828Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -39,15 +39,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-05T22:49:50.861Z",
+      "checked_at": "2026-08-13T06:21:55.444Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "DNS failure (ENOTFOUND)"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T22:49:51.177Z",
+      "checked_at": "2026-08-13T06:21:55.449Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -55,7 +55,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-05T22:49:52.227Z",
+      "checked_at": "2026-08-13T06:21:56.233Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -63,15 +63,15 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-05T22:49:53.414Z",
+      "checked_at": "2026-08-13T06:21:56.987Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "DNS failure (ENOTFOUND)"
     },
     {
       "url": "https://www.ocpower.org/huntington-beach-2/",
-      "checked_at": "2026-08-05T22:49:54.575Z",
+      "checked_at": "2026-08-13T06:21:56.991Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

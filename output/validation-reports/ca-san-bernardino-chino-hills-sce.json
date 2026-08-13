@@ -1,9 +1,9 @@
 {
   "record_id": "ca-san-bernardino-chino-hills-sce",
   "file": "data/localities/ca-san-bernardino-chino-hills-sce.json",
-  "validated_at": "2026-08-05",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 93,
+  "score": 91,
   "errors": [],
   "warnings": [
     {
@@ -14,7 +14,12 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "broken_url",
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -34,7 +39,7 @@
   "url_checks": [
     {
       "url": "https://www.chinohills.org/1926/Residential-Solar",
-      "checked_at": "2026-08-05T22:48:46.691Z",
+      "checked_at": "2026-08-13T06:25:58.311Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -42,15 +47,15 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-05T22:48:47.786Z",
+      "checked_at": "2026-08-13T06:26:00.490Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": 403,
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+      "details": "DNS failure (ENOTFOUND)"
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T22:48:48.131Z",
+      "checked_at": "2026-08-13T06:26:00.495Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -58,7 +63,7 @@
     },
     {
       "url": "https://chinovalleyfire.org/",
-      "checked_at": "2026-08-05T22:48:49.193Z",
+      "checked_at": "2026-08-13T06:26:01.281Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -66,7 +71,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-05T22:48:50.835Z",
+      "checked_at": "2026-08-13T06:26:02.548Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -74,7 +79,7 @@
     },
     {
       "url": "https://www.chinohills.org/DocumentCenter/View/31504/CD-Master-Fee-Schedule",
-      "checked_at": "2026-08-05T22:48:53.072Z",
+      "checked_at": "2026-08-13T06:26:03.366Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "GET",
@@ -82,11 +87,11 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-05T22:48:58.608Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-13T06:26:07.092Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "DNS failure (ENOTFOUND)"
     }
   ]
 }

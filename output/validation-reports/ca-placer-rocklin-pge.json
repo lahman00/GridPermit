@@ -1,9 +1,9 @@
 {
   "record_id": "ca-placer-rocklin-pge",
   "file": "data/localities/ca-placer-rocklin-pge.json",
-  "validated_at": "2026-08-05",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 96,
+  "score": 94,
   "errors": [],
   "warnings": [
     {
@@ -15,6 +15,11 @@
       "field": "interconnection_url",
       "category": "broken_url",
       "message": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S2].url",
+      "category": "broken_url",
+      "message": "https://pioneercommunityenergy.org/what-we-do/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -50,7 +55,7 @@
   "url_checks": [
     {
       "url": "https://www.rocklin.ca.us/building-services",
-      "checked_at": "2026-08-05T22:51:58.186Z",
+      "checked_at": "2026-08-13T06:23:40.741Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -58,7 +63,7 @@
     },
     {
       "url": "https://www.pge.com/en/about/doing-business-with-pge/interconnections/net-energy-metering-program.html",
-      "checked_at": "2026-08-05T22:52:08.191Z",
+      "checked_at": "2026-08-13T06:23:50.745Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -66,7 +71,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-05T22:52:08.768Z",
+      "checked_at": "2026-08-13T06:23:50.816Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -74,11 +79,11 @@
     },
     {
       "url": "https://pioneercommunityenergy.org/what-we-do/",
-      "checked_at": "2026-08-05T22:52:10.286Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-13T06:23:51.568Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }
