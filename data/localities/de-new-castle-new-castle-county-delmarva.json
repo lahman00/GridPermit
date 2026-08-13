@@ -5,7 +5,9 @@
   "utility": {
     "value": "Delmarva Power (an Exelon company)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Directly confirmed via Delmarva Power's own site as Delaware's only investor-owned electric utility. New Castle County also contains areas served by the Delaware Electric Cooperative and by municipal utilities (e.g. the City of Newark's own municipal electric utility) — this record covers unincorporated New Castle County / the County's own permitting authority, which is Delmarva Power territory, not those exceptions."
   },
   "generation_supplier": {
@@ -15,31 +17,64 @@
       "notes": "No Community Choice Aggregator was found serving Delaware this session; Delmarva Power is recorded as both the distribution and default generation utility."
     },
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "New Castle County", "confidence": 0.85, "source_ids": ["S2"], "notes": "Value is the county name itself, not a city — Delaware has only 3 counties and a limited number of incorporated municipalities; New Castle County's own Land Use Department is the permitting authority for unincorporated areas of the county (distinct from incorporated cities within the county, such as Wilmington or Newark, which run their own building departments). Recorded as a county-level record rather than fabricated city-level granularity, per this dataset's Delaware AHJ-structure finding." },
-  "county": { "value": "New Castle County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "New Castle County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Value is the county name itself, not a city — Delaware has only 3 counties and a limited number of incorporated municipalities; New Castle County's own Land Use Department is the permitting authority for unincorporated areas of the county (distinct from incorporated cities within the county, such as Wilmington or Newark, which run their own building departments). Recorded as a county-level record rather than fabricated city-level granularity, per this dataset's Delaware AHJ-structure finding."
+  },
+  "county": {
+    "value": "New Castle County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "New Castle County Department of Land Use",
     "confidence": 0.8,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Directly confirmed via the County's own site. All construction activity, including most alterations, requires a permit unless exempted by New Castle County Code Chapter 6, Section 06.03.012."
   },
   "permit_url": {
     "value": "https://www.newcastlede.gov/2507/Get-a-Permit",
     "confidence": 0.8,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Permits are processed through the County's eServices/ePlans system. No solar-specific residential permit page was found this session; the County's solar-related published material found was a Solar-Ready Ordinance for large non-residential buildings, not a residential rooftop solar checklist."
   },
   "interconnection_url": {
     "value": "https://www.delmarva.com/smart-energy/my-green-power-connection/developers-contractors/educational-materials/connecting-your-system-to-the-grid",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Delmarva Power's own interconnection page, directly verified this session. For Level 1 (10kW AC inverter nameplate capacity or less — the typical residential rooftop solar case), the interconnection application fee is explicitly stated as 'No fee.' This is a statewide, utility-wide fact applicable to every Delmarva Power-territory Delaware locality, not county-specific."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [] },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "timeline_days": {
     "value": {
       "min_days": null,
@@ -47,11 +82,15 @@
       "notes": "Delmarva Power's own 'Connecting Your System to the Grid' page states: 'This complete interconnection process takes approximately 77 business days.' This figure covers Delmarva Power's own interconnection process end-to-end (application, installation, inspection, net meter installation) — it is a utility interconnection timeline, not the County's own building-permit review timeline, which was not separately found this session."
     },
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -62,10 +101,38 @@
       ]
     },
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "No New Castle County building-permit fee schedule specific to residential solar was found this session. Delmarva Power's own Level 1 interconnection application fee is explicitly 'No fee' (recorded in interconnection_url notes instead, since it is a utility fee, not a building permit fee)." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No New Castle County building-permit fee schedule specific to residential solar was found this session. Delmarva Power's own Level 1 interconnection application fee is explicitly 'No fee' (recorded in interconnection_url notes instead, since it is a utility fee, not a building permit fee)."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Green Energy Program (GEP) — Residential Photovoltaic Grant",
+        "administrator": "Delaware DNREC, Division of Climate, Coastal and Energy",
+        "description": "Statewide Delaware rebate open only to Delmarva Power and Light (DPL) customers, funded via a public benefits fund charge ($0.000356/kWh consumed): $0.80/watt for residential PV systems up to 50,000 watts, maximum grant $10,000, per DNREC's own rate table effective July 1, 2026. No grant may exceed 50% of total project cost, and total project cost must be $6.00/watt or less to qualify (cost cap). A Solar Shade Analysis with a Total Solar Resource Fraction (TSRF) of 70% or greater is required. Applications must be submitted within 12 months of installation completion. Applicants must sign over their Solar Renewable Energy Credits (SRECs) to the Delaware Sustainable Energy Utility as part of the grant application. Delaware's other utilities (Delaware Electric Cooperative, Delaware Municipal Electric Corporation) run separate, similar programs not detailed here since this record is scoped to Delmarva territory.",
+        "value_usd_per_watt": 0.8,
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "eligibility": "Delmarva Power and Light (DPL) residential customer; system must pass a 70%+ TSRF Solar Shade Analysis; total project cost ≤$6.00/watt; installation by a Green Energy Program-approved participating contractor; application within 12 months of installation completion.",
+        "url": "https://dnrec.delaware.gov/climate-coastal-energy/energy-office/programs/gep/",
+        "effective_from": "2026-07-01",
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Rate figures extracted directly from DNREC's own official 'Green Energy Program Incentives' rate sheet PDF (effective July 1, 2026) — read via saved-binary extraction since the PDF failed normal WebFetch text parsing. This program's scope matches this record's own utility exactly (Delmarva Power), so it is recorded at high confidence rather than as a generic statewide fact requiring further per-utility verification."
+  },
   "official_contacts": {
     "value": [
       {
@@ -77,9 +144,11 @@
       }
     ],
     "confidence": 0.6,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -96,6 +165,14 @@
       "publisher": "New Castle County, Delaware",
       "type": "government",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S3",
+      "title": "Green Energy Program Incentives (rate sheet, effective July 1, 2026)",
+      "url": "https://dnrec.delaware.gov/climate-coastal-energy/energy-office/programs/gep/",
+      "publisher": "Delaware DNREC, Division of Climate, Coastal and Energy",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-13"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "record_id": "ri-providence-providence-rie",
   "file": "data/localities/ri-providence-providence-rie.json",
-  "validated_at": "2026-08-12",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 93,
+  "score": 91,
   "errors": [],
   "warnings": [
     {
@@ -15,6 +15,11 @@
       "field": "battery_programs[0].url",
       "category": "broken_url",
       "message": "https://energy.ri.gov/storage/energy-storage-rebates — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "rebates[0].url",
+      "category": "broken_url",
+      "message": "https://energy.ri.gov/renewable-energy/wind/renewable-energy-growth-program-reg-program — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -33,16 +38,12 @@
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.providenceri.gov/inspection-standards/",
-      "checked_at": "2026-08-12T17:40:09.540Z",
+      "checked_at": "2026-08-13T05:54:45.077Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -50,7 +51,7 @@
     },
     {
       "url": "https://portalconnect.rienergy.com/RI/s/ri-process",
-      "checked_at": "2026-08-12T17:40:10.452Z",
+      "checked_at": "2026-08-13T05:54:46.601Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -58,7 +59,15 @@
     },
     {
       "url": "https://energy.ri.gov/storage/energy-storage-rebates",
-      "checked_at": "2026-08-12T17:40:11.669Z",
+      "checked_at": "2026-08-13T05:54:47.707Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://energy.ri.gov/renewable-energy/wind/renewable-energy-growth-program-reg-program",
+      "checked_at": "2026-08-13T05:54:47.847Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -66,7 +75,7 @@
     },
     {
       "url": "https://www.rienergy.com",
-      "checked_at": "2026-08-12T17:40:11.713Z",
+      "checked_at": "2026-08-13T05:54:47.912Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -74,7 +83,15 @@
     },
     {
       "url": "https://www.providenceri.gov/sustainability/go-solar-providence/",
-      "checked_at": "2026-08-12T17:40:12.363Z",
+      "checked_at": "2026-08-13T05:54:48.723Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://commerceri.com/renewable-energy-fund/",
+      "checked_at": "2026-08-13T05:54:49.510Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
