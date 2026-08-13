@@ -1,0 +1,151 @@
+{
+  "record_id": "nv-clark-henderson-nvenergy",
+  "schema_version": "1.4.0",
+  "state": "NV",
+  "utility": {
+    "value": "Nevada Power Company d/b/a NV Energy",
+    "confidence": 0.75,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Henderson is part of the Las Vegas Valley in Clark County, within Nevada Power Company's historically-documented southern-Nevada service area (see the identical utility-identity notes on the Las Vegas record, nv-clark-las-vegas-nvenergy, for the primary-source basis)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Nevada Power Company d/b/a NV Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Henderson this session; Nevada Power Company is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Henderson",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Clark County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Henderson Building and Fire Safety Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Nevada has no statewide residential building code or statewide solar-permitting rule — permitting authority sits entirely with the local city or county building department. Henderson is an incorporated city with its own Building and Fire Safety Department, distinct from unincorporated Clark County."
+  },
+  "permit_url": {
+    "value": "https://www.cityofhenderson.com/government/departments/building-and-fire-safety/permits",
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City publishes a dedicated 'Residential Photovoltaic (Solar)' submittal checklist (linked from its Submittal Checklists page), but the checklist PDF itself was inaccessible this session — it returned HTTP 403 Forbidden via direct fetch, and browser navigation to it triggered a forced file-download prompt rather than rendering the document, on two independent access attempts. This permit_url points to the City's general Building Permits landing page instead; the solar-specific checklist's contents (required documents, fees, inspection steps) could not be independently verified this session."
+  },
+  "interconnection_url": {
+    "value": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+    "confidence": 0.7,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Statewide Nevada net-metering framework (PUCN-administered, applies to Nevada Power Company customers) — see the identical notes on the Las Vegas record for why NV Energy's own utility-specific interconnection materials were inaccessible this session."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own 'Residential Photovoltaic (Solar)' submittal checklist PDF was blocked this session (see permit_url notes) — its specific document requirements could not be independently verified."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No timeline figure was found on the pages that were actually accessible this session; the City's own solar-specific checklist (which might state one) was blocked."
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City of Henderson fee schedule was located and confirmed this session; third-party aggregator estimates were seen but are not used as evidence per this dataset's sourcing standard."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide Nevada solar rebate/tax-credit program was found this session (see the identical finding on the Las Vegas record)."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Henderson Building and Fire Safety Department",
+        "phone": "702-267-3620",
+        "email": null,
+        "url": "https://www.cityofhenderson.com/government/departments/building-and-fire-safety/divisions/building-permits"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Submittal Checklists (Building & Fire Safety)",
+      "url": "https://www.cityofhenderson.com/business/development-services-center/submittal-checklist",
+      "publisher": "City of Henderson",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Building Permits",
+      "url": "https://www.cityofhenderson.com/government/departments/building-and-fire-safety/divisions/building-permits",
+      "publisher": "City of Henderson",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Electric Utilities",
+      "url": "https://puc.nv.gov/Utilities/Electric/",
+      "publisher": "Public Utilities Commission of Nevada",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "Net Metering in Nevada",
+      "url": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+      "publisher": "Public Utilities Commission of Nevada",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

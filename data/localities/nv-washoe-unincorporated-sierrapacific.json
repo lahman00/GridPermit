@@ -1,0 +1,215 @@
+{
+  "record_id": "nv-washoe-unincorporated-sierrapacific",
+  "schema_version": "1.4.0",
+  "state": "NV",
+  "utility": {
+    "value": "Sierra Pacific Power Company d/b/a NV Energy",
+    "confidence": 0.75,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "See the identical utility-identity discussion on the Reno record (nv-washoe-reno-sierrapacific) — Sierra Pacific Power Company is the northern-Nevada NV Energy operating entity, and unincorporated Washoe County sits within its historically-documented service territory."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Sierra Pacific Power Company d/b/a NV Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving unincorporated Washoe County this session; Sierra Pacific Power Company is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Washoe County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This record covers unincorporated Washoe County only — the incorporated cities within the county (Reno, Sparks) each operate their own separate building department and are separate AHJs (see the Reno record, nv-washoe-reno-sierrapacific, for the City of Reno's own process)."
+  },
+  "county": {
+    "value": "Washoe County",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Washoe County Building Department (Community Services Department, Planning & Building Division)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Nevada has no statewide residential building code or statewide solar-permitting rule — permitting authority sits entirely with the local city or county building department. Washoe County's Building Department is the permitting authority for unincorporated areas of the county only."
+  },
+  "permit_url": {
+    "value": "https://www.washoecounty.gov/building/Residential_Projects/solar.php",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+    "confidence": 0.7,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Statewide Nevada net-metering framework (PUCN-administered). NV Energy's own utility-specific interconnection materials were inaccessible this session (see the identical notes on the Las Vegas record)."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Written residential application form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan showing location of major components on the property, including arrays, energy storage, structures, and terrain features",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical diagram showing system configuration, wiring, overcurrent protection, and inverter details",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Attachment details with rail spacing and embedment specifications",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer spec sheets and installation manuals for all components",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "NEC 705/690 placard/signage",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the County's own Solar Photovoltaic (PV) System Permitting Checklist page. All plans must be prepared by a Nevada-licensed design professional, a licensed contractor, or an owner-builder (with affidavit)."
+  },
+  "inspection_steps": {
+    "value": [
+      "One building final inspection",
+      "One fire final inspection, scheduled before the building final inspection",
+      "A 'Qualified Person' must be present to safely access panels and make corrections during inspection"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 10,
+      "notes": "The County's own page states it aims to complete initial reviews of complete applications within 10 business days, explicitly describing this as 'typical but not guaranteed' — delays occur when applications lack required information, contractors lack proper licensing, or equipment lacks certification."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Plans must be prepared by a Nevada-licensed design professional, a licensed contractor, or an owner-builder submitting an affidavit",
+        "Applications are submitted online at www.onenv.us using the 'Alternative Energy' application type",
+        "Issued permits expire 18 months after issuance"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The County's own page states fees 'vary based on contract valuation' and points to a separate fee schedule, which was not independently located and confirmed this session — left null rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide Nevada solar rebate/tax-credit program was found this session (see the identical finding on the Las Vegas record)."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Washoe County Building Department",
+        "phone": null,
+        "email": null,
+        "url": "https://www.washoecounty.gov/building/Residential_Projects/solar.php"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "No direct phone/email was extracted from the page this session; the URL itself is the County's own current contact/informational page."
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic (PV) System Permitting Checklist",
+      "url": "https://www.washoecounty.gov/building/Residential_Projects/solar.php",
+      "publisher": "Washoe County, Community Services Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Metering in Nevada",
+      "url": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+      "publisher": "Public Utilities Commission of Nevada",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Electric Utilities",
+      "url": "https://puc.nv.gov/Utilities/Electric/",
+      "publisher": "Public Utilities Commission of Nevada",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "record_id": "nv-clark-las-vegas-nvenergy",
+  "schema_version": "1.4.0",
+  "state": "NV",
+  "utility": {
+    "value": "Nevada Power Company d/b/a NV Energy",
+    "confidence": 0.8,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "The Public Utilities Commission of Nevada's own 'Electric' utilities page confirms two PUCN-regulated electric utilities exist statewide — Sierra Pacific Power Company and Nevada Power Company — both doing business as 'NV Energy'; it does not itself state the county-level service boundary (the PUCN's own service-area maps are image-based and not text-extractable). Nevada Power Company is independently, historically documented as the Las Vegas-based utility serving the southern part of Nevada including Clark County (pre-2005, before its parent group renamed to NV Energy), which is the basis for attributing Las Vegas to this specific entity rather than Sierra Pacific Power Company (the northern-Nevada/Reno-area entity)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Nevada Power Company d/b/a NV Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Las Vegas this session; Nevada Power Company is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S4"
+    ]
+  },
+  "city": {
+    "value": "Las Vegas",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Clark County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Las Vegas Department of Building & Safety",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Nevada has no statewide residential building code or statewide solar-permitting rule — permitting authority sits entirely with the local city or county building department. Las Vegas is an incorporated city with its own Building & Safety Department (distinct from unincorporated Clark County, which is a separate AHJ not covered by this record)."
+  },
+  "permit_url": {
+    "value": "https://www.lasvegasnevada.gov/BuildingPermits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+    "confidence": 0.8,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "NV Energy's own net-metering application materials (PowerClerk Interconnect portal, its own handbook, and its RE-3 interconnection standard) could not be retrieved this session — nvenergy.com refused every connection attempt (ECONNREFUSED) via both the fetch tool and the browser tool, a genuine source-access block, not a content issue. The Public Utilities Commission of Nevada's own program page is used instead as the authoritative description of the net-metering framework Nevada Power Company operates under."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide Nevada battery/storage incentive program was found this session. NV Energy may offer its own utility-specific storage program, but its own site was inaccessible this session (see interconnection_url notes) — left null rather than guessed."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Electrical Plan (Photovoltaic)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical Load Calculation",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own 'Residential Photovoltaic (Solar) Permits' policy (effective 2024-02-15): these two documents are required for the same-day online issuance path (no energy storage/battery system, no ballasted mounting, licensed electrical contractor only). Systems with an ESS/battery or ballasted racking, or filed as an Owner/Builder permit, are routed to a full plan review instead — the City's own document does not itemize the full-review document list beyond 'submit for a full plan review,' so that path's exact document set is not recorded here."
+  },
+  "inspection_steps": {
+    "value": [
+      "A single combined inspection (Inspection #227) covers the photovoltaic installation — no separate structural or plan-review site visit is required for a standard PV-only system",
+      "Printed plans and electrical load calculations must be available onsite at the time of inspection even though the inspector primarily references the electronically-submitted plans",
+      "If the design changes after permit issuance, a Revision application with updated electrical plans/calculations must be submitted and approved before the inspection can proceed"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Per the City's own policy (effective 2024-02-15), a residential PV/solar permit without an energy storage system (ESS/battery) or ballasted mounting is eligible for same-day online issuance and inspection scheduling, provided the applicant is a licensed electrical contractor (owner/builder permits are excluded and require a full plan review). No day-count was stated for the full-plan-review path (battery/ballasted systems, or owner/builder permits)."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Same-Day Online PV Permit (licensed electrical contractor, no battery/ballasted system) vs. standard Full Plan Review",
+      "other_conditions": [
+        "Same-day online issuance requires a licensed electrical contractor — Owner/Builder permits are not eligible and must submit for a full plan review",
+        "Any system that includes an energy storage/battery system (ESS) or a ballasted mounting system is excluded from same-day issuance and requires a full plan review instead",
+        "Online permit applications are automatically voided by the City's system if permit fees are not paid within 10 days of submission",
+        "Separately, NV Energy's own net-metering program (via the PUCN) caps net-metered renewable systems at 25 kW — a utility interconnection limit, not a City permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Photovoltaic system permit — up to 10 kW (includes 3 power apparatus in the base fee)",
+        "amount_usd": 361,
+        "unit": "flat fee ($102 plan check + $259 permit/inspection)",
+        "notes": "City of Las Vegas Table 3-D 'MPE Fees' (Mechanical, Plumbing and Electrical stand-alone Permits), fee item #49, effective July 1, 2021."
+      },
+      {
+        "name": "Photovoltaic system permit — each additional 10 kW above the base 10 kW",
+        "amount_usd": 113,
+        "unit": "flat fee per additional 10 kW increment ($60 plan check + $53 permit/inspection)",
+        "notes": "Table 3-D, fee item #50, effective July 1, 2021."
+      },
+      {
+        "name": "MPE Permit Issuance Fee (online submittal)",
+        "amount_usd": 55,
+        "unit": "flat, one-time per inspection project",
+        "notes": "Table 3-D, fee item #3, effective July 1, 2021 — a separate administrative fee required at online submittal, in addition to the PV-specific fee above."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Extracted directly from the City's own published 2020 Building User Fees schedule (Table 3-D, effective July 1, 2021), whose 'Photovoltaic system' line item is an exact terminology match for residential solar PV permits, filed as a stand-alone electrical (MPE) permit. The example dollar figure ($314.00) shown in the City's separate step-by-step PV-permit walkthrough document is explicitly a screenshot of test/sample application data ('Test PV no plan'), not a real fee quote, and was not used here."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide Nevada solar income-tax-credit, sales-tax-exemption, or cash-rebate program was found this session — unlike Colorado, Arizona, Oregon, or New Mexico, Nevada does not appear to offer one at the state level (consistent with the mission's own pre-session DSIRE-based Nevada research note finding no dedicated statewide solar-permitting or incentive entry). Net metering (recorded separately in interconnection_url/eligibility_constraints) is Nevada's primary financial mechanism for residential solar, not a rebate."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Las Vegas Building & Safety Department",
+        "phone": "702-229-6251",
+        "email": null,
+        "url": "https://www.lasvegasnevada.gov/BuildingPermits"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Photovoltaic (Solar) Permits",
+      "url": "https://files.lasvegasnevada.gov/building-safety/Residential-Photovoltaic-Solar-Permits.pdf",
+      "publisher": "City of Las Vegas, Building & Safety Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "2020 Building User Fees (Table 3-D: MPE Fees, effective July 1, 2021)",
+      "url": "https://files.lasvegasnevada.gov/building-safety/FeeTable-effective-7-2021.pdf",
+      "publisher": "City of Las Vegas, Building & Safety Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Net Metering in Nevada",
+      "url": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+      "publisher": "Public Utilities Commission of Nevada",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "Electric Utilities",
+      "url": "https://puc.nv.gov/Utilities/Electric/",
+      "publisher": "Public Utilities Commission of Nevada",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

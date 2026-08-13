@@ -1,0 +1,224 @@
+{
+  "record_id": "nv-washoe-reno-sierrapacific",
+  "schema_version": "1.4.0",
+  "state": "NV",
+  "utility": {
+    "value": "Sierra Pacific Power Company d/b/a NV Energy",
+    "confidence": 0.75,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "The Public Utilities Commission of Nevada's own 'Electric' utilities page confirms two PUCN-regulated electric utilities exist statewide — Sierra Pacific Power Company and Nevada Power Company — both doing business as 'NV Energy'; it does not itself state the county-level service boundary (the PUCN's own service-area maps are image-based and not text-extractable). Sierra Pacific Power Company is independently, historically documented as the Reno-headquartered northern-Nevada utility (the counterpart to Nevada Power Company's southern-Nevada/Las Vegas territory — see the identical utility-identity discussion on the Las Vegas record, nv-clark-las-vegas-nvenergy), which is the basis for attributing Reno to this specific entity."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Sierra Pacific Power Company d/b/a NV Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Reno this session; Sierra Pacific Power Company is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S4"
+    ]
+  },
+  "city": {
+    "value": "Reno",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Washoe County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Reno Building Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Nevada has no statewide residential building code or statewide solar-permitting rule — permitting authority sits entirely with the local city or county building department. Reno is an incorporated city with its own Building Division, distinct from unincorporated Washoe County (which publishes its own separate residential solar PV permitting checklist and is a separate AHJ not covered by this record)."
+  },
+  "permit_url": {
+    "value": "https://www.reno.gov/community/environmental-services/going-solar.php",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+    "confidence": 0.7,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Statewide Nevada net-metering framework (PUCN-administered). NV Energy's own utility-specific interconnection materials were inaccessible this session — nvenergy.com refused every connection attempt via both the fetch tool and the browser tool (see the identical notes on the Las Vegas record)."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own permit guidelines mention battery wall systems only in passing (racking connection requirements for 'new battery wall systems, if applicable') — no dedicated battery incentive program was found this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Site Plan (CADD-drawn or line-type map; Google Earth-style maps not accepted) showing property lines, easements, setbacks, existing/proposed structures, module layout, and required fire access/pathways",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical Plan/Design — wire type and sizing, ampacity, de-rating, load calculations, 3-line diagram, minimum/max overcurrent protection calculations, equipment locations including AC disconnect",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural Engineering Design and Structural Calculations (seismic, wind, snow design criteria), stamped/signed/dated by the engineer of record, with a verification letter on whether the existing roof structure is adequate for the added module load",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Civil or Structural Engineering design",
+        "required_when": "if ground-mounted",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Architectural design",
+        "required_when": "if applicable",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer equipment specifications for each piece of installed equipment",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Cover Page with Code Analysis, climatic/geographic design criteria, sheet index, scope of work, and a vicinity map, stamped by the responsible contractor",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own 'Residential Solar Permit Guidelines' (v3.1, dated 2023-04-12). All plan sheets must be stamped/signed/dated per the current State of Nevada Blue Book standard and comply with the 2018 Northern Nevada Amendments. De-rated main service panels require a permanent label indicating the new panel rating."
+  },
+  "inspection_steps": {
+    "value": [
+      "A licensed electrical contractor (license holder) or journeyman electrician must be onsite for all inspections, per City of Reno Ordinance No. 6400",
+      "Required certifications must be made available on request to the building official, deputy building official, or another building and safety employee acting on their behalf"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-timeline day-count was stated in the City's own permit guidelines document found this session."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Applicable adopted codes: 2018 International Building Code, 2018 International Residential Code, 2017 National Electrical Code, 2018 International Fire Code, and the 2018 Northern Nevada Amendments",
+        "Design criteria per the Northern Nevada Amendments: snow load 30 psf (up to 5,100 ft elevation; higher elevations use a different figure per the Amendments), wind speed 120 mph, frost depth 24 inches, seismic category D2",
+        "Applications are submitted through the City's Accela permitting system"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No fee schedule was found in the City's own permit guidelines document this session; a separate fee schedule document may exist but was not located."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide Nevada solar rebate/tax-credit program was found this session (see the identical finding on the Las Vegas record)."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Reno Building Division",
+        "phone": "775-334-2063",
+        "email": "Bldgreview@reno.gov",
+        "url": "https://www.reno.gov/community/environmental-services/going-solar.php"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar Permit Guidelines (v3.1, 2023-04-12)",
+      "url": "https://www.reno.gov/Documents/Community/Environmental%20Services/Going%20Solar/Residential%20Solar%20Permit%20Guidelines.pdf",
+      "publisher": "City of Reno, Building Division",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Going Solar in Reno",
+      "url": "https://www.reno.gov/community/environmental-services/going-solar.php",
+      "publisher": "City of Reno",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Net Metering in Nevada",
+      "url": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+      "publisher": "Public Utilities Commission of Nevada",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "Electric Utilities",
+      "url": "https://puc.nv.gov/Utilities/Electric/",
+      "publisher": "Public Utilities Commission of Nevada",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

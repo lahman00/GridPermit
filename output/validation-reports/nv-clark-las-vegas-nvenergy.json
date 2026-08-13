@@ -1,0 +1,72 @@
+{
+  "record_id": "nv-clark-las-vegas-nvenergy",
+  "file": "data/localities/nv-clark-las-vegas-nvenergy.json",
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 93,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.lasvegasnevada.gov/BuildingPermits — timeout — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.lasvegasnevada.gov/BuildingPermits",
+      "checked_at": "2026-08-13T19:09:34.830Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "timeout"
+    },
+    {
+      "url": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
+      "checked_at": "2026-08-13T19:09:44.838Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://files.lasvegasnevada.gov/building-safety/Residential-Photovoltaic-Solar-Permits.pdf",
+      "checked_at": "2026-08-13T19:09:45.903Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://files.lasvegasnevada.gov/building-safety/FeeTable-effective-7-2021.pdf",
+      "checked_at": "2026-08-13T19:09:46.168Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://puc.nv.gov/Utilities/Electric/",
+      "checked_at": "2026-08-13T19:09:46.558Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

@@ -33,6 +33,7 @@ const NETLIFY_TOML_PATH = path.join(REPO_ROOT, "netlify.toml");
 const STATE_SLUGS = {
 	CA: "california", RI: "rhode-island", DE: "delaware", VT: "vermont",
 	CO: "colorado", AZ: "arizona", HI: "hawaii", OR: "oregon", NM: "new-mexico",
+	NV: "nevada", IL: "illinois", NJ: "new-jersey", UT: "utah", MD: "maryland",
 };
 
 const AGGREGATOR_FILES = [

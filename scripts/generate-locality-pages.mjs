@@ -62,6 +62,11 @@ const STATE_SLUGS = {
   HI: "hawaii",
   OR: "oregon",
   NM: "new-mexico",
+  NV: "nevada",
+  IL: "illinois",
+  NJ: "new-jersey",
+  UT: "utah",
+  MD: "maryland",
 };
 
 function pagesRootFor(record) {

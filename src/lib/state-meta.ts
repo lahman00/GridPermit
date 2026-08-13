@@ -25,6 +25,11 @@ export const STATE_META: Record<string, StateMeta> = {
 	HI: { code: "HI", name: "Hawaii", slug: "hawaii" },
 	OR: { code: "OR", name: "Oregon", slug: "oregon" },
 	NM: { code: "NM", name: "New Mexico", slug: "new-mexico" },
+	NV: { code: "NV", name: "Nevada", slug: "nevada" },
+	IL: { code: "IL", name: "Illinois", slug: "illinois" },
+	NJ: { code: "NJ", name: "New Jersey", slug: "new-jersey" },
+	UT: { code: "UT", name: "Utah", slug: "utah" },
+	MD: { code: "MD", name: "Maryland", slug: "maryland" },
 };
 
 // Every currently-supported state, in the fixed order above (not alphabetical
