@@ -1,11 +1,22 @@
 {
   "record_id": "hi-honolulu-honolulu-heco",
   "file": "data/localities/hi-honolulu-honolulu-heco.json",
-  "validated_at": "2026-08-12",
-  "status": "PASS",
-  "score": 100,
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 93,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates[0].url",
+      "category": "broken_url",
+      "message": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0012_0005.HTM — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
   "recommendations": [
     {
       "field": "inspection_steps",
@@ -18,16 +29,12 @@
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.honolulu.gov/dpp/solar-permit/",
-      "checked_at": "2026-08-12T19:53:39.903Z",
+      "checked_at": "2026-08-13T04:37:54.722Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -35,15 +42,23 @@
     },
     {
       "url": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
-      "checked_at": "2026-08-12T19:53:41.977Z",
+      "checked_at": "2026-08-13T04:37:59.110Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
+      "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0012_0005.HTM",
+      "checked_at": "2026-08-13T04:37:59.876Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
       "url": "https://www.honolulu.gov/dpp/permitting/building-permits-home/building-permit/clean-energy/",
-      "checked_at": "2026-08-12T19:53:42.655Z",
+      "checked_at": "2026-08-13T04:37:59.969Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

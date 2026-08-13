@@ -1,11 +1,22 @@
 {
   "record_id": "hi-maui-kahului-meco",
   "file": "data/localities/hi-maui-kahului-meco.json",
-  "validated_at": "2026-08-12",
-  "status": "PASS",
-  "score": 100,
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 93,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates[0].url",
+      "category": "broken_url",
+      "message": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0012_0005.HTM — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
   "recommendations": [
     {
       "field": "battery_programs",
@@ -18,16 +29,12 @@
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.mauicounty.gov/1219/Electrical-Permit-and-Inspection-Section",
-      "checked_at": "2026-08-12T19:59:12.286Z",
+      "checked_at": "2026-08-13T04:38:06.561Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -35,15 +42,23 @@
     },
     {
       "url": "https://www.hawaiianelectric.com/products-and-services/smart-renewable-energy-programs",
-      "checked_at": "2026-08-12T19:59:13.555Z",
+      "checked_at": "2026-08-13T04:38:10.027Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
+      "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0012_0005.HTM",
+      "checked_at": "2026-08-13T04:38:10.786Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
       "url": "https://www.mauicounty.gov/DocumentCenter/View/12699/Permit-Req-For-PV-Systems-and-Wind-Turbines",
-      "checked_at": "2026-08-12T19:59:14.344Z",
+      "checked_at": "2026-08-13T04:38:10.846Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -51,7 +66,7 @@
     },
     {
       "url": "https://puc.hawaii.gov/energy/",
-      "checked_at": "2026-08-12T19:59:14.605Z",
+      "checked_at": "2026-08-13T04:38:11.601Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

@@ -73,7 +73,26 @@
     "source_ids": ["S1", "S2"]
   },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The County's own page states electrical permit fees 'are based on the size and quantities of the installation and are set by budget ordinance' but does not publish the specific fee schedule/table on this page; the referenced budget ordinance was not independently located and read this session." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": [
+      {
+        "name": "Renewable Energy Technologies Income Tax Credit (RETITC) — Solar Energy System",
+        "administrator": "Hawaii Department of Taxation",
+        "description": "Statewide Hawaii state income tax credit for solar energy systems (HRS 235-12.5): 35% of actual installed cost, capped at $5,000 per system for single-family residential property (lower of the two), $350 per unit for multi-family residential, or $500,000 per system for commercial property. A separate, higher-value $2,250 cap applies if the system's primary purpose is solar water heating rather than PV. Any utility rebate received must be deducted from system cost before computing the credit. Applies statewide to any Hawaii taxpayer regardless of county/island — a genuine reusable statewide fact, not utility- or county-specific.",
+        "value_usd_flat": 5000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Any individual or corporate Hawaii state income taxpayer installing and placing in service an eligible solar energy system in the State; claimed on Form N-342. A taxpayer may elect a reduced (30% haircut) refundable version, or full refundability if income-qualified (AGI ≤$20,000 single / ≤$40,000 joint) or exempt.",
+        "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0012_0005.HTM",
+        "effective_from": "2009-07-01",
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S9"],
+    "notes": "Verified directly from the Hawaii State Legislature's own hosted statute text (HRS 235-12.5). A 2026 legislative change (Act 24, Session Laws of Hawaii 2026) further modified the credit — the Department of Taxation issued Tax Information Release 2026-02 on this — but tax.hawaii.gov itself could not be loaded this session (persistent block), so the exact nature of the Act 24 change is not detailed here; the base statutory credit percentages/caps above come directly from the current codified statute text, not from the news commentary describing Act 24."
+  },
   "official_contacts": {
     "value": [
       { "name": null, "role": "County of Maui Electrical Permit and Inspection Section", "phone": "808-270-7255", "email": null, "url": "https://www.mauicounty.gov/1219/Electrical-Permit-and-Inspection-Section" },
@@ -82,7 +101,7 @@
     "confidence": 0.9,
     "source_ids": ["S1"]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -91,6 +110,14 @@
       "publisher": "County of Maui, Department of Public Works",
       "type": "government",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "HRS §235-12.5 — Renewable energy technologies; income tax credit",
+      "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0012_0005.HTM",
+      "publisher": "Hawaii State Legislature",
+      "type": "government",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",
