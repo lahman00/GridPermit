@@ -1,0 +1,193 @@
+{
+  "record_id": "md-montgomery-montgomerycounty-pepco",
+  "schema_version": "1.4.0",
+  "state": "MD",
+  "utility": {
+    "value": "Potomac Electric Power Company (Pepco)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Pepco serves most of Montgomery County (along with Prince George's County and Washington, D.C.), corroborated independently by Montgomery County's own government press release referencing a Maryland PSC investigation into Pepco reliability within the county. Montgomery County is large enough that a smaller portion may fall in a different utility's territory — this record is scoped to the county's Department of Permitting Services as the permitting authority regardless, since permit authority does not vary by utility territory within the county."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Potomac Electric Power Company (Pepco)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Montgomery County's residential solar customers this session; Pepco is recorded as both the distribution and default generation utility. Maryland does have a statewide 'Standard Offer Service' framework and various competitive suppliers, but these are distinct from a formal CCA and were not independently detailed this session."
+    },
+    "confidence": 0.5,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Montgomery County",
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This record represents Montgomery County's own Department of Permitting Services (DPS) process, which is the permitting authority for the large majority of the county. Certain incorporated municipalities within Montgomery County (e.g., Rockville, Gaithersburg) may operate their own separate building department and would be separate AHJs not covered by this record — not independently verified this session."
+  },
+  "county": {
+    "value": "Montgomery County",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Montgomery County Department of Permitting Services (DPS)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Maryland is county-leaning for residential building permitting — Montgomery County's own Department of Permitting Services is one of the named high-value jurisdictions in this marathon's own prioritization, and is a genuine SolarAPP+ early-adopter (via its 'eSolar' branded program)."
+  },
+  "permit_url": {
+    "value": "https://www.montgomerycountymd.gov/department-permitting-services/all-permits/residential-permits/residential-solar-permit-process",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://psc.maryland.gov/regulated-utilities/electricity/renewable-energy/solar-in-maryland/",
+    "confidence": 0.75,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Maryland's net metering requirement is set at the state level by the Public Service Commission (statutory basis: Public Utilities Article §7-306; regulatory basis: COMAR 20.50.10), applicable to all Maryland investor-owned utilities including Pepco. The PSC's own page confirms the program is capped at 3,000 MW statewide with individual customer-generator systems capped at 2 MW — far above any realistic residential system size. The exact net-metering credit rate/mechanism was not stated on the specific PSC page fetched this session and was not independently confirmed elsewhere."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Construction drawings submitted electronically via the County's ePlans system, per the County's Residential PV Systems submittal guidelines (roof specifications and electrical integration plans)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Additional documentation for properties with a private well and/or septic system",
+        "required_when": "if the property has a well or septic system",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "inspection_steps": {
+    "value": [
+      "Rough-in inspection",
+      "Final inspection",
+      "Inspections must be scheduled at least 24 hours in advance via the County's online portal, providing the permit number and contact ID"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 5,
+      "max_days": 7,
+      "notes": "Per the County's own page: 'Adequately prepared applications are usually issued within 5-7 days of application.' An expedited 'fast-track' review is also available for projects meeting standardized requirements (likely the County's SolarAPP+-integrated eSolar program), which was not separately itemized with its own day-count this session."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Standard residential solar permit (two permits: building + electrical); expedited 'fast-track' review available for standardized projects",
+      "other_conditions": [
+        "Homeowners cannot apply directly — a contractor must hold a valid Maryland Home Improvement Commission (MHIC) license to submit the application",
+        "Townhouses 4 or more stories above grade require a commercial permit instead of the residential process",
+        "Both a building permit (for panel attachment) and an electrical permit (for connection to the home's electrical service) are required"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The County's own page states a non-refundable filing fee is due upfront with the balance settled after plan approval, and points to a detailed FY27 fee schedule available online — the exact dollar figures were not independently extracted from that separate fee-schedule document this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Maryland's Residential Clean Energy Grant Program (formerly Residential Clean Energy Rebate Program, administered by the Maryland Energy Administration) is a real statewide incentive mechanism referenced in general search results this session, but its current rate/status was not independently confirmed from a primary Maryland Energy Administration source — left null rather than using a third-party figure."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Montgomery County Department of Permitting Services (DPS)",
+        "phone": "240-777-0311",
+        "email": null,
+        "url": "https://www.montgomerycountymd.gov/department-permitting-services/contact-dps"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S4"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar Permit Process",
+      "url": "https://www.montgomerycountymd.gov/department-permitting-services/all-permits/residential-permits/residential-solar-permit-process",
+      "publisher": "Montgomery County, Maryland, Department of Permitting Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Maryland Public Service Commission to Investigate 'Reliability of Pepco' (press release)",
+      "url": "https://www2.montgomerycountymd.gov/mcgportalapps/Press_Detail.aspx?Item_ID=5572&Dept=1",
+      "publisher": "Montgomery County, Maryland",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Solar in Maryland",
+      "url": "https://psc.maryland.gov/regulated-utilities/electricity/renewable-energy/solar-in-maryland/",
+      "publisher": "Maryland Public Service Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "Contact DPS",
+      "url": "https://www.montgomerycountymd.gov/department-permitting-services/contact-dps",
+      "publisher": "Montgomery County, Maryland, Department of Permitting Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "record_id": "md-annearundel-annearundelcounty-bge",
+  "schema_version": "1.4.0",
+  "state": "MD",
+  "utility": {
+    "value": "Baltimore Gas and Electric (BGE)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "BGE is the dominant investor-owned electric utility across central Maryland, including Anne Arundel County — not independently cross-checked against a dedicated BGE territory map this session, but well-established and not a genuinely ambiguous case like some other states researched this marathon."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Baltimore Gas and Electric (BGE)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Anne Arundel County's residential solar customers this session; BGE is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.5,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Anne Arundel County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This record represents Anne Arundel County's own Inspections and Permits process. Certain incorporated municipalities within the county (e.g., Annapolis) may operate their own separate building department and would be a separate AHJ not covered by this record — not independently verified this session."
+  },
+  "county": {
+    "value": "Anne Arundel County",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Anne Arundel County Inspections and Permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Maryland is county-leaning for residential building permitting. Anne Arundel County's own Inspections and Permits department is the permitting authority."
+  },
+  "permit_url": {
+    "value": "https://www.aacounty.org/inspections-and-permits/permits/residential-permits/solar-permit",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://psc.maryland.gov/regulated-utilities/electricity/renewable-energy/solar-in-maryland/",
+    "confidence": 0.75,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "See the identical statewide net-metering notes on the Montgomery County record (md-montgomery-montgomerycounty-pepco) — Maryland's net metering requirement is set at the state level (Public Utilities Article §7-306; COMAR 20.50.10) and applies to all Maryland investor-owned utilities including BGE."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Building Permit Application",
+        "required_when": "always — a residential solar permit is processed as a Building Permit",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Construction plans drawn to architectural scale, showing dimensions and materials",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan drawn to engineered scale, indicating location and configuration",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Standard Grading Plan Application",
+        "required_when": "when grading is involved (e.g., ground-mounted systems)",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The County's page notes that as of 2024-06-23, it no longer accepts plans 'on file' — all plans must be newly prepared for each application, not reused from a prior project."
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections are scheduled through the County's Land Use Navigator online system",
+      "Inspection results are reviewed through the same platform"
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-timeline day-count was stated on the County's own page read this session."
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The County's own page did not specify residential-solar-specific eligibility criteria beyond stating that a building permit is mandatory."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The County's own page states the fee depends on estimated project value and points to a separate Building Permit Fee Schedule document, which was not independently fetched and itemized this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Anne Arundel County Inspections and Permits — Permit Center",
+        "phone": "410-222-7730",
+        "email": "permitcenterhelp@aacounty.org",
+        "url": "https://www.aacounty.org/inspections-and-permits/permits/residential-permits/solar-permit"
+      },
+      {
+        "name": null,
+        "role": "Anne Arundel County Inspections and Permits — Inspection Scheduling",
+        "phone": "410-222-4432",
+        "email": null,
+        "url": "https://www.aacounty.org/inspections-and-permits/permits/residential-permits/solar-permit"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar Permit",
+      "url": "https://www.aacounty.org/inspections-and-permits/permits/residential-permits/solar-permit",
+      "publisher": "Anne Arundel County, Maryland",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Maryland Electrical Utility Providers and Service Territories",
+      "url": "https://marylandelectricalauthority.com/maryland-electrical-utility-listings/",
+      "publisher": "Maryland Electrical Authority (general reference)",
+      "type": "other_official",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Solar in Maryland",
+      "url": "https://psc.maryland.gov/regulated-utilities/electricity/renewable-energy/solar-in-maryland/",
+      "publisher": "Maryland Public Service Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
