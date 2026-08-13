@@ -1,7 +1,7 @@
 {
   "record_id": "nm-donaana-lascruces-epe",
   "file": "data/localities/nm-donaana-lascruces-epe.json",
-  "validated_at": "2026-08-12",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
   "score": 96,
   "errors": [],
@@ -19,10 +19,6 @@
   ],
   "recommendations": [
     {
-      "field": "battery_programs",
-      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
@@ -37,16 +33,12 @@
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://lascruces.gov/community/community-development/building-and-business-resources/",
-      "checked_at": "2026-08-12T20:52:57.257Z",
+      "checked_at": "2026-08-13T05:44:54.065Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -54,11 +46,19 @@
     },
     {
       "url": "https://www.epelectric.com/residential/rooftop-solar/new-mexico-interconnection-of-facilities-less-than-25-kw",
-      "checked_at": "2026-08-12T20:52:58.519Z",
+      "checked_at": "2026-08-13T05:44:54.166Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://clean.energy.nm.gov/new-solar-market-development-tax-credit-nsmdtc/",
+      "checked_at": "2026-08-13T05:44:54.391Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

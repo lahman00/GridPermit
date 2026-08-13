@@ -5,7 +5,9 @@
   "utility": {
     "value": "El Paso Electric (EPE)",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "El Paso Electric's own site publishes a dedicated 'New Mexico Interconnection of Facilities Less Than 25 kW' page confirming it serves New Mexico customers (including the Las Cruces area) under separate New Mexico-specific interconnection rules, distinct from its Texas territory. EPE's own site (epelectric.com) could not be loaded this session — direct browser navigation returned a persistent Cloudflare challenge page and WebFetch returned HTTP 403 — so this is sourced from EPE's own indexed page text via search results, not a directly-loaded page, at moderate confidence."
   },
   "generation_supplier": {
@@ -15,34 +17,90 @@
       "notes": "Per EPE's own page text (indexed snippet, not directly loaded this session): 'El Paso Electric's interpretation and policy with respect to the controlling statute is to limit participation under net metering to DG customers installing renewable energy systems with expected output less than or equal to 120 percent of the customer's annual consumption of electricity.' New Mexico's net metering rules for EPE (as for PNM) are governed by the state's Small Solar Interconnection and Net Metering Rules. As of mid-2026, Las Cruces EPE customers also gained access to New Mexico's Community Solar Act program via two newly operating community solar facilities (SLT Las Cruces and Wings for Life) — a genuinely new option distinct from rooftop net metering, per contemporaneous local news coverage; not treated as a primary government/utility source and recorded here only as context, not as a sourced fact in structured fields."
     },
     "confidence": 0.55,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "city": { "value": "Las Cruces", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Doña Ana County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Las Cruces",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Doña Ana County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Las Cruces, Community Development Department, Building Permit Services",
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://lascruces.gov/community/community-development/building-and-business-resources/",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City's own solar-specific document, 'Expedited Permitting for Residential Photovoltaic Systems' (which per its own title provides an over-the-counter pathway for systems 10 kW or less), was blocked this session: direct browser navigation returned a persistent Cloudflare challenge, and WebFetch returned HTTP 403. Per the mission's blocked-source-recovery policy, this specific document is classified as blocked after exhausting reasonable access paths; this record instead relies on the City's general Building and Business Resources page."
   },
   "interconnection_url": {
     "value": "https://www.epelectric.com/residential/rooftop-solar/new-mexico-interconnection-of-facilities-less-than-25-kw",
     "confidence": 0.5,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "URL confirmed to exist via search indexing, but the page's live content could not be independently loaded this session; see utility field notes."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's own expedited-permitting solar document was blocked this session; see permit_url notes." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "New Mexico New Solar Market Development Tax Credit (NSMDTC) — Battery System",
+        "administrator": "New Mexico Energy, Minerals and Natural Resources Department (EMNRD), Energy Conservation and Management",
+        "description": "Statewide New Mexico income tax credit covering a qualifying solar thermal or PV system AND a paired battery system: 10% of equipment, materials, and labor costs, up to $6,000 total per taxpayer (the cap is shared across the solar+battery system, not $6,000 for each separately). Applications are reviewed first-come-first-served against a $30 million annual statewide aggregate cap; once met, no further credits are issued that year. In effect for systems installed 2025 through 2031, each with its own installation/application deadline. Transferable (can be sold/exchanged) for systems installed since Jan 1, 2022.",
+        "value_usd_flat": 6000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Any New Mexico taxpayer (individual, corporation, or agricultural enterprise) who purchases and installs a qualifying solar thermal, PV, or paired battery system on property in New Mexico, including tribal lands; requires EMNRD certification (Certificate of Eligibility) before claiming via NM Taxation and Revenue Department Form TRD-41406.",
+        "url": "https://clean.energy.nm.gov/new-solar-market-development-tax-credit-nsmdtc/",
+        "effective_from": "2025-01-01",
+        "expires_on": "2031-12-31",
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from EMNRD's own Energy Conservation and Management (ECAM) program page. This is the same statewide fact as this record's rebates field — the NSMDTC covers both solar and paired battery costs under a single shared $6,000 cap, so it is recorded in both fields since it directly answers both, not because it is two separate programs."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own expedited-permitting solar document was blocked this session; see permit_url notes."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": 10,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -52,19 +110,54 @@
       ]
     },
     "confidence": 0.5,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This eligibility summary is derived from the document's own title and a search-result snippet, not from directly reading the blocked PDF; recorded at reduced confidence per the mission's evidentiary discipline rather than omitted entirely, since the document's title itself is an official City-published fact (the document's existence and stated subject), distinct from its internal content which was not read."
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "New Mexico New Solar Market Development Tax Credit (NSMDTC) — Solar Thermal/PV System",
+        "administrator": "New Mexico Energy, Minerals and Natural Resources Department (EMNRD), Energy Conservation and Management",
+        "description": "Statewide New Mexico income tax credit: 10% of the equipment, materials, and labor costs of a solar thermal or PV system, up to $6,000 per taxpayer. First-come-first-served against a $30 million annual statewide aggregate cap. In effect for systems installed 2025 through 2031. Transferable for systems installed since Jan 1, 2022. Required application documents include proof of property ownership, an itemized cost invoice, a Building Code Inspection report (permit number and passing inspection date), and system site plan/wiring diagrams.",
+        "value_usd_flat": 6000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Any New Mexico taxpayer (individual, corporation, or agricultural enterprise) who purchases and installs a qualifying solar thermal or PV system on property in New Mexico, including tribal lands; requires EMNRD certification before claiming via NM Taxation and Revenue Department Form TRD-41406.",
+        "url": "https://clean.energy.nm.gov/new-solar-market-development-tax-credit-nsmdtc/",
+        "effective_from": "2025-01-01",
+        "expires_on": "2031-12-31",
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from EMNRD's own Energy Conservation and Management (ECAM) program page. Applies statewide to any qualifying New Mexico taxpayer, not utility- or city-specific."
+  },
   "official_contacts": {
     "value": [
-      { "name": null, "role": "City of Las Cruces Community Development, Building Permit Services", "phone": null, "email": null, "url": "https://lascruces.gov/community/community-development/building-and-business-resources/" }
+      {
+        "name": null,
+        "role": "City of Las Cruces Community Development, Building Permit Services",
+        "phone": null,
+        "email": null,
+        "url": "https://lascruces.gov/community/community-development/building-and-business-resources/"
+      }
     ],
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -73,6 +166,14 @@
       "publisher": "City of Las Cruces, Community Development Department",
       "type": "government",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "New Solar Market Development Tax Credit (NSMDTC)",
+      "url": "https://clean.energy.nm.gov/new-solar-market-development-tax-credit-nsmdtc/",
+      "publisher": "New Mexico Energy, Minerals and Natural Resources Department (EMNRD)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",

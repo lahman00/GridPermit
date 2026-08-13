@@ -1,13 +1,13 @@
 {
   "state": "NM",
-  "generated_at": "2026-08-12T20:56:39.685Z",
+  "generated_at": "2026-08-13T05:52:10.788Z",
   "records": [
     {
       "record_id": "nm-bernalillo-albuquerque-pnm",
       "state": "NM",
       "city": "Albuquerque",
       "county": "Bernalillo County",
-      "completeness_pct": 80,
+      "completeness_pct": 93.3,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -20,16 +20,16 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
-        "permit_fees",
-        "rebates"
+        "permit_fees"
       ],
       "warning_categories": [
         "broken_url"
@@ -41,7 +41,7 @@
       "state": "NM",
       "city": "Las Cruces",
       "county": "Doña Ana County",
-      "completeness_pct": 60,
+      "completeness_pct": 73.3,
       "validation_score": 96,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -54,16 +54,16 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
         "eligibility_constraints",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
         "required_documents",
         "inspection_steps",
         "timeline_days",
-        "permit_fees",
-        "rebates"
+        "permit_fees"
       ],
       "warning_categories": [
         "broken_url"
@@ -75,7 +75,7 @@
       "state": "NM",
       "city": "Santa Fe",
       "county": "Santa Fe County",
-      "completeness_pct": 60,
+      "completeness_pct": 66.7,
       "validation_score": 95,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -87,13 +87,13 @@
         "county",
         "permit_authority",
         "permit_url",
+        "battery_programs",
         "required_documents",
         "rebates",
         "official_contacts"
       ],
       "missing_fields": [
         "interconnection_url",
-        "battery_programs",
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
@@ -106,13 +106,9 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
+    "average_completeness_pct": 77.8,
     "average_validation_score": 96.3,
     "fields_most_often_missing": [
-      {
-        "field": "battery_programs",
-        "missing_in_records": 3
-      },
       {
         "field": "permit_fees",
         "missing_in_records": 3
@@ -123,10 +119,6 @@
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 2
-      },
-      {
-        "field": "rebates",
         "missing_in_records": 2
       },
       {
@@ -151,12 +143,12 @@
       {
         "record_id": "nm-donaana-lascruces-epe",
         "city": "Las Cruces",
-        "reason": "readiness=LIMITED (completeness 60%, score 96)"
+        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
       },
       {
         "record_id": "nm-santafe-santafe-pnm",
         "city": "Santa Fe",
-        "reason": "readiness=LIMITED (completeness 60%, score 95)"
+        "reason": "readiness=LIMITED (completeness 66.7%, score 95)"
       }
     ],
     "not_ready": []

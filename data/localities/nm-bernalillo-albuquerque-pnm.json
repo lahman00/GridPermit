@@ -5,7 +5,9 @@
   "utility": {
     "value": "Public Service Company of New Mexico (PNM)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Confirmed both via the City of Albuquerque's own Solar Resources page (which links 'PNM's Customer Solar Program Page' and explicitly names PNM as the relevant utility for Community Solar participation by 'Albuquerque residents') and PNM's own site description as 'New Mexico's largest electricity provider.' PNM's own consumer site (pnm.com) could not be directly loaded this session — browser navigation was denied and WebFetch returned a connection-refused error — so utility-side specifics below are sourced from PNM's own indexed page text (via search-result snippets of PNM's own site, not third-party commentary) at moderate rather than full confidence."
   },
   "generation_supplier": {
@@ -15,42 +17,146 @@
       "notes": "Per PNM's own site (accessed via indexed snippet text, not a directly loaded page this session): the PNM Customer Solar Energy Program applies to grid-tied solar PV and solar thermal electric systems, with a maximum system size of 10 MWAC. Customers choose between net metering and/or Renewable Energy Certificate (REC) sales via a 'Small Solar' application and interconnection agreement. New Mexico's Small Solar Interconnection and Net Metering Rules are codified at NMPRC Rule 17.9.568, used together with PNM's own New Mexico Interconnection Manual. Interconnection Requests are submitted to PNM via PowerClerk with an appropriate processing fee/deposit. These specifics should be re-verified directly against pnm.com once accessible, since they were not read from a fully loaded primary page this session."
     },
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Albuquerque", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Bernalillo County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Albuquerque",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Bernalillo County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Albuquerque, Planning Department, Building Safety Division",
     "confidence": 0.95,
-    "source_ids": ["S1", "S2"]
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://www.cabq.gov/sustainability/solar/solar-resources",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.pnm.com/solar/",
     "confidence": 0.5,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "URL confirmed to exist via search indexing and the City's own link to it, but the page's live content could not be independently loaded this session (see utility field notes)."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "New Mexico New Solar Market Development Tax Credit (NSMDTC) — Battery System",
+        "administrator": "New Mexico Energy, Minerals and Natural Resources Department (EMNRD), Energy Conservation and Management",
+        "description": "Statewide New Mexico income tax credit covering a qualifying solar thermal or PV system AND a paired battery system: 10% of equipment, materials, and labor costs, up to $6,000 total per taxpayer (the cap is shared across the solar+battery system, not $6,000 for each separately). Applications are reviewed first-come-first-served against a $30 million annual statewide aggregate cap. In effect for systems installed 2025 through 2031. Transferable for systems installed since Jan 1, 2022.",
+        "value_usd_flat": 6000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Any New Mexico taxpayer (individual, corporation, or agricultural enterprise) who purchases and installs a qualifying solar thermal, PV, or paired battery system on property in New Mexico, including tribal lands; requires EMNRD certification before claiming via NM Taxation and Revenue Department Form TRD-41406.",
+        "url": "https://clean.energy.nm.gov/new-solar-market-development-tax-credit-nsmdtc/",
+        "effective_from": "2025-01-01",
+        "expires_on": "2031-12-31",
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from EMNRD's own Energy Conservation and Management (ECAM) program page. Same statewide fact as this record's rebates field — the NSMDTC covers both solar and paired battery costs under a single shared $6,000 cap."
+  },
   "required_documents": {
     "value": [
-      { "name": "Two complete sets of plans meeting the Building Permit Submittal Checklist", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Completed Building Permit Application", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Scaled, legible Site Plan (property address, building footprint, north arrow, PV array configuration, supporting equipment/sub-panels/main service location, dimensions and clearances)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Framing plan showing PV installation layout on existing roof framing members", "required_when": "roof-mounted systems", "source_ids": ["S2"] },
-      { "name": "Existing roof information (roofing type, number of roof coverings) and proposed roof-penetration weatherproofing method", "required_when": "roof-mounted systems", "source_ids": ["S2"] },
-      { "name": "Manufacturer's specifications and installation instructions for all PV modules, inverter(s), combiner box, disconnects, and mounting system(s)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "New Mexico-licensed engineer's stamped review of the existing roof structure", "required_when": "only if: more than one existing roof covering; over-spanned trusses/rafters/joists; added dead load >5 lbs/sq ft; added point load >45 lbs; added dead load >200 lbs on any one truss/rafter/joist; or a unique mounting-system design", "source_ids": ["S2"] },
-      { "name": "Electrical one-line diagram (three-line diagram if system exceeds 10 kW)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "New Mexico-licensed electrical engineer's stamped design", "required_when": "only if the PV system exceeds 200 amps", "source_ids": ["S2"] },
-      { "name": "Albuquerque Fire Department site plan (access pathways, array/disconnect/signage locations) and elevation views (array placement, ridgelines/eave lines, roof obstructions)", "required_when": "always", "source_ids": ["S2"] }
+      {
+        "name": "Two complete sets of plans meeting the Building Permit Submittal Checklist",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Completed Building Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Scaled, legible Site Plan (property address, building footprint, north arrow, PV array configuration, supporting equipment/sub-panels/main service location, dimensions and clearances)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Framing plan showing PV installation layout on existing roof framing members",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Existing roof information (roofing type, number of roof coverings) and proposed roof-penetration weatherproofing method",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer's specifications and installation instructions for all PV modules, inverter(s), combiner box, disconnects, and mounting system(s)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "New Mexico-licensed engineer's stamped review of the existing roof structure",
+        "required_when": "only if: more than one existing roof covering; over-spanned trusses/rafters/joists; added dead load >5 lbs/sq ft; added point load >45 lbs; added dead load >200 lbs on any one truss/rafter/joist; or a unique mounting-system design",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Electrical one-line diagram (three-line diagram if system exceeds 10 kW)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "New Mexico-licensed electrical engineer's stamped design",
+        "required_when": "only if the PV system exceeds 200 amps",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Albuquerque Fire Department site plan (access pathways, array/disconnect/signage locations) and elevation views (array placement, ridgelines/eave lines, roof obstructions)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      }
     ],
     "confidence": 0.95,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Extracted directly from the City's own 'Roof Mounted Solar Checklist' (Building Permit Submittal Checklist for Photovoltaic Systems, rev. 12/18/12). Both a building permit AND an electrical permit are required; the electrical permit must be pulled by a licensed contractor per the City's Solar Resources page."
   },
   "inspection_steps": {
@@ -58,16 +164,27 @@
       "The City offers dedicated inspection APPOINTMENT TIMES for solar projects, rather than general appointment windows, per the City's own Solar Resources page"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "timeline_days": {
-    "value": { "min_days": null, "max_days": 3, "notes": "Per the City's own Solar Resources page, under its 'Permitting' commitments: 'Processing small rooftop solar PV permit applications in less than 3 business days.'" },
+    "value": {
+      "min_days": null,
+      "max_days": 3,
+      "notes": "Per the City's own Solar Resources page, under its 'Permitting' commitments: 'Processing small rooftop solar PV permit applications in less than 3 business days.'"
+    },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "commercial"],
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -80,18 +197,55 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1", "S2"]
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's Solar Resources page links to an 'Electrical Permit Fee Calculator' and 'Building Permit Fees' page/tool rather than publishing a static fee table; these interactive tools were not independently run this session to extract a specific dollar figure." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's Solar Resources page links to an 'Electrical Permit Fee Calculator' and 'Building Permit Fees' page/tool rather than publishing a static fee table; these interactive tools were not independently run this session to extract a specific dollar figure."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "New Mexico New Solar Market Development Tax Credit (NSMDTC) — Solar Thermal/PV System",
+        "administrator": "New Mexico Energy, Minerals and Natural Resources Department (EMNRD), Energy Conservation and Management",
+        "description": "Statewide New Mexico income tax credit: 10% of the equipment, materials, and labor costs of a solar thermal or PV system, up to $6,000 per taxpayer. First-come-first-served against a $30 million annual statewide aggregate cap. In effect for systems installed 2025 through 2031. Transferable for systems installed since Jan 1, 2022. Required application documents include proof of property ownership, an itemized cost invoice, a Building Code Inspection report (permit number and passing inspection date), and system site plan/wiring diagrams.",
+        "value_usd_flat": 6000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Any New Mexico taxpayer (individual, corporation, or agricultural enterprise) who purchases and installs a qualifying solar thermal or PV system on property in New Mexico, including tribal lands; requires EMNRD certification before claiming via NM Taxation and Revenue Department Form TRD-41406.",
+        "url": "https://clean.energy.nm.gov/new-solar-market-development-tax-credit-nsmdtc/",
+        "effective_from": "2025-01-01",
+        "expires_on": "2031-12-31",
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from EMNRD's own Energy Conservation and Management (ECAM) program page. Applies statewide to any qualifying New Mexico taxpayer, not utility- or city-specific."
+  },
   "official_contacts": {
     "value": [
-      { "name": null, "role": "City of Albuquerque Building and Safety Division", "phone": "505-924-3320", "email": "sustainability@cabq.gov", "url": "https://www.cabq.gov/sustainability/solar/solar-resources" }
+      {
+        "name": null,
+        "role": "City of Albuquerque Building and Safety Division",
+        "phone": "505-924-3320",
+        "email": "sustainability@cabq.gov",
+        "url": "https://www.cabq.gov/sustainability/solar/solar-resources"
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -100,6 +254,14 @@
       "publisher": "City of Albuquerque, Environmental Health Department / Sustainability",
       "type": "government",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "New Solar Market Development Tax Credit (NSMDTC)",
+      "url": "https://clean.energy.nm.gov/new-solar-market-development-tax-credit-nsmdtc/",
+      "publisher": "New Mexico Energy, Minerals and Natural Resources Department (EMNRD)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",

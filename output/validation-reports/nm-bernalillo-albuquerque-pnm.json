@@ -1,7 +1,7 @@
 {
   "record_id": "nm-bernalillo-albuquerque-pnm",
   "file": "data/localities/nm-bernalillo-albuquerque-pnm.json",
-  "validated_at": "2026-08-12",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
   "score": 98,
   "errors": [],
@@ -14,22 +14,14 @@
   ],
   "recommendations": [
     {
-      "field": "battery_programs",
-      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.cabq.gov/sustainability/solar/solar-resources",
-      "checked_at": "2026-08-12T20:48:35.952Z",
+      "checked_at": "2026-08-13T05:44:54.669Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -37,15 +29,23 @@
     },
     {
       "url": "https://www.pnm.com/solar/",
-      "checked_at": "2026-08-12T20:48:37.410Z",
+      "checked_at": "2026-08-13T05:44:56.185Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "timeout"
     },
     {
+      "url": "https://clean.energy.nm.gov/new-solar-market-development-tax-credit-nsmdtc/",
+      "checked_at": "2026-08-13T05:45:06.188Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
       "url": "https://www.cabq.gov/planning/documents/RoofMountedSolarChecklist.pdf",
-      "checked_at": "2026-08-12T20:48:47.412Z",
+      "checked_at": "2026-08-13T05:45:06.252Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
