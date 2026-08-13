@@ -35,7 +35,10 @@ const evaluationModules = import.meta.glob("../../../output/*-evaluation.json", 
 	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
 >;
 const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
-const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
+// Scoped to CA only — buildLocalityIndexEntries itself returns every READY
+// record sitewide; this page is California-specific, so its stats and
+// links must not include other states' counties/utilities/cities.
+const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById).filter((e) => e.state === "CA");
 
 // Derived stats — always computed from the live dataset, never hardcoded,
 // so this page can't drift out of sync with what's actually published.
@@ -48,8 +51,15 @@ const countyCount = new Set(
 // applied to related-locality matching), which would otherwise overcount.
 const utilityCount = new Set(entries.map((e) => utilityShortName(e.utility)).filter(Boolean)).size;
 
-const countyHubs = buildCountyHubs(allEvaluatedRecords as ReadyEvaluationSummary[], recordsById);
-const utilityHubs = buildUtilityHubs(allEvaluatedRecords as ReadyEvaluationSummary[], recordsById);
+// buildCountyHubs/buildUtilityHubs key each hub by state+county /
+// state+utility internally, so the array itself covers every state — filter
+// down to CA's own hubs before rendering them on this CA-specific page.
+const countyHubs = buildCountyHubs(allEvaluatedRecords as ReadyEvaluationSummary[], recordsById).filter(
+	(h) => h.state === "CA",
+);
+const utilityHubs = buildUtilityHubs(allEvaluatedRecords as ReadyEvaluationSummary[], recordsById).filter(
+	(h) => h.state === "CA",
+);
 
 const PAGE_PATH = "/california/";
 const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;

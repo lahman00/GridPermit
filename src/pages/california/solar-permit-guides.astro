@@ -35,7 +35,11 @@ const evaluationModules = import.meta.glob("../../../output/*-evaluation.json", 
 	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
 >;
 const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
-const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
+// Scoped to CA only — buildLocalityIndexEntries itself returns every READY
+// record sitewide (that's what powers a true cross-state index); this page
+// is California-specific, so it must filter down the same way
+// src/pages/[state]/index.astro does for every other state.
+const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById).filter((e) => e.state === "CA");
 
 // Letters actually present in this dataset, in order — used for both the
 // jump nav and the section headings below. Never a hardcoded A-Z list, so a
