@@ -36,6 +36,7 @@ const STATE_SLUGS = {
   CO: "colorado", AZ: "arizona", HI: "hawaii", OR: "oregon", NM: "new-mexico",
   NV: "nevada", IL: "illinois", NJ: "new-jersey", UT: "utah", MD: "maryland",
   VA: "virginia",
+  NC: "north-carolina",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

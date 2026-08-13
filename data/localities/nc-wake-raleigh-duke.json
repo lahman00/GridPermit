@@ -1,0 +1,226 @@
+{
+  "record_id": "nc-wake-raleigh-duke",
+  "schema_version": "1.4.0",
+  "state": "NC",
+  "utility": {
+    "value": "Duke Energy Progress",
+    "confidence": 0.8,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Duke Energy (operating in this part of central/eastern North Carolina as Duke Energy Progress) serves most net-metering customers in North Carolina per the state's own Public Staff (Utilities Commission) page, and is the well-established dominant utility for Raleigh specifically — not independently cross-checked against a dedicated Duke Energy Progress vs. Duke Energy Carolinas territory map this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Duke Energy Progress",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Raleigh's residential solar customers this session; Duke Energy Progress is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Raleigh",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Wake County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Raleigh Planning and Development Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "North Carolina uses a statewide North Carolina State Building Code (administered with the NC Office of State Fire Marshal), but permit issuance and enforcement is delegated to each county or municipal building department. Raleigh's own Planning and Development Department is the permitting authority within city limits, distinct from unincorporated Wake County."
+  },
+  "permit_url": {
+    "value": "https://raleighnc.gov/permits/services/residential-solar-photovoltaic-pv-system",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://publicstaff.nc.gov/electric/net-metering",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Statewide North Carolina net-metering framework, per the state's own Public Staff page: as of a 2023-03-23 policy change (effective for new applications from 2023-10-01), Duke Energy customers fall under Rider RSC (Residential Solar Choice — minimum monthly bill, Time-of-Use/Critical Peak Pricing required, a grid access fee for systems over 15kW, excess exports credited at avoided-cost rate) or the capacity-limited Rider NMB (Net Metering Bridge — no mandatory TOU, 15-year maximum participation); the legacy Rider NM closed to new applicants 2023-09-30 with existing customers grandfathered through 2026-12-31. Residential systems are capped at 20kW AC."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Residential Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Complete solar PV system plans (array, inverters, combiners, controllers, mounting details, wiring schematic)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Specification sheets and manufacturer installation instructions",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "A signed and sealed document from a design professional confirming a solar onsite inspection was performed and the structural design complies with the North Carolina State Residential Code",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Owner Exemption Affidavit",
+        "required_when": "when the property owner is pulling the permit without a licensed contractor",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Lien Agent Notice documentation",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspection is scheduled through the City's own Permit Portal after submission",
+      "A final inspection follows system completion, after which a Certificate of Compliance is issued upon approval"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Per the City's own page, most rooftop residential systems receive same-day online permitting; projects flagged for additional review instead follow the City's standard review turnaround (no specific day-count stated for that flagged-review path). This same-day process is the City's own online permitting system — no specific automated-review platform name (e.g. SolarAPP+) was stated on the page read this session, so none is recorded here."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 20,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Covers one- and two-family dwelling rooftop systems in all residential zoning districts",
+        "Rooftop systems may exceed the district's maximum building height by up to 12 feet, per Unified Development Ordinance (UDO) Section 1.5.7.D.2.g",
+        "Ground-mounted systems are separately allowed under UDO Section 1.5.4.D.2.b",
+        "Properties in historic overlay districts require additional compliance review",
+        "Permits are valid for 6 months before work must begin; a 12-month work discontinuation triggers permit expiration",
+        "The 20kW AC residential cap noted here reflects the statewide Duke Energy net-metering system-size limit (interconnection-level), not a City permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "New Residential Construction Building Permit Fee",
+        "amount_usd": null,
+        "unit": "0.38% of Calculated Construction Value (FY27 rate, effective 2026-07-01 through 2027-06-30)",
+        "notes": "Per the City's own Development Fee Guide (July 1, 2026 - June 30, 2027). This is the base building permit fee for the solar installation's structural/mounting work, calculated against the contractor's estimated construction value."
+      },
+      {
+        "name": "New Residential Construction Electrical Permit Fee",
+        "amount_usd": null,
+        "unit": "49% of Calculated Building Permit fee (FY27 rate)",
+        "notes": "Per the City's own Development Fee Guide. Applies to the required electrical permit for the PV system's wiring/interconnection work."
+      },
+      {
+        "name": "Technology Fee surcharge",
+        "amount_usd": null,
+        "unit": "4% of the subtotal of all other permit fees",
+        "notes": "Per the City's own Development Fee Guide — a flat surcharge applied across Building and Safety fee categories."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "The City calculates the underlying construction value using ICC's national Building Valuation Data table (residential one/two-family, per square foot) reduced by a 12.4% regional cost adjustment factor, per the same Development Fee Guide's appendix. No flat per-permit dollar figure is published for residential solar specifically — fees are valuation-based, consistent with the general residential building/electrical permit fee structure."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide North Carolina solar rebate/tax-credit program was independently confirmed this session (NC's prior state tax credit for renewable energy expired years ago per general knowledge, not independently re-verified) — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar Photovoltaic (PV) System",
+      "url": "https://raleighnc.gov/permits/services/residential-solar-photovoltaic-pv-system",
+      "publisher": "City of Raleigh, Planning and Development Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Metering",
+      "url": "https://publicstaff.nc.gov/electric/net-metering",
+      "publisher": "North Carolina Utilities Commission, Public Staff",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Development Fee Guide (July 1, 2026 - June 30, 2027)",
+      "url": "https://cityofraleigh0drupal.blob.core.usgovcloudapi.net/drupal-prod/COR15/DevelopmentFeeGuide.pdf",
+      "publisher": "City of Raleigh, Planning and Development Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

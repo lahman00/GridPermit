@@ -68,6 +68,7 @@ const STATE_SLUGS = {
   UT: "utah",
   MD: "maryland",
   VA: "virginia",
+  NC: "north-carolina",
 };
 
 function pagesRootFor(record) {

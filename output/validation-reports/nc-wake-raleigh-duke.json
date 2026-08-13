@@ -1,0 +1,55 @@
+{
+  "record_id": "nc-wake-raleigh-duke",
+  "file": "data/localities/nc-wake-raleigh-duke.json",
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 95,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "official_contacts",
+      "message": "'official_contacts' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://raleighnc.gov/permits/services/residential-solar-photovoltaic-pv-system",
+      "checked_at": "2026-08-13T21:45:10.881Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://publicstaff.nc.gov/electric/net-metering",
+      "checked_at": "2026-08-13T21:45:11.244Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://cityofraleigh0drupal.blob.core.usgovcloudapi.net/drupal-prod/COR15/DevelopmentFeeGuide.pdf",
+      "checked_at": "2026-08-13T21:45:11.606Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

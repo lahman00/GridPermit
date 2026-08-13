@@ -1,0 +1,111 @@
+{
+  "state": "NC",
+  "generated_at": "2026-08-13T21:45:18.693Z",
+  "records": [
+    {
+      "record_id": "nc-durham-durham-duke",
+      "state": "NC",
+      "city": "Durham",
+      "county": "Durham County",
+      "completeness_pct": 73.3,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "timeline_days",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [],
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "nc-wake-raleigh-duke",
+      "state": "NC",
+      "city": "Raleigh",
+      "county": "Wake County",
+      "completeness_pct": 80,
+      "validation_score": 95,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "rebates",
+        "official_contacts"
+      ],
+      "warning_categories": [
+        "unsupported_claim"
+      ],
+      "readiness": "READY"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 76.7,
+    "average_validation_score": 97.5,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 2
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 2
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 1
+      },
+      {
+        "field": "official_contacts",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [
+      "nc-wake-raleigh-duke"
+    ],
+    "limited_for_now": [
+      {
+        "record_id": "nc-durham-durham-duke",
+        "city": "Durham",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
+      }
+    ],
+    "not_ready": []
+  }
+}

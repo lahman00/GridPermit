@@ -1,0 +1,189 @@
+{
+  "record_id": "nc-durham-durham-duke",
+  "schema_version": "1.4.0",
+  "state": "NC",
+  "utility": {
+    "value": "Duke Energy Progress",
+    "confidence": 0.8,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Duke Energy (operating in Durham as Duke Energy Progress) serves most net-metering customers in North Carolina per the state's own Public Staff page — see the identical utility-identity notes on the Raleigh record (nc-wake-raleigh-duke)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Duke Energy Progress",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Durham's residential solar customers this session; Duke Energy Progress is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Durham",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Durham County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Durham operates a consolidated City-County Building & Safety Department, which serves as the single permitting authority for both the City of Durham and unincorporated Durham County."
+  },
+  "permit_authority": {
+    "value": "Durham City-County Building & Safety Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "North Carolina uses a statewide North Carolina State Building Code (administered with the NC Office of State Fire Marshal), but permit issuance and enforcement is delegated locally. Durham's City-County Building & Safety Department is a genuinely consolidated jurisdiction serving both the City of Durham and Durham County under one department — distinct from most other North Carolina localities researched this session, which have separate city and county building departments."
+  },
+  "permit_url": {
+    "value": "https://www.durhamnc.gov/4769/Solar-Panels",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://publicstaff.nc.gov/electric/net-metering",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "See the identical statewide North Carolina net-metering framework notes on the Raleigh record (nc-wake-raleigh-duke) — Duke Energy customers fall under Rider RSC or the capacity-limited Rider NMB as of the 2023-10-01 policy transition; residential systems are capped at 20kW AC."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Building Permit application (required for PV arrays on one- and two-family dwellings, depending on roof condition/structural integrity)",
+        "required_when": "always for residential systems",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Construction drawings — one copy of plans showing PV array configuration, wiring system, overcurrent protection, inverter, disconnects, required signs, AC connection to building, and attachment/footing detail (roof- or ground-mounted), engineer-stamped",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Specification sheets and installation manuals for all manufactured components (PV modules, inverters, combiner box, disconnects, mounting system)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per the Department's own 'Solar Photovoltaic (PV) System Permitting Requirements' document (Doc. 26268, Rev. 08-11-2025). One- and two-family installations must comply with the 2018 North Carolina Residential Code. Applications and documentation are submitted through the City's online Dplans portal."
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections are scheduled through the Land Development Office webpage",
+      "Inspections are typically completed within 24 hours of an inspection request"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Department's own document states only that it makes 'best efforts' to provide timely review, without a specific day-count, and lists factors that can prolong turnaround (incomplete applications, unlicensed contractors, unlisted equipment). Permits expire 6 months after issuance if no inspection has been conducted."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Ground-mounted panels for single/two-family homes outside historic districts must be at least 6 feet from property lines; no screening is required for ground- or roof-mounted systems",
+        "Properties in historic districts require a Minor Certificate of Appropriateness (COA) for ground-mounted systems if street visibility is minimized (otherwise a Major COA), and for roof-mounted systems that are rear-facing and do not damage historic roofing materials",
+        "Permits expire 6 months after issuance if no inspection has been conducted; once work begins, noticeable progress must continue until completion"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Department's own document points to a separate 'Building Permit Fee Schedule G' and 'Electrical Permit Fee Schedule G' rather than stating a specific dollar figure directly — left null rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide North Carolina or Durham-specific solar rebate/tax-credit program was independently confirmed this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Durham City-County Building & Safety Department",
+        "phone": "919-560-4144",
+        "email": null,
+        "url": "https://www.durhamnc.gov/295/Application-Forms"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Panels",
+      "url": "https://www.durhamnc.gov/4769/Solar-Panels",
+      "publisher": "City of Durham",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Solar Photovoltaic (PV) System Permitting Requirements (Doc. 26268, Rev. 08-11-2025)",
+      "url": "https://www.durhamnc.gov/DocumentCenter/View/26268/Solar-Photovoltiac-PV-System-Permitting-Requirements",
+      "publisher": "Durham City-County Building & Safety Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Net Metering",
+      "url": "https://publicstaff.nc.gov/electric/net-metering",
+      "publisher": "North Carolina Utilities Commission, Public Staff",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
