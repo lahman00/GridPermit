@@ -1,17 +1,17 @@
 {
   "state": "CO",
-  "generated_at": "2026-08-12T19:06:19.304Z",
+  "generated_at": "2026-08-13T05:10:48.750Z",
   "records": [
     {
       "record_id": "co-denver-denver-xcel",
       "state": "CO",
       "city": "Denver",
       "county": "Denver County",
-      "completeness_pct": 80,
-      "validation_score": 95,
+      "completeness_pct": 86.7,
+      "validation_score": 88,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -24,14 +24,15 @@
         "inspection_steps",
         "eligibility_constraints",
         "permit_fees",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "timeline_days",
-        "rebates"
+        "timeline_days"
       ],
       "warning_categories": [
+        "broken_url",
         "unsupported_claim"
       ],
       "readiness": "READY"
@@ -41,11 +42,11 @@
       "state": "CO",
       "city": "Colorado Springs",
       "county": "El Paso County",
-      "completeness_pct": 66.7,
-      "validation_score": 100,
-      "validation_status": "PASS",
+      "completeness_pct": 80,
+      "validation_score": 93,
+      "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 0,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -55,29 +56,32 @@
         "permit_url",
         "interconnection_url",
         "inspection_steps",
+        "eligibility_constraints",
         "permit_fees",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
         "required_documents",
-        "timeline_days",
-        "eligibility_constraints",
-        "rebates"
+        "timeline_days"
       ],
-      "warning_categories": [],
-      "readiness": "LIMITED"
+      "warning_categories": [
+        "broken_url",
+        "unsupported_claim"
+      ],
+      "readiness": "READY"
     },
     {
       "record_id": "co-fremont-canon-city-bhe",
       "state": "CO",
       "city": "Cañon City",
       "county": "Fremont County",
-      "completeness_pct": 53.3,
-      "validation_score": 96,
+      "completeness_pct": 60,
+      "validation_score": 89,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "city",
@@ -86,6 +90,7 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
@@ -94,11 +99,11 @@
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
-        "permit_fees",
-        "rebates"
+        "permit_fees"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "readiness": "LIMITED"
     },
@@ -107,11 +112,11 @@
       "state": "CO",
       "city": "Fort Collins",
       "county": "Larimer County",
-      "completeness_pct": 53.3,
-      "validation_score": 96,
+      "completeness_pct": 60,
+      "validation_score": 89,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 4,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -120,6 +125,7 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
@@ -128,18 +134,18 @@
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
-        "permit_fees",
-        "rebates"
+        "permit_fees"
       ],
       "warning_categories": [
-        "broken_url"
+        "broken_url",
+        "unsupported_claim"
       ],
       "readiness": "LIMITED"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 63.3,
-    "average_validation_score": 96.8,
+    "average_completeness_pct": 71.7,
+    "average_validation_score": 89.8,
     "fields_most_often_missing": [
       {
         "field": "battery_programs",
@@ -150,19 +156,15 @@
         "missing_in_records": 4
       },
       {
-        "field": "rebates",
-        "missing_in_records": 4
-      },
-      {
-        "field": "eligibility_constraints",
-        "missing_in_records": 3
-      },
-      {
         "field": "required_documents",
         "missing_in_records": 2
       },
       {
         "field": "inspection_steps",
+        "missing_in_records": 2
+      },
+      {
+        "field": "eligibility_constraints",
         "missing_in_records": 2
       },
       {
@@ -177,23 +179,19 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
-      "co-denver-denver-xcel"
+      "co-denver-denver-xcel",
+      "co-el-paso-colorado-springs-csu"
     ],
     "limited_for_now": [
       {
-        "record_id": "co-el-paso-colorado-springs-csu",
-        "city": "Colorado Springs",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 100)"
-      },
-      {
         "record_id": "co-fremont-canon-city-bhe",
         "city": "Cañon City",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
+        "reason": "readiness=LIMITED (completeness 60%, score 89)"
       },
       {
         "record_id": "co-larimer-fort-collins-fcu",
         "city": "Fort Collins",
-        "reason": "readiness=LIMITED (completeness 53.3%, score 96)"
+        "reason": "readiness=LIMITED (completeness 60%, score 89)"
       }
     ],
     "not_ready": []

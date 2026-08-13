@@ -44,7 +44,26 @@
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
   "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
   "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": [
+      {
+        "name": "Colorado Residential Solar Property Tax Exemption",
+        "administrator": "Colorado Division of Property Taxation (Dept. of Local Affairs)",
+        "description": "Statewide Colorado property tax exemption: independently owned residential solar electric generation facilities (photovoltaic systems) meeting the criteria in §39-1-102(6.8), C.R.S. are exempt from Colorado property taxation under §39-3-102, C.R.S. To qualify, the facility must be located on residential real property, used to produce electricity primarily for use in the residential improvements, and have a production capacity of no more than 100 kW AC. This is a genuine statewide exemption applicable to any qualifying Colorado residential system, not utility- or city-specific.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Residential real property, system owned by the residential property owner, electricity used primarily for the residential improvements, production capacity ≤100 kW AC.",
+        "url": "https://dpt.colorado.gov/renewable-energy",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S9"],
+    "notes": "Verified directly from the Colorado Division of Property Taxation's own official page — the same statewide fact already documented in co-denver-denver-xcel.json."
+  },
   "official_contacts": {
     "value": [
       {
@@ -58,7 +77,7 @@
     "confidence": 0.85,
     "source_ids": ["S2"]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -67,6 +86,14 @@
       "publisher": "Colorado Energy Office",
       "type": "government",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "Renewable and Clean Energy Assessment (Residential Renewable Energy property tax exemption)",
+      "url": "https://dpt.colorado.gov/renewable-energy",
+      "publisher": "Colorado Division of Property Taxation, Dept. of Local Affairs",
+      "type": "government",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",

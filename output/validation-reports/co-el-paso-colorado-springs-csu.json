@@ -1,11 +1,22 @@
 {
   "record_id": "co-el-paso-colorado-springs-csu",
   "file": "data/localities/co-el-paso-colorado-springs-csu.json",
-  "validated_at": "2026-08-12",
-  "status": "PASS",
-  "score": 100,
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 93,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates[0].url",
+      "category": "broken_url",
+      "message": "https://dpt.colorado.gov/renewable-energy — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
   "recommendations": [
     {
       "field": "battery_programs",
@@ -18,20 +29,12 @@
     {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.elpasoco.com/pikes-peak-regional-building-department/",
-      "checked_at": "2026-08-12T19:06:11.425Z",
+      "checked_at": "2026-08-13T05:10:26.486Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -39,11 +42,19 @@
     },
     {
       "url": "https://www.csu.org/solar-energy-program",
-      "checked_at": "2026-08-12T19:06:13.503Z",
+      "checked_at": "2026-08-13T05:10:28.601Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
+    },
+    {
+      "url": "https://dpt.colorado.gov/renewable-energy",
+      "checked_at": "2026-08-13T05:10:29.022Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     }
   ]
 }

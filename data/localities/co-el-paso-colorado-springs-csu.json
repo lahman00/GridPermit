@@ -12,7 +12,7 @@
     "value": {
       "name": "Colorado Springs Utilities (CSU)",
       "type": "utility",
-      "notes": "CSU is a municipal utility; no separate Community Choice Aggregator applies. CSU's own site states that in 2026 it 'is exploring options to update how residential solar customers interact with our grid' via a dedicated 'Proposed changes for residential solar customers' page — an active, unresolved policy review at the time of this research, not yet a finalized change, so no specific altered net-metering terms are recorded here beyond what is currently in effect."
+      "notes": "CSU is a municipal utility; no separate Community Choice Aggregator applies. Net metering: monthly net usage is tracked as 'Energy Sent to Grid' minus 'Energy Provided by Grid'; a positive year-end banked credit balance is paid out on the January bill at the current cogeneration rate, approximately $0.02 per kWh (this is the default behavior for a new solar system or a home purchased with an existing system). Customers may instead opt into a one-time, irrevocable 'rollover' election to carry banked credits forward into the next year instead of being paid out. CSU's own site separately states that in 2026 it 'is exploring options to update how residential solar customers interact with our grid' — an active, unresolved policy review at the time of this research, not yet a finalized change, so no altered terms are recorded here beyond what is currently in effect."
     },
     "confidence": 0.6,
     "source_ids": ["S1"]
@@ -51,15 +51,51 @@
     "notes": "This is CSU's own description of the combined utility-interconnection-plus-PPRBD-permit process; it does not itemize PPRBD's own inspection steps in detail (that page was unreachable this session)."
   },
   "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": ["residential"],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "CSU Solar Energy Program (Connecting Solar) interconnection application",
+      "other_conditions": [
+        "Residential application fee tier ($100) applies for systems under 150 kW; a separate commercial/large-system tier ($1,000 fee) applies at 150 kW or larger, per CSU's own page",
+        "Installer must submit the application on the customer's behalf via CSU's online Connecting Solar portal",
+        "System must pass CSU's standards/safety review before approval; if denied, required updates are provided to the customer and installer",
+        "PPRBD permits must be obtained and closed before CSU will install the upgraded net meter and issue a Permission to Operate (PTO)"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": ["S1"]
+  },
   "permit_fees": {
     "value": [
-      { "name": "Colorado Springs Utilities Solar Energy Program application fee (residential)", "amount_usd": 100, "unit": "flat fee, one-time", "notes": "Per CSU's own 2024 rate case, charged on the customer's next electric bill after their solar installer submits the application. This is a utility interconnection application fee, not PPRBD's separate building/electrical permit fee, which was not found this session (PPRBD's own site was unreachable)." }
+      { "name": "Colorado Springs Utilities Solar Energy Program application fee (residential)", "amount_usd": 100, "unit": "flat fee, one-time", "notes": "Per CSU's own 2024 rate case, charged on the customer's next electric bill after their solar installer submits the application. This is a utility interconnection application fee, not PPRBD's separate building/electrical permit fee, which was not found this session (PPRBD's own site was unreachable)." },
+      { "name": "Colorado Springs Utilities Solar Energy Program application fee (150 kW or larger systems)", "amount_usd": 1000, "unit": "flat fee, one-time", "notes": "Per CSU's own 2024 rate case; applies to large/commercial-scale systems, not typical residential installations." }
     ],
     "confidence": 0.85,
     "source_ids": ["S1"]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": [
+      {
+        "name": "Colorado Residential Solar Property Tax Exemption",
+        "administrator": "Colorado Division of Property Taxation (Dept. of Local Affairs)",
+        "description": "Statewide Colorado property tax exemption: independently owned residential solar electric generation facilities (photovoltaic systems) meeting the criteria in §39-1-102(6.8), C.R.S. are exempt from Colorado property taxation under §39-3-102, C.R.S. To qualify, the facility must be located on residential real property, used to produce electricity primarily for use in the residential improvements, and have a production capacity of no more than 100 kW AC. This is a genuine statewide exemption applicable to any qualifying Colorado residential system, not utility- or city-specific.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Residential real property, system owned by the residential property owner, electricity used primarily for the residential improvements, production capacity ≤100 kW AC.",
+        "url": "https://dpt.colorado.gov/renewable-energy",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S9"],
+    "notes": "Verified directly from the Colorado Division of Property Taxation's own official page — the same statewide fact already documented in co-denver-denver-xcel.json."
+  },
   "official_contacts": {
     "value": [
       {
@@ -73,7 +109,7 @@
     "confidence": 0.8,
     "source_ids": ["S2"]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -82,6 +118,14 @@
       "publisher": "Colorado Springs Utilities",
       "type": "utility",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "Renewable and Clean Energy Assessment (Residential Renewable Energy property tax exemption)",
+      "url": "https://dpt.colorado.gov/renewable-energy",
+      "publisher": "Colorado Division of Property Taxation, Dept. of Local Affairs",
+      "type": "government",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",

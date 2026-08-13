@@ -1,15 +1,25 @@
 {
   "record_id": "co-denver-denver-xcel",
   "file": "data/localities/co-denver-denver-xcel.json",
-  "validated_at": "2026-08-12",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 95,
+  "score": 88,
   "errors": [],
   "warnings": [
     {
       "field": "permit_fees",
       "category": "unsupported_claim",
       "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates[0].url",
+      "category": "broken_url",
+      "message": "https://dpt.colorado.gov/renewable-energy — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -20,16 +30,12 @@
     {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Single-Family-and-Duplex-Projects/Solar-Permits",
-      "checked_at": "2026-08-12T19:06:03.434Z",
+      "checked_at": "2026-08-13T05:07:02.779Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -37,15 +43,23 @@
     },
     {
       "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
-      "checked_at": "2026-08-12T19:06:04.977Z",
+      "checked_at": "2026-08-13T05:07:04.164Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
     },
     {
+      "url": "https://dpt.colorado.gov/renewable-energy",
+      "checked_at": "2026-08-13T05:07:06.783Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
       "url": "https://denvergov.org/files/assets/public/community-planning-and-development/documents/ds/building-codes/policies/drc-r324_2023-nec.pdf",
-      "checked_at": "2026-08-12T19:06:06.767Z",
+      "checked_at": "2026-08-13T05:07:07.089Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -53,7 +67,7 @@
     },
     {
       "url": "https://denvergov.org/files/assets/public/v/9/community-planning-and-development/documents/ds/building-codes/policies/admin_138.pdf",
-      "checked_at": "2026-08-12T19:06:10.465Z",
+      "checked_at": "2026-08-13T05:07:08.929Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

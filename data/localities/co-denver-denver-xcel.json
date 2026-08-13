@@ -90,7 +90,26 @@
     "source_ids": ["S4"],
     "notes": "Directly extracted from the City's own 'Building and Related Fees' policy (ADMIN 125/138, revised May 21, 2024), Table 1's 'Special Fee Modifications — Fee Reductions' row, which is explicitly and unambiguously labeled 'Solar Photovoltaic (PV) and other renewable energy (RE) projects' — not a general fee cap or an unrelated category."
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [], "notes": "Xcel Energy's own page references a separate 'Solar*Rewards' incentivized REC-payment program, but no dollar figure or rate was independently confirmed this session." },
+  "rebates": {
+    "value": [
+      {
+        "name": "Colorado Residential Solar Property Tax Exemption",
+        "administrator": "Colorado Division of Property Taxation (Dept. of Local Affairs)",
+        "description": "Statewide Colorado property tax exemption: independently owned residential solar electric generation facilities (photovoltaic systems) meeting the criteria in §39-1-102(6.8), C.R.S. are exempt from Colorado property taxation under §39-3-102, C.R.S. To qualify, the facility must be located on residential real property, used to produce electricity primarily for use in the residential improvements, and have a production capacity of no more than 100 kW AC. This is a genuine statewide exemption applicable to any qualifying Colorado residential system, not utility- or city-specific — distinct from any local (county/municipal) incentive, which the Division's own page notes Colorado does NOT offer at the general statewide level (only county/municipal governments may separately opt to offer their own local property/sales tax credits under §§30-11-107.3 and 31-20-101.3, C.R.S.).",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Residential real property, system owned by the residential property owner, electricity used primarily for the residential improvements, production capacity ≤100 kW AC.",
+        "url": "https://dpt.colorado.gov/renewable-energy",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S9"],
+    "notes": "Verified directly from the Colorado Division of Property Taxation's own official page. Xcel Energy's own page separately references a 'Solar*Rewards' incentivized REC-payment program, but no dollar figure or rate for that separate program was independently confirmed this session."
+  },
   "official_contacts": {
     "value": [
       {
@@ -111,7 +130,7 @@
     "confidence": 0.85,
     "source_ids": ["S3"]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -120,6 +139,14 @@
       "publisher": "Xcel Energy (Public Service Company of Colorado)",
       "type": "utility",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "Renewable and Clean Energy Assessment (Residential Renewable Energy property tax exemption)",
+      "url": "https://dpt.colorado.gov/renewable-energy",
+      "publisher": "Colorado Division of Property Taxation, Dept. of Local Affairs",
+      "type": "government",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",
