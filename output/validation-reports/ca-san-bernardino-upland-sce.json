@@ -3,7 +3,7 @@
   "file": "data/localities/ca-san-bernardino-upland-sce.json",
   "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 91,
+  "score": 89,
   "errors": [],
   "warnings": [
     {
@@ -20,6 +20,11 @@
       "field": "sources[S2].url",
       "category": "broken_url",
       "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[S8].url",
+      "category": "broken_url",
+      "message": "https://westerncommunityenergy.com — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -39,7 +44,7 @@
   "url_checks": [
     {
       "url": "https://www.uplandca.gov/development_services/building_safety/solar_permit_streamlining.php",
-      "checked_at": "2026-08-13T06:26:56.810Z",
+      "checked_at": "2026-08-13T20:32:44.726Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -47,7 +52,7 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-13T06:26:57.685Z",
+      "checked_at": "2026-08-13T20:32:45.853Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -55,7 +60,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-13T06:26:57.691Z",
+      "checked_at": "2026-08-13T20:32:45.856Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -63,7 +68,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/contact/",
-      "checked_at": "2026-08-13T06:26:58.429Z",
+      "checked_at": "2026-08-13T20:32:46.665Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -71,7 +76,7 @@
     },
     {
       "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-13T06:26:59.277Z",
+      "checked_at": "2026-08-13T20:32:47.381Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -79,7 +84,7 @@
     },
     {
       "url": "https://www.uplandca.gov/development_services/building_safety/schedule_inspection.php",
-      "checked_at": "2026-08-13T06:26:59.282Z",
+      "checked_at": "2026-08-13T20:32:47.383Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -87,7 +92,7 @@
     },
     {
       "url": "https://www.uplandca.gov/Documents/Permits%20and%20Licenses/Building%20and%20Safety%20Forms/2026%20Master%20Fee%20Schedule%20(01.13.26)%20-%20Building.pdf",
-      "checked_at": "2026-08-13T06:27:00.131Z",
+      "checked_at": "2026-08-13T20:32:48.104Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -95,11 +100,11 @@
     },
     {
       "url": "https://westerncommunityenergy.com",
-      "checked_at": "2026-08-13T06:27:00.953Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-08-13T20:32:48.886Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "timeout"
     }
   ]
 }

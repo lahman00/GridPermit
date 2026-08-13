@@ -3,7 +3,7 @@
   "file": "data/localities/ca-san-bernardino-apple-valley-sce.json",
   "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 96,
+  "score": 94,
   "errors": [],
   "warnings": [
     {
@@ -14,7 +14,12 @@
     {
       "field": "sources[S2].url",
       "category": "broken_url",
-      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — DNS failure (ENOTFOUND) — recommend a manual check"
+      "message": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True — timeout — recommend a manual check"
+    },
+    {
+      "field": "sources[S7].url",
+      "category": "broken_url",
+      "message": "https://applevalley-ca.elaws.us/code/coor_title8_ch8.38 — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -34,7 +39,7 @@
   "url_checks": [
     {
       "url": "https://applevalley.org/business/permit-center/",
-      "checked_at": "2026-08-13T06:25:29.835Z",
+      "checked_at": "2026-08-13T20:30:20.027Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -42,7 +47,7 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
-      "checked_at": "2026-08-13T06:25:31.118Z",
+      "checked_at": "2026-08-13T20:30:21.081Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -50,7 +55,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-13T06:25:41.121Z",
+      "checked_at": "2026-08-13T20:30:31.082Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -58,27 +63,27 @@
     },
     {
       "url": "https://avchoiceenergy.com/about-avce/",
-      "checked_at": "2026-08-13T06:25:42.272Z",
-      "status": "REACHABLE",
-      "http_status": 202,
-      "method": "HEAD",
-      "details": "HTTP 202"
-    },
-    {
-      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
-      "checked_at": "2026-08-13T06:25:43.027Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": null,
-      "method": "HEAD",
-      "details": "DNS failure (ENOTFOUND)"
-    },
-    {
-      "url": "https://applevalley-ca.elaws.us/code/coor_title8_ch8.38",
-      "checked_at": "2026-08-13T06:25:43.033Z",
+      "checked_at": "2026-08-13T20:30:32.024Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
       "details": "HTTP 200"
+    },
+    {
+      "url": "https://download.newsroom.edison.com/create_memory_file/?f_id=5cc32d492cfac24d21aecf4c&content_verified=True",
+      "checked_at": "2026-08-13T20:30:33.790Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "timeout"
+    },
+    {
+      "url": "https://applevalley-ca.elaws.us/code/coor_title8_ch8.38",
+      "checked_at": "2026-08-13T20:30:43.790Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "timeout"
     }
   ]
 }

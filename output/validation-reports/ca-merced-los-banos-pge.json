@@ -3,9 +3,14 @@
   "file": "data/localities/ca-merced-los-banos-pge.json",
   "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 98,
+  "score": 96,
   "errors": [],
   "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.losbanos.org/departments/community_and_economic_development/building_division/index.php — HTTP 418: not a removal signal, treated as unverifiable — recommend a manual check"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -29,15 +34,15 @@
   "url_checks": [
     {
       "url": "https://www.losbanos.org/departments/community_and_economic_development/building_division/index.php",
-      "checked_at": "2026-08-13T06:19:54.357Z",
-      "status": "REACHABLE",
-      "http_status": 202,
+      "checked_at": "2026-08-13T20:22:27.061Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 418,
       "method": "HEAD",
-      "details": "HTTP 202"
+      "details": "HTTP 418: not a removal signal, treated as unverifiable"
     },
     {
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
-      "checked_at": "2026-08-13T06:19:55.463Z",
+      "checked_at": "2026-08-13T20:22:28.653Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -45,7 +50,7 @@
     },
     {
       "url": "https://www.selfgenca.com/home/about/",
-      "checked_at": "2026-08-13T06:19:55.514Z",
+      "checked_at": "2026-08-13T20:22:28.761Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -53,7 +58,7 @@
     },
     {
       "url": "https://www.westlightenergy.org/in-the-community/los-banos/",
-      "checked_at": "2026-08-13T06:19:56.198Z",
+      "checked_at": "2026-08-13T20:22:29.517Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

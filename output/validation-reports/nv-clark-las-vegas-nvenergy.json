@@ -3,18 +3,13 @@
   "file": "data/localities/nv-clark-las-vegas-nvenergy.json",
   "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 93,
+  "score": 95,
   "errors": [],
   "warnings": [
     {
       "field": "permit_fees",
       "category": "unsupported_claim",
       "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
-    },
-    {
-      "field": "permit_url",
-      "category": "broken_url",
-      "message": "https://www.lasvegasnevada.gov/BuildingPermits — timeout — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -30,15 +25,15 @@
   "url_checks": [
     {
       "url": "https://www.lasvegasnevada.gov/BuildingPermits",
-      "checked_at": "2026-08-13T19:09:34.830Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": null,
+      "checked_at": "2026-08-13T20:46:24.709Z",
+      "status": "REACHABLE",
+      "http_status": 200,
       "method": "HEAD",
-      "details": "timeout"
+      "details": "HTTP 200"
     },
     {
       "url": "https://puc.nv.gov/Renewable_Energy/Net_Metering/",
-      "checked_at": "2026-08-13T19:09:44.838Z",
+      "checked_at": "2026-08-13T20:46:26.175Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -46,7 +41,7 @@
     },
     {
       "url": "https://files.lasvegasnevada.gov/building-safety/Residential-Photovoltaic-Solar-Permits.pdf",
-      "checked_at": "2026-08-13T19:09:45.903Z",
+      "checked_at": "2026-08-13T20:46:26.969Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -54,7 +49,7 @@
     },
     {
       "url": "https://files.lasvegasnevada.gov/building-safety/FeeTable-effective-7-2021.pdf",
-      "checked_at": "2026-08-13T19:09:46.168Z",
+      "checked_at": "2026-08-13T20:46:27.272Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -62,7 +57,7 @@
     },
     {
       "url": "https://puc.nv.gov/Utilities/Electric/",
-      "checked_at": "2026-08-13T19:09:46.558Z",
+      "checked_at": "2026-08-13T20:46:27.542Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
