@@ -1,0 +1,199 @@
+{
+  "record_id": "va-richmond-richmond-dominion",
+  "schema_version": "1.4.0",
+  "state": "VA",
+  "utility": {
+    "value": "Dominion Energy Virginia",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Dominion Energy Virginia is the dominant investor-owned electric utility for the City of Richmond — a well-established, non-ambiguous case (unlike Loudoun County, researched separately this session, which is genuinely split between Dominion and a cooperative)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Dominion Energy Virginia",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Richmond's residential solar customers this session; Dominion Energy Virginia is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Richmond",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Richmond (Independent City)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Richmond is a Virginia independent city, not part of any county — its own municipal government is the only local jurisdiction level."
+  },
+  "permit_authority": {
+    "value": "City of Richmond Department of Planning & Development Review, Bureau of Permits and Inspections",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Virginia's Uniform Statewide Building Code (USBC) is administered centrally by DHCD, but enforcement is delegated to each local government's own building department. Richmond is a SolSmart Gold designee, indicating a formally streamlined solar permitting process."
+  },
+  "permit_url": {
+    "value": "https://www.rva.gov/planning-development-review/permits-and-inspections",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.dominionenergy.com/virginia/renewable-energy-programs/net-metering",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "See the identical Dominion Energy net-metering process notes on the Loudoun County record (va-loudoun-loudouncounty-dominion) — 4-step NMIN application process, systems sized to no more than 150% of expected annual consumption, 20kW AC residential threshold before standby charges, often free interconnection for small residential systems."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Electrical Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Full engineered/plan-review submission (one-line diagram showing array configuration, combiner/junction box, DC/AC grounding, inverter, point of connection; manufacturer's data sheets; array electrical specifications; voltage/current calculations)",
+        "required_when": "for larger or non-standard systems requiring plan review — the City's own Electrical Plan Review Requirements document explicitly exempts standard one- or two-family dwellings (Use Group R5) from plan submission entirely, per its own individual-responsible-for-signing-plans table ('NO PLANS REQUIRED')",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "A building permit must be issued before the electrical permit is released for any photovoltaic project, per the City's own Electrical Plan Review Requirements (Section C-1, item 07). Plan submissions, where required, must be in PDF format via the City's EnerGov-based online portal, following the City's own file-naming convention."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own documents describe extensive plan-review content requirements but did not state a specific residential inspection sequence independent of plan review this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City states it is committed to 'timely review' of solar PV permits as a SolSmart Gold designee and that solar projects 'may receive expedited permit review,' but no specific day-count was independently confirmed from a primary City document this session."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Solar panels are treated as an accessory use to a permitted primary building/structure and are permitted by right in all zoning districts",
+        "Standard one- or two-family dwellings (Use Group R5) are explicitly exempt from the City's electrical plan-submission requirement per its own Electrical Plan Review Requirements document — 'NO PLANS REQUIRED'",
+        "Renovations that do not change the electrical service size (a photovoltaic system supplying the same or less than the utility's service size is not considered a change in service size) may have plans signed by a Master Electrician or Class A Electrical Contractor's qualified individual rather than a licensed Professional Engineer"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential (1 & 2 Family) building/electrical permit — valuation-based",
+        "amount_usd": 63,
+        "unit": "base fee for $0-$2,000 value of work, plus $6.07 per additional $1,000 (or fraction) above $2,000",
+        "notes": "Per the City's own Fee Schedule (effective 2024-07-01). Value of work is the higher of the contractor's estimate or the RS Means price. This is the same fee formula used for building, electrical, mechanical, and most other trade permits under the schedule — the applicable line item for a residential solar installation, which requires both a building and an electrical permit."
+      },
+      {
+        "name": "Virginia state surcharge",
+        "amount_usd": null,
+        "unit": "2.0% of the final calculated permit fee",
+        "notes": "Per the City's own Fee Schedule — applies to every permit type statewide, added after the base fee/valuation calculation."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S4"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide Virginia or Richmond-specific solar rebate/tax-credit program was independently confirmed this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Richmond Bureau of Permits and Inspections",
+        "phone": "804-646-4169",
+        "email": "PDRPermitsAndInspections@rva.gov",
+        "url": "https://www.rva.gov/planning-development-review/permits-and-inspections"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Permits and Inspections",
+      "url": "https://www.rva.gov/planning-development-review/permits-and-inspections",
+      "publisher": "City of Richmond, Department of Planning & Development Review",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Electrical Plan Review Requirements (Revision 01-18-2025)",
+      "url": "https://www.rva.gov/sites/default/files/2025-02/Electrical-Handout_0.pdf",
+      "publisher": "City of Richmond, Bureau of Permits and Inspections",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Net Metering",
+      "url": "https://www.dominionenergy.com/virginia/renewable-energy-programs/net-metering",
+      "publisher": "Dominion Energy Virginia",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "City of Richmond Fee Schedule (Revision 07-01-2024)",
+      "url": "https://www.rva.gov/sites/default/files/2024-08/PermitsFeeSchedule.pdf",
+      "publisher": "City of Richmond, Bureau of Permits and Inspections",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "record_id": "va-loudoun-loudouncounty-dominion",
+  "schema_version": "1.4.0",
+  "state": "VA",
+  "utility": {
+    "value": "Dominion Energy Virginia",
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Loudoun County is genuinely split between two electric providers — Dominion Energy Virginia serves most of Northern Virginia, while Northern Virginia Electric Cooperative (NOVEC), a member-owned cooperative, separately serves a substantial concentrated portion of the county (NOVEC alone reports roughly 33,000 Loudoun County customers, most within about 5 miles of its own Evergreen Mills Road facility) — this is not a clean geographic north/south split like some other multi-utility states researched this marathon, and this specific record does not independently verify which provider serves a majority of Loudoun's residential parcels. Dominion is recorded here as the more broadly-described provider per general reporting, with confidence lowered accordingly; a solar applicant in Loudoun County should confirm their own provider directly rather than assume."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Dominion Energy Virginia",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Loudoun County's residential solar customers this session; Dominion Energy Virginia is recorded as both the distribution and default generation utility for the portion of the county it serves — see the utility field notes on the genuine Dominion/NOVEC split within the county."
+    },
+    "confidence": 0.4,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Loudoun County",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Loudoun County",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Loudoun County Department of Building and Development, Permitting Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Virginia's Uniform Statewide Building Code (USBC) is administered centrally by the Department of Housing and Community Development (DHCD) and its Board of Housing and Community Development, but enforcement — including permit fees, application processes, staffing, and review timelines — is delegated to each local government's own building department. Loudoun County's own Department of Building and Development is the permitting authority for unincorporated county areas; incorporated towns within the county (e.g., Leesburg, Purcellville) may operate their own separate building departments and would be separate AHJs not covered by this record."
+  },
+  "permit_url": {
+    "value": "https://www.loudoun.gov/solarpermits",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.dominionenergy.com/virginia/renewable-energy-programs/net-metering",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Construction drawings — three sets of wet-sealed plans showing PV array configuration, wiring system, overcurrent protection, inverter, disconnects, required signage, AC connection to the building, and attachment detail",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Specification sheets and installation manuals for all components",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "A plat depicting the ground-mounted array's location relative to property boundaries",
+        "required_when": "for ground-mounted systems (required for the zoning permit)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Building/Zoning Permit Application and a separate Electrical Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Applications are submitted through LandMARC, the County's own online permitting system, then the complete packet is delivered to the Government Center at 1 Harrison Street SE, Leesburg."
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections are scheduled through LandMARC",
+      "Inspections occur between 8:30 a.m. and 3:00 p.m., Monday through Friday"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-timeline day-count was stated on the County's own page read this session."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Homeowners may pull the permit themselves using a 'Statement of Owner/Lessee License Exemption,' or hire a licensed Virginia State Contractor",
+        "Ground-mounted systems require an additional zoning permit; roof-mounted systems on an existing structure do not"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Building Permit",
+        "amount_usd": 230,
+        "unit": "flat fee",
+        "notes": "Per the County's own Solar Permits page."
+      },
+      {
+        "name": "Zoning Permit",
+        "amount_usd": 165,
+        "unit": "flat fee — ground-mounted systems only",
+        "notes": "Per the County's own Solar Permits page; not required for roof-mounted systems on an existing structure."
+      },
+      {
+        "name": "Electrical Permit",
+        "amount_usd": 70,
+        "unit": "flat fee",
+        "notes": "Per the County's own Solar Permits page."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide Virginia or Loudoun County-specific solar rebate/tax-credit program was independently confirmed this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Loudoun County Department of Building and Development",
+        "phone": "703-777-0220",
+        "email": null,
+        "url": "https://www.loudoun.gov/solarpermits"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permits",
+      "url": "https://www.loudoun.gov/solarpermits",
+      "publisher": "Loudoun County, Virginia",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Virginia Uniform Statewide Building Code (USBC)",
+      "url": "https://www.dhcd.virginia.gov/virginia-uniform-statewide-building-code-usbc",
+      "publisher": "Virginia Department of Housing and Community Development (DHCD)",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Net Metering",
+      "url": "https://www.dominionenergy.com/virginia/renewable-energy-programs/net-metering",
+      "publisher": "Dominion Energy Virginia",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

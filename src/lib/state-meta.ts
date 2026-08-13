@@ -30,6 +30,7 @@ export const STATE_META: Record<string, StateMeta> = {
 	NJ: { code: "NJ", name: "New Jersey", slug: "new-jersey" },
 	UT: { code: "UT", name: "Utah", slug: "utah" },
 	MD: { code: "MD", name: "Maryland", slug: "maryland" },
+	VA: { code: "VA", name: "Virginia", slug: "virginia" },
 };
 
 // Every currently-supported state, in the fixed order above (not alphabetical

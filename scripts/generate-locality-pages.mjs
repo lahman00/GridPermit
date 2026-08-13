@@ -67,6 +67,7 @@ const STATE_SLUGS = {
   NJ: "new-jersey",
   UT: "utah",
   MD: "maryland",
+  VA: "virginia",
 };
 
 function pagesRootFor(record) {
