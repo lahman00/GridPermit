@@ -5,7 +5,10 @@
   "utility": {
     "value": "Tucson Electric Power (TEP)",
     "confidence": 0.9,
-    "source_ids": ["S1", "S2"],
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
     "notes": "Confirmed both via the City of Tucson's own Residential Solar Permits page (which links to 'TEP Solar Saturation Maps' as a resource) and directly via TEP's own net-metering and residential-interconnection pages, which describe TEP as the interconnecting utility for solar projects within its service territory including Tucson."
   },
   "generation_supplier": {
@@ -15,24 +18,44 @@
       "notes": "No Community Choice Aggregator was found serving Arizona this session (Arizona has no CCA framework). Per the Arizona Corporation Commission's October 2018 order, traditional net metering was phased out; new/expanded systems are compensated under TEP's Rider-14 Resource Comparison Proxy (RCP) Export Rate, a buyback rate reset annually and expected to decline roughly 10%/year until it approaches utility-scale solar cost. Customers with pre-existing systems keep traditional net metering (Rider-4, NM-PRS) for 20 years from interconnection. RCP-rate customers must also take service under a Time-of-Use or Demand Time-of-Use pricing plan."
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Tucson", "confidence": 1, "source_ids": ["S3"] },
-  "county": { "value": "Pima County", "confidence": 0.9, "source_ids": ["S3"] },
+  "city": {
+    "value": "Tucson",
+    "confidence": 1,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "county": {
+    "value": "Pima County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ]
+  },
   "permit_authority": {
     "value": "City of Tucson Planning & Development Services Department (PDSD)",
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "permit_url": {
     "value": "https://www.tucsonaz.gov/Departments/Planning-Development-Services/Permits/Residential-Solar-Permits",
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.tep.com/residential-interconnection/",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "battery_programs": {
     "value": null,
@@ -42,22 +65,49 @@
   },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval number and approved set of documents/drawings", "required_when": "always, for SolarAPP+ submittals via Tucson Development Center Online", "source_ids": ["S3"] },
-      { "name": "Project description beginning with the word 'SolarAPP+'", "required_when": "always, for SolarAPP+ submittals", "source_ids": ["S3"] }
+      {
+        "name": "SolarAPP+ approval number and approved set of documents/drawings",
+        "required_when": "always, for SolarAPP+ submittals via Tucson Development Center Online",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Project description beginning with the word 'SolarAPP+'",
+        "required_when": "always, for SolarAPP+ submittals",
+        "source_ids": [
+          "S3"
+        ]
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Per the City's own 'Residential Solar Permits' page. The page describes the approved SolarAPP+ document set and online submittal process but does not itemize a full document checklist the way Denver's or Phoenix's pages do; recorded at moderate confidence and left minimal rather than inferring additional items."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's Residential Solar Permits page describes permit issuance and fees but this session did not locate an explicit inspection-scheduling procedure page (distinct from Phoenix's, which names a specific phone number and web inspection key); left unresolved rather than inferred." },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's Residential Solar Permits page describes permit issuance and fees but this session did not locate an explicit inspection-scheduling procedure page (distinct from Phoenix's, which names a specific phone number and web inspection key); left unresolved rather than inferred."
+  },
   "timeline_days": {
-    "value": { "min_days": 1, "max_days": 1, "notes": "SolarAPP+ pathway only: the City's own page states permits are 'issued within 24 hours.' A separate, longer 'Standard Lane' review timeline for non-SolarApp+ solar submittals was referenced in a search-result snippet only (not yet loaded from the primary City page this session) and is therefore NOT recorded here, per the rule against using snippets as evidence." },
+    "value": {
+      "min_days": 1,
+      "max_days": 1,
+      "notes": "SolarAPP+ pathway only: the City's own page states permits are 'issued within 24 hours.' A separate, longer 'Standard Lane' review timeline for non-SolarApp+ solar submittals was referenced in a search-result snippet only (not yet loaded from the primary City page this session) and is therefore NOT recorded here, per the rule against using snippets as evidence."
+    },
     "confidence": 0.85,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -74,18 +124,53 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "All conditions quoted/paraphrased directly from the City's own 'Residential Solar Permits' page."
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ PV permit processing fee", "amount_usd": 35, "unit": "flat fee, charged by the SolarAPP+ website", "notes": "Per the City's own page: 'A $35 PV permit... processing fee will be charged by the SolarAPP+ website.'" },
-      { "name": "SolarAPP+ PV + Storage permit processing fee", "amount_usd": 25, "unit": "flat fee, charged by the SolarAPP+ website", "notes": "Per the City's own page: '...and $25 PV + Storage permit processing fee will be charged by the SolarAPP+ website.' Recorded verbatim despite being lower than the PV-only fee, since this is the City's own explicit stated figure, not a transcription assumption." }
+      {
+        "name": "SolarAPP+ PV permit processing fee",
+        "amount_usd": 35,
+        "unit": "flat fee, charged by the SolarAPP+ website",
+        "notes": "Per the City's own page: 'A $35 PV permit... processing fee will be charged by the SolarAPP+ website.'"
+      },
+      {
+        "name": "SolarAPP+ PV + Storage permit processing fee",
+        "amount_usd": 25,
+        "unit": "flat fee, charged by the SolarAPP+ website",
+        "notes": "Per the City's own page: '...and $25 PV + Storage permit processing fee will be charged by the SolarAPP+ website.' Recorded verbatim despite being lower than the PV-only fee, since this is the City's own explicit stated figure, not a transcription assumption."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": [
+      {
+        "name": "Arizona Credit for Solar Energy Devices",
+        "administrator": "Arizona Department of Revenue",
+        "description": "Statewide Arizona individual income tax credit under A.R.S. §43-1083: 25% of the cost of installing a solar energy device at the taxpayer's Arizona residence, capped at $1,000 total per residence (not per year — the $1,000 cap is cumulative across all tax years for the same residence). Any unused credit may be carried forward up to 5 consecutive tax years. Applies statewide to any qualifying Arizona residential installation, not utility- or city-specific.",
+        "value_usd_flat": 1000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Arizona resident, not a dependent of another taxpayer, installing a solar energy device (as defined in A.R.S. §42-5001) at their Arizona residence; claimed via Arizona Form 310.",
+        "url": "https://www.azleg.gov/ars/43/01083.htm",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from the Arizona State Legislature's own hosted statute text (A.R.S. §43-1083). Arizona's own Department of Revenue site (azdor.gov) and Clean Energy Hub (resilient.az.gov) both returned persistent Cloudflare challenges this session, so azleg.gov's own statute text was used instead as the primary source."
+  },
   "official_contacts": {
     "value": [
       {
@@ -104,9 +189,12 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1", "S3"]
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -115,6 +203,14 @@
       "publisher": "Tucson Electric Power (TEP)",
       "type": "utility",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "A.R.S. §43-1083 — Credit for solar energy devices",
+      "url": "https://www.azleg.gov/ars/43/01083.htm",
+      "publisher": "Arizona State Legislature",
+      "type": "government",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",

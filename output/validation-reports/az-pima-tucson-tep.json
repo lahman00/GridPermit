@@ -1,13 +1,18 @@
 {
   "record_id": "az-pima-tucson-tep",
   "file": "data/localities/az-pima-tucson-tep.json",
-  "validated_at": "2026-08-12",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 93,
+  "score": 88,
   "errors": [],
   "warnings": [
     {
       "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates",
       "category": "unsupported_claim",
       "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
     },
@@ -25,16 +30,12 @@
     {
       "field": "inspection_steps",
       "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.tucsonaz.gov/Departments/Planning-Development-Services/Permits/Residential-Solar-Permits",
-      "checked_at": "2026-08-12T19:32:02.087Z",
+      "checked_at": "2026-08-13T05:20:56.835Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -42,7 +43,15 @@
     },
     {
       "url": "https://www.tep.com/residential-interconnection/",
-      "checked_at": "2026-08-12T19:32:02.362Z",
+      "checked_at": "2026-08-13T05:20:57.214Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.azleg.gov/ars/43/01083.htm",
+      "checked_at": "2026-08-13T05:20:58.002Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -50,7 +59,7 @@
     },
     {
       "url": "https://www.tep.com/net-metering/",
-      "checked_at": "2026-08-12T19:32:02.616Z",
+      "checked_at": "2026-08-13T05:20:59.007Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

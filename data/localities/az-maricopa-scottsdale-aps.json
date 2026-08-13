@@ -5,7 +5,9 @@
   "utility": {
     "value": "Arizona Public Service (APS)",
     "confidence": 0.75,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "The City of Scottsdale's own 'Special Assessments and Improvement Districts' finance page directly describes an APS-owned 69kV power line project 'located north of Raintree Drive and 90th Street' within Scottsdale, and the City's own hosted utility-easement documents reference APS easements on Scottsdale properties — the City's own website, not a third-party source, naming APS as the electric provider. APS's and SRP's own service-area pages could not be directly loaded this session (Cloudflare/connection blocks), so this is recorded at moderate rather than high confidence; a small part of Scottsdale bordering Tempe/Mesa may fall in SRP territory and was not independently ruled out."
   },
   "generation_supplier": {
@@ -15,34 +17,102 @@
       "notes": "Not independently re-verified for Scottsdale specifically this session; assumed consistent with the APS RCP Export Rider structure already documented in az-maricopa-phoenix-aps.json (same statewide-utility reusable fact, applicable only within confirmed APS territory)."
     },
     "confidence": 0.6,
-    "source_ids": ["S3"]
+    "source_ids": [
+      "S3"
+    ]
   },
-  "city": { "value": "Scottsdale", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Maricopa County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Scottsdale",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Maricopa County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Scottsdale Planning & Development Services, Permit Services",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.scottsdaleaz.gov/planning-development/permit-services",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City's own solar-specific document, 'Residential Solar Plan Review/Permit: Quality Submittal Guidelines' (previously hosted at ww2.scottsdaleaz.gov), was blocked this session by a Cloudflare bot-verification challenge on the ww2 subdomain; a direct WebFetch attempt returned HTTP 403; a bibliographic listing on planning.org linked back to the same blocked URL rather than mirroring its content; and a Wayback Machine lookup could not be read this session due to a tool access restriction. Per the mission's blocked-source-recovery policy, this specific document is classified as officially blocked after exhausting reasonable alternate paths; this record instead relies on the City's general Permit Services page, which confirms 'Solar heater installation' as an example of a project requiring a building permit and that all permits are submitted through the Scottsdale SPUR portal, but does not itemize solar-specific fees, timelines, or eligibility constraints."
   },
   "interconnection_url": {
     "value": "https://www.aps.com/en/Residential/Service-Plans/Compare-Service-Plans/Renewable-Energy-Riders",
     "confidence": 0.5,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "Reused from the statewide APS Renewable Energy Riders page (same as az-maricopa-phoenix-aps.json) since APS's interconnection/rider structure is a statewide utility-level fact, applicable within confirmed APS territory; not independently reloaded this session (aps.com direct navigation failed)."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's solar-specific submittal-guidelines PDF (which would contain this checklist) was blocked this session; see permit_url notes. Not inferred from the general Permit Services page or from Phoenix/Tucson's document lists, since Scottsdale's own requirements were not independently confirmed." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "Third-party commercial permit-expediting sites (permitmint.com, doineedapermit.org, etc.) published specific fee/timeline figures for Scottsdale solar permits, but per the mission's source-hierarchy rule these are explicitly not valid evidence and were not used." },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "Third-party sites described a 'Small Scope Review (SSR)' expedited path tied to a July 2024 'Solar Panel Placement Guidelines' document, but this was not independently confirmed against the City's own blocked source this session, so it is not recorded here." },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's solar-specific submittal-guidelines PDF (which would contain this checklist) was blocked this session; see permit_url notes. Not inferred from the general Permit Services page or from Phoenix/Tucson's document lists, since Scottsdale's own requirements were not independently confirmed."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Third-party commercial permit-expediting sites (permitmint.com, doineedapermit.org, etc.) published specific fee/timeline figures for Scottsdale solar permits, but per the mission's source-hierarchy rule these are explicitly not valid evidence and were not used."
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Third-party sites described a 'Small Scope Review (SSR)' expedited path tied to a July 2024 'Solar Panel Placement Guidelines' document, but this was not independently confirmed against the City's own blocked source this session, so it is not recorded here."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Arizona Credit for Solar Energy Devices",
+        "administrator": "Arizona Department of Revenue",
+        "description": "Statewide Arizona individual income tax credit under A.R.S. §43-1083: 25% of the cost of installing a solar energy device at the taxpayer's Arizona residence, capped at $1,000 total per residence (not per year — the $1,000 cap is cumulative across all tax years for the same residence). Any unused credit may be carried forward up to 5 consecutive tax years. Applies statewide to any qualifying Arizona residential installation, not utility- or city-specific.",
+        "value_usd_flat": 1000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Arizona resident, not a dependent of another taxpayer, installing a solar energy device (as defined in A.R.S. §42-5001) at their Arizona residence; claimed via Arizona Form 310.",
+        "url": "https://www.azleg.gov/ars/43/01083.htm",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from the Arizona State Legislature's own hosted statute text (A.R.S. §43-1083). Arizona's own Department of Revenue site (azdor.gov) and Clean Energy Hub (resilient.az.gov) both returned persistent Cloudflare challenges this session, so azleg.gov's own statute text was used instead as the primary source."
+  },
   "official_contacts": {
     "value": [
       {
@@ -54,9 +124,11 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -65,6 +137,14 @@
       "publisher": "City of Scottsdale",
       "type": "government",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "A.R.S. §43-1083 — Credit for solar energy devices",
+      "url": "https://www.azleg.gov/ars/43/01083.htm",
+      "publisher": "Arizona State Legislature",
+      "type": "government",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S3",

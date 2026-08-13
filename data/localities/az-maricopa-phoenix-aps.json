@@ -5,7 +5,9 @@
   "utility": {
     "value": "Arizona Public Service (APS)",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "APS is Arizona's largest electric utility, serving most of the Phoenix metro area (though parts of Phoenix and neighboring cities are served by the Salt River Project (SRP), a separate public power district — this record is scoped to APS territory only, not assumed for all of Phoenix)."
   },
   "generation_supplier": {
@@ -15,34 +17,79 @@
       "notes": "No Community Choice Aggregator was found serving Arizona this session (Arizona does not have a CCA framework comparable to California's). APS's own page describes its 'Resource Comparison Proxy (RCP) Export Rider' — a net billing structure that credits excess solar generation at a monthly RCP purchase rate (rolled over month to month, with an annual refund check if the credit exceeds $25), rather than traditional one-to-one net metering."
     },
     "confidence": 0.65,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Phoenix", "confidence": 1, "source_ids": ["S2"] },
-  "county": { "value": "Maricopa County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Phoenix",
+    "confidence": 1,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "county": {
+    "value": "Maricopa County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Phoenix Planning & Development Department (PDD)",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_url": {
     "value": "https://www.phoenix.gov/administration/departments/pdd/residential-building/resident-plan-reviews/solarapp-photovoltaic.html",
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.aps.com/en/Residential/Service-Plans/Compare-Service-Plans/Renewable-Energy-Riders",
     "confidence": 0.75,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's own SolarAPP+ eligibility rules explicitly exclude battery/energy storage systems from the streamlined SolarAPP+ pathway ('No battery storage'), and no separate APS battery-specific program was independently confirmed this session." },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own SolarAPP+ eligibility rules explicitly exclude battery/energy storage systems from the streamlined SolarAPP+ pathway ('No battery storage'), and no separate APS battery-specific program was independently confirmed this session."
+  },
   "required_documents": {
     "value": [
-      { "name": "SolarAPP+ approval document and approvals upload document (includes manufacturer specification sheets)", "required_when": "always, for SolarAPP+ submittals", "source_ids": ["S2"] },
-      { "name": "Three-line diagram", "required_when": "always, for SolarAPP+ submittals", "source_ids": ["S2"] },
-      { "name": "Plot plan", "required_when": "always, for SolarAPP+ submittals", "source_ids": ["S2"] }
+      {
+        "name": "SolarAPP+ approval document and approvals upload document (includes manufacturer specification sheets)",
+        "required_when": "always, for SolarAPP+ submittals",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Three-line diagram",
+        "required_when": "always, for SolarAPP+ submittals",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Plot plan",
+        "required_when": "always, for SolarAPP+ submittals",
+        "source_ids": [
+          "S2"
+        ]
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Per the City's own 'SolarAPP/Photovoltaic Projects' page. These documents are emailed to pdd.records@phoenix.gov with the PDD permit number and property address in the subject line; the SolarAPP+ approved checklist, three-line diagram, and plot plan must all correlate or inspection delays occur. The Phoenix Fire Department separately requires its own permit for PV and battery energy storage systems."
   },
   "inspection_steps": {
@@ -51,12 +98,21 @@
       "Call 602-262-7811 if additional assistance is required"
     ],
     "confidence": 0.75,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "duplex"],
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -73,16 +129,46 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "SolarAPP+ record/revision change fee", "amount_usd": 37.50, "unit": "flat fee, per revision", "notes": "Charged when a SolarAPP+ revision requires PDD staff to update an existing permit record. The base SolarAPP+ permit fee itself was not confirmed this session — the City's general PDD fee schedule PDF could not be read (file-download dialog, not a viewable page)." }
+      {
+        "name": "SolarAPP+ record/revision change fee",
+        "amount_usd": 37.5,
+        "unit": "flat fee, per revision",
+        "notes": "Charged when a SolarAPP+ revision requires PDD staff to update an existing permit record. The base SolarAPP+ permit fee itself was not confirmed this session — the City's general PDD fee schedule PDF could not be read (file-download dialog, not a viewable page)."
+      }
     ],
     "confidence": 0.75,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "rebates": {
+    "value": [
+      {
+        "name": "Arizona Credit for Solar Energy Devices",
+        "administrator": "Arizona Department of Revenue",
+        "description": "Statewide Arizona individual income tax credit under A.R.S. §43-1083: 25% of the cost of installing a solar energy device at the taxpayer's Arizona residence, capped at $1,000 total per residence (not per year — the $1,000 cap is cumulative across all tax years for the same residence). Any unused credit may be carried forward up to 5 consecutive tax years. Applies statewide to any qualifying Arizona residential installation, not utility- or city-specific.",
+        "value_usd_flat": 1000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Arizona resident, not a dependent of another taxpayer, installing a solar energy device (as defined in A.R.S. §42-5001) at their Arizona residence; claimed via Arizona Form 310.",
+        "url": "https://www.azleg.gov/ars/43/01083.htm",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from the Arizona State Legislature's own hosted statute text (A.R.S. §43-1083). Arizona's own Department of Revenue site (azdor.gov) and Clean Energy Hub (resilient.az.gov) both returned persistent Cloudflare challenges this session, so azleg.gov's own statute text was used instead as the primary source."
+  },
   "official_contacts": {
     "value": [
       {
@@ -101,9 +187,11 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -112,6 +200,14 @@
       "publisher": "Arizona Public Service (APS)",
       "type": "utility",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "A.R.S. §43-1083 — Credit for solar energy devices",
+      "url": "https://www.azleg.gov/ars/43/01083.htm",
+      "publisher": "Arizona State Legislature",
+      "type": "government",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",

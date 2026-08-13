@@ -1,11 +1,17 @@
 {
   "record_id": "az-maricopa-scottsdale-aps",
   "file": "data/localities/az-maricopa-scottsdale-aps.json",
-  "validated_at": "2026-08-12",
-  "status": "PASS",
-  "score": 100,
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 95,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
   "recommendations": [
     {
       "field": "battery_programs",
@@ -30,16 +36,12 @@
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.scottsdaleaz.gov/planning-development/permit-services",
-      "checked_at": "2026-08-12T19:40:57.092Z",
+      "checked_at": "2026-08-13T05:20:52.922Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -47,7 +49,15 @@
     },
     {
       "url": "https://www.aps.com/en/Residential/Service-Plans/Compare-Service-Plans/Renewable-Energy-Riders",
-      "checked_at": "2026-08-12T19:40:57.566Z",
+      "checked_at": "2026-08-13T05:20:54.697Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.azleg.gov/ars/43/01083.htm",
+      "checked_at": "2026-08-13T05:20:55.144Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -55,7 +65,7 @@
     },
     {
       "url": "https://www.scottsdaleaz.gov/finance/special-assessments-and-improvement-districts",
-      "checked_at": "2026-08-12T19:40:58.857Z",
+      "checked_at": "2026-08-13T05:20:55.880Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

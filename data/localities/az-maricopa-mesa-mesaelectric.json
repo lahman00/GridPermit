@@ -5,7 +5,9 @@
   "utility": {
     "value": "City of Mesa Energy Resources Department (Mesa Electric, municipal utility)",
     "confidence": 0.85,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Mesa operates its own municipal electric utility for part of the city; the utility's own Solar Program page explicitly states 'SRP customers, please visit SRP's website' — confirming Mesa is genuinely split between two separate electric providers depending on address, similar to Phoenix's APS/SRP split. This record is scoped to Mesa's own municipal electric service area only; SRP-served Mesa addresses are NOT covered by this record and should not be assumed to follow the same interconnection/net-metering process."
   },
   "generation_supplier": {
@@ -15,46 +17,128 @@
       "notes": "Municipal net metering program (FY25-26): Mesa purchases excess PV generation from qualified net metering customers on a monthly basis, applied as a bill credit; no CCA applicable (municipal utility, not investor-owned). Initial credit rate is determined by the date of customer interconnection, per Mesa's own Solar Program page — a specific numeric rate was not published on this page and was not independently found this session."
     },
     "confidence": 0.7,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Mesa", "confidence": 1, "source_ids": ["S1", "S2"] },
-  "county": { "value": "Maricopa County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Mesa",
+    "confidence": 1,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "county": {
+    "value": "Maricopa County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Mesa Development Services Department, Permit Services (construction permit only where triggered); City of Mesa Energy Resources Department (interconnection)",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Genuinely distinct from Phoenix and Tucson: Mesa's own Residential Construction FAQ states directly, 'solar power systems under 10,000 square feet that are certified by a recognized agency and installed by a licensed Arizona contractor... do not need a construction permit. However, new electric meters or circuits will require a permit.' So most residential rooftop solar in Mesa does not go through the City's DIMES building-permit process at all unless the installation adds a new electric meter or circuit — the substantive gatekeeping step is Energy Resources' interconnection application, not a construction permit. This is a real, city-specific difference, not an assumption; recorded verbatim from Mesa's own page rather than inferred from Phoenix/Tucson's pattern."
   },
   "permit_url": {
     "value": "https://www.mesaaz.gov/Business-Development/Development-Services/Building-Permit-Plan-Review/Residential-Construction/Residential-Construction-FAQ",
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "interconnection_url": {
     "value": "https://www.mesaaz.gov/Utilities/Energy/Electric/Solar-Program",
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [], "notes": "Mesa's Solar Program page sets a higher system-size allowance for systems WITH storage (see eligibility_constraints) but does not describe a separate battery incentive/rebate program; left null rather than inferred." },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Mesa's Solar Program page sets a higher system-size allowance for systems WITH storage (see eligibility_constraints) but does not describe a separate battery incentive/rebate program; left null rather than inferred."
+  },
   "required_documents": {
     "value": [
-      { "name": "Plan submittal (spec sheet, protection equipment, electrical three-line, control schematics and connection diagrams, signage and labeling, as one uploaded file)", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Customer System Quotation and Contract", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Copy of Customer Utility Bill", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Evidence of Property Ownership", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Signed Customer Acknowledgement Document", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Solar Installer/Electric Contractor Application Acknowledgement", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Certificate of Qualified Installer/Electrical Contractor", "required_when": "always", "source_ids": ["S1"] }
+      {
+        "name": "Plan submittal (spec sheet, protection equipment, electrical three-line, control schematics and connection diagrams, signage and labeling, as one uploaded file)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Customer System Quotation and Contract",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Copy of Customer Utility Bill",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Evidence of Property Ownership",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed Customer Acknowledgement Document",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Solar Installer/Electric Contractor Application Acknowledgement",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Certificate of Qualified Installer/Electrical Contractor",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Per Mesa Energy Resources' own Solar Program page (interconnection application checklist, Step 1)."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [], "notes": "Mesa's Solar Program page requires a roof photo of the completed PV system prior to interconnection but does not describe a formal City building-inspection procedure, consistent with most Mesa solar installs not requiring a construction permit at all (see permit_authority notes); left unresolved rather than inferred." },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Mesa's Solar Program page requires a roof photo of the completed PV system prior to interconnection but does not describe a formal City building-inspection procedure, consistent with most Mesa solar installs not requiring a construction permit at all (see permit_authority notes); left unresolved rather than inferred."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "commercial"],
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": 5,
       "thermal_capacity_kw_max": null,
@@ -71,10 +155,38 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [], "notes": "Neither the Solar Program page nor the Residential Construction FAQ published a specific solar interconnection or permit fee amount this session; not guessed." },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the Solar Program page nor the Residential Construction FAQ published a specific solar interconnection or permit fee amount this session; not guessed."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Arizona Credit for Solar Energy Devices",
+        "administrator": "Arizona Department of Revenue",
+        "description": "Statewide Arizona individual income tax credit under A.R.S. §43-1083: 25% of the cost of installing a solar energy device at the taxpayer's Arizona residence, capped at $1,000 total per residence (not per year — the $1,000 cap is cumulative across all tax years for the same residence). Any unused credit may be carried forward up to 5 consecutive tax years. Applies statewide to any qualifying Arizona residential installation, not utility- or city-specific.",
+        "value_usd_flat": 1000,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Arizona resident, not a dependent of another taxpayer, installing a solar energy device (as defined in A.R.S. §42-5001) at their Arizona residence; claimed via Arizona Form 310.",
+        "url": "https://www.azleg.gov/ars/43/01083.htm",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from the Arizona State Legislature's own hosted statute text (A.R.S. §43-1083). Arizona's own Department of Revenue site (azdor.gov) and Clean Energy Hub (resilient.az.gov) both returned persistent Cloudflare challenges this session, so azleg.gov's own statute text was used instead as the primary source."
+  },
   "official_contacts": {
     "value": [
       {
@@ -93,9 +205,12 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1", "S2"]
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
   },
-  "last_verified": "2026-08-12",
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -104,6 +219,14 @@
       "publisher": "City of Mesa, Energy Resources Department",
       "type": "utility",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "A.R.S. §43-1083 — Credit for solar energy devices",
+      "url": "https://www.azleg.gov/ars/43/01083.htm",
+      "publisher": "Arizona State Legislature",
+      "type": "government",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",

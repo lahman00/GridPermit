@@ -1,13 +1,18 @@
 {
   "record_id": "az-maricopa-phoenix-aps",
   "file": "data/localities/az-maricopa-phoenix-aps.json",
-  "validated_at": "2026-08-12",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 95,
+  "score": 90,
   "errors": [],
   "warnings": [
     {
       "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates",
       "category": "unsupported_claim",
       "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
     }
@@ -20,16 +25,12 @@
     {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.phoenix.gov/administration/departments/pdd/residential-building/resident-plan-reviews/solarapp-photovoltaic.html",
-      "checked_at": "2026-08-12T19:24:08.218Z",
+      "checked_at": "2026-08-13T05:20:48.513Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -37,7 +38,15 @@
     },
     {
       "url": "https://www.aps.com/en/Residential/Service-Plans/Compare-Service-Plans/Renewable-Energy-Riders",
-      "checked_at": "2026-08-12T19:24:08.374Z",
+      "checked_at": "2026-08-13T05:20:49.466Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.azleg.gov/ars/43/01083.htm",
+      "checked_at": "2026-08-13T05:20:50.525Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
