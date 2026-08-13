@@ -1,0 +1,244 @@
+{
+  "record_id": "il-cook-chicago-comed",
+  "schema_version": "1.4.0",
+  "state": "IL",
+  "utility": {
+    "value": "Commonwealth Edison (ComEd)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "ComEd is the dominant investor-owned electric utility for northern Illinois including the City of Chicago; this record's own permit terms explicitly reference ComEd electrical service connections."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Commonwealth Edison (ComEd)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Chicago's residential solar customers this session (Illinois does have a municipal aggregation framework for default electricity supply, but that is separate from — and does not substitute for — the interconnection/net-metering relationship with the distribution utility, ComEd, which is recorded here)."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "city": {
+    "value": "Chicago",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Cook County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Chicago Department of Buildings",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Illinois has no single statewide residential solar permitting rule — permitting authority sits with the local municipality (inside its corporate/home-rule boundaries) or the county (in unincorporated areas). Chicago's Department of Buildings is the Authority Having Jurisdiction (AHJ) for the City of Chicago specifically."
+  },
+  "permit_url": {
+    "value": "https://www.chicago.gov/city/en/sites/guide-to-building-permits/home/terms-and-conditions/epp/worktype/SOLAR.html",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.comed.com/smart-energy-innovation/energy-technology/net-metering",
+    "confidence": 0.75,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "ComEd's own Residential Net Metering FAQ document (accessed this session) is dated 2023 (footer: 'NMR03-23'); Illinois's statewide 'Net Metering 2.0' policy reportedly ended full retail-rate net metering for newly-interconnecting residential systems after December 31, 2024 (per secondary reporting, not independently re-verified against ComEd's own current tariff this session). The mechanics described here (application process, credit rollover, SREC allocation via the Illinois Power Agency) are treated as still-current process facts; the specific credit VALUE/rate a new applicant receives today should be confirmed directly with ComEd before relying on it."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "ComEd Distributed Generation (DG) Rebate — Energy Storage",
+        "administrator": "Commonwealth Edison (ComEd)",
+        "description": "ComEd's own Residential Net Metering FAQ states ComEd offers 'a similar rebate for energy storage' alongside its $300/kW solar Distributed Generation Rebate, without stating the exact storage-specific dollar figure on this particular document — see ComEd.com/DGRebate for current details, which was not independently fetched this session.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Eligible energy storage systems paired with residential solar; exact eligibility criteria not independently confirmed this session.",
+        "url": "https://www.comed.com/dgrebate",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.5,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Recorded with status 'unknown' rather than 'active' because the exact battery-storage rebate rate was not stated on the document actually read this session — only that a rebate 'similar' to the solar rebate exists. See rebates for the solar-specific $300/kW figure, which was explicitly stated."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Structural design prepared and stamped by an Illinois-licensed architect or structural engineer",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "In-person existing-condition inspection report confirming (1) the structural capacity of the existing roof and (2) the condition of the existing electrical system, performed by the licensed architect/structural engineer or someone under their responsible control",
+        "required_when": "always, before submission",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer's installation instructions for all primary electrical equipment (must be NRTL-listed and labeled)",
+        "required_when": "always — must also be on site at the time of inspection",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own Express Permit Program (EPP) terms and conditions for Small-Scale Solar Photovoltaic (PV) Systems."
+  },
+  "inspection_steps": {
+    "value": [
+      "A pre-submission, in-person existing-condition inspection (structural + electrical) is required before the permit application is even filed",
+      "Post-installation, the system must be inspected by both the Chicago Department of Buildings and ComEd before it may be energized",
+      "A permanent rapid-shutdown label must be installed and verifiable at inspection if the system includes a rapid shutdown system, per the Chicago Fire Prevention Code",
+      "Any existing electrical deficiencies (including grounding/bonding) must be corrected by the licensed electrical contractor before solar equipment is connected"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 1,
+      "max_days": 1,
+      "notes": "Per the City's own page, qualifying Easy/Express Permit Program (EPP) projects (roof-mounted, output capacity under 13.44 kW) receive same-day permit approval — the City's own page states the permitting process for these projects 'was cut down from 30 days to one day.' Standard (non-EPP) plan review for larger/ground-mounted/non-qualifying systems is not itemized with a specific day-count on the pages read this session."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 13.44,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Express Permit Program (EPP) for roof-mounted systems under 13.44 kW output; standard plan review otherwise",
+      "other_conditions": [
+        "EPP is roof-mounted only — it does not authorize wall-attached or ground-mounted solar PV components",
+        "EPP energy storage systems are capped at 20 kWh (10 kWh for non-lithium-ion batteries); only one installation is allowed per ComEd electrical service connection",
+        "Equipment may not be installed within 3 feet of a residential building's roof edge (4 feet for non-residential/mixed-use)",
+        "Electrical work must be performed by a Chicago-licensed electrical contractor; where required by Illinois law, work must be performed under a certified Illinois distributed generation installer (Illinois Commerce Commission) and roofing work under a valid Illinois roofing contractor license (IL Dept. of Financial and Professional Regulation)"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Express Permit Program (EPP) solar PV permit fee",
+        "amount_usd": 275,
+        "unit": "flat fee",
+        "notes": "Per the City's own page: the EPP fee schedule was reduced 25% from $375 to $275 for qualifying projects when the program was improved in 2013. This is the City's own currently-published figure, though the page's surrounding content references the original 2013 program launch and was not independently cross-checked against a separately-dated current fee schedule this session."
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "ComEd Distributed Generation (DG) Rebate — Solar",
+        "administrator": "Commonwealth Edison (ComEd)",
+        "description": "ComEd's own Residential Net Metering FAQ states ComEd offers a Distributed Generation (DG) Rebate of $300 per kW of installed capacity for eligible renewable generation systems.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": 0.3,
+        "eligibility": "Eligible renewable (solar) generation systems interconnected with ComEd; exact eligibility criteria (caps, income limits, if any) not independently confirmed this session — see ComEd.com/DGRebate for current details.",
+        "url": "https://www.comed.com/dgrebate",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "The $300/kW figure comes directly from ComEd's own official FAQ document, but that document is dated 2023 (footer: 'NMR03-23') and was not independently reconfirmed against ComEd's current, live DG Rebate page this session — status recorded as 'unknown' rather than 'active' for that reason, consistent with this dataset's standard of not marking an unconfirmed-current figure as verified-active. Separately, Illinois's Adjustable Block Program (SRECs, administered by the Illinois Power Agency) is a real, additional statewide incentive mechanism mentioned by ComEd's own FAQ, but no specific dollar/rate figure for it was independently verified this session and it is not recorded as a separate rebates entry."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Chicago Department of Buildings",
+        "phone": null,
+        "email": null,
+        "url": "https://www.chicago.gov/city/en/sites/guide-to-building-permits/home/terms-and-conditions/epp/worktype/SOLAR.html"
+      },
+      {
+        "name": null,
+        "role": "ComEd — Solar/Interconnection (Green Power Connection)",
+        "phone": null,
+        "email": "interconnect@comed.com",
+        "url": "https://www.comed.com/smart-energy-innovation/energy-technology/net-metering"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Terms and Conditions for Small-Scale Solar Photovoltaic (PV) System (Express Permit Program)",
+      "url": "https://www.chicago.gov/city/en/sites/guide-to-building-permits/home/terms-and-conditions/epp/worktype/SOLAR.html",
+      "publisher": "City of Chicago, Department of Buildings",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Small Installations and the Easy Permit Process",
+      "url": "https://www.chicago.gov/city/en/progs/env/small_installationsandtheeasypermitprocess.html",
+      "publisher": "City of Chicago",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Green Power Connection — Residential Net Metering Frequently Asked Questions (NMR03-23)",
+      "url": "https://www.comed.com/cdn/assets/v3/assets/blt3ebb3fed6084be2a/bltceb8d9495434223b/64cb9d04801ac5fb8323786f/NetMeteringFAQ_Res.pdf",
+      "publisher": "Commonwealth Edison Company (ComEd)",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

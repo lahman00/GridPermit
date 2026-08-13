@@ -1,0 +1,63 @@
+{
+  "record_id": "il-cook-chicago-comed",
+  "file": "data/localities/il-cook-chicago-comed.json",
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 90,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "battery_programs",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
+  "recommendations": [],
+  "url_checks": [
+    {
+      "url": "https://www.chicago.gov/city/en/sites/guide-to-building-permits/home/terms-and-conditions/epp/worktype/SOLAR.html",
+      "checked_at": "2026-08-13T19:30:38.085Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.comed.com/smart-energy-innovation/energy-technology/net-metering",
+      "checked_at": "2026-08-13T19:30:40.173Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.comed.com/dgrebate",
+      "checked_at": "2026-08-13T19:30:40.562Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.chicago.gov/city/en/progs/env/small_installationsandtheeasypermitprocess.html",
+      "checked_at": "2026-08-13T19:30:41.148Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.comed.com/cdn/assets/v3/assets/blt3ebb3fed6084be2a/bltceb8d9495434223b/64cb9d04801ac5fb8323786f/NetMeteringFAQ_Res.pdf",
+      "checked_at": "2026-08-13T19:30:41.480Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

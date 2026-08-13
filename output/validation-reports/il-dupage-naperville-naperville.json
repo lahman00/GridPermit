@@ -1,0 +1,63 @@
+{
+  "record_id": "il-dupage-naperville-naperville",
+  "file": "data/localities/il-dupage-naperville-naperville.json",
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 95,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/solar-panel-guidelines/",
+      "checked_at": "2026-08-13T19:30:41.911Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/1/net-metering/",
+      "checked_at": "2026-08-13T19:30:42.965Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/renewable-energy-program/",
+      "checked_at": "2026-08-13T19:30:43.703Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/energy-efficiency-grant-programs/residential-energy-efficiency-incentives/",
+      "checked_at": "2026-08-13T19:30:44.262Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

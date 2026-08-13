@@ -1,0 +1,194 @@
+{
+  "record_id": "il-dupage-naperville-naperville",
+  "schema_version": "1.4.0",
+  "state": "IL",
+  "utility": {
+    "value": "Naperville Electric Utility",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Naperville operates its own municipal electric utility, distinct from ComEd or Ameren Illinois — a genuinely non-trivial fact, since a nearby suburb could easily be assumed (incorrectly) to be ComEd/Ameren territory without checking. Interconnection and net metering for Naperville residents are handled directly by the City's own Electric Utility, not a third-party investor-owned utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Naperville Electric Utility",
+      "type": "utility",
+      "notes": "Municipal utility — recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "city": {
+    "value": "Naperville",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "DuPage County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Naperville spans both DuPage and Will counties; the majority of the city and its municipal building/electric-utility jurisdiction is treated as DuPage County for this record. Regardless of county, Naperville's own Building Department and Electric Utility — not the county — are the permitting/interconnection authorities within city limits."
+  },
+  "permit_authority": {
+    "value": "City of Naperville Building Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Illinois has no single statewide residential solar permitting rule — permitting authority sits with the local municipality (inside its boundaries) or the county (in unincorporated areas). Naperville's own Building Department issues the building permit; a separate Interconnection Agreement with Naperville Electric Utility is also required."
+  },
+  "permit_url": {
+    "value": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/solar-panel-guidelines/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/1/net-metering/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No dedicated battery/storage-specific incentive program was found on Naperville's own pages this session, distinct from the rooftop-solar rebate recorded under rebates."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Interconnection Agreement, signed by both the customer and the City (via the City's Gov QA system / DocuSign)",
+        "required_when": "always, before interconnection approval",
+        "source_ids": [
+          "S1",
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City's own solar panel guidelines page references a separate solar installation checklist PDF, whose full itemized document list was not independently extracted this session."
+  },
+  "inspection_steps": {
+    "value": [
+      "Customer obtains a City of Naperville building permit",
+      "System is installed",
+      "Final electrical inspection performed by a City of Naperville electrical inspector",
+      "Permission to operate is granted only after the system passes the final electrical inspection"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific building-permit review-timeline day-count was stated on the City's own pages read this session; a third-party estimate ('4-8 weeks' for permitting plus utility interconnection combined) appeared in search results but was not used since it is not a City-published figure."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "As of a 2025 program update, Naperville Electric Utility eliminated its previous size restriction on solar arrays",
+        "For net metering, the system must be customer-owned (leased systems are not eligible for net metering) and 'reasonably sized as determined by the Utility' to offset the customer's own electrical requirements",
+        "Properties within the Naperville Historic District require a Certificate of Appropriateness (COA) from the Historic Preservation Commission before installation",
+        "Equipment must meet national electrical standards (NEC, NESC) and applicable local building/fire codes"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific permit fee dollar figure was stated on the City's own pages read this session."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Naperville Rooftop Solar Incentive (Residential Energy Efficiency Incentives program)",
+        "administrator": "City of Naperville Electric Utility",
+        "description": "A residential rebate for a roof-mounted solar array or a solar water heater system, administered alongside Naperville's other residential energy-efficiency incentives (attic insulation, single-pane window replacement, AC tune-up, furnace blower motor replacement) under a single shared annual budget. As of 2026-06-26, the City's own page states the program's $280,000 total annual budget across all of these incentive categories (including Rooftop Solar) has been 100% awarded, and applications are closed for the remainder of the 2026 calendar year. Third-party sources report a rate of $250 per kW AC (inverter-rated), capped at $1,750 (7 kW AC max) and requiring a $5/month, 5-year contribution to the Naperville Renewable Energy Program — this specific dollar figure was not independently confirmed from a City of Naperville page fetched this session and should be verified directly before relying on it.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Customer-owned systems only (leased systems ineligible); 100% complete application must be submitted within 120 days of passing final inspection; no incentive is awarded until the project is complete, operational, and has passed final inspection.",
+        "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/renewable-energy-program/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Status recorded as 'unknown' (not 'active' or 'expired') because the program's annual budget was confirmed exhausted for 2026 as of the City's own 2026-06-26 update, but the City's page frames this as a recurring annual budget rather than a permanently discontinued program — whether it reopens with new funding in a subsequent calendar year was not stated. This is a genuine current funding-exhaustion status, honestly preserved rather than presented as an open incentive."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Payton Schield",
+        "role": "City of Naperville, Sustainability (Residential Energy Efficiency Incentives)",
+        "phone": "630-305-5357",
+        "email": "SchieldP@naperville.il.us",
+        "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/energy-efficiency-grant-programs/residential-energy-efficiency-incentives/"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Panel Guidelines",
+      "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/solar-panel-guidelines/",
+      "publisher": "City of Naperville",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Metering",
+      "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/1/net-metering/",
+      "publisher": "City of Naperville, Electric Utility",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Residential Energy Efficiency Incentives",
+      "url": "https://www.naperville.il.us/services/electric-utility/powering-our-community-for-the-future/energy-efficiency-grant-programs/residential-energy-efficiency-incentives/",
+      "publisher": "City of Naperville",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "record_id": "il-kane-aurora-comed",
+  "schema_version": "1.4.0",
+  "state": "IL",
+  "utility": {
+    "value": "Commonwealth Edison (ComEd)",
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Aurora, Illinois does not operate its own municipal electric utility (unlike neighboring Naperville) — its own 'Switch Together' solar group-buying program page does not name an alternate distribution utility, consistent with the well-documented fact that ComEd is the dominant investor-owned utility across Aurora's service area. Not independently cross-checked against a dedicated ComEd territory map this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Commonwealth Edison (ComEd)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Aurora's residential solar customers this session; ComEd is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "city": {
+    "value": "Aurora",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Kane County",
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Aurora spans Kane, DuPage, Will, and Kendall counties; the city's own Building and Permits Division (not any one county) is the permitting authority regardless of which county a given parcel falls in."
+  },
+  "permit_authority": {
+    "value": "City of Aurora Building and Permits Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Illinois has no single statewide residential solar permitting rule — permitting authority sits with the local municipality (inside its boundaries) or the county (in unincorporated areas)."
+  },
+  "permit_url": {
+    "value": "https://www.aurora.il.us/City-Services/Environment-and-Sustainability/Solar-In-Aurora",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City's own Commercial/Residential Solar Application PDF and 2026 Fee Schedule PDF were both blocked this session — the fee schedule PDF returned HTTP 403 Forbidden via direct fetch and triggered a forced file-download prompt via the browser tool on separate attempts (the same genuine access-blocked pattern seen on other jurisdictions' fee documents this session), so their itemized contents could not be independently verified."
+  },
+  "interconnection_url": {
+    "value": "https://www.comed.com/smart-energy-innovation/energy-technology/net-metering",
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "See the identical net-metering framework notes on the Chicago record (il-cook-chicago-comed) for ComEd's residential net-metering process and the caveat about the 2023-dated FAQ document relative to Illinois's reported 2025 Net Metering 2.0 policy change."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Commercial/Residential Solar Application form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The application PDF itself was blocked this session (see permit_url notes), so its itemized document requirements beyond the form's existence could not be independently verified."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own 2026 Fee Schedule PDF was blocked this session (403 Forbidden via fetch; forced file-download via browser) — no fee figure was independently confirmed. A third-party estimate ('$127' for a commercial solar permit) appeared in search results but is not used since it is not confirmed as the residential figure nor independently verified against the City's own document."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Illinois Shines / Adjustable Block Program (ABP) — SREC incentive",
+        "administrator": "Illinois Power Agency",
+        "description": "The City of Aurora's own 'Solar In Aurora' page, describing its 2026 Switch Together group-buying program, states that 'Incentives through the Illinois Shines Program could provide 30% in savings for residents' — Illinois Shines is the public-facing brand for the Illinois Power Agency's statewide Adjustable Block Program (the SREC allocation mechanism also referenced on the Chicago record's ComEd source). The exact dollar/rate value was not independently confirmed from the Illinois Power Agency's own site this session.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Illinois residential solar installations enrolled through an Illinois Shines-approved vendor; exact eligibility not independently confirmed this session.",
+        "url": "https://illinoisshines.com/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.5,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This is a statewide Illinois program (not Aurora-specific) referenced on Aurora's own page — the same underlying mechanism as the SREC/Adjustable Block Program reference on the Chicago record's ComEd source, now corroborated from a second, independent official source (a different Illinois municipality's own site)."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Aurora Building and Permits Division",
+        "phone": "630-256-3130",
+        "email": null,
+        "url": "https://www.aurora.il.us/Property-Business/Permits/Permit-Fee-Schedule"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar In Aurora",
+      "url": "https://www.aurora.il.us/City-Services/Environment-and-Sustainability/Solar-In-Aurora",
+      "publisher": "City of Aurora, Illinois",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Green Power Connection — Residential Net Metering Frequently Asked Questions (NMR03-23)",
+      "url": "https://www.comed.com/cdn/assets/v3/assets/blt3ebb3fed6084be2a/bltceb8d9495434223b/64cb9d04801ac5fb8323786f/NetMeteringFAQ_Res.pdf",
+      "publisher": "Commonwealth Edison Company (ComEd)",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
