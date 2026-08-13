@@ -1,15 +1,59 @@
 {
-  "generated_at": "2026-08-12T17:41:29.410Z",
+  "generated_at": "2026-08-13T18:03:42.054Z",
   "summary": {
-    "batches_completed": 52,
-    "localities_investigated_with_a_record": 327,
+    "batches_completed": 57,
+    "localities_investigated_with_a_record": 346,
     "localities_investigated_but_blocked_no_record": 2,
-    "localities_investigated_total": 329,
-    "ready_count": 288,
-    "limited_count": 39,
+    "localities_investigated_total": 348,
+    "ready_count": 298,
+    "limited_count": 48,
     "not_ready_count": 0
   },
   "batches": [
+    {
+      "batch": "Arizona",
+      "evaluation_file": "arizona-batch-evaluation.json",
+      "ready": [
+        {
+          "record_id": "az-maricopa-phoenix-aps",
+          "city": "Phoenix",
+          "county": "Maricopa County",
+          "completeness_pct": 86.7,
+          "validation_score": 90
+        },
+        {
+          "record_id": "az-pima-tucson-tep",
+          "city": "Tucson",
+          "county": "Pima County",
+          "completeness_pct": 86.7,
+          "validation_score": 88
+        }
+      ],
+      "limited": [
+        {
+          "record_id": "az-maricopa-chandler-srp",
+          "city": "Chandler",
+          "county": "Maricopa County",
+          "completeness_pct": 53.3,
+          "validation_score": 95
+        },
+        {
+          "record_id": "az-maricopa-mesa-mesaelectric",
+          "city": "Mesa",
+          "county": "Maricopa County",
+          "completeness_pct": 73.3,
+          "validation_score": 91
+        },
+        {
+          "record_id": "az-maricopa-scottsdale-aps",
+          "city": "Scottsdale",
+          "county": "Maricopa County",
+          "completeness_pct": 60,
+          "validation_score": 95
+        }
+      ],
+      "not_ready": []
+    },
     {
       "batch": "Bay Area Wave E1",
       "evaluation_file": "bay-area-wave-e1-batch-evaluation.json",
@@ -822,15 +866,52 @@
       "not_ready": []
     },
     {
+      "batch": "Colorado",
+      "evaluation_file": "colorado-batch-evaluation.json",
+      "ready": [
+        {
+          "record_id": "co-denver-denver-xcel",
+          "city": "Denver",
+          "county": "Denver County",
+          "completeness_pct": 86.7,
+          "validation_score": 88
+        },
+        {
+          "record_id": "co-el-paso-colorado-springs-csu",
+          "city": "Colorado Springs",
+          "county": "El Paso County",
+          "completeness_pct": 80,
+          "validation_score": 93
+        }
+      ],
+      "limited": [
+        {
+          "record_id": "co-fremont-canon-city-bhe",
+          "city": "Cañon City",
+          "county": "Fremont County",
+          "completeness_pct": 60,
+          "validation_score": 89
+        },
+        {
+          "record_id": "co-larimer-fort-collins-fcu",
+          "city": "Fort Collins",
+          "county": "Larimer County",
+          "completeness_pct": 60,
+          "validation_score": 89
+        }
+      ],
+      "not_ready": []
+    },
+    {
       "batch": "Delaware",
       "evaluation_file": "delaware-batch-evaluation.json",
       "ready": [],
       "limited": [
         {
           "record_id": "de-new-castle-new-castle-county-delmarva",
-          "city": "New Castle County (unincorporated)",
+          "city": "New Castle County",
           "county": "New Castle County",
-          "completeness_pct": 66.7,
+          "completeness_pct": 73.3,
           "validation_score": 100
         }
       ],
@@ -903,6 +984,43 @@
         }
       ],
       "limited": [],
+      "not_ready": []
+    },
+    {
+      "batch": "Hawaii",
+      "evaluation_file": "hawaii-batch-evaluation.json",
+      "ready": [
+        {
+          "record_id": "hi-hawaii-hilo-helco",
+          "city": "Hilo",
+          "county": "County of Hawai'i",
+          "completeness_pct": 86.7,
+          "validation_score": 86
+        },
+        {
+          "record_id": "hi-honolulu-honolulu-heco",
+          "city": "Honolulu",
+          "county": "City and County of Honolulu",
+          "completeness_pct": 80,
+          "validation_score": 93
+        },
+        {
+          "record_id": "hi-maui-kahului-meco",
+          "city": "Kahului",
+          "county": "County of Maui",
+          "completeness_pct": 80,
+          "validation_score": 93
+        }
+      ],
+      "limited": [
+        {
+          "record_id": "hi-kauai-lihue-kiuc",
+          "city": "Lihue",
+          "county": "County of Kaua'i",
+          "completeness_pct": 66.7,
+          "validation_score": 91
+        }
+      ],
       "not_ready": []
     },
     {
@@ -1440,6 +1558,36 @@
           "county": "Los Angeles County",
           "completeness_pct": 60,
           "validation_score": 94
+        }
+      ],
+      "not_ready": []
+    },
+    {
+      "batch": "New Mexico",
+      "evaluation_file": "new-mexico-batch-evaluation.json",
+      "ready": [
+        {
+          "record_id": "nm-bernalillo-albuquerque-pnm",
+          "city": "Albuquerque",
+          "county": "Bernalillo County",
+          "completeness_pct": 93.3,
+          "validation_score": 98
+        }
+      ],
+      "limited": [
+        {
+          "record_id": "nm-donaana-lascruces-epe",
+          "city": "Las Cruces",
+          "county": "Doña Ana County",
+          "completeness_pct": 73.3,
+          "validation_score": 96
+        },
+        {
+          "record_id": "nm-santafe-santafe-pnm",
+          "city": "Santa Fe",
+          "county": "Santa Fe County",
+          "completeness_pct": 66.7,
+          "validation_score": 95
         }
       ],
       "not_ready": []
@@ -2196,6 +2344,36 @@
       "not_ready": []
     },
     {
+      "batch": "Oregon",
+      "evaluation_file": "oregon-batch-evaluation.json",
+      "ready": [
+        {
+          "record_id": "or-lane-eugene-eweb",
+          "city": "Eugene",
+          "county": "Lane County",
+          "completeness_pct": 86.7,
+          "validation_score": 100
+        },
+        {
+          "record_id": "or-multnomah-portland-pge",
+          "city": "Portland",
+          "county": "Multnomah County",
+          "completeness_pct": 86.7,
+          "validation_score": 93
+        }
+      ],
+      "limited": [
+        {
+          "record_id": "or-deschutes-bend-pacificpower",
+          "city": "Bend",
+          "county": "Deschutes County",
+          "completeness_pct": 66.7,
+          "validation_score": 84
+        }
+      ],
+      "not_ready": []
+    },
+    {
       "batch": "Peninsula Batch 2",
       "evaluation_file": "peninsula-batch-2-evaluation.json",
       "evaluated_at": "2026-08-11T20:39:01.936Z",
@@ -2395,8 +2573,8 @@
           "record_id": "ri-providence-providence-rie",
           "city": "Providence",
           "county": "Providence County",
-          "completeness_pct": 66.7,
-          "validation_score": 93
+          "completeness_pct": 73.3,
+          "validation_score": 91
         }
       ],
       "not_ready": []
@@ -2816,10 +2994,10 @@
       "limited": [
         {
           "record_id": "vt-statewide-vermont-gmp",
-          "city": "Vermont (statewide — Certificate of Public Good process)",
+          "city": "Vermont (Statewide)",
           "county": null,
-          "completeness_pct": 66.7,
-          "validation_score": 98
+          "completeness_pct": 73.3,
+          "validation_score": 91
         }
       ],
       "not_ready": []
