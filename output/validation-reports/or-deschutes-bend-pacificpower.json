@@ -1,11 +1,21 @@
 {
   "record_id": "or-deschutes-bend-pacificpower",
   "file": "data/localities/or-deschutes-bend-pacificpower.json",
-  "validated_at": "2026-08-12",
+  "validated_at": "2026-08-13",
   "status": "REVIEW",
-  "score": 94,
+  "score": 84,
   "errors": [],
   "warnings": [
+    {
+      "field": "battery_programs",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "permit_url",
       "category": "broken_url",
@@ -23,10 +33,6 @@
     }
   ],
   "recommendations": [
-    {
-      "field": "battery_programs",
-      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
     {
       "field": "required_documents",
       "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
@@ -46,16 +52,12 @@
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.bendoregon.gov/service/permit-center/",
-      "checked_at": "2026-08-12T20:32:04.034Z",
+      "checked_at": "2026-08-13T05:32:25.087Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -63,15 +65,23 @@
     },
     {
       "url": "https://edocs.puc.state.or.us/efdocs/HTB/um2322htb331321025.pdf",
-      "checked_at": "2026-08-12T20:32:04.381Z",
+      "checked_at": "2026-08-13T05:32:25.449Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "timeout"
     },
     {
+      "url": "https://www.oregon.gov/energy/Incentives/Pages/OSSRP-For-Homeowners.aspx",
+      "checked_at": "2026-08-13T05:32:35.453Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
       "url": "https://www.bendoregon.gov/wp-content/uploads/2025/12/Pacific-Power-Franchise-Agreement.pdf",
-      "checked_at": "2026-08-12T20:32:14.384Z",
+      "checked_at": "2026-08-13T05:32:35.507Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",

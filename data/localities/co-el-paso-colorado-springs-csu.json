@@ -5,7 +5,9 @@
   "utility": {
     "value": "Colorado Springs Utilities (CSU)",
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Colorado Springs operates its own municipal, four-service utility (electric, gas, water, wastewater) — directly confirmed via CSU's own site. This is NOT Xcel Energy territory, unlike Denver."
   },
   "generation_supplier": {
@@ -15,29 +17,59 @@
       "notes": "CSU is a municipal utility; no separate Community Choice Aggregator applies. Net metering: monthly net usage is tracked as 'Energy Sent to Grid' minus 'Energy Provided by Grid'; a positive year-end banked credit balance is paid out on the January bill at the current cogeneration rate, approximately $0.02 per kWh (this is the default behavior for a new solar system or a home purchased with an existing system). Customers may instead opt into a one-time, irrevocable 'rollover' election to carry banked credits forward into the next year instead of being paid out. CSU's own site separately states that in 2026 it 'is exploring options to update how residential solar customers interact with our grid' — an active, unresolved policy review at the time of this research, not yet a finalized change, so no altered terms are recorded here beyond what is currently in effect."
     },
     "confidence": 0.6,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Colorado Springs", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "El Paso County", "confidence": 0.9, "source_ids": ["S2"] },
+  "city": {
+    "value": "Colorado Springs",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "El Paso County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "Pikes Peak Regional Building Department (PPRBD)",
     "confidence": 0.9,
-    "source_ids": ["S1", "S2"],
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
     "notes": "NOT a City of Colorado Springs department. PPRBD is a joint regional authority created by a 1966 Inter-Governmental Agreement between El Paso County and the City of Colorado Springs, directly confirmed on both El Paso County's own site and Colorado Springs Utilities' own solar-process page ('it's the installer's responsibility to obtain the proper permits from PPRBD, which verifies codes and laws. PPRBD inspects and closes permits.'). PPRBD is also the building-permit authority for Fountain, Manitou Springs, Calhan, Green Mountain Falls, Monument, Palmer Lake, and (in neighboring Teller County) Woodland Park — the same permit_authority fact is expected to apply to those jurisdictions too, though each would need its own record with its own utility/county verified before publishing."
   },
   "permit_url": {
     "value": "https://www.elpasoco.com/pikes-peak-regional-building-department/",
     "confidence": 0.5,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "PPRBD's own domain (pprbd.org) returned a connection failure (ECONNREFUSED) on every attempt this session via both browser and direct fetch — a genuine, persistent block, not a bot-challenge to bypass. This El Paso County page describing PPRBD is cited instead as the best available official confirmation of the authority itself; it is not PPRBD's own solar-specific permitting page, which could not be reached this session."
   },
   "interconnection_url": {
     "value": "https://www.csu.org/solar-energy-program",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "PPRBD's own solar-specific handout (pprbd.org/File/ByAlias/AlternativeEnergyResidential) could not be reached this session (persistent connection failure on the pprbd.org domain)." },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "PPRBD's own solar-specific handout (pprbd.org/File/ByAlias/AlternativeEnergyResidential) could not be reached this session (persistent connection failure on the pprbd.org domain)."
+  },
   "inspection_steps": {
     "value": [
       "Installer submits a solar interconnection application to Colorado Springs Utilities (CSU) online; CSU reviews it for standards/safety compliance",
@@ -47,13 +79,21 @@
       "After all permits are completed, CSU installs an upgraded net meter and a separate production meter, then issues a Permission to Operate (PTO)"
     ],
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "This is CSU's own description of the combined utility-interconnection-plus-PPRBD-permit process; it does not itemize PPRBD's own inspection steps in detail (that page was unreachable this session)."
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential"],
+      "property_types": [
+        "residential"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -66,15 +106,29 @@
       ]
     },
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Colorado Springs Utilities Solar Energy Program application fee (residential)", "amount_usd": 100, "unit": "flat fee, one-time", "notes": "Per CSU's own 2024 rate case, charged on the customer's next electric bill after their solar installer submits the application. This is a utility interconnection application fee, not PPRBD's separate building/electrical permit fee, which was not found this session (PPRBD's own site was unreachable)." },
-      { "name": "Colorado Springs Utilities Solar Energy Program application fee (150 kW or larger systems)", "amount_usd": 1000, "unit": "flat fee, one-time", "notes": "Per CSU's own 2024 rate case; applies to large/commercial-scale systems, not typical residential installations." }
+      {
+        "name": "Colorado Springs Utilities Solar Energy Program application fee (residential)",
+        "amount_usd": 100,
+        "unit": "flat fee, one-time",
+        "notes": "Per CSU's own 2024 rate case, charged on the customer's next electric bill after their solar installer submits the application. This is a utility interconnection application fee, not PPRBD's separate building/electrical permit fee, which was not found this session (PPRBD's own site was unreachable)."
+      },
+      {
+        "name": "Colorado Springs Utilities Solar Energy Program application fee (150 kW or larger systems)",
+        "amount_usd": 1000,
+        "unit": "flat fee, one-time",
+        "notes": "Per CSU's own 2024 rate case; applies to large/commercial-scale systems, not typical residential installations."
+      }
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "rebates": {
     "value": [
@@ -93,7 +147,9 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S9"],
+    "source_ids": [
+      "S9"
+    ],
     "notes": "Verified directly from the Colorado Division of Property Taxation's own official page — the same statewide fact already documented in co-denver-denver-xcel.json."
   },
   "official_contacts": {
@@ -107,7 +163,9 @@
       }
     ],
     "confidence": 0.8,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "last_verified": "2026-08-13",
   "sources": [
@@ -124,7 +182,7 @@
       "title": "Renewable and Clean Energy Assessment (Residential Renewable Energy property tax exemption)",
       "url": "https://dpt.colorado.gov/renewable-energy",
       "publisher": "Colorado Division of Property Taxation, Dept. of Local Affairs",
-      "type": "government",
+      "type": "program_administrator",
       "accessed_date": "2026-08-13"
     },
     {

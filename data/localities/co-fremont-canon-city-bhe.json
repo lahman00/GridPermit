@@ -5,45 +5,118 @@
   "utility": {
     "value": "Black Hills Energy",
     "confidence": 0.6,
-    "source_ids": ["S1", "S4"],
+    "source_ids": [
+      "S1",
+      "S4"
+    ],
     "notes": "The Colorado Energy Office's own page confirms Black Hills Energy is one of only two investor-owned electric utilities in Colorado (alongside Xcel Energy). Multiple independent news reports (MSN, KOAA, KDVR) directly and specifically describe Black Hills Energy declaring an Emergency Public Safety Power Shutoff 'in portions of Fremont and Pueblo counties' in February 2026 — strong circumstantial confirmation of service territory, since a utility does not declare a PSPS in a county it does not serve. However, Black Hills Energy's own service-area map/page could not be directly loaded this session (connection denied), so this is recorded at moderate rather than high confidence."
   },
-  "generation_supplier": { "value": null, "confidence": 0, "source_ids": [], "notes": "No CCA found; left null pending higher-confidence utility identification (see utility field notes)." },
-  "city": { "value": "Cañon City", "confidence": 1, "source_ids": ["S2"] },
-  "county": { "value": "Fremont County", "confidence": 0.9, "source_ids": ["S2"] },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No CCA found; left null pending higher-confidence utility identification (see utility field notes)."
+  },
+  "city": {
+    "value": "Cañon City",
+    "confidence": 1,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "county": {
+    "value": "Fremont County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
   "permit_authority": {
     "value": "City of Cañon City Building Department (building permit); Colorado State Electrical Board / DORA (electrical permit)",
     "confidence": 0.85,
-    "source_ids": ["S2", "S3"],
+    "source_ids": [
+      "S2",
+      "S3"
+    ],
     "notes": "Split jurisdiction, directly confirmed: the City's own Solar Application packet is issued by the 'City of Cañon City Building Department' for the BUILDING permit. Separately, DORA's own 'Electrical Local Inspection Areas' list (the official exclusion list of counties/areas with their own local electrical inspection program) does NOT name Fremont County — per DORA's own instructions ('if the county where your job site is located is listed below, do not continue with the state permit application process; if not listed, the State Electrical Board has jurisdiction'), this means Fremont County/Cañon City electrical work falls under the Colorado State Electrical Board's 'state inspected areas' program, not a local electrical inspection department. This is the opposite arrangement from Denver, Colorado Springs (El Paso County), and Fort Collins (Larimer County), which are all on DORA's local-inspection exclusion list."
   },
   "permit_url": {
     "value": "https://canoncity.org/DocumentCenter/View/3501/Solar-Packet-PDF",
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "interconnection_url": {
     "value": "https://dpo.colorado.gov/ElectricalPlumbingPermits",
     "confidence": 0.7,
-    "source_ids": ["S3"],
+    "source_ids": [
+      "S3"
+    ],
     "notes": "For the electrical permit specifically, applicants use DORA's own online permit system (state-inspected areas) rather than a local electrical department — see permit_authority notes. Black Hills Energy's own interconnection/net-metering process page could not be loaded this session (connection denied)."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "required_documents": {
     "value": [
-      { "name": "Building permit application", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Engineered letter that the roof will carry the additional weight (site specific)", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Solar panel drawings with the fire setback pathways", "required_when": "always", "source_ids": ["S2"] },
-      { "name": "Copy of contract", "required_when": "always", "source_ids": ["S2"] }
+      {
+        "name": "Building permit application",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Engineered letter that the roof will carry the additional weight (site specific)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Solar panel drawings with the fire setback pathways",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Copy of contract",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Per the City of Cañon City Building Department's own 'Solar Application' packet — a short, explicitly solar-specific checklist (this is the building-permit checklist; a separate electrical permit is filed with DORA's State Electrical Board, see permit_authority)."
   },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [] },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
   "rebates": {
     "value": [
       {
@@ -61,7 +134,9 @@
       }
     ],
     "confidence": 0.9,
-    "source_ids": ["S9"],
+    "source_ids": [
+      "S9"
+    ],
     "notes": "Verified directly from the Colorado Division of Property Taxation's own official page — the same statewide fact already documented in co-denver-denver-xcel.json."
   },
   "official_contacts": {
@@ -75,7 +150,9 @@
       }
     ],
     "confidence": 0.85,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
   "last_verified": "2026-08-13",
   "sources": [
@@ -92,7 +169,7 @@
       "title": "Renewable and Clean Energy Assessment (Residential Renewable Energy property tax exemption)",
       "url": "https://dpt.colorado.gov/renewable-energy",
       "publisher": "Colorado Division of Property Taxation, Dept. of Local Affairs",
-      "type": "government",
+      "type": "program_administrator",
       "accessed_date": "2026-08-13"
     },
     {

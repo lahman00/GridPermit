@@ -5,7 +5,10 @@
   "utility": {
     "value": "Portland General Electric (PGE)",
     "confidence": 0.85,
-    "source_ids": ["S2", "S3"],
+    "source_ids": [
+      "S2",
+      "S3"
+    ],
     "notes": "Confirmed via the Oregon Public Utility Commission's own regulatory listing (PGE is one of three PUC-regulated investor-owned electric utilities in Oregon, alongside Pacific Power and Idaho Power) and a PGE investor-relations service-territory document explicitly listing 'Portland' among the cities served. PGE's own consumer-facing site (portlandgeneral.com) could not be read this session — every page attempted (net-metering, make-solar-happen) rendered only the cookie-banner/footer shell with no main content, even after dismissing the cookie banner and via a direct WebFetch (404); classified as a genuine access blocker after multiple attempts, not a bot-challenge to bypass."
   },
   "generation_supplier": {
@@ -15,36 +18,137 @@
       "notes": "Net metering mechanism confirmed via the City of Portland's own Solar Permits page (not PGE's own site, which was inaccessible this session): 'Oregon law allows all utility customers to generate their own electricity... Your utility provider will switch out your existing utility meter for a bidirectional net meter... The power you use from your utility is offset by the power you send to the grid and you are only charged for the difference or the net.' Specific PGE program names (e.g. current net metering tariff terms, any successor/Smart-DER-style programs) were not independently confirmed this session since PGE's own program pages could not be loaded."
     },
     "confidence": 0.65,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "city": { "value": "Portland", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Multnomah County", "confidence": 0.85, "source_ids": ["S1"], "notes": "Portland spans parts of Multnomah, Washington, and Clackamas counties; this record is scoped to the primary/majority county (Multnomah) as is conventional, since the City's own Bureau of Development Services is the permitting authority regardless of which county a given parcel falls in." },
+  "city": {
+    "value": "Portland",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Multnomah County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Portland spans parts of Multnomah, Washington, and Clackamas counties; this record is scoped to the primary/majority county (Multnomah) as is conventional, since the City's own Bureau of Development Services is the permitting authority regardless of which county a given parcel falls in."
+  },
   "permit_authority": {
     "value": "City of Portland, Portland Permitting & Development (PPD)",
     "confidence": 0.95,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.portland.gov/ppd/solar-development/solar-permits",
     "confidence": 0.95,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "interconnection_url": { "value": null, "confidence": 0, "source_ids": [], "notes": "PGE's own interconnection/net-metering application pages could not be loaded this session; see utility field notes." },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "PGE's own interconnection/net-metering application pages could not be loaded this session; see utility field notes."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Oregon Solar + Storage Rebate Program (OSSRP) — Energy Storage System",
+        "administrator": "Oregon Department of Energy (ODOE)",
+        "description": "Statewide Oregon rebate for residential energy storage systems paired with a solar electric system: $300 per kWh of installed storage capacity, up to 60% of net system cost or $2,500 (whichever is less) for low/moderate-income homeowners, or up to 40% of net cost or $2,500 for other homeowners. Rebates are issued to ODOE-approved contractors, who pass savings to the customer at time of installation (no upfront payment/reimbursement wait). System must have 'islanding' capability. As of this record's verification date (June 2026 update on ODOE's own page), the program is NOT currently accepting new rebate reservation applications — the $1.1 million reopened on June 15, 2026 was fully reserved almost immediately. This is a genuine, temporary funding-exhaustion pause, not a program termination.",
+        "value_usd_per_kwh": 300,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Must be installed on Oregon real property by an ODOE-approved contractor; storage must be paired at time of installation with a previously purchased/installed (or concurrently purchased) solar electric system; reservation application required before construction begins.",
+        "url": "https://www.oregon.gov/energy/Incentives/Pages/OSSRP-For-Homeowners.aspx",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from the Oregon Dept. of Energy's own page, including its own explicit June 2026 update that the program is temporarily not accepting new reservations due to full subscription — recorded as 'active' (the program itself remains legally established and is expected to reopen) rather than 'expired', with the funding-pause caveat preserved in the description rather than omitted."
+  },
   "required_documents": {
     "value": [
-      { "name": "Structural Design Criteria (design sloped roof snow load ≥20 psf, basic design wind speed ≥98 mph and exposure category, solar panel system dead load), stamped by an Oregon-Registered Design Professional", "required_when": "always, unless the exempt solar-tile pathway applies", "source_ids": ["S1"] },
-      { "name": "Site Plan", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Fire Access Path", "required_when": "always, except for solar tile installations", "source_ids": ["S1"] },
-      { "name": "Roof framing plan", "required_when": "unless the roof uses pre-engineered trusses or the installation uses solar tiles (a roof plan showing panel layout substitutes)", "source_ids": ["S1"] },
-      { "name": "Roof cross-section", "required_when": "unless the roof uses pre-engineered trusses or the installation uses solar tiles", "source_ids": ["S1"] },
-      { "name": "System Racking Attachment detail", "required_when": "always, for both Prescriptive and Engineered pathways", "source_ids": ["S1"] },
-      { "name": "Engineering calculations stamped by an Oregon-registered design professional", "required_when": "always for Engineered systems; not required for qualifying solar-tile installs (≤4 psf net installed weight, installed directly over existing sheathing, uniformly supported) — a certifying letter substitutes", "source_ids": ["S1"] },
-      { "name": "Electrical Renewable Energy Permit Application", "required_when": "always", "source_ids": ["S1"] },
-      { "name": "Plumbing Permit Application", "required_when": "only for solar hot water heating projects", "source_ids": ["S1"] }
+      {
+        "name": "Structural Design Criteria (design sloped roof snow load ≥20 psf, basic design wind speed ≥98 mph and exposure category, solar panel system dead load), stamped by an Oregon-Registered Design Professional",
+        "required_when": "always, unless the exempt solar-tile pathway applies",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site Plan",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Fire Access Path",
+        "required_when": "always, except for solar tile installations",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof framing plan",
+        "required_when": "unless the roof uses pre-engineered trusses or the installation uses solar tiles (a roof plan showing panel layout substitutes)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof cross-section",
+        "required_when": "unless the roof uses pre-engineered trusses or the installation uses solar tiles",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "System Racking Attachment detail",
+        "required_when": "always, for both Prescriptive and Engineered pathways",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Engineering calculations stamped by an Oregon-registered design professional",
+        "required_when": "always for Engineered systems; not required for qualifying solar-tile installs (≤4 psf net installed weight, installed directly over existing sheathing, uniformly supported) — a certifying letter substitutes",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical Renewable Energy Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plumbing Permit Application",
+        "required_when": "only for solar hot water heating projects",
+        "source_ids": [
+          "S1"
+        ]
+      }
     ],
     "confidence": 0.95,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "Applications are submitted online via Development Hub PDX (DevHub); sketches, Google Maps images, and photographs are explicitly not accepted — plans must be drawn to scale."
   },
   "inspection_steps": {
@@ -54,12 +158,22 @@
       "View real-time inspection results on DevHub"
     ],
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's page states engineered-system reviews 'may have a longer permit review timeline' than prescriptive reviews but does not give specific day counts for either pathway; not guessed." },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's page states engineered-system reviews 'may have a longer permit review timeline' than prescriptive reviews but does not give specific day counts for either pathway; not guessed."
+  },
   "eligibility_constraints": {
     "value": {
-      "property_types": ["residential", "commercial"],
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
@@ -71,32 +185,105 @@
       ]
     },
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_fees": {
     "value": [
-      { "name": "Prescriptive pathway — Building Permit fee estimate, 3.5 kW or 5.5 kW PV system", "amount_usd": 576, "unit": "estimated flat fee (identical across the two listed PV sizes)", "notes": "Per the City's own published fee-estimate table; final fees depend on system size/type and review process." },
-      { "name": "Prescriptive pathway — Electrical Permit fee estimate, 3.5 kW PV system", "amount_usd": 187, "unit": "estimated flat fee", "notes": "Per the City's own published fee-estimate table." },
-      { "name": "Prescriptive pathway — Electrical Permit fee estimate, 5.5 kW PV system", "amount_usd": 265, "unit": "estimated flat fee", "notes": "Per the City's own published fee-estimate table." },
-      { "name": "Prescriptive pathway — Building Permit fee estimate, solar water heating", "amount_usd": 576, "unit": "estimated flat fee", "notes": "Per the City's own published fee-estimate table." },
-      { "name": "Prescriptive pathway — Electrical Permit fee estimate, solar water heating", "amount_usd": 143, "unit": "estimated flat fee", "notes": "Per the City's own published fee-estimate table." },
-      { "name": "Engineered Systems pathway — Building Permit fee estimate, 3.5 kW or 5.5 kW PV system", "amount_usd": 770, "unit": "estimated flat fee (identical across the two listed PV sizes)", "notes": "Per the City's own published fee-estimate table; the Engineered pathway carries a higher building-permit fee than Prescriptive, reflecting the added plan-review burden." },
-      { "name": "Engineered Systems pathway — Electrical Permit fee estimate, 3.5 kW PV system", "amount_usd": 187, "unit": "estimated flat fee", "notes": "Electrical permit fee estimate is identical to the Prescriptive pathway for the same system size." },
-      { "name": "Engineered Systems pathway — Electrical Permit fee estimate, 5.5 kW PV system", "amount_usd": 265, "unit": "estimated flat fee", "notes": "Electrical permit fee estimate is identical to the Prescriptive pathway for the same system size." }
+      {
+        "name": "Prescriptive pathway — Building Permit fee estimate, 3.5 kW or 5.5 kW PV system",
+        "amount_usd": 576,
+        "unit": "estimated flat fee (identical across the two listed PV sizes)",
+        "notes": "Per the City's own published fee-estimate table; final fees depend on system size/type and review process."
+      },
+      {
+        "name": "Prescriptive pathway — Electrical Permit fee estimate, 3.5 kW PV system",
+        "amount_usd": 187,
+        "unit": "estimated flat fee",
+        "notes": "Per the City's own published fee-estimate table."
+      },
+      {
+        "name": "Prescriptive pathway — Electrical Permit fee estimate, 5.5 kW PV system",
+        "amount_usd": 265,
+        "unit": "estimated flat fee",
+        "notes": "Per the City's own published fee-estimate table."
+      },
+      {
+        "name": "Prescriptive pathway — Building Permit fee estimate, solar water heating",
+        "amount_usd": 576,
+        "unit": "estimated flat fee",
+        "notes": "Per the City's own published fee-estimate table."
+      },
+      {
+        "name": "Prescriptive pathway — Electrical Permit fee estimate, solar water heating",
+        "amount_usd": 143,
+        "unit": "estimated flat fee",
+        "notes": "Per the City's own published fee-estimate table."
+      },
+      {
+        "name": "Engineered Systems pathway — Building Permit fee estimate, 3.5 kW or 5.5 kW PV system",
+        "amount_usd": 770,
+        "unit": "estimated flat fee (identical across the two listed PV sizes)",
+        "notes": "Per the City's own published fee-estimate table; the Engineered pathway carries a higher building-permit fee than Prescriptive, reflecting the added plan-review burden."
+      },
+      {
+        "name": "Engineered Systems pathway — Electrical Permit fee estimate, 3.5 kW PV system",
+        "amount_usd": 187,
+        "unit": "estimated flat fee",
+        "notes": "Electrical permit fee estimate is identical to the Prescriptive pathway for the same system size."
+      },
+      {
+        "name": "Engineered Systems pathway — Electrical Permit fee estimate, 5.5 kW PV system",
+        "amount_usd": 265,
+        "unit": "estimated flat fee",
+        "notes": "Electrical permit fee estimate is identical to the Prescriptive pathway for the same system size."
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "All figures are the City's own published 'estimates' — final fees depend on actual system size/type; the City states fees for electrical/plumbing trade permits specifically depend on system size or fixture count."
   },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
-  "official_contacts": {
+  "rebates": {
     "value": [
-      { "name": null, "role": "Portland Permitting & Development, General Inquiries", "phone": "503-823-7300", "email": null, "url": "https://www.portland.gov/ppd/solar-development/solar-permits" }
+      {
+        "name": "Oregon Solar + Storage Rebate Program (OSSRP) — Solar Electric System",
+        "administrator": "Oregon Department of Energy (ODOE)",
+        "description": "Statewide Oregon rebate for residential solar electric systems: low/moderate-income homeowners receive $1.80/watt(DC), up to 60% of net cost or $5,000 (whichever is less); homeowners not low/moderate-income but eligible for a utility incentive receive $0.20/watt(DC) up to 40% of net cost or $5,000; homeowners not eligible for a utility incentive receive $0.50/watt(DC) up to 40% of net cost or $5,000. 'Net cost' excludes any utility or Energy Trust of Oregon incentive already applied. Rebates are issued to ODOE-approved contractors, who pass savings to the customer directly (no reimbursement wait). As of this record's verification date (June 2026 update on ODOE's own page), the program is NOT currently accepting new rebate reservation applications — the $1.1 million reopened on June 15, 2026 was fully reserved almost immediately. This is a genuine, temporary funding-exhaustion pause, not a program termination.",
+        "value_usd_per_watt": 1.8,
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "eligibility": "Must be installed on Oregon real property by an ODOE-approved contractor; reservation application required before construction begins; must meet minimum Total Solar Resource Fraction and other technical criteria.",
+        "url": "https://www.oregon.gov/energy/Incentives/Pages/OSSRP-For-Homeowners.aspx",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from the Oregon Dept. of Energy's own page. The $1.80/watt figure recorded here is specifically the low/moderate-income tier (the highest of the three tiers); the two non-LMI tiers ($0.20/W and $0.50/W, both also capped at $5,000/40% of net cost) are described in full in the description field rather than as separate program entries, since they are variations of the same single program rather than genuinely distinct programs."
   },
-  "last_verified": "2026-08-12",
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Portland Permitting & Development, General Inquiries",
+        "phone": "503-823-7300",
+        "email": null,
+        "url": "https://www.portland.gov/ppd/solar-development/solar-permits"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -105,6 +292,14 @@
       "publisher": "City of Portland, Portland Permitting & Development",
       "type": "government",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "Oregon Solar + Storage Rebate Program: Homeowners",
+      "url": "https://www.oregon.gov/energy/Incentives/Pages/OSSRP-For-Homeowners.aspx",
+      "publisher": "Oregon Department of Energy (ODOE)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",

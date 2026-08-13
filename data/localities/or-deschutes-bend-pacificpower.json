@@ -5,7 +5,9 @@
   "utility": {
     "value": "Pacific Power (PacifiCorp)",
     "confidence": 0.85,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "The City of Bend's own franchise ordinance (No. NS-2346) states directly: 'PacifiCorp dba Pacific Power (Pacific Power) provides electric power distribution utility services in a portion of the City of Bend.' A separate City electrification-policy study estimated the City's electric utility mix as weighted approximately 85% Pacific Power and 15% Central Electric Cooperative (CEC) — Bend is a genuine two-utility city, similar in structure to Phoenix (APS/SRP) and Mesa (municipal/SRP). This record is scoped to the Pacific Power-served majority only; Central Electric Cooperative customers within Bend are NOT covered by this record and would need independent verification of CEC's own interconnection process."
   },
   "generation_supplier": {
@@ -15,42 +17,134 @@
       "notes": "Pacific Power's own Oregon Distribution Interconnection Handbook (hosted on the Oregon PUC's own edocs system) governs net metering interconnection under Oregon PUC Division 39 rules. Specific residential net-metering terms/rates were not independently loaded this session; PowerClerk (pacificorpnetmetering.powerclerk.com) is Pacific Power's own interconnection application portal, confirmed via search results but not independently reloaded and read this session."
     },
     "confidence": 0.55,
-    "source_ids": ["S2"]
+    "source_ids": [
+      "S2"
+    ]
   },
-  "city": { "value": "Bend", "confidence": 1, "source_ids": ["S1"] },
-  "county": { "value": "Deschutes County", "confidence": 0.9, "source_ids": ["S1"] },
+  "city": {
+    "value": "Bend",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Deschutes County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
   "permit_authority": {
     "value": "City of Bend, Community Development Department, Permit Center",
     "confidence": 0.85,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S1"
+    ]
   },
   "permit_url": {
     "value": "https://www.bendoregon.gov/service/permit-center/",
     "confidence": 0.8,
-    "source_ids": ["S1"],
+    "source_ids": [
+      "S1"
+    ],
     "notes": "The City's own solar-specific document, 'Solar Systems Prescriptive Installation Checklist' (which per its own title demonstrates compliance with OSSC Sections 3111.3.5.3 and 3111.3.4.8), was blocked this session: WebFetch returned HTTP 403, and direct browser navigation triggered a file-download dialog rather than a viewable page. Per the mission's blocked-source-recovery policy, this specific document is classified as blocked after both reasonable access paths were exhausted; this record instead relies on the City's general Permit Center page."
   },
   "interconnection_url": {
     "value": "https://edocs.puc.state.or.us/efdocs/HTB/um2322htb331321025.pdf",
     "confidence": 0.6,
-    "source_ids": ["S2"],
+    "source_ids": [
+      "S2"
+    ],
     "notes": "Pacific Power's Oregon Distribution Interconnection Handbook, hosted on the Oregon PUC's own document system (a state government host, not a third-party mirror)."
   },
-  "battery_programs": { "value": null, "confidence": 0, "source_ids": [] },
-  "required_documents": { "value": null, "confidence": 0, "source_ids": [], "notes": "The City's solar-specific prescriptive-installation checklist was blocked this session; see permit_url notes." },
-  "inspection_steps": { "value": null, "confidence": 0, "source_ids": [] },
-  "timeline_days": { "value": null, "confidence": 0, "source_ids": [] },
-  "eligibility_constraints": { "value": null, "confidence": 0, "source_ids": [], "notes": "The blocked checklist's own title indicates Bend uses the same statewide Oregon Structural Specialty Code prescriptive-PV pathway (Sections 3111.3.5.3 and 3111.3.4.8) documented for Portland in or-multnomah-portland-pge.json, but this specific applicability to Bend was not independently confirmed by reading the City's own document this session, so it is not recorded here as a sourced fact." },
-  "permit_fees": { "value": null, "confidence": 0, "source_ids": [] },
-  "rebates": { "value": null, "confidence": 0, "source_ids": [] },
-  "official_contacts": {
+  "battery_programs": {
     "value": [
-      { "name": null, "role": "City of Bend Permit Center", "phone": "541-388-5580", "email": "permitcenter@bendoregon.gov", "url": "https://www.bendoregon.gov/service/permit-center/" }
+      {
+        "name": "Oregon Solar + Storage Rebate Program (OSSRP) — Energy Storage System",
+        "administrator": "Oregon Department of Energy (ODOE)",
+        "description": "Statewide Oregon rebate for residential energy storage systems paired with a solar electric system: $300 per kWh of installed storage capacity, up to 60% of net system cost or $2,500 (whichever is less) for low/moderate-income homeowners, or up to 40% of net cost or $2,500 for other homeowners. Rebates are issued to ODOE-approved contractors, who pass savings to the customer at time of installation. As of this record's verification date (June 2026 update on ODOE's own page), the program is NOT currently accepting new rebate reservation applications — the $1.1 million reopened on June 15, 2026 was fully reserved almost immediately. This is a genuine, temporary funding-exhaustion pause, not a program termination.",
+        "value_usd_per_kwh": 300,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Must be installed on Oregon real property by an ODOE-approved contractor; storage must be paired at time of installation with a previously purchased/installed (or concurrently purchased) solar electric system; reservation application required before construction begins.",
+        "url": "https://www.oregon.gov/energy/Incentives/Pages/OSSRP-For-Homeowners.aspx",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
     ],
     "confidence": 0.9,
-    "source_ids": ["S1"]
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from the Oregon Dept. of Energy's own page — the same statewide fact already documented in or-multnomah-portland-pge.json."
   },
-  "last_verified": "2026-08-12",
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's solar-specific prescriptive-installation checklist was blocked this session; see permit_url notes."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The blocked checklist's own title indicates Bend uses the same statewide Oregon Structural Specialty Code prescriptive-PV pathway (Sections 3111.3.5.3 and 3111.3.4.8) documented for Portland in or-multnomah-portland-pge.json, but this specific applicability to Bend was not independently confirmed by reading the City's own document this session, so it is not recorded here as a sourced fact."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Oregon Solar + Storage Rebate Program (OSSRP) — Solar Electric System",
+        "administrator": "Oregon Department of Energy (ODOE)",
+        "description": "Statewide Oregon rebate for residential solar electric systems: low/moderate-income homeowners receive $1.80/watt(DC), up to 60% of net cost or $5,000 (whichever is less); homeowners not low/moderate-income but eligible for a utility incentive receive $0.20/watt(DC) up to 40% of net cost or $5,000; homeowners not eligible for a utility incentive receive $0.50/watt(DC) up to 40% of net cost or $5,000. Rebates are issued to ODOE-approved contractors, who pass savings to the customer directly. As of this record's verification date (June 2026 update on ODOE's own page), the program is NOT currently accepting new rebate reservation applications — the $1.1 million reopened on June 15, 2026 was fully reserved almost immediately. This is a genuine, temporary funding-exhaustion pause, not a program termination.",
+        "value_usd_per_watt": 1.8,
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "eligibility": "Must be installed on Oregon real property by an ODOE-approved contractor; reservation application required before construction begins; must meet minimum Total Solar Resource Fraction and other technical criteria.",
+        "url": "https://www.oregon.gov/energy/Incentives/Pages/OSSRP-For-Homeowners.aspx",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Verified directly from the Oregon Dept. of Energy's own page — the same statewide fact already documented in or-multnomah-portland-pge.json."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Bend Permit Center",
+        "phone": "541-388-5580",
+        "email": "permitcenter@bendoregon.gov",
+        "url": "https://www.bendoregon.gov/service/permit-center/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
   "sources": [
     {
       "id": "S1",
@@ -59,6 +153,14 @@
       "publisher": "City of Bend",
       "type": "government",
       "accessed_date": "2026-08-12"
+    },
+    {
+      "id": "S9",
+      "title": "Oregon Solar + Storage Rebate Program: Homeowners",
+      "url": "https://www.oregon.gov/energy/Incentives/Pages/OSSRP-For-Homeowners.aspx",
+      "publisher": "Oregon Department of Energy (ODOE)",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-13"
     },
     {
       "id": "S2",
