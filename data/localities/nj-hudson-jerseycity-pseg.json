@@ -1,0 +1,177 @@
+{
+  "record_id": "nj-hudson-jerseycity-pseg",
+  "schema_version": "1.4.0",
+  "state": "NJ",
+  "utility": {
+    "value": "Public Service Electric and Gas Company (PSE&G)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "PSE&G is the dominant investor-owned electric utility for Jersey City and Hudson County. PSE&G's own site (nj.pseg.com) was inaccessible this session (see the identical notes on the Newark record, nj-essex-newark-pseg)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Public Service Electric and Gas Company (PSE&G)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator or default alternate generation supplier was found for Jersey City this session; PSE&G is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Jersey City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Hudson County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Jersey City Division of the Construction Code Official",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "New Jersey has the strongest home-rule tradition of any state in this dataset: the New Jersey Uniform Construction Code (N.J.A.C. 5:23) is a single statewide building/electrical code, but each of New Jersey's approximately 565 municipalities designates and operates its own local enforcing agency under that code — Jersey City's is its own Division of the Construction Code Official, distinct from Newark's Office of Uniform Construction Code (see nj-essex-newark-pseg) and from Hudson County."
+  },
+  "permit_url": {
+    "value": "https://www.jerseycitynj.gov/cityhall/housinganddevelopment/constructioncode",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City's own Construction Code page does not itself contain solar/PV-specific permitting guidance — it covers general construction permitting (alterations, additions, new buildings, pre/post-occupancy inspections). A dedicated Jersey City solar-specific page was not independently located this session."
+  },
+  "interconnection_url": {
+    "value": "https://www.nj.gov/bpu/agenda/rules/",
+    "confidence": 0.6,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "See the identical statewide net-metering/interconnection notes on the Newark record — New Jersey's net metering and interconnection rules are set at the state level by the Board of Public Utilities (N.J.S.A. 48:3-87(e); N.J.A.C. 14:8-4.1 through 14:8-5.9), applicable to PSE&G statewide."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "inspection_steps": {
+    "value": [
+      "The installed system must be inspected and approved by a representative of the local permitting agency (building and/or electrical subcode official)",
+      "The system must separately be inspected and approved by PSE&G under the interconnection agreement before Permission to Operate is granted"
+    ],
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "This describes the general New Jersey statewide process (local UCC inspection plus separate utility interconnection inspection), not a Jersey-City-specific itemized sequence, which was not independently confirmed this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "All solar systems must comply with the New Jersey Uniform Construction Code (N.J.A.C. 5:23), including the electrical subcode's adoption of NEC Article 690 (Solar Photovoltaic Systems)",
+        "Net metering is limited to systems using a Class I renewable energy source, for the net amount of electricity supplied over an annualized period, per N.J.S.A. 48:3-87(e)"
+      ]
+    },
+    "confidence": 0.65,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Statewide Uniform Construction Code base fee — photovoltaic system, 1-50 kW",
+        "amount_usd": 65,
+        "unit": "flat fee (electrical subcode)",
+        "notes": "Per N.J.A.C. 5:23-4.20(c)(2)(iii)(13) — see the identical notes on the Newark record for the full caveat that this is a statewide default which individual municipalities, including Jersey City, may override, and that Jersey City's own current fee schedule was not independently located this session."
+      }
+    ],
+    "confidence": 0.55,
+    "source_ids": [
+      "S4"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "See the identical Newark-record notes — New Jersey's SuSI/SREC-II incentive rate was reported inconsistently across several third-party solar-industry sites this session (no two agreed on the same figure) with no primary NJ BPU source independently confirmed, so it is left null rather than recorded from an unreliable aggregator figure."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Joseph Severini",
+        "role": "Jersey City Construction Code Official",
+        "phone": "201-547-5055",
+        "email": null,
+        "url": "https://www.jerseycitynj.gov/cityhall/housinganddevelopment/constructioncode"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Construction Code",
+      "url": "https://www.jerseycitynj.gov/cityhall/housinganddevelopment/constructioncode",
+      "publisher": "City of Jersey City, Division of the Construction Code Official",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Solar and Renewable Energy for Residential Customers",
+      "url": "https://nj.pseg.com/saveenergyandmoney/solarandrenewableenergy",
+      "publisher": "Public Service Electric and Gas Company (PSE&G)",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Rules (Net Metering and Interconnection, N.J.A.C. 14:8-4/14:8-5)",
+      "url": "https://www.nj.gov/bpu/agenda/rules/",
+      "publisher": "New Jersey Board of Public Utilities",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "N.J. Admin. Code § 5:23-4.20 - Department fees",
+      "url": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-5-23-4-20",
+      "publisher": "New Jersey Department of Community Affairs (via Cornell Law School Legal Information Institute)",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

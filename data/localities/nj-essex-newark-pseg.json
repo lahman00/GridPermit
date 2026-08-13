@@ -1,0 +1,178 @@
+{
+  "record_id": "nj-essex-newark-pseg",
+  "schema_version": "1.4.0",
+  "state": "NJ",
+  "utility": {
+    "value": "Public Service Electric and Gas Company (PSE&G)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "PSE&G is the dominant investor-owned electric utility for northern and central New Jersey, including Newark. PSE&G's own site (nj.pseg.com) was inaccessible this session — it returned a bot-detection/WAF block page ('The request is blocked') via the browser tool and HTTP 403 via direct fetch — so utility-specific interconnection materials are sourced from the New Jersey Board of Public Utilities' own regulatory citations instead (see interconnection_url)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Public Service Electric and Gas Company (PSE&G)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator or default alternate generation supplier was found for Newark this session; PSE&G is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Newark",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Essex County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Newark Office of Uniform Construction Code (UCC), Engineering Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "New Jersey has the strongest home-rule tradition of any state in this dataset: the New Jersey Uniform Construction Code (N.J.A.C. 5:23) is a single statewide building/electrical code, but each of New Jersey's approximately 565 municipalities designates and operates its own local enforcing agency under that code — Newark's is its own Office of Uniform Construction Code, not a county or regional office."
+  },
+  "permit_url": {
+    "value": "https://www.newarknj.gov/543/Building-Division---Office-of-Uniform-Co",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.nj.gov/bpu/agenda/rules/",
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "New Jersey's net metering and interconnection rules are set at the state level by the Board of Public Utilities (statutory basis: N.J.S.A. 48:3-87(e); regulatory basis: N.J.A.C. 14:8-4.1 through 14:8-5.9, covering Class I renewable energy generation), applicable to PSE&G statewide. PSE&G's own consumer-facing interconnection application pages were inaccessible this session (see utility notes) — this URL points to the BPU's own rules index rather than PSE&G's specific process walkthrough, so PSE&G's own application steps/timeline were not independently confirmed."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Newark's own Construction Permit Application and 2026 Construction Checklist documents are linked from its UCC page but were not independently opened and itemized this session."
+  },
+  "inspection_steps": {
+    "value": [
+      "The installed system must be inspected and approved by a representative of the local permitting agency (building and/or electrical subcode official)",
+      "The system must separately be inspected and approved by PSE&G under the interconnection agreement before Permission to Operate is granted"
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "This describes the general New Jersey statewide process (local UCC inspection plus separate utility interconnection inspection), not a Newark-specific itemized inspection sequence, which was not independently confirmed this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Newark-specific or independently-confirmed PSE&G-specific review timeline was found this session."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "All solar systems must comply with the New Jersey Uniform Construction Code (N.J.A.C. 5:23), including the electrical subcode's adoption of NEC Article 690 (Solar Photovoltaic Systems)",
+        "Net metering is limited to systems using a Class I renewable energy source, for the net amount of electricity supplied over an annualized period, per N.J.S.A. 48:3-87(e)"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Statewide Uniform Construction Code base fee — photovoltaic system, 1-50 kW",
+        "amount_usd": 65,
+        "unit": "flat fee (electrical subcode)",
+        "notes": "Per N.J.A.C. 5:23-4.20(c)(2)(iii)(13), the New Jersey Department of Community Affairs' Uniform Construction Code sets this as the statewide BASE fee for the electrical-subcode portion of a 1-50 kW photovoltaic system permit. This is explicitly a state-set default, not a Newark-specific confirmed figure — the same regulation and independent reporting both note that individual municipalities may adopt their own fee schedules that differ from this state base, and Newark's own current fee schedule was not independently located and cross-checked this session. A separate building-subcode fee, a DCA state permit surcharge ($1.90 per $1,000 of construction value), and plan-review fees (20% of construction permit fees) would also typically apply and are not included in this single line item."
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S4"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "New Jersey's principal current solar incentive is the Successor Solar Incentive (SuSI) Program (SREC-II), a per-kWh Solar Renewable Energy Certificate-style program administered by the NJ Board of Public Utilities — its current per-kWh/per-MWh rate was not independently confirmed from a primary BPU source this session, so it is left null rather than estimated."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Newark Office of Uniform Construction Code (UCC)",
+        "phone": "973-733-3957",
+        "email": null,
+        "url": "https://www.newarknj.gov/543/Building-Division---Office-of-Uniform-Co"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Division - Office of Uniform Construction Code (UCC)",
+      "url": "https://www.newarknj.gov/543/Building-Division---Office-of-Uniform-Co",
+      "publisher": "City of Newark, Engineering Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Rules (Net Metering and Interconnection, N.J.A.C. 14:8-4/14:8-5)",
+      "url": "https://www.nj.gov/bpu/agenda/rules/",
+      "publisher": "New Jersey Board of Public Utilities",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Solar and Renewable Energy for Residential Customers",
+      "url": "https://nj.pseg.com/saveenergyandmoney/solarandrenewableenergy",
+      "publisher": "Public Service Electric and Gas Company (PSE&G)",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "N.J. Admin. Code § 5:23-4.20 - Department fees",
+      "url": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-5-23-4-20",
+      "publisher": "New Jersey Department of Community Affairs (via Cornell Law School Legal Information Institute)",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
