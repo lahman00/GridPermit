@@ -1,0 +1,113 @@
+{
+  "state": "SC",
+  "generated_at": "2026-08-13T21:52:29.409Z",
+  "records": [
+    {
+      "record_id": "sc-richland-richlandcounty-dominion",
+      "state": "SC",
+      "city": "Richland County",
+      "county": "Richland County",
+      "completeness_pct": 73.3,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "timeline_days",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "inspection_steps",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "readiness": "LIMITED"
+    },
+    {
+      "record_id": "sc-sumter-sumter-duke",
+      "state": "SC",
+      "city": "Sumter",
+      "county": "Sumter County",
+      "completeness_pct": 80,
+      "validation_score": 95,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "unsupported_claim"
+      ],
+      "readiness": "READY"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 76.7,
+    "average_validation_score": 96.5,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 2
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 2
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [
+      "sc-sumter-sumter-duke"
+    ],
+    "limited_for_now": [
+      {
+        "record_id": "sc-richland-richlandcounty-dominion",
+        "city": "Richland County",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
+      }
+    ],
+    "not_ready": []
+  }
+}

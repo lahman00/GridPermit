@@ -1,0 +1,208 @@
+{
+  "record_id": "sc-sumter-sumter-duke",
+  "schema_version": "1.4.0",
+  "state": "SC",
+  "utility": {
+    "value": "Duke Energy",
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City-County Building Inspection Department's own permit application form lists 'Black River' (Black River Electric Cooperative) and 'Duke Energy' as checkbox options for Utility Provider, with no documented geographic boundary between them within the jurisdiction. Duke Energy is recorded here as the more likely provider for the incorporated City of Sumter itself (cooperatives more typically serve surrounding rural county areas), but this is not independently confirmed by a dedicated territory map — a genuine ambiguity, not a confident claim."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Duke Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Sumter's residential solar customers this session; Duke Energy is recorded as both the distribution and default generation utility, with the same utility-identity caveat noted above."
+    },
+    "confidence": 0.45,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "city": {
+    "value": "Sumter",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Sumter County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Sumter operates a consolidated City-County Building Inspection Department, which serves as the single permitting authority for the City of Sumter, Sumter County, and the towns of Mayesville and Pinewood (all four are listed as selectable 'Jurisdiction' options on the Department's own permit application form)."
+  },
+  "permit_authority": {
+    "value": "Sumter City-County Building Inspection Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "South Carolina mandates a statewide Residential Code (2021 SC Residential Code / IRC with SC modifications per the SC Building Codes Council) that every municipality and county must enforce, but permit issuance and enforcement is delegated locally. Sumter's City-County Building Inspection Department is a genuinely consolidated jurisdiction, similar in structure to Durham, NC's City-County Building & Safety Department researched earlier this session."
+  },
+  "permit_url": {
+    "value": "https://www.sumtersc.gov/sites/default/files/uploads/Departments/Building/Forms_Applications/solar_panel_permit_application_030819_0.pdf",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.dominionenergy.com/south-carolina/save-energy/solar-for-your-home",
+    "confidence": 0.5,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Dominion Energy's own South Carolina solar page is recorded here as the state's general net-metering interconnection reference since it was directly accessible and confirmed this session, but Sumter's own likely provider is Duke Energy or Black River Electric Cooperative (see utility field) — Dominion Energy's SC service territory is centered on the Columbia/Charleston corridor, not Sumter. This field is left as a general South Carolina net-metering reference pending independent confirmation of Duke Energy's own SC interconnection process."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Permit application and fees (permit and plan review) paid at time of submittal",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Two copies of a signed and sealed structural review letter from a registered Professional Engineer, site-specific, confirming the existing roof can support the added PV load and specifying the attachment method",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Two copies of plans showing panel placement, attachment/flashing details, AC/DC disconnects, metering equipment, main service panel, grounding details, and a single-line electrical diagram",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Two copies of manufacturer cut sheets and installation instructions for the PV system, inverters, and racking/rail system",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Two color copies of photographs from all sides of the structure on which panels are to be placed",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the Department's own Solar Panel Permit Application form (Revised 2023-11-18). Systems must comply with IRC Section R324, applicable IBC/IFC sections, and NEC. Per an accompanying Department notice, roof mounting itself may only be performed by a licensed residential builder, a registered roofer specialty contractor, or a licensed general contractor with a roofing classification — a separate 'solar panel installer' specialty registration alone is not sufficient for the roof-mounting work itself."
+  },
+  "inspection_steps": {
+    "value": [
+      "Solar contractors call the Department's inspection line directly to request an inspection and receive the next available date",
+      "A designated representative must be present on-site to physically receive the inspection report from the inspector at the time of inspection; failure to do so results in an automatic failure and a $50 re-inspection fee"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Department's own application form does not state a specific review-to-issuance day count for solar permits."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 20,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Both ground-mount and roof-mount installations are recognized on the Department's own application form",
+        "Residential systems statewide are limited to 20kW AC per S.C. Code of Laws Section 58-39-20(C)(2), per South Carolina Building Codes Council guidance referenced this session"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Re-inspection fee (for failure to have a representative present to receive the inspection report)",
+        "amount_usd": 50,
+        "unit": "flat fee",
+        "notes": "Per the Department's own Solar Panel Permit Application form. The base permit and plan review fee amount itself is paid at submittal but no specific dollar figure is published on the form — it is calculated per the Department's general fee schedule, not stated in solar-specific terms."
+      }
+    ],
+    "confidence": 0.55,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Only the $50 re-inspection fee is a stated flat dollar figure; the base permit/plan-review fee is valuation-based per the Department's general fee schedule, not published as a specific solar line item this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide South Carolina or Sumter-specific solar rebate program was independently confirmed this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Sumter City-County Building Inspection Department",
+        "phone": "803-774-1600",
+        "email": null,
+        "url": "https://www.sumtersc.gov"
+      },
+      {
+        "name": "Robin Ayers",
+        "role": "Solar inspection scheduling contact",
+        "phone": "803-774-1634",
+        "email": null,
+        "url": null
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Panel Permit Application (Revised 11-18-23)",
+      "url": "https://www.sumtersc.gov/sites/default/files/uploads/Departments/Building/Forms_Applications/solar_panel_permit_application_030819_0.pdf",
+      "publisher": "Sumter City-County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Solar for Your Home",
+      "url": "https://www.dominionenergy.com/south-carolina/save-energy/solar-for-your-home",
+      "publisher": "Dominion Energy South Carolina",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

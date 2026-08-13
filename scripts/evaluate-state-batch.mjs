@@ -37,6 +37,7 @@ const STATE_SLUGS = {
   NV: "nevada", IL: "illinois", NJ: "new-jersey", UT: "utah", MD: "maryland",
   VA: "virginia",
   NC: "north-carolina",
+  SC: "south-carolina",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

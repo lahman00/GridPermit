@@ -36,6 +36,7 @@ const STATE_SLUGS = {
 	NV: "nevada", IL: "illinois", NJ: "new-jersey", UT: "utah", MD: "maryland",
 	VA: "virginia",
 	NC: "north-carolina",
+	SC: "south-carolina",
 };
 
 const AGGREGATOR_FILES = [

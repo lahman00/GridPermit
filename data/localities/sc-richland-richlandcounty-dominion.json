@@ -1,0 +1,185 @@
+{
+  "record_id": "sc-richland-richlandcounty-dominion",
+  "schema_version": "1.4.0",
+  "state": "SC",
+  "utility": {
+    "value": "Dominion Energy South Carolina",
+    "confidence": 0.7,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Dominion Energy South Carolina's service territory is centered on the Columbia/Charleston corridor; Richland County (which contains Columbia) is within this territory, though this was not cross-checked against a dedicated territory map — parts of the county may be served by cooperatives or municipal utilities not identified this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Dominion Energy South Carolina",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Richland County's residential solar customers this session; Dominion Energy South Carolina is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Richland County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This record covers unincorporated Richland County only, per the County's own Building Permitting and Inspections office. Columbia, the county seat and South Carolina's capital, operates its own separate City of Columbia building department and would be a distinct AHJ not covered by this record."
+  },
+  "county": {
+    "value": "Richland County",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Richland County Building Permitting and Inspections",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "South Carolina mandates a statewide Residential Code that every municipality and county must enforce, but permit issuance and enforcement is delegated locally. Richland County's own Building Permitting and Inspections office, within its Development Services department, is the permitting authority for unincorporated county areas."
+  },
+  "permit_url": {
+    "value": "https://www.richlandcountysc.gov/Property-Business/Comprehensive-Planning/Land-Development/Permits/Building-Permits",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.dominionenergy.com/south-carolina/save-energy/solar-for-your-home",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Proof of property ownership (a Statement of Disclosure is additionally required by law for homeowners acting as their own Owner/Builder)",
+        "required_when": "always for homeowner-permitted projects",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Copy of the property plat",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Architectural drawings of the proposed project",
+        "required_when": "not required for a standalone electrical permit",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Names and license numbers of any sub-contractors hired to complete the work",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This is the County's own general homeowner-permitting document checklist, not a solar-specific requirements list — no dedicated residential solar PV checklist was located for Richland County this session. Application must be submitted in person at the Building Permitting counter; online application is not available."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The County's own general permitting page does not detail solar-specific inspection steps; Related Pages links to a 'Residential Inspection' page were not independently fetched this session."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 14,
+      "notes": "The County's own page states plan review and approval 'may take up to 14 days' as a general homeowner-permitting timeline (not solar-specific); once approved, the applicant returns in person to pay and receive the permit."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 20,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Property setbacks and accessory-structure rules (relevant to ground-mount systems) are verified separately through the County's Zoning Department",
+        "Residential systems statewide are limited to 20kW AC per S.C. Code of Laws Section 58-39-20(C)(2)"
+      ]
+    },
+    "confidence": 0.65,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific dollar figure for a residential solar/electrical permit fee was independently confirmed this session; the County's page states solar panel fees apply to the panels and electrical equipment/connections only (with any new or altered structures charged per the standard fee schedule) but does not publish that schedule's dollar amounts inline."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide South Carolina or Richland County-specific solar rebate program was independently confirmed this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Building Permitting and Inspections",
+        "phone": "803-576-2140",
+        "email": null,
+        "url": "https://www.richlandcountysc.gov/Property-Business/Comprehensive-Planning/Land-Development/Permits/Building-Permits"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permits",
+      "url": "https://www.richlandcountysc.gov/Property-Business/Comprehensive-Planning/Land-Development/Permits/Building-Permits",
+      "publisher": "Richland County, South Carolina",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Solar for Your Home",
+      "url": "https://www.dominionenergy.com/south-carolina/save-energy/solar-for-your-home",
+      "publisher": "Dominion Energy South Carolina",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

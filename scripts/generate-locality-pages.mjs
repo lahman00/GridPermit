@@ -69,6 +69,7 @@ const STATE_SLUGS = {
   MD: "maryland",
   VA: "virginia",
   NC: "north-carolina",
+  SC: "south-carolina",
 };
 
 function pagesRootFor(record) {
