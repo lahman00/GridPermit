@@ -1,0 +1,169 @@
+{
+  "record_id": "ut-saltlake-westvalleycity-rmp",
+  "schema_version": "1.4.0",
+  "state": "UT",
+  "utility": {
+    "value": "Rocky Mountain Power",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Rocky Mountain Power is the dominant investor-owned electric utility across the Wasatch Front, including West Valley City (Salt Lake County)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Rocky Mountain Power",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving West Valley City's residential solar customers this session; Rocky Mountain Power is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "West Valley City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Salt Lake County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "West Valley City Building Inspection Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Utah has no single statewide residential solar permitting portal — permitting authority sits with the local municipality (inside its boundaries) or the county (in unincorporated areas). West Valley City's own Building Inspection Division is a separate AHJ from neighboring Salt Lake City (see ut-saltlake-saltlakecity-rmp) despite both being in Salt Lake County."
+  },
+  "permit_url": {
+    "value": "https://www.wvc-ut.gov/1784/Apply-For-a-Building-Permit",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://commerce.utah.gov/ocs/rooftop-solar/",
+    "confidence": 0.75,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "See the identical statewide interconnection-tier notes on the Salt Lake City record (ut-saltlake-saltlakecity-rmp) — the same Rocky Mountain Power / Utah PSC three-tier customer classification applies statewide."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own Permit Requirements page was referenced by search results but not independently fetched and itemized this session."
+  },
+  "inspection_steps": {
+    "value": [
+      "Residential video inspections are available for select project types, explicitly including solar, per the City's own permitting page"
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Only a licensed electrical contractor holding an S200 license may pull a residential solar permit — no owner-builder pathway is stated",
+        "Per West Valley City Municipal Code 7-7-204: roof-mounted systems must comply with the applicable zone's maximum height requirement (or the roof peak height, if that is lower); ground-mounted systems may not exceed 14 feet in height and are capped at 200 square feet in area, limited to the side or rear yard in residential zones, and treated as accessory structures",
+        "Roof-mounted systems must be flush-mounted and parallel to the roof surface where possible; if bracket-mounted or tilted, at least one side of the array must be within 12 inches of the roof surface (or the top of a parapet)",
+        "All exterior electrical/plumbing lines for ground-mounted systems must be buried in conduit, except overhead lines near the electric-grid interconnection point"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential solar panels on top of an existing building",
+        "amount_usd": 106,
+        "unit": "flat fee ($100 base + $1.00 + $5.00 in add-on line items)",
+        "notes": "Per the City's own Permit Costs & Fees page. An additional Planning/Zoning fee applies if a site review is required (exact additional amount not stated)."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "West Valley City Building Inspection Division",
+        "phone": null,
+        "email": null,
+        "url": "https://www.wvc-ut.gov/1784/Apply-For-a-Building-Permit"
+      }
+    ],
+    "confidence": 0.5,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The physical address (3600 South Constitution Blvd, West Valley City, UT 84119) was seen in search results but not independently confirmed via direct fetch of a City contact page this session; a phone number was not confirmed."
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Permit Costs & Fees",
+      "url": "https://www.wvc-ut.gov/307/Permit-Costs-Fees",
+      "publisher": "West Valley City, Utah",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "7-7-204 Standards for Solar Energy Collection Systems",
+      "url": "https://westvalleycity.municipal.codes/Code/7-7-204",
+      "publisher": "West Valley City Municipal Code",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Rooftop Solar — Utah Rooftop Solar Rates Explained",
+      "url": "https://commerce.utah.gov/ocs/rooftop-solar/",
+      "publisher": "Utah Department of Commerce, Office of Consumer Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

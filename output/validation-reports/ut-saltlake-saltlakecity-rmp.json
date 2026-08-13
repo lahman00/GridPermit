@@ -1,0 +1,60 @@
+{
+  "record_id": "ut-saltlake-saltlakecity-rmp",
+  "file": "data/localities/ut-saltlake-saltlakecity-rmp.json",
+  "validated_at": "2026-08-13",
+  "status": "REVIEW",
+  "score": 93,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "confidence_inconsistency",
+      "message": "confidence=0.85 but notes hedge: 'Utah's rooftop-solar customer classification is governed by a settlement agreement and Utah Public Service Commission order, summarized on the Utah Department of Commerce Office of Consumer Services' own page: customers fall into one of three tiers based on when their complete interconnection application was submitted to Rocky Mountain Power — Net-Metered (NEM) if before 2017-11-15, Transition if 2017-11-15 through 2020-10-30, and Post-Transition/Export Credit if after 2020-10-30 (the tier all new applicants fall under today). The exact current Schedule 137 Export Credit Rate dollar/cents-per-kWh figure was not independently confirmed from a primary Utah PSC tariff filing this session (a specific PSC document URL located via search returned HTTP 404) — left unrecorded rather than using a third-party-reported figure.'"
+    },
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://commerce.utah.gov/ocs/rooftop-solar/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.slc.gov/buildingservices/solar-pv/",
+      "checked_at": "2026-08-13T19:45:59.214Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://commerce.utah.gov/ocs/rooftop-solar/",
+      "checked_at": "2026-08-13T19:45:59.399Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.slc.gov/buildingservices/2026/04/22/solar-pv-systems/",
+      "checked_at": "2026-08-13T19:45:59.511Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

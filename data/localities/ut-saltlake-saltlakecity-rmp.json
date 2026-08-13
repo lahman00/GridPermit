@@ -1,0 +1,203 @@
+{
+  "record_id": "ut-saltlake-saltlakecity-rmp",
+  "schema_version": "1.4.0",
+  "state": "UT",
+  "utility": {
+    "value": "Rocky Mountain Power",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Rocky Mountain Power (a PacifiCorp company) is the dominant investor-owned electric utility across the Wasatch Front, including Salt Lake City."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Rocky Mountain Power",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Salt Lake City's residential solar customers this session; Rocky Mountain Power is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Salt Lake City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Salt Lake County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Salt Lake City Building Services",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Utah has no single statewide residential solar permitting portal — permitting authority sits with the local municipality (inside its boundaries) or the county (in unincorporated areas). Salt Lake City's own Building Services division is the permitting authority within city limits."
+  },
+  "permit_url": {
+    "value": "https://www.slc.gov/buildingservices/solar-pv/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://commerce.utah.gov/ocs/rooftop-solar/",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Utah's rooftop-solar customer classification is governed by a settlement agreement and Utah Public Service Commission order, summarized on the Utah Department of Commerce Office of Consumer Services' own page: customers fall into one of three tiers based on when their complete interconnection application was submitted to Rocky Mountain Power — Net-Metered (NEM) if before 2017-11-15, Transition if 2017-11-15 through 2020-10-30, and Post-Transition/Export Credit if after 2020-10-30 (the tier all new applicants fall under today). The exact current Schedule 137 Export Credit Rate dollar/cents-per-kWh figure was not independently confirmed from a primary Utah PSC tariff filing this session (a specific PSC document URL located via search returned HTTP 404) — left unrecorded rather than using a third-party-reported figure."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed Solar PV Packet / Solar PV Application form",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Site plan showing major component locations and clearances",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Electrical diagram showing PV array configuration, wiring system, overcurrent protection, inverter, and disconnects",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural worksheet",
+        "required_when": "for certain roof-mounted and ground-mounted systems",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per the City's own Solar PV Systems Packet."
+  },
+  "inspection_steps": {
+    "value": [
+      "Review covers four separate areas: Building Code (roof compliance, weatherproofing, engineered mounting), Structural (roof framing analysis required for systems exceeding 5 psf), Electrical (component certification and configuration verification), and Fire Safety (access pathways, disconnect placement, weather-resistant labeling)",
+      "Zoning review also applies, covering setback requirements and historic district considerations"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 28,
+      "max_days": 56,
+      "notes": "Search-derived reporting (not the City's own page directly) cited a 4-8 week standard review timeline for residential projects; the City's own Solar PV Systems page states the permit becomes null and void if work is not commenced within 180 days of issuance, or if work is suspended/abandoned for 180 days, but does not itself state a review-turnaround day-count."
+    },
+    "confidence": 0.4,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 15,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Components must be UL listed and identified for the application",
+        "Maximum 4 series strings per inverter",
+        "System total capacity may not exceed 15 kW",
+        "Inverter output limited to 13,440 watts continuous AC power",
+        "AC connection point must be on the load side of the service disconnecting means",
+        "Zoning setback requirement of 6 feet minimum",
+        "Fire-safety access pathway minimum of 3 feet to the roof ridge"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page states fees are 'determined by Salt Lake City' and points to a fee calculator at www.slcpermits.com rather than stating a specific dollar figure — left null rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No statewide Utah solar rebate/tax-credit program specific to Salt Lake City was independently confirmed this session (Utah's Renewable Energy Systems Tax Credit was phased out for residential systems some years ago per general knowledge, not independently re-verified from a primary source this session) — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Salt Lake City Building Services",
+        "phone": "801-535-6000",
+        "email": null,
+        "url": "https://www.slc.gov/buildingservices/solar-pv/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar PV",
+      "url": "https://www.slc.gov/buildingservices/solar-pv/",
+      "publisher": "Salt Lake City, Building Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Solar PV Systems Packet",
+      "url": "https://www.slc.gov/buildingservices/2026/04/22/solar-pv-systems/",
+      "publisher": "Salt Lake City, Building Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Rooftop Solar — Utah Rooftop Solar Rates Explained",
+      "url": "https://commerce.utah.gov/ocs/rooftop-solar/",
+      "publisher": "Utah Department of Commerce, Office of Consumer Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
