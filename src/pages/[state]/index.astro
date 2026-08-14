@@ -126,7 +126,9 @@ const collectionSchema = {
 				<a href="/methodology">Methodology</a>
 			</div>
 			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
-			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+			{stateCode === "CA"
+				? <a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+				: <a href="/search" class="btn-cta-nav">Find a Guide</a>}
 		</div>
 	</nav>
 

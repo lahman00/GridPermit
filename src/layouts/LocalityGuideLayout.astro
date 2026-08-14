@@ -28,6 +28,7 @@ import { stateGuidesIndexUrl } from "../lib/locality-guide";
 import { stateMeta } from "../lib/state-meta";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
 import Analytics from "../components/Analytics.astro";
+import InstallerCTA from "../components/InstallerCTA.astro";
 
 interface Props {
 	record: LocalityRecord;
@@ -192,7 +193,9 @@ const tocItems = [
 				<a href="/methodology">Methodology</a>
 			</div>
 			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
-			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+			{record.state === "CA"
+				? <a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+				: <a href="#installer-cta" class="btn-cta-nav">Find an Installer</a>}
 		</div>
 	</nav>
 
@@ -430,6 +433,11 @@ const tocItems = [
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
+
+			<!-- ===== Installer CTA ===== -->
+			<div id="installer-cta">
+				<InstallerCTA city={record.city.value} />
+			</div>
 
 			<!-- ===== Sources ===== -->
 			<section id="sources">

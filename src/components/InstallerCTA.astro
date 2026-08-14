@@ -1,0 +1,41 @@
+---
+// The one conversion point on every locality guide page. Placed after
+// Official Contacts (the reader has just absorbed the real permit facts —
+// the natural next question is "who actually does this for me?") and before
+// the footer disclaimer.
+//
+// This is a plain, honestly-disclosed, non-affiliate outbound link — same
+// pattern as the homepage's EnergySage CTA (src/pages/index.astro). See
+// docs/MONETIZATION_STRATEGY.md Section 7: do not add rel="sponsored" or
+// compensation language, and do not remove the "no affiliate relationship"
+// disclosure, until a real tracked EnergySage affiliate URL replaces this
+// plain link.
+interface Props {
+	city: string;
+}
+
+const { city } = Astro.props;
+---
+
+<div class="installer-cta-box">
+	<h2>Need a solar installer who handles permits in {city}?</h2>
+	<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers familiar with local permitting.</p>
+	<!-- NOTE: plain, non-affiliate external link — no tracking ID configured yet.
+	     Do not add rel="sponsored" or compensation language until a real
+	     affiliate/tracking URL is supplied. -->
+	<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
+		Compare quotes from solar installers →
+	</a>
+	<p class="installer-cta-disclosure">
+		You'll continue on EnergySage's website. This is a plain external link — GridPermit does not currently have an affiliate relationship with EnergySage and earns no compensation from it.
+	</p>
+</div>
+
+<style>
+	.installer-cta-box { background: var(--bg-dark, #0f172a); color: white; border-radius: 10px; padding: 1.5rem; text-align: center; margin: 2rem 0; }
+	.installer-cta-box h2 { font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem 0; color: white; }
+	.installer-cta-box p { font-size: 0.85rem; color: #cbd5e1; margin: 0 0 1rem 0; line-height: 1.5; }
+	.installer-cta-btn { display: inline-block; background: var(--accent, #10b981); color: white; border: none; padding: 0.85rem 1.5rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; text-decoration: none; transition: background 0.2s ease; }
+	.installer-cta-btn:hover { background: #059669; }
+	.installer-cta-disclosure { font-size: 0.72rem; color: #94a3b8; margin-top: 0.9rem !important; line-height: 1.4; }
+</style>

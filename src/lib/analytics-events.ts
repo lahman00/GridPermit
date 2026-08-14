@@ -15,6 +15,7 @@ export const ANALYTICS_EVENTS = [
 	"permit_guide_clicked",
 	"external_partner_clicked",
 	"faq_expanded",
+	"pro_interest_clicked",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[number];
