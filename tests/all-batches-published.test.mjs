@@ -54,6 +54,7 @@ const STATE_SLUGS = {
 	LA: "louisiana",
 	OH: "ohio",
 	PA: "pennsylvania",
+	AK: "alaska",
 };
 
 const AGGREGATOR_FILES = [

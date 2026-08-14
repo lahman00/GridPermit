@@ -55,6 +55,7 @@ const STATE_SLUGS = {
   LA: "louisiana",
   OH: "ohio",
   PA: "pennsylvania",
+  AK: "alaska",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {
