@@ -186,7 +186,24 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 			for (const r of results) {
 				const li = document.createElement("li");
 				li.className = "result-item";
-				li.innerHTML = `<a href="${r.url}"><span class="result-category">${r.category}</span><span class="result-title">${r.title}</span><span class="result-description">${r.description}</span></a>`;
+
+				const a = document.createElement("a");
+				a.href = r.url;
+
+				const category = document.createElement("span");
+				category.className = "result-category";
+				category.textContent = r.category;
+
+				const title = document.createElement("span");
+				title.className = "result-title";
+				title.textContent = r.title;
+
+				const description = document.createElement("span");
+				description.className = "result-description";
+				description.textContent = r.description;
+
+				a.append(category, title, description);
+				li.appendChild(a);
 				resultsList.appendChild(li);
 			}
 		}
