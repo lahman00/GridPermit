@@ -41,6 +41,7 @@ const STATE_SLUGS = {
 	WI: "wisconsin",
 	MN: "minnesota",
 	CT: "connecticut",
+	MA: "massachusetts",
 };
 
 const AGGREGATOR_FILES = [

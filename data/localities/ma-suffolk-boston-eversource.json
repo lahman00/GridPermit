@@ -1,0 +1,213 @@
+{
+  "record_id": "ma-suffolk-boston-eversource",
+  "schema_version": "1.4.0",
+  "state": "MA",
+  "utility": {
+    "value": "Eversource",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Eversource (formerly NSTAR in the Boston area) is Boston's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Eversource",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Boston's residential solar customers this session; Eversource is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Boston",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Suffolk County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Boston Inspectional Services Department (ISD), Building Division; Boston Fire Prevention (electrical components)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Massachusetts uses a single statewide building code, the Massachusetts State Building Code (780 CMR, currently the 10th Edition), which applies uniformly to every city and town under M.G.L. c. 143, but permit issuance and enforcement is delegated to each municipality's own building department — a MIXED model similar to several other states researched this session. Boston's own Inspectional Services Department is the local AHJ."
+  },
+  "permit_url": {
+    "value": "https://www.boston.gov/boston-permitting/install-or-replace/install-or-replace-solar-panels",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.eversource.com/residential/about/doing-business-with-us/interconnections/massachusetts/net-metering",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per Eversource's own page, Massachusetts net metering is organized into three capacity classes: Class I (60kW or less, the typical residential case), Class II (60kW-1,000kW), and Class III (1,000kW-2,000kW). Customers must submit both a separate electrical interconnection application and a net metering application; simplified/expedited application paths exist for smaller systems. Massachusetts also separately runs the SMART (Solar Massachusetts Renewable Target) program, which pays a per-kWh production incentive for a 10-year term on top of (not instead of) net metering — administered via the PowerClerk platform, per search-derived context not independently re-confirmed on Eversource's own page this session."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page describes Energy Storage System (ESS) permitting/safety requirements (UL 9540 compliance, hard-wired smoke detectors required) but this is not a financial battery incentive program — no such program was independently confirmed this session, left null rather than conflating the two."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Structural engineer's roof condition report",
+        "required_when": "Short Form path (systems under 20kW on 1-2 family homes)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Engineer-stamped plans showing the location of any Energy Storage System (ESS) batteries",
+        "required_when": "when the project includes battery storage",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical permit",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Home Improvement Contractor (HIC) license",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof panel placement sketch",
+        "required_when": "Short Form path",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed homeowner waiver and site safety affidavit",
+        "required_when": "Short Form path",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Stamped, signed, and dated architectural or engineering plans by a Massachusetts Registered Design Professional, location/layout diagrams, ESS descriptions, structural support details, and component specifications/ratings",
+        "required_when": "Long Form path (systems 20kW or greater, or buildings with 3+ units)",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own page, Boston splits residential solar review into a lighter-weight 'Short Form' path (systems under 20kW on one- or two-family homes) and a fuller 'Long Form' path (systems 20kW or greater, or buildings with three or more units)."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page fetched this session did not detail post-installation inspection scheduling steps."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was stated on the City's own page fetched this session (a 3-6 week range was found via search synthesis only, attributed to a third-party solar-industry blog rather than the City's own page, so it is not recorded here)."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 60,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Short Form (systems under 20kW on 1-2 family homes) vs. Long Form (20kW+ or 3+ unit buildings)",
+      "other_conditions": [
+        "The 60kW figure recorded here reflects the statewide Class I net-metering threshold (per Eversource's own page), not a separate City permit-eligibility limit",
+        "Certain downtown/Back Bay/Fenway zip codes (02108, 02109, 02110, 02111, 02113, 02114, 02115, 02116, 02118, 02199, 02203, 02215, 02222) may fall within Eversource's 'Area Network,' a region where solar interconnection to the distribution grid can be problematic; the City's own guide instructs residents to call Eversource (1-800-340-9822) to confirm suitability before engaging a solar installer",
+        "Properties in a historic district or a designated/pending Landmark (per the Boston Landmarks Commission) must receive additional approval before a building permit can be issued"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific dollar figure for Boston's building or electrical permit fee was independently confirmed from a primary source this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Boston or statewide Massachusetts rebate dollar amount was independently confirmed from a primary source this session (the statewide SMART program pays a per-kWh production incentive, but its specific current rate was not independently fetched and confirmed this session) — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Inspectional Services Department (ISD)",
+        "phone": "617-635-5300",
+        "email": null,
+        "url": "https://www.boston.gov/boston-permitting/install-or-replace/install-or-replace-solar-panels"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Install or Replace Solar Panels",
+      "url": "https://www.boston.gov/boston-permitting/install-or-replace/install-or-replace-solar-panels",
+      "publisher": "City of Boston",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Massachusetts Net Metering",
+      "url": "https://www.eversource.com/residential/about/doing-business-with-us/interconnections/massachusetts/net-metering",
+      "publisher": "Eversource",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Going Solar in Boston — A Reference Guide to the Permit Process",
+      "url": "https://www.boston.gov/sites/default/files/document-file-03-2017/refereneguidetogoingsolarinbostonmarch242017.pdf",
+      "publisher": "City of Boston, Greenovate Boston",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

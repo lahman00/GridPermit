@@ -122,7 +122,7 @@ test("all four pilot states (CA, RI, DE, VT) are registered with distinct slugs"
 });
 
 test("stateMeta throws a clear error for an unregistered state code, rather than silently defaulting to California", () => {
-	assert.throws(() => stateMeta("MA"), /unrecognized state code/);
+	assert.throws(() => stateMeta("TX"), /unrecognized state code/);
 });
 
 // --- URL identity: same city name in two different states never collides -
