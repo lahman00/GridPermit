@@ -1,0 +1,62 @@
+---
+// Astro's documented convention: a src/pages/404.astro file is built to
+// dist/404.html, which Netlify automatically serves (with a real 404
+// status) for any unmatched path — no netlify.toml redirect needed.
+//
+// Before this file existed, every broken/mistyped/stale link on the site
+// fell through to Netlify's own generic default 404 page (plain text,
+// zero GridPermit branding, zero navigation back into the product — see
+// the overnight product-audit findings). This replaces that dead end with
+// a real page offering the two things that actually work today: search
+// (spans all represented states) and the homepage.
+import Analytics from "../components/Analytics.astro";
+
+const webPageSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	name: "Page Not Found - GridPermit",
+	description: "This page doesn't exist on GridPermit. Search for a city or state solar permit guide instead.",
+	url: "https://mygridpermit.com/404/",
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<Analytics />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Page Not Found - GridPermit</title>
+	<meta name="description" content="This page doesn't exist on GridPermit. Search for a city or state solar permit guide instead." />
+	<meta name="robots" content="noindex, follow" />
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
+	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+	<style>
+		body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 2rem 1rem; }
+		.container { max-width: 640px; margin: 4rem auto; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center; }
+		.status-pill { display: inline-block; background: #fef3c7; color: #92400e; font-weight: 700; font-size: 0.78rem; padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1.25rem; }
+		h1 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.75rem; color: #0f172a; }
+		p { font-size: 0.95rem; color: #475569; margin-bottom: 1.5rem; }
+		.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 2rem; }
+		.btn-primary { display: inline-block; background: #2563eb; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+		.btn-secondary { display: inline-block; background: #eff6ff; color: #2563eb; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+		.cross-links { font-size: 0.85rem; color: #64748b; }
+		.cross-links a { color: #2563eb; text-decoration: none; }
+	</style>
+</head>
+<body data-track-view="page_not_found">
+	<main class="container">
+		<div class="status-pill">404 — Page Not Found</div>
+		<h1>We couldn't find that page</h1>
+		<p>The link you followed may be broken, or the page may have moved. GridPermit publishes verified solar permit guides for cities across all 50 states — search for yours below.</p>
+		<div class="actions">
+			<a href="/search" class="btn-primary">Search GridPermit →</a>
+			<a href="/" class="btn-secondary">Go to Homepage</a>
+		</div>
+		<p class="cross-links"><a href="/california/solar-permit-guides/">California Guides</a> · <a href="/blog">Blog</a> · <a href="/how-it-works">How It Works</a> · <a href="/contact">Contact</a></p>
+	</main>
+</body>
+</html>

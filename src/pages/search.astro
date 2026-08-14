@@ -106,7 +106,10 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 
 			<ul class="results-list" id="results-list"></ul>
 			<p class="search-hint" id="search-hint">Start typing to search cities (e.g. "Oakland"), counties (e.g. "Alameda County"), utilities (e.g. "PG&E" or "SCE"), or topics (e.g. "SGIP", "NEM 3.0").</p>
-			<p class="no-results" id="no-results" hidden>No results found.</p>
+			<div class="no-results" id="no-results" hidden>
+				<p>No results found for that search.</p>
+				<p class="no-results-hint">Try searching by city, county, utility name, or state (e.g. "Texas" or "Ohio"). You can also browse <a href="/california/solar-permit-guides/">California guides</a> or go to the <a href="/">homepage</a>.</p>
+			</div>
 
 			<script is:inline type="application/json" id="search-index-data" set:html={JSON.stringify(searchIndex)} />
 		</main>
@@ -119,7 +122,7 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
 			</p>
 			<div class="footer-links">
-				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro">GridPermit Pro</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
 			</div>
 		</div>
 	</footer>
@@ -256,6 +259,8 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 		#search-input:focus { outline: none; border-color: var(--primary); }
 
 		.search-hint, .no-results { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1rem 0; }
+		.no-results-hint { font-size: 0.85rem; }
+		.no-results a { color: var(--primary); text-decoration: none; }
 
 		.results-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
 		.result-item a { display: block; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem 1.25rem; text-decoration: none; color: var(--text-main); }
