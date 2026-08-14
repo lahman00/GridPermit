@@ -59,6 +59,7 @@ const STATE_SLUGS = {
 	WV: "west-virginia",
 	OK: "oklahoma",
 	TX: "texas",
+	MS: "mississippi",
 };
 
 const AGGREGATOR_FILES = [

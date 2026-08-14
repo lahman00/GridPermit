@@ -1,0 +1,191 @@
+{
+  "record_id": "ms-hinds-jackson-entergymississippi",
+  "schema_version": "1.4.0",
+  "state": "MS",
+  "utility": {
+    "value": "Entergy Mississippi, LLC",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Entergy Mississippi is the well-established dominant electric utility for Jackson, the state capital."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Entergy Mississippi, LLC",
+      "type": "utility",
+      "notes": "Entergy Mississippi is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Jackson",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Hinds County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Jackson, the Mississippi state capital, is primarily located in Hinds County (with small portions extending into Madison and Rankin counties)."
+  },
+  "permit_authority": {
+    "value": "City of Jackson Building Permits Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.jacksonms.gov/building-permits/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.entergymississippi.com/net-metering",
+    "confidence": 0.75,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Entergy Mississippi's own page confirms monthly net-metering credits carry over to the next billing cycle, with customers receiving a cash refund of any remaining credit balance only upon disconnecting from the Solar Net Metering program (not on an ongoing basis). The exact per-kWh credit valuation was not stated on this page and was not independently confirmed this session, so it is left unstated rather than assumed to be full retail rate."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No confirmed financial battery storage incentive program was found on Entergy Mississippi's own net metering page or the City's own building permit page this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City of Jackson building permit application (submitted via the City's OpenGov portal)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Separate electrical trade permit, pulled by a licensed professional",
+        "required_when": "always, for the wiring/interconnection work",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Entergy Interconnection Application and Agreement (Level 1, for systems <=20kW)",
+        "required_when": "always, submitted via the Entergy Interconnection Portal or by mail",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "No Jackson-specific solar PV permit checklist or document list was found this session (unlike some other cities researched this marathon that publish a dedicated solar handout) — the City's general building/electrical-permit requirements are recorded here alongside Entergy Mississippi's own, more detailed, net-metering application requirements."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own Building Permits Division page states the division generally handles 'permit applications, plan reviews, issuance, and inspections,' but no solar- or electrical-specific inspection sequence was published on the page fetched this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Entergy Mississippi's own net metering page does not state a specific application-to-approval business-day timeline ('Processing timelines not specified on this page'), and no City of Jackson permit review timeline was published on the page fetched this session."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 20,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Level 1 Interconnection under the Entergy Mississippi Solar Net Metering Program — systems 20kW or less for residential customers.",
+      "other_conditions": [
+        "System capacity cannot exceed 110% of the customer's prior calendar-year annual energy (kWh) usage.",
+        "Panels must be roof-mounted or facility-based behind the meter — ground-mounted or remote systems are not eligible under this program.",
+        "Customers with collective billing accounts are not eligible."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Entergy Mississippi Net Metering Admin Fee (advanced/AMI meter already installed)",
+        "amount_usd": 95,
+        "unit": "one-time, non-refundable, applied to the bill after the system becomes operational",
+        "notes": "Per Entergy Mississippi's own net metering page."
+      },
+      {
+        "name": "Entergy Mississippi Net Metering Admin Fee (new meter installation required)",
+        "amount_usd": 135,
+        "unit": "one-time, non-refundable, applied to the bill after the system becomes operational",
+        "notes": "Per Entergy Mississippi's own net metering page."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "No City of Jackson building/electrical permit fee schedule was found on the page fetched this session — only the utility-side net metering admin fee is confirmed."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Jackson-specific or statewide Mississippi solar rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Jackson, Building Permits Division (City Hall)",
+        "phone": "601-960-0794",
+        "email": null,
+        "url": "https://www.jacksonms.gov/building-permits/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permits",
+      "url": "https://www.jacksonms.gov/building-permits/",
+      "publisher": "City of Jackson, MS",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Net metering for renewable energy resources",
+      "url": "https://www.entergymississippi.com/net-metering",
+      "publisher": "Entergy Mississippi, LLC",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}

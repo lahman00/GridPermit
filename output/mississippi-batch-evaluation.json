@@ -1,0 +1,71 @@
+{
+  "state": "MS",
+  "generated_at": "2026-08-14T15:41:02.204Z",
+  "records": [
+    {
+      "record_id": "ms-hinds-jackson-entergymississippi",
+      "state": "MS",
+      "city": "Jackson",
+      "county": "Hinds County",
+      "completeness_pct": 73.3,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [],
+      "readiness": "LIMITED"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 73.3,
+    "average_validation_score": 100,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [],
+    "limited_for_now": [
+      {
+        "record_id": "ms-hinds-jackson-entergymississippi",
+        "city": "Jackson",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
+      }
+    ],
+    "not_ready": []
+  }
+}

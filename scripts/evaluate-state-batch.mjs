@@ -60,6 +60,7 @@ const STATE_SLUGS = {
   WV: "west-virginia",
   OK: "oklahoma",
   TX: "texas",
+  MS: "mississippi",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {
