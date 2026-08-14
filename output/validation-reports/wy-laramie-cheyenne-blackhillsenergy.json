@@ -1,0 +1,76 @@
+{
+  "record_id": "wy-laramie-cheyenne-blackhillsenergy",
+  "file": "data/localities/wy-laramie-cheyenne-blackhillsenergy.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 96,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.cheyennecity.org/Your-Government/Departments/Compliance-Department/Building-Permitting-Licensing/Building-Permit-Information — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://law.justia.com/codes/wyoming/title-37/chapter-16/article-1/section-37-16-103/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "inspection_steps",
+      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.cheyennecity.org/Your-Government/Departments/Compliance-Department/Building-Permitting-Licensing/Building-Permit-Information",
+      "checked_at": "2026-08-14T17:09:59.110Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://law.justia.com/codes/wyoming/title-37/chapter-16/article-1/section-37-16-103/",
+      "checked_at": "2026-08-14T17:09:59.548Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://psc.wyo.gov/home/utility-tariffs",
+      "checked_at": "2026-08-14T17:09:59.660Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://wyoleg.gov/LSOResearch/2019/19RM024.pdf",
+      "checked_at": "2026-08-14T17:10:00.091Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

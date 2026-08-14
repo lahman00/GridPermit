@@ -98,6 +98,7 @@ const STATE_SLUGS = {
   MT: "montana",
   ND: "north-dakota",
   SD: "south-dakota",
+  WY: "wyoming",
 };
 
 function pagesRootFor(record) {

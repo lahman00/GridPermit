@@ -122,7 +122,11 @@ test("all four pilot states (CA, RI, DE, VT) are registered with distinct slugs"
 });
 
 test("stateMeta throws a clear error for an unregistered state code, rather than silently defaulting to California", () => {
-	assert.throws(() => stateMeta("WY"), /unrecognized state code/);
+	// "ZZ" is not a real USPS state code and is reserved here purely as an
+	// always-invalid placeholder for this regression test — unlike a real US
+	// state code, it must never be registered in STATE_META, so this test
+	// stays meaningful regardless of which real states get added over time.
+	assert.throws(() => stateMeta("ZZ"), /unrecognized state code/);
 });
 
 // --- URL identity: same city name in two different states never collides -

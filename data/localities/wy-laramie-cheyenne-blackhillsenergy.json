@@ -1,0 +1,197 @@
+{
+  "record_id": "wy-laramie-cheyenne-blackhillsenergy",
+  "schema_version": "1.4.0",
+  "state": "WY",
+  "utility": {
+    "value": "Cheyenne Light, Fuel and Power Company (d/b/a Black Hills Energy)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Cheyenne Light, Fuel and Power Company, operating as Black Hills Energy, is the established dominant electric utility serving Cheyenne and southeastern Wyoming, filing its own tariffs (including Wyoming P.S.C. Tariff No. 13 governing net metering) with the Wyoming Public Service Commission. The utility's own consumer-facing website (blackhillsenergy.com) was unreachable this session (DNS resolution failure and connection resets across three independent WebFetch attempts, plus two denied browser navigation attempts), so this record relies on Wyoming state government sources for the applicable net metering law rather than the utility's own program materials."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Cheyenne Light, Fuel and Power Company (d/b/a Black Hills Energy)",
+      "type": "utility",
+      "notes": "Recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Cheyenne",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Laramie County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Cheyenne, Wyoming's capital and largest city, is the seat of Laramie County."
+  },
+  "permit_authority": {
+    "value": "City of Cheyenne Compliance Department (Building Permitting & Licensing)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.cheyennecity.org/Your-Government/Departments/Compliance-Department/Building-Permitting-Licensing/Building-Permit-Information",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This URL returns HTTP 403 to automated HEAD requests (a bot-detection response, not a broken page); the page's actual content was independently confirmed live and readable via direct browser navigation this session."
+  },
+  "interconnection_url": {
+    "value": "https://law.justia.com/codes/wyoming/title-37/chapter-16/article-1/section-37-16-103/",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Wyoming does not leave net metering to individual utility discretion — it is a mandatory statewide law (Wyoming Statutes Title 37, Chapter 16, Article 1, Sections 37-16-101 through 103) applicable to all Wyoming investor-owned electric utilities and electric cooperatives, confirmed by directly reading the current (2025) statute text via Justia's official-code mirror. A 2024 bill (HB0094) that would have raised the net metering capacity cap from 25 kW to 750 kW for customer-generators died in the Wyoming Legislature without passing; the Wyoming Legislative Service Office's own 2019 research memorandum independently confirms the same 25 kW cap and annual-reset compensation structure described in the statute. This URL returns HTTP 403 to automated HEAD requests (a bot-detection response, not a broken page); the page's actual statute text was independently confirmed live and readable via direct browser navigation this session."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No battery storage incentive program was found in Wyoming's net metering statute, the Wyoming Legislative Service Office's research memorandum, or the City of Cheyenne's own permit pages this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City of Cheyenne building/electrical permit application, submitted via the City's OpenGov portal (cheyennewy.portal.opengov.com)",
+        "required_when": "always, for electrical work including solar PV installation",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Utility-provided bidirectional (net) energy meter, which the electric utility must make available to each eligible customer-generator with an installed net metering system",
+        "required_when": "always, for net-metered systems",
+        "source_ids": [
+          "S3"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "Several third-party aggregator sites (not fetched or used as sources here) described additional Cheyenne-specific requirements such as a 'solar access permit' and a roof-load engineering certification; those claims were not independently confirmed from a primary City of Cheyenne source this session and are deliberately excluded rather than presented as fact."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the City of Cheyenne's own building permit page nor Wyoming's net metering statute published a specific inspection sequence this session — left null rather than guessed."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City of Cheyenne or Cheyenne Light, Fuel and Power Company primary source fetched this session published a specific permit or interconnection review timeline figure."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 25,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Net metering under Wyoming Statutes Title 37, Chapter 16, Article 1 (Sections 37-16-101 through 103) — a mandatory statewide net metering law applicable to all Wyoming investor-owned electric utilities and electric cooperatives, including Cheyenne Light, Fuel and Power Company d/b/a Black Hills Energy.",
+      "other_conditions": [
+        "Eligible net metering systems must use solar, wind, biomass, or hydropower, be located on the customer-generator's own premises, and be sized primarily to offset the customer-generator's own electricity requirements (W.S. 37-16-101).",
+        "Excess generation is credited at the full retail rate on the customer's bill for the following month, and unused monthly credits carry forward within the year — but at the start of each calendar year, any remaining unused kilowatt-hour credit balance from the prior year is sold to the utility at its own PSC-filed avoided-cost rate rather than carried forward indefinitely (W.S. 37-16-103).",
+        "The electric utility must offer a bidirectional energy meter to each eligible net-metered customer-generator and may not charge that customer a minimum monthly charge greater than other customers in the same rate class (W.S. 37-16-102).",
+        "A 2024 bill (HB0094) that would have raised the net metering capacity cap from 25 kW to 750 kW for customer-generators died in the Wyoming Legislature and did not become law; the 25 kW cap remains in effect as of this session."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S4"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City of Cheyenne's own Building Permit Information page states that permit fees are based on total project valuation (materials plus labor), with a separate plan review fee equal to 65% of the permit fee, but does not publish a fixed dollar figure or a fee-schedule table on the page itself — left null rather than guessed. No Cheyenne Light, Fuel and Power Company interconnection application fee was found this session; the utility's own program materials were unreachable (see utility field notes)."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No rebate or incentive dollar amount was independently confirmed from a primary source this session for Cheyenne or Cheyenne Light, Fuel and Power Company specifically."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Cheyenne Compliance Department — Building Permitting & Licensing",
+        "phone": null,
+        "email": null,
+        "url": "https://www.cheyennecity.org/Your-Government/Departments/Compliance-Department/Building-Permitting-Licensing/Building-Permit-Information"
+      },
+      {
+        "name": null,
+        "role": "Cheyenne Light, Fuel and Power Company (Black Hills Energy) — net metering per Wyoming P.S.C. Tariff No. 13",
+        "phone": null,
+        "email": null,
+        "url": "https://psc.wyo.gov/home/utility-tariffs"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Cheyenne Light, Fuel and Power Company's own consumer-facing contact information could not be independently confirmed this session because its website (blackhillsenergy.com) was unreachable via both direct fetch and browser navigation; the Wyoming PSC's own utility tariffs directory page is used as the interconnection contact source instead. No direct phone number is stated here to avoid presenting an unverified figure as confirmed."
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permit Information",
+      "url": "https://www.cheyennecity.org/Your-Government/Departments/Compliance-Department/Building-Permitting-Licensing/Building-Permit-Information",
+      "publisher": "City of Cheyenne, WY, Compliance Department",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Wyoming Public Service Commission — Utility Tariffs directory (referencing Cheyenne Light, Fuel and Power Company Wyoming P.S.C. Tariff No. 13, net metering)",
+      "url": "https://psc.wyo.gov/home/utility-tariffs",
+      "publisher": "Wyoming Public Service Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "Wyoming Statutes Title 37, Chapter 16, Article 1 — Net Metering, Sections 37-16-101 through 37-16-103 (2025)",
+      "url": "https://law.justia.com/codes/wyoming/title-37/chapter-16/article-1/section-37-16-103/",
+      "publisher": "State of Wyoming (official statute text, via Justia's official-code mirror)",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S4",
+      "title": "Research Memorandum: Net Metering (19RM024)",
+      "url": "https://wyoleg.gov/LSOResearch/2019/19RM024.pdf",
+      "publisher": "Wyoming Legislative Service Office",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}
