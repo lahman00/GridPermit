@@ -64,10 +64,41 @@
     "source_ids": []
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Newark's own Construction Permit Application and 2026 Construction Checklist documents are linked from its UCC page but were not independently opened and itemized this session."
+    "value": [
+      {
+        "name": "Completed Construction Permit Application (via the City's FastTrackGov portal)",
+        "required_when": "always",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Electrical Technical Sheet",
+        "required_when": "electrical work is involved (applies to grid-tied solar PV)",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Two sets of signed and sealed architectural drawings",
+        "required_when": "new construction or structural work (e.g. roof-mount racking)",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "State Electrical Business License (for the installing electrical contractor)",
+        "required_when": "always, for the electrical subcode portion",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Zoning Approval",
+        "required_when": "always",
+        "source_ids": ["S5"]
+      },
+      {
+        "name": "Utility Dig notification",
+        "required_when": "if excavation/trenching is involved",
+        "source_ids": ["S5"]
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": ["S5"],
+    "notes": "Newark's own 'Construction Check List 2026' (Building Department Contractor Permit Submission Guide) is a general construction-permit checklist covering all trades, not a solar-PV-specific list — items shown here are the general-checklist entries most applicable to a grid-tied residential solar PV installation (electrical work, possible roof-structure drawings, contractor licensing, zoning). Trade-specific items not applicable to solar (plumbing, fire sprinkler, elevator technical sheets) are omitted. Confirm the exact applicable subset with the Newark UCC office (973-733-3957) before relying on this as a complete solar-specific list."
   },
   "inspection_steps": {
     "value": [
@@ -140,7 +171,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-14",
   "sources": [
     {
       "id": "S1",
@@ -173,6 +204,14 @@
       "publisher": "New Jersey Department of Community Affairs (via Cornell Law School Legal Information Institute)",
       "type": "government",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S5",
+      "title": "Construction Check List 2026 (Contractor Permit Submission Guide)",
+      "url": "https://www.newarknj.gov/DocumentCenter/View/2842/CONSTRUCTION-CHECK-LIST-2026",
+      "publisher": "City of Newark, Building Department",
+      "type": "government",
+      "accessed_date": "2026-08-14"
     }
   ]
 }

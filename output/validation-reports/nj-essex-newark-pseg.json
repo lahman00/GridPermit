@@ -1,10 +1,21 @@
 {
   "record_id": "nj-essex-newark-pseg",
   "file": "data/localities/nj-essex-newark-pseg.json",
-  "validated_at": "2026-08-13",
-  "status": "REVIEW",
-  "score": 93,
-  "errors": [],
+  "validated_at": "2026-08-14",
+  "status": "FAIL",
+  "score": 53,
+  "errors": [
+    {
+      "field": null,
+      "category": "impossible_value",
+      "message": "source S5 accessed_date 2026-08-15 is in the future"
+    },
+    {
+      "field": "last_verified",
+      "category": "impossible_value",
+      "message": "last_verified 2026-08-15 is in the future"
+    }
+  ],
   "warnings": [
     {
       "field": "permit_fees",
@@ -23,10 +34,6 @@
       "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
@@ -38,7 +45,7 @@
   "url_checks": [
     {
       "url": "https://www.newarknj.gov/543/Building-Division---Office-of-Uniform-Co",
-      "checked_at": "2026-08-13T20:45:43.517Z",
+      "checked_at": "2026-08-14T23:16:30.645Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -46,7 +53,7 @@
     },
     {
       "url": "https://www.nj.gov/bpu/agenda/rules/",
-      "checked_at": "2026-08-13T20:45:44.955Z",
+      "checked_at": "2026-08-14T23:16:31.458Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -54,7 +61,7 @@
     },
     {
       "url": "https://nj.pseg.com/saveenergyandmoney/solarandrenewableenergy",
-      "checked_at": "2026-08-13T20:45:45.753Z",
+      "checked_at": "2026-08-14T23:16:32.135Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -62,7 +69,15 @@
     },
     {
       "url": "https://www.law.cornell.edu/regulations/new-jersey/N-J-A-C-5-23-4-20",
-      "checked_at": "2026-08-13T20:45:48.518Z",
+      "checked_at": "2026-08-14T23:16:33.302Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.newarknj.gov/DocumentCenter/View/2842/CONSTRUCTION-CHECK-LIST-2026",
+      "checked_at": "2026-08-14T23:16:33.913Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

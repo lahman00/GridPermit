@@ -81,9 +81,13 @@
     "notes": "This describes the general New Jersey statewide process (local UCC inspection plus separate utility interconnection inspection), not a Jersey-City-specific itemized sequence, which was not independently confirmed this session."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": {
+      "min_days": 0,
+      "max_days": 20,
+      "notes": "The City's own Application & Review Process page states 'Please allow 20 business days for all applications to be reviewed' and separately that 'Plan review can take up to 20 business days'; a resubmitted/revised plan gets a notice of release within 7 business days. This is a general construction-permit review window covering all permit types (building, electrical, plumbing, fire, elevator), not a solar-PV-specific timeline — actual issuance time for a specific solar application was not independently confirmed."
+    },
+    "confidence": 0.7,
+    "source_ids": ["S5"]
   },
   "eligibility_constraints": {
     "value": {
@@ -139,7 +143,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-14",
   "sources": [
     {
       "id": "S1",
@@ -172,6 +176,14 @@
       "publisher": "New Jersey Department of Community Affairs (via Cornell Law School Legal Information Institute)",
       "type": "government",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S5",
+      "title": "Application & Review Process",
+      "url": "https://www.jerseycitynj.gov/cityhall/HousingAndDevelopment/constructioncode/application___review_process",
+      "publisher": "City of Jersey City, Division of the Construction Code Official",
+      "type": "government",
+      "accessed_date": "2026-08-14"
     }
   ]
 }
