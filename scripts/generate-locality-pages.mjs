@@ -100,6 +100,7 @@ const STATE_SLUGS = {
   SD: "south-dakota",
   WY: "wyoming",
   IA: "iowa",
+  KS: "kansas",
 };
 
 function pagesRootFor(record) {

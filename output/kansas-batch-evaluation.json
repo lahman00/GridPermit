@@ -1,0 +1,73 @@
+{
+  "state": "KS",
+  "generated_at": "2026-08-14T17:26:45.868Z",
+  "records": [
+    {
+      "record_id": "ks-wyandotte-kansascity-bpu",
+      "state": "KS",
+      "city": "Kansas City",
+      "county": "Wyandotte County",
+      "completeness_pct": 73.3,
+      "validation_score": 96,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "timeline_days",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "readiness": "LIMITED"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 73.3,
+    "average_validation_score": 96,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 1
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [],
+    "limited_for_now": [
+      {
+        "record_id": "ks-wyandotte-kansascity-bpu",
+        "city": "Kansas City",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 96)"
+      }
+    ],
+    "not_ready": []
+  }
+}

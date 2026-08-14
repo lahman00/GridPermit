@@ -1,0 +1,197 @@
+{
+  "record_id": "ks-wyandotte-kansascity-bpu",
+  "schema_version": "1.4.0",
+  "state": "KS",
+  "utility": {
+    "value": "Kansas City Board of Public Utilities (BPU)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "BPU is a municipally-owned electric utility serving Kansas City, Kansas / Wyandotte County. Evergy, the state's dominant investor-owned utility, was confirmed genuinely blocked earlier in this marathon (domain-wide WAF block page). This record pivots to the separate, unaffected municipal utility that actually serves Kansas City, KS specifically, rather than continuing to pursue the blocked IOU."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Kansas City Board of Public Utilities (BPU)",
+      "type": "utility",
+      "notes": "Recorded as both the distribution and generation utility. BPU's own renewable energy page states 48% of the energy it provides to Wyandotte County comes from renewable resources."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Kansas City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Wyandotte County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Kansas City, Kansas is governed by the consolidated Unified Government of Wyandotte County / Kansas City, KS."
+  },
+  "permit_authority": {
+    "value": "Unified Government of Wyandotte County/Kansas City, KS — Building Inspection Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.wycokck.org/Departments/Neighborhood-Resource-Center/Building-Inspection/Building-Inspection-Permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This URL returns HTTP 403 to automated HEAD/GET requests via direct fetch (a bot-detection response, not a broken page); the page's actual content, and the Kansas Corporation Commission's separate net-metering page (which fails on a certificate error via direct fetch), were both independently confirmed live and readable via direct browser navigation this session."
+  },
+  "interconnection_url": {
+    "value": "https://www.bpu.com/ResourcesServices/RenewableEnergy.aspx",
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "BPU, as a municipal electric utility, is not subject to Kansas's statewide Net Metering and Easy Connection Act (K.S.A. 66-1263 through 66-1271), which by its own terms applies only to the state's investor-owned utilities (Evergy and Empire District), per the Kansas Corporation Commission's own explanation. BPU voluntarily adopted its own net metering, parallel generation, and interconnection policies via board vote in December 2009. BPU's own detailed net metering application form, fee schedule, and specific system-size cap were not located on BPU's website this session despite repeated attempts (a redirect loop on the original 2009 policy-announcement URL, and several other BPU subpages that discuss net metering only in general terms without publishing specific program parameters)."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No battery storage incentive program was found on BPU's or the Unified Government's own pages this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Residential Building Permit Application (or Electrical/Mechanical/Plumbing Permit application, for solar electrical work), submitted by email to buildinginspection@wycokck.org",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Scaled drawings of the project; a sealed plot plan is additionally required for projects that enlarge or alter the building's footprint (not required for interior-only alteration or repair work)",
+        "required_when": "conditionally, when the project enlarges or alters the structure's footprint",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "BPU net metering / interconnection application",
+        "required_when": "always, for grid-tied systems — BPU's own specific application document was not located this session; BPU's own materials confirm customers apply for and interconnect renewable generation with BPU's system, but do not publish the application form itself in an independently accessible location found this session",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "inspection_steps": {
+    "value": [
+      "Once all application documents are received, Unified Government staff perform a plan review to confirm the project complies with applicable building codes and city ordinances before issuing permits",
+      "After permits are issued, Unified Government building inspectors perform all required inspections and review any required third-party inspections"
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Unified Government or BPU primary source fetched this session published a specific permit or interconnection review timeline figure."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "BPU (Kansas City Board of Public Utilities), a municipal electric utility, voluntarily adopted its own net metering, parallel generation, and interconnection policies by board vote in December 2009 for residential, commercial, and industrial customers. As a municipal utility, BPU is not subject to Kansas's statewide Net Metering and Easy Connection Act, which by its own terms applies only to the state's investor-owned utilities.",
+      "other_conditions": [
+        "Per the Kansas Corporation Commission's own explanation, electric cooperatives and municipal electric providers such as BPU are not mandated by Kansas statute (K.S.A. 66-1263 through 66-1271) to offer net metering, though many — including BPU — have voluntarily adopted some form of it under their own governing boards.",
+        "BPU's own materials confirm customers who generate more electricity than they use receive credit applied to their next bill statement, but BPU's specific system-size cap, application form, and fee schedule were not found on BPU's own website this session despite multiple attempts.",
+        "For comparison only (this statute does NOT apply to BPU): Kansas's statewide net metering statute, applicable to Evergy and Empire District, caps residential net metering exports at 25 kW for interconnections before July 1, 2014, and 150 kW AC for interconnections after that date, crediting net excess generation at 100% of the utility's monthly system average cost of energy per kWh for post-2014 interconnections (or 1:1 for pre-2014 interconnections, with unused credit expiring each March 31)."
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S2",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Unified Government's own Building Inspection Permits & Requirements page links to a separate 'Fee Schedule' page, but that page was not independently opened and read this session — left null rather than guessed."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No rebate or incentive dollar amount was independently confirmed from a primary source this session for Kansas City, KS or BPU specifically."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Jim Neath",
+        "role": "Unified Government of Wyandotte County/Kansas City, KS — Chief Building Inspector",
+        "phone": "913-573-8620",
+        "email": "buildinginspection@wycokck.org",
+        "url": "https://www.wycokck.org/Departments/Neighborhood-Resource-Center/Building-Inspection/Building-Inspection-Permits"
+      },
+      {
+        "name": null,
+        "role": "Kansas City Board of Public Utilities (BPU) — Renewable Energy",
+        "phone": null,
+        "email": null,
+        "url": "https://www.bpu.com/ResourcesServices/RenewableEnergy.aspx"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Inspection Permits & Requirements",
+      "url": "https://www.wycokck.org/Departments/Neighborhood-Resource-Center/Building-Inspection/Building-Inspection-Permits",
+      "publisher": "Unified Government of Wyandotte County and Kansas City, KS",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Renewable Energy | Green Initiatives (and BPU Warns Customers of Scam Calls Claiming False Net Metering Program)",
+      "url": "https://www.bpu.com/ResourcesServices/RenewableEnergy.aspx",
+      "publisher": "Kansas City Board of Public Utilities (BPU)",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "Net Metering in Kansas",
+      "url": "https://www.kcc.ks.gov/electric/net-metering-in-kansas",
+      "publisher": "Kansas Corporation Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}

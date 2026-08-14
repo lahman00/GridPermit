@@ -1,0 +1,64 @@
+{
+  "record_id": "ks-wyandotte-kansascity-bpu",
+  "file": "data/localities/ks-wyandotte-kansascity-bpu.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 96,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.wycokck.org/Departments/Neighborhood-Resource-Center/Building-Inspection/Building-Inspection-Permits — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "broken_url",
+      "message": "https://www.kcc.ks.gov/electric/net-metering-in-kansas — network failure (fetch failed) — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.wycokck.org/Departments/Neighborhood-Resource-Center/Building-Inspection/Building-Inspection-Permits",
+      "checked_at": "2026-08-14T17:26:44.469Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.bpu.com/ResourcesServices/RenewableEnergy.aspx",
+      "checked_at": "2026-08-14T17:26:44.598Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.kcc.ks.gov/electric/net-metering-in-kansas",
+      "checked_at": "2026-08-14T17:26:45.448Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "network failure (fetch failed)"
+    }
+  ]
+}
