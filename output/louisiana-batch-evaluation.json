@@ -1,13 +1,13 @@
 {
   "state": "LA",
-  "generated_at": "2026-08-14T14:38:02.219Z",
+  "generated_at": "2026-08-14T23:27:53.046Z",
   "records": [
     {
       "record_id": "la-eastbatonrouge-batonrouge-entergy",
       "state": "LA",
       "city": "Baton Rouge",
       "county": "East Baton Rouge Parish",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 95,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -21,6 +21,7 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
@@ -28,17 +29,16 @@
       "missing_fields": [
         "battery_programs",
         "inspection_steps",
-        "timeline_days",
         "rebates"
       ],
       "warning_categories": [
         "unsupported_claim"
       ],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 80,
     "average_validation_score": 95,
     "fields_most_often_missing": [
       {
@@ -50,24 +50,16 @@
         "missing_in_records": 1
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 1
-      },
-      {
         "field": "rebates",
         "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "la-eastbatonrouge-batonrouge-entergy",
-        "city": "Baton Rouge",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 95)"
-      }
+    "recommended_publish_record_ids": [
+      "la-eastbatonrouge-batonrouge-entergy"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }

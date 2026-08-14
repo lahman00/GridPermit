@@ -81,10 +81,41 @@
     "notes": "Directly confirmed via the Rhode Island Office of Energy Resources' own Energy Storage Rebates page this session. A statewide program applicable to every Rhode Island municipality served by an eligible utility, not city-specific — reused as a state-level fact per docs/DATA_ARCHITECTURE.md's multi-state reuse rule. The page's 'launch date' is referenced as 'April 10' without an explicit year stated on the page; recorded as effective_from: null rather than guessed."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The City's official 'Checklist for Solar PV Installations' PDF exists but is a scanned/image-based document that could not be read this session; no other City page enumerated a solar-specific document checklist."
+    "value": [
+      {
+        "name": "Completed Statewide Solar Energy Permit Application (owner name/address, property address with lot number, system size AC and DC)",
+        "required_when": "always",
+        "source_ids": ["S7"]
+      },
+      {
+        "name": "Certification from a Rhode Island professional engineer that the existing structure can accommodate all code design loads, including uplift loads (or engineered design criteria to modify the structure to accommodate them)",
+        "required_when": "always, for residential (one- and two-family) installations",
+        "source_ids": ["S7"]
+      },
+      {
+        "name": "Layout drawing",
+        "required_when": "always",
+        "source_ids": ["S7"]
+      },
+      {
+        "name": "One-line electrical diagram",
+        "required_when": "always",
+        "source_ids": ["S7"]
+      },
+      {
+        "name": "Equipment specifications, including inverter/module make, model, and quantity",
+        "required_when": "always",
+        "source_ids": ["S7"]
+      },
+      {
+        "name": "Roofing material and weatherproofing method",
+        "required_when": "always",
+        "source_ids": ["S7"]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S7"],
+    "notes": "This is Rhode Island's statewide Solar Energy Permit Application requirements (300-RICR-00-00-3), a single standardized state-level permit application used by every RI municipality (including Providence) for both the building and electrical permit aspects of a solar PV installation — not a Providence-specific checklist. The City's own 'Checklist for Solar PV Installations' PDF exists but is a scanned/image-based document that could not be read this session."
   },
   "inspection_steps": {
     "value": null,
@@ -167,7 +198,7 @@
       "S4"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-14",
   "sources": [
     {
       "id": "S1",
@@ -216,6 +247,14 @@
       "publisher": "Rhode Island Commerce Corporation",
       "type": "program_administrator",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S7",
+      "title": "Statewide Solar Energy Permit Application (300-RICR-00-00-3)",
+      "url": "https://rules.sos.ri.gov/regulations/part/300-00-00-3",
+      "publisher": "Rhode Island Department of State / Office of Energy Resources",
+      "type": "government",
+      "accessed_date": "2026-08-14"
     }
   ]
 }

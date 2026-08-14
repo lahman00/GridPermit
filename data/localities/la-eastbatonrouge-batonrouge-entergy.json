@@ -134,13 +134,16 @@
     "value": null,
     "confidence": 0,
     "source_ids": [],
-    "notes": "Not detailed in the City's own information sheet fetched this session. Per broader search context (not independently confirmed from this specific document), the City/Parish offers an Expedited Plan Review option returning residential reviews in about 3 business days via the MyGovernmentOnline (MGO) portal — recorded with lower confidence pending direct primary-source re-confirmation, so not stated in timeline_days below."
+    "notes": "Not detailed in the City's own information sheet fetched this session."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No specific review-to-issuance day count was stated in the City's own 'Solar Permit Information' sheet fetched this session."
+    "value": {
+      "min_days": 7,
+      "max_days": 7,
+      "notes": "Per the City's own FAQ, verbatim: 'Residential plan reviews will be completed within seven (7) business days after receipt of all required information necessary in order to complete an initial review. Residential resubmittals will be reviewed within three (3) business days after receipt.' An optional Expedited Plan Review Service (via the MyGovernmentOnline portal) completes residential reviews within 3 business days instead (resubmittals within 2 business days) for an additional fee not stated on this page. This is the plan-review timeline specifically, not a full permit-to-inspection-complete timeline."
+    },
+    "confidence": 0.85,
+    "source_ids": ["S3"]
   },
   "eligibility_constraints": {
     "value": {
@@ -203,7 +206,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-14",
   "sources": [
     {
       "id": "S1",
@@ -220,6 +223,14 @@
       "publisher": "Entergy Louisiana",
       "type": "utility",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "FAQs - What is the Expedited Plan Review Service?",
+      "url": "https://www.brla.gov/Faq.aspx?QID=703",
+      "publisher": "City of Baton Rouge / East Baton Rouge Parish",
+      "type": "government",
+      "accessed_date": "2026-08-14"
     }
   ]
 }

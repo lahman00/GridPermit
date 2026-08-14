@@ -1,13 +1,13 @@
 {
   "state": "RI",
-  "generated_at": "2026-08-14T14:38:02.704Z",
+  "generated_at": "2026-08-14T23:27:53.117Z",
   "records": [
     {
       "record_id": "ri-providence-providence-rie",
       "state": "RI",
       "city": "Providence",
       "county": "Providence County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -21,12 +21,12 @@
         "permit_url",
         "interconnection_url",
         "battery_programs",
+        "required_documents",
         "eligibility_constraints",
         "rebates",
         "official_contacts"
       ],
       "missing_fields": [
-        "required_documents",
         "inspection_steps",
         "timeline_days",
         "permit_fees"
@@ -35,17 +35,13 @@
         "broken_url",
         "unsupported_claim"
       ],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 80,
     "average_validation_score": 91,
     "fields_most_often_missing": [
-      {
-        "field": "required_documents",
-        "missing_in_records": 1
-      },
       {
         "field": "inspection_steps",
         "missing_in_records": 1
@@ -61,14 +57,10 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "ri-providence-providence-rie",
-        "city": "Providence",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 91)"
-      }
+    "recommended_publish_record_ids": [
+      "ri-providence-providence-rie"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }
