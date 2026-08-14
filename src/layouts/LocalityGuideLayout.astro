@@ -177,7 +177,7 @@ const tocItems = [
 	<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
 
 	<div class="top-banner">
-		Independent Educational Guide: {currentStateMeta.name} residential solar and battery estimates. Illustrative only — not utility-specific.
+		Independent Educational Guide: {currentStateMeta.name} residential solar permit facts — sourced, dated, and confidence-scored. Not legal, engineering, or permit advice.
 	</div>
 
 	<nav class="navbar">
@@ -186,7 +186,7 @@ const tocItems = [
 				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
 			</a>
 			<div class="nav-links">
-				<a href="/#calculator">ROI Calculator</a>
+				<a href="/permits">Browse States</a>
 				<a href="/how-it-works">How It Works</a>
 				<a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} Guides</a>
 				<a href="/blog">Blog</a>
@@ -545,9 +545,8 @@ const tocItems = [
 		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
 		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
-		@media (max-width: 640px) {
-			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
-			.nav-links { flex-wrap: wrap; justify-content: center; }
+		@media (max-width: 900px) {
+			.nav-links { display: none; }
 		}
 
 		.page-container { max-width: 840px; margin: 0 auto; padding: 2rem 1rem 4rem; }

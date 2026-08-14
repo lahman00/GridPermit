@@ -111,7 +111,7 @@ const collectionSchema = {
 <body>
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div class="top-banner">
-		Independent Educational Guide: {stateInfo.name} residential solar and battery estimates. Illustrative only — not utility-specific.
+		Independent Educational Guide: {stateInfo.name} residential solar permit facts — sourced, dated, and confidence-scored. Not legal, engineering, or permit advice.
 	</div>
 
 	<nav class="navbar">
@@ -120,15 +120,13 @@ const collectionSchema = {
 				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
 			</a>
 			<div class="nav-links">
-				<a href="/#calculator">ROI Calculator</a>
+				<a href="/permits">Browse States</a>
 				<a href="/how-it-works">How It Works</a>
 				<a href="/blog">Blog</a>
 				<a href="/methodology">Methodology</a>
 			</div>
 			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
-			{stateCode === "CA"
-				? <a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
-				: <a href="/search" class="btn-cta-nav">Find a Guide</a>}
+			<a href="/search" class="btn-cta-nav">Find a Guide</a>
 		</div>
 	</nav>
 
@@ -148,12 +146,18 @@ const collectionSchema = {
 			<h1>{stateInfo.name} Solar Permit Guides</h1>
 			<p class="subtitle">City-by-city permitting facts, sourced and confidence-scored — {entries.length} {entries.length === 1 ? "city" : "cities"} currently listed</p>
 
+			<form class="state-search-form" action="/search" method="get" role="search">
+				<label for="state-search-input" class="visually-hidden">Search for a city, county, or utility in {stateInfo.name}</label>
+				<input type="search" id="state-search-input" name="q" placeholder={`Search ${stateInfo.name} cities, counties, or utilities…`} autocomplete="off" />
+				<button type="submit">Search →</button>
+			</form>
+
 			<div class="trust-note">
 				Only cities that clear GridPermit's verification threshold — see our <a href="/methodology#ready-criteria">READY criteria</a> — are listed. GridPermit is expanding state by state; more {stateInfo.name} cities are added as their official sources are verified.
 			</div>
 
 			{entries.length === 0 ? (
-				<p class="empty-state">No {stateInfo.name} cities have cleared the verification threshold yet. Check back soon.</p>
+				<p class="empty-state">No {stateInfo.name} cities have cleared the verification threshold yet. Try the search above — we may have partial research on file, or a nearby city's utility may serve your area too. See our <a href="/permits">full state-by-state coverage</a>.</p>
 			) : (
 				<>
 					{lettersPresent.length > 1 && (
@@ -223,9 +227,8 @@ const collectionSchema = {
 		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
 		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
 		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
-		@media (max-width: 640px) {
-			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
-			.nav-links { flex-wrap: wrap; justify-content: center; }
+		@media (max-width: 900px) {
+			.nav-links { display: none; }
 		}
 
 		.page-container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 4rem; }
@@ -238,6 +241,14 @@ const collectionSchema = {
 		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
 		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
 		p { margin: 0 0 0.75rem; }
+
+		.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+		.state-search-form { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+		.state-search-form input { flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.95rem; font-family: inherit; }
+		.state-search-form input:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+		.state-search-form button { background: var(--primary); color: white; border: none; padding: 0.75rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; white-space: nowrap; }
+		.state-search-form button:hover { background: #1d4ed8; }
+		@media (max-width: 480px) { .state-search-form { flex-direction: column; } }
 
 		.trust-note { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e3a8a; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.75rem; }
 		.empty-state { color: var(--text-muted); font-size: 0.95rem; padding: 1rem 0; }
