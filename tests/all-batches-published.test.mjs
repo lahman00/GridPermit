@@ -44,6 +44,7 @@ const STATE_SLUGS = {
 	MA: "massachusetts",
 	NH: "new-hampshire",
 	ME: "maine",
+	MI: "michigan",
 };
 
 const AGGREGATOR_FILES = [

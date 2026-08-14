@@ -1,0 +1,192 @@
+{
+  "record_id": "mi-washtenaw-annarbor-dte",
+  "schema_version": "1.4.0",
+  "state": "MI",
+  "utility": {
+    "value": "DTE Energy",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "DTE Energy is Ann Arbor's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "DTE Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Ann Arbor's residential solar customers this session; DTE Energy is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Ann Arbor",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Washtenaw County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Ann Arbor",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Michigan's Residential Code (currently the 2015 edition — a 2021 IRC update was filed in 2025 but delayed by a court order, per state guidance referenced this session) sets the statewide baseline, but enforcement is delegated to whichever local jurisdiction (city, township, or county) has assumed local-enforcing-agency status; where none has, Michigan's state Bureau of Construction Codes enforces directly. Ann Arbor's own city government administers its expedited residential solar permitting process directly."
+  },
+  "permit_url": {
+    "value": "https://www.a2gov.org/sustainability-innovations-home/sustainability-me/for-families-individuals/solar-in-ann-arbor/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://aem-qa1.newlook.dteenergy.com/us/en/residential/service-request/gmop/interconnection-process.html",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "DTE Energy's traditional Net Metering program closed to new applications on 2019-05-09. Current interconnection runs through the 'Rider 18 Distributed Generation Program' (approved by the Michigan Public Service Commission), which most residential systems (Category 1, up to 20kW) enter via a $50 interconnection application fee with a typical 5-6 week timeline to Permission to Operate. Applications are submitted through DTE's PowerClerk-based portal (dteinterconnect.powerclerk.com); customers must obtain a signed Parallel Operating Agreement before DTE's site visit and install an externally located, taggable disconnect switch within 5 feet of the meter. The system must stay off until DTE completes inspection and testing. Existing Rider 16 (legacy net metering) customers convert to Rider 18 upon their 10-year net-metering anniversary."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page notes that residential rooftop solar installations WITH battery storage are excluded from the expedited permitting program and follow a different (unspecified, not detailed on the page fetched this session) procedure — this describes a permitting-track distinction, not a financial battery incentive program, which was not independently confirmed this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Electric permit (the only permit required for most residential rooftop installations under the expedited process)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof access and ventilation documentation, per the City's own PDF guide",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "An additional permit for compliance review (including all-black panels/hardware requirements)",
+        "required_when": "properties in a historic district",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own 'Solar in Ann Arbor' page. Systems with battery storage do not qualify for the expedited process and follow a different, unspecified procedure."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not detailed on the City's own page fetched this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page does not state a specific review-to-issuance day count for the expedited process, though it describes the process as expedited relative to standard permitting."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 20,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited electric-permit-only process (excludes systems with battery storage)",
+      "other_conditions": [
+        "Residential rooftop solar installations WITH battery storage are not eligible for the expedited permitting program",
+        "Properties in a historic district require an additional permit, with requirements including all-black panels and hardware",
+        "The 20kW figure recorded here reflects DTE's Rider 18 Category 1 threshold (the tier most residential systems fall under), not a separate City permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "City solar permit fees (line item solar fees, application fees, plan reviews)",
+        "amount_usd": 0,
+        "unit": "waived for approved projects under the expedited process",
+        "notes": "Per the City's own page, verbatim: 'we do not charge for line item solar fees, application fees, or plan reviews' for approved residential solar projects."
+      },
+      {
+        "name": "DTE Energy Rider 18 interconnection application fee, Category 1 (systems ≤20kW)",
+        "amount_usd": 50,
+        "unit": "flat fee",
+        "notes": "Per DTE Energy's own interconnection process page — this is a utility interconnection fee, separate from the City's $0 permitting fee."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "A genuinely notable finding: Ann Arbor charges no city-side fees at all for approved residential solar permits under its expedited process, though DTE's separate utility interconnection fee still applies."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Ann Arbor or statewide Michigan rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Connor Dailey",
+        "role": "Energy Coordinator",
+        "phone": "734-794-6000",
+        "email": "cdailey@a2gov.org",
+        "url": "https://www.a2gov.org/sustainability-innovations-home/sustainability-me/for-families-individuals/solar-in-ann-arbor/"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar in Ann Arbor",
+      "url": "https://www.a2gov.org/sustainability-innovations-home/sustainability-me/for-families-individuals/solar-in-ann-arbor/",
+      "publisher": "City of Ann Arbor, MI",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Interconnection Process",
+      "url": "https://aem-qa1.newlook.dteenergy.com/us/en/residential/service-request/gmop/interconnection-process.html",
+      "publisher": "DTE Energy",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

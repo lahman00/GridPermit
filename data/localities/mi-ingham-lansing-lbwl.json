@@ -1,0 +1,173 @@
+{
+  "record_id": "mi-ingham-lansing-lbwl",
+  "schema_version": "1.4.0",
+  "state": "MI",
+  "utility": {
+    "value": "Lansing Board of Water & Light (BWL)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "BWL is a municipally-owned utility (not an investor-owned utility like DTE or Consumers Energy) serving the City of Lansing directly — a genuinely different ownership structure worth noting alongside DTE Energy's territory researched separately this session (see mi-washtenaw-annarbor-dte)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Lansing Board of Water & Light (BWL)",
+      "type": "utility",
+      "notes": "BWL is a municipally-owned utility that is itself the generation and distribution utility for Lansing; no separate generation supplier or CCA applies."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Lansing",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Ingham County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Lansing Building Safety Office (Economic Development & Planning)",
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Michigan's statewide Residential Code sets the baseline, but enforcement is delegated to whichever local jurisdiction has assumed local-enforcing-agency status (see the identical statewide structural note on the Ann Arbor, MI record, mi-washtenaw-annarbor-dte). Lansing's own Building Safety Office is the local AHJ; applications are processed through the City's BS&A Online portal. A dedicated solar-specific permitting checklist was not located and confirmed this session — this authority/process information reflects the City's general building-permit process page."
+  },
+  "permit_url": {
+    "value": "https://www.lansingmi.gov/building-safety",
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.lbwl.com/customers/save-money-energy/install-my-own-solar",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per BWL's own page, customers must contact BWL's distributed generation team before purchasing equipment. Before construction, the contractor must submit an Interconnection Application and comply with BWL's Rules and Regulations; an interconnection fee applies (specific dollar amount not stated on the page fetched this session). BWL compensates excess exported solar energy at a 'Solar Outflow Credit' of $0.075/kWh, itself composed of an energy cost average ($0.050/kWh), a capacity credit ($0.012/kWh), and a renewable energy credit ($0.013/kWh) — a distinct rate-design approach from DTE's Rider 18 program."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Building Permit Application or Application for Plan Review, plus construction documents and the required fee",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This is the City's general building-permit application requirement; a dedicated solar-specific document checklist was not located this session. Separately, BWL's own rebate application requires: a signed rebate application, invoice/proof of purchase, installation date, and equipment specification sheets."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed from a primary source this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City permit review timeline was confirmed this session. BWL's own page states rebate application processing takes up to 4 weeks — a utility-rebate timeline, not the building-permit timeline."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "BWL's own page recommends contacting the utility's distributed generation team before purchasing equipment to discuss appropriate system sizing"
+      ]
+    },
+    "confidence": 0.5,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific City building-permit fee figure was confirmed this session. BWL's own page confirms an interconnection fee applies to the utility application but does not state the dollar amount on the page fetched — left null rather than estimated."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "BWL Solar Rebate",
+        "administrator": "Lansing Board of Water & Light",
+        "description": "Rebate for customer-owned residential solar systems. Required documentation: signed rebate application, invoice/proof of purchase, installation date, and equipment specification sheets; processing takes up to 4 weeks.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Capped at $2,000 total, corresponding to a 4kW system at the $500/kW rate",
+        "url": "https://www.lbwl.com/customers/save-money-energy/install-my-own-solar",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "BWL Distributed Generation team",
+        "phone": "517-702-6076",
+        "email": "distributedgeneration@lbwl.com",
+        "url": "https://www.lbwl.com/customers/save-money-energy/install-my-own-solar"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Safety",
+      "url": "https://www.lansingmi.gov/building-safety",
+      "publisher": "City of Lansing, MI",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Install My Own Solar",
+      "url": "https://www.lbwl.com/customers/save-money-energy/install-my-own-solar",
+      "publisher": "Lansing Board of Water & Light",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

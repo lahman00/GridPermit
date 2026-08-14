@@ -1,17 +1,17 @@
 {
-  "state": "NJ",
-  "generated_at": "2026-08-14T10:48:50.574Z",
+  "state": "MI",
+  "generated_at": "2026-08-14T10:57:44.633Z",
   "records": [
     {
-      "record_id": "nj-essex-newark-pseg",
-      "state": "NJ",
-      "city": "Newark",
-      "county": "Essex County",
+      "record_id": "mi-ingham-lansing-lbwl",
+      "state": "MI",
+      "city": "Lansing",
+      "county": "Ingham County",
       "completeness_pct": 73.3,
-      "validation_score": 93,
-      "validation_status": "REVIEW",
+      "validation_score": 100,
+      "validation_status": "PASS",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 0,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -20,33 +20,30 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
-        "inspection_steps",
+        "required_documents",
         "eligibility_constraints",
-        "permit_fees",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "required_documents",
+        "inspection_steps",
         "timeline_days",
-        "rebates"
+        "permit_fees"
       ],
-      "warning_categories": [
-        "broken_url",
-        "unsupported_claim"
-      ],
+      "warning_categories": [],
       "readiness": "LIMITED"
     },
     {
-      "record_id": "nj-hudson-jerseycity-pseg",
-      "state": "NJ",
-      "city": "Jersey City",
-      "county": "Hudson County",
+      "record_id": "mi-washtenaw-annarbor-dte",
+      "state": "MI",
+      "city": "Ann Arbor",
+      "county": "Washtenaw County",
       "completeness_pct": 73.3,
-      "validation_score": 93,
-      "validation_status": "REVIEW",
+      "validation_score": 100,
+      "validation_status": "PASS",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 0,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -55,34 +52,31 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
-        "inspection_steps",
+        "required_documents",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "required_documents",
+        "inspection_steps",
         "timeline_days",
         "rebates"
       ],
-      "warning_categories": [
-        "broken_url",
-        "unsupported_claim"
-      ],
+      "warning_categories": [],
       "readiness": "LIMITED"
     }
   ],
   "aggregate": {
     "average_completeness_pct": 73.3,
-    "average_validation_score": 93,
+    "average_validation_score": 100,
     "fields_most_often_missing": [
       {
         "field": "battery_programs",
         "missing_in_records": 2
       },
       {
-        "field": "required_documents",
+        "field": "inspection_steps",
         "missing_in_records": 2
       },
       {
@@ -90,8 +84,12 @@
         "missing_in_records": 2
       },
       {
+        "field": "permit_fees",
+        "missing_in_records": 1
+      },
+      {
         "field": "rebates",
-        "missing_in_records": 2
+        "missing_in_records": 1
       }
     ]
   },
@@ -99,14 +97,14 @@
     "recommended_publish_record_ids": [],
     "limited_for_now": [
       {
-        "record_id": "nj-essex-newark-pseg",
-        "city": "Newark",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
+        "record_id": "mi-ingham-lansing-lbwl",
+        "city": "Lansing",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
       },
       {
-        "record_id": "nj-hudson-jerseycity-pseg",
-        "city": "Jersey City",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
+        "record_id": "mi-washtenaw-annarbor-dte",
+        "city": "Ann Arbor",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
       }
     ],
     "not_ready": []
