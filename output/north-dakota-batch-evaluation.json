@@ -1,13 +1,13 @@
 {
   "state": "ND",
-  "generated_at": "2026-08-14T16:16:59.954Z",
+  "generated_at": "2026-08-14T23:33:52.592Z",
   "records": [
     {
       "record_id": "nd-cass-fargo-casscountyelectric",
       "state": "ND",
       "city": "Fargo",
       "county": "Cass County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
@@ -23,20 +23,20 @@
         "required_documents",
         "inspection_steps",
         "eligibility_constraints",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
         "timeline_days",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 80,
     "average_validation_score": 100,
     "fields_most_often_missing": [
       {
@@ -48,24 +48,16 @@
         "missing_in_records": 1
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 1
-      },
-      {
         "field": "rebates",
         "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "nd-cass-fargo-casscountyelectric",
-        "city": "Fargo",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
-      }
+    "recommended_publish_record_ids": [
+      "nd-cass-fargo-casscountyelectric"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }

@@ -156,10 +156,16 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Neither source published a specific dollar figure this session. The City of Fargo's own page states that the North Dakota State Electrical Board (not the City) determines applicable electrical permit fees based on the inspector's assessed work value and bills the homeowner directly, without stating the fee schedule itself. Cass County Electric's technical requirements document does not state an interconnection application fee amount."
+    "value": [
+      {
+        "name": "North Dakota State Electrical Board statewide inspection fee (assessed on inspector-determined work value)",
+        "amount_usd": 50,
+        "unit": "minimum fee, for work valued up to $500; $50 plus 2% of the balance up to $20,000, then $440 plus 0.1% of the balance over $20,000",
+        "notes": "Per the North Dakota State Electrical Board's own published Inspection Fees schedule (effective 2024-07-01). Per the City of Fargo's own page, the City itself does not set or collect this fee — the on-site inspector assesses the work's value and the State Electrical Board bills the homeowner directly. This is a statewide fee, not solar-specific; no separate solar/PV line item is published."
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": ["S3"]
   },
   "rebates": {
     "value": null,
@@ -207,6 +213,14 @@
       "url": "https://casscountyelectric.com/sites/default/files/2024-09/ccec-technical-requirements.pdf",
       "publisher": "Cass County Electric Cooperative (via STAR Energy Services LLC, shared among seven North Dakota electric cooperatives)",
       "type": "utility",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "Inspection Fees",
+      "url": "https://www.ndseb.com/inspections/inspection-fees/",
+      "publisher": "North Dakota State Electrical Board",
+      "type": "government",
       "accessed_date": "2026-08-14"
     }
   ]

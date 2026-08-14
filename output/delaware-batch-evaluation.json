@@ -1,13 +1,13 @@
 {
   "state": "DE",
-  "generated_at": "2026-08-14T14:38:01.935Z",
+  "generated_at": "2026-08-14T23:33:52.558Z",
   "records": [
     {
       "record_id": "de-new-castle-new-castle-county-delmarva",
       "state": "DE",
       "city": "New Castle County",
       "county": "New Castle County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
@@ -20,6 +20,7 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
         "rebates",
@@ -28,15 +29,14 @@
       "missing_fields": [
         "battery_programs",
         "required_documents",
-        "inspection_steps",
         "permit_fees"
       ],
       "warning_categories": [],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 80,
     "average_validation_score": 100,
     "fields_most_often_missing": [
       {
@@ -48,24 +48,16 @@
         "missing_in_records": 1
       },
       {
-        "field": "inspection_steps",
-        "missing_in_records": 1
-      },
-      {
         "field": "permit_fees",
         "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "de-new-castle-new-castle-county-delmarva",
-        "city": "New Castle County",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
-      }
+    "recommended_publish_record_ids": [
+      "de-new-castle-new-castle-county-delmarva"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }
