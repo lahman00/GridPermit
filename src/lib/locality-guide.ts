@@ -94,7 +94,10 @@ export interface LocalityRecord {
 	// identity, schema v1.4.0+. See src/lib/state-meta.ts.
 	state: string;
 	city: FieldEnvelope<string>;
-	county: FieldEnvelope<string>;
+	// Nullable: a statewide-scoped record (e.g. Vermont's centralized PUC
+	// net-metering process, which has no county-level AHJ) legitimately has
+	// no county — see vt-statewide-vermont-gmp.json.
+	county: FieldEnvelope<string | null>;
 	utility: FieldEnvelope<string>;
 	generation_supplier: FieldEnvelope<GenerationSupplier | null>;
 	permit_authority: FieldEnvelope<string | null>;

@@ -1,13 +1,13 @@
 {
   "state": "MT",
-  "generated_at": "2026-08-14T16:07:09.142Z",
+  "generated_at": "2026-08-14T23:40:25.646Z",
   "records": [
     {
       "record_id": "mt-yellowstone-billings-northwesternenergy",
       "state": "MT",
       "city": "Billings",
       "county": "Yellowstone County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
@@ -21,6 +21,7 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
@@ -28,15 +29,14 @@
       "missing_fields": [
         "battery_programs",
         "inspection_steps",
-        "timeline_days",
         "rebates"
       ],
       "warning_categories": [],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 80,
     "average_validation_score": 100,
     "fields_most_often_missing": [
       {
@@ -48,24 +48,16 @@
         "missing_in_records": 1
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 1
-      },
-      {
         "field": "rebates",
         "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "mt-yellowstone-billings-northwesternenergy",
-        "city": "Billings",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
-      }
+    "recommended_publish_record_ids": [
+      "mt-yellowstone-billings-northwesternenergy"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }

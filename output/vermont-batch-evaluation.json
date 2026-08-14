@@ -1,13 +1,13 @@
 {
   "state": "VT",
-  "generated_at": "2026-08-14T14:38:02.878Z",
+  "generated_at": "2026-08-14T23:40:25.684Z",
   "records": [
     {
       "record_id": "vt-statewide-vermont-gmp",
       "state": "VT",
       "city": "Vermont (Statewide)",
       "county": null,
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -22,24 +22,24 @@
         "required_documents",
         "timeline_days",
         "eligibility_constraints",
+        "permit_fees",
         "rebates",
         "official_contacts"
       ],
       "missing_fields": [
         "county",
         "battery_programs",
-        "inspection_steps",
-        "permit_fees"
+        "inspection_steps"
       ],
       "warning_categories": [
         "broken_url",
         "unsupported_claim"
       ],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 80,
     "average_validation_score": 91,
     "fields_most_often_missing": [
       {
@@ -53,22 +53,14 @@
       {
         "field": "inspection_steps",
         "missing_in_records": 1
-      },
-      {
-        "field": "permit_fees",
-        "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "vt-statewide-vermont-gmp",
-        "city": "Vermont (Statewide)",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 91)"
-      }
+    "recommended_publish_record_ids": [
+      "vt-statewide-vermont-gmp"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }

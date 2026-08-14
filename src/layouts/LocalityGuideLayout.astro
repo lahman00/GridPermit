@@ -88,8 +88,9 @@ const relatedLocalities = buildRelatedLocalities(currentEntry, allReadyEntries, 
 // Most counties in this dataset have too few READY cities for a hub page
 // to exist, so this is null far more often than not.
 const countyHubs = buildCountyHubs(allEvaluatedRecords, allRecordsById);
-const countyHub = record.county?.value
-	? countyHubs.find((h) => h.state === record.state && h.countySlug === countySlug(record.county.value))
+const countyName = record.county?.value;
+const countyHub = countyName
+	? countyHubs.find((h) => h.state === record.state && h.countySlug === countySlug(countyName))
 	: undefined;
 const countyHubUrl = countyHub ? `/${countyHub.stateSlug}/county/${countyHub.countySlug}/` : null;
 
@@ -214,7 +215,7 @@ const tocItems = [
 		<div class="layout-grid">
 		<main class="content-card" id="main-content" tabindex="-1">
 			<h1>{record.city.value} Solar Permit Guide</h1>
-			<p class="subtitle">{utilityHubUrl ? <a href={utilityHubUrl}>{record.utility.value}</a> : record.utility.value} territory · {countyHubUrl ? <a href={countyHubUrl}>{record.county.value}</a> : record.county.value}</p>
+			<p class="subtitle">{utilityHubUrl ? <a href={utilityHubUrl}>{record.utility.value}</a> : record.utility.value} territory{record.county.value && <> · {countyHubUrl ? <a href={countyHubUrl}>{record.county.value}</a> : record.county.value}</>}</p>
 
 			<!-- Screen-hidden, print-only: a checklist masthead so a printed
 			     page is identifiable and dated on its own, without the nav/

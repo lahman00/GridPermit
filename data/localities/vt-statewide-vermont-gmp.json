@@ -116,10 +116,16 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The Vermont PUC's own net-metering page references an 'Agency of Natural Resources Application Fee Form' and a 'Department of Public Service and Public Utility Commission Application Fee Form,' confirming application fees exist for some net-metering filings, but no specific dollar figure applicable to a typical residential rooftop registration was found this session."
+    "value": [
+      {
+        "name": "Net-Metering Registration Application Fee (Department of Public Service / Public Utility Commission)",
+        "amount_usd": 100,
+        "unit": "flat fee, paid at time of application",
+        "notes": "Per 30 V.S.A. § 248c(d)(1), verbatim: 'There shall be a fee of $100.00 for each electric generation facility less than or equal to 50 kW in plant capacity, or for a rooftop project... filing a net metering registration.' A separate $25.00 fee applies for modifications (§ 248c(d)(2)). Companies that pay the state's gross receipts tax are exempt from this fee."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S5"]
   },
   "rebates": {
     "value": [
@@ -158,7 +164,7 @@
       "S3"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-14",
   "sources": [
     {
       "id": "S1",
@@ -191,6 +197,14 @@
       "publisher": "Vermont General Assembly",
       "type": "government",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S5",
+      "title": "30 V.S.A. § 248c — Fees; Department of Public Service and Public Utility Commission",
+      "url": "https://legislature.vermont.gov/statutes/section/30/005/00248c",
+      "publisher": "Vermont General Assembly",
+      "type": "government",
+      "accessed_date": "2026-08-14"
     }
   ]
 }

@@ -137,10 +137,13 @@
     "notes": "Neither the City's own solar plan requirements handout nor NorthWestern Energy's own Level 1 interconnection form published a specific inspection sequence this session (the interconnection form implies a required 'in-service date' but does not itemize inspection steps) — left null rather than guessed."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No City of Billings or NorthWestern Energy review-timeline figure was independently confirmed from a primary source fetched this session (a '4-7 business day' residential review figure appeared only in third-party aggregator search results, not on a page directly fetched this session, so it is left unstated rather than treated as confirmed)."
+    "value": {
+      "min_days": 4,
+      "max_days": 7,
+      "notes": "Per the City of Billings' own FAQ ('How long will it take to get a building permit?'), verbatim: 'Once a complete plan has been submitted, and special issues have been addressed... the initial review takes: Residential (single-family and duplex): 4-7 business days.' This is the general residential building-permit initial-review window, not a solar-specific figure. A previous research pass this session found this same figure only via third-party aggregator results and correctly left it unconfirmed; it has now been directly confirmed on the City's own FAQ page."
+    },
+    "confidence": 0.8,
+    "source_ids": ["S3"]
   },
   "eligibility_constraints": {
     "value": {
@@ -225,6 +228,14 @@
       "url": "https://northwesternenergy.com/docs/default-source/default-document-library/clean-energy/environmental-projects/private-generation/level-1-small-generator-interconnection-request.pdf",
       "publisher": "NorthWestern Energy",
       "type": "utility",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "FAQs - How long will it take to get a building permit?",
+      "url": "https://www.billingsmt.gov/m/faq?cat=20",
+      "publisher": "City of Billings, MT, Building Division",
+      "type": "government",
       "accessed_date": "2026-08-14"
     }
   ]
