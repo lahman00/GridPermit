@@ -49,6 +49,7 @@ export const STATE_META: Record<string, StateMeta> = {
 	TN: { code: "TN", name: "Tennessee", slug: "tennessee" },
 	LA: { code: "LA", name: "Louisiana", slug: "louisiana" },
 	OH: { code: "OH", name: "Ohio", slug: "ohio" },
+	PA: { code: "PA", name: "Pennsylvania", slug: "pennsylvania" },
 };
 
 // Every currently-supported state, in the fixed order above (not alphabetical

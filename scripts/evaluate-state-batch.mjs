@@ -54,6 +54,7 @@ const STATE_SLUGS = {
   TN: "tennessee",
   LA: "louisiana",
   OH: "ohio",
+  PA: "pennsylvania",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

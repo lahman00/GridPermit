@@ -1,0 +1,235 @@
+{
+  "record_id": "pa-philadelphia-philadelphia-peco",
+  "schema_version": "1.4.0",
+  "state": "PA",
+  "utility": {
+    "value": "PECO Energy Company (an Exelon company)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "PECO is Philadelphia's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "PECO Energy Company",
+      "type": "utility",
+      "notes": "Pennsylvania is a retail-choice state — customers may select an alternate Electric Generation Supplier (EGS) for generation while PECO remains the distribution utility. PECO's own materials note that customers who switch to an EGS lose PECO's annual net-metering true-up compensation. PECO is recorded as the default generation/distribution utility for customers who do not choose an alternate EGS."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Philadelphia",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Philadelphia County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Philadelphia is a consolidated city-county — the City of Philadelphia and Philadelphia County are coterminous, with a single Department of Licenses and Inspections (L&I) as the permitting authority for the entire jurisdiction."
+  },
+  "permit_authority": {
+    "value": "City of Philadelphia Department of Licenses and Inspections (L&I)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Pennsylvania's Uniform Construction Code (UCC) is adopted statewide, but most municipalities enforce it through hundreds of separate local or third-party agencies — a genuinely fragmented model overall. Philadelphia is a significant exception: as a consolidated city-county with home-rule charter authority, its own Department of Licenses and Inspections is a single, large, well-documented AHJ for the entire city, distinct from the fragmented pattern in most of the rest of the state."
+  },
+  "permit_url": {
+    "value": "https://www.phila.gov/services/permits-violations-licenses/apply-for-a-permit/building-and-repair-permits/get-a-permit-to-install-solar-panels/",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.peco.com/cdn/assets/v3/assets/blt1b5616c79bacadb4/bltfe189fa525424db9/6700378564332c38ff8e643d/Solar_VNM_9-17-2024_v1.pdf",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per PECO's own published guide (updated September 2024): for monthly metered customers, PECO credits each kWh received up to the total electricity PECO delivered that billing period, netting monthly usage to zero (customers still owe the monthly customer charge and other rate-schedule charges). Excess generation carries forward to future months; at the end of the PJM year (May 31), any remaining surplus kWh receives an annual true-up credit — but customers who switch to an alternate Electric Generation Supplier (EGS) lose this annual compensation. PECO also offers Virtual Net Metering (VNM), letting customers with multiple PECO accounts within 2 miles of the host property allocate solar credits across those accounts (restricted to residential/small-commercial default-service customers under 100kW peak demand, and unavailable to customers using an alternate EGS). Net metering requires a dedicated bidirectional meter installed by PECO. A separate application fee (varying by system size/level) applies for the interconnection safety/reliability review, per PECO's own materials — specific dollar figures were not confirmed from this document."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "PECO's own guide describes technical requirements for customers combining generation with battery storage on Time-of-Use rates (the battery may only charge from the customer's own generation, not from PECO's grid, per inverter setup) — this is a technical interconnection rule, not a financial battery incentive program, which was not independently confirmed this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Signed EZ Permit Standards form",
+        "required_when": "EZ Permit path only",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Contract with a licensed electrical contractor",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Screenshot of the completed PECO Interconnection Application dashboard, as proof of PECO application submission",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Summary of array and inverter equipment costs",
+        "required_when": "optional, submitted to qualify for a fee reduction",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "General Building Permit for Solar Panels and Structure",
+        "required_when": "projects that do not qualify for the EZ Permit path",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own page. All projects require an Electrical Permit; the EZ Permit path is available for roof-mounted systems on 1-2 family dwellings ≤10kW, not on the Philadelphia Register of Historic Places, and meeting the EZ Permit Standards — EZ-eligible projects need only the Electrical Permit, no separate Building Permit or plans. Applications may be filed by the property owner or an authorized agent (licensed electrical contractor, PA design professional, or licensed expediter). The owner/agent must separately hire a licensed electrical inspection agency to perform inspections and complete certification before L&I issues final approval."
+  },
+  "inspection_steps": {
+    "value": [
+      "Property owners must hire a licensed electrical inspection agency to conduct inspections and complete certification documentation",
+      "L&I issues final approval only after the inspection agency's certification is complete"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 20,
+      "notes": "Per the City's own page: EZ permits are issued same-day for in-person applications or within 3 business days for online applications; standard (non-EZ) applications take 20 business days; an accelerated review option returns results in 5 business days for an additional $1,050 fee. This same-day figure is explicitly tied to the City's own named EZ Permit program (a real, confirmed program name, not an inferred platform)."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "EZ Permit (roof-mounted, 1-2 family dwelling, ≤10kW, not on the Philadelphia Register of Historic Places)",
+      "other_conditions": [
+        "Properties on the Philadelphia Register of Historic Places are not eligible for the EZ Permit path and must use the standard process",
+        "The 10kW figure recorded here is the City's own EZ Permit system-size threshold, not a hard eligibility cap — larger systems are permitted under the standard (non-EZ) process"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Filing fee, one/two-family dwelling",
+        "amount_usd": 25,
+        "unit": "flat fee, credited toward the final fee",
+        "notes": "Per the City's own page."
+      },
+      {
+        "name": "Filing fee, other property types",
+        "amount_usd": 100,
+        "unit": "flat fee, credited toward the final fee",
+        "notes": "Per the City's own page."
+      },
+      {
+        "name": "Electrical Permit",
+        "amount_usd": null,
+        "unit": "$25 per $1,000 of construction cost",
+        "notes": "Per the City's own page."
+      },
+      {
+        "name": "Building Permit for Solar Panels and Structure",
+        "amount_usd": 200,
+        "unit": "flat fee",
+        "notes": "Per the City's own page (applies only to non-EZ, standard-process projects)."
+      },
+      {
+        "name": "City surcharge",
+        "amount_usd": 3,
+        "unit": "flat fee",
+        "notes": "Per the City's own page."
+      },
+      {
+        "name": "State surcharge",
+        "amount_usd": 4.5,
+        "unit": "flat fee",
+        "notes": "Per the City's own page."
+      },
+      {
+        "name": "Accelerated review (5 business days)",
+        "amount_usd": 1050,
+        "unit": "additional flat fee",
+        "notes": "Per the City's own page — an optional expedited-review add-on."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This full itemized fee breakdown is directly and precisely confirmed from the City's own page."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Philadelphia or statewide Pennsylvania rebate dollar amount was independently confirmed from a primary source this session (Solarize Philly, a City-affiliated program, was referenced in search results but not independently fetched/confirmed this session) — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific L&I phone number or email was displayed in the page content fetched this session."
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Get a permit to install solar panels",
+      "url": "https://www.phila.gov/services/permits-violations-licenses/apply-for-a-permit/building-and-repair-permits/get-a-permit-to-install-solar-panels/",
+      "publisher": "City of Philadelphia",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Maximizing your private solar investment — A Guide to Virtual Metering",
+      "url": "https://www.peco.com/cdn/assets/v3/assets/blt1b5616c79bacadb4/bltfe189fa525424db9/6700378564332c38ff8e643d/Solar_VNM_9-17-2024_v1.pdf",
+      "publisher": "PECO Energy Company",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

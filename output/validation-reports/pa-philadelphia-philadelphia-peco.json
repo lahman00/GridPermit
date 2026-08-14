@@ -1,0 +1,52 @@
+{
+  "record_id": "pa-philadelphia-philadelphia-peco",
+  "file": "data/localities/pa-philadelphia-philadelphia-peco.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 90,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "confidence_inconsistency",
+      "message": "confidence=0.85 but notes hedge: 'Per PECO's own published guide (updated September 2024): for monthly metered customers, PECO credits each kWh received up to the total electricity PECO delivered that billing period, netting monthly usage to zero (customers still owe the monthly customer charge and other rate-schedule charges). Excess generation carries forward to future months; at the end of the PJM year (May 31), any remaining surplus kWh receives an annual true-up credit — but customers who switch to an alternate Electric Generation Supplier (EGS) lose this annual compensation. PECO also offers Virtual Net Metering (VNM), letting customers with multiple PECO accounts within 2 miles of the host property allocate solar credits across those accounts (restricted to residential/small-commercial default-service customers under 100kW peak demand, and unavailable to customers using an alternate EGS). Net metering requires a dedicated bidirectional meter installed by PECO. A separate application fee (varying by system size/level) applies for the interconnection safety/reliability review, per PECO's own materials — specific dollar figures were not confirmed from this document.'"
+    },
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "official_contacts",
+      "message": "'official_contacts' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.phila.gov/services/permits-violations-licenses/apply-for-a-permit/building-and-repair-permits/get-a-permit-to-install-solar-panels/",
+      "checked_at": "2026-08-14T13:17:46.660Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.peco.com/cdn/assets/v3/assets/blt1b5616c79bacadb4/bltfe189fa525424db9/6700378564332c38ff8e643d/Solar_VNM_9-17-2024_v1.pdf",
+      "checked_at": "2026-08-14T13:17:47.126Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

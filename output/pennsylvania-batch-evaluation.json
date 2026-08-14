@@ -1,17 +1,17 @@
 {
-  "state": "CT",
-  "generated_at": "2026-08-14T13:14:22.380Z",
+  "state": "PA",
+  "generated_at": "2026-08-14T13:17:47.692Z",
   "records": [
     {
-      "record_id": "ct-newhaven-guilford-eversource",
-      "state": "CT",
-      "city": "Guilford",
-      "county": "New Haven County",
-      "completeness_pct": 86.7,
-      "validation_score": 95,
+      "record_id": "pa-philadelphia-philadelphia-peco",
+      "state": "PA",
+      "city": "Philadelphia",
+      "county": "Philadelphia County",
+      "completeness_pct": 80,
+      "validation_score": 90,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 1,
+      "warning_count": 2,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -24,22 +24,23 @@
         "inspection_steps",
         "timeline_days",
         "eligibility_constraints",
-        "permit_fees",
-        "official_contacts"
+        "permit_fees"
       ],
       "missing_fields": [
         "battery_programs",
-        "rebates"
+        "rebates",
+        "official_contacts"
       ],
       "warning_categories": [
+        "confidence_inconsistency",
         "unsupported_claim"
       ],
       "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 86.7,
-    "average_validation_score": 95,
+    "average_completeness_pct": 80,
+    "average_validation_score": 90,
     "fields_most_often_missing": [
       {
         "field": "battery_programs",
@@ -48,12 +49,16 @@
       {
         "field": "rebates",
         "missing_in_records": 1
+      },
+      {
+        "field": "official_contacts",
+        "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
-      "ct-newhaven-guilford-eversource"
+      "pa-philadelphia-philadelphia-peco"
     ],
     "limited_for_now": [],
     "not_ready": []
