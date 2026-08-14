@@ -1,0 +1,240 @@
+{
+  "record_id": "ar-pulaski-littlerock-entergyarkansas",
+  "schema_version": "1.4.0",
+  "state": "AR",
+  "utility": {
+    "value": "Entergy Arkansas, LLC",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Entergy Arkansas is the well-established dominant electric utility for Little Rock, the state capital."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Entergy Arkansas, LLC",
+      "type": "utility",
+      "notes": "Entergy Arkansas is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Little Rock",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Pulaski County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Little Rock, the Arkansas state capital, is the seat of Pulaski County."
+  },
+  "permit_authority": {
+    "value": "City of Little Rock Building Codes Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Part of the Planning and Development department; handles building, plumbing, mechanical, and electrical permitting, plan review, and inspections citywide, via six working sections."
+  },
+  "permit_url": {
+    "value": "https://littlerock.gov/government/city-departments/planning-and-development/divisions/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.entergyarkansas.com/net-metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S3"
+    ],
+    "notes": "Confirmed directly from Entergy Arkansas's own Arkansas Public Service Commission-filed tariff (Rate Schedule No. 71, Non-Legacy Net-Metering Service, effective 3/1/24 with Attachment A revised 3/2/26): excess generation is credited at the Company's Avoided Cost — NOT full retail rate. The exact published Avoided Cost rate: $0.0259/kWh (March 2024-February 2025), $0.0247/kWh (March 2025-February 2026), $0.0334/kWh (March 2026-February 2027), redetermined annually based on the prior calendar year's average Locational Marginal Price in the Company's MISO load zone. 'Non-Legacy' applies to customers who submitted an SIA, Facilities Agreement, or complaint after September 30, 2024; customers with interconnection documents in place by that date retain 'legacy' status under the prior (more favorable) net-metering structure instead."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No confirmed financial battery storage incentive program was found in Entergy Arkansas's own net metering page or tariff, or on the City's own permitting pages, this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City of Little Rock building permit application (submitted via the City's Interactive Building-Construction Permit Program portal)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Separate electrical permit",
+        "required_when": "always, for the wiring/interconnection work",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Preliminary Interconnection Site Review Request, with a one-line electrical diagram",
+        "required_when": "optional, customer's choice, before submitting the full Interconnection Agreement",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Standard Interconnection Agreement for Net-Metering Facilities, including a detailed electrical diagram and a signed rate/rules-change disclaimer form",
+        "required_when": "always, submitted at least 30 days before the customer's intended interconnection date",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Meter aggregation application form and affidavit",
+        "required_when": "only if requesting that Net-Metering Surplus be applied to the customer's additional meters",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Local Building/Electrical Code inspector sign-off on the Interconnection Agreement's Certification section (or an attached copy of the final inspection certificate)",
+        "required_when": "always, confirming the system was installed per NEC/IEEE/NESC/UL standards and applicable local code",
+        "source_ids": [
+          "S3"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "The utility-side document checklist is precisely confirmed from Entergy Arkansas's own PSC-filed tariff form. No Little Rock-specific solar PV permit checklist was found this session — the City's general building/electrical permit requirements are recorded from its own Building Codes Division page instead."
+  },
+  "inspection_steps": {
+    "value": [
+      "The customer shall not commence Parallel Operation of the Net-Metering Facility until it has been inspected and approved by Entergy Arkansas",
+      "The Standard Interconnection Agreement's own Certification section requires sign-off from the local Building/Electrical Code inspector (of the applicable City/County) confirming the system complies with the National Electrical Code, IEEE standards, the National Electrical Safety Code, and UL listing requirements, or a copy of the final inspection certificate may be attached in lieu of signature"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 30,
+      "notes": "Per Entergy Arkansas's own PSC-filed tariff: after a customer submits a Standard Interconnection Agreement (required at least 30 days before the intended interconnection date), the Company reviews the facility plans and provides written results within 30 calendar days; the same 30-calendar-day review window applies to the optional Preliminary Interconnection Site Review Request. No City of Little Rock-specific building/electrical permit review timeline was independently confirmed from a primary source this session."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 25,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Non-Legacy Net-Metering Service (Arkansas Public Service Commission Rate Schedule No. 71) — for residential customers, generating capacity is capped at the lesser of 25kW or the capacity representing the customer's highest residential usage in the previous 12 months.",
+      "other_conditions": [
+        "Net-Metering customers may not simultaneously take service under any other alternative-source-generation, co-generation, or interruptible-service tariff.",
+        "A Net-Metering Facility may not be modified or changed to generate more electricity than needed to offset the customer's own requirements.",
+        "Customers whose interconnection documents (SIA, Facilities Agreement, or complaint) were in place by September 30, 2024 retain 'legacy' status under the prior net-metering credit structure instead of this Non-Legacy avoided-cost rate."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Entergy Arkansas Non-Legacy Net-Metering interconnection review fee (Generation Meter under 300kW)",
+        "amount_usd": 196.75,
+        "unit": "one-time, assessed when the Standard Interconnection Agreement is submitted",
+        "notes": "Per Entergy Arkansas's own PSC-filed tariff, Rate Schedule No. 71. Customer is separately responsible for all interconnection study costs."
+      },
+      {
+        "name": "Entergy Arkansas Additional Meter fee",
+        "amount_usd": 31.5,
+        "unit": "one-time, per additional meter designated for Net-Metering Surplus crediting",
+        "notes": "Per the same tariff."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "The City of Little Rock's own fee ordinance document was found (ord-22204-fees.pdf) but could not be read this session — it is a large (5.4MB) scanned/image-based PDF with no extractable text, so no City building/electrical permit fee figure is confirmed here."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Little Rock-specific or statewide Arkansas solar rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Little Rock Building Codes Division",
+        "phone": "501-371-4832",
+        "email": "Permits@littlerock.gov",
+        "url": "https://littlerock.gov/government/city-departments/planning-and-development/divisions/"
+      },
+      {
+        "name": null,
+        "role": "Entergy Arkansas Customer Service Net-Metering",
+        "phone": null,
+        "email": "NetMetering-Arkansas@entergy.com",
+        "url": "https://www.entergyarkansas.com/net-metering"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Divisions — Planning and Development",
+      "url": "https://littlerock.gov/government/city-departments/planning-and-development/divisions/",
+      "publisher": "City of Little Rock, AR",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Net metering services",
+      "url": "https://www.entergyarkansas.com/net-metering",
+      "publisher": "Entergy Arkansas, LLC",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "Rate Schedule No. 71 — Non-Legacy Net-Metering Service (NLN-M)",
+      "url": "https://www.entergyarkansas.com/wp-content/uploads/2025/06/eal_nln-m.pdf",
+      "publisher": "Entergy Arkansas, LLC (filed with the Arkansas Public Service Commission)",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}

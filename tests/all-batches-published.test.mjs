@@ -60,6 +60,7 @@ const STATE_SLUGS = {
 	OK: "oklahoma",
 	TX: "texas",
 	MS: "mississippi",
+	AR: "arkansas",
 };
 
 const AGGREGATOR_FILES = [

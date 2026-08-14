@@ -56,6 +56,7 @@ export const STATE_META: Record<string, StateMeta> = {
 	OK: { code: "OK", name: "Oklahoma", slug: "oklahoma" },
 	TX: { code: "TX", name: "Texas", slug: "texas" },
 	MS: { code: "MS", name: "Mississippi", slug: "mississippi" },
+	AR: { code: "AR", name: "Arkansas", slug: "arkansas" },
 };
 
 // Every currently-supported state, in the fixed order above (not alphabetical
