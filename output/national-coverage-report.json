@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-08-14T17:45:00.000Z",
+  "generated_by_commit": "61c2cd8",
+  "completion_gate": {
+    "represented_states": 50,
+    "expected_states": 50,
+    "missing_states": [],
+    "duplicate_states": [],
+    "extra_unexpected_states": [],
+    "status": "PASS"
+  },
+  "national_totals": {
+    "total_records": 404,
+    "ready": 328,
+    "limited": 76,
+    "not_ready": 0,
+    "ready_pct_national": 81.2
+  },
+  "state_publication_status": {
+    "states_represented": 50,
+    "states_with_at_least_one_ready": 33,
+    "states_with_zero_ready": 17,
+    "zero_ready_states": [
+      "DE", "IN", "KS", "LA", "MA", "ME", "MI", "MO", "MS", "MT",
+      "ND", "NJ", "OH", "RI", "SD", "VT", "WY"
+    ]
+  },
+  "single_locality_states": {
+    "description": "States currently represented by exactly one locality record — every state added this marathon plus several earlier pilot/expansion states. All of these are candidates for depth expansion (a second AHJ) once national breadth work concludes.",
+    "states": [
+      "AL", "AK", "AR", "CT", "DE", "ID", "IN", "IA", "KS", "KY",
+      "LA", "ME", "MA", "MS", "MO", "MT", "NE", "NY", "ND", "OH",
+      "OK", "PA", "RI", "SD", "TN", "TX", "VT", "WA", "WV", "WY"
+    ]
+  },
+  "next_depth_priority_ranking": {
+    "methodology": "Zero-READY states ranked by approximate state population (a proxy for verified-population-coverage-per-research-hour potential) — flipping a large, currently zero-READY state to its first READY record has outsized product value versus adding a second locality to an already-published state.",
+    "ranked_candidates": [
+      { "state": "OH", "approx_population_millions": 11.8, "note": "Largest zero-READY state by population. Columbus, Cincinnati, or Cleveland are the natural first targets; the dominant IOUs (AEP Ohio, Duke Energy Ohio, FirstEnergy) were not attempted this marathon." },
+      { "state": "MI", "approx_population_millions": 10.0, "note": "Detroit/DTE Energy or Grand Rapids/Consumers Energy are natural first targets; neither utility was attempted this marathon." },
+      { "state": "NJ", "approx_population_millions": 9.3, "note": "Newark/PSE&G or Jersey City are natural first targets; PSE&G was not attempted this marathon." },
+      { "state": "MA", "approx_population_millions": 7.1, "note": "Boston/Eversource is the natural first target; not attempted this marathon." },
+      { "state": "IN", "approx_population_millions": 6.9, "note": "Indianapolis/AES Indiana is the natural first target; not attempted this marathon." },
+      { "state": "MO", "approx_population_millions": 6.2, "note": "Already represented this marathon (Springfield/City Utilities, LIMITED) — the next depth step is either strengthening that record (fee/timeline) or adding a second MO AHJ (e.g. Kansas City MO/Evergy Missouri Metro, or a second St. Louis-area route around Ameren's block)." },
+      { "state": "LA", "approx_population_millions": 4.6, "note": "New Orleans/Entergy Louisiana is the natural first target; not attempted this marathon." },
+      { "state": "MS", "approx_population_millions": 2.9, "note": "Already represented this marathon (Jackson/Entergy Mississippi, LIMITED) — depth step would be strengthening that record's unconfirmed fields." },
+      { "state": "KS", "approx_population_millions": 2.9, "note": "Already represented this marathon (Kansas City/BPU, LIMITED) — depth step would be finding BPU's own application/fee documents, or adding a second KS AHJ once Evergy's block is reassessed." },
+      { "state": "ME", "approx_population_millions": 1.4, "note": "Portland/Central Maine Power is the natural first target; not attempted this marathon." },
+      { "state": "RI", "approx_population_millions": 1.1, "note": "Represented from an earlier pilot phase (LIMITED) — predates this marathon." },
+      { "state": "MT", "approx_population_millions": 1.1, "note": "Already represented this marathon (Billings/NorthWestern Energy, LIMITED) — depth step would be finding the missing timeline/fee figure." },
+      { "state": "DE", "approx_population_millions": 1.0, "note": "Represented from an earlier pilot phase (LIMITED) — predates this marathon." },
+      { "state": "SD", "approx_population_millions": 0.92, "note": "Already represented this marathon (Sioux Falls/Xcel Energy, LIMITED) — depth step would be finding the missing timeline/inspection/fee figures." },
+      { "state": "ND", "approx_population_millions": 0.78, "note": "Already represented this marathon (Fargo/Cass County Electric, LIMITED) — depth step would be finding a specific application fee figure." },
+      { "state": "VT", "approx_population_millions": 0.65, "note": "Represented from an earlier pilot phase (LIMITED) — predates this marathon." },
+      { "state": "WY", "approx_population_millions": 0.58, "note": "Already represented this marathon (Cheyenne/Black Hills Energy, LIMITED) — depth step would require Black Hills Energy's own site to become reachable, or a Wyoming PSC docket-management search for the fee/timeline figures." }
+    ]
+  },
+  "marathon_summary": {
+    "states_added_this_session": ["ND", "SD", "WY", "IA", "KS", "MO", "NE"],
+    "states_recovered_via_alternate_sourcing": ["IA", "KS", "MO", "NE"],
+    "test_fixture_change": "tests/multi-state.test.mjs regression test now uses the non-USPS placeholder \"ZZ\" instead of the real state code \"WY\", so no real state is permanently reserved as unpublishable.",
+    "national_completion_gate": "PASS — all 50 states represented exactly once, verified mechanically against the full USPS state code list."
+  }
+}
