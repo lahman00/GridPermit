@@ -76,6 +76,7 @@ const STATE_SLUGS = {
   CT: "connecticut",
   MA: "massachusetts",
   NH: "new-hampshire",
+  ME: "maine",
 };
 
 function pagesRootFor(record) {

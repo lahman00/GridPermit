@@ -44,6 +44,7 @@ const STATE_SLUGS = {
   CT: "connecticut",
   MA: "massachusetts",
   NH: "new-hampshire",
+  ME: "maine",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

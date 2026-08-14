@@ -1,0 +1,55 @@
+{
+  "record_id": "me-cumberland-southportland-cmp",
+  "file": "data/localities/me-cumberland-southportland-cmp.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 98,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.cmpco.com/suppliersandpartners/servicesandresources/interconnection/net-energy-billing — timeout — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "inspection_steps",
+      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.southportland.org/205/Code-Enforcement",
+      "checked_at": "2026-08-14T08:01:42.367Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cmpco.com/suppliersandpartners/servicesandresources/interconnection/net-energy-billing",
+      "checked_at": "2026-08-14T08:01:44.117Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "timeout"
+    }
+  ]
+}

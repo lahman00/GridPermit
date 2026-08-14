@@ -1,0 +1,159 @@
+{
+  "record_id": "me-cumberland-southportland-cmp",
+  "schema_version": "1.4.0",
+  "state": "ME",
+  "utility": {
+    "value": "Central Maine Power (CMP)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Confirmed by the City's own Code Enforcement page, which requires a CMP work order number when applying for an electrical permit involving a new or replaced service — direct evidence of CMP as the local utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Central Maine Power (CMP)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving South Portland's residential solar customers this session; CMP is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "South Portland",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Cumberland County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of South Portland Code Enforcement (Department of Planning and Development)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Maine's Uniform Building and Energy Code (MUBEC) is mandatory statewide for municipalities with more than 4,000 residents (smaller towns may opt out of enforcement but cannot substitute a different building code) — a genuinely uniform statewide baseline, though enforcement is local. South Portland's own Code Enforcement division is the local AHJ. State law requires municipalities to exclusively employ code enforcement officers certified by Maine's Department of Economic and Community Development."
+  },
+  "permit_url": {
+    "value": "https://www.southportland.org/205/Code-Enforcement",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.cmpco.com/suppliersandpartners/servicesandresources/interconnection/net-energy-billing",
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "CMP's own Net Energy Billing page did not load successfully this session (repeated timeout). Maine's net metering program is branded 'Net Energy Billing' and is administered under Maine PUC rules (Chapter 313 for net energy billing, Chapter 324 for the Interconnection Agreement); customers must file both applications with CMP before service begins. This structural detail is recorded with moderate confidence, pending direct confirmation of CMP's own page content."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Electrical permit application, including the CMP work order number for any new or replaced electrical service",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City's own Code Enforcement page confirms an electrical permit (performed by a Maine-licensed electrician) is required and must reference the CMP work order number for new/replaced service, but a full dedicated solar-specific document checklist was not located and confirmed this session."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed from a primary source this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was confirmed this session. The City's own Building Codes page states 'work on building permits must now have a substantial start within 180 days of the date of issuance' — this is a permit-expiration rule, not a review timeline."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Permits must have a substantial start within 180 days of issuance",
+        "The City's own Solar Array Ordinance (Code of Ordinances Chapter 27, Article XVIII) separately regulates solar energy systems by zoning district, but its specific setback and height requirements were not independently confirmed from the ordinance text itself this session"
+      ]
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific dollar figure was independently confirmed from a primary source this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific South Portland or statewide Maine rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Nicholaus Richard",
+        "role": "Director, Code Enforcement (Department of Planning and Development)",
+        "phone": "207-767-7603",
+        "email": "codeenforcement@southportland.gov",
+        "url": "https://www.southportland.org/205/Code-Enforcement"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Code Enforcement",
+      "url": "https://www.southportland.org/205/Code-Enforcement",
+      "publisher": "City of South Portland, ME",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Billing",
+      "url": "https://www.cmpco.com/suppliersandpartners/servicesandresources/interconnection/net-energy-billing",
+      "publisher": "Central Maine Power",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
