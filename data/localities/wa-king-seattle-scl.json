@@ -1,0 +1,208 @@
+{
+  "record_id": "wa-king-seattle-scl",
+  "schema_version": "1.4.0",
+  "state": "WA",
+  "utility": {
+    "value": "Seattle City Light (SCL)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Seattle City Light is a municipally-owned utility serving the City of Seattle directly."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Seattle City Light (SCL)",
+      "type": "utility",
+      "notes": "SCL is itself the municipal generation and distribution utility for Seattle; no separate generation supplier or CCA applies."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "city": {
+    "value": "Seattle",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "King County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Seattle Department of Construction and Inspections (SDCI); electrical permits jointly coordinated with Seattle City Light",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Washington's building/electrical codes (Title 51 WAC, based on ICC model codes) apply statewide, but electrical permit issuance is split: the state Department of Labor & Industries (L&I) issues electrical permits in most jurisdictions, while Seattle (like Tacoma and a handful of other cities) administers its own electrical permits through SDCI rather than through L&I — a genuine structural distinction from most other Washington cities."
+  },
+  "permit_url": {
+    "value": "https://www.seattle.gov/DPD/publications/CAM/cam420.pdf",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.seattle.gov/city-light",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per SDCI Tip #420 (jointly developed with SCL, updated 2025-07-14): customer-owned, grid-connected systems of 100kW or less qualify for SCL's Net Metering program (subject to inspection); some arrays up to 250kW qualify under a separate 'Large Solar Program.' An Interconnection Application and Agreement is required, conditional on final approval of the electrical permit. With net metering, excess electricity generated during a billing period is credited back to the customer (true retail-rate net metering, described as spinning the meter backwards)."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Per SDCI Tip #420: the electrical permit application includes an 'Energy Storage System?' checkbox triggering a 3-page ESS questionnaire; home battery systems do not require Seattle Fire Department review unless they exceed 40kWh capacity (individual home batteries typically run 9-14kWh). This describes a permitting/safety review threshold, not a financial battery incentive program, which was not independently confirmed this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Electrical permit — for systems up to 12kW, an Over-The-Counter (OTC) permit requiring a one-line electrical diagram and catalogue cuts",
+        "required_when": "always, for all solar electric systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical permit plan review submission (fuller review, not the OTC path)",
+        "required_when": "systems larger than 12kW",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Building permit",
+        "required_when": "when the rooftop solar installation does NOT meet ALL of 9 specific exemption criteria (single-family rooftop, engineered mounting system, lightweight roof material, panels ≤18in above roof surface and not exceeding the ridge height, ≤5 lb/sq ft dead load, load spread across framing sections not exceeding 50 lb per section, attachment per manufacturer spec, proper weatherproofing, and compliance with land use/fire code) — OR for ground-mounted systems, commercial/industrial systems, or building alterations valued over $6,000",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Interconnection Application and Agreement with Seattle City Light",
+        "required_when": "always, for grid-connected systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plumbing permit (issued by Seattle/King County Public Health)",
+        "required_when": "solar hot water systems",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per SDCI Tip #420, jointly developed by SDCI and Seattle City Light (updated 2025-07-14). Documents must be submitted in 11x17 format or larger, with an approved permit set kept at the project site at the same size."
+  },
+  "inspection_steps": {
+    "value": [
+      "An electrical inspection is required after installation for all solar electric systems",
+      "Systems qualifying for SCL's Net Metering program are subject to inspection",
+      "Detailed Seattle Fire Code roof-access-pathway rules apply unless the structure has automatic fire sprinklers, a roof slope ≤2:12, a solar array ≤33% of roof area and ≤1,000 sq ft with an 18in pathway maintained, or is a detached non-habitable structure"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was stated in SDCI Tip #420; the document does distinguish an Over-The-Counter (same-visit) electrical permit process for systems ≤12kW from a fuller plan-review process for systems >12kW, but does not attach specific day counts to either."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 100,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Building-permit-exempt path for rooftop single-family systems meeting 9 specific criteria; Over-The-Counter electrical permit for systems ≤12kW",
+      "other_conditions": [
+        "SCL's standard Net Metering program covers systems up to 100kW; some arrays up to 250kW qualify under a separate Large Solar Program",
+        "Rapid Shutdown-compliant systems (per Seattle Electrical Code Section 690.12) may have certain Fire Code marking/DC-conductor-location requirements waived",
+        "RCW 36.70A.813 (statewide) requires cities/counties to allow buildings to exceed roof height limits by at least 48 inches to accommodate solar panels"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Electrical permit fee, systems up to 12kW",
+        "amount_usd": null,
+        "unit": "1.5x the published 'base fee' (SBCC Chapter 22.900B) plus the 'administrative fee' (Chapter 22.900D, Table D-15)",
+        "notes": "Per SDCI Tip #420. Exact dollar figures are published annually in the Permit Fee Subtitle on the Seattle Building Code Council (SBCC) website and were not independently pulled into a flat dollar amount this session."
+      },
+      {
+        "name": "Electrical permit fee, systems over 12kW",
+        "amount_usd": null,
+        "unit": "3x the published 'base fee' (SBCC Chapter 22.900B) plus the 'administrative fee' (Chapter 22.900D, Table D-15)",
+        "notes": "Per SDCI Tip #420."
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The fee FORMULA is exactly and directly confirmed from the City's own document, but the underlying base-fee dollar amount (published separately and updated annually) was not independently pulled into a flat number this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "SDCI Tip #420 confirms two statewide (not Seattle-specific) financial incentives: the federal 30% investment tax credit (IRS Form 5695 for individuals) and a Washington State partial sales tax exemption/reduction for solar electric systems (dependent on system size and installation year) — no specific Seattle-only rebate dollar amount was found, so this field is left null rather than conflating the statewide incentives with a locality-specific rebate."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "SDCI (permits/electrical technical support)",
+        "phone": "206-684-8600",
+        "email": null,
+        "url": "https://www.seattle.gov/sdci"
+      },
+      {
+        "name": null,
+        "role": "Seattle City Light Energy Advisor Line",
+        "phone": "206-684-3800",
+        "email": "SCLEnergyAdvisor@seattle.gov",
+        "url": null
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Seattle Permits Tip #420 — Solar Energy Systems and Solar-Ready Roofs for Residential Buildings (Updated July 14, 2025)",
+      "url": "https://www.seattle.gov/DPD/publications/CAM/cam420.pdf",
+      "publisher": "Seattle Department of Construction and Inspections (SDCI) and Seattle City Light (SCL)",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
