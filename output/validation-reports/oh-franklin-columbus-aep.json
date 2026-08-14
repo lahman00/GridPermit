@@ -1,0 +1,68 @@
+{
+  "record_id": "oh-franklin-columbus-aep",
+  "file": "data/localities/oh-franklin-columbus-aep.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 96,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.columbus.gov/files/sharedassets/city/v/1/building-and-zoning/document-library/rooftop-solar-installations.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "broken_url",
+      "message": "https://www.columbus.gov/Business-Development/Building-Zoning-Services/Documents-Forms — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "inspection_steps",
+      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.columbus.gov/files/sharedassets/city/v/1/building-and-zoning/document-library/rooftop-solar-installations.pdf",
+      "checked_at": "2026-08-14T12:59:27.355Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.aepohio.com/lib/docs/cleanenergy/renewable/NetEnergyMeteringService2-10-2020.pdf",
+      "checked_at": "2026-08-14T12:59:27.489Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.columbus.gov/Business-Development/Building-Zoning-Services/Documents-Forms",
+      "checked_at": "2026-08-14T12:59:28.526Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "state": "OH",
+  "generated_at": "2026-08-14T12:59:28.698Z",
+  "records": [
+    {
+      "record_id": "oh-franklin-columbus-aep",
+      "state": "OH",
+      "city": "Columbus",
+      "county": "Franklin County",
+      "completeness_pct": 66.7,
+      "validation_score": 96,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "eligibility_constraints",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "permit_fees",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "readiness": "LIMITED"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 66.7,
+    "average_validation_score": 96,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 1
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [],
+    "limited_for_now": [
+      {
+        "record_id": "oh-franklin-columbus-aep",
+        "city": "Columbus",
+        "reason": "readiness=LIMITED (completeness 66.7%, score 96)"
+      }
+    ],
+    "not_ready": []
+  }
+}

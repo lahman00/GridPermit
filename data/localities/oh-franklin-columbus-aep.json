@@ -1,0 +1,173 @@
+{
+  "record_id": "oh-franklin-columbus-aep",
+  "schema_version": "1.4.0",
+  "state": "OH",
+  "utility": {
+    "value": "AEP Ohio (Ohio Power Company)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "AEP Ohio (legal entity Ohio Power Company) is Columbus's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "AEP Ohio",
+      "type": "utility",
+      "notes": "Ohio is a retail-choice state — customers may select a Competitive Retail Electric Service (CRES) provider for generation while AEP Ohio remains the distribution utility. No specific CCA or default CRES provider was independently confirmed for Columbus residential solar customers this session; AEP Ohio is recorded as the default (non-shopping) generation/distribution utility."
+    },
+    "confidence": 0.5,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Columbus",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Franklin County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Columbus Building and Zoning Services (BZS)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Ohio's building code (Ohio Building Code / Ohio Residential Code) is adopted at the state level by the Ohio Board of Building Standards, but enforcement is local — Columbus's own Building and Zoning Services department is the AHJ within city limits."
+  },
+  "permit_url": {
+    "value": "https://www.columbus.gov/files/sharedassets/city/v/1/building-and-zoning/document-library/rooftop-solar-installations.pdf",
+    "confidence": 0.5,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City's own 'Rooftop Photovoltaic System Application Process' document (updated 2023-04-03) was located via search but was genuinely inaccessible for direct fetch this session (403 error on WebFetch; the browser tool forced a file-download dialog rather than rendering the PDF content) — two independent access methods both blocked. The process details below (application requirements, 3-business-day residential approval, third-party inspector requirement) come from consistent search-result summaries of this same document rather than a direct read, and are recorded with correspondingly lower confidence. The City's own Building and Zoning Services contact information and general document-library structure WAS directly confirmed via the BZS Documents & Forms page."
+  },
+  "interconnection_url": {
+    "value": "https://www.aepohio.com/lib/docs/cleanenergy/renewable/NetEnergyMeteringService2-10-2020.pdf",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Confirmed directly from AEP Ohio's own filed PUCO tariff (P.U.C.O. No. 20, Schedule NEMS, effective 2012-01-01): net metering is available to solar/wind/biomass/landfill-gas/hydropower/microturbine/fuel-cell generators located on the customer's premises. Sizing cap: the generating system must not produce more than 120% of the customer's electricity needs over a rolling 12-month period, or the account loses NEMS eligibility. AEP Ohio does not buy the electricity — a monetary credit is calculated only from the generation energy component of the standard service rate (not the full retail rate, and excluding distribution/transmission charges) and applied to the current or future bill; unused credits are lost if the customer stops service. A separate Schedule NEMS-H applies to hospital customers, crediting at the hourly AEP East Load Zone Real-Time Locational Marginal Price. Net metering requires a bidirectional meter (installed at customer expense if the existing meter can't measure two-way flow) and a completed Net Energy Metering Service Application plus a separate Interconnection Agreement."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Building/electrical permit application specifying 'install rooftop solar panels' in the project work description",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Name of a third-party inspector from the City's registered Photovoltaic Inspectors list (Special Inspection Testing Agencies and Inspectors, in the BZS Document Library)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plans sealed by a design professional registered in the State of Ohio",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.55,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Recorded from consistent search-result summaries of the City's own 'Rooftop Photovoltaic System Application Process' document, which could not be directly fetched this session (see permit_url notes) — confidence is correspondingly lower than for directly-fetched sources used elsewhere this session."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed from a directly-fetched primary source this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Search-result summaries of the City's own document (not directly fetched this session) describe a 3-business-day approval turnaround for residential rooftop solar and same-day issuance for smaller systems, but since the underlying document could not be directly verified this session, this figure is not recorded as a confirmed fact — left null rather than stated with unverified confidence."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Net-metered systems must not produce more than 120% of the customer's electricity needs over a rolling 12-month period, per AEP Ohio's own filed tariff"
+      ]
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own 2026 Combined Development-Related Fee Schedule PDF was located via the BZS Documents & Forms page but could not be directly fetched this session (403 error) — no specific dollar figure is recorded, left null rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Columbus or statewide Ohio rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Building and Zoning Services (BZS)",
+        "phone": "614-645-7433",
+        "email": null,
+        "url": "https://www.columbus.gov/Business-Development/Building-Zoning-Services/Documents-Forms"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Documents & Forms (Building and Zoning Services)",
+      "url": "https://www.columbus.gov/Business-Development/Building-Zoning-Services/Documents-Forms",
+      "publisher": "City of Columbus, OH, Building and Zoning Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Energy Metering Service (Schedule NEMS, P.U.C.O. No. 20)",
+      "url": "https://www.aepohio.com/lib/docs/cleanenergy/renewable/NetEnergyMeteringService2-10-2020.pdf",
+      "publisher": "AEP Ohio (Ohio Power Company)",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
