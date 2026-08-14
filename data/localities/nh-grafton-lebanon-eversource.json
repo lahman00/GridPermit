@@ -1,0 +1,188 @@
+{
+  "record_id": "nh-grafton-lebanon-eversource",
+  "schema_version": "1.4.0",
+  "state": "NH",
+  "utility": {
+    "value": "Eversource",
+    "confidence": 0.75,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Eversource is the well-established dominant utility for the Lebanon, NH area — not independently cross-checked against a dedicated Eversource vs. Liberty Utilities/NH Electric Cooperative/Unitil territory map this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Eversource",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Lebanon's residential solar customers this session; Eversource is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.5,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Lebanon",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Grafton County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Lebanon Planning and Development Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "New Hampshire's State Building Code (based on the IRC/IBC/NEC with state amendments, most recently updated via HB 1681 in 2022) is adopted statewide but administered and enforced locally by each city/town — a MIXED model similar to several other states researched this session. Lebanon's own Planning and Development Department is the local AHJ."
+  },
+  "permit_url": {
+    "value": "https://lebanonnh.gov/1778/Solar-Array-Permit",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.energy.nh.gov/renewable-energy/net-metering-and-group-net-metering/net-metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per the New Hampshire Department of Energy's own page: net metering is available to customers of Eversource, Liberty Utilities, New Hampshire Electric Cooperative, and Unitil. For residential and small commercial customers, the equipment's peak generating capacity is limited to 100kW AC, must be located behind the customer's meter, and must be interconnected and operating in parallel with the grid, used primarily to offset the customer's own usage. Compensation specifics vary by utility and project details per the state's Net Metering Tariff."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Solar Array Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan",
+        "required_when": "ground-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Engineer design plan",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Mandatory pre-permit meeting",
+        "required_when": "homeowners performing their own electrical work",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own page. Applications are submitted through the City's OpenGov-powered Online Permit Portal. Homeowners performing their own electrical work must comply with the 2020 National Electrical Code."
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections are scheduled and coordinated with staff through the City's Online Permit Portal"
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 14,
+      "notes": "Per the City's own page: 'Please allow two weeks for the initial review of your application.' The page also clarifies that an application is not itself a permit — work cannot begin until the permit is actually issued."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 100,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "The 100kW AC figure recorded here reflects the statewide net-metering peak-capacity threshold for residential/small commercial customers (per the NH Department of Energy's own page), not a separate City permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page directs applicants to an online Permit Fee Calculator and a general Permit Fee Schedule for project-specific pricing rather than stating a solar-specific dollar figure inline — left null rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Lebanon or statewide New Hampshire rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Planning and Development Department",
+        "phone": "603-448-1524",
+        "email": null,
+        "url": "https://lebanonnh.gov/1778/Solar-Array-Permit"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Array Permit",
+      "url": "https://lebanonnh.gov/1778/Solar-Array-Permit",
+      "publisher": "City of Lebanon, NH",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Metering",
+      "url": "https://www.energy.nh.gov/renewable-energy/net-metering-and-group-net-metering/net-metering",
+      "publisher": "New Hampshire Department of Energy",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

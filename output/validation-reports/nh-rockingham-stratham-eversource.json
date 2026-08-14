@@ -1,0 +1,59 @@
+{
+  "record_id": "nh-rockingham-stratham-eversource",
+  "file": "data/localities/nh-rockingham-stratham-eversource.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 98,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.energy.nh.gov/renewable-energy/net-metering-and-group-net-metering/net-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.strathamnh.gov/Documents/Departments/Building%20and%20Code%20Enforcement/Building%20Permit%20Application/Residential%20Solar%20Project%20Checklist%202026.pdf",
+      "checked_at": "2026-08-14T07:52:10.944Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.energy.nh.gov/renewable-energy/net-metering-and-group-net-metering/net-metering",
+      "checked_at": "2026-08-14T07:52:11.639Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.strathamnh.gov",
+      "checked_at": "2026-08-14T07:52:12.283Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

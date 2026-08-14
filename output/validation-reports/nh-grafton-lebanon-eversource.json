@@ -1,0 +1,47 @@
+{
+  "record_id": "nh-grafton-lebanon-eversource",
+  "file": "data/localities/nh-grafton-lebanon-eversource.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 98,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.energy.nh.gov/renewable-energy/net-metering-and-group-net-metering/net-metering — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://lebanonnh.gov/1778/Solar-Array-Permit",
+      "checked_at": "2026-08-14T07:52:08.764Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.energy.nh.gov/renewable-energy/net-metering-and-group-net-metering/net-metering",
+      "checked_at": "2026-08-14T07:52:09.935Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}

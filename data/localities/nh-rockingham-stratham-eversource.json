@@ -1,0 +1,207 @@
+{
+  "record_id": "nh-rockingham-stratham-eversource",
+  "schema_version": "1.4.0",
+  "state": "NH",
+  "utility": {
+    "value": "Eversource",
+    "confidence": 0.75,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Eversource is the well-established dominant utility for the NH seacoast/Rockingham County area — not independently cross-checked against a dedicated territory map this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Eversource",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Stratham's residential solar customers this session; Eversource is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.5,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Stratham",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Rockingham County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Town of Stratham Department of Planning & Building Development",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "New Hampshire's State Building Code (IRC/IBC/NEC with state amendments) is adopted statewide but administered locally by each city/town — the same MIXED model applying to Lebanon, NH, researched separately this session (see nh-grafton-lebanon-eversource). Stratham's own Department of Planning & Building Development is the local AHJ."
+  },
+  "permit_url": {
+    "value": "https://www.strathamnh.gov/Documents/Departments/Building%20and%20Code%20Enforcement/Building%20Permit%20Application/Residential%20Solar%20Project%20Checklist%202026.pdf",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.energy.nh.gov/renewable-energy/net-metering-and-group-net-metering/net-metering",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "See the identical statewide New Hampshire net-metering framework notes on the Lebanon, NH record (nh-grafton-lebanon-eversource) — per the NH Department of Energy's own page, net metering is available to customers of Eversource, Liberty Utilities, NH Electric Cooperative, and Unitil, with a 100kW AC peak-capacity cap for residential/small commercial customers."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed and signed Residential Building Permit Application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Construction documents (1 paper and 1 electronic copy)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Copy of manufacturer's specifications, installation instructions, and signage/labeling details",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plot plan showing the array's location relative to zoning setbacks",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Letter from an NH-licensed Structural Engineer after review of the existing roof and proposed mounting system, plus a roof plan and line diagram of the electrical system",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Details on mounting structure construction, array supports, framing members, foundation posts/footings, and module attachment method (gravity/wind-uplift design)",
+        "required_when": "ground-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the Town's own 'Solar Energy System Permit (Residential) Application Checklist.' Codes referenced: 2021 IRC, 2021 IBC, 2023 NEC, NFPA 1, NFPA 101, and Stratham Zoning Ordinance Section 5.13. Local design criteria: 115mph max wind speed, 50psf ground snow load, 4ft frost depth, 3000psi max assumable soil bearing capacity. Roof-mounted systems are permitted by right in all zoning districts. Ground-mounted systems are permitted by right ONLY if all 5 criteria are met: array ≤1,750 sq ft, rear yard only (no clear-cutting within 20ft of a boundary), ≥50ft from the front property boundary and ≥35ft from all other boundaries, compliant with wetlands/shoreland setbacks, and ≤12ft in height — otherwise a Conditional Use Permit from the Planning Board (with a public hearing and abutter notification) is required."
+  },
+  "inspection_steps": {
+    "value": [
+      "Multiple inspections are required, including but not limited to: footing/foundation, framing/structural upgrades, labeling, grounding, and rapid shutdown/disconnect"
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's own document states the Building Inspector is 'dedicated to providing a comprehensive review... within a reasonable timeframe' without stating a specific day count, and notes that complete applications (all forms submitted together, signed by an NH-licensed electrician) expedite review."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 100,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Roof-mounted solar is permitted by right in all of Stratham's zoning districts",
+        "By-right ground-mounted solar is capped at 1,750 sq ft, rear-yard-only, with 50ft front / 35ft other-boundary setbacks and a 12ft height limit — systems exceeding these require a Conditional Use Permit from the Planning Board",
+        "A separate building permit application is required if a new roof is being installed as part of the project",
+        "The 100kW AC figure recorded here reflects the statewide net-metering peak-capacity threshold for residential/small commercial customers, not a separate Town permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's own document directs applicants to a separate online Fee Schedule page rather than stating a specific dollar figure inline, and notes the total cost of construction (used to calculate the fee) must include electrical work costs — left null rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Stratham or statewide New Hampshire rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Department of Planning & Building Development (Building)",
+        "phone": "603-772-7391 ext. 180",
+        "email": "building@strathamnh.gov",
+        "url": "https://www.strathamnh.gov"
+      },
+      {
+        "name": null,
+        "role": "Department of Planning & Building Development (Planning/Zoning)",
+        "phone": "603-772-7391 ext. 184",
+        "email": "planning@strathamnh.gov",
+        "url": null
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Energy System Permit (Residential) Application Checklist",
+      "url": "https://www.strathamnh.gov/Documents/Departments/Building%20and%20Code%20Enforcement/Building%20Permit%20Application/Residential%20Solar%20Project%20Checklist%202026.pdf",
+      "publisher": "Town of Stratham, NH, Department of Planning & Building Development",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Metering",
+      "url": "https://www.energy.nh.gov/renewable-energy/net-metering-and-group-net-metering/net-metering",
+      "publisher": "New Hampshire Department of Energy",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
