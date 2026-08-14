@@ -41,6 +41,7 @@ const STATE_SLUGS = {
   GA: "georgia",
   WI: "wisconsin",
   MN: "minnesota",
+  CT: "connecticut",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

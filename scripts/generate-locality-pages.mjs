@@ -73,6 +73,7 @@ const STATE_SLUGS = {
   GA: "georgia",
   WI: "wisconsin",
   MN: "minnesota",
+  CT: "connecticut",
 };
 
 function pagesRootFor(record) {

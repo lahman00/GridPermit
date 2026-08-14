@@ -1,0 +1,246 @@
+{
+  "record_id": "ct-newhaven-guilford-eversource",
+  "schema_version": "1.4.0",
+  "state": "CT",
+  "utility": {
+    "value": "Eversource",
+    "confidence": 0.8,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Eversource is the well-established dominant utility for the Guilford/shoreline area of Connecticut — not independently cross-checked against a dedicated Eversource vs. United Illuminating (UI) territory map this session."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Eversource",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Guilford's residential solar customers this session; Eversource is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Guilford",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "New Haven County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Town of Guilford Building Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Connecticut has no single statewide solar permitting process — each municipality is its own Authority Having Jurisdiction (AHJ) enforcing the Connecticut State Building Code (2022 CSBC, based on the 2021 IBC/IRC and 2020 NEC) locally. Guilford's own Building Department, headed by a named Building Official, is the AHJ."
+  },
+  "permit_url": {
+    "value": "https://cms5.revize.com/revize/guilfordct/Document_Center/Department/Building%20Department/Solar%20Photovoltaic%20System%20Permitting%20Checklists/building-Solar%20Photovoltaic%20Permitting%20Process%20and%20Checklist%2004242023.pdf",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.eversource.com/residential/about/doing-business-with-us/interconnections/connecticut/connecticut-net-metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per Eversource's own page: Connecticut's traditional Net Metering Program is CLOSED to new enrollment. New residential solar customers instead use the 'Residential Renewable Energy Solutions' (RRES) program (launched 2022), under which excess generation is compensated annually at the ISO-New England Real-Time Locational Marginal Price (RT-LMP) — for solar, averaged over peak hours (10am-4pm) only — rather than at the customer's standard retail consumption rate. This is a materially different, lower-certainty compensation structure than traditional 1:1 net metering, genuinely distinct from most other states researched this session."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's own SolarAPP+ eligibility criteria explicitly exclude systems with battery backup ('coming soon' as of the document fetched this session) — this describes SolarAPP+ path eligibility, not a dedicated battery incentive/rebate program, which was not independently confirmed this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Building Permit Application and Electrical Sub-Permit form (or, for eligible projects, the SolarAPP+ online portal at solarapp.nrel.gov as an alternative)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan showing the relative location of major system components on the property",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Letter from a Connecticut-licensed engineer confirming the roof structure has been examined and found capable of handling the additional loads",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical diagram/worksheet showing PV system configuration, wiring, overcurrent protection, inverter, disconnects, required signage, and AC connection to the building",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Specification sheets and installation manuals for all manufactured components (PV modules, inverters, combiner box, disconnects, mounting system)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Zoning Permit application",
+        "required_when": "always (separate $85 fee for ground-mount systems specifically)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Flood Permit application",
+        "required_when": "properties in a flood hazard zone",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the Town's own 'Solar Photovoltaic (PV) System Permitting Process and Checklist' (Rev. 2023-04-24). Contractors must hold a Connecticut Home Improvement Contractor (H.I.C.) registration to install the PV system and a Connecticut Electrical [E-1] license to perform wiring, grounding, and bonding. As an alternative to the standard checklist process, eligible projects can use SolarAPP+ (the U.S. DOE/NREL-developed automated permitting platform) directly, confirmed by the Town's own explicit reference and eligibility criteria — this is a genuinely confirmed platform-specific fact, not an inferred one. SolarAPP+ eligibility is limited to: main dwelling rooftop, permitted residential structures only; not in a Flood Hazard Zone; no HOA without an approval letter; no ballasted systems; no battery backup (not yet supported as of this document); no building-integrated PV; and no structural support upgrades."
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections are scheduled by phone with the building department office; typically scheduled within 7 days, with inspection windows between 9:30am-12pm and 1pm-3pm",
+      "A residential solar PV system requires 1 final inspection, covering electrical wiring, subpanel, grounding, and bonding",
+      "Prior to issuance of a Certificate of Approval (COA), a Notarized 'Statement of Compliance' sealed by a Connecticut-registered professional (Architect or Engineer of Record) must be submitted, verifying all construction was completed and inspected as conforming to the approved plans"
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 30,
+      "notes": "Per the Town's own document, best efforts are made to review completed residential solar PV permit applications within 30 days or less; this is described as typical, not guaranteed. Circumstances that can extend the timeline include incomplete applications, an unlicensed contractor, unlisted equipment, or a missing structural engineer's letter."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ (optional automated path, not mandatory)",
+      "other_conditions": [
+        "The Town's separate Rooftop Solar PV System Field Inspection Checklist (a 19-point checklist) applies specifically to residential rooftop systems of 15kW and under",
+        "Permits expire 6 months after issuance if work has not started; all work must be completed within 18 months of the permit issue date",
+        "SolarAPP+ eligibility excludes: dwellings in a Flood Hazard Zone, HOA properties without an approval letter, ballasted systems, systems with battery backup, building-integrated PV, and projects requiring structural support upgrades"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Building permit fee — first $1,000 of project value",
+        "amount_usd": 50,
+        "unit": "flat fee",
+        "notes": "Per the Town's own fee schedule (calculated value includes both labor and materials)."
+      },
+      {
+        "name": "Building permit fee — each additional $1,000 of project value",
+        "amount_usd": 12,
+        "unit": "per additional $1,000 of value",
+        "notes": "Per the Town's own fee schedule, added on top of the base $50 first-$1,000 fee."
+      },
+      {
+        "name": "Connecticut State Education Fee",
+        "amount_usd": null,
+        "unit": "$0.26 per $1,000 of project value",
+        "notes": "A state-mandated surcharge added to the building permit fee, per the Town's own fee schedule."
+      },
+      {
+        "name": "Zoning permit fee for ground-mount systems",
+        "amount_usd": 85,
+        "unit": "flat fee",
+        "notes": "Per the Town's own fee schedule, applies specifically to ground-mounted solar installations."
+      },
+      {
+        "name": "Flood zone permit fee",
+        "amount_usd": 50,
+        "unit": "flat fee",
+        "notes": "Per the Town's own fee schedule, applies only if the property is in a flood zone."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Town's own document provides a full worked example: an $8,400 project totals $140.98 ($50 + $88.80 for the additional value tiers + $2.18 state education fee); a project under $1,000 totals $50.26."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Guilford or statewide Connecticut rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Kimberly Norman-Rosedam",
+        "role": "Building Official",
+        "phone": "203-453-8029",
+        "email": "building.perm@guilfordct.gov",
+        "url": null
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic (PV) System Permitting Process and Checklist (Rev. 04/24/2023, document text updated 04/21/2021)",
+      "url": "https://cms5.revize.com/revize/guilfordct/Document_Center/Department/Building%20Department/Solar%20Photovoltaic%20System%20Permitting%20Checklists/building-Solar%20Photovoltaic%20Permitting%20Process%20and%20Checklist%2004242023.pdf",
+      "publisher": "Town of Guilford Building Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Connecticut Net Metering",
+      "url": "https://www.eversource.com/residential/about/doing-business-with-us/interconnections/connecticut/connecticut-net-metering",
+      "publisher": "Eversource",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

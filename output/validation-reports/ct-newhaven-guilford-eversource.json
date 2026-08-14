@@ -1,0 +1,43 @@
+{
+  "record_id": "ct-newhaven-guilford-eversource",
+  "file": "data/localities/ct-newhaven-guilford-eversource.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 95,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://cms5.revize.com/revize/guilfordct/Document_Center/Department/Building%20Department/Solar%20Photovoltaic%20System%20Permitting%20Checklists/building-Solar%20Photovoltaic%20Permitting%20Process%20and%20Checklist%2004242023.pdf",
+      "checked_at": "2026-08-14T07:25:29.046Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.eversource.com/residential/about/doing-business-with-us/interconnections/connecticut/connecticut-net-metering",
+      "checked_at": "2026-08-14T07:25:29.794Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}
