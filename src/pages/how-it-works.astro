@@ -5,7 +5,7 @@ const webPageSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebPage",
 	name: "How It Works - GridPermit",
-	description: "Learn how GridPermit's California-only solar and battery estimator works in three simple steps.",
+	description: "How GridPermit finds and verifies solar permit information for U.S. cities, plus how our California-only savings calculator works.",
 	url: "https://mygridpermit.com/how-it-works/",
 };
 ---
@@ -16,15 +16,15 @@ const webPageSchema = {
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>How It Works - GridPermit</title>
-	<meta name="description" content="Learn how GridPermit's California-only solar and battery estimator works in three simple steps." />
+	<meta name="description" content="How GridPermit finds and verifies solar permit information for U.S. cities, plus how our California-only savings calculator works." />
 	<link rel="canonical" href="https://mygridpermit.com/how-it-works/" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://mygridpermit.com/how-it-works/" />
 	<meta property="og:title" content="How It Works - GridPermit" />
-	<meta property="og:description" content="Learn how GridPermit's California-only solar and battery estimator works in three simple steps." />
+	<meta property="og:description" content="How GridPermit finds and verifies solar permit information for U.S. cities, plus how our California-only savings calculator works." />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="How It Works - GridPermit" />
-	<meta name="twitter:description" content="Learn how GridPermit's California-only solar and battery estimator works in three simple steps." />
+	<meta name="twitter:description" content="How GridPermit finds and verifies solar permit information for U.S. cities, plus how our California-only savings calculator works." />
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,22 +43,42 @@ const webPageSchema = {
 		.footer-text { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; font-size: 0.85rem; color: #64748b; text-align: center; }
 		.cross-links { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; }
 		.cross-links a { color: #2563eb; text-decoration: none; }
+		.section-divider { margin: 2.5rem 0 1.5rem 0; padding-top: 1.5rem; border-top: 1px solid #e2e8f0; }
+		.badge-pill-light { display: inline-block; background: #f1f5f9; color: #475569; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 999px; margin-bottom: 0.6rem; }
 	</style>
 </head>
 <body>
 	<main class="container">
-		<a href="/" class="back-link">← Back to Calculator</a>
-		<p class="cross-links"><a href="/blog">Blog</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/methodology">Methodology</a> · <a href="/contact">Contact</a></p>
+		<a href="/" class="back-link">← Back to Home</a>
+		<p class="cross-links"><a href="/blog">Blog</a> · <a href="/permits">Browse States</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/methodology">Methodology</a> · <a href="/contact">Contact</a></p>
 		<h1>How GridPermit Works</h1>
-		<p class="intro">Three simple steps to generate a California-only illustrative solar and battery estimate and optionally explore quotes through an independent third-party marketplace.</p>
+		<p class="intro">GridPermit is a source-linked solar permit research tool for U.S. cities. Here's how a guide gets built and verified, and how to use one.</p>
 
-		<h2>Step 1: Enter Your Baseline Details</h2>
+		<h2>Step 1: Search your location</h2>
+		<p>Type your city, county, utility, or state into <a href="/search">search</a>. If we have a published guide for your city, you'll land on it directly. If we only have partial research on file, or none yet, we say so rather than guessing — see our <a href="/permits">state-by-state coverage</a>.</p>
+
+		<h2>Step 2: Read the verified facts</h2>
+		<p>Each published guide lists what permit authority handles solar permitting in that city, what documents and inspections are typically required, and which utility governs interconnection — built only from facts we could confirm against an official source.</p>
+
+		<h2>Step 3: Check the official source</h2>
+		<p>Every fact on a guide links directly to the government page, ordinance, or utility program page it came from, with a confidence score and the date it was last verified. Nothing is published as fact unless we can point to where it came from — see our <a href="/methodology">Methodology</a> for the full verification process.</p>
+
+		<h2>Step 4: Compare installers if you're ready</h2>
+		<p>Once you understand the real permitting process for your city, some guides offer an optional link to an independent third-party installer marketplace for property-specific quotes. GridPermit does not provide, review, certify, or guarantee installer quotes.</p>
+
+		<div class="section-divider">
+			<span class="badge-pill-light">California-Only Tool</span>
+			<h2>Our California savings calculator</h2>
+			<p>Separately from the permit guides above, GridPermit also runs a California-only illustrative solar and battery savings calculator. It's a secondary tool, not the main product — here's how it works.</p>
+		</div>
+
+		<h2>Step 1: Enter your baseline details</h2>
 		<p>Enter a California ZIP code and estimated monthly electricity bill. We check that the ZIP code is within California, then apply one flat, disclosed placeholder assumption — not your utility's actual rate. See our <a href="/methodology">Methodology</a> for the exact numbers.</p>
 
-		<h2>Step 2: Review Your Illustrative Estimate</h2>
+		<h2>Step 2: Review your illustrative estimate</h2>
 		<p>See a rough system-size figure. Dollar savings and payback period are currently marked "Coming Soon" — producing an honest number requires real utility rate data we haven't integrated yet. Results are educational only, not property-specific engineering or financial advice.</p>
 
-		<h2>Step 3: Explore Third-Party Quotes</h2>
+		<h2>Step 3: Explore third-party quotes</h2>
 		<p>Optionally continue to an independent third-party marketplace for property-specific pricing and installer proposals. GridPermit does not provide, review, certify, or guarantee installer quotes.</p>
 
 		<div class="footer-text">

@@ -4,8 +4,8 @@ import Analytics from "../components/Analytics.astro";
 const webPageSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebPage",
-	name: "Calculation Methodology - GridPermit",
-	description: "An exact, honest description of what GridPermit's California solar and battery estimator does and doesn't calculate today.",
+	name: "Methodology - GridPermit",
+	description: "How GridPermit verifies solar permit guide facts nationwide, and an exact, honest description of what our California-only savings calculator does and doesn't calculate.",
 	url: "https://mygridpermit.com/methodology/",
 };
 ---
@@ -15,16 +15,16 @@ const webPageSchema = {
 	<Analytics />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Calculation Methodology - GridPermit</title>
-	<meta name="description" content="An exact, honest description of what GridPermit's California solar and battery estimator does and doesn't calculate today." />
+	<title>Methodology - GridPermit</title>
+	<meta name="description" content="How GridPermit verifies solar permit guide facts nationwide, and what our California-only savings calculator does and doesn't calculate." />
 	<link rel="canonical" href="https://mygridpermit.com/methodology/" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://mygridpermit.com/methodology/" />
-	<meta property="og:title" content="Calculation Methodology - GridPermit" />
-	<meta property="og:description" content="An exact, honest description of what GridPermit's California solar and battery estimator does and doesn't calculate today." />
+	<meta property="og:title" content="Methodology - GridPermit" />
+	<meta property="og:description" content="How GridPermit verifies solar permit guide facts nationwide, and what our California-only savings calculator does and doesn't calculate." />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content="Calculation Methodology - GridPermit" />
-	<meta name="twitter:description" content="An exact, honest description of what GridPermit's California solar and battery estimator does and doesn't calculate today." />
+	<meta name="twitter:title" content="Methodology - GridPermit" />
+	<meta name="twitter:description" content="How GridPermit verifies solar permit guide facts nationwide, and what our California-only savings calculator does and doesn't calculate." />
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,10 +46,13 @@ const webPageSchema = {
 </head>
 <body>
 	<main class="container">
-		<a href="/" class="back-link">← Back to Calculator</a>
+		<a href="/" class="back-link">← Back to Home</a>
 		<p class="cross-links"><a href="/blog">Blog</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/about">About</a> · <a href="/contact">Contact</a></p>
-		<h1>GridPermit Calculation Methodology</h1>
-		<p><strong>Current scope: California only.</strong> This page describes exactly what today's estimator calculates — no more, no less. Where we don't yet have real data, we say so directly instead of guessing.</p>
+		<h1>GridPermit Methodology</h1>
+		<p>This page has two parts: how we verify the facts in our <strong>solar permit guides</strong> (all 50 states), and exactly what our <strong>California-only savings calculator</strong> does and doesn't calculate. Where we don't yet have real data, either way, we say so directly instead of guessing.</p>
+
+		<h2 id="calculator">Part 1: The California savings calculator</h2>
+		<p><strong>Current scope: California only.</strong> The sections below describe exactly what today's estimator calculates — no more, no less. This tool is separate from the solar permit guides described in Part 2.</p>
 
 		<h2>1. What the ZIP code check actually does</h2>
 		<p>We check that the ZIP code you enter falls within California's ZIP code range (90001–96162). That's a structural range check, not a lookup of your address, your utility company, or your specific rate schedule. We do not yet identify whether you're a PG&E, SCE, SDG&E, or municipal utility customer.</p>
@@ -66,13 +69,13 @@ const webPageSchema = {
 		<h2>5. Limitations</h2>
 		<p>Every figure on this site is informational only and does not reflect your roof, shading, equipment selection, financing terms, or your actual utility's rate schedule. Nothing here is engineering, financial, or tax advice. Confirm any real figures with a qualified installer and your utility before making a decision.</p>
 
-		<h2>6. How we verify California city solar permit guides</h2>
-		<p>Our <a href="/california/solar-permit-guides/">California solar permit guides</a> are built from a separate, source-linked verification process — not the calculator above. Each city guide only publishes facts that came from an official source: a city or county government page, an adopted municipal code section, a utility's own program page, or a CPUC/California Energy Commission document. Every fact on a guide page links directly to the source it came from and shows a confidence score (High, Medium, or Low) reflecting how directly that source supports it.</p>
+		<h2 id="guides">Part 2: How we verify solar permit guides</h2>
+		<p>Our <a href="/permits">solar permit guides</a>, for all 50 states, are built from a separate, source-linked verification process — not the calculator above. Each city guide only publishes facts that came from an official source: a city or county government page, an adopted municipal code section, a utility's own program page, or a state energy-commission or public-utilities-commission document. Every fact on a guide page links directly to the source it came from and shows a confidence score (High, Medium, or Low) reflecting how directly that source supports it. California is our deepest-coverage state today (see <a href="/california/solar-permit-guides/">California guides</a>), but the same verification bar applies everywhere.</p>
 		<p>Before a city's guide page is published, the underlying record is run through an automated validator that checks for schema consistency, dangling or duplicate source citations, and internally impossible values (like a review timeline where the minimum is longer than the maximum). A city is only published once it clears two bars at once: most of the fact categories we track are populated with real, sourced information, and the record passes validation with no errors. If a city's record doesn't yet clear that bar — usually because an official source couldn't be reached, or a specific fact (like an exact fee amount or review timeline) was never stated anywhere we could verify — we keep it unpublished rather than publish a thin or partly-guessed page. We do not fill a missing fact with an estimate, a typical value from a similar city, or an inference from a neighboring jurisdiction's rules.</p>
 		<p>Utility-wide facts (for example, a utility's own interconnection program page, which is the same for every city that utility serves) may be reused across multiple city records once verified — but only when we've independently confirmed that utility actually serves that city, and the record says so explicitly rather than implying the fact was re-verified city-by-city.</p>
 		<p>Every guide page states the date it was last verified. Facts on this site can go stale as cities and utilities change their rules — always confirm current requirements with the listed permit authority and utility before relying on anything here for a real project.</p>
 
-		<h2 id="ready-criteria">7. What "READY" means, and what happens when sources disagree</h2>
+		<h2 id="ready-criteria">What "READY" means, and what happens when sources disagree</h2>
 		<p>A city's record is scored on two independent measures: <strong>completeness</strong> (what share of the fact categories we track — permit authority, required documents, inspection steps, fees, eligibility, and others — have real, sourced values instead of "not yet verified") and a <strong>validation score</strong> (a deduction-based score starting at 100 that's reduced for validator warnings, such as an official source URL that couldn't be confirmed reachable). A record is only marked <strong>READY</strong> and published as a public guide page when completeness is at least 80% <em>and</em> the validation score is at least 85 with zero validator errors. A record with real but sparser sourcing (completeness at least 50%, score at least 75) is tracked internally as <strong>LIMITED</strong> and not published as a standalone page; everything below that is <strong>NOT_READY</strong>. This threshold is the same fixed rule applied to every city — no city is published on a lower bar than another.</p>
 		<p>When two official sources disagree on a fact (for example, a city's own page states one fee and a county-hosted mirror of the same ordinance states another), we cite the more direct, more current source — normally the city or utility's own official site over a secondary mirror — and note the discrepancy in the fact's notes rather than silently picking one. If neither source can be confirmed current, we leave the field unverified rather than guess.</p>
 		<p><strong>GridPermit is not the city, the utility, the CCA, or any government agency</strong> — we independently compile and link to their own public information. If you find a fact on a guide page that's inaccurate, out of date, or contradicts the source it cites, please <a href="/contact">contact us</a> with the city name and the specific fact; we review corrections against the cited source (or a newer official source, if the old one has moved or changed) and update or remove the fact rather than leave a known error live.</p>
