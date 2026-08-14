@@ -58,6 +58,7 @@ const STATE_SLUGS = {
   AK: "alaska",
   NY: "new-york",
   WV: "west-virginia",
+  OK: "oklahoma",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {
