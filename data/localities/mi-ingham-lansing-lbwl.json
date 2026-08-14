@@ -80,10 +80,18 @@
     "notes": "This is the City's general building-permit application requirement; a dedicated solar-specific document checklist was not located this session. Separately, BWL's own rebate application requires: a signed rebate application, invoice/proof of purchase, installation date, and equipment specification sheets."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not confirmed from a primary source this session."
+    "value": [
+      "Applicant contacts BWL with a request for information; BWL provides the 'Generator Interconnection Application'",
+      "BWL receives the Interconnection Application, supporting data, and a $100 interconnection application fee",
+      "BWL acknowledges receipt within 5 business days",
+      "BWL reviews the application data and confirms the inverter meets IEEE Std. 1547 requirements",
+      "If approved, the project design is approved for construction; the customer must also have applied for a City of Lansing electrical permit",
+      "BWL and the local Electrical Inspector approve the completed installation",
+      "BWL and the customer execute the Generator Interconnection Agreement and contract for parallel operation, and BWL provides Net Metering program information/application"
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S3"],
+    "notes": "Per BWL's own 'BWL Interconnection Process' flowchart document, specifically scoped to 'Customer Owned Renewable Energy Generators Inverter-Type Projects 20kW or Less' — i.e. the residential-scale process, not BWL's separate large-generator/transmission-level interconnection procedure (BWL Procedural Guideline PG-02-0002), which was also reviewed this session but found to be out of scope for a typical residential rooftop system. The $100 fee shown here is a BWL utility interconnection fee, not a City of Lansing building-permit fee — see permit_fees for the (unconfirmed) City fee."
   },
   "timeline_days": {
     "value": null,
@@ -151,7 +159,7 @@
       "S2"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-14",
   "sources": [
     {
       "id": "S1",
@@ -168,6 +176,14 @@
       "publisher": "Lansing Board of Water & Light",
       "type": "utility",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "BWL Interconnection Process (Customer Owned Renewable Energy Generators, Inverter-Type Projects 20kW or Less)",
+      "url": "https://www.lbwl.com/sites/default/files/documents/Interconnection%20Application.pdf",
+      "publisher": "Lansing Board of Water & Light",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
     }
   ]
 }

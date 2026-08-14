@@ -1,13 +1,13 @@
 {
   "state": "MI",
-  "generated_at": "2026-08-14T14:38:02.355Z",
+  "generated_at": "2026-08-14T23:22:31.551Z",
   "records": [
     {
       "record_id": "mi-ingham-lansing-lbwl",
       "state": "MI",
       "city": "Lansing",
       "county": "Ingham County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
@@ -21,25 +21,25 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
+        "inspection_steps",
         "eligibility_constraints",
         "rebates",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "inspection_steps",
         "timeline_days",
         "permit_fees"
       ],
       "warning_categories": [],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "mi-washtenaw-annarbor-dte",
       "state": "MI",
       "city": "Ann Arbor",
       "county": "Washtenaw County",
-      "completeness_pct": 73.3,
+      "completeness_pct": 80,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
@@ -53,6 +53,7 @@
         "permit_url",
         "interconnection_url",
         "required_documents",
+        "timeline_days",
         "eligibility_constraints",
         "permit_fees",
         "official_contacts"
@@ -60,15 +61,14 @@
       "missing_fields": [
         "battery_programs",
         "inspection_steps",
-        "timeline_days",
         "rebates"
       ],
       "warning_categories": [],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
+    "average_completeness_pct": 80,
     "average_validation_score": 100,
     "fields_most_often_missing": [
       {
@@ -77,11 +77,11 @@
       },
       {
         "field": "inspection_steps",
-        "missing_in_records": 2
+        "missing_in_records": 1
       },
       {
         "field": "timeline_days",
-        "missing_in_records": 2
+        "missing_in_records": 1
       },
       {
         "field": "permit_fees",
@@ -94,19 +94,11 @@
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "mi-ingham-lansing-lbwl",
-        "city": "Lansing",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
-      },
-      {
-        "record_id": "mi-washtenaw-annarbor-dte",
-        "city": "Ann Arbor",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
-      }
+    "recommended_publish_record_ids": [
+      "mi-ingham-lansing-lbwl",
+      "mi-washtenaw-annarbor-dte"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }
