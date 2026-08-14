@@ -216,11 +216,19 @@ const tocItems = [
 			<h1>{record.city.value} Solar Permit Guide</h1>
 			<p class="subtitle">{utilityHubUrl ? <a href={utilityHubUrl}>{record.utility.value}</a> : record.utility.value} territory · {countyHubUrl ? <a href={countyHubUrl}>{record.county.value}</a> : record.county.value}</p>
 
+			<!-- Screen-hidden, print-only: a checklist masthead so a printed
+			     page is identifiable and dated on its own, without the nav/
+			     banner that's hidden in print. -->
+			<div class="print-checklist-header">
+				<div class="print-title">{record.city.value} Solar Permit Checklist</div>
+				<div class="print-meta">Printed from mygridpermit.com/{pagePath.replace(/^\//, "")} · Last verified {record.last_verified} · {permitAuthorityLabel} / {utilityShort} · Verify current requirements before relying on this checklist — programs and fees change.</div>
+			</div>
+
 			<div class="page-toolbar">
 				<span class="badge badge-verified">✓ Last verified {record.last_verified}</span>
 				<span class="badge badge-sources">{sourceCount} official source{sourceCount === 1 ? "" : "s"}</span>
 				<button type="button" class="btn-toolbar" id="copy-link-btn">Copy Link</button>
-				<button type="button" class="btn-toolbar" id="print-btn">Print</button>
+				<button type="button" class="btn-toolbar" id="print-btn">Print Checklist</button>
 			</div>
 
 			<div class="disclaimer-box">
@@ -615,12 +623,36 @@ const tocItems = [
 		.btn-toolbar:hover { border-color: var(--primary); color: var(--primary); }
 
 		/* ===== Print ===== */
+		/* A purpose-built checklist view, not just "hide the chrome and print
+		   the article." Required documents get a checkbox before each item
+		   and inspection steps get numbered — the two sections a homeowner
+		   or contractor is most likely to want as a scannable, actionable
+		   printout rather than prose. Sections that are informational rather
+		   than actionable (Overview, FAQ, Related cities/articles) are
+		   hidden in print so the checklist stays short enough to actually
+		   use — nothing is removed from the on-screen page, only from what
+		   prints. See docs/PERMIT_CHECKLIST.md for why this was built this
+		   way instead of a separate page/route. */
 		@media print {
-			.reading-progress-track, .navbar, .top-banner, .toc-sidebar, .page-toolbar, .footer, .breadcrumb-nav { display: none !important; }
+			.reading-progress-track, .navbar, .top-banner, .toc-sidebar, .page-toolbar, .footer, .breadcrumb-nav,
+			#overview, #faq, #related-localities, #related-articles { display: none !important; }
 			.layout-grid { display: block; }
 			.content-card { border: none; padding: 0; }
 			a { color: black !important; text-decoration: underline; }
+			a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.75em; color: #555; }
+
+			.print-checklist-header { display: block !important; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid black; }
+			.print-checklist-header .print-title { font-size: 1.3rem; font-weight: 800; }
+			.print-checklist-header .print-meta { font-size: 0.8rem; color: #333; }
+
+			#required-documents ul.fact-list li, #inspection-steps ul.fact-list li { list-style: none; margin-bottom: 0.5rem; }
+			#required-documents ul.fact-list { padding-left: 0; }
+			#required-documents ul.fact-list li::before { content: "☐  "; font-size: 1.1em; }
+			#inspection-steps ul.fact-list { padding-left: 0; counter-reset: step; }
+			#inspection-steps ul.fact-list li { counter-increment: step; }
+			#inspection-steps ul.fact-list li::before { content: counter(step) ".  "; font-weight: 700; }
 		}
+		.print-checklist-header { display: none; }
 	</style>
 
 	<script>
