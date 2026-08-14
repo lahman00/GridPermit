@@ -1,0 +1,217 @@
+{
+  "record_id": "in-marion-indianapolis-aes",
+  "schema_version": "1.4.0",
+  "state": "IN",
+  "utility": {
+    "value": "AES Indiana (formerly Indianapolis Power & Light)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "AES Indiana is Indianapolis's well-established dominant electric utility, confirmed directly by the City's own permitting checklist (which names AES Indiana specifically for interconnection)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "AES Indiana",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Indianapolis's residential solar customers this session; AES Indiana is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Indianapolis",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Marion County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Indianapolis and Marion County operate a consolidated city-county government (Unigov); the Department of Business and Neighborhood Services (DBNS) is the single permitting authority for the whole consolidated jurisdiction."
+  },
+  "permit_authority": {
+    "value": "Indianapolis-Marion County Department of Business and Neighborhood Services (DBNS)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Indiana's building code is adopted statewide by the Indiana Fire Prevention and Building Safety Commission (currently the 2020 Indiana Residential Code, with electrical chapters referencing the 2017 National Electrical Code), but enforcement is local. Indianapolis-Marion County's own DBNS is a genuinely consolidated authority for the whole city-county (Unigov) jurisdiction — the same efficient pattern as Louisville/Jefferson County, KY, researched separately this session."
+  },
+  "permit_url": {
+    "value": "https://www.indy.gov/activity/solar-energy",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.aesindiana.com/solar-faqs",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per AES Indiana's own page: two programs apply depending on installation date. Existing 'Net Metering' (Rider 9) covers systems installed before 2022-06-30, with credits based on net energy usage and indefinite rollover during participation. 'Rate EDG' (Rider 16, Excess Distributed Generation) applies to systems installed on/after 2022-06-30, crediting excess generation financially rather than through retail-rate net metering — currently 3.935 cents/kWh sent back to AES Indiana. Interconnection tiers: Level 1 (systems ≤10kW, no fee) and Level 2 (10kW-2MW, $50 + $1/kW fee); net metering itself caps eligible systems at 1MW. Inverters must be IEEE 1547-2018 and UL 1741 certified; AES Indiana installs a bidirectional meter after approval."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Application specifying Residential/Commercial and Primary/Accessory use type",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Construction documents and plans, reviewed/designed and (if needed) sealed by a licensed professional engineer registered in Indiana, complying with the City of Indianapolis Code",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical System Interconnection Agreement with AES Indiana",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Verification that the installation complies with Zoning, Planned Development Districts, Historic Districts, and Conservation Districts (subject to plan review)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "DBNS Electrical, Structural, and Improvement Location permits",
+        "required_when": "always, residential",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Drainage permit/approval",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Any additional permits required for properties in Special District Zones",
+        "required_when": "properties within a Special District Zone",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own 'Solar Photovoltaic Systems Required Documents Checklist' (Office of Sustainability). Applicants must also comply with any applicable private deed restrictions or HOA covenants, which the City does not itself enforce. A resubmittal for incomplete/deficient documentation is treated as a new application, processed in order of receipt."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not confirmed from a primary source this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was stated in the City's own checklist document."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Applications must specify a Use Type of Primary or Accessory",
+        "Properties within Historic Districts, Conservation Districts, or Planned Development Districts are subject to additional plan review"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific DBNS permit fee dollar figure was independently confirmed from a primary source this session — left null rather than guessed. Separately, AES Indiana's own Level 2 interconnection fee ($50 + $1/kW) is recorded in interconnection_url notes, not here, since that is a utility fee rather than a City permit fee."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Indianapolis or statewide Indiana rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "DBNS permitting questions",
+        "phone": null,
+        "email": "permitquestions@indy.gov",
+        "url": "https://www.indy.gov/agency/department-of-business-and-neighborhood-services"
+      },
+      {
+        "name": null,
+        "role": "AES Indiana solar connection questions",
+        "phone": null,
+        "email": "aesindianasolar@aes.com",
+        "url": "https://www.aesindiana.com/solar-faqs"
+      },
+      {
+        "name": null,
+        "role": "City of Indianapolis Office of Sustainability",
+        "phone": "317-327-4000",
+        "email": "sustainindy@indy.gov",
+        "url": "https://www.indy.gov/agency/office-of-sustainability"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic Systems Required Documents Checklist",
+      "url": "https://media.graphassets.com/xcTy6vDQ96Y2uRquL0rA",
+      "publisher": "City of Indianapolis, Office of Sustainability",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Solar FAQs",
+      "url": "https://www.aesindiana.com/solar-faqs",
+      "publisher": "AES Indiana",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

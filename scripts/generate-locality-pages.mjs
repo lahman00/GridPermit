@@ -82,6 +82,7 @@ const STATE_SLUGS = {
   ID: "idaho",
   FL: "florida",
   KY: "kentucky",
+  IN: "indiana",
 };
 
 function pagesRootFor(record) {
