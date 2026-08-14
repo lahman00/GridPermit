@@ -1,0 +1,73 @@
+{
+  "state": "SD",
+  "generated_at": "2026-08-14T16:24:10.283Z",
+  "records": [
+    {
+      "record_id": "sd-minnehaha-siouxfalls-xcelenergy",
+      "state": "SD",
+      "city": "Sioux Falls",
+      "county": "Minnehaha County",
+      "completeness_pct": 73.3,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "readiness": "LIMITED"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 73.3,
+    "average_validation_score": 98,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [],
+    "limited_for_now": [
+      {
+        "record_id": "sd-minnehaha-siouxfalls-xcelenergy",
+        "city": "Sioux Falls",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 98)"
+      }
+    ],
+    "not_ready": []
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "record_id": "sd-minnehaha-siouxfalls-xcelenergy",
+  "schema_version": "1.4.0",
+  "state": "SD",
+  "utility": {
+    "value": "Xcel Energy",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Xcel Energy (Northern States Power Company) is a documented electric utility serving Sioux Falls, South Dakota, confirmed via its own South Dakota Electric Rate Book (SDPUC No. 2) filed with the South Dakota Public Utilities Commission."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy (Northern States Power Company)",
+      "type": "utility",
+      "notes": "Recorded as both the distribution and generation utility per its own PUC-filed rate book."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Sioux Falls",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Minnehaha County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Sioux Falls, South Dakota's largest city, is the seat of Minnehaha County."
+  },
+  "permit_authority": {
+    "value": "City of Sioux Falls Building Services",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.siouxfalls.gov/business-permits/permits-licenses-inspections/permits/building-permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This URL returns HTTP 403 to automated HEAD requests (a bot-detection response, not a broken page); the page's actual content was independently confirmed live and readable via direct browser navigation this session."
+  },
+  "interconnection_url": {
+    "value": "https://puc.sd.gov/commission/Tariffs/Electric/Xcel/section9/4.pdf",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "South Dakota does not require or offer full retail-rate net metering. The South Dakota Public Utilities Commission's own Solar Energy FAQ page states directly: 'South Dakota does not compensate solar generation at a net metered rate.' Instead, Xcel Energy's own PUC-filed South Dakota Electric Rate Book, Section 9, governs Small Qualifying Facility (SQF) interconnection and compensation under Rate Code E50."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No battery storage incentive program was found in Xcel Energy's own PUC-filed Section 9 tariff documents or the City of Sioux Falls' own permit pages this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City of Sioux Falls building permit application",
+        "required_when": "always, for building/electrical work including solar installation",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electric Service Agreement with Xcel Energy (Northern States Power Company) as a Small Qualifying Facility (SQF)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Company-approved, lockable disconnect switch installed near the interconnection point, providing unrestricted utility access at all times",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Proof of liability insurance (minimum $300,000 per occurrence), with a certificate from the insurance carrier and 90-day written notice to Xcel Energy of any policy change or cancellation",
+        "required_when": "always, for the duration of the interconnection agreement",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "On-site metering equipment sufficient to separately meter energy received from and delivered to Xcel Energy",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Xcel Energy's own 'General Conditions of Service - Small Qualifying Facilities' tariff (South Dakota Electric Rate Book, Section 9, Original Sheet Nos. 4-5) is a precisely-dated PSC-filed document (Docket No. EL96-025)."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the City of Sioux Falls' own building permits page nor Xcel Energy's PUC-filed SQF tariff published a specific inspection sequence this session — left null rather than guessed."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City of Sioux Falls or Xcel Energy primary source fetched this session published a specific review/approval timeline figure. A '15 business day' interconnection review figure appeared only in third-party aggregator search-result summaries, not on a page directly fetched this session, so it is left unstated rather than treated as confirmed."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Small Qualifying Facility (SQF) interconnection under Xcel Energy's (Northern States Power Company) South Dakota Electric Rate Book, Section 9. South Dakota does not offer net metering; excess generation delivered to Xcel Energy is instead compensated under Rate Code E50 (Occasional Delivery Energy Service).",
+      "other_conditions": [
+        "The South Dakota Public Utilities Commission's own Solar Energy FAQ states directly that South Dakota does not compensate solar generation at a net-metered rate.",
+        "Compensation for energy delivered to Xcel Energy under Rate Code E50 is capped at a maximum of 2,000 kWh per month; any energy delivered above this monthly cap is uncompensated.",
+        "The minimum contracted term of service under the SQF tariff is 12 months.",
+        "The SQF must install a Xcel Energy-approved, lockable disconnect switch located near the interconnection point, with unrestricted utility access at all times.",
+        "The SQF owner must maintain liability insurance of at least $300,000 per occurrence for the duration of the agreement.",
+        "No specific interconnection system-size (kW) cap was found in the tariff sections fetched this session; the tariff instead defines eligibility by 'Small Qualifying Facility' status without stating a numeric kW ceiling in the sections reviewed."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "City of Sioux Falls building permit fee",
+        "amount_usd": 40,
+        "unit": "minimum; increases based on the project's total valuation per the City's fee schedule",
+        "notes": "Per the City of Sioux Falls' own Building Permits page. The exact valuation-tiered fee schedule is published in a separate PDF that returned HTTP 403 both via direct fetch and browser download this session, so only the stated $40 minimum is confirmed."
+      },
+      {
+        "name": "Xcel Energy SQF metering charge (single-phase service)",
+        "amount_usd": 3.75,
+        "unit": "per month",
+        "notes": "Per Xcel Energy's PUC-filed South Dakota Electric Rate Book, Section 9, Rate Code E50, 14th Revised Sheet No. 2 (filed 6/27/25, effective 1/1/26). A separate 'net interconnection charge' may also apply, individually assessed by Xcel Energy on a per-project basis with no fixed dollar figure published."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No rebate or incentive dollar amount was independently confirmed from a primary source this session for Sioux Falls or Xcel Energy specifically. The South Dakota PUC's own Solar Energy FAQ references a state property tax credit for systems under 5 MW but did not state a dollar figure — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Sioux Falls Building Services",
+        "phone": "605-367-8670",
+        "email": null,
+        "url": "https://www.siouxfalls.gov/business-permits/permits-licenses-inspections/permits/building-permits"
+      },
+      {
+        "name": null,
+        "role": "Xcel Energy (Northern States Power Company) — South Dakota Small Qualifying Facility interconnection, per PUC-filed tariff",
+        "phone": null,
+        "email": null,
+        "url": "https://puc.sd.gov/commission/Tariffs/Electric/Xcel/section9/4.pdf"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Xcel Energy's own consumer-facing net metering and interconnection pages (xcelenergy.com, my.xcelenergy.com) failed to load via both direct fetch and browser navigation this session (certificate mismatch, redirect to a JS-rendered Salesforce portal that errored, and a denied navigation), so no direct customer-service phone number for Xcel Energy was independently confirmed. The PUC-filed tariff PDF is used as the interconnection contact source instead."
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permits - City of Sioux Falls",
+      "url": "https://www.siouxfalls.gov/business-permits/permits-licenses-inspections/permits/building-permits",
+      "publisher": "City of Sioux Falls, SD",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "South Dakota Electric Rate Book (SDPUC No. 2), Section 9 — Occasional Delivery Energy Service (Rate Code E50, 14th Revised Sheet No. 2) and General Conditions of Service - Small Qualifying Facilities (Original Sheet Nos. 4-5)",
+      "url": "https://puc.sd.gov/commission/Tariffs/Electric/Xcel/section9/4.pdf",
+      "publisher": "Xcel Energy / Northern States Power Company, filed with the South Dakota Public Utilities Commission",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}

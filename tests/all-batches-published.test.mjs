@@ -64,6 +64,7 @@ const STATE_SLUGS = {
 	AL: "alabama",
 	MT: "montana",
 	ND: "north-dakota",
+	SD: "south-dakota",
 };
 
 const AGGREGATOR_FILES = [
