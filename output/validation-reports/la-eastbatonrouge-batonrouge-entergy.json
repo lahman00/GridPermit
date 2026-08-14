@@ -1,0 +1,59 @@
+{
+  "record_id": "la-eastbatonrouge-batonrouge-entergy",
+  "file": "data/localities/la-eastbatonrouge-batonrouge-entergy.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 95,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "inspection_steps",
+      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.brla.gov/DocumentCenter/View/1674/Solar-Permit-Requirements",
+      "checked_at": "2026-08-14T12:32:59.004Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.entergylouisiana.com/net-metering",
+      "checked_at": "2026-08-14T12:33:00.207Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.brla.gov/2688/Permits-Inspections",
+      "checked_at": "2026-08-14T12:33:00.290Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

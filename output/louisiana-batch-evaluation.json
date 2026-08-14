@@ -1,38 +1,37 @@
 {
-  "state": "VT",
-  "generated_at": "2026-08-14T12:23:37.611Z",
+  "state": "LA",
+  "generated_at": "2026-08-14T12:33:01.269Z",
   "records": [
     {
-      "record_id": "vt-statewide-vermont-gmp",
-      "state": "VT",
-      "city": "Vermont (Statewide)",
-      "county": null,
+      "record_id": "la-eastbatonrouge-batonrouge-entergy",
+      "state": "LA",
+      "city": "Baton Rouge",
+      "county": "East Baton Rouge Parish",
       "completeness_pct": 73.3,
-      "validation_score": 91,
+      "validation_score": 95,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 1,
       "populated_fields": [
         "utility",
         "generation_supplier",
         "city",
+        "county",
         "permit_authority",
         "permit_url",
         "interconnection_url",
         "required_documents",
-        "timeline_days",
         "eligibility_constraints",
-        "rebates",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
-        "county",
         "battery_programs",
         "inspection_steps",
-        "permit_fees"
+        "timeline_days",
+        "rebates"
       ],
       "warning_categories": [
-        "broken_url",
         "unsupported_claim"
       ],
       "readiness": "LIMITED"
@@ -40,12 +39,8 @@
   ],
   "aggregate": {
     "average_completeness_pct": 73.3,
-    "average_validation_score": 91,
+    "average_validation_score": 95,
     "fields_most_often_missing": [
-      {
-        "field": "county",
-        "missing_in_records": 1
-      },
       {
         "field": "battery_programs",
         "missing_in_records": 1
@@ -55,7 +50,11 @@
         "missing_in_records": 1
       },
       {
-        "field": "permit_fees",
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "rebates",
         "missing_in_records": 1
       }
     ]
@@ -64,9 +63,9 @@
     "recommended_publish_record_ids": [],
     "limited_for_now": [
       {
-        "record_id": "vt-statewide-vermont-gmp",
-        "city": "Vermont (Statewide)",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 91)"
+        "record_id": "la-eastbatonrouge-batonrouge-entergy",
+        "city": "Baton Rouge",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 95)"
       }
     ],
     "not_ready": []

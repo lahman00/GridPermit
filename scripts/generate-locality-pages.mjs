@@ -84,6 +84,7 @@ const STATE_SLUGS = {
   KY: "kentucky",
   IN: "indiana",
   TN: "tennessee",
+  LA: "louisiana",
 };
 
 function pagesRootFor(record) {

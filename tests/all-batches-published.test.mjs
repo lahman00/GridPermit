@@ -51,6 +51,7 @@ const STATE_SLUGS = {
 	KY: "kentucky",
 	IN: "indiana",
 	TN: "tennessee",
+	LA: "louisiana",
 };
 
 const AGGREGATOR_FILES = [

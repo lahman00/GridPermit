@@ -1,0 +1,225 @@
+{
+  "record_id": "la-eastbatonrouge-batonrouge-entergy",
+  "schema_version": "1.4.0",
+  "state": "LA",
+  "utility": {
+    "value": "Entergy Louisiana",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Entergy Louisiana is Baton Rouge's well-established dominant electric utility (distinct from Entergy New Orleans, which serves the separate New Orleans market with its own net-metering rules)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Entergy Louisiana",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Baton Rouge's residential solar customers this session; Entergy Louisiana is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Baton Rouge",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "East Baton Rouge Parish",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Baton Rouge and East Baton Rouge Parish operate a consolidated City-Parish government; the Department of Public Works (DPW) Permit & Inspection Division is the single permitting authority for the whole consolidated jurisdiction."
+  },
+  "permit_authority": {
+    "value": "City of Baton Rouge / East Baton Rouge Parish, Department of Public Works Permit & Inspection Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Louisiana State Uniform Construction Code (LSUCC) is a genuinely mandatory statewide code (adopting the 2021 I-Codes with Louisiana amendments plus the NEC) — no parish or municipality may adopt a more or less stringent code, a uniquely uniform statewide baseline compared to several other states researched this session. Enforcement is local: Baton Rouge/East Baton Rouge Parish's own consolidated DPW Permit & Inspection Division is the AHJ."
+  },
+  "permit_url": {
+    "value": "https://www.brla.gov/DocumentCenter/View/1674/Solar-Permit-Requirements",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.entergylouisiana.com/net-metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per Entergy Louisiana's own page: residential net metering covers systems up to 25kW AC. Systems installed by 2019-12-31 are grandfathered at full retail-rate crediting through 2034-12-31. Systems installed after 2019-12-31 use 'two-channel billing' under Rider Schedule DG: the customer pays full retail rate for all grid electricity purchased, while excess exported energy is credited separately at a fixed rate ($0.0259331/kWh, effective 2025-04-01) rather than at the retail rate — a materially lower-value structure than legacy net metering. Monthly bills cannot drop below the fixed Customer Charge; excess credits carry forward. These rules do not apply to Entergy New Orleans customers, who fall under a separate program."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own permit information sheet notes that a plot plan must show battery locations if used, and references a separate 'battery storage permit' concept in general search context, but no dedicated financial battery incentive program was independently confirmed this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed Plan Review application with the plan review fee",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer documentation showing the mounting/racking system withstands a 105mph wind load, including bolt size, length, and connection spacing to the roof (existing rafters must have purlin bracing installed if not already present)",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Frame details with setbacks",
+        "required_when": "ground-mounted (not roof-mounted) systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plot plan showing the location of solar panels, disconnect(s), inverter, electric meter(s), and batteries (if used)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical plan (riser diagram) showing system wiring/connection to the building's electrical system, including wire size/type, grounding, overcurrent protection rating, and disconnects",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer specifications for the solar panel and inverter, including ratings and overcurrent protection",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plumbing plan including pipe size/type, exchange tank location, backup water heater, pump, and whether the heat exchanger coil directly contacts potable water; requires separate East Baton Rouge Parish Health Unit approval",
+        "required_when": "solar hot water systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Design Supervision Statement",
+        "required_when": "engineered roof designs",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own 'Solar Permit Information' sheet. Solar permits require a Louisiana-licensed electrical contractor and solar contractor. The City/Parish does not enforce private subdivision restrictions — applicants must separately obtain HOA/subdivision approval before permitting."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not detailed in the City's own information sheet fetched this session. Per broader search context (not independently confirmed from this specific document), the City/Parish offers an Expedited Plan Review option returning residential reviews in about 3 business days via the MyGovernmentOnline (MGO) portal — recorded with lower confidence pending direct primary-source re-confirmation, so not stated in timeline_days below."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was stated in the City's own 'Solar Permit Information' sheet fetched this session."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 25,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Electrical and plumbing (water heating) permits are separate from the base solar permit and are additionally required",
+        "The 25kW AC figure recorded here reflects the statewide Entergy Louisiana residential net-metering cap, not a separate City/Parish permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential Plan Review Fee",
+        "amount_usd": 60,
+        "unit": "flat fee",
+        "notes": "Per the City's own information sheet."
+      },
+      {
+        "name": "Residential permit fee",
+        "amount_usd": 40,
+        "unit": "flat fee",
+        "notes": "Per the City's own information sheet: 'Commercial based on project valuation with a minimum of $60, Residential fee: $40.' Electrical and plumbing (water heating) permits are separate and not included in this figure."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Baton Rouge or statewide Louisiana rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "DPW Permit & Inspection Division, Plan Review Section",
+        "phone": "225-389-3105",
+        "email": null,
+        "url": "https://www.brla.gov/2688/Permits-Inspections"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permit Information",
+      "url": "https://www.brla.gov/DocumentCenter/View/1674/Solar-Permit-Requirements",
+      "publisher": "City of Baton Rouge / East Baton Rouge Parish, DPW Permit & Inspection Division",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net metering and distributed generation",
+      "url": "https://www.entergylouisiana.com/net-metering",
+      "publisher": "Entergy Louisiana",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
