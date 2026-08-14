@@ -69,6 +69,7 @@ const STATE_SLUGS = {
   WY: "wyoming",
   IA: "iowa",
   KS: "kansas",
+  MO: "missouri",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

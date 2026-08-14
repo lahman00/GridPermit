@@ -1,0 +1,73 @@
+{
+  "state": "MO",
+  "generated_at": "2026-08-14T17:31:35.464Z",
+  "records": [
+    {
+      "record_id": "mo-greene-springfield-cityutilities",
+      "state": "MO",
+      "city": "Springfield",
+      "county": "Greene County",
+      "completeness_pct": 73.3,
+      "validation_score": 95,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
+        "inspection_steps",
+        "timeline_days",
+        "rebates"
+      ],
+      "warning_categories": [
+        "unsupported_claim"
+      ],
+      "readiness": "LIMITED"
+    }
+  ],
+  "aggregate": {
+    "average_completeness_pct": 73.3,
+    "average_validation_score": 95,
+    "fields_most_often_missing": [
+      {
+        "field": "battery_programs",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "timeline_days",
+        "missing_in_records": 1
+      },
+      {
+        "field": "rebates",
+        "missing_in_records": 1
+      }
+    ]
+  },
+  "batch_recommendation": {
+    "recommended_publish_record_ids": [],
+    "limited_for_now": [
+      {
+        "record_id": "mo-greene-springfield-cityutilities",
+        "city": "Springfield",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 95)"
+      }
+    ],
+    "not_ready": []
+  }
+}

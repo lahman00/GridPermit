@@ -1,0 +1,200 @@
+{
+  "record_id": "mo-greene-springfield-cityutilities",
+  "schema_version": "1.4.0",
+  "state": "MO",
+  "utility": {
+    "value": "City Utilities of Springfield",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "City Utilities is a municipally-owned utility serving Springfield, Missouri. Ameren Missouri, the state's dominant investor-owned utility, and the City of St. Louis were confirmed genuinely blocked earlier in this marathon. This record pivots to Missouri's largest municipal utility and its own independently-governed net metering program instead."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "City Utilities of Springfield",
+      "type": "utility",
+      "notes": "Recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Springfield",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Greene County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Springfield, Missouri's third-largest city, is the seat of Greene County."
+  },
+  "permit_authority": {
+    "value": "City of Springfield Building Development Services",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.springfieldmo.gov/216/Forms-Applications-Fees",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.cityutilities.net/513/Net-Metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "City Utilities, as a municipal utility, sets its own net metering policy independently of the Missouri Public Service Commission's regulation of investor-owned utilities (Chapter 393, RSMo; 20 CSR 4240-20.065). City Utilities' own page confirms a 100 kW system-size threshold, which happens to match the statewide cap that applies to PSC-regulated IOUs like Ameren Missouri, but City Utilities is not bound by that regulation and sets its terms independently."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No battery storage incentive program was found on City Utilities' or the City of Springfield's own pages this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City of Springfield Application for Residential 1 & 2 Family Dwellings (building permit) or a trade permit application for electrical-only work, submitted via the eCity.springfieldmo.gov portal",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "City Utilities Net Metering Application, submitted before beginning construction — a separate application form is used depending on system capacity (100 kW or less, versus more than 100 kW)",
+        "required_when": "always, before construction begins",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Average kilowatt-hour usage history, available via City Utilities' MyAccount portal, paper bills, or by contacting the Smart Solutions team",
+        "required_when": "recommended as part of the net metering application process",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the City of Springfield's own permits page nor City Utilities' own net metering page published a specific inspection sequence this session — left null rather than guessed."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "City Utilities' own net metering page does not publish a specific application review timeline. Missouri's statewide regulation (20 CSR 4240-20.065) sets 30-day (systems 10 kW or less) and 90-day (systems over 10 kW) review windows, but that regulation applies to PSC-regulated investor-owned utilities under Chapter 393, RSMo — City Utilities, as a municipal utility, is not confirmed to be bound by it, so this figure is not attributed to City Utilities specifically."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 100,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City Utilities of Springfield's own net metering program, independently governed by City Utilities rather than the Missouri Public Service Commission. Systems of 100 kW or less use the standard residential net metering application; larger systems use a separate commercial-scale application with a different rate structure.",
+      "other_conditions": [
+        "Excess energy generated flows back onto City Utilities' grid and earns a bill credit at an avoided-cost rate that varies based on system size, rather than necessarily being credited at the full retail rate.",
+        "For comparison only (this specific rule applies to PSC-regulated investor-owned utilities like Ameren Missouri, not confirmed to bind City Utilities): Missouri's statewide net metering regulation (20 CSR 4240-20.065) caps net metering at 100 kW, credits excess generation at the utility's filed net metering rate (matching its cogeneration rate), and expires unused credits after 12 months or upon service termination."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S2",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "City of Springfield residential electrical (trade) permit fee",
+        "amount_usd": 110,
+        "unit": "minimum; or 40% of the calculated Building Permit Fee, whichever is greater",
+        "notes": "Per the City of Springfield's own Residential Permit Fee Schedule, effective 07/01/2025: 'RESIDENTIAL MECHANICAL, ELECTRICAL, AND PLUMBING PERMIT FEE: 40% of the Building Permit Fee, or minimum of $110.00, whichever is greater.'"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "No City Utilities net metering application fee was confirmed this session; City Utilities' own page did not mention an application fee amount."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No rebate or incentive dollar amount was independently confirmed from a primary source this session for Springfield or City Utilities specifically."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Springfield Building Development Services — Permit Desk",
+        "phone": "417-864-1585",
+        "email": null,
+        "url": "https://www.springfieldmo.gov/216/Forms-Applications-Fees"
+      },
+      {
+        "name": null,
+        "role": "City Utilities of Springfield — Energy Services / Net Metering",
+        "phone": "417-874-8200",
+        "email": "energyservices@cityutilities.net",
+        "url": "https://www.cityutilities.net/513/Net-Metering"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Forms, Applications & Fees (and Residential Permit Fee Schedule, effective 07/01/2025)",
+      "url": "https://www.springfieldmo.gov/216/Forms-Applications-Fees",
+      "publisher": "City of Springfield, MO, Building Development Services",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Net Metering",
+      "url": "https://www.cityutilities.net/513/Net-Metering",
+      "publisher": "City Utilities of Springfield",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "20 CSR 4240-20.065 - Net Metering",
+      "url": "https://www.law.cornell.edu/regulations/missouri/20-CSR-4240-20-065",
+      "publisher": "Missouri Code of State Regulations (via Cornell Law School's Legal Information Institute)",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}

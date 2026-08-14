@@ -68,6 +68,7 @@ const STATE_SLUGS = {
 	WY: "wyoming",
 	IA: "iowa",
 	KS: "kansas",
+	MO: "missouri",
 };
 
 const AGGREGATOR_FILES = [
