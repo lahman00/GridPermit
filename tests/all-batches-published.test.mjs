@@ -63,6 +63,7 @@ const STATE_SLUGS = {
 	AR: "arkansas",
 	AL: "alabama",
 	MT: "montana",
+	ND: "north-dakota",
 };
 
 const AGGREGATOR_FILES = [

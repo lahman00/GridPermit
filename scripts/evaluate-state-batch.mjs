@@ -64,6 +64,7 @@ const STATE_SLUGS = {
   AR: "arkansas",
   AL: "alabama",
   MT: "montana",
+  ND: "north-dakota",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

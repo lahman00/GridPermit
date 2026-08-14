@@ -1,0 +1,213 @@
+{
+  "record_id": "nd-cass-fargo-casscountyelectric",
+  "schema_version": "1.4.0",
+  "state": "ND",
+  "utility": {
+    "value": "Cass County Electric Cooperative",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Cass County Electric Cooperative is the well-established dominant electric utility for Fargo, North Dakota's largest city."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Cass County Electric Cooperative",
+      "type": "utility",
+      "notes": "Cass County Electric is a member-owned electric cooperative and is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Fargo",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Cass County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Fargo, North Dakota's largest city, is the seat of Cass County."
+  },
+  "permit_authority": {
+    "value": "City of Fargo Inspections Department",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://fargond.gov/city-government/departments/inspections/residential-permits-fees/electrical-self-wire",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://casscountyelectric.com/sites/default/files/2024-09/ccec-technical-requirements.pdf",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "This 'Technical Requirements for DER Systems' document is shared across seven North Dakota electric cooperatives (Cass County Electric Cooperative among them). It confirms most applications received are solar systems under 20kW with certified inverters (Tier I / Section 1.3), and that the net-metering credit and buyback rate structure is governed separately by each cooperative's own rate schedule and Interconnection Agreement, which was not independently fetched this session — the exact per-kWh credit rate is left unconfirmed rather than assumed to be full retail rate."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The technical requirements document addresses Energy Storage Systems only as a technical interconnection category (control modes, charge/discharge behavior, enter-service delay) — not as a financial incentive program. No battery incentive program was found this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City of Fargo electrical permit application, with a schematic drawing showing circuitry, wire size, and overcurrent protection details",
+        "required_when": "always; owner self-wiring is restricted to owner-occupants of single-family homes (not rentals, daycares, or mobile homes) and must be personally performed by the owner",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Cass County Electric Cooperative DER Interconnection Request Application",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Site diagram (to scale, showing DER location, meter location(s), Utility AC Disconnect location, PCC/RPA/PoC location, and underground/overhead wire routing)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "One-line diagram (applicant name, application ID, installer contact info, project address, equipment positions and distances, equipment labeling, total aggregated AC nameplate rating, DER protection elements)",
+        "required_when": "always; must be signed and stamped by a North Dakota Professional Electrical Engineer if the DER exceeds 20kW and is uncertified, or exceeds 250kW and is certified",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer specification sheets for certified equipment (inverters must be UL 1741 listed)",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Written testing procedure and results, including anti-island test verification",
+        "required_when": "always, prior to Parallel Operation Permission",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Cass County Electric Cooperative's own 45-page shared technical requirements document (revision 1.0, effective 8/1/2022) is extremely detailed but oriented toward general IEEE 1547 engineering compliance rather than a simple residential checklist; Section 16 ('Sample Documentation for Tier I Applications') covers the abbreviated path applicable to most residential solar under 20kW."
+  },
+  "inspection_steps": {
+    "value": [
+      "The Interconnection Customer performs pre-energization testing (grounding verification, CT/VT testing where applicable, breaker/switch tests, relay tests, phase tests, and a synchronizing test if applicable), which the Area EPS Operator has the right to witness",
+      "An anti-island field test is performed at energization: the DER is placed into normal operation and verified to be energized and generating; the Area EPS source is then removed (one phase at a time for multiphase systems) and the DER must be verified to separate from the Area EPS or stop operating; the DER is then reconnected, and generation must not parallel with the Area EPS for a period of less than 5 minutes",
+      "Installation verification confirms the DER matches the approved one-line diagram, has proper labeling of disconnects/meters/placards, and that settings/firmware match previously approved values"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the City of Fargo's own page nor Cass County Electric's technical requirements document published a specific business-day review or approval timeline for residential (Tier I) applications this session — left null rather than guessed."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 20,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Tier I (Solar Systems Less than 20kW) interconnection pathway under Cass County Electric Cooperative's Distributed Energy Resources Interconnection Process, which applies generally to any DER up to 10MW-AC but provides simplified documentation requirements for certified-inverter systems under 20kW.",
+      "other_conditions": [
+        "Systems 0-40kW require no DER remote monitoring or remote control by the utility; monitoring and control requirements increase substantially above that threshold.",
+        "The Utility AC Disconnect must be located within 10 feet of the revenue meter, installed at a minimum height of 3 feet from the ground (a more remote location requires a permanently affixed placard and Area EPS Operator approval).",
+        "All inverter-based DER units must be UL 1741 certified; certified DER under 250kW generally does not require Professional Engineer review of the inverter's protective functions.",
+        "In Fargo, an owner may self-wire only as the owner-occupant of a single-family home; all other installers must be licensed contractors."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither source published a specific dollar figure this session. The City of Fargo's own page states that the North Dakota State Electrical Board (not the City) determines applicable electrical permit fees based on the inspector's assessed work value and bills the homeowner directly, without stating the fee schedule itself. Cass County Electric's technical requirements document does not state an interconnection application fee amount."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Fargo-specific or statewide North Dakota solar rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Fargo Inspections Department",
+        "phone": null,
+        "email": null,
+        "url": "https://fargond.gov/city-government/departments/inspections/residential-permits-fees/electrical-self-wire"
+      },
+      {
+        "name": null,
+        "role": "Cass County Electric Cooperative / North Dakota cooperative Area EPS Interconnection Coordinator",
+        "phone": null,
+        "email": "engineering@kwh.com",
+        "url": "https://casscountyelectric.com/sites/default/files/2024-09/ccec-technical-requirements.pdf"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Neither source published a direct phone number for these contacts this session; Fargo City Hall's general address is 225 4th Street N., Fargo, ND 58102."
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "The City of Fargo - Electrical (Residential Permits & Fees)",
+      "url": "https://fargond.gov/city-government/departments/inspections/residential-permits-fees/electrical-self-wire",
+      "publisher": "City of Fargo, ND",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Cass County Electric Cooperative Technical Requirements — Distributed Energy Resource Technical Requirements for Systems Less than 10 MW (Revision 1.0, effective 8/1/2022)",
+      "url": "https://casscountyelectric.com/sites/default/files/2024-09/ccec-technical-requirements.pdf",
+      "publisher": "Cass County Electric Cooperative (via STAR Energy Services LLC, shared among seven North Dakota electric cooperatives)",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}

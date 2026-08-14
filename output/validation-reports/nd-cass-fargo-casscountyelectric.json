@@ -1,0 +1,45 @@
+{
+  "record_id": "nd-cass-fargo-casscountyelectric",
+  "file": "data/localities/nd-cass-fargo-casscountyelectric.json",
+  "validated_at": "2026-08-14",
+  "status": "PASS",
+  "score": 100,
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://fargond.gov/city-government/departments/inspections/residential-permits-fees/electrical-self-wire",
+      "checked_at": "2026-08-14T16:16:33.294Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://casscountyelectric.com/sites/default/files/2024-09/ccec-technical-requirements.pdf",
+      "checked_at": "2026-08-14T16:16:34.024Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}
