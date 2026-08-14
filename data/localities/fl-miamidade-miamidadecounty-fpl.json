@@ -1,0 +1,221 @@
+{
+  "record_id": "fl-miamidade-miamidadecounty-fpl",
+  "schema_version": "1.4.0",
+  "state": "FL",
+  "utility": {
+    "value": "Florida Power & Light (FPL)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "FPL is Miami-Dade County's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Florida Power & Light (FPL)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Miami-Dade's residential solar customers this session; FPL is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Miami-Dade County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This record covers unincorporated Miami-Dade County and any municipality relying on the County's own Department of Regulatory and Economic Resources (RER) for permitting. Incorporated cities within the county (e.g., Miami, Miami Beach, Coral Gables) that operate their own building departments would be separate AHJs not covered by this record."
+  },
+  "county": {
+    "value": "Miami-Dade County",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Miami-Dade County Department of Regulatory and Economic Resources (RER)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Florida Building Code (FBC) is a genuinely mandatory, uniform statewide code, uniquely rigorous due to hurricane/wind-load requirements — Miami-Dade County itself sits within the High-Velocity Hurricane Zone (HVHZ), an even stricter code tier requiring Miami-Dade-specific product testing and approval (Notice of Acceptance) for components like PV racking systems. Enforcement remains local: Miami-Dade County's own RER (formerly known as the Building Department) is the AHJ for unincorporated areas, using an electronic ePermitting portal that concurrently routes applications to multiple reviewing departments."
+  },
+  "permit_url": {
+    "value": "https://www.miamidade.gov/global/permit.page?Mduid_permit=per1534367624683394",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.fpl.com/clean-energy/net-metering.html",
+    "confidence": 0.8,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per FPL's own page: net metering allows customers to offset annual energy usage via approved grid-connected generation systems. Excess energy generated is deducted from the customer's monthly bill or credited toward a future bill within the same calendar year (a true retail-rate net-metering structure, not a net-billing/avoided-cost model). Customers apply online before installation; FPL replaces the meter with a bidirectional one. Per broader search-context (not independently re-confirmed on FPL's own page fetched this session): systems must be sized to produce less than 115% of annual consumption, individual systems are capped at 2MW, and residential applications typically take 10-15 business days to review — these figures are recorded with lower confidence pending direct primary-source re-confirmation."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific FPL or Miami-Dade battery incentive program was independently confirmed this session — left null rather than guessed."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed Building Permit Application, signed and notarized by the property owner and contractor",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Completed Electrical Fee Sheet signed by the contractor, using Electrical Category 34 — Solar Photovoltaic",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electronic plans in PDF format, digitally signed and sealed",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Owner's solar system disclosure form",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan showing dimensions and system location",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural design documentation and wind load calculations",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Florida Solar Energy Center (FSEC) certification approval",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer documentation for panels and mounting equipment",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical diagrams",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the County's own permit page. Separately, the County's own Product Control Section maintains a distinct product-approval checklist (#0443) for PV module manufacturers seeking Miami-Dade Notice of Acceptance under the High-Velocity Hurricane Zone code — an unusually rigorous testing regime (uplift, cyclic load, wind-driven rain, fire, corrosion resistance) that PV products must already satisfy before a homeowner's individual permit application can rely on them; this is a manufacturer-level requirement, not a separate homeowner document."
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections are scheduled, canceled, and tracked through the County's ePermitting system",
+      "The County maintains a dedicated 'PV Electrical Inspectors Checklist' guiding the electrical inspection"
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was stated on the County's own permit page fetched this session; the page notes that concurrent electronic routing to multiple departments enables 'a faster permitting process after a complete application is received' but does not attach a specific day count."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "PV Modules must be installed using a UL 2703-certified rooftop mounting system to maintain the roof's required fire listing, and must already hold Miami-Dade Notice of Acceptance product approval",
+        "Paper plan submissions incur conversion fees beyond standard permit costs; the County's electronic ePermitting process is the standard path"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The County's own page states that applications using the pre-approved Miami-Dade flashing detail 'benefit from a reduced permit fee' and references a separate Electrical Fee Sheet, but no specific dollar figure was stated inline on the page fetched this session — left null rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Miami-Dade or statewide Florida rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Permits Records Section",
+        "phone": "786-315-2100",
+        "email": null,
+        "url": "https://www.miamidade.gov/global/permit.page?Mduid_permit=per1534367624683394"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic (PV) Systems Permit",
+      "url": "https://www.miamidade.gov/global/permit.page?Mduid_permit=per1534367624683394",
+      "publisher": "Miami-Dade County, Department of Regulatory and Economic Resources",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Metering",
+      "url": "https://www.fpl.com/clean-energy/net-metering.html",
+      "publisher": "Florida Power & Light (FPL)",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

@@ -1,17 +1,17 @@
 {
-  "state": "NJ",
-  "generated_at": "2026-08-14T11:16:44.780Z",
+  "state": "FL",
+  "generated_at": "2026-08-14T11:29:40.237Z",
   "records": [
     {
-      "record_id": "nj-essex-newark-pseg",
-      "state": "NJ",
-      "city": "Newark",
-      "county": "Essex County",
-      "completeness_pct": 73.3,
-      "validation_score": 93,
+      "record_id": "fl-brevard-brevardcounty-fpl",
+      "state": "FL",
+      "city": "Brevard County",
+      "county": "Brevard County",
+      "completeness_pct": 80,
+      "validation_score": 91,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 3,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -20,6 +20,7 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "required_documents",
         "inspection_steps",
         "eligibility_constraints",
         "permit_fees",
@@ -27,7 +28,6 @@
       ],
       "missing_fields": [
         "battery_programs",
-        "required_documents",
         "timeline_days",
         "rebates"
       ],
@@ -35,18 +35,18 @@
         "broken_url",
         "unsupported_claim"
       ],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
-      "record_id": "nj-hudson-jerseycity-pseg",
-      "state": "NJ",
-      "city": "Jersey City",
-      "county": "Hudson County",
+      "record_id": "fl-miamidade-miamidadecounty-fpl",
+      "state": "FL",
+      "city": "Miami-Dade County",
+      "county": "Miami-Dade County",
       "completeness_pct": 73.3,
-      "validation_score": 93,
-      "validation_status": "REVIEW",
+      "validation_score": 100,
+      "validation_status": "PASS",
       "error_count": 0,
-      "warning_count": 2,
+      "warning_count": 0,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -55,34 +55,27 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "required_documents",
         "inspection_steps",
         "eligibility_constraints",
-        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
-        "required_documents",
         "timeline_days",
+        "permit_fees",
         "rebates"
       ],
-      "warning_categories": [
-        "broken_url",
-        "unsupported_claim"
-      ],
+      "warning_categories": [],
       "readiness": "LIMITED"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 73.3,
-    "average_validation_score": 93,
+    "average_completeness_pct": 76.7,
+    "average_validation_score": 95.5,
     "fields_most_often_missing": [
       {
         "field": "battery_programs",
-        "missing_in_records": 2
-      },
-      {
-        "field": "required_documents",
         "missing_in_records": 2
       },
       {
@@ -92,21 +85,22 @@
       {
         "field": "rebates",
         "missing_in_records": 2
+      },
+      {
+        "field": "permit_fees",
+        "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
+    "recommended_publish_record_ids": [
+      "fl-brevard-brevardcounty-fpl"
+    ],
     "limited_for_now": [
       {
-        "record_id": "nj-essex-newark-pseg",
-        "city": "Newark",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
-      },
-      {
-        "record_id": "nj-hudson-jerseycity-pseg",
-        "city": "Jersey City",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 93)"
+        "record_id": "fl-miamidade-miamidadecounty-fpl",
+        "city": "Miami-Dade County",
+        "reason": "readiness=LIMITED (completeness 73.3%, score 100)"
       }
     ],
     "not_ready": []

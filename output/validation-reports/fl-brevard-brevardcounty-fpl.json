@@ -1,0 +1,65 @@
+{
+  "record_id": "fl-brevard-brevardcounty-fpl",
+  "file": "data/localities/fl-brevard-brevardcounty-fpl.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 91,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.brevardfl.gov/PlanningAndDevelopment/BuildingPermits/PermitsResidential/ResidentialSolarPhotovoltaic — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "broken_url",
+      "message": "https://www.brevardfl.gov/PlanningAndDevelopment — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.brevardfl.gov/PlanningAndDevelopment/BuildingPermits/PermitsResidential/ResidentialSolarPhotovoltaic",
+      "checked_at": "2026-08-14T11:29:39.723Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.fpl.com/clean-energy/net-metering.html",
+      "checked_at": "2026-08-14T11:29:39.867Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.brevardfl.gov/PlanningAndDevelopment",
+      "checked_at": "2026-08-14T11:29:40.021Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}

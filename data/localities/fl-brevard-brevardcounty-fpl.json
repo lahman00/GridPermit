@@ -1,0 +1,239 @@
+{
+  "record_id": "fl-brevard-brevardcounty-fpl",
+  "schema_version": "1.4.0",
+  "state": "FL",
+  "utility": {
+    "value": "Florida Power & Light (FPL)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "FPL is the well-established dominant electric utility for Brevard County (the Space Coast area)."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Florida Power & Light (FPL)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Brevard County's residential solar customers this session; FPL is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Brevard County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This record covers unincorporated Brevard County. Incorporated cities within the county (e.g., Melbourne, Palm Bay, Titusville) that operate their own building departments would be separate AHJs not covered by this record."
+  },
+  "county": {
+    "value": "Brevard County",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "Brevard County Planning & Development Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Florida Building Code (FBC) is a genuinely mandatory, uniform statewide code (uniquely rigorous due to hurricane/wind-load requirements), but enforcement is local. Brevard County's own Planning & Development Department is the AHJ for unincorporated county areas, using its own online portal, Brevard's Advanced Service Site (BASS)."
+  },
+  "permit_url": {
+    "value": "https://www.brevardfl.gov/PlanningAndDevelopment/BuildingPermits/PermitsResidential/ResidentialSolarPhotovoltaic",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.fpl.com/clean-energy/net-metering.html",
+    "confidence": 0.8,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "See the identical FPL net-metering notes on the Miami-Dade County, FL record (fl-miamidade-miamidadecounty-fpl) — true retail-rate net metering, excess generation deducted from the monthly bill or credited forward within the same calendar year."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Application for Building Permit (not required if submitted online by a licensed contractor)",
+        "required_when": "walk-in/non-licensed-contractor submittals",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Residential Solar Photovoltaic Permit Application Addendum (not required if submitted online by a licensed contractor)",
+        "required_when": "walk-in/non-licensed-contractor submittals",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Owner Builder Application for Contractor Exemption",
+        "required_when": "property owner acting as their own contractor",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Subcontractor Authorization",
+        "required_when": "for each subcontractor used",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Notice of Commencement, recorded with the Clerk of Courts and approved by Planning & Development before inspections can be scheduled",
+        "required_when": "job value exceeds $5,000",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Construction plans, drawings, and specifications",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the County's own page. Owner/Builders must personally appear to submit their application in accordance with Florida Statute Section 489.103. Licensed professional categories that may pull this permit: Building, Electrical, General, Residential, Residential Electrical, and Solar Contractor."
+  },
+  "inspection_steps": {
+    "value": [
+      "Registered contractors can schedule inspections online 24/7 through Brevard's Advanced Service Site (BASS)",
+      "For projects over $5,000, the Notice of Commencement must be recorded and approved before inspections can be scheduled"
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was stated on the County's own page fetched this session."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "A Notice of Commencement must be recorded with the Clerk of Courts for any project valued over $5,000"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Application Processing Fee",
+        "amount_usd": 25,
+        "unit": "flat fee, due at application submittal",
+        "notes": "Per the County's own fee schedule."
+      },
+      {
+        "name": "Unlicensed Contractor Activity Enforcement",
+        "amount_usd": 10,
+        "unit": "flat fee, due at application submittal",
+        "notes": "Per the County's own fee schedule."
+      },
+      {
+        "name": "Building Code Review",
+        "amount_usd": 75,
+        "unit": "for the first $1,000 of job value, plus $3.25 per additional $1,000 (or portion thereof)",
+        "notes": "Per the County's own fee schedule."
+      },
+      {
+        "name": "Florida State Surcharge (F.S. 468.631, BCA)",
+        "amount_usd": null,
+        "unit": "1.5% of the Building Code fees (including the Application Fee), or $2.00, whichever is greater",
+        "notes": "Per the County's own fee schedule."
+      },
+      {
+        "name": "Florida State Surcharge (F.S. 553.721, FBC)",
+        "amount_usd": null,
+        "unit": "1% of the Building Code fees (including the Application Fee), or $2.00, whichever is greater",
+        "notes": "Per the County's own fee schedule."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This full itemized fee breakdown is directly and precisely confirmed from the County's own page."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Brevard County or statewide Florida rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Planning and Development Department",
+        "phone": "321-633-2187",
+        "email": "Building.Licensing@BrevardFL.gov",
+        "url": "https://www.brevardfl.gov/PlanningAndDevelopment"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Brevard County Residential Solar Photovoltaic Permit Application",
+      "url": "https://www.brevardfl.gov/PlanningAndDevelopment/BuildingPermits/PermitsResidential/ResidentialSolarPhotovoltaic",
+      "publisher": "Brevard County, FL, Planning & Development Department",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net Metering",
+      "url": "https://www.fpl.com/clean-energy/net-metering.html",
+      "publisher": "Florida Power & Light (FPL)",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Planning and Development",
+      "url": "https://www.brevardfl.gov/PlanningAndDevelopment",
+      "publisher": "Brevard County, FL",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

@@ -48,6 +48,7 @@ const STATE_SLUGS = {
   MI: "michigan",
   WA: "washington",
   ID: "idaho",
+  FL: "florida",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {
