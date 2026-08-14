@@ -1,0 +1,218 @@
+{
+  "record_id": "ny-newyorkcity-newyorkcity-conedison",
+  "schema_version": "1.4.0",
+  "state": "NY",
+  "utility": {
+    "value": "Consolidated Edison Company of New York, Inc. (Con Edison)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Con Edison's own Solar Photovoltaics Guide states it 'provides electric services to 3.4 million customers in New York City and portions of Westchester County' — the dominant, near-universal electric utility across all five boroughs."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Consolidated Edison Company of New York, Inc.",
+      "type": "utility",
+      "notes": "New York is a retail-choice state — customers may select an alternate Energy Service Company (ESCO) for generation supply while Con Edison remains the distribution utility responsible for interconnection and net metering credits. Con Edison is recorded as the default generation/distribution utility for customers who do not choose an alternate ESCO."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "New York City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "New York City (the boroughs/counties of New York (Manhattan), Kings (Brooklyn), Queens, Bronx, and Richmond (Staten Island))",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "New York City is unique among this record's county-equivalents: it spans five separate counties (its boroughs) but is administered by a single consolidated city government. The Department of Buildings (DOB) is one citywide permitting authority covering all five boroughs, making this an unusually large-scale example of the consolidated-AHJ pattern."
+  },
+  "permit_authority": {
+    "value": "New York City Department of Buildings (DOB)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "A single Department of Buildings administers permitting citywide across all five boroughs, via the DOB NOW electronic filing platform. This is in sharp contrast to the rest of New York State, where building code enforcement is fragmented across thousands of individual towns, villages, and cities."
+  },
+  "permit_url": {
+    "value": "https://www.nyc.gov/site/buildings/codes/solar-faq.page",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.coned.com/-/media/files/coned/documents/save-energy-money/using-private-generation/solar-photovoltaics-guide.pdf",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Con Edison's own guide confirms residential systems fall under the New York State Standardized Interconnection Requirements (SIR) self-certification path for projects at or below 50kW-AC — approximately 98% of Con Edison's interconnection applications are small-scale (<50kW-AC) residential jobs. Net metering credits are governed by 'Phase One NEM' for systems installed on/after March 9, 2017: full retail-rate 1:1 kWh crediting that carries over month-to-month and year-to-year with no forced annual cash-out (unlike the older 'Grandfathered NEM' tier, which cashes out banked credits every January by default unless the customer elects a different cash-out month)."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Con Edison's own guide describes technical interconnection requirements for pairing battery energy storage with an existing or new PV system (e.g. entering inverter discharge-mode specifications, SIR Appendix K), and confirms residential (Service Class 1/2) customers may pair grid-parallel storage with solar under the Phase One NEM tariff — but this is a technical/tariff eligibility rule, not a confirmed financial battery incentive program. No such program was independently confirmed this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Construction documents prepared and submitted by a Registered Design Professional (licensed Professional Engineer or Registered Architect), including a structural analysis of the roof's capacity to support the added panel weight",
+        "required_when": "always",
+        "source_ids": [
+          "S1",
+          "S2"
+        ]
+      },
+      {
+        "name": "Electrical work permit application (ED16A form, with Box 'E' checked to ensure qualified inspectors are assigned) filed by a NYC Licensed Electrician",
+        "required_when": "always — filed separately from, and in addition to, the main construction permit",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Con Edison interconnection approval — for systems <=50kW-AC, a self-certification form uploaded through Con Edison's Power Clerk portal after construction and inverter testing are complete",
+        "required_when": "always, for grid-connected systems",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Commissioning report, filed with DOB prior to sign-off, performed by a qualified commissioning agent",
+        "required_when": "only when the system's renewable energy generating capacity is 25kW or greater",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Per DOB's own Solar FAQ and 'Project Requirements for Owner' pages. A separate DOB filing specifically for the solar installation is only required if the owner is pursuing the NYC Solar Property Tax Abatement; otherwise solar work filed alongside a primary construction application does not need its own separate filing."
+  },
+  "inspection_steps": {
+    "value": [
+      "Special and Progress Inspections during construction, as required by the NYC Building Code",
+      "Final inspection performed by the project's Registered Design Professional to confirm Code compliance",
+      "A complete set of the DOB-approved drawings must be available on site for the final inspection, and the installer (with the electrician recommended to attend for electrical inspections) must be available to present the completed work"
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific plan-review or permit-issuance business-day timeline was stated on DOB's own Solar FAQ or Project Requirements pages fetched this session. Figures such as '5-10 business days' circulate on third-party aggregator sites but were not independently confirmed from a primary nyc.gov source this session, so this field is left null rather than stating an unverified number."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 50,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Standard NYC DOB permit path (Registered-Design-Professional-prepared construction documents plus a separately filed electrical permit) combined with Con Edison's Standardized Interconnection Requirements (SIR) self-certification path for grid-tied systems at or below 50kW-AC.",
+      "other_conditions": [
+        "Systems with renewable energy generating capacity of 25kW or greater require a qualified commissioning agent and a commissioning report filed with DOB prior to sign-off.",
+        "Con Edison's own materials state approximately 98% of its interconnection applications are small-scale (<50kW-AC) residential jobs eligible for the simplified self-certification review path.",
+        "A separate DOB filing for the solar installation itself is only required when the owner is pursuing the NYC Solar Property Tax Abatement; otherwise it may be filed as part of the primary construction application."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "DOB construction permit filing fee",
+        "amount_usd": null,
+        "unit": "Calculated by the Department's computer system based on the Registered Design Professional's stated value of the work, per NYC Building Code Section 28-112.2",
+        "notes": "Per DOB's own Solar FAQ page. A separate fee is calculated for the electrical permit; neither is published as a flat solar-specific dollar figure."
+      }
+    ],
+    "confidence": 0.55,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "DOB's own materials describe the fee as valuation-based (per BC Section 28-112.2) rather than publishing a flat solar-specific dollar amount, so no specific dollar figure could be confirmed this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Third-party sources describe a NYC Solar Property Tax Abatement (commonly cited as 30% of eligible cost over 4 years, capped at $250,000, for systems placed in service through 2035) and the PTA4 application form, but no primary nyc.gov page stating these exact figures was independently fetched this session — left null rather than guessed, consistent with this session's sourcing standard."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "DOB Solar & Green Roof inquiries",
+        "phone": null,
+        "email": "greenroofandsolar@buildings.nyc.gov",
+        "url": "https://www.nyc.gov/site/buildings/codes/solar-faq.page"
+      },
+      {
+        "name": null,
+        "role": "Con Edison residential net metering billing",
+        "phone": "212-780-6600",
+        "email": "netmetering@coned.com",
+        "url": "https://www.coned.com/solar"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Installation Frequently Asked Questions",
+      "url": "https://www.nyc.gov/site/buildings/codes/solar-faq.page",
+      "publisher": "New York City Department of Buildings",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Project Requirements for Owner: Solar Energy",
+      "url": "https://www.nyc.gov/site/buildings/property-or-business-owner/project-requirements-owner-solar.page",
+      "publisher": "New York City Department of Buildings",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "Solar Photovoltaics Guide, Version 5 / July 2022",
+      "url": "https://www.coned.com/-/media/files/coned/documents/save-energy-money/using-private-generation/solar-photovoltaics-guide.pdf",
+      "publisher": "Consolidated Edison Company of New York, Inc.",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}
