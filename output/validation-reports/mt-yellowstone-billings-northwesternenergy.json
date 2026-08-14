@@ -1,0 +1,53 @@
+{
+  "record_id": "mt-yellowstone-billings-northwesternenergy",
+  "file": "data/localities/mt-yellowstone-billings-northwesternenergy.json",
+  "validated_at": "2026-08-14",
+  "status": "PASS",
+  "score": 100,
+  "errors": [],
+  "warnings": [],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "inspection_steps",
+      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.billingsmt.gov/DocumentCenter/View/48171/Solar-Photovoltaic-Requirements-2022",
+      "checked_at": "2026-08-14T16:06:52.550Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://northwesternenergy.com/docs/default-source/default-document-library/clean-energy/environmental-projects/private-generation/level-1-small-generator-interconnection-request.pdf",
+      "checked_at": "2026-08-14T16:06:56.608Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://billingsmt.gov/661/Applications-and-Forms",
+      "checked_at": "2026-08-14T16:06:57.412Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

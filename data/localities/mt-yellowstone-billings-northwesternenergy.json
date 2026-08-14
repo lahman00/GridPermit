@@ -1,0 +1,231 @@
+{
+  "record_id": "mt-yellowstone-billings-northwesternenergy",
+  "schema_version": "1.4.0",
+  "state": "MT",
+  "utility": {
+    "value": "NorthWestern Energy",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "NorthWestern Energy is the well-established dominant electric utility for Billings, Montana's largest city."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "NorthWestern Energy",
+      "type": "utility",
+      "notes": "NorthWestern Energy is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Billings",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Yellowstone County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Billings, Montana's largest city, is the seat of Yellowstone County."
+  },
+  "permit_authority": {
+    "value": "City of Billings Building Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.billingsmt.gov/DocumentCenter/View/48171/Solar-Photovoltaic-Requirements-2022",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://northwesternenergy.com/docs/default-source/default-document-library/clean-energy/environmental-projects/private-generation/level-1-small-generator-interconnection-request.pdf",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "NorthWestern's own separate 'Home Solar Information' page explicitly states: 'NorthWestern Energy does not offer incentives for solar installations for residential customers,' and confirms net metering credits accumulate as a kWh balance that is available toward future bills only until the customer's selected annual settle-up month, at which point Montana law mandates the excess credit balance resets to zero (no rollover past that date, no cash-out)."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "NorthWestern's own interconnection form restricts storage components on a net-metered system to storing/discharging only energy produced by that system (not energy drawn from NorthWestern's grid) — a technical eligibility rule, not a financial incentive program. No battery incentive program was found this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Detailed site plan (home/structure, electrical service meter, main service panel, interconnected sub-panels, all PV components, structure and panel square footage, IRC fire access pathways and ridge setbacks)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Mounting system evaluation by a Montana-licensed Professional Engineer (using minimum 30 psf non-reducible roof snow load, 110 mph ultimate wind speed, Exposure Category C)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "One-line diagram (PV system type, module count/layout, circuit type, conductor/conduit sizing and types, equipment grounding conductor, fuse/breaker ratings)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Interconnected-components documentation with NEC Article 705 code references, plus photos of the meter main and interconnection point panels (overall view and manufacturer specification labels)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site-specific equipment labeling diagram, including the NEC 705.10 directory ('typical'/generic labeling diagrams are not accepted)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Module specification sheets (UL 1703 listed) and inverter specification sheets ('utility interactive,' UL 1741, ground fault protection, rapid shutdown compliance)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "NorthWestern Energy Level 1 Small Generator Facility Interconnection Request form, with equipment component list, one-line diagram, detailed site diagram, and product specification sheets",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Exhibit A — Net Meter settle-up month selection (January, April, July, or October)",
+        "required_when": "always, for installations requiring a net meter",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City's own Solar-Photovoltaic System Plan Requirements handout (Billings Building Division, dated 02/23) is unusually detailed and solar-specific."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the City's own solar plan requirements handout nor NorthWestern Energy's own Level 1 interconnection form published a specific inspection sequence this session (the interconnection form implies a required 'in-service date' but does not itemize inspection steps) — left null rather than guessed."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City of Billings or NorthWestern Energy review-timeline figure was independently confirmed from a primary source fetched this session (a '4-7 business day' residential review figure appeared only in third-party aggregator search results, not on a page directly fetched this session, so it is left unstated rather than treated as confirmed)."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 50,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "NorthWestern Energy's Level 1 Small Generator Facility Interconnection process — for systems with aggregate nameplate capacity (generation plus storage) of up to 50kW-AC using certified, publicly listed interconnection equipment.",
+      "other_conditions": [
+        "Net-metered facilities may only be fueled by solar, wind, and/or hydropower, per NorthWestern's own interconnection form.",
+        "An external, visible, lockable AC disconnect switch must be located within 10 feet of the utility meter, unless NorthWestern Energy grants a case-by-case variance for a different location.",
+        "The customer must select an annual 'settle-up' month (January, April, July, or October); any unused excess energy credit balance resets to zero at that date, per Montana law — no ongoing rollover or cash-out.",
+        "NorthWestern Energy's own materials state it does not offer incentives for residential solar installations.",
+        "City of Billings mounting-system engineering calculations must use a minimum 30 psf non-reducible roof snow load, 110 mph ultimate wind speed, and Exposure Category C."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "NorthWestern Energy Level 1 interconnection processing fee",
+        "amount_usd": 200,
+        "unit": "one-time, non-refundable, must accompany the Interconnection Request",
+        "notes": "Per NorthWestern Energy's own Level 1 Small Generator Facility Interconnection Request form."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "No City of Billings building/electrical permit fee dollar figure was confirmed this session — the City's own site references an online fee calculator based on project valuation, but that calculator itself was not run this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "NorthWestern Energy's own 'Home Solar Information' page directly states it does not offer incentives for residential solar installations — a confirmed negative rather than an unresearched gap, but the field itself remains null per schema convention since there is no active program to describe."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Billings Building Division",
+        "phone": "406-657-8433",
+        "email": null,
+        "url": "https://billingsmt.gov/661/Applications-and-Forms"
+      },
+      {
+        "name": null,
+        "role": "NorthWestern Energy Interconnection Department",
+        "phone": "406-497-4165",
+        "email": "northwesternenergynetmeter@northwestern.com",
+        "url": "https://northwesternenergy.com/docs/default-source/default-document-library/clean-energy/environmental-projects/private-generation/level-1-small-generator-interconnection-request.pdf"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar-Photovoltaic System Plan Requirements (02/23)",
+      "url": "https://www.billingsmt.gov/DocumentCenter/View/48171/Solar-Photovoltaic-Requirements-2022",
+      "publisher": "City of Billings, MT, Building Division",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Level 1 Small Generator Facility Interconnection Request (Revision 1/23)",
+      "url": "https://northwesternenergy.com/docs/default-source/default-document-library/clean-energy/environmental-projects/private-generation/level-1-small-generator-interconnection-request.pdf",
+      "publisher": "NorthWestern Energy",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}
