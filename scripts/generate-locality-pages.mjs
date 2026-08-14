@@ -89,6 +89,7 @@ const STATE_SLUGS = {
   PA: "pennsylvania",
   AK: "alaska",
   NY: "new-york",
+  WV: "west-virginia",
 };
 
 function pagesRootFor(record) {

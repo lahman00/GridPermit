@@ -1,0 +1,248 @@
+{
+  "record_id": "wv-kanawha-charleston-appalachianpower",
+  "schema_version": "1.4.0",
+  "state": "WV",
+  "utility": {
+    "value": "Appalachian Power Company (an AEP company)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Appalachian Power is the well-established dominant electric utility for Charleston and the surrounding Kanawha Valley."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Appalachian Power Company",
+      "type": "utility",
+      "notes": "Appalachian Power is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Charleston",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Kanawha County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Charleston is West Virginia's capital and largest city, and the county seat of Kanawha County."
+  },
+  "permit_authority": {
+    "value": "City of Charleston Building Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "West Virginia was selected in part for its genuinely centralized, state-administered code-enforcement model: the West Virginia State Fire Marshal's Office enforces the State Building Code directly in jurisdictions that have not established their own local enforcement. Charleston, as the state's capital and largest city, is an exception to that statewide backstop — it has its own long-established local Building Department (at 915 Quarrier St) rather than relying on the State Fire Marshal, per Appalachian Power's own interconnection guide, which names 'the local Authority Having Jurisdiction' or a state-licensed third-party inspector as the entity performing the required electrical inspection."
+  },
+  "permit_url": {
+    "value": "https://www.charlestonwv.gov/government/city-departments/building-commission/permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.appalachianpower.com/lib/docs/business/builders/WVNetMeteringGuide-2026.pdf",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Appalachian Power's own 'West Virginia Net Metering Customer Information Guide' (Revision v2.0, effective 02/01/2026 — a current document). Confirms Net Metering under West Virginia's Title 150CSR33 (Legislative Rule) and the Company's Net Metering Service Tariff (Tariff N.M.S.); the guide states credit for excess generation is governed by the tariff but does not itself state the exact per-kWh credit rate, so that figure is left unconfirmed rather than guessed."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Appalachian Power's own guide addresses only technical interconnection requirements for Distributed Energy Resources generally (of which battery storage could be one component); no confirmed financial battery incentive program was found this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed Interconnection Application (Level 1, for systems <=25kW nameplate capacity)",
+        "required_when": "always, submitted via Appalachian Power's online portal (aep.powerclerk.com)",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer's literature/inverter specification sheet illustrating UL 1741SB compliance",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Proof of general liability insurance (minimum $100,000), e.g. a Certificate of Insurance",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Electrical one-line diagram of the proposed installation",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Site diagram and generator specification sheet",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Certificate of Completion (COC), signed by the electrical inspector, plus photos of the installation",
+        "required_when": "always, submitted to Appalachian Power after the electrical inspection",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "City of Charleston building permit application",
+        "required_when": "for total job costs over $2,500 (waived below that threshold)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Copy of an executed contract",
+        "required_when": "jobs exceeding $10,000",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "No Charleston-specific solar PV permit checklist or document list was found this session (unlike some other cities researched this marathon that publish a dedicated solar handout) — the City's general building-permit documentation requirements are recorded here alongside Appalachian Power's own, more detailed, solar-specific interconnection checklist."
+  },
+  "inspection_steps": {
+    "value": [
+      "Electrical inspection performed by the local Authority Having Jurisdiction (the City of Charleston) or a third-party electrical inspector licensed by the State of West Virginia",
+      "If the system is installed on the supply side (line side) of the service disconnect, the inspection covers both the electrical service entrance and the DER, to new-service-installation standards",
+      "After installation, the electrical inspector submits inspection information, and the customer submits the signed Certificate of Completion plus installation photos to Appalachian Power",
+      "Appalachian Power reviews all submitted test results, photos, and documentation within 10 business days, then installs or reprograms the bi-directional meter within a further 10 business days, before issuing Permission to Operate"
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 20,
+      "notes": "Per Appalachian Power's own 2026 guide: once the customer submits conformance test results and the signed Certificate of Completion with photos, the utility reviews submittals within 10 business days and then installs/reprograms the bi-directional meter within a further 10 business days before issuing Permission to Operate — roughly 20 business days of utility-side processing once all customer submittals are complete. This covers only the utility interconnection stage; no City of Charleston-specific building/electrical permit review-time figure was stated on the City's own pages fetched this session."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 25,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Level 1 Interconnection under West Virginia Title 150 Legislative Series 33 — nameplate capacity of 25kW or less, non-islanding UL-listed inverter-based equipment, interconnecting to distribution facilities operating at 69kV or below.",
+      "other_conditions": [
+        "A minimum of $100,000 in general liability insurance must be secured and maintained while interconnected.",
+        "City of Charleston building permit fees are waived for total job costs up to $2,500; most solar installations exceed this threshold and will owe a fee under the City's valuation-based Schedule of Permit Fees (which explicitly does not apply to electrical, HVAC, or plumbing permits).",
+        "Jobs exceeding $10,000 require a copy of an executed contract to be submitted with the City permit application."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Appalachian Power Level 1 interconnection application fee (systems <=25kW)",
+        "amount_usd": 30,
+        "unit": "flat fee",
+        "notes": "Per West Virginia Title 150CSR33 and Appalachian Power's own 2026 Customer Information Guide. Level 2 interconnections (systems not qualifying for Level 1) are instead $50 plus $1 per kW of capacity."
+      },
+      {
+        "name": "City of Charleston building permit fee",
+        "amount_usd": null,
+        "unit": "Valuation-tiered per the City's own Schedule of Permit Fees (e.g. $90.50 for a $19,500.01-$20,500.00 valuation tier; add $5.00 per $1,000 above $30,000); waived entirely for total job costs up to $2,500",
+        "notes": "Per the City's own Schedule of Permit Fees document (a dated April 14, 2008 document, but still the current version linked from the City's own website this session). This schedule explicitly states it does not apply to electrical, HVAC, or plumbing permits — no dollar figure for the separate electrical permit (which covers the PV wiring/inverter/interconnection itself) was found in any City document this session."
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City's own fee schedule is dated but currently linked and explicitly excludes electrical permits, so no confirmed dollar figure exists for the electrical-permit component a solar installation's core wiring work would need — recorded honestly as a gap rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Charleston-specific or statewide West Virginia solar rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Charleston Building Department, Permit Coordinator",
+        "phone": "304-348-6833",
+        "email": null,
+        "url": "https://www.charlestonwv.gov/government/city-departments/building-commission/permits"
+      },
+      {
+        "name": null,
+        "role": "Appalachian Power Distributed Generation Coordinator (West Virginia)",
+        "phone": "1-800-852-6942",
+        "email": "dgcoordinator-wv@aep.com",
+        "url": "https://www.appalachianpower.com/lib/docs/business/builders/WVNetMeteringGuide-2026.pdf"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "How to obtain permits — Building Commission",
+      "url": "https://www.charlestonwv.gov/government/city-departments/building-commission/permits",
+      "publisher": "City of Charleston, WV",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "West Virginia Net Metering Customer Information Guide (Revision v2.0, effective 02/01/2026)",
+      "url": "https://www.appalachianpower.com/lib/docs/business/builders/WVNetMeteringGuide-2026.pdf",
+      "publisher": "Appalachian Power Company (an AEP company)",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}
