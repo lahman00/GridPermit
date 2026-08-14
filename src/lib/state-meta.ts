@@ -46,6 +46,7 @@ export const STATE_META: Record<string, StateMeta> = {
 	FL: { code: "FL", name: "Florida", slug: "florida" },
 	KY: { code: "KY", name: "Kentucky", slug: "kentucky" },
 	IN: { code: "IN", name: "Indiana", slug: "indiana" },
+	TN: { code: "TN", name: "Tennessee", slug: "tennessee" },
 };
 
 // Every currently-supported state, in the fixed order above (not alphabetical

@@ -51,6 +51,7 @@ const STATE_SLUGS = {
   FL: "florida",
   KY: "kentucky",
   IN: "indiana",
+  TN: "tennessee",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

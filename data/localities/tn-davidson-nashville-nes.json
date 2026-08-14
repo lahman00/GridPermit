@@ -1,0 +1,207 @@
+{
+  "record_id": "tn-davidson-nashville-nes",
+  "schema_version": "1.4.0",
+  "state": "TN",
+  "utility": {
+    "value": "Nashville Electric Service (NES)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "NES is a municipally-owned utility and a local power company (distributor) for the Tennessee Valley Authority (TVA) — TVA generates and transmits power wholesale, while NES handles local distribution, billing, and customer-facing programs. Confirmed directly by the City's own permit page, which requires separate NES approval alongside the Metro Codes permit."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Tennessee Valley Authority (TVA)",
+      "type": "other",
+      "notes": "TVA is the wholesale power generator/transmitter for the entire region; NES is the local distribution utility purchasing from TVA and reselling to Nashville-area customers. This two-tier structure (a federal wholesale generator plus a locally-owned distributor) is structurally distinct from the single investor-owned or municipal utilities researched in most other states this session."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Nashville",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Davidson County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Nashville and Davidson County operate a consolidated Metropolitan Government (Metro Nashville); the Metropolitan Department of Codes and Building Safety is the single permitting authority for the whole consolidated jurisdiction."
+  },
+  "permit_authority": {
+    "value": "Metropolitan Department of Codes and Building Safety",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Tennessee's statewide code framework applies through the state Fire Marshal's office and local adoption, but enforcement is local. Metro Nashville-Davidson County's own Department of Codes and Building Safety is a genuinely consolidated authority for the whole city-county jurisdiction — the same efficient pattern as Louisville, KY and Indianapolis, IN researched earlier this session."
+  },
+  "permit_url": {
+    "value": "https://www.nashville.gov/departments/codes/construction-and-permits/trades-permits/solar-panel-photovoltaic-permits",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.nespower.com/-/media/project/nes/common/pdfs/nesolar-savings/nesolar-guidelines---102024.pdf",
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "As a TVA local power company, NES does NOT offer traditional retail-rate net metering. Per NES's own 'NESolar Connect and NESolar Savings Guidelines' (effective October 2024), these two formal power-purchase programs are structured for LARGER systems, not typical single-family rooftop installations: NESolar Connect requires a minimum 200kW nameplate for solar facilities (35MW total program cap), and NESolar Savings covers systems up to 250kW DC with a minimum 50kWh average monthly excess generation (10MW total program cap) — both paid at fixed seasonal per-kWh rates (e.g., NESolar Savings: $0.03069/kWh summer, $0.03197/kWh winter) rather than retail-rate credit. For genuinely small residential systems below these thresholds, NES instead participates in TVA's separate 'Dispersed Power Production Program,' a net-billing mechanism with its own (lower) compensation rate — its exact residential rate was not independently confirmed from a primary TVA/NES source this session, so it is not stated here as a specific figure."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "NES's NESolar Savings program guidelines do permit 'solar PV with battery storage' installations under that program's framework, but this describes program eligibility for larger systems, not a dedicated residential battery financial incentive, which was not independently confirmed this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Electrical Photovoltaic (PV) System permit application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural capacity review by a plans examiner",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site/Roof Plan drawn to scale showing panel layout, setbacks, and walking paths",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Contractor licensure verification (licensed by the Tennessee Department of Commerce and Insurance)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own permit page. The permit application must be submitted by a licensed and experienced electrical contractor registered with Metro Codes' Building Safety Administration. NES's own interconnection process runs in parallel and separately requires a 'Nashville Electric Service Application for Interconnection of Renewable Generation form' no later than 60 days before power production begins."
+  },
+  "inspection_steps": {
+    "value": [
+      "Contractors coordinate inspections through the City's e-permits system at appropriate installation stages",
+      "The inspection phone line is 615-862-6560"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 7,
+      "max_days": 30,
+      "notes": "Per the City's own page: residential permits typically receive approval within one week, with a standard target of 30 days for completed applications; commercial projects may require extended review. Permits remain valid for 6 months from issuance; work must commence and progress continuously or the permit becomes invalid."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "The permit application and the NES interconnection application run in parallel and both must be completed before the system can be energized",
+        "NES's formal NESolar Connect/Savings power-purchase programs require systems well above typical residential scale (200kW+ minimum for Connect); typical single-family rooftop systems fall outside these specific programs and instead use TVA's Dispersed Power Production Program"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Electrical Photovoltaic permit",
+        "amount_usd": 75,
+        "unit": "starting fee, may increase marginally depending on fixture and equipment type",
+        "notes": "Per the City's own page."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Nashville, NES, or statewide Tennessee rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Metropolitan Department of Codes and Building Safety",
+        "phone": "615-862-6500",
+        "email": null,
+        "url": "https://www.nashville.gov/departments/codes/construction-and-permits/trades-permits/solar-panel-photovoltaic-permits"
+      },
+      {
+        "name": null,
+        "role": "Codes inspection line",
+        "phone": "615-862-6560",
+        "email": null,
+        "url": null
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Panel Photovoltaic Permits",
+      "url": "https://www.nashville.gov/departments/codes/construction-and-permits/trades-permits/solar-panel-photovoltaic-permits",
+      "publisher": "Metropolitan Government of Nashville and Davidson County",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "NESolar Connect and NESolar Savings Guidelines (Effective October 2024)",
+      "url": "https://www.nespower.com/-/media/project/nes/common/pdfs/nesolar-savings/nesolar-guidelines---102024.pdf",
+      "publisher": "Nashville Electric Service",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
