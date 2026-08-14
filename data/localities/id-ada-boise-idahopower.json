@@ -1,0 +1,242 @@
+{
+  "record_id": "id-ada-boise-idahopower",
+  "schema_version": "1.4.0",
+  "state": "ID",
+  "utility": {
+    "value": "Idaho Power",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Idaho Power is Boise's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Idaho Power",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Boise's residential solar customers this session; Idaho Power is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "city": {
+    "value": "Boise",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Ada County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Boise Planning and Development Services",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Idaho has no single mandatory statewide residential building code (a home-rule state for most building-code adoption), so each city or county sets and enforces its own code and permitting process. Boise's own Planning and Development Services (PDS) is the local AHJ, using the International Building Code and International Residential Code as its adopted base codes."
+  },
+  "permit_url": {
+    "value": "https://www.cityofboise.org/media/17322/406-residential-photovoltaic-system-submittal-checklist-_fillable_oct-2022.pdf",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.idahopower.com/energy-environment/green-choices/solar-power-options-customer-generation/frequently-asked-questions/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Idaho Power does not offer traditional retail-rate net metering. Per the utility's own page, residential customers use a 'net billing' model: exported energy is credited at published Export Credit Rates (ECR), which vary by season and time-of-day (confirmed exact rates as of this session: Summer On-Peak 15.6836¢/kWh, Summer Off-Peak 3.3920¢/kWh, Non-Summer 2.9019¢/kWh), calculated from avoided energy costs, generation expenses, transmission/distribution deferrals, line losses, and integration expenses — a genuinely different, lower-certainty compensation structure than 1:1 retail-rate net metering. Residential/small general service systems are capped at 25kW AC. A non-refundable $100 application-processing fee applies (covering engineering review and on-site inspection), plus a $52 return-trip inspection fee if conditions aren't met on the first visit. Systems must use smart inverters meeting IEEE 1547-2018 and UL 1741 SB, plus an AC disconnect switch."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own checklist details battery-backup permitting requirements (NRTL certification per UL 9540, manufacturer installation guidelines, floor plans showing battery location, hydrogen-producing-battery ventilation rules) but this is a permitting/safety requirement, not a financial battery incentive program, which was not independently confirmed this session. Idaho Power's own page confirms energy storage devices do not count toward the utility's system-size capacity limits."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Form #406 Residential Addition, Alteration & Accessory Building Application",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan, drawn to scale, showing exact panel locations and minimum required fire-fighter access clearances from roof edges and peak",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural calculations stamped and signed by an Idaho-licensed engineer evaluating the roof structure",
+        "required_when": "ballasted systems, pre-1970 homes with hand-stack roof framing, ground-mount systems in the Foothills overlay, pergola-mounted systems, or systems/racking adding more than 5 psf",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Manufacturer specifications for panels, inverters, racking (showing appropriate UL listing, e.g. UL 1703 for panels, UL 1741 for inverters)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "One-line electrical diagram showing equipment location, voltage/current ratings, wire size, disconnect rating, and overcurrent protection ratings",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "ICC-ES Evaluation Services Report for all roof-mounting brackets",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Certificate of Appropriateness from the Planning division",
+        "required_when": "installations in a Historic District",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own 'Residential Photovoltaic Systems Submittal Checklist' (Document #406, October 2022). Systems with battery backup additionally require battery NRTL/UL 9540 certification, manufacturer installation guidelines, and scaled floor plans showing battery and ventilation locations."
+  },
+  "inspection_steps": {
+    "value": [
+      "Applications are reviewed and approved over the counter, Monday through Friday, 8:00am-4:00pm, on a first-come first-served basis",
+      "Applicants check in at the Permit Counter with the completed application, checklist, and all required documents; incomplete submittals are returned for updated plans/documents",
+      "Any specific planning approvals (historic, hillside, or floodplain) must be completed prior to building permit submittal and review"
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Per the City's own checklist document, residential additions/alterations/accessory buildings (which includes solar PV) are 'reviewed and approved over the counter' on a first-come, first-served basis during business hours — a same-day process for complete submittals. No specific automated-review platform is named in the document, so none is recorded here."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 25,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "The 25kW AC figure recorded here reflects Idaho Power's residential/small-general-service interconnection cap, not a separate City permit-eligibility limit",
+        "Any specific planning approvals (historic district, hillside, or floodplain) must be completed prior to building permit submittal"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential solar photovoltaic building permit fee",
+        "amount_usd": 162.09,
+        "unit": "flat fee",
+        "notes": "Per the City's own 'Solar Photovoltaic Systems Building Permit Fees Policy' (effective 2016-06-02, signed by Building Official Jason Blais): calculated as 3.5 hours of plan review/inspection time at the City's $46.31/hour rate (3.5 x $46.31 = $162.09). This flat rate exists specifically to avoid inflating fees based on the high equipment valuation of solar systems. Electrical permits are obtained separately under the City's own Electrical Fee Schedule (not independently confirmed this session)."
+      },
+      {
+        "name": "Idaho Power interconnection application fee",
+        "amount_usd": 100,
+        "unit": "non-refundable flat fee",
+        "notes": "Per Idaho Power's own page, covering application processing, engineering review, and on-site inspection."
+      },
+      {
+        "name": "Idaho Power return-trip inspection fee",
+        "amount_usd": 52,
+        "unit": "flat fee",
+        "notes": "Per Idaho Power's own page, charged if the utility cannot complete inspection due to unmet conditions on the first visit."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S2",
+      "S3"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Boise or statewide Idaho rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Planning and Development Services (Permit Counter)",
+        "phone": "208-608-7070",
+        "email": null,
+        "url": "https://www.cityofboise.org/departments/planning-and-development-services/building/solar-energy-in-boise/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Photovoltaic Systems Submittal Checklist (Document #406, October 2022)",
+      "url": "https://www.cityofboise.org/media/17322/406-residential-photovoltaic-system-submittal-checklist-_fillable_oct-2022.pdf",
+      "publisher": "City of Boise, Planning and Development Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Solar Photovoltaic Systems Building Permit Fees Policy (effective 2016-06-02)",
+      "url": "https://www.cityofboise.org/media/3495/solar-photovoltaic-systems-building-permit-fees-policy-signed-6-2-16.pdf",
+      "publisher": "City of Boise, Planning and Development Services",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Frequently Asked Questions — Solar Power Options / Customer Generation",
+      "url": "https://www.idahopower.com/energy-environment/green-choices/solar-power-options-customer-generation/frequently-asked-questions/",
+      "publisher": "Idaho Power",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

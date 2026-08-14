@@ -79,6 +79,7 @@ const STATE_SLUGS = {
   ME: "maine",
   MI: "michigan",
   WA: "washington",
+  ID: "idaho",
 };
 
 function pagesRootFor(record) {
