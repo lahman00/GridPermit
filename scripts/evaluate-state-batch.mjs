@@ -40,6 +40,7 @@ const STATE_SLUGS = {
   SC: "south-carolina",
   GA: "georgia",
   WI: "wisconsin",
+  MN: "minnesota",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

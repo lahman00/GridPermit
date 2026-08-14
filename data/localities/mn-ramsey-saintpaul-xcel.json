@@ -1,0 +1,202 @@
+{
+  "record_id": "mn-ramsey-saintpaul-xcel",
+  "schema_version": "1.4.0",
+  "state": "MN",
+  "utility": {
+    "value": "Xcel Energy",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Xcel Energy is Saint Paul's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Saint Paul's residential solar customers this session; Xcel Energy is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Saint Paul",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Ramsey County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Saint Paul Department of Safety and Inspections (DSI)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Minnesota's State Building Code is mandatory in the seven-county Twin Cities metro area (which includes Saint Paul/Ramsey County) and is notably not locally amendable — the same uniform statewide code applying to Minneapolis, researched separately this session (see mn-hennepin-minneapolis-xcel). DSI is Saint Paul's own consolidated permitting authority, processing building, electrical, plumbing, mechanical, and elevator permits (over 32,000/year)."
+  },
+  "permit_url": {
+    "value": "https://www.stpaul.gov/departments/safety-inspections/building-and-construction/construction-permits-and-inspections/electrical-permits-inspections/solar-pv-systems-electrical",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://mn.gov/puc/activities/economic-analysis/distributed-energy/net-metering/",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "See the identical statewide Minnesota net-metering framework notes on the Minneapolis record (mn-hennepin-minneapolis-xcel) — codified in Minn. Stat. 216B.164, with residential systems under 40kW AC receiving 1:1 retail-rate compensation."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed Electrical Permit Application, submitted with the applicable fee through the City's PAULIE online platform",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own Solar PV Systems Electrical Permit page, which addresses the electrical permit specifically (fees, inspection process). A separate building permit covering roof/mounting structural review may also apply — the page fetched this session focused on the electrical permit process only, not a full combined checklist."
+  },
+  "inspection_steps": {
+    "value": [
+      "The contractor must be present for all Solar/PV electrical permit inspections",
+      "Residential (one- and two-family) contractors can schedule inspections online",
+      "Inspection requests are handled by calling the inspector between 7:30 a.m. and 9:00 a.m., Monday through Friday",
+      "All work must comply with the latest National Electrical Code as adopted by Minnesota"
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page does not state a specific review-to-issuance day count; it does state the permit expires if work does not commence within 180 days of issuance, and exterior work on a single- or two-family dwelling must be completed within one year."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 40,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Permits expire if work does not commence within 180 days of issuance",
+        "Exterior work on a single- or two-family dwelling (including garages) must be completed within one year",
+        "The 40kW AC figure recorded here reflects the statewide net-metering threshold for the standard 1:1 retail-rate compensation tier (per Minn. Stat. 216B.164), not a separate City permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar PV electrical permit, 0-20 kW AC",
+        "amount_usd": 138,
+        "unit": "flat fee",
+        "notes": "Per the City's own fee schedule for the Solar PV Systems Electrical Permit."
+      },
+      {
+        "name": "Solar PV electrical permit, 21-40 kW AC",
+        "amount_usd": 332,
+        "unit": "flat fee",
+        "notes": "Per the City's own fee schedule."
+      },
+      {
+        "name": "Solar PV electrical permit, above 40 kW AC",
+        "amount_usd": 315,
+        "unit": "base fee plus $3.00 per kW above 40kW",
+        "notes": "Per the City's own fee schedule; not typically applicable to residential systems."
+      },
+      {
+        "name": "State surcharge",
+        "amount_usd": 1,
+        "unit": "minimum flat fee",
+        "notes": "Per the City's own fee schedule — a minimum state-mandated surcharge added to the permit fee."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Fees are calculated based on the system's total estimated AC energy output in kW, with fractional kilowatts rounded to the nearest whole number. This is the electrical permit fee only; a separate building permit fee may apply if structural/roof work is also required."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Saint Paul or statewide Minnesota rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Electrical Inspection Department",
+        "phone": "651-266-9003",
+        "email": null,
+        "url": "https://www.stpaul.gov/departments/safety-inspections/building-and-construction/construction-permits-and-inspections/electrical-permits-inspections/solar-pv-systems-electrical"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar PV Systems Electrical Permit",
+      "url": "https://www.stpaul.gov/departments/safety-inspections/building-and-construction/construction-permits-and-inspections/electrical-permits-inspections/solar-pv-systems-electrical",
+      "publisher": "City of Saint Paul, Department of Safety and Inspections",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "On-site Solar",
+      "url": "https://mn.my.xcelenergy.com/s/renewable/developers/on-site-solar",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Net Metering & Compensation",
+      "url": "https://mn.gov/puc/activities/economic-analysis/distributed-energy/net-metering/",
+      "publisher": "Minnesota Public Utilities Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

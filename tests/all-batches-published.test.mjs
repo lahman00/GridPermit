@@ -39,6 +39,7 @@ const STATE_SLUGS = {
 	SC: "south-carolina",
 	GA: "georgia",
 	WI: "wisconsin",
+	MN: "minnesota",
 };
 
 const AGGREGATOR_FILES = [

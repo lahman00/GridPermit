@@ -1,0 +1,205 @@
+{
+  "record_id": "mn-hennepin-minneapolis-xcel",
+  "schema_version": "1.4.0",
+  "state": "MN",
+  "utility": {
+    "value": "Xcel Energy",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Xcel Energy is Minneapolis's well-established dominant electric utility."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Minneapolis's residential solar customers this session; Xcel Energy is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Minneapolis",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Hennepin County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Minneapolis Community Planning & Economic Development, Construction Code Services (building permit); State of Minnesota Department of Labor and Industry, Electrical Division (electrical permit)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Minnesota's State Building Code is mandatory in the seven-county Twin Cities metro area (which includes Minneapolis/Hennepin County) and is notably NOT locally amendable — a uniquely uniform statewide code compared to most other states researched this session. A genuinely split-authority structure applies to solar specifically: the City's own Construction Code Services issues the building permit, but the electrical permit for the same project is issued directly by the State of Minnesota's Department of Labor and Industry, Electrical Division — not the City."
+  },
+  "permit_url": {
+    "value": "https://www.minneapolismn.gov/media/-www-content-assets/documents/Solar-energy-checklist.pdf",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://mn.gov/puc/activities/economic-analysis/distributed-energy/net-metering/",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Per the Minnesota Public Utilities Commission's own page: net metering is codified in Minn. Stat. 216B.164, applying to public, cooperative, and municipal utilities alike. Residential systems under 40kW AC (the typical case) receive compensation at the Average Retail Utility Energy Rate — a true 1:1 retail-rate credit, calculated annually per utility from total yearly revenue minus fixed charges divided by yearly kWh sales. Systems must not be sized to produce more than 120% of the site's annual on-site energy consumption. Xcel Energy's own program is separately branded 'Solar*Rewards,' though its own site was not successfully fetched this session to confirm program-specific fees or timelines."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own Solar Checklist does reference energy storage system (ESS) documentation requirements (battery manufacturer/model, installation location, code evaluation report per MN Residential Code R327) when a system includes backup power, but this describes permitting documentation, not a dedicated battery incentive/rebate program — left null rather than conflating the two."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Permit Applicant Checklist for residential solar energy installations (the City's own form), completed in full",
+        "required_when": "roof-top and ground-mounted PV systems (not required for building-integrated PV, which instead needs manufacturer specs and code evaluation reports)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan showing property lines, structures, setbacks, solar panel locations, and main service location (scaled and dimensioned)",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Elevation drawing illustrating the installation's appearance and finished height above the roof or ground surface",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Building cross section showing rafter size, spacing, span, roof slope, and fastening/bolt details",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan showing array/panel layout, obstructions, and — for dwellings/ADUs — required fire-access pathways (at least 2, on separate roof planes) and ridge setbacks",
+        "required_when": "roof-mounted systems (roof-access/pathway rules waived for slopes ≤17% and for detached non-habitable structures like garages)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "A current survey signed by a licensed land surveyor, or found property-pin locations marked on the site plan, to verify property lines and setbacks",
+        "required_when": "ground-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own 'Residential Solar Energy Systems' checklist (Construction Code Services, last updated 2026-02). If a structural question on the checklist (roof condition, mounting method, or fastening) is answered unfavorably, a stamped study/letter from a Minnesota-licensed structural engineer is additionally required. Properties within a heritage preservation district or on a landmark property require additional review by the Heritage Preservation Commission before permit issuance."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own checklist document is a plan-submission guide and does not itself detail post-installation inspection scheduling steps — not confirmed from a primary source this session."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific review-to-issuance day count was stated in the City's own checklist document."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 40,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "No more than 2 layers of existing roof shingles are allowed under the panels",
+        "Ground-mounted systems must meet the property-line setback standards for solar accessory structures in Minneapolis Zoning Code Title 20, Chapter 535, Article XII (Solar Energy Systems)",
+        "The 40kW AC figure recorded here reflects the statewide net-metering threshold for the standard 1:1 retail-rate compensation tier (per Minn. Stat. 216B.164), not a separate City permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific dollar figure for the building or electrical permit fee was independently confirmed from a primary source this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Minneapolis or statewide Minnesota rebate dollar amount was independently confirmed from a primary source this session (Xcel Energy's own 'Solar*Rewards' program was referenced in search results but its own program page was not successfully fetched this session) — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Minnesota Department of Labor and Industry, Electrical Division (electrical permits)",
+        "phone": "651-284-5026",
+        "email": null,
+        "url": "http://www.dli.mn.gov/CCLD/etrakit_electrical.asp"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar Energy Systems — Solar Checklist (Last Updated 02/2026)",
+      "url": "https://www.minneapolismn.gov/media/-www-content-assets/documents/Solar-energy-checklist.pdf",
+      "publisher": "City of Minneapolis, Community Planning & Economic Development",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "On-site Solar",
+      "url": "https://mn.my.xcelenergy.com/s/renewable/developers/on-site-solar",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Net Metering & Compensation",
+      "url": "https://mn.gov/puc/activities/economic-analysis/distributed-energy/net-metering/",
+      "publisher": "Minnesota Public Utilities Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
