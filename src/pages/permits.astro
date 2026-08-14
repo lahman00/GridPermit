@@ -1,0 +1,179 @@
+---
+// The national discovery surface: one honest page per state, coverage
+// derived entirely from the real dataset at build time — never a hardcoded
+// snapshot. A state with a published guide shows its real guide count; a
+// state with only LIMITED records says so plainly rather than being hidden
+// or padded to look more complete than it is. See
+// docs/NATIONAL_PRODUCT_STRATEGY.md's "current coverage limitations"
+// section — this page is that section's live, user-facing counterpart.
+import {
+	SITE_ORIGIN,
+	buildLocalityIndexEntries,
+	buildBreadcrumbSchema,
+	type LocalityRecord,
+} from "../lib/locality-guide";
+import { STATE_META, SUPPORTED_STATE_CODES } from "../lib/state-meta";
+import Analytics from "../components/Analytics.astro";
+
+const localityModules = import.meta.glob("../../data/localities/*.json", { eager: true }) as Record<
+	string,
+	{ default: LocalityRecord & { record_id: string } }
+>;
+const allRecords = Object.values(localityModules).map((mod) => mod.default);
+const recordsById = new Map(allRecords.map((r) => [r.record_id, r]));
+
+const evaluationModules = import.meta.glob("../../output/*-evaluation.json", { eager: true }) as Record<
+	string,
+	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
+>;
+const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
+const readyEntries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById);
+
+interface StateCoverage {
+	code: string;
+	name: string;
+	slug: string;
+	url: string;
+	readyCount: number;
+	totalRecords: number;
+}
+
+const stateCoverage: StateCoverage[] = SUPPORTED_STATE_CODES.map((code) => {
+	const meta = STATE_META[code];
+	const readyCount = readyEntries.filter((e) => e.state === code).length;
+	const totalRecords = allRecords.filter((r) => r.state === code).length;
+	const url = code === "CA" ? "/california/" : `/${meta.slug}/`;
+	return { code, name: meta.name, slug: meta.slug, url, readyCount, totalRecords };
+}).sort((a, b) => a.name.localeCompare(b.name));
+
+const publishedStates = stateCoverage.filter((s) => s.readyCount > 0);
+const inProgressStates = stateCoverage.filter((s) => s.readyCount === 0);
+const totalGuides = stateCoverage.reduce((sum, s) => sum + s.readyCount, 0);
+
+const PAGE_PATH = "/permits/";
+const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
+const title = "Solar Permit Guides by State (All 50 States) | GridPermit";
+const description = `Browse GridPermit's solar permit research by state — ${publishedStates.length} states have at least one published, source-linked city guide; research is on file for all 50 states.`;
+
+const breadcrumbSchema = buildBreadcrumbSchema([
+	{ name: "Home", url: `${SITE_ORIGIN}/` },
+	{ name: "Browse States", url: CANONICAL_URL },
+]);
+
+const collectionSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: title,
+	description,
+	url: CANONICAL_URL,
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<Analytics />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="canonical" href={CANONICAL_URL} />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={CANONICAL_URL} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
+	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+	<style>
+		:root { --primary: #2563eb; --primary-dark: #1d4ed8; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; }
+		* { box-sizing: border-box; }
+		body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
+		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; }
+		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+		.brand-logo { text-decoration: none; font-size: 1.4rem; color: #0F172A; }
+		.brand-logo .logo-bold { font-weight: 800; }
+		.nav-search-link { text-decoration: none; font-size: 1.05rem; }
+		.page-container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem 1.5rem; }
+		.breadcrumb-nav { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
+		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.75rem 0; }
+		.page-lead { color: var(--text-muted); font-size: 1rem; max-width: 700px; margin-bottom: 1.5rem; }
+		.summary-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
+		.summary-stat .num { display: block; font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+		.summary-stat .label { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+		h2.section-heading { font-size: 1.25rem; font-weight: 800; margin: 2.5rem 0 1rem 0; }
+		.state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+		.state-card { display: block; background: white; border: 1px solid var(--border-color); border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--text-main); transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+		.state-card:hover { border-color: var(--primary); box-shadow: 0 4px 14px -4px rgba(37,99,235,0.25); }
+		.state-card .state-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.4rem; }
+		.state-card .coverage-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 999px; }
+		.coverage-badge.published { background: #dcfce7; color: #166534; }
+		.coverage-badge.in-progress { background: #f1f5f9; color: #64748b; }
+		.state-card.flagship { border-color: var(--primary); border-width: 2px; background: #eff6ff; }
+		.state-card.flagship .coverage-badge { background: #2563eb; color: white; }
+		.in-progress-note { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1rem; max-width: 700px; }
+		.footer-disclaimer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
+		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
+	</style>
+</head>
+<body>
+	<a href="#main-content" class="skip-link">Skip to main content</a>
+	<nav class="navbar">
+		<div class="nav-container">
+			<a href="/" class="brand-logo" aria-label="GridPermit Home">Grid<span class="logo-bold">Permit</span></a>
+			<a href="/search" class="nav-search-link" aria-label="Search">🔍 Search</a>
+		</div>
+	</nav>
+
+	<div class="page-container">
+		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+			<a href="/">Home</a> / <span>Browse States</span>
+		</nav>
+
+		<main id="main-content" tabindex="-1">
+			<h1>Solar Permit Guides by State</h1>
+			<p class="page-lead">GridPermit has research on file for all 50 states. {publishedStates.length} states have at least one guide that's cleared our bar to publish — the rest have real research in progress that hasn't yet met that bar. We say so plainly rather than filling gaps with guesses. See our <a href="/methodology">Methodology</a> for exactly what "published" requires.</p>
+
+			<div class="summary-stats">
+				<div class="summary-stat"><span class="num">50</span><span class="label">States With Research on File</span></div>
+				<div class="summary-stat"><span class="num">{publishedStates.length}</span><span class="label">States With Published Guides</span></div>
+				<div class="summary-stat"><span class="num">{totalGuides}</span><span class="label">Total Published Guides</span></div>
+				<div class="summary-stat"><span class="num">{stateCoverage.find((s) => s.code === "CA")?.readyCount ?? 0}</span><span class="label">Published in California Alone</span></div>
+			</div>
+
+			<h2 class="section-heading">States with published guides</h2>
+			<div class="state-grid">
+				{publishedStates.map((s) => (
+					<a href={s.url} class={`state-card ${s.code === "CA" ? "flagship" : ""}`} data-track-click="permit_guide_clicked">
+						<div class="state-name">{s.name}</div>
+						<span class="coverage-badge published">{s.readyCount} guide{s.readyCount === 1 ? "" : "s"} published</span>
+					</a>
+				))}
+			</div>
+
+			<h2 class="section-heading">Research in progress</h2>
+			<p class="in-progress-note">These states have real locality records on file, but none has yet reached the completeness and source-verification bar GridPermit requires before publishing a guide. Check back, or use <a href="/search">search</a> to see exactly what's on file today.</p>
+			<div class="state-grid">
+				{inProgressStates.map((s) => (
+					<a href={s.url} class="state-card">
+						<div class="state-name">{s.name}</div>
+						<span class="coverage-badge in-progress">Research in progress</span>
+					</a>
+				))}
+			</div>
+		</main>
+
+		<div class="footer-disclaimer">
+			<p>Coverage counts reflect GridPermit's own verified dataset as of the last data update. A state showing published guides may still have cities with no guide yet — search for your specific city to check. See <a href="/methodology">Methodology</a> for how a record earns "published" status, and <a href="/how-it-works">How It Works</a> for the full process.</p>
+		</div>
+	</div>
+</body>
+</html>
