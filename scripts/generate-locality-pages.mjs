@@ -91,6 +91,7 @@ const STATE_SLUGS = {
   NY: "new-york",
   WV: "west-virginia",
   OK: "oklahoma",
+  TX: "texas",
 };
 
 function pagesRootFor(record) {
