@@ -1,0 +1,175 @@
+{
+  "record_id": "wi-milwaukee-wauwatosa-weenergies",
+  "schema_version": "1.4.0",
+  "state": "WI",
+  "utility": {
+    "value": "We Energies",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "We Energies",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Wauwatosa's residential solar customers this session; We Energies is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "city": {
+    "value": "Wauwatosa",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Milwaukee County",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Wauwatosa Building and Safety Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Wisconsin's Uniform Dwelling Code (UDC) is a genuinely statewide code for one- and two-family dwellings, administered by the state Department of Safety and Professional Services (DSPS) but enforced locally in every Wisconsin municipality. Wauwatosa's own Building and Safety Division is the local permitting authority."
+  },
+  "permit_url": {
+    "value": "https://www.wauwatosa.net/government/departments/development/building-safety/permits/solar-permit",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.we-energies.com/services/wi-customer-owned-generation",
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own page, grid connection requires a Distributed Generation agreement with We Energies, a scheduled commissioning appointment, and on-site commissioning with a utility representative. We Energies' own program page (see the We Energies-territory notes on Wauwatosa's record) describes a buy-back-rate structure for excess generation rather than traditional 1:1 net metering, structurally different from MGE's retail-rate net metering used in Madison, WI (see wi-dane-madison-mge) — a genuinely useful reusable statewide contrast, since Wisconsin does not mandate a single net-metering structure across all utilities."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Proof of proper state licensing for the installer (electrical, building, plumbing, or other as applicable), and potentially proof of insurance",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "A completed solar worksheet or an evaluation from a professional engineer addressing roof load considerations",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "A site plan",
+        "required_when": "ground-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own page, roof-mounted residential PV projects generally do NOT require additional building permits or plans beyond the electrical permit — a notably lighter-weight process than most other jurisdictions researched this session. Ground-mounted systems, roof structural modifications, solar hot water (plumbing/mechanical permit), and historic-preservation-zone properties each have additional requirements."
+  },
+  "inspection_steps": {
+    "value": [
+      "A final inspection is scheduled by calling the assigned electrical inspector (contact information provided on the permit)",
+      "Inspections are scheduled within a 30-minute time window, generally available within 2 days of the request",
+      "For grid-connected systems, a Distributed Generation agreement with We Energies must be arranged, followed by a scheduled commissioning appointment performed on-site with a utility representative before the system may begin producing energy",
+      "Diggers Hotline (1-800-242-8511) must be contacted at least 3 days before any digging (e.g., for ground-mount footings or trenching)"
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Per the City's own page, for projects that do not require additional permits or building plans, the electrical permit is issued within 3 business days — this covers the typical roof-mounted residential PV case."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Accessory solar energy systems are allowed in all zoning districts in the City of Wauwatosa",
+        "Properties in a historic preservation zone may require additional review"
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar permit fee waiver program",
+        "amount_usd": 0,
+        "unit": "waived for the first 15 residential and first 5 commercial solar permits issued each year",
+        "notes": "Per the City's own page: 'As part of the City's commitment to renewable energy, the permit fees will be waived for the first 15 residential and first 5 commercial solar permits issued each year.' Offered annually on a first-come, first-served basis, starting 2026-03-01. The standard (non-waived) fee amount itself was not stated on the page fetched this session."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This is a genuinely notable municipal incentive — a limited annual first-come-first-served fee waiver, not a blanket exemption — recorded with the exact eligibility count and start date as stated by the City."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The solar permit fee waiver above is a permitting-cost incentive, not a rebate/incentive program on the system cost itself — no separate rebate program was independently confirmed this session, left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's page directs applicants to contact 'the Building and Safety Division' for questions but did not display a specific phone number or email in the content fetched this session."
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Permit",
+      "url": "https://www.wauwatosa.net/government/departments/development/building-safety/permits/solar-permit",
+      "publisher": "City of Wauwatosa, Building and Safety Division",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}

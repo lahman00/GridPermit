@@ -1,0 +1,201 @@
+{
+  "record_id": "wi-dane-madison-mge",
+  "schema_version": "1.4.0",
+  "state": "WI",
+  "utility": {
+    "value": "Madison Gas and Electric (MGE)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Madison Gas and Electric (MGE)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Madison's residential solar customers this session; MGE is recorded as both the distribution and default generation utility. MGE also separately offers a 'Shared Solar' community-solar program, distinct from a customer-owned rooftop system."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Madison",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Dane County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_authority": {
+    "value": "City of Madison Building Inspection Division (Zoning and Building Inspection)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Wisconsin's Uniform Dwelling Code (UDC) is a genuinely statewide code for one- and two-family dwellings, administered by the state Department of Safety and Professional Services (DSPS) but enforced locally in every Wisconsin municipality — permit issuance for residential solar in Madison is handled by the City's own Building Inspection Division, not directly by DSPS. Electrical work statewide is separately governed by the Wisconsin Electrical Code (SPS 316, based on the NEC)."
+  },
+  "permit_url": {
+    "value": "https://www.cityofmadison.com/sustainability/energy/renewable-energy/how-to-go-solar",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.mge.com/smart-energy/clean-energy/solar-energy/customer-owned-generation",
+    "confidence": 0.8,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "MGE's own page confirms a traditional retail-rate net metering structure (bill credit for excess power delivered to the grid), structurally different from We Energies' buy-back-rate approach elsewhere in Wisconsin (see the utility-comparison note on the We Energies-territory locality researched separately, if published). No specific system-size cap or interconnection fee was stated on the page fetched this session; Wisconsin's statewide interconnection process for utilities is governed by Public Service Commission rule PSC 119."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Zoning information from the Assessor's property lookup",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical documentation showing the photovoltaic device is UL listed",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Plumbing documentation proving non-toxic transfer fluid or a double-walled heat exchanger",
+        "required_when": "solar thermal/water-heating systems only",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural calculations and drawings showing roof attachment and the existing structure's capacity",
+        "required_when": "roof-mounted systems",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Solar device catalog sheets with weight specifications",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan and placement plan indicating solar system location and adjoining improvements",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "inspection_steps": {
+    "value": [
+      "Inspections are scheduled during construction and must be completed before proceeding to the next construction phase",
+      "A final inspection is requested upon completion",
+      "The homeowner is responsible for coordinating all inspections with assigned inspectors"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 0,
+      "notes": "Per the City's own page, standard residential applications with no zoning complications can receive a permit immediately once documents are complete. Properties in a historic district or Planned Development require additional approval steps that may extend the timeline by two weeks or more — this record's same-day figure applies only to the standard, non-complicated path."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": null,
+      "other_conditions": [
+        "Properties in a historic district or subject to a Planned Development require additional approval steps beyond the standard permit path"
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page states applicable fees apply per its Building Inspection Fees schedule but does not state a specific dollar figure inline — left null rather than estimated."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No specific Madison or MGE-specific rebate dollar amount was independently confirmed this session; Wisconsin's statewide Focus on Energy program was referenced in search results but not independently fetched and confirmed from its own primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "MGE customer service",
+        "phone": "608-252-7000",
+        "email": "AskExperts@mge.com",
+        "url": "https://www.mge.com"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "How to Go Solar",
+      "url": "https://www.cityofmadison.com/sustainability/energy/renewable-energy/how-to-go-solar",
+      "publisher": "City of Madison, Sustainability & Resilience",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Customer-Owned Generation",
+      "url": "https://www.mge.com/smart-energy/clean-energy/solar-energy/customer-owned-generation",
+      "publisher": "Madison Gas and Electric (MGE)",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
