@@ -48,6 +48,7 @@ const STATE_SLUGS = {
 	WA: "washington",
 	ID: "idaho",
 	FL: "florida",
+	KY: "kentucky",
 };
 
 const AGGREGATOR_FILES = [

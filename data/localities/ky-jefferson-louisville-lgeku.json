@@ -1,0 +1,218 @@
+{
+  "record_id": "ky-jefferson-louisville-lgeku",
+  "schema_version": "1.4.0",
+  "state": "KY",
+  "utility": {
+    "value": "Louisville Gas and Electric (LG&E)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "LG&E is Louisville's well-established dominant electric utility, operated jointly with Kentucky Utilities (KU) under the shared LG&E and KU Energy company."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Louisville Gas and Electric (LG&E)",
+      "type": "utility",
+      "notes": "No Community Choice Aggregator was found serving Louisville's residential solar customers this session; LG&E is recorded as both the distribution and default generation utility."
+    },
+    "confidence": 0.55,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Louisville",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Jefferson County",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Louisville and Jefferson County operate a consolidated Louisville Metro government; Develop Louisville's Division of Construction Review is the single permitting authority for the whole consolidated jurisdiction."
+  },
+  "permit_authority": {
+    "value": "Louisville Metro Government, Develop Louisville — Division of Construction Review",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Kentucky Building Code is adopted at the state level by the Department of Housing, Buildings and Construction (DHBC), but enforcement is local — in counties/cities that maintain their own building department (like consolidated Louisville Metro), that local department is the AHJ; in smaller counties without a local building department, DHBC may enforce directly. Louisville's own Division of Construction Review is a genuinely consolidated authority for the whole Louisville Metro (city-county) government."
+  },
+  "permit_url": {
+    "value": "https://louisvilleky.gov/government/sustainability/installing-solar-louisville",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://lge-ku.com/net-metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Per LG&E and KU's own page: net metering is capped at 45kW system capacity. Two credit structures apply depending on enrollment date: NMS-1 (enrolled before 2021-09-24) credits excess generation in kWh to offset future usage; NMS-2 (enrolled on/after 2021-09-24) credits excess generation in dollars at the Kentucky Public Service Commission's set rate (6.9 cents/kWh for LG&E, 7.4 cents/kWh for KU, effective 2021-09-24), carrying over as a bill credit but never paid out in cash. The 5-step application process (requirements review, application with 3 attachments via email or mail, review/approval, installation with inspections, utility meter installation/activation) is typically fee-free for nearly all applicants."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": []
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Electrical permit application",
+        "required_when": "always, for all solar installations (ground-mount or roof-mount)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Simplified Building Permit application, a scaled roof diagram showing panel location/number and roof framing (e.g., 2x8s at 16in with 12ft spans), and manufacturer specifications (system weight and attachment method)",
+        "required_when": "roof-mounted systems only (ground-mounted systems need only the electrical permit)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural engineer analysis",
+        "required_when": "unique situations such as unusual roof framing or loading conditions, determined case-by-case",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Certificate of Appropriateness",
+        "required_when": "properties in a historic preservation district or subject to Architectural Review Committee review",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Documentation of existing roof specification's ability to support the installation, signed and stamped by a licensed KY Professional Engineer or licensed Architect",
+        "required_when": "required specifically for the streamlined/3-day permitting path",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Per the City's own 'Installing Solar in Louisville' page, which links a downloadable permitting checklist. Electrical work must comply with Article 690 of the most recently adopted National Electrical Code edition."
+  },
+  "inspection_steps": {
+    "value": [
+      "After installation, an inspection is required and requested through Develop Louisville's Division of Construction Review 'Request an Inspection' webpage",
+      "Applicants must pass an electrical inspection (roof- and ground-mounted systems) and, for roof-mounted systems, a building inspection as well",
+      "Expect a wait of 3-4 business days for an inspection; times vary by staff workload and application complexity",
+      "Inspections are not guaranteed within the 3-day streamlined permitting turnaround window"
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "Per the City's own page: electrical permits are issued the SAME DAY a complete application is submitted (online applications receive a permit immediately). Simplified building permits for streamlined-eligible residential rooftop/ground-mount projects are turned around within 3 days or less when a complete package (including the licensed engineer/architect roof-support documentation) is submitted; most simplified building permits can be obtained the same day, with 4-5 business days anticipated for full review if not fully streamlined. Non-streamlined-eligible projects (and all commercial projects) instead require a full qualified review without the 3-day guarantee. No specific automated-review platform is named in the source material, so none is recorded here."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 45,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Streamlined 3-day permitting path for residential rooftop and ground-mount systems meeting completeness/engineering criteria",
+      "other_conditions": [
+        "In residential districts, roof-mounted systems may not exceed 10 feet above the maximum height allowed by the underlying form district, and no system may be attached to a building's wall or side (per Land Development Code Section 4.3.16)",
+        "Freestanding (ground-mount) systems may not exceed the maximum building height of the underlying form district, and alternative-energy systems/equipment may cover no more than 25% of the lot area",
+        "Properties in a historic preservation district or Architectural Review Committee jurisdiction require a Certificate of Appropriateness; most ARCs discourage panels visible from a building's primary/street-facing elevation but will work with owners on placement",
+        "The 45kW figure recorded here reflects the statewide LG&E/KU net-metering capacity cap, not a separate City permit-eligibility limit"
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Electrical permit",
+        "amount_usd": 50,
+        "unit": "starting fee",
+        "notes": "Per the City's own page: 'Fees for electrical start at $50.'"
+      },
+      {
+        "name": "Simplified building permit",
+        "amount_usd": 75,
+        "unit": "starting fee, calculated based on the square footage area of the solar panel system",
+        "notes": "Per the City's own page: 'Fees for... simplified building permits start at $75. The building permit fee is calculated based on the square footage are of the solar panel system.' Exact cost is confirmed during review and due at permit issuance."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's own page describes the federal 30% Investment Tax Credit (a statewide/nationwide incentive, not Louisville-specific) and the Energy Project Assessment District (EPAD) financing program (a loan-repayment mechanism for larger/commercial properties, not a rebate) — no specific Louisville-only rebate dollar amount was found, left null rather than conflating these with a locality-specific rebate."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Develop Louisville, Division of Construction Review — Permits",
+        "phone": null,
+        "email": null,
+        "url": "https://louisvilleky.gov/government/sustainability/installing-solar-louisville"
+      }
+    ],
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Physical permitting office address confirmed as 444 S. 5th St., Louisville — no direct phone or email was displayed for this division specifically on the page fetched this session."
+  },
+  "last_verified": "2026-08-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Installing Solar in Louisville",
+      "url": "https://louisvilleky.gov/government/sustainability/installing-solar-louisville",
+      "publisher": "Louisville Metro Government",
+      "type": "government",
+      "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S2",
+      "title": "Net metering for your home or business",
+      "url": "https://lge-ku.com/net-metering",
+      "publisher": "LG&E and KU",
+      "type": "utility",
+      "accessed_date": "2026-08-13"
+    }
+  ]
+}
