@@ -157,16 +157,36 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No specific dollar figure for Boston's building or electrical permit fee was independently confirmed from a primary source this session."
+    "value": [
+      {
+        "name": "Electrical permit fee (general formula — no dedicated solar line item published)",
+        "amount_usd": 20,
+        "unit": "$20.00 application fee plus $10.00 per $1,000.00 of the estimated cost of work (the 'when none of the above apply' tier, covering new electrical installations that don't fall under the service-upgrade or no-service-change tiers)",
+        "notes": "Per the City of Boston Inspectional Services Department's own 'Building Division Permit Fees' schedule (Rev. 2021). Solar installations also require an Electrical permit per this record's required_documents; the schedule has no solar-specific line item, so the general Electrical fee formula is recorded here."
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": ["S4"]
   },
   "rebates": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No specific Boston or statewide Massachusetts rebate dollar amount was independently confirmed from a primary source this session (the statewide SMART program pays a per-kWh production incentive, but its specific current rate was not independently fetched and confirmed this session) — left null rather than guessed."
+    "value": [
+      {
+        "name": "SMART (Solar Massachusetts Renewable Target) Program — Eastern Massachusetts, Standard Residential (≤25kW AC)",
+        "administrator": "Massachusetts Department of Energy Resources (DOER), administered by Eversource",
+        "description": "Per-kWh production incentive paid for a 10-year term (200% Base Compensation Rate Factor tier) under Eversource's own SMART tariff (M.D.P.U. No. 74M, filed 2026-06-10, effective 2026-07-01) for Eastern Massachusetts (Eversource/NSTAR territory, which includes Boston). The rate declines across sequential capacity 'blocks' as each fills — Block 1 (the newest/current block at time of research) pays $0.34000/kWh for standard residential; the Low-Income tier (230% factor) pays $0.39100/kWh at Block 1. Both rates decline through at least 8 published blocks (Block 8 standard: $0.255.../kWh). This is paid in addition to net metering, not instead of it.",
+        "value_usd_per_kwh": 0.34,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Standalone Generation Unit ≤25kW AC in Eastern Massachusetts (Eversource/NSTAR territory); rate is fixed for a 10-year term once assigned at application, but the applicable Block (and its rate) depends on remaining capacity at time of application — the current open Block was not independently re-confirmed beyond this tariff's own Block 1 listing.",
+        "url": "https://www.eversource.com/docs/default-source/rates-tariffs/74-renewable-credits.pdf",
+        "effective_from": "2026-07-01",
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S5"],
+    "notes": "Rate figures extracted directly from Eversource's own filed SMART tariff (M.D.P.U. No. 74M), read via saved-binary PDF extraction. Multiple third-party solar-industry sites this session claimed a flat '$0.03/kWh' SMART 3.0 rate for all residential systems — this figure could not be located anywhere in the actual filed tariff and is materially inconsistent with the tariff's own published Block 1 rate of $0.34000/kWh, so it was treated as unreliable and discarded in favor of the primary-source tariff figure."
   },
   "official_contacts": {
     "value": [
@@ -183,7 +203,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-14",
   "sources": [
     {
       "id": "S1",
@@ -208,6 +228,22 @@
       "publisher": "City of Boston, Greenovate Boston",
       "type": "government",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "Building Division Permit Fees (Rev. 2021)",
+      "url": "https://www.boston.gov/sites/default/files/file/2021/10/Building%20Division%20Fees.pdf",
+      "publisher": "City of Boston, Inspectional Services Department",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S5",
+      "title": "SMART Tariff (M.D.P.U. No. 74M, effective 2026-07-01)",
+      "url": "https://www.eversource.com/docs/default-source/rates-tariffs/74-renewable-credits.pdf",
+      "publisher": "NSTAR Electric Company d/b/a Eversource Energy",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
     }
   ]
 }

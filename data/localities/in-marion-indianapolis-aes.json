@@ -124,10 +124,15 @@
     "notes": "Per the City's own 'Solar Photovoltaic Systems Required Documents Checklist' (Office of Sustainability). Applicants must also comply with any applicable private deed restrictions or HOA covenants, which the City does not itself enforce. A resubmittal for incomplete/deficient documentation is treated as a new application, processed in order of receipt."
   },
   "inspection_steps": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not confirmed from a primary source this session."
+    "value": [
+      "Foundation (if applicable — typically not for a rooftop-mount system)",
+      "Under Slab / Framing (if applicable)",
+      "Rough Electrical",
+      "Final Electrical"
+    ],
+    "confidence": 0.65,
+    "source_ids": ["S3"],
+    "notes": "Per DBNS's own 'Schedule of Requirements — Inspections and Closeout' document (last updated 2026-01-02), the general Building inspection sequence lists Foundation, Under Slab, Framing, Rough (Electrical/Plumbing/Mechanical), and Final (Electrical/Plumbing/Mechanical) — this is the general construction inspection sequence, not solar-specific; for a typical rooftop-mount residential solar installation with no new foundation or framing work, only the Rough Electrical and Final Electrical steps would typically apply."
   },
   "timeline_days": {
     "value": null,
@@ -195,7 +200,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-14",
   "sources": [
     {
       "id": "S1",
@@ -212,6 +217,14 @@
       "publisher": "AES Indiana",
       "type": "utility",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Schedule of Requirements — Inspections and Closeout (last updated 2026-01-02)",
+      "url": "https://us-east-1-indy.graphassets.com/ActDBC5rvRWeCZlNNnLrDz/cmk1g19f753j006lkhorri2ul",
+      "publisher": "City of Indianapolis, Department of Business and Neighborhood Services",
+      "type": "government",
+      "accessed_date": "2026-08-14"
     }
   ]
 }

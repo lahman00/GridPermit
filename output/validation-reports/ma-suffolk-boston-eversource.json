@@ -2,10 +2,16 @@
   "record_id": "ma-suffolk-boston-eversource",
   "file": "data/localities/ma-suffolk-boston-eversource.json",
   "validated_at": "2026-08-14",
-  "status": "PASS",
-  "score": 100,
+  "status": "REVIEW",
+  "score": 95,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    }
+  ],
   "recommendations": [
     {
       "field": "battery_programs",
@@ -18,20 +24,12 @@
     {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.boston.gov/boston-permitting/install-or-replace/install-or-replace-solar-panels",
-      "checked_at": "2026-08-14T07:42:38.112Z",
+      "checked_at": "2026-08-14T23:53:42.832Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -39,7 +37,15 @@
     },
     {
       "url": "https://www.eversource.com/residential/about/doing-business-with-us/interconnections/massachusetts/net-metering",
-      "checked_at": "2026-08-14T07:42:39.944Z",
+      "checked_at": "2026-08-14T23:53:44.619Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.eversource.com/docs/default-source/rates-tariffs/74-renewable-credits.pdf",
+      "checked_at": "2026-08-14T23:53:46.015Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -47,7 +53,15 @@
     },
     {
       "url": "https://www.boston.gov/sites/default/files/document-file-03-2017/refereneguidetogoingsolarinbostonmarch242017.pdf",
-      "checked_at": "2026-08-14T07:42:40.651Z",
+      "checked_at": "2026-08-14T23:53:46.360Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.boston.gov/sites/default/files/file/2021/10/Building%20Division%20Fees.pdf",
+      "checked_at": "2026-08-14T23:53:46.563Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

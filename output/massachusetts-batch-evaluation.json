@@ -1,13 +1,13 @@
 {
   "state": "MA",
-  "generated_at": "2026-08-14T14:38:02.253Z",
+  "generated_at": "2026-08-14T23:53:27.900Z",
   "records": [
     {
       "record_id": "ma-suffolk-boston-eversource",
       "state": "MA",
       "city": "Boston",
       "county": "Suffolk County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 80,
       "validation_score": 100,
       "validation_status": "PASS",
       "error_count": 0,
@@ -22,21 +22,21 @@
         "interconnection_url",
         "required_documents",
         "eligibility_constraints",
+        "permit_fees",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
         "inspection_steps",
-        "timeline_days",
-        "permit_fees",
-        "rebates"
+        "timeline_days"
       ],
       "warning_categories": [],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
+    "average_completeness_pct": 80,
     "average_validation_score": 100,
     "fields_most_often_missing": [
       {
@@ -50,26 +50,14 @@
       {
         "field": "timeline_days",
         "missing_in_records": 1
-      },
-      {
-        "field": "permit_fees",
-        "missing_in_records": 1
-      },
-      {
-        "field": "rebates",
-        "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "ma-suffolk-boston-eversource",
-        "city": "Boston",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 100)"
-      }
+    "recommended_publish_record_ids": [
+      "ma-suffolk-boston-eversource"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }
