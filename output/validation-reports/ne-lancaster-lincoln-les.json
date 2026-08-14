@@ -1,0 +1,60 @@
+{
+  "record_id": "ne-lancaster-lincoln-les",
+  "file": "data/localities/ne-lancaster-lincoln-les.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 96,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.lincoln.ne.gov/City/Departments/PDS/Building-Safety/Permit-Applications/Solar-PV-Residential-Requirements-for-Streamlined-Review — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://law.justia.com/codes/nebraska/chapter-70/statute-70-2002/ — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.lincoln.ne.gov/City/Departments/PDS/Building-Safety/Permit-Applications/Solar-PV-Residential-Requirements-for-Streamlined-Review",
+      "checked_at": "2026-08-14T17:43:34.641Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://law.justia.com/codes/nebraska/chapter-70/statute-70-2002/",
+      "checked_at": "2026-08-14T17:43:34.755Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.les.com/sustainability/customer-owned-generation",
+      "checked_at": "2026-08-14T17:43:34.788Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

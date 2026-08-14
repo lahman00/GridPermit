@@ -70,6 +70,7 @@ const STATE_SLUGS = {
   IA: "iowa",
   KS: "kansas",
   MO: "missouri",
+  NE: "nebraska",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

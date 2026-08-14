@@ -1,0 +1,202 @@
+{
+  "record_id": "ne-lancaster-lincoln-les",
+  "schema_version": "1.4.0",
+  "state": "NE",
+  "utility": {
+    "value": "Lincoln Electric System (LES)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "LES is a municipally-owned electric utility serving Lincoln, Nebraska, Nebraska's capital and second-largest city. Omaha Public Power District (OPPD) and the City of Omaha were confirmed genuinely blocked earlier in this marathon. This record pivots to Lincoln and its own separate public-power utility instead."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Lincoln Electric System (LES)",
+      "type": "utility",
+      "notes": "Recorded as both the distribution and generation utility. Nebraska is the only U.S. state served at retail entirely by consumer-owned electric utilities (public power districts, cooperatives, and municipalities) — there are no investor-owned utilities in Nebraska."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Lincoln",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Lancaster County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Lincoln, Nebraska's capital, is the seat of Lancaster County."
+  },
+  "permit_authority": {
+    "value": "City of Lincoln Planning and Development Services — Building and Safety",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.lincoln.ne.gov/City/Departments/PDS/Building-Safety/Permit-Applications/Solar-PV-Residential-Requirements-for-Streamlined-Review",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This URL returns HTTP 403 to automated HEAD requests (a bot-detection response, not a broken page); the page's actual content was independently confirmed live and readable via direct browser navigation this session."
+  },
+  "interconnection_url": {
+    "value": "https://law.justia.com/codes/nebraska/chapter-70/statute-70-2002/",
+    "confidence": 0.75,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "This cites Nebraska's statewide Net Metering statute (Neb. Rev. Stat. §§ 70-2001 to 70-2005, enacted 2009 via LB 436), which establishes the floor that applies to all Nebraska local distribution utilities including LES; confirmed live via direct browser navigation (it returns HTTP 403 to automated HEAD requests, a bot-detection response, not a broken page). LES's own specific 'Renewable Net Metering Rider' rate schedule and its interconnection agreement form (Form 969) could not be independently read this session — both returned access errors via direct fetch, and the PDF could not be rendered via browser (download-only). Some third-party sources describe LES's own rider as locking the Energy Payment rate to the tariff tier in effect at the date of interconnection for 10 years, which would be a utility-specific implementation detail beyond the statute's own floor — this is noted for context only and is NOT independently confirmed from LES's own document this session, hence the reduced confidence."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No battery storage incentive program was found on the City of Lincoln's or LES's own accessible pages this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Solar PV Residential permit application, submitted electronically via the City of Lincoln's Citizen Access system or over-the-counter at the Development Services Center",
+        "required_when": "always; systems 25 kW AC or less on single-family or duplex rooftops are eligible for streamlined review using standard electrical plans and structural engineering evaluation criteria",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "LES interconnection agreement (Net Metering 25 kWAC or Less Agreement for Interconnection)",
+        "required_when": "always, for grid-tied systems",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Additional coordination and approval through Lincoln Electric System",
+        "required_when": "always, alongside the City's own inspection process",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "inspection_steps": {
+    "value": [
+      "Once all City of Lincoln permits to construct the solar PV system have been issued and the system has been installed, it must be inspected before final approval is granted to operate the system; inspections can be scheduled through Citizen Access or by calling 402-441-5999",
+      "Additional coordination and approvals are required through Lincoln Electric System beyond the City's own inspection"
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 3,
+      "notes": "Per the City of Lincoln's own page: permits for streamlined-eligible solar PV systems (25 kW AC or less on single-family or duplex rooftops) are processed in 3 business days or less if submitted electronically or over-the-counter. This covers the City's plan-review turnaround only, not LES's separate interconnection review."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 25,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City of Lincoln's streamlined residential solar PV permit review (systems 25 kW AC or less on single-family or duplex rooftops), combined with LES's net metering program under Nebraska's statewide Net Metering statute (Neb. Rev. Stat. §§ 70-2001 to 70-2005, enacted 2009 via LB 436).",
+      "other_conditions": [
+        "A 'qualified facility' under Nebraska's statewide statute must have a rated capacity at or below 25 kilowatts, be located on and controlled by the customer-generator's own premises, interconnect and operate in parallel with the local distribution system, and be equipped to automatically isolate itself during a power outage.",
+        "Net metering credits the customer-generator at the full retail rate for each kWh that offsets their own electricity use during a billing period; any net excess generation beyond the customer's own usage is instead compensated at the local utility's avoided cost of electric supply (Neb. Rev. Stat. § 70-2002(6)).",
+        "The customer-generator's minimum monthly fee may not exceed that charged to other customers in the same rate class, and no additional standby, capacity, demand, interconnection, safety-testing, or liability-insurance requirement beyond the statute's own standards may be imposed.",
+        "A local distribution utility is not required to accept additional net-metering customers once the combined capacity of all its net-metering customer-generators reaches 1% of its average aggregate customer monthly peak demand forecast for that calendar year — though a utility may voluntarily offer net metering above this cap or for systems above 25 kW at its own discretion."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S3"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City of Lincoln or LES primary source fetched this session published a specific permit or interconnection application fee dollar figure."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No rebate or incentive dollar amount was independently confirmed from a primary source this session for Lincoln or LES specifically."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Lincoln Planning and Development Services",
+        "phone": "402-441-7521",
+        "email": "plandev@lincoln.ne.gov",
+        "url": "https://www.lincoln.ne.gov/City/Departments/PDS/Building-Safety/Permit-Applications/Solar-PV-Residential-Requirements-for-Streamlined-Review"
+      },
+      {
+        "name": null,
+        "role": "Lincoln Electric System — Energy Services / Customer-Owned Generation",
+        "phone": "402-475-4211",
+        "email": "energyservices@les.com",
+        "url": "https://www.les.com/sustainability/customer-owned-generation"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar PV Residential Requirements for Streamlined Review",
+      "url": "https://www.lincoln.ne.gov/City/Departments/PDS/Building-Safety/Permit-Applications/Solar-PV-Residential-Requirements-for-Streamlined-Review",
+      "publisher": "City of Lincoln, NE",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Customer-owned generation",
+      "url": "https://www.les.com/sustainability/customer-owned-generation",
+      "publisher": "Lincoln Electric System (LES)",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "Nebraska Revised Statutes §§ 70-2002 (Terms, defined) and 70-2003 (Local distribution utility; interconnect qualified facility) (2025)",
+      "url": "https://law.justia.com/codes/nebraska/chapter-70/statute-70-2002/",
+      "publisher": "State of Nebraska (official statute text, via Justia's official-code mirror)",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}
