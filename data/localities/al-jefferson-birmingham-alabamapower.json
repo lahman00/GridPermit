@@ -1,0 +1,222 @@
+{
+  "record_id": "al-jefferson-birmingham-alabamapower",
+  "schema_version": "1.4.0",
+  "state": "AL",
+  "utility": {
+    "value": "Alabama Power Company",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Alabama Power is the well-established dominant electric utility for Birmingham, Alabama's largest city."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Alabama Power Company",
+      "type": "utility",
+      "notes": "Alabama Power is a Southern Company operating subsidiary and is recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "city": {
+    "value": "Birmingham",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Jefferson County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Birmingham, Alabama's largest city, is the seat of Jefferson County."
+  },
+  "permit_authority": {
+    "value": "City of Birmingham Department of Planning, Engineering and Permits (PEP)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.birminghamal.gov/government/city-departments/pep",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "interconnection_url": {
+    "value": "https://www.alabamapower.com/company/clean-energy/solar-energy.html",
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Alabama Power's own page confirms the interconnection application is submitted via PowerClerk, and that customers selling excess power select either Rate PAE (systems under 100kW) or Rate CPE (systems 100kW or larger). The page also references a mandatory Rate Rider RGB for interconnected customers but does not itself disclose specific dollar charges."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No confirmed financial battery storage incentive program was found in Alabama Power's own materials or the City's own permitting pages this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City of Birmingham building permit application, plus two sets of plans (site plan, floor plan, typical wall section, foundation plan, framing plan) for single-family residential work",
+        "required_when": "for any work not exempted (painting, papering, carpeting, cabinets, countertops, similar finish work, and non-decking roof shingle replacement are exempt)",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Southern Company DER Interconnection Request (Application) form and Technical Data form, submitted via the PowerClerk portal",
+        "required_when": "always, before purchasing or installing panels",
+        "source_ids": [
+          "S2",
+          "S4"
+        ]
+      },
+      {
+        "name": "DER site plan showing the proposed point of interconnection, DER one-line electrical diagram, and DER relay and metering one-line",
+        "required_when": "always, as Application supporting documents",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Proof of DER site control (property tax bill, lease agreement, or other legally binding document)",
+        "required_when": "always",
+        "source_ids": [
+          "S4"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S4"
+    ],
+    "notes": "The City's own building permit requirements are general (not solar-specific); the DER interconnection document checklist comes from the Southern Company (Alabama Power/Georgia Power/Mississippi Power) Distribution DER Policy, which governs the general interconnection process rather than a simplified small-residential-specific version."
+  },
+  "inspection_steps": {
+    "value": [
+      "The DER must be inspected by the Authority Having Jurisdiction (AHJ) before initial synchronization; if no AHJ exists for the DER location, inspection must instead be performed by a qualified licensed electrician, registered Professional Engineer, or other person deemed qualified by the Company",
+      "Following successful DER Witness Testing, Alabama Power issues final written permission for DER Parallel Operation",
+      "City of Birmingham inspections follow the adopted codes (2015 International Building Code family; the 2014 National Electric Code applies to electrical work, with no plan review required for electrical permits specifically)"
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S4"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 3,
+      "max_days": 10,
+      "notes": "Per the City of Birmingham's own building permit brochure: the review period is 3 working days or less for single-family residences (10 working days or less for commercial projects). This covers only the City permit review. Alabama Power's own Southern Company interconnection policy states the DER Owner is granted one 7-day period for Initial Synchronization once pre-conditions are met, but does not publish an overall application-to-approval turnaround specific to small residential rooftop solar."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S4"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 100,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Rate PAE (Purchase of Alternate Energy) — for customers with a generating facility of no more than 100kW nameplate capacity seeking a permanent electrical connection to sell alternate energy to Alabama Power; systems 100kW or larger instead fall under the separate Rate CPE (Contract for Purchased Energy).",
+      "other_conditions": [
+        "To be eligible for Rate PAE, the customer must receive electric service under a rate presently on file with the Alabama Public Service Commission and available to new accounts.",
+        "Rate Rider RGB (a mandatory rider for customers operating their own generation, covering supplementary, backup, and maintenance power) applies to interconnected customers, per Alabama Power's own solar page.",
+        "A monthly capacity reservation charge and a below-retail excess-generation credit rate are widely reported by third-party sources for Rate PAE customers, but the exact current dollar figures were not independently confirmed from a primary Alabama Power tariff document this session — the actual Rate PAE tariff PDF returned a 404 error, and an alternate copy obtained from a third-party host could not be extracted as readable text."
+      ]
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "City of Birmingham building permit fee",
+        "amount_usd": null,
+        "unit": "$9.50 per $1,000 of total construction cost ($1.00 per $1,000 additional State of Alabama surcharge on commercial permits); $125.00 minimum fee",
+        "notes": "Per the City's own Building Permit brochure. Valuation is based on the latest International Code Council valuation tables for new structures, or the contract value, whichever is higher."
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "No Alabama Power interconnection/application fee dollar figure was confirmed from a primary source this session."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Birmingham-specific or statewide Alabama solar rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Birmingham Department of Planning, Engineering and Permits (PEP)",
+        "phone": "205-254-2211",
+        "email": null,
+        "url": "https://www.birminghamal.gov/government/city-departments/pep"
+      },
+      {
+        "name": null,
+        "role": "Alabama Power renewable generation support",
+        "phone": null,
+        "email": "g2apcrenewables@southernco.com",
+        "url": "https://www.alabamapower.com/company/clean-energy/solar-energy.html"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "City of Birmingham One Stop Permitting — Building Permit",
+      "url": "https://www.birminghamal.gov/government/city-departments/pep",
+      "publisher": "City of Birmingham, AL",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "Solar Power: A Renewable Energy Source",
+      "url": "https://www.alabamapower.com/company/clean-energy/solar-energy.html",
+      "publisher": "Alabama Power Company",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S4",
+      "title": "Operation of Distributed Energy Resources (DER) in Parallel with the Distribution System Policy (effective June 15, 2021)",
+      "url": "https://www.alabamapower.com/content/dam/alabama-power/pdfs-docs/SOCO%20Interconnection%20Policy.pdf",
+      "publisher": "Southern Company (Alabama Power Company, Georgia Power Company, Mississippi Power Company)",
+      "type": "utility",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}

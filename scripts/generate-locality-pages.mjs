@@ -94,6 +94,7 @@ const STATE_SLUGS = {
   TX: "texas",
   MS: "mississippi",
   AR: "arkansas",
+  AL: "alabama",
 };
 
 function pagesRootFor(record) {

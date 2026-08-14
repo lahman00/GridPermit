@@ -62,6 +62,7 @@ const STATE_SLUGS = {
   TX: "texas",
   MS: "mississippi",
   AR: "arkansas",
+  AL: "alabama",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {
