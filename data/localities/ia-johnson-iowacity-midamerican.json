@@ -1,0 +1,222 @@
+{
+  "record_id": "ia-johnson-iowacity-midamerican",
+  "schema_version": "1.4.0",
+  "state": "IA",
+  "utility": {
+    "value": "MidAmerican Energy Company",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "Iowa City's own solar page directs installers filing interconnection requests to 'the utility's webpage...for MidAmerican customers,' confirming MidAmerican as the relevant utility for at least a substantial share of Iowa City properties. MidAmerican's own consumer website (midamericanenergy.com) was unreachable this session (confirmed blocked earlier in this marathon), so utility-specific interconnection details are instead sourced from the Iowa Utilities Commission's own regulatory record of MidAmerican's filed tariff."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "MidAmerican Energy Company",
+      "type": "utility",
+      "notes": "Recorded as both the distribution and generation utility."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "city": {
+    "value": "Iowa City",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "county": {
+    "value": "Johnson County",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Iowa City is the seat of Johnson County."
+  },
+  "permit_authority": {
+    "value": "City of Iowa City Neighborhood and Development Services",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "permit_url": {
+    "value": "https://www.icgov.org/government/departments-and-divisions/climate-action-outreach/solar-in-iowa-city",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This URL returns HTTP 403 to automated HEAD requests (a bot-detection response, not a broken page); the page's actual content was independently confirmed live and readable via direct browser navigation this session."
+  },
+  "interconnection_url": {
+    "value": "https://iuc.iowa.gov/regulated-industries/electric/site-distributed-generation",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "Iowa does not permit traditional full-retail-rate net metering. Iowa Code § 476.49 instead requires MidAmerican Energy and Interstate Power and Light (Alliant Energy) to file net billing or inflow-outflow compensation tariffs with the Iowa Utilities Commission. The IUC's own page confirms MidAmerican's approved tariff is Rate IO (Inflow/Outflow Billing), Docket No. TF-2020-0235, effective November 24, 2020 — under which exported energy is credited as a dollar amount at the outflow purchase rate, applied toward volumetric charges, rather than banked as a 1:1 kWh credit at the full retail rate."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Iowa City's own page confirms battery storage can be permitted alongside a solar array under the same permit process, but no dedicated battery storage financial incentive program was found this session."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Solar PV permit application, submitted through the City of Iowa City's online Customer Self-Service Portal",
+        "required_when": "always",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Solar Permitting Checklist for Iowa City (six-question streamlined-eligibility checklist confirming roof construction can support the array), uploaded by the installer into the submission portal",
+        "required_when": "always, to qualify for streamlined review with no additional roof-construction documentation",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "NEC 2020 Article 690, 691, and 705 compliance information, collected through the online application portal",
+        "required_when": "always, for both rooftop and ground-mounted PV installations",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Notification to MidAmerican Energy at least 30 days before installing the distributed generation system, as required by Iowa law",
+        "required_when": "always",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Interconnection request filed with MidAmerican Energy (typically filed by the installer on the customer's behalf)",
+        "required_when": "always, for grid-tied systems",
+        "source_ids": [
+          "S1",
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "inspection_steps": {
+    "value": [
+      "A City of Iowa City building inspector reviews the permit application (typically within 3 business days or less) and contacts the applicant with an approval or a request for any missing information",
+      "The State of Iowa or the applicable local authority requires a construction inspection upon completion of the distributed generation system installation",
+      "MidAmerican Energy may require its own verification that the installed system meets applicable interconnection standards before authorizing the system to operate"
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 3,
+      "notes": "Per Iowa City's own page: 'Your permit will be reviewed within three (3) business days or less, and a building inspector will then contact you with an approval or request for any missing information.' This covers the City's plan-review turnaround only, not the utility interconnection review or total project timeline."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ]
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Solar PV is permitted by right as an accessory structure in Iowa City (no special board review required). Grid-tied systems interconnect with MidAmerican Energy under Iowa's net billing/inflow-outflow framework (Iowa Code § 476.49; Iowa Administrative Code 199-45 for interconnection, 199-15 for Cogeneration and Small Power Production Rules) rather than traditional net metering, which Iowa state law does not permit.",
+      "other_conditions": [
+        "Iowa state law does not allow traditional full-retail-rate net metering; MidAmerican Energy's IUC-approved tariff (Rate IO, Docket No. TF-2020-0235, effective 11/24/2020) instead credits exported energy as a dollar amount at the outflow purchase rate.",
+        "Iowa law requires the distributed generation system owner to notify their interconnected electric utility at least 30 days before installing a distributed generation system.",
+        "Solar arrays are allowed in all Iowa City zoning districts, including Historic and Conservation Districts; a streamlined historic-review process applies when the array is on a rear-facing or outbuilding roof, mounted close to and parallel with the roof surface, and colored to blend with the roofing materials — otherwise a standard Historic Preservation Commission review applies.",
+        "Iowa's residential Solar Energy System Tax Credit is no longer available for systems installed in 2022 or later, but Iowa City confirms solar arrays still qualify for a state property tax exemption on the added value for the first five years after installation.",
+        "Since January 2023, Iowa City ordinance prevents newly formed HOAs (or new HOA solar rules) from being more restrictive of solar installations than the City's own regulations."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Iowa City's own page lists 'permitting' as one of several cost categories a homeowner should ask installers about, but does not publish a specific dollar figure or fee schedule on the page itself — left null rather than guessed."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Iowa City's own page explicitly confirms Iowa's residential Solar Energy System Tax Credit is no longer available for systems installed in 2022 or later — a confirmed negative rather than an unresearched gap. No other rebate dollar amount was found this session."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City of Iowa City Neighborhood and Development Services",
+        "phone": "319-356-5120",
+        "email": null,
+        "url": "https://www.icgov.org/government/departments-and-divisions/climate-action-outreach/solar-in-iowa-city"
+      },
+      {
+        "name": null,
+        "role": "Iowa Utilities Commission — On-Site (Distributed) Generation",
+        "phone": null,
+        "email": null,
+        "url": "https://iuc.iowa.gov/regulated-industries/electric/site-distributed-generation"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ]
+  },
+  "last_verified": "2026-08-14",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar in Iowa City",
+      "url": "https://www.icgov.org/government/departments-and-divisions/climate-action-outreach/solar-in-iowa-city",
+      "publisher": "City of Iowa City, IA",
+      "type": "government",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S2",
+      "title": "On-Site (Distributed) Generation",
+      "url": "https://iuc.iowa.gov/regulated-industries/electric/site-distributed-generation",
+      "publisher": "Iowa Utilities Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S3",
+      "title": "Consumer Guide for On-Site Generation (Distributed Generation)",
+      "url": "https://iuc.iowa.gov/media/140/download?inline=",
+      "publisher": "Iowa Utilities Commission",
+      "type": "puc",
+      "accessed_date": "2026-08-14"
+    }
+  ]
+}

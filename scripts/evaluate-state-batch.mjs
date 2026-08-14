@@ -67,6 +67,7 @@ const STATE_SLUGS = {
   ND: "north-dakota",
   SD: "south-dakota",
   WY: "wyoming",
+  IA: "iowa",
 };
 
 function classifyReadiness({ completenessPct, score, errorCount }) {

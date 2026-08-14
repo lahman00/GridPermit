@@ -1,0 +1,55 @@
+{
+  "record_id": "ia-johnson-iowacity-midamerican",
+  "file": "data/localities/ia-johnson-iowacity-midamerican.json",
+  "validated_at": "2026-08-14",
+  "status": "REVIEW",
+  "score": 98,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.icgov.org/government/departments-and-divisions/climate-action-outreach/solar-in-iowa-city — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.icgov.org/government/departments-and-divisions/climate-action-outreach/solar-in-iowa-city",
+      "checked_at": "2026-08-14T17:16:42.454Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://iuc.iowa.gov/regulated-industries/electric/site-distributed-generation",
+      "checked_at": "2026-08-14T17:16:42.573Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://iuc.iowa.gov/media/140/download?inline=",
+      "checked_at": "2026-08-14T17:16:42.682Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}
