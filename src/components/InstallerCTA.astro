@@ -4,11 +4,12 @@
 // the natural next question is "who actually does this for me?") and before
 // the footer disclaimer.
 //
-// This routes to GridPermit's dedicated EnergySage partner landing page
-// (energysage.com/p/gridpermit/), same pattern as the homepage's EnergySage
-// CTA (src/pages/index.astro). Compensation from this partnership has NOT
-// been independently verified — do not add rel="sponsored" or claim
-// compensation until documentary evidence confirms it.
+// GridPermit's dedicated partner landing page (energysage.com/p/gridpermit/)
+// returned a 404 as of 2026-08-15 — reverted to the plain root link until
+// EnergySage confirms it's live. Same pattern as the homepage's EnergySage
+// CTA (src/pages/index.astro). Compensation not independently verified
+// either way — do not add rel="sponsored" or claim compensation until
+// documentary evidence confirms it.
 interface Props {
 	city: string;
 }
@@ -19,14 +20,15 @@ const { city } = Astro.props;
 <div class="installer-cta-box">
 	<h2>Need a solar installer who handles permits in {city}?</h2>
 	<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers familiar with local permitting.</p>
-	<!-- NOTE: dedicated GridPermit partner landing page (EnergySage Channel
-	     Partner account). Compensation not independently verified — do not
-	     add rel="sponsored" or claim compensation until confirmed. -->
-	<a href="https://www.energysage.com/p/gridpermit/" target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
+	<!-- NOTE: partner landing page 404s as of 2026-08-15 — reverted to the
+	     plain root link. Compensation not independently verified either
+	     way — do not add rel="sponsored" or claim compensation until
+	     confirmed. -->
+	<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
 		Compare quotes from solar installers →
 	</a>
 	<p class="installer-cta-disclosure">
-		You'll continue on EnergySage's website. GridPermit partners with EnergySage to help homeowners compare solar options; whether this results in compensation to GridPermit has not yet been confirmed.
+		You'll continue on EnergySage's website. GridPermit has a partner relationship with EnergySage; this link is not currently tracked, and whether the partnership results in compensation to GridPermit has not yet been confirmed.
 	</p>
 </div>
 
