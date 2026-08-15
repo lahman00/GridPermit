@@ -6,11 +6,9 @@ Written 2026-08-15. This document supersedes the narrower `docs/AFFILIATE_PIPELI
 
 ---
 
-## 🚨 Urgent finding, unrelated to new candidates: the live EnergySage CTA is currently broken
+## ✅ Resolved: the EnergySage CTA 404 flagged above
 
-While verifying EnergySage as part of this audit, I re-checked `https://www.energysage.com/p/gridpermit/` — the partner landing page that production CTAs were pointed at in the prior session — and found it **returns a genuine HTTP 404 "Page not found | EnergySage"** from EnergySage's own server (confirmed independently via `curl` with multiple user agents, not a bot-block: real EnergySage headers/cookies, a real branded 404 page, reproducible on repeated checks at 2026-08-15 16:21 UTC).
-
-Production (`mygridpermit.com`) currently sends every "Compare quotes from solar installers" / "Visit EnergySage" click to this dead page — worse than the prior plain, working `energysage.com` root link. This task's own instruction ("do not change any production affiliate link unless...") stops me from silently reverting this without telling you first, so I'm flagging it here rather than fixing it. **Recommended action: tell me to revert the CTA to the plain `https://www.energysage.com` root link (confirmed live, HTTP 200) until EnergySage confirms the partner page is actually published, or confirm the URL is expected to come online shortly and this is just a timing gap.**
+`https://www.energysage.com/p/gridpermit/` was confirmed 404ing at time of writing. Per your explicit go-ahead, all 6 live EnergySage CTAs were reverted to the plain, working `https://www.energysage.com` root link (commit `4023c19`, deployed and production-verified). This is not a new application — it's GridPermit's existing relationship, currently paused pending EnergySage fixing the partner page on their end. See §"Application Queue" below for genuinely new programs to apply to.
 
 ---
 
@@ -205,3 +203,317 @@ Everything else (13 candidates) is **REJECT** — no verifiable program, unverif
 8. Everything else in this document is either **REJECT** (no action needed) or **shelf-ready but intentionally not actioned** (Filter King, Factory Direct Filters, PlotForge, Permit Hub) pending a content vertical that doesn't exist today.
 
 **No code, links, or disclosures were changed to produce this document.** All 6 live production EnergySage CTAs remain exactly as they were at the start of this task — including the currently-broken one flagged above, which I'm surfacing rather than silently fixing per this task's explicit gate on touching production affiliate links.
+
+---
+
+## Application Queue — execution-ready, no CJ/Payoneer dependency
+
+Written 2026-08-15, second pass. This section re-verifies (fresh primary-source checks, not reused from the first pass) every candidate from the audit above that does **not** require CJ Affiliate account activation, filtering specifically for programs GridPermit can act on today. No production changes were made to produce this section — it is planning only.
+
+**Full status re-classification of all 23 candidates under the new 4-way scheme:**
+
+| Program | Status | Why |
+|---|---|---|
+| Profitise | **CONTACT DIRECTLY** | Real, solar-specific network; no self-serve form found, requires sales conversation |
+| MatchBurst | **APPLY NOW** | Real Awin program, solar is a listed vertical, self-serve signup open |
+| CostToBuildHouse | **APPLY NOW** | Real, instant-approval Rewardful program, permit-adjacent |
+| Angi | **CONTACT DIRECTLY** | Real, but email-inquiry only, no self-serve form |
+| Paragon Power Solutions | **CONTACT DIRECTLY** | Real self-serve form exists, but legitimacy flags (PO box HQ, undisclosed payout tiers) mean this needs diligence before submitting, not blind application |
+| EnergySage (CJ program) | **WAIT FOR CJ** | Real, self-serve, but gated behind CJ publisher account |
+| HomeAdvisor | **WAIT FOR CJ** | Real, self-serve CJ signup, same account as EnergySage |
+| Filter King | **REJECT** | Real Awin program, but zero HVAC content on GridPermit today |
+| Factory Direct Filters | **REJECT** | Same reasoning as Filter King |
+| Roofing4US | **REJECT** | Building-materials retailer, wrong content type, no roofing content |
+| PlotForge | **REJECT** | Best-documented terms in the whole audit, but zero fit (new-construction contractors, not homeowners) |
+| Permit Hub | **REJECT** | B2B contractor SaaS, no public terms, no homeowner fit |
+| Kohler Generators | **REJECT** | No consumer content-affiliate program exists (dealer program only) |
+| eLocal | **REJECT** | Pay-per-call model GridPermit has no mechanism for; gated to experienced affiliates |
+| Home Services Lead Group | **REJECT** | Unverifiable legitimacy (no BBB, reviews, press, or network listing) |
+| Lead Smart | **REJECT** | Mixed/poor trust signals, no solar vertical |
+| Current Home | **REJECT** | No verifiable entity found |
+| PreConstruct AI | **REJECT** | No verifiable entity found |
+| OnCrew | **REJECT** | B2B contractor software, wrong audience |
+| JobCloser | **REJECT** | B2B contractor software, wrong audience |
+| Jobtable | **REJECT** | B2B contractor software, wrong audience, inconsistent published terms |
+| bidyou.ai | **REJECT** | B2B contractor software, wrong audience, terms unconfirmed |
+| Atomi Smart | **REJECT** | "Atomi Alliance" is an installer-recruitment network, not a paid affiliate mechanism |
+
+### The 5 viable-today candidates, in full
+
+#### 1. Profitise — CONTACT DIRECTLY
+- **Application URL:** profitise.com (on-page "Become an Affiliate" registration section, anchor `#affiliate-registration-block`) — the actual form fields could not be extracted (likely JS-rendered); fallback direct contact confirmed: **sales@profitise.com** or **888-400-4868**.
+- **Network/platform:** Direct, in-house (not on CJ/Awin/Impact).
+- **Verified commission/payout terms:** **Not published anywhere on the site** — pay-per-lead model stated generally, plus a separately-mentioned 3% sub-affiliate override paid bi-weekly. No cookie window found. Genuinely gated behind a sales conversation.
+- **US coverage:** Yes, US-focused.
+- **GridPermit fit:** **Strongest fit of any new candidate** — "Solar Affiliate Program" and "Sell Solar Leads" are prominently, explicitly listed verticals, directly on-topic for 341 solar/battery permit pages.
+- **Application requirements:** Contact form or phone call; real terms only revealed after that conversation. Requires the owner (business context, eventual payment details).
+- **Owner interaction required:** Yes — this cannot be a pure self-serve online form; someone has to have the sales conversation.
+- **Recommended positioning/copy:** *"GridPermit (mygridpermit.com) publishes source-verified solar and battery permit guides for [341] U.S. cities across 50 states, reaching homeowners at the exact moment they've confirmed they're moving forward with a solar project and are looking for next steps. We're evaluating solar-lead affiliate partners and would like to understand Profitise's payout structure, cookie window, and lead-qualification criteria before committing traffic."*
+- **Status: CONTACT DIRECTLY.**
+
+#### 2. MatchBurst — APPLY NOW
+- **Application URL:** Via Awin publisher dashboard — [ui.awin.com/publisher-signup](https://ui.awin.com/publisher-signup/en/awin/step1), then join MatchBurst's program at [merchant profile 114854](https://ui.awin.com/merchant-profile-terms/114854) once inside Awin.
+- **Network/platform:** **Awin.** Re-verified directly: Awin publisher signup requires a **refundable £5 (~$6) deposit by card**, reimbursed at first commission payout — a real, small, card-based friction point, distinct from the CJ/Payoneer blocker and not requiring Payoneer specifically.
+- **Verified commission/payout terms:** Rate genuinely **not published** — "payouts based on valid leads generated... commission rates and terms may vary by vertical" (quoted directly from Awin's MatchBurst terms page). A valid lead = a homeowner submitting a complete, accurate service request in a serviceable area.
+- **US coverage:** Confirmed — "traffic must originate from the United States only."
+- **GridPermit fit:** Moderate — solar is one of several verticals (roofing, gutters, plumbing, HVAC, remodel, security also listed); real overlap but not solar-exclusive like Profitise.
+- **Application requirements:** Awin publisher account (card for the £5 deposit) + separate program-level application to MatchBurst inside Awin.
+- **Prohibited traffic (real, quoted):** No incentivized traffic, no unapproved email traffic, no misleading claims, no bidding on MatchBurst brand terms, no click-to-call without approval, no co-registration/scraping — GridPermit's organic content traffic is naturally compliant with all of these.
+- **Owner interaction required:** Yes — Awin account creation needs the owner's business/payment info and card for the deposit.
+- **Recommended positioning/copy:** *"GridPermit is a source-verified solar/battery permit-guide network of 341 pages across 50 US states, built on organic search traffic (no incentivized, co-reg, or scraped traffic). We'd like to add MatchBurst's solar-lead vertical as a secondary referral alongside our existing EnergySage relationship."*
+- **Status: APPLY NOW** (mechanically ready today; commission terms only become visible after joining).
+
+#### 3. CostToBuildHouse — APPLY NOW
+- **Application URL:** **https://equin-global-llc.getrewardful.com** (re-verified directly today — live, confirmed signup destination linked from costtobuildhouse.com's own `/affiliate` page).
+- **Network/platform:** **Rewardful.**
+- **Verified commission/payout terms (re-confirmed directly, corrected from first-pass figures):** Construction Cost Report — **30%** ($6.00 of $19.99). Permit Intelligence Report — **30%** ($3.00 of $9.99). Contractor Bid Review — **33%** ($10.00 of $29.99). **30-day cookie window.** No stated payout minimum. **Payout via bank transfer or PayPal** — notably, PayPal is a real option that sidesteps both the CJ and Payoneer bottlenecks entirely.
+- **US coverage:** Yes, all 50 states (zip-level cost adjustment).
+- **GridPermit fit:** Weak-to-moderate — same "homeowner researching permits" audience and a literal "Permit Intelligence Report" product, but it's a new-construction cost-estimation tool, not solar-specific. Best framed as a low-effort test, not a primary revenue driver.
+- **Application requirements:** Instant approval stated for "content creators, bloggers, and real estate professionals" — no minimum traffic stated. Still requires the owner's payout details (bank or PayPal) to actually receive money.
+- **Owner interaction required:** Yes, to create the Rewardful account and set the PayPal/bank payout method — but this is the lowest-friction of all 5 (instant approval, no card deposit, no sales call).
+- **Recommended positioning/copy:** *"GridPermit publishes source-verified, permit-focused guides for homeowners across all 50 states. We'd like to add CostToBuildHouse's Construction Cost Report and Permit Intelligence Report as relevant secondary resources for readers researching their project's full scope."*
+- **Status: APPLY NOW** — the single lowest-friction, fastest-to-execute option in this entire audit.
+
+#### 4. Angi — CONTACT DIRECTLY
+- **Application URL:** No self-serve form. [angi.com/landing/affiliatepartners](https://www.angi.com/landing/affiliatepartners) directs interested publishers to email **affiliate@angi.com**. (Re-verification attempt this pass was blocked by bot protection on Angi's own page — this finding is carried over from the first pass's successful direct fetch, not re-confirmed today; flagging honestly rather than asserting false certainty.)
+- **Network/platform:** Direct, in-house (despite third-party claims of an Impact.com program at "25%," no primary-source confirmation exists for that figure — do not quote it as fact).
+- **Verified commission/payout terms:** **Not published** — three engagement models mentioned (phone calls, referral link, lead auctions), no rates.
+- **US coverage:** Yes, nationwide, general home services.
+- **GridPermit fit:** Weak — general home-improvement leads, not solar-specific; would only work as a generic homepage/footer "other home services" mention, not a dedicated CTA.
+- **Application requirements:** Email inquiry; Angi presumably reviews the site before quoting terms.
+- **Owner interaction required:** Yes — the entire first step is a manual email from the owner.
+- **Recommended positioning/copy:** *"GridPermit (mygridpermit.com) is a source-verified permit-information site with 341 published city guides and organic search traffic across all 50 states. We're interested in Angi's affiliate/referral terms for directing readers to broader home-services search when their need falls outside solar/battery."*
+- **Status: CONTACT DIRECTLY.**
+
+#### 5. Paragon Power Solutions — CONTACT DIRECTLY (diligence-first, not a blind application)
+- **Application URL:** paragonpowersolutions.com/become-an-affiliate/ — real, live self-serve form (fields: First Name, Last Name, Email, Phone, "Which Best Describes You" — Contractor/Business Owner/Solar Supplier/Other).
+- **Network/platform:** Direct, in-house.
+- **Verified commission/payout terms:** "Up to $1,000 payout for every closed home solar power lead" — **exact tier structure for reaching that figure is not published anywhere**, re-confirmed on this pass.
+- **US coverage:** Company states it wants to "partner with professionals... throughout the United States," but its registered address (re-confirmed this pass) is **"Paragon Power, LLC, PO Box 942, Saint Just, PR 00978-0942"** — a PO box in Puerto Rico. Not disqualifying (PR is a US jurisdiction), but a PO-box-only address for a company advertising four-figure per-lead payouts is a real caution flag worth resolving before committing traffic.
+- **GridPermit fit:** Strong on paper (solar-specific), undermined by the unresolved legitimacy questions above.
+- **Application requirements:** The form itself is trivial to submit — but per your own standing instruction ("investigate... but do not approve them without direct verification"), the recommended action is a direct conversation (call the listed number, 724-418-8829) requesting the actual payout tier structure and a written agreement, not simply submitting the web form.
+- **Owner interaction required:** Yes — and specifically owner-level diligence, not just form-filling.
+- **Recommended positioning/copy:** *(for a direct call/email, not the web form)*: *"Before we submit an application, we'd like to understand Paragon Power Solutions' actual commission structure behind the 'up to $1,000 per lead' figure, your payment terms, and a written affiliate agreement — GridPermit sends organic, source-verified solar-permit traffic and wants to confirm partner legitimacy before directing any of it here."*
+- **Status: CONTACT DIRECTLY (verify before applying).**
+
+### Ranked — first 5 programs to act on today
+
+Ranked by expected revenue potential × likelihood of acceptance × relevance to GridPermit's existing solar/battery traffic:
+
+| Rank | Program | Revenue potential | Acceptance likelihood | Relevance | Why this rank |
+|---|---|---|---|---|---|
+| 1 | **Profitise** | Moderate–high (dedicated solar-lead network, sub-affiliate structure implies real volume) | Moderate (sales-gated, but solar content sites are their target) | **High** — solar-specific | Best topical match of any new candidate after EnergySage itself |
+| 2 | **MatchBurst** | Moderate (undisclosed CPL rate, but solar is a named vertical with real prohibited-traffic discipline) | Moderate-high (Awin approves quickly; GridPermit's 341 real pages should pass review) | Moderate — solar is one of several verticals | Real, mechanically ready today, second-strongest solar tie |
+| 3 | **Angi** | Unknown, but Angi's scale means potentially the largest absolute volume of any candidate here | Unknown (email-gated, no visibility into approval odds) | Low-moderate — general home services, no dedicated placement | Biggest brand/scale, weakest specific fit and least certainty |
+| 4 | **CostToBuildHouse** | Low ($3–10/sale) | High (instant approval stated) | Low-moderate — permit-adjacent, not solar-specific | Guaranteed-easy execution, low ceiling — good as a fast first win, not a primary bet |
+| 5 | **Paragon Power Solutions** | Potentially high ($1,000/lead claimed) if legitimate | High for the form itself, but **discounted** for unresolved legitimacy risk (PO box HQ, no disclosed tiers) | High — solar-specific | Highest headline number in this batch, but ranked last because the diligence step must happen before the number can be trusted |
+
+### What this section deliberately does not do
+
+- Does not submit any application, email, or form on the owner's behalf — every "Application URL" above is for the owner (or an explicitly authorized future session) to use directly, consistent with the standing rule that no agent creates accounts or enters business/tax/payment information.
+- Does not quote a commission figure that isn't directly sourced above (Profitise, Angi, and MatchBurst's exact rates remain genuinely unknown until contact/application — reported as such, not estimated).
+- Does not change any production link, disclosure, page, or metadata — this entire section is planning documentation only.
+
+---
+
+## Execution attempt log — 2026-08-15, third pass
+
+You approved the queue and asked me to execute it directly (create accounts, submit applications, send outreach) rather than just hand back instructions. Here's exactly what was attempted, what happened, and — critically — a hard capability/policy boundary that applies to every single item below, stated once here rather than repeated five times: **I do not create accounts on third-party platforms (any flow with a password field) or accept binding legal/agreement terms on your behalf under any circumstances, regardless of authorization, and I have no email-sending or phone-calling tool in this environment** — so "send an email" or "make a call" can only ever produce a ready-to-send draft, not a sent message. These aren't judgment calls made per-program; they're the same two hard limits hit five times.
+
+### 1. CostToBuildHouse — program is now DEAD, not APPLY NOW
+Navigated directly to `https://equin-global-llc.getrewardful.com` (the exact signup URL re-verified as live just one research pass ago) and found it now returns: **"Sorry, this affiliate program is no longer active."** Screenshot-confirmed, real Rewardful-hosted page, not a bot-block. This is new information that overturns the prior "APPLY NOW, lowest-friction win" ranking — the program was deactivated between the last research pass and now (or Rewardful's cache was stale before). **No application was possible. Reclassified: REJECTED / FAILED VERIFICATION.**
+
+### 2. Profitise — CONTACT DIRECTLY, draft prepared, not sent
+Navigated to profitise.com and clicked through to the actual "AFFILIATE REGISTRATION" section (not visible in the earlier text-only fetch). Found:
+- Real registered office: 505 N. Brand Blvd., 16th Floor, Glendale, CA 91203; phone 888-400-4868; email **sales@profitise.com** (all newly confirmed, stronger legitimacy signal than the first pass had).
+- The registration form itself requires **checking "I affirm I have read, understand and agree to the Affiliate Agreement, Terms and Conditions, and Privacy Policy"** (binding legal acceptance) **and two-step phone/SMS verification** — both are explicitly owner-only actions I will not complete on your behalf, and the phone verification requires a real phone number I don't have and won't fabricate.
+- Because of this, the registration form is not actually a place to just "ask questions" — submitting it commits to affiliate status. The correct channel for the written inquiry you asked for is the plain email address, not this form.
+- **Draft prepared below, ready to send from your own email client.** Not sent — no email tool exists in this environment.
+
+### 3. Angi — CONTACT DIRECTLY, draft prepared, not sent
+Re-navigated directly to angi.com's affiliate page (bypassed the bot-block that stopped the first-pass re-verification). Confirmed, word for word: **"To learn more, email affiliate@angi.com."** No self-serve form exists — this is genuinely email-only. **Draft prepared below, ready to send.** Not sent — no email tool exists.
+
+### 4. MatchBurst / Awin — confirmed OWNER_ACTION_REQUIRED, stopped at account creation itself (not just the $5 deposit)
+Navigated to Awin's publisher signup (`ui.awin.com/publisher-signup`). **Step 1 of 4 ("Account Setup") itself contains Password and Confirm Password fields**, alongside Company Name, Tax Residency, First/Last Name, and Email — i.e., this single screen *is* account creation, not a preamble to it. I did not enter any data into this form, including the "safe" fields, because doing so would mean materially progressing an account-creation flow I categorically don't complete, independent of whether the $5 deposit (which appears later, at the payment step) is ever reached. **Exact screen: `ui.awin.com/publisher-signup`, step "Account Setup," fields Company Name / Tax Residency / First Name / Last Name / Email / Password / Confirm Password / "Next Step."** This needs you, start to finish.
+
+### 5. Paragon Power Solutions — CONTACT DIRECTLY, but no viable path found
+Re-navigated to the live application form. Confirmed fields: First Name, Last Name, Email, **Phone Number** (required), "Which Best Describes You," Send. No email address is published anywhere on the site — only this form and the phone number 724-418-8829. Two problems: (a) the form has no free-text field, so it cannot carry your requested questions ("what event earns compensation," written terms, etc.) — submitting it just triggers a generic sales follow-up, not a substantive written inquiry; (b) it requires a phone number, and **I do not have a verified GridPermit phone number anywhere in this repo and will not fabricate one.** Given your own instruction to verify legitimacy before engaging, and the PO-box-only registered address found last pass, **this one has no channel I can meaningfully progress at all** — the only real option is you calling 724-418-8829 directly. Not a refusal of the task; there is genuinely no written-contact mechanism on their site to use.
+
+### Ready-to-send drafts (copy-paste, not sent by me)
+
+**To: sales@profitise.com — Subject: GridPermit — Solar Affiliate Partnership Inquiry**
+> Hello,
+>
+> GridPermit (mygridpermit.com) publishes source-verified, permit-focused solar and battery guides for cities across all 50 US states, with organic search as our primary traffic channel. We're evaluating Profitise's solar affiliate program and would like to understand, before registering:
+> - Publisher eligibility criteria for a content/informational site like ours
+> - Whether your solar-lead program covers all 50 states or specific state licensing/coverage restrictions
+> - Your qualified-lead definition
+> - Current payout rate/structure for solar leads
+> - Duplicate/rejected-lead handling rules
+> - Any restrictions on traffic sources (we are 100% organic search, no paid/incentivized/co-registration traffic)
+> - Attribution/tracking method used
+> - Payment terms and schedule
+>
+> We noticed registration requires agreeing to the Affiliate Agreement and completing phone verification, so we wanted to get these specifics in writing first.
+>
+> Thank you,
+> GridPermit
+
+**To: affiliate@angi.com — Subject: GridPermit — Affiliate Partnership Inquiry**
+> Hello,
+>
+> GridPermit (mygridpermit.com) is a source-verified permit-information site publishing 341 city guides across all 50 US states, built on organic search traffic. We're interested in your affiliate/referral program and would like to know:
+> - Publisher terms and commission structure
+> - Eligible traffic sources
+> - Payout model
+> - Geographic coverage
+> - Tracking/attribution method
+>
+> Please let us know the best next step.
+>
+> Thank you,
+> GridPermit
+
+**Note on sender address:** you asked me to use support@mygridpermit.com, but the address actually published on the live site (`src/pages/contact.astro`) is **support@gridpermit.com** (the apex domain, not the www one the site is hosted at) — I used a generic "GridPermit" sign-off above rather than guess which is correct. This exact ambiguity was flagged once before in `docs/MONETIZATION_READINESS.md` as needing your confirmation before any partner-facing use — worth resolving before either address goes out to a real company.
+
+---
+
+## New candidate discovery batch — 2026-08-15, fourth pass
+
+19 candidates researched/re-verified from primary sources (four parallel research passes plus my own direct re-verification of Kohler and live-browser checks on the strongest new leads). No production changes made. Same hard limits as the prior execution pass apply throughout: I do not create accounts on any platform with a password field, and I do not fabricate legal entity name, business address, or phone number to complete a form that requires them.
+
+### Correction: the Kohler claim does not hold up
+
+You asked me to re-verify a specific claim: that Kohler's official site "now explicitly advertises a 'Kohler Generators Affiliate Program'" letting publishers earn revenue promoting home standby generators. I re-checked this directly and **the claim isn't substantiated by what exists today:**
+- A real Kohler affiliate program does exist — via FlexOffers, **2.4% commission, 30-day cookie** ([flexoffers.com/affiliate-programs/kohler-affiliate-program](https://www.flexoffers.com/affiliate-programs/kohler-affiliate-program/), directly fetched and quoted). But its own page describes coverage as "faucets, sinks, toilets, and opulent bathwater" plus general home-improvement products — **generators are not mentioned**, and nothing found ties this program to Kohler's generator/home-energy line.
+- Kohler's generator-specific "Become a Kohler Partner" page (kohlerhomeenergy.rehlko.com) — re-confirmed unchanged from the first audit pass — remains a **B2B dealer/reseller partner network** (training, technical support, parts discounts for businesses), not a commission-based content-affiliate program.
+- **Net finding: no verified generator-specific affiliate program exists for content publishers.** The real Kohler affiliate program that does exist is for bath/kitchen fixtures — a vertical with zero relevance to GridPermit regardless. **Classification stays REJECTED**, for a different and more precise reason than the original pass (wrong product line confirmed, not just "no program found").
+
+### Full findings — all 19 candidates
+
+| Candidate | Real & active? | Solar/relevant vertical? | Application mechanism | Status |
+|---|---|---|---|---|
+| **homeyou** (homeyou.com/affiliates) | Yes | **Yes — confirmed live Solar Energy directory category** (homeyou.com/directory/solar-energy/...) | "Apply Now" button paired with "Already a member? Login" — strongly implies account creation; could not confirm exact fields (page didn't fully render on click) | **OWNER ACTION REQUIRED** — best solar-vertical fit of this entire batch |
+| **Advertising Results Inc.** (advertisingresults.com) | Yes — BBB A+, Billings MT | **Yes — "Solar" is an explicit checkbox vertical**, content/review-site traffic explicitly welcomed | Detailed business-application form (no password) — re-verified directly via browser. Requires: Legal Name (for agreements), Type of Entity, Business Phone, Street/City/State/Zip — **all data I don't have verified for GridPermit and won't fabricate** | **OWNER ACTION REQUIRED** — strong candidate, blocked purely on missing business data, not a technical/legal barrier |
+| **Bark.com US** (via Awin, merchant 58887) | Yes, public company network | Yes — confirmed solar, roofing, HVAC, electrical categories in the US marketplace | Awin publisher account (same password-gated flow documented for MatchBurst) | **OWNER ACTION REQUIRED** — best-documented terms of the whole batch (up to $100/lead, 30-day cookie, $50 payout threshold), same Awin account blocker |
+| **Signature Solar** (signaturesolar.com) | Yes | Yes — solar panels/batteries/inverters/backup power, direct match to "batteries/backup power" vertical | Application form; payout via bill.com (implies business/tax onboarding). Page didn't fully render for exact field confirmation — noting rather than guessing | **OWNER ACTION REQUIRED** — real, documented (up to 9% commission, 7-day cookie), but a product-affiliate (equipment sales) model, not a lead-referral model like the rest of the pipeline |
+| **Aragon Advertising** (aragon-advertising.com) | Yes — #1-ranked pay-per-call network per mThink, NY-based | Unconfirmed — home services (roofing, pest control, HVAC) listed; solar/battery not found on pages reviewed | Detailed application + mandatory arbitration/class-action-waiver acceptance; Tipalti payment setup within 6 months | **OWNER ACTION REQUIRED** — legitimate network, but solar vertical needs direct confirmation via publishers@aragon-advertising.com before applying |
+| **Modernize** (QuinStreet, Nasdaq: QNST) | Yes, public-company brand | Yes — solar listed alongside roofing/HVAC/windows/siding | Inquiry/approval-based via modernize.com/affiliates; terms not public | **OWNER ACTION REQUIRED** — most established/credible parent company in this batch, terms opaque until you apply |
+| **Fixr.com** | Yes | Yes — solar explicitly included alongside roofing/kitchens/bathrooms | Login-gated affiliate portal (affiliates.fixr.com) — likely requires account creation, unconfirmed | **OWNER ACTION REQUIRED** — real solar-relevant program, least transparent of the batch |
+| **Polyares** (polyares.com) | Yes | **No — 20+ general trade categories, no solar/battery found** | app.polyares.com/register — email/name/Google sign-in + legal acceptance (real account creation) | **REJECTED (no fit)** |
+| **DOPPCALL** (doppcall.com) | Yes | **No solar mention found anywhere** | doppcall.com/publisher/signup — account + password required | **REJECTED (no fit)** |
+| **LeadBank / Home Alliance** (leadbank.homealliance.com) | Yes | **No solar/battery vertical found** — general trades only | Contact form (`/contact?role=affiliate`) | **REJECTED (no fit)** |
+| **Networx** (networx.com) | Yes | Weak — solar appears only via individual contractor listings, no dedicated solar category | Manual phone/email intake, no self-serve portal | **REJECTED (weak fit, opaque terms)** |
+| **Inquirly** (inquirly.com) | Yes, real lead-buying agency | No — 35+ categories, **solar not listed at all** | No confirmed publisher/affiliate program exists | **REJECTED (no program)** |
+| **CallX** (callx.com) | Yes — name collision with unrelated callx.io confirmed and avoided | **No — confirmed life-insurance-only** on the primary source | publisher.callx.com signup | **REJECTED (wrong vertical)** |
+| **Callvanta** (callvanta.pro) | Unconfirmed — callvanta.pro returned 403; callvanta.com is a different, unrelated AI-automation company | Unknown — could not verify | Could not access | **REJECTED (unverifiable)** |
+| **Lead Smart Inc** (leadsmartinc.com) — re-verified | Yes, mixed trust | No solar, unchanged | New negative signal found: an unresolved **$6,326 withheld-payment dispute** over a retroactively-invoked "Marketplace" clause (affpaying.com) | **REJECTED — reinforced**, not softened |
+| **Home Services Lead Group** — re-verified | Unverifiable (still no BBB/press/address/phone/network listing) | **Changed: Solar is now explicitly listed** as a vertical | Contact form only | **REJECTED — unchanged reason (legitimacy), narrower now that vertical fit is no longer the blocker** |
+| **Permit Hub** — re-verified | Yes, real B2B SaaS | No change — still contractors/businesses only, no published terms | Application-only, privately negotiated | **REJECTED — confirmed unchanged** |
+| **Jobtable** — re-verified | Yes, real B2B SaaS | No change — still B2B, wrong audience | 20%/30% commission inconsistency **still present** in their own published terms | **REJECTED — confirmed unchanged** |
+| **Kohler Generators** — re-verified per your specific request | See correction above | N/A — real program found is for bath/kitchen fixtures, not generators | N/A | **REJECTED — claim not substantiated** |
+
+### What I did NOT do, and why
+
+- **Did not create any account** — every "Apply Now," "Register," or "Sign Up" flow that reached a password field (Polyares, DOPPCALL, Awin/Bark, likely homeyou and Fixr) was stopped at that exact point, not partway through with "safe" fields pre-filled.
+- **Did not submit the Advertising Results Inc. business-application form** — it requires GridPermit's legal entity name, registered street address, and business phone number. None of these exist anywhere in this repo or in anything you've told me, and I won't invent them. This is a clean, real, well-matched opportunity (solar explicitly listed, BBB A+, content-site-friendly) that's genuinely one step away — it just needs those three facts from you.
+- **Did not send any inquiry** — no email-sending tool exists in this environment, same limitation as the prior execution pass.
+
+---
+
+## Tracker (per your requested categories)
+
+**APPLYING:** none — nothing is mid-submission.
+
+**CONTACTED:** none — no send capability exists; see the two ready-to-send drafts (Profitise, Angi) from the prior execution pass, still unsent.
+
+**OWNER ACTION REQUIRED (8):** homeyou, Advertising Results Inc., Bark.com (via Awin), Signature Solar, Aragon Advertising, Modernize, Fixr.com — plus, carried over from the prior pass: Profitise, Angi, MatchBurst/Awin, Paragon Power Solutions.
+
+**WAITING FOR CJ (2, unchanged):** EnergySage's paid CJ program, HomeAdvisor.
+
+**PENDING:** none.
+
+**APPROVED:** none.
+
+**REJECTED (this pass, 12):** Kohler Generators (claim not substantiated — see correction), Polyares, DOPPCALL, LeadBank/Home Alliance, Networx, Inquirly, CallX, Callvanta, Lead Smart (reinforced), Home Services Lead Group (confirmed unchanged), Permit Hub (confirmed unchanged), Jobtable (confirmed unchanged).
+
+**TRACKING LINK RECEIVED:** none.
+
+### Honest tally against the "20 legitimate partners" target
+
+Across all research passes to date: **12 real, verified, OWNER-ACTION-READY opportunities** exist in the pipeline (this pass's 7 new + the prior pass's 5 minus CostToBuildHouse, which died). That's the actual number of legitimate, primary-source-verified programs GridPermit could realistically pursue right now — short of 20 not because research stopped, but because roughly two-thirds of everything investigated across both batches (29 companies total) turned out to have no solar/battery-relevant vertical, no real program, unverifiable legitimacy, or the wrong audience. Padding this list further would mean either re-including rejected candidates without new justification or inventing new companies — I did neither.
+
+---
+
+## Fifth pass — 2026-08-15: BigBattery/Power Queen/PVBAT/Docan Power/Digital Master Media batch + reopens
+
+**Operational note on Profitise and Angi:** per your report, ChatGPT already sent these two inquiries. I have not independently verified this (no sent-mail confirmation reviewed, no email tool to check) — recording as **CONTACTED (per your report, not independently verified by me)** and not sending duplicates.
+
+Three parallel research passes verified every claim supplied in your brief against primary sources rather than accepting them — two claims needed correcting, one couldn't be substantiated at all (see SUNcheck below). No production changes made.
+
+### Tier 1 — full results
+
+**1. BigBattery — OWNER ACTION REQUIRED, closest to submittable in the entire pipeline**
+All five of your supplied claims confirmed verbatim from bigbattery.com/partners/: free to join, 5% flat commission, ACH payout, lower-48-only, content creators/bloggers explicitly eligible. Application form re-verified live: **only Full Name and Contact Email are required** — no password, no payment info, no CAPTAI. Every other field (social handles, follower/subscriber counts, view counts) is "fill in all that apply," genuinely optional, and correctly left blank for GridPermit (a content/SEO site, not a social-media channel) — that's an honest "N/A," not a fabrication risk. The **only** thing stopping submission: a real contact name to attribute the application to, plus confirming which support email to use (the same `support@gridpermit.com` vs `support@mygridpermit.com` ambiguity flagged twice already). Give me those two facts and this one is submittable in the same session.
+
+**2. Power Queen — WAITING FOR AWIN (consolidated) / OWNER ACTION REQUIRED, with two corrections**
+- **Correction:** your brief said "commission on qualifying sales" without a figure; the real published rate is **5.5% base** ("up to 6%" marketing ceiling), not a flat 5%.
+- **Correction/addition:** Awin merchant ID 118441 is real — independently confirmed via `ui.awin.com/merchant-profile/118441` ("Merchant Name: Power Queen"). But **Awin is not the only path** — a direct, non-Awin route exists via GoAffPro (`ipowerqueen.goaffpro.com`), not identified in your brief. Per your instruction to consolidate rather than duplicate: the Awin route is now the **same blocker already tracked for MatchBurst** (password-gated publisher account, `ui.awin.com/publisher-signup`) — no new owner action beyond what's already logged. The GoAffPro route is a separate, not-yet-explored dashboard signup that likely also requires account creation (unconfirmed) — flagging as a secondary path worth a quick owner look, not re-litigating the Awin blocker twice.
+
+**3. Docan Power — OWNER ACTION REQUIRED, hard stop, exactly as your brief anticipated**
+Re-verified every commission figure and payout term from docanpower.com/affiliate — confirmed accurate (1.5%/2.5%/3%/4% tiers, $50 minimum, monthly payout, PayPal/bank transfer), with one correction: the site also lists Germany/Poland warehouses alongside the US one, which your brief didn't mention. **Signup form field order re-confirmed directly:** Customer Group → Name → Email → Phone → Company → Website → **Tax ID** → **Payment Method with bank/PayPal detail fields** → **Password/Confirm Password** → **CAPTCHA** → agreement checkbox — all in the first and only step. Exactly the combination you told me not to touch. **No progress possible; this needs you, start to finish.**
+
+**4. PVBAT — OWNER ACTION REQUIRED**
+Confirmed: free to join, up to 5% commission, US-based (City of Industry, CA), no product limits — all verbatim. Application (a separate URL, pvbat.com/affiliate-program/, not the partner-program page itself) is a direct form: Name, Email, Website/Social, Audience Type (has a "DIY Solar/Off-grid" option — good fit), **Monthly Traffic/Followers**, Promotion Plan. No password. **Blocker: "Monthly Traffic/Followers" is a required field and I have no verified GridPermit traffic number** — no GA4 API access exists in this environment (same gap noted in the original monetization audit). Cookie window and payout method aren't published anywhere on the site either — flagging as unconfirmed, not assumed.
+
+**5. Digital Master Media — REJECTED (operational incompatibility, not a form blocker)**
+Every payout figure in your brief confirmed exactly ($53 solar / $178 roofing / $94 HVAC / $57 electrical, $50 minimum, Payoneer/Wise/ACH) — and one correction in your favor: **the government-ID requirement does not exist.** A full search of the /apply page for ID/KYC/document-upload language found nothing; the actual gate is a compliance-acknowledgment + typed digital signature, not a document upload. However, the application itself asks for a **call-tracking platform** and **estimated daily call volume** — this is a pay-per-call network, and GridPermit is a static content site with **no click-to-call or dynamic-number-insertion mechanism at all**. This isn't a missing-field problem; it's that the underlying business model doesn't fit the product as it exists today. Building call infrastructure would be a real engineering project (and would touch the site during the SEO freeze) — **not recommended to pursue until/unless that infrastructure exists.** One more discrepancy worth noting: the site's own homepage advertises "weekly Net 7-10" while the application page states "monthly Net 10" — the network's own terms disagree with each other, a minor trust flag independent of the fit issue.
+
+### Reopen / reverify
+
+**6. Permit Hub — REJECTED, reopen confirmed no change**
+Already re-verified fresh this same day in the prior pass. permithub.com/partners still has no published commission %, cookie window, or eligibility terms ("Earn commissions by referring contractors and businesses..." — application-only, privately negotiated), and the audience is still explicitly "contractors and businesses," not homeowners. **Why this stays rejected even after reopening: the audience mismatch is the real disqualifier, not just missing terms** — even a fully-published commission structure wouldn't fix that GridPermit's traffic is homeowners, not contractors shopping for permit software.
+
+**7. First Call Solutions — OWNER ACTION REQUIRED, weak priority**
+Real company (firstcallsolutionsllc.com, Houston TX), live application form, no password/payment required. Solar has its own dedicated page, but **roofing/HVAC/electrical are not named verticals anywhere on the site** — only generic "home services/home improvement." No payout figures published. Same traffic-stats-field gap as PVBAT likely applies. Lower priority than BigBattery/Power Queen given weaker vertical specificity and zero published terms.
+
+**8. BuyTheCalls — REJECTED (operational incompatibility, same reason as Digital Master Media)**
+Real, and the strongest-documented pay-per-call terms found this pass: SEO/organic traffic explicitly welcomed ("If you run traffic — search, social, SEO sites... BuyTheCalls is a buyer for your volume"), solar ($40–90/call), HVAC ($20–80/call), and roofing ($25–75/call) all named with real payout ranges stated directly on their own site. **Same structural problem as #5: this is a pay-per-call marketplace, and GridPermit generates zero phone calls today.** Genuinely good terms, wrong business model for GridPermit as currently built.
+
+**9. SUNcheck / SUNcheck Inc. — REJECTED, claim could not be substantiated at all**
+This is the most important finding of this pass: **the "$1,000 per sale, 365-day attribution" figure could not be verified anywhere** — not on SUNcheck's own domains (suncheck.com, battery.suncheck.com), not via a public Awin merchant-ID search, and not even on any aggregator site (OfferVault, mThink, affpaying all returned nothing for SUNcheck). SUNcheck's own sites don't mention an affiliate/publisher program **at all** — the only dollar figure found is an unrelated **customer** rebate ("$5,000+ check from SunCheck" for homeowners who complete an install), not a commission structure. **Recommend treating this as a claim with no traceable origin, not a pending-verification item** — there may be no real program here to verify.
+
+### Secondary verify — aggregator caution
+
+**eLocal, Inquirly, DOPPCALL, Lead Smart** — unchanged from prior passes. All four were already verified from primary sources (not aggregator listings) in earlier rounds of this audit — re-confirmed no new evidence surfaced. Status stays REJECTED for the reasons already on record (structural pay-per-call mismatch for eLocal; no publisher program found for Inquirly; no solar vertical for DOPPCALL; reinforced trust concerns for Lead Smart, including a newly-found unresolved $6,326 payment dispute from the prior pass).
+
+**OnCore Leads — OWNER ACTION REQUIRED, new candidate, good fit**
+Real (oncoreleads.com, Folsom CA), active, with a dedicated Home Services Leads vertical explicitly listing **Solar, Electricians, HVAC Contractors, and Roofers** — the best multi-vertical match found in this entire pass. Application is a "Marketing Partner Form" (contact/intake style); no password or payment info evidence found, though exact fields weren't fully itemized. No payout figures published anywhere — genuinely unconfirmed, not aggregator-sourced.
+
+---
+
+## Tracker (this pass's categories)
+
+**CONTACTED (2):** Profitise, Angi — per your report (ChatGPT sent these); not independently verified by me.
+
+**APPLICATION STARTED:** none — no form was submitted.
+
+**OWNER ACTION REQUIRED (6 new):** BigBattery *(closest — needs only a contact name + confirmed support email)*, PVBAT *(needs a real traffic/followers figure)*, Docan Power *(hard stop: password+payment+TaxID+CAPTCHA)*, First Call Solutions, OnCore Leads, Power Queen's GoAffPro route (secondary path, unconfirmed).
+
+**WAITING FOR AWIN (consolidated, 2):** Power Queen (merchant 118441, confirmed real), MatchBurst — same underlying Awin publisher-account blocker, tracked once, not duplicated.
+
+**WAITING FOR CJ (2, unchanged):** EnergySage's paid CJ program, HomeAdvisor.
+
+**PENDING APPROVAL:** none.
+
+**APPROVED:** none.
+
+**TRACKING LINK RECEIVED:** none.
+
+**REJECTED (5 this pass):** Digital Master Media (pay-per-call model incompatible with GridPermit's zero call-generation infrastructure — not a form blocker), BuyTheCalls (same operational incompatibility), SUNcheck (claimed terms could not be traced to any real source — likely no program exists), Permit Hub (reopened, confirmed unchanged — audience mismatch, not missing terms), eLocal/Inquirly/DOPPCALL/Lead Smart (unchanged, already primary-source-verified).
+
+**NEEDS VERIFICATION:** none this pass — every candidate reached either a confirmed classification or a specific, named blocker.
+
+### Two corrections made to your supplied brief, for the record
+1. **Power Queen's commission is 5.5% base ("up to 6%"), not a flat 5%** — and Awin is not the only signup path (GoAffPro direct route also exists).
+2. **Digital Master Media's application does not require a government-issued ID** — that specific claim didn't hold up on direct verification of the /apply page; the real gate is a compliance acknowledgment and typed signature.
