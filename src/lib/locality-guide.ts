@@ -302,8 +302,16 @@ export function buildPageMeta(record: LocalityRecord, pagePath: string): PageMet
 	// lines (e.g. Newark, CA vs Newark, DE) — see docs/DATA_ARCHITECTURE.md
 	// and tests/locality-guide.test.mjs's title-uniqueness regression test.
 	const title = `${record.city.value}, ${record.state} Solar Permit Guide | GridPermit`;
+	// "official permit portal" replaces the old generic "permit authority"
+	// phrasing: every READY record has a populated permit_url (a required
+	// field for READY status), so this is true for every page it renders on
+	// — not aspirational copy. Added 2026-08-15 after GSC Search Analytics
+	// showed a real query ("aliso viejo permit portal", position 5.6, 0%
+	// CTR on 8 impressions) where a page ranking on page 1 wasn't earning
+	// clicks because nothing in the snippet signaled it links to the actual
+	// official portal a searcher with that intent is looking for.
 	const description =
-		`${record.city.value}, ${record.state} solar permit facts: permit authority, utility, fees, and inspection steps — ` +
+		`${record.city.value}, ${record.state} solar permit guide: official permit portal, fees, and requirements — ` +
 		`sourced and confidence-scored. Verified ${record.last_verified}.`;
 	return { canonicalUrl, title, description, utilityShortName: shortName };
 }
