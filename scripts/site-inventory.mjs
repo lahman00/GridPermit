@@ -17,11 +17,11 @@ import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
-const DIST_DIR = path.join(REPO_ROOT, "dist");
+export const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
+export const DIST_DIR = path.join(REPO_ROOT, "dist");
 const OUT_PATH = path.join(REPO_ROOT, "output", "site-inventory.json");
 
-async function walk(dir, files = []) {
+export async function walk(dir, files = []) {
 	const entries = await readdir(dir, { withFileTypes: true });
 	for (const entry of entries) {
 		const full = path.join(dir, entry.name);
@@ -34,7 +34,7 @@ async function walk(dir, files = []) {
 	return files;
 }
 
-function urlForFile(filePath) {
+export function urlForFile(filePath) {
 	const rel = path.relative(DIST_DIR, filePath);
 	const dir = path.dirname(rel);
 	if (dir === ".") return "/";
@@ -67,7 +67,7 @@ function stripTags(str) {
 	return decodeEntities(str.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim());
 }
 
-function analyzePage(url, html) {
+export function analyzePage(url, html) {
 	const titleRaw = extractOne(html, "<title>(.*?)</title>");
 	const title = titleRaw === null ? null : decodeEntities(titleRaw);
 	const descriptionRaw = extractOne(html, '<meta\\s+name="description"\\s+content="([^"]*)"');
@@ -167,7 +167,7 @@ function analyzePage(url, html) {
 // redirect (e.g. a breadcrumb target) isn't misreported as a dead link
 // alongside genuinely broken ones — those are two different problems with
 // two different fixes.
-async function loadRedirectMap() {
+export async function loadRedirectMap() {
 	const tomlPath = path.join(REPO_ROOT, "netlify.toml");
 	const toml = await readFile(tomlPath, "utf8");
 	const map = new Map();
@@ -180,7 +180,7 @@ async function loadRedirectMap() {
 	return map;
 }
 
-async function loadSitemapUrls() {
+export async function loadSitemapUrls() {
 	const sitemapPath = path.join(DIST_DIR, "sitemap-0.xml");
 	if (!(await stat(sitemapPath).catch(() => null))) return [];
 	const xml = await readFile(sitemapPath, "utf8");
@@ -200,7 +200,7 @@ const STATE_SLUGS_SET = new Set([
 ]);
 const STATE_SLUG_PATTERN = [...STATE_SLUGS_SET].join("|");
 
-function classifyPageFamily(url) {
+export function classifyPageFamily(url) {
 	if (url === "/") return "home";
 	if (new RegExp(`^/(?:${STATE_SLUG_PATTERN})/[^/]+/solar-permit-guide/$`).test(url)) return "locality-guide";
 	if (url === "/california/solar-permit-guides/") return "locality-directory";
