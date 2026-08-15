@@ -517,3 +517,60 @@ Real (oncoreleads.com, Folsom CA), active, with a dedicated Home Services Leads 
 ### Two corrections made to your supplied brief, for the record
 1. **Power Queen's commission is 5.5% base ("up to 6%"), not a flat 5%** — and Awin is not the only signup path (GoAffPro direct route also exists).
 2. **Digital Master Media's application does not require a government-issued ID** — that specific claim didn't hold up on direct verification of the /apply page; the real gate is a compliance acknowledgment and typed signature.
+
+---
+
+## Sixth pass — 2026-08-15: BigBattery resume, DMM/BuyTheCalls re-evaluation
+
+**Profitise and Angi:** updated per your report to **CONTACTED / EMAIL SENT** (ChatGPT sent both via the connected Gmail account). Still not something I independently witnessed — recording your report as the basis for this status, not a confirmation I verified myself.
+
+### BigBattery — blocked by this environment's own safety layer, not by BigBattery
+
+With the contact name and email you supplied (Eyal Haimovich / support@mygridpermit.com), I navigated back into the live 4-step application and confirmed step 1 exactly as before: every social-media field (YouTube/Instagram/Facebook/Twitter/TikTok/Reddit/LinkedIn/Pinterest — handles, follower counts, and view counts) is genuinely blank for GridPermit — no fabrication, just an honest "not applicable" for a site with no social presence. The one truthful, applicable field is the niche checkbox "Solar - Off Grid - Battery Backup."
+
+When I attempted to actually check that box, **this environment's own auto-mode permission layer denied the action** ("Blocked by classifier... let the user decide how to proceed") — this is independent of anything BigBattery requires; it's a guardrail in the tool I'm running in that stopped me from filling in a live third-party web form, which is the right kind of thing for it to catch given how much of this task involves real external submissions. I did not attempt to route around it, per its own instructions.
+
+**Practical effect: I could not reach step 4 (Affiliate Contact Information) myself, so I can't show you the platform's own final review screen.** But I can give you everything needed to complete this in under two minutes yourself — here's the exact, complete submission payload, built entirely from verified information:
+
+| Field | Value | Basis |
+|---|---|---|
+| YouTube / Instagram / Facebook / Twitter / TikTok / Reddit / LinkedIn / Pinterest (handles) | *(leave blank)* | GridPermit has no verified social media presence |
+| Subscriber/follower counts (all platforms) | *(leave blank)* | Same — no fabricated numbers |
+| Video view counts (all platforms) | *(leave blank)* | Same |
+| Content niche | ✅ **Solar - Off Grid - Battery Backup** | Direct, truthful match — GridPermit publishes solar/battery permit guides |
+| Full Name | **Eyal Haimovich** | As you supplied |
+| Contact Email | **support@mygridpermit.com** | As you supplied |
+| Website | **https://mygridpermit.com** | Verified, live production URL |
+
+Steps 2 ("Content & Promotion Strategy") and 3 ("Additional YouTube Information") were never reached, so their exact fields are unconfirmed — based on the step titles, step 3 is almost certainly skippable (no YouTube channel exists), and step 2 likely asks how you plan to promote BigBattery, which should be answered truthfully (e.g., "organic content on solar/battery permit guides across 341 US city pages") rather than guessed at here. **Agreement/terms:** the application page itself carries only the general statement "by submitting this form you agree that we may contact you about the affiliate program" — no separate checkbox or binding-terms acceptance was found on step 1; I could not confirm whether steps 2–4 introduce one, since I didn't reach them.
+
+### Digital Master Media & BuyTheCalls — reclassified to NEEDS ECONOMIC/TECHNICAL EVALUATION, evaluation below
+
+Your reasoning is fair — "no infrastructure today" is a "not yet," not a permanent disqualifier. Here's the evaluation, built only from already-verified facts plus labeled engineering judgment (tagged **FACT** = primary-sourced this session, **ASSUMPTION** = industry-typical/my own analysis, **GAP** = data this evaluation genuinely can't produce without more information):
+
+| Factor | Digital Master Media | BuyTheCalls |
+|---|---|---|
+| **Payout per qualified call** (FACT) | Solar up to $53, Roofing up to $178, HVAC up to $94, Electrician up to $57 | Solar $40–90, HVAC $20–80, Roofing $25–75 |
+| **Qualification requirements** (FACT, partial) | Compliance-acknowledgment gate confirmed; exact call-duration/intent thresholds not found in prior research — **GAP** | Minimum call duration (60–120s by vertical), correct geo, "real person, real intent," delivered within business hours/caps — confirmed on their own site |
+| **Available relevant GridPermit traffic** | **GAP — cannot be filled.** No GA4 API access exists in this environment (the same gap flagged throughout this entire engagement's monetization work). Any revenue estimate below is structurally incomplete without this. | Same gap |
+| **Conversion assumptions** (ASSUMPTION) | Web-to-call conversion is a fundamentally higher-friction action than a click-through (the EnergySage/CTA model) — industry-typical call-conversion rates from content pages run well under 1% of page views, often a fraction of that, since it requires a reader to place an actual phone call rather than click a link. No GridPermit-specific data exists to replace this industry assumption. | Same reasoning applies |
+| **Technical effort to add tracked click-to-call** (ASSUMPTION, my analysis) | Requires Dynamic Number Insertion (DNI): a network-provided or third-party-service (e.g. CallRail/Invoca-style) tracking number swapped in per traffic source, plus a new CTA component analogous in shape to the existing `InstallerCTA.astro` — a moderate, contained addition, not a rebuild. The real complexity is call-compliance handling (see below), not the swap-a-phone-number mechanic itself. | Same shape of work |
+| **Geographic routing requirements** (FACT + analysis) | Both networks require correct geo-targeting for a call to qualify. GridPermit's architecture is naturally well-suited to this — every locality guide page already knows its own city/state, so routing could map directly onto existing page structure rather than requiring new geo-detection logic. | Same |
+| **Compliance requirements** (FACT + analysis) | Confirmed compliance-acknowledgment gate at application; adding real click-to-call means GridPermit takes on call-recording/TCPA-style consent obligations it has zero infrastructure or policy for today — a genuine new legal-surface-area, not just an engineering one. | BuyTheCalls' publisher base includes traffic from India/Philippines/Pakistan/Bangladesh alongside the US ("US traffic commands premium pricing") — a milder vetting bar than a US-focused network; not disqualifying, but worth noting as a lighter-diligence network relative to Digital Master Media. |
+| **New/thin SEO content required?** | **No — and none should be built.** If ever implemented, this would be a CTA/component addition to the 341 already-existing, already-verified locality pages (the same pattern as `InstallerCTA.astro`), not new pages. This satisfies your explicit instruction without any design compromise. | Same |
+
+**Bottom line:** both are directionally plausible — solid published payouts, a technically contained (if nontrivial) build, and GridPermit's page structure is a natural fit for geo-routing. But the evaluation can't produce an actual expected-revenue number without the one input that's missing everywhere in this engagement: real GridPermit traffic data. **Recommended next step if this gets prioritized: resolve GA4 API access first** (the same recommendation already on record from the original monetization audit) — that single number turns this from a plausible-sounding opportunity into an actual go/no-go decision. Per your instruction, **no click-to-call infrastructure was built or planned in code this pass.**
+
+### Rest of the pipeline
+
+The same permission-layer block that stopped BigBattery's checkbox would apply identically to any further live-form interaction on First Call Solutions or OnCore Leads, so I did not attempt those this pass — their status is unchanged from the fifth pass (both OWNER ACTION REQUIRED, real programs, no new fields checked). PVBAT (needs a real traffic/followers figure), Docan Power (hard password/payment/CAPTCHA stop), and Power Queen (Awin, consolidated with MatchBurst) are all unchanged — no new information this pass.
+
+## Tracker update (sixth pass)
+
+**CONTACTED / EMAIL SENT (2):** Profitise, Angi — per your report.
+
+**APPLICATION STARTED (1):** BigBattery — step 1 reviewed and confirmed fully completable with zero fabrication; blocked from reaching submission by this environment's permission layer, not by BigBattery. Exact payload above, ready for you (or a future session with the right permission) to finish in under two minutes.
+
+**NEEDS ECONOMIC/TECHNICAL EVALUATION (2):** Digital Master Media, BuyTheCalls — reclassified per your instruction; evaluation above; blocked on one missing input (real GridPermit traffic data) that also blocks several other open items in this engagement.
+
+**Unchanged:** OWNER ACTION REQUIRED (PVBAT, Docan Power, First Call Solutions, OnCore Leads), WAITING FOR AWIN (Power Queen, MatchBurst), WAITING FOR CJ (EnergySage, HomeAdvisor), REJECTED (SUNcheck, Permit Hub, eLocal, Inquirly, DOPPCALL, Lead Smart).
