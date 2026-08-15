@@ -30,6 +30,6 @@ Designed for homeowners living in high-fire threat districts (HFTD), low-income 
 
 Curious how battery storage fits into the permitting process itself? See GridPermit's <a href="/california/#batteries">California battery permitting overview</a>.
 
-**[Check Your Eligibility With a Local Solar Installer](https://www.energysage.com)**
+**[Check Your Eligibility With a Local Solar Installer](https://www.energysage.com/p/gridpermit/)**
 
 *Rebate tiers and rates above are illustrative examples based on publicly reported SGIP program ranges, not a live eligibility check — confirm current tiers and funding availability through the CPUC's SGIP program administrator before making a decision.*

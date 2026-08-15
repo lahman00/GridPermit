@@ -26,6 +26,6 @@ Under NEM 3.0, exporting daytime solar power to the grid earns credits at the ut
 
 Looking for your city's specific solar permit requirements rather than rate analysis? See our <a href="/california/utility/sce/">verified SCE city guides</a>.
 
-**[Compare Free Solar & Battery Quotes From Local Installers](https://www.energysage.com)**
+**[Compare Free Solar & Battery Quotes From Local Installers](https://www.energysage.com/p/gridpermit/)**
 
 *This page describes the general structure of NEM 3.0 and SCE's Time-Of-Use billing, not a live lookup of your bill or your specific rate plan — confirm current rates and plan options with SCE before making a decision.*
