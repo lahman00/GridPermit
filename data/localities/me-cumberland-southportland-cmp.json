@@ -111,16 +111,42 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No specific dollar figure was independently confirmed from a primary source this session."
+    "value": [
+      {
+        "name": "Electrical Permit Application Fee (all applications except HVAC)",
+        "amount_usd": 50,
+        "unit": "flat fee, non-refundable",
+        "notes": "Per the City's own Master Fee Schedule (Chapter 7 - Electricity, § 7-44)."
+      },
+      {
+        "name": "Solar Devices (modules, inverters)",
+        "amount_usd": 3,
+        "unit": "per module/inverter, in addition to the $50 application fee",
+        "notes": "A dedicated solar line item in the City's own Master Fee Schedule. Motors, generators, and battery systems are billed separately at $6/unit under the same schedule."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": ["S3"]
   },
   "rebates": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No specific South Portland or statewide Maine rebate dollar amount was independently confirmed from a primary source this session — left null rather than guessed."
+    "value": [
+      {
+        "name": "Solar Energy Equipment Property Tax Exemption",
+        "administrator": "Maine Revenue Services / municipal assessors, per 36 M.R.S. §§ 655(1)(U)-(V), 656(1)(K)-(L)",
+        "description": "Statewide property tax exemption for solar equipment that generates heat or electricity, for assessments made on or after 2025-04-01. A residential array qualifies if all energy generated is used on site, or the equipment is collocated with a net-energy-billing customer subscribed to at least 50% of the facility's output, or the energy is transmitted through facilities with a utility bill credit. Eligible equipment includes solar panels, racking/tracking hardware, inverters, batteries used to store panel-generated electricity, charge controllers, and related wiring — meters and grid-side equipment are not eligible. Equipment under construction and not yet operational on April 1 does not qualify for that tax year. The exemption must be claimed by filing a report with the local assessor.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Residential solar array in Maine meeting the on-site-use or net-energy-billing collocation/transmission conditions above; a report must be filed with the municipal assessor on or before April 1 of the first tax year claimed.",
+        "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/2024-12/bulletin%20no%2029_solar.pdf",
+        "effective_from": "2025-04-01",
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": ["S4"],
+    "notes": "Statewide fact per Maine Revenue Services' own Property Tax Bulletin No. 29 (December 2024), reused here per the multi-state/statewide reuse convention — this is a state law provision, not a South-Portland-specific program. This is a property-tax exemption, not a cash rebate; multiple third-party solar-industry sites this session independently converged on 'no state solar cash rebate exists in Maine, only this property tax exemption plus net metering,' consistent with what was found in the primary source."
   },
   "official_contacts": {
     "value": [
@@ -137,7 +163,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-08-15",
   "sources": [
     {
       "id": "S1",
@@ -154,6 +180,22 @@
       "publisher": "Central Maine Power",
       "type": "utility",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "Master Fee Schedule (as adopted 6/17/25)",
+      "url": "https://southportland.gov/DocumentCenter/View/1378/MASTER_FEE_SCHEDULE_-_as_adopted_61725",
+      "publisher": "City of South Portland, ME",
+      "type": "government",
+      "accessed_date": "2026-08-15"
+    },
+    {
+      "id": "S4",
+      "title": "Property Tax Bulletin No. 29 - Solar Energy Equipment Exemption",
+      "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/2024-12/bulletin%20no%2029_solar.pdf",
+      "publisher": "Maine Revenue Services, Property Tax Division",
+      "type": "government",
+      "accessed_date": "2026-08-15"
     }
   ]
 }

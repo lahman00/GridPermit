@@ -1,11 +1,26 @@
 {
   "record_id": "me-cumberland-southportland-cmp",
   "file": "data/localities/me-cumberland-southportland-cmp.json",
-  "validated_at": "2026-08-14",
+  "validated_at": "2026-08-15",
   "status": "REVIEW",
-  "score": 98,
+  "score": 83,
   "errors": [],
   "warnings": [
+    {
+      "field": "rebates",
+      "category": "outdated_information",
+      "message": "Solar Energy Equipment Property Tax Exemption description states availability 'through 2025', which has elapsed as of last_verified 2026-08-15"
+    },
+    {
+      "field": "permit_fees",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
+    {
+      "field": "rebates",
+      "category": "unsupported_claim",
+      "message": "monetary field sourced only by weak-tier types [government]; recommend a cpuc/utility/program_administrator source"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -24,20 +39,12 @@
     {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.southportland.org/205/Code-Enforcement",
-      "checked_at": "2026-08-14T08:01:42.367Z",
+      "checked_at": "2026-08-15T05:24:10.886Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -45,11 +52,27 @@
     },
     {
       "url": "https://www.cmpco.com/suppliersandpartners/servicesandresources/interconnection/net-energy-billing",
-      "checked_at": "2026-08-14T08:01:44.117Z",
+      "checked_at": "2026-08-15T05:24:11.964Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "timeout"
+    },
+    {
+      "url": "https://www.maine.gov/revenue/sites/maine.gov.revenue/files/2024-12/bulletin%20no%2029_solar.pdf",
+      "checked_at": "2026-08-15T05:24:21.966Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://southportland.gov/DocumentCenter/View/1378/MASTER_FEE_SCHEDULE_-_as_adopted_61725",
+      "checked_at": "2026-08-15T05:24:22.205Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
     }
   ]
 }

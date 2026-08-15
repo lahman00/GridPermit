@@ -1,13 +1,13 @@
 {
   "state": "ME",
-  "generated_at": "2026-08-14T14:38:02.319Z",
+  "generated_at": "2026-08-15T05:23:44.548Z",
   "records": [
     {
       "record_id": "me-cumberland-southportland-cmp",
       "state": "ME",
       "city": "South Portland",
       "county": "Cumberland County",
-      "completeness_pct": 66.7,
+      "completeness_pct": 80,
       "validation_score": 98,
       "validation_status": "REVIEW",
       "error_count": 0,
@@ -22,23 +22,23 @@
         "interconnection_url",
         "required_documents",
         "eligibility_constraints",
+        "permit_fees",
+        "rebates",
         "official_contacts"
       ],
       "missing_fields": [
         "battery_programs",
         "inspection_steps",
-        "timeline_days",
-        "permit_fees",
-        "rebates"
+        "timeline_days"
       ],
       "warning_categories": [
         "broken_url"
       ],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 66.7,
+    "average_completeness_pct": 80,
     "average_validation_score": 98,
     "fields_most_often_missing": [
       {
@@ -52,26 +52,14 @@
       {
         "field": "timeline_days",
         "missing_in_records": 1
-      },
-      {
-        "field": "permit_fees",
-        "missing_in_records": 1
-      },
-      {
-        "field": "rebates",
-        "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
-    "recommended_publish_record_ids": [],
-    "limited_for_now": [
-      {
-        "record_id": "me-cumberland-southportland-cmp",
-        "city": "South Portland",
-        "reason": "readiness=LIMITED (completeness 66.7%, score 98)"
-      }
+    "recommended_publish_record_ids": [
+      "me-cumberland-southportland-cmp"
     ],
+    "limited_for_now": [],
     "not_ready": []
   }
 }
