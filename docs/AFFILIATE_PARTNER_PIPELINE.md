@@ -6,6 +6,72 @@ Written 2026-08-15. This document supersedes the narrower `docs/AFFILIATE_PIPELI
 
 ---
 
+## Master status index (normalized vocabulary)
+
+This is the single source of truth for every candidate investigated across all research passes. Statuses use only this controlled vocabulary: `DISCOVERED` / `NEEDS_VERIFICATION` / `VERIFIED` / `APPLICATION_STARTED` / `OWNER_ACTION_REQUIRED` / `CONTACTED` / `WAITING_FOR_NETWORK` / `PENDING_APPROVAL` / `APPROVED` / `TRACKING_LINK_RECEIVED` / `PRODUCTION_ACTIVE` / `REJECTED`. Detailed narrative for each candidate remains in the dated pass sections below — this table is the index, not a replacement for that detail.
+
+| Candidate | Status | One-line reason |
+|---|---|---|
+| EnergySage (existing relationship) | `OWNER_ACTION_REQUIRED` | Real Channel Partner account + CJ advertiser ID 5835771 exist; partner landing page 404s, CJ program blocked on Payoneer/payment onboarding |
+| HomeAdvisor | `WAITING_FOR_NETWORK` | Real self-serve CJ signup exists, same account-activation blocker as EnergySage's CJ program |
+| Profitise | `CONTACTED` | Inquiry sent per user report (not independently verified by me); awaiting reply |
+| Angi | `CONTACTED` | Same as Profitise |
+| BigBattery | `APPLICATION_STARTED` | Step 1 completed with zero fabrication; final submission blocked by this environment's own permission layer |
+| Power Queen | `OWNER_ACTION_REQUIRED` | Real Awin merchant 118441 confirmed + GoAffPro direct route found; both need account creation |
+| MatchBurst | `OWNER_ACTION_REQUIRED` | Same Awin account blocker as Power Queen (consolidated, not duplicated) |
+| PVBAT | `OWNER_ACTION_REQUIRED` | Real, no password, blocked on a real traffic/followers figure GridPermit doesn't have |
+| Docan Power | `OWNER_ACTION_REQUIRED` | Hard stop — password + payment + Tax ID + CAPTCHA all on the first screen |
+| Advertising Results Inc. | `OWNER_ACTION_REQUIRED` | Real form, no password, blocked on missing legal entity/address/phone |
+| First Call Solutions | `OWNER_ACTION_REQUIRED` | Real, no password; weak vertical specificity (no roofing/HVAC/electrical named) |
+| OnCore Leads | `OWNER_ACTION_REQUIRED` | Real, solar+HVAC+roofing+electrical all named; no payout published |
+| homeyou | `OWNER_ACTION_REQUIRED` | Confirmed live Solar Energy directory category; "Apply Now"/"Login" pairing implies account creation, unconfirmed |
+| Bark.com (Awin) | `OWNER_ACTION_REQUIRED` | Best-documented terms found (up to $100/lead, 30-day cookie); same Awin account blocker |
+| Signature Solar | `OWNER_ACTION_REQUIRED` | Real, documented (up to 9%, 7-day cookie); product-affiliate model, application page didn't fully render for field confirmation |
+| Aragon Advertising | `NEEDS_VERIFICATION` | Credible, established network; solar vertical itself unconfirmed — outreach drafted in `PARTNER_OUTREACH_QUEUE.md` |
+| Modernize (QuinStreet) | `OWNER_ACTION_REQUIRED` | Real, public-company-backed, solar+roofing+HVAC listed; terms opaque until applied |
+| Fixr.com | `OWNER_ACTION_REQUIRED` | Real, solar included; login-gated portal, likely requires account creation |
+| Bluetti | `VERIFIED` | Real, 10% up to, 30-day cookie, network choice (Impact/Awin/CJ) — `OWNER_ACTION_REQUIRED` for account creation |
+| EcoFlow | `VERIFIED` | Real, min. 5%, 7-day cookie — `OWNER_ACTION_REQUIRED` for account creation |
+| ALLPOWERS | `VERIFIED` | Real, 5–10% tiered, 30-day cookie, explicitly welcomes review/comparison sites — `OWNER_ACTION_REQUIRED` for account creation |
+| Autel Energy | `OWNER_ACTION_REQUIRED` | Real, 10%, 30-day cookie, fills the EV-charger gap; payout requires a PayPal account (payment info — owner-only) |
+| Jackery | `NEEDS_VERIFICATION` | Real program page confirmed live; commission/cookie figures only aggregator-sourced, not confirmed on Jackery's own page |
+| Renogy | `NEEDS_VERIFICATION` | Real, on-brand; commission (~6%) and cookie (30-day) only secondary-sourced |
+| Generator Mart | `NEEDS_VERIFICATION` | Affiliate page exists but blocked automated fetch (409); "8% commission" is **UNVERIFIED PAYOUT** (aggregator-only) |
+| Firman Power Equipment | `NEEDS_VERIFICATION` | Real page, no published commission/cookie, curated/influencer-oriented application, not a clean SEO-affiliate fit |
+| power.solar | `REJECTED` | Explicitly targets "real estate professionals, contractors, community organizations, environmental influencers" — not content/SEO publishers |
+| Digital Master Media | `NEEDS_VERIFICATION` | Reclassified from REJECTED — real, solar payout confirmed ($53/call); blocked on missing GridPermit traffic data, see `PAY_PER_CALL_FEASIBILITY.md` |
+| BuyTheCalls | `NEEDS_VERIFICATION` | Same reclassification and same blocker as Digital Master Media |
+| BrokerCalls | `REJECTED` | Real, but solar vertical is a sales-lead category, not content-aligned; no battery vertical |
+| CallVox | `REJECTED` | Real, no solar/battery vertical at all |
+| PermitFlow partners | `REJECTED` | Real company; partner program reads as B2B (integrations/resellers/associations), no evidence of a content-publisher track |
+| Permit Hub | `REJECTED` | Reopened twice, confirmed unchanged both times — audience is contractors/businesses, no published terms |
+| Kohler Generators | `REJECTED` | Re-verified per specific request — the real Kohler affiliate program (FlexOffers, 2.4%/30-day) is for bath/kitchen fixtures, not generators; the generator-specific partner page is a B2B dealer network |
+| SUNcheck / SUNcheck Inc. | `REJECTED` | Claimed "$1,000/365-day" figure could not be traced to any source, including aggregators; their own sites don't mention an affiliate program at all |
+| eLocal | `REJECTED` | Pay-per-call, but gated to "experienced" affiliates with existing campaigns — GridPermit doesn't qualify as a first-time entrant |
+| Inquirly | `REJECTED` | No publisher/affiliate program found at all |
+| DOPPCALL | `REJECTED` | Real, SEO-friendly, but no solar vertical found |
+| Lead Smart | `REJECTED` | Mixed trust signals reinforced by an unresolved $6,326 payment dispute; no solar vertical |
+| Home Services Lead Group | `REJECTED` | Solar now listed as a vertical, but legitimacy remains unverifiable (no BBB/press/address/phone/network listing) |
+| Jobtable | `REJECTED` | B2B contractor SaaS, wrong audience; own published terms internally inconsistent (20% vs 30%) |
+| OnCrew | `REJECTED` | B2B contractor software, wrong audience (installer-recruitment program at Atomi Smart specifically, not a paid affiliate mechanism for OnCrew itself — see full detail below) |
+| JobCloser | `REJECTED` | B2B contractor SaaS, wrong audience |
+| bidyou.ai | `REJECTED` | B2B construction-estimating tool, wrong audience, terms unconfirmed |
+| Atomi Smart | `REJECTED` | "Atomi Alliance" is an installer-recruitment network, not a paid-commission affiliate program |
+| Polyares | `REJECTED` | Real, but 20+ general trade categories, no solar/battery vertical |
+| LeadBank / Home Alliance | `REJECTED` | Real, but no solar/battery vertical found |
+| Callvanta | `REJECTED` | Identity ambiguous (callvanta.pro inaccessible, callvanta.com is an unrelated company) |
+| CallX | `REJECTED` | Confirmed life-insurance-only on the primary source |
+| Current Home | `REJECTED` | No verifiable entity found |
+| PreConstruct AI | `REJECTED` | No verifiable entity found |
+| Filter King | `REJECTED` | Real, well-documented Awin terms; zero HVAC content exists on GridPermit today |
+| Factory Direct Filters | `REJECTED` | Same reasoning as Filter King |
+| Roofing4US | `REJECTED` | Building-materials retailer, wrong content type |
+| PlotForge | `REJECTED` | Best-documented terms of any candidate; zero fit (new-construction contractors, not homeowners) |
+| CostToBuildHouse | `REJECTED` | Program confirmed **inactive** ("no longer active") on direct re-check — was previously the top APPLY-NOW pick |
+| Networx | `REJECTED` | Weak/no dedicated solar category, opaque terms |
+
+---
+
 ## ✅ Resolved: the EnergySage CTA 404 flagged above
 
 `https://www.energysage.com/p/gridpermit/` was confirmed 404ing at time of writing. Per your explicit go-ahead, all 6 live EnergySage CTAs were reverted to the plain, working `https://www.energysage.com` root link (commit `4023c19`, deployed and production-verified). This is not a new application — it's GridPermit's existing relationship, currently paused pending EnergySage fixing the partner page on their end. See §"Application Queue" below for genuinely new programs to apply to.
@@ -574,3 +640,87 @@ The same permission-layer block that stopped BigBattery's checkbox would apply i
 **NEEDS ECONOMIC/TECHNICAL EVALUATION (2):** Digital Master Media, BuyTheCalls — reclassified per your instruction; evaluation above; blocked on one missing input (real GridPermit traffic data) that also blocks several other open items in this engagement.
 
 **Unchanged:** OWNER ACTION REQUIRED (PVBAT, Docan Power, First Call Solutions, OnCore Leads), WAITING FOR AWIN (Power Queen, MatchBurst), WAITING FOR CJ (EnergySage, HomeAdvisor), REJECTED (SUNcheck, Permit Hub, eLocal, Inquirly, DOPPCALL, Lead Smart).
+
+---
+
+## Seventh pass — 2026-08-15: 10-hour war-room batch
+
+**Honesty note on session mechanics:** I don't run unattended for 10 literal hours — I did one large, thorough batch of work in this session. Everything below is real (verified via actual tool calls, not simulated), but "10-hour autonomous execution" isn't how this environment works, and I'm not going to write a report implying otherwise.
+
+**Facts re-verified before relying on them (Workstream 0):** 341 READY records (288 CA / 53 non-CA), 44 states with a published guide, 404 total records, 50 states researched — all recomputed directly from `output/research-progress-report.json`, matching your stated figures exactly. Production still uses the plain EnergySage link (confirmed via curl). `sitemap-index.xml` returns HTTP 200. The CJ "$10.00 lead" figure and Payoneer-blocker status are **taken from your report** — I have no CJ dashboard login and cannot independently verify either.
+
+### New candidates this pass (12 researched)
+
+**Battery/power-station retailers — 5 new, mostly strong:** **Bluetti**, **EcoFlow**, **ALLPOWERS** all confirmed real with published commission/cookie terms and real network signup paths (Impact/Awin/CJ/AvantLink/GoAffPro depending on brand) — genuine diversification beyond BigBattery/Power Queen/PVBAT, same account-creation blocker as everything else on those networks. **Jackery** and **Renogy** are real but their commission/cookie figures are only aggregator-sourced — marked `NEEDS_VERIFICATION`, not promoted to verified.
+
+**EV charging — 1 new, fills a real gap:** **Autel Energy** (AC home chargers) — real, 10% commission, 30-day cookie, but payout requires a PayPal account, which counts as payment information under this session's own rules — `OWNER_ACTION_REQUIRED`, not further progressed.
+
+**Generators beyond Kohler — 2 new, both weak:** **Firman Power Equipment** (vague terms, curated/influencer-style application) and **Generator Mart** (affiliate page blocked automated fetch entirely; the "8% commission" figure circulating online is **UNVERIFIED PAYOUT** — aggregator-only, not confirmed on the company's own site).
+
+**Solar finance/loan referral (niche you asked about specifically):** came up genuinely empty. GoodLeap, Mosaic, Sunlight Financial, and EnerBank USA all operate exclusively through installer/contractor networks — none has a publisher-facing content-affiliate program. EnerBank's only public referral mechanism is a $300 gift card for referring a *contractor*, not a content publisher. **No candidate added in this niche — reporting the empty result rather than padding it.**
+
+**Solar quote-marketplace beyond EnergySage:** also empty. SunPower's affiliate page is a live 404 (SunPower went through Chapter 11 in 2024, reacquired by Complete Solaria). ADT Solar's FlexOffers listing explicitly states the program isn't currently offered. Palmetto has a real affiliate program but it's structured for licensed sales reps doing in-person closings, not passive content — poor fit, not added.
+
+**Pay-per-call, 3 new:** **BrokerCalls** (real, but solar is a sales-lead vertical, not content-aligned, no battery) and **CallVox** (real, no solar/battery vertical at all) — both `REJECTED`. **PermitFlow's** partner program is real but reads as B2B (integrations/resellers/industry associations); no evidence it's designed for content publishers — `REJECTED`, though a direct inquiry could still resolve this if ever prioritized.
+
+**power.solar** — real lead-gen affiliate covering solar/EV/storage, but its own page explicitly names its target partners as "real estate professionals, contractors, community organizations, and environmental influencers" — not content/SEO publishers. `REJECTED` on stated audience mismatch, not a guess.
+
+### Workstream 8 — monetization architecture audit: no change made, and here's why
+
+Audited whether `InstallerCTA.astro` / the homepage CTA are too hardcoded to extend. Finding: **yes, technically** (one partner, one hardcoded URL, no data-driven registry) — but building a `src/lib/partners.ts` registry right now would be scaffolding for partners that don't exist yet. **Zero** candidates in this entire 50+-company pipeline have reached `APPROVED` + `TRACKING_LINK_RECEIVED` simultaneously — there is nothing real for a registry to route between today. This project's own standing engineering discipline (see `docs/MONETIZATION_STRATEGY.md`, `docs/FUTURE_EXPANSION.md`) explicitly warns against exactly this kind of premature abstraction. **No registry was built.** If/when a second partner reaches `APPROVED`, that's the right trigger to revisit this.
+
+### Workstream 9 — safety tests added
+
+New file: `tests/monetization-safety.test.mjs` (12 tests, all passing). Asserts, for both `InstallerCTA.astro` and the homepage CTA: no link to the known-dead `/p/gridpermit/` URL, no query-string tracking params on an unverified link, no `rel="sponsored"` while compensation is unverified, safe external-link attributes (`target="_blank" rel="noopener noreferrer"`), the `external_partner_clicked` tracking attribute stays present, and no unqualified compensation claim in the disclosure text. This is a small, targeted addition — not a general-purpose framework — consistent with "avoid overengineering."
+
+### Workstream 10 — GA4 investigation
+
+The dedicated `gridpermit` GCP project (confirmed via `~/.config/gridpermit/gsc-oauth-client.json`) **can** support GA4 Data API access — same project, no need for a new one. But the current OAuth token's scope is `webmasters.readonly` only (confirmed by reading the token file). Adding GA4 access needs, in order: **(1)** enabling the "Google Analytics Data API" in that GCP project — an owner action in the GCP console (I have no `gcloud`/console credentials to do this myself); **(2)** re-running the OAuth consent flow with an additional `analytics.readonly` scope — this requires a fresh, interactive browser authorization from you, exactly like the original GSC flow; **(3)** locating the actual GA4 **property ID** (a numeric ID distinct from the public `G-PGX9SJ9QLG` measurement ID) via the GA4 Admin UI, since it isn't discoverable from anything public-facing. **I did not start an interactive OAuth flow that needs you at the keyboard while you're away** — recorded as the exact next owner step instead, per this task's own instruction not to block the session on it.
+
+### Workstream 11 — fresh GSC snapshot, timestamped 2026-08-15
+
+Pulled directly via the existing read-only OAuth connection:
+- **7-day** (2026-08-07 to 2026-08-14): 5 clicks / 1,138 impressions / 0.44% CTR / avg. position 13.1
+- **28-day** (2026-07-17 to 2026-08-14): 6 clicks / 1,253 impressions / 0.48% CTR / avg. position 13.4
+
+Compared to the last snapshot (7-day: 3 clicks/637 impr/pos 14.0; 28-day: 4 clicks/704 impr/pos 14.6), impressions and average position both moved in a favorable direction. **Not interpreting this as a trend** — absolute click counts (5, 6) are still far too small to distinguish a real signal from noise, and it's too soon after the sitemap resubmission and the description-template fix for either to have fully propagated through Google's re-crawl. No sitemap changes made, no URLs manually submitted, no metadata touched — full compliance with the observation freeze.
+
+### Workstreams 12, 13, 15, 16, 17 — new docs
+
+- `docs/PARTNER_APPLICATION_PROFILE.md` — reusable, verified-facts-only application answers (50/100-word descriptions, 250/500-char variants, standard Q&A)
+- `docs/PARTNER_OUTREACH_QUEUE.md` — Profitise/Angi marked CONTACTED per your report; Aragon Advertising drafted READY_TO_SEND; Paragon Power Solutions and Generator Mart marked BLOCKED with the specific reason (no viable written channel / needs manual verification first)
+- `docs/PAY_PER_CALL_FEASIBILITY.md` — full factor-by-factor evaluation; conclusion: no outbound-calling requirement found anywhere (so nothing triggers an automatic rejection), but the real blocker is the same missing traffic data that blocks several other decisions, plus a genuine new compliance surface (call-recording consent) worth naming honestly
+- `docs/MONETIZATION_COMPETITIVE_RESEARCH.md` — SolarReviews/Solar-Estimate/EnergySage/Modernize/Forbes Home all monetize the same way (selling homeowner intent to installers); confirms GridPermit's existing single-partner-referral model is the right-shaped first step, not an underpowered one
+- `docs/FIRST_DOLLAR_CHECKLIST.md` — the honest one-line summary: **every partner in the pipeline is stuck between "approved" and "has a real tracking link," and the fastest path isn't new research, it's activating the CJ/Payoneer-blocked EnergySage account that already exists**
+- `scripts/revenue-scenarios.mjs` — adjustable scenario model (not a forecast) across 1k–100k monthly visits for three monetization shapes (referral link, pay-per-call, battery-product affiliate); every rate is tagged FACT or ASSUMPTION; verified runnable (`node scripts/revenue-scenarios.mjs`)
+
+### Workstream 18 — affiliate network strategy
+
+| Network | Real GridPermit candidates depending on it | Worth the owner effort? |
+|---|---|---|
+| **CJ Affiliate** | EnergySage (paid program), HomeAdvisor — 2 candidates, but one (EnergySage) is the account that **already exists** and already shows a real $10/lead rate per your report | **Highest leverage** — this is finishing something already started, not opening something new |
+| **Awin** | MatchBurst, Power Queen, Bark.com, Bluetti/EcoFlow/ALLPOWERS (all offer Awin as one of several network choices) — 6+ candidates | **High leverage** — one account (with a real £5 refundable deposit, card required) unlocks the largest number of new candidates of any single network in this pipeline |
+| **Rewardful, FirstPromoter, GoAffPro, direct programs** | Each unlocks exactly one candidate (CostToBuildHouse is dead; PlotForge has zero fit; individual direct programs like BigBattery/PVBAT/Docan Power don't share an account) | **Low leverage** — no shared account benefit, each is a one-off |
+
+**Ranking: Awin first, CJ second (but CJ is arguably higher-urgency since the EnergySage relationship already exists and is just waiting on activation).**
+
+### Workstream 20/21 — confirmed untouched
+
+No SEO metadata, titles, meta descriptions, canonicals, robots, sitemap, or locality/state content changed. No HVAC/roofing/electrical/plumbing pages, no contractor marketplace, no user accounts, no GridPermit Pro, no subscriptions, no chatbot, no new backend/database. Verified via `git status` before every commit this pass.
+
+### Workstream 22 — secret scan
+
+Ran before every commit this pass: `git diff --cached | grep -iE "client_secret|refresh_token|api[_-]?key|password.*=|BEGIN.*PRIVATE KEY"` — zero matches in every commit. No `.env`, credential file, or `~/.config/gridpermit/*` content was ever staged.
+
+## Tracker (seventh pass)
+
+**VERIFIED (3 new):** Bluetti, EcoFlow, ALLPOWERS.
+
+**NEEDS_VERIFICATION (4 new):** Jackery, Renogy, Generator Mart (UNVERIFIED PAYOUT explicitly flagged), Firman Power Equipment.
+
+**OWNER_ACTION_REQUIRED (1 new):** Autel Energy (PayPal account required for payout).
+
+**REJECTED (4 new):** BrokerCalls, CallVox, PermitFlow partners, power.solar.
+
+**No change this pass:** everything else in the master status index above.
+
