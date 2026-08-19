@@ -772,3 +772,74 @@ No production-site change was made or is warranted from this update alone — An
 
 Profitise remains a genuine candidate for "first dollar" but isn't ranked above these three groups specifically because its terms are still unknown pending reply — it could move to #1 immediately if a strong, low-friction offer comes back.
 
+---
+
+## Ninth pass — 2026-08-20: Owner Action Sprint / Revenue Unblock
+
+Goal this pass: turn the pipeline into the shortest path to a real tracking link, not more discovery. No new candidates researched — priority order was EnergySage/CJ/Payoneer, BigBattery, the Awin cluster, Profitise (only if replied), then zero-owner-action wins.
+
+### Phase 1 — reconstructed current state (not trusted from memory)
+
+| Partner/network | Current state | Last verified | Exact blocker | Can Claude advance now? | Owner action required | Expected unlock | Next machine-executable action |
+|---|---|---|---|---|---|---|---|
+| EnergySage (existing relationship) | Live plain link in production; CJ account partially onboarded | 2026-08-20 (curl-confirmed production; CJ status per user report, not independently checkable) | No CJ publisher account is active yet — Payoneer address verification incomplete | No — genuine account creation + payment onboarding, both owner-only | Finish Payoneer address verification, then complete CJ account activation | A real tracked EnergySage URL, ready to swap into `InstallerCTA.astro`/`index.astro` | None until Payoneer clears — see Phase 2 |
+| BigBattery | Application step 1 completed (niche checkbox, truthful, zero fabrication) | 2026-08-20 | Steps 2–4 need mechanical click-through; this session's browser tool hit a reproducible rendering/coordinate bug on this specific page | Partially — proven the data is submittable, not proven the multi-step click-through in this tool | None required by BigBattery itself — a ~90-second manual completion (all answers already known) | A live BigBattery affiliate account, no network dependency | Retry the click-through in a fresh session, or complete manually |
+| Power Queen | Real, Awin merchant 118441 re-confirmed live | 2026-08-20 | No Awin publisher account exists | No — account creation, owner-only | Create Awin publisher account (see Phase 4) | Unlocks Power Queen + 5 more simultaneously | None until Awin account exists |
+| MatchBurst | Real, Awin merchant 114854 re-confirmed live, US-only traffic | 2026-08-20 | Same Awin account gap | No | Same as Power Queen | Same shared unlock | None until Awin account exists |
+| Bark.com | Real, re-confirmed live (up to $100/project, 30-day cookie) | 2026-08-20 | Same Awin account gap | No | Same as Power Queen | Same shared unlock | None until Awin account exists |
+| Bluetti | Real, re-confirmed live (up to 10%, 30-day cookie, Impact/Awin/CJ choice) | 2026-08-20 | Same Awin account gap (or Impact/CJ, each its own account) | No | Same as Power Queen | Same shared unlock | None until Awin account exists |
+| EcoFlow | Real, re-confirmed live (min. 5%, 7-day cookie) | 2026-08-20 | Same Awin account gap | No | Same as Power Queen | Same shared unlock | None until Awin account exists |
+| ALLPOWERS | Real, re-confirmed live (5–10% tiered, 30-day cookie, explicitly welcomes comparison sites) | 2026-08-20 | Same Awin account gap | No | Same as Power Queen | Same shared unlock | None until Awin account exists |
+| Profitise | Contacted, awaiting reply | 2026-08-15 (send date, per user report) | No reply visible to this environment — no email access exists here | No — I cannot check for a reply at all | None yet — wait | Real terms, possibly a fast path if favorable | None — do not re-contact |
+| Angi | Closed | 2026-08-19 | N/A — resolved | N/A | None | N/A | None |
+| Everything else in the master index | Unchanged | 2026-08-15/19 | Various (see master index) | No | Various, all real owner-only blockers (password/payment/missing business data/traffic figures) | Various | None advanceable without owner action |
+
+### Phase 2 — EnergySage / CJ / Payoneer dependency chain, mapped exactly
+
+I have no login access to CJ or Payoneer (confirmed: no credentials for either exist anywhere in `~/.config` or this repo) — everything below is either directly observed (the public CJ signup screen) or stated as **per your report, not independently verifiable by me**.
+
+| Step | Current status | Screen/action required | Can Claude do it? | Must Eyal do it? | Evidence that proves completion |
+|---|---|---|---|---|---|
+| 1. Payoneer address verification | In progress (per your report) — visual identity verification already submitted, address verification pending | Inside Payoneer's own dashboard — typically a utility bill, bank statement, or government-issued document showing the registered address | **No** — this is identity/financial document handling, explicitly off-limits regardless of authorization, and I have no Payoneer login | Yes | Payoneer's dashboard shows "Verified" on the address field |
+| 2. CJ payment information | Blocked on step 1 | Inside CJ's publisher account settings, once it exists — link Payoneer as the payout method | No — payment info entry is owner-only | Yes | CJ account settings shows an active payment method |
+| 3. CJ account activation | Not yet reached | Directly observed this pass: `public.cj.com/signup/publisher?advertiserId=5835771` → "Apply Now" leads to a genuine account-creation screen requiring **Language, Country, Email, Password, Confirm Password**. If an account already exists (per your report, partially true), the correct next step instead is `signup.cj.com` → **"Log in here"** → complete whatever CJ's own onboarding checklist shows in the dashboard, not this public form. | No — password creation is categorically off-limits for me | Yes | CJ dashboard shows account status as active/approved, not pending |
+| 4. EnergySage application (advertiser 5835771) | Blocked on step 3 | From an active CJ account: `public.cj.com/signup/publisher?advertiserId=5835771` → "Apply Now" (this time logged in) | Not until step 3 is done — even then, applying to an individual advertiser program from an active account is a business decision, better made by you | Recommended, not strictly required | EnergySage shows as an approved advertiser relationship inside the CJ dashboard |
+| 5. Approval | Blocked on step 4 | EnergySage reviews the application | No — outside anyone's direct control | No (passive wait) | CJ dashboard / email confirms approval |
+| 6. Tracked link issued | Blocked on step 5 | CJ generates a real tracking URL for advertiser 5835771 | No | No (passive) | A real CJ tracking URL visible in the dashboard, distinct from the plain `energysage.com` link |
+| 7. GridPermit production activation | Blocked on step 6 | Swap the plain link in `InstallerCTA.astro` + `index.astro` for the real tracked URL, update disclosure copy to reflect verified compensation, run full test/build/deploy pipeline | **Yes, immediately, once a real tracking URL exists** | No | Production shows the new tracked link; `npm run search-readiness` and `monetization-safety.test.mjs` both still pass |
+
+**Prepared in advance so step 7 requires no new investigation once step 6 clears:** the exact files to edit (`src/components/InstallerCTA.astro`, `src/pages/index.astro`), the exact disclosure-copy pattern already used twice this engagement (swap "has not yet been confirmed" language for the real, verified relationship), and the exact test file that must still pass (`tests/monetization-safety.test.mjs`) are all already known and documented — no rediscovery needed. **I did not repeatedly retry Payoneer or fabricate any document** — steps 1–2 are recorded as pure owner actions and nothing more was attempted against them.
+
+### Phase 3 — BigBattery
+
+Re-confirmed the truthful niche checkbox ("Solar - Off Grid - Battery Backup") is checkable with zero fabrication — proven twice now across two sessions. This pass hit a **reproducible browser-tool rendering bug** specific to this page (blank screenshots, stale click-coordinate mapping after `scroll_to`) that prevented mechanically completing steps 2–4. This is a tooling limitation in this environment, not a password/payment/CAPTCHA wall, and not a fabrication risk — every field that would be submitted is already known and documented (name, email, website, niche; all social fields honestly blank). **Recorded as the one precise owner action: complete the remaining ~90 seconds of the BigBattery form manually** (or retry in a future session with a stable browser tool) — every answer is already decided, nothing needs to be figured out.
+
+### Phase 4 — Awin cluster, re-verified live (not stale)
+
+All 6 candidates re-checked directly against primary sources this pass — **zero drift found**, unlike CostToBuildHouse's earlier silent deactivation:
+
+- **Bark.com** — up to $100/project, 30-day cookie, "Content Producers" explicitly named as an ideal fit
+- **Power Queen** — Awin merchant 118441 confirmed still live
+- **MatchBurst** — Awin merchant 114854 confirmed still live, US-only traffic, real prohibited-traffic list unchanged
+- **Bluetti** — up to 10% commission, 30-day cookie, network choice of Impact/Awin/CJ
+- **EcoFlow** — minimum 5% commission, 7-day cookie, network choice including Awin
+- **ALLPOWERS** — 5%+ up to 10% tiered, 30-day cookie, explicitly welcomes "bloggers, content creators... review websites, comparison sites"
+
+**Awin publisher-account situation:** confirmed no Awin account exists anywhere accessible to this environment (`~/.config` has no Awin credentials). **Minimum owner interaction to unlock all six simultaneously:** one visit to `ui.awin.com/publisher-signup` → complete "Account Setup" (Company Name, Tax Residency, First/Last Name, Email, **Password**) → pay the real, refundable **~£5/$6 card deposit** → complete "Promotional Type," "Promotional Space," "Verification." This is a single owner action, not six.
+
+### Phase 5 — Profitise
+
+**No response is visible to this environment.** I have no email access of any kind — I cannot confirm or rule out a reply. Per instruction, left alone; no duplicate outreach sent.
+
+### Phase 6 — zero-owner-action wins
+
+Reviewed the full ~20-candidate viable set. **None can be advanced further today without one of: password creation, payment info, missing business/legal data GridPermit doesn't have, or a real traffic figure that doesn't exist.** This isn't a new finding — every candidate in the master index already carries its exact blocker from prior passes, and this pass's re-verification (Phase 4) confirmed none of them quietly became easier. Signature Solar's and homeyou's application forms remain unconfirmed (JS-rendered, not extractable via fetch, and the browser tool was unstable this pass) — carried forward as `OWNER_ACTION_REQUIRED`, not advanced.
+
+### Phase 7 — monetization control plane
+
+Built `src/lib/partners.ts`: a small, typed registry (partner/status/destination/trackingEnabled/compensationVerified/placementEligible/disclosureType/lastVerified) covering the 10 partners actually in motion (not all ~57 — the rejected/parked long tail stays in this document, not duplicated into code). **Not wired into any rendered component** — `InstallerCTA.astro` and `index.astro` are unchanged and still control production directly. This is deliberately a preparation layer, not a live refactor, consistent with "do not overengineer."
+
+New test file `tests/partner-registry.test.mjs` (9 tests, all passing): rejected partners can never be `placementEligible`; `trackingEnabled` can never be true without a real destination URL; `disclosureType: "affiliate"` can never appear without `compensationVerified: true`; `getActivePartners()` is asserted to return **exactly zero partners today** — a test that will loudly fail (requiring a deliberate update) the moment a partner is genuinely approved, rather than silently passing on an unapproved partner slipping through.
+
+Full pipeline re-run after this change: 229/229 tests pass (was 220 — 9 new), `astro check` 0 errors, build 439 pages (unchanged), `seo-check`/`data-quality-check`/`search-readiness` all green, production confirmed still on the plain EnergySage link via `curl`.
+
