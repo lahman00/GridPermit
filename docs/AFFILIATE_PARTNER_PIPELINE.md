@@ -15,7 +15,7 @@ This is the single source of truth for every candidate investigated across all r
 | EnergySage (existing relationship) | `OWNER_ACTION_REQUIRED` | Real Channel Partner account + CJ advertiser ID 5835771 exist; partner landing page 404s, CJ program blocked on Payoneer/payment onboarding |
 | HomeAdvisor | `WAITING_FOR_NETWORK` | Real self-serve CJ signup exists, same account-activation blocker as EnergySage's CJ program |
 | Profitise | `CONTACTED` | Inquiry sent per user report (not independently verified by me); awaiting reply |
-| Angi | `CONTACTED` | Same as Profitise |
+| Angi | `REJECTED` | Program/vertical mismatch — Angi Affiliate Team confirmed directly (2026-08-19) they do not currently accept solar leads from affiliate partners; resolved, no follow-up |
 | BigBattery | `APPLICATION_STARTED` | Step 1 completed with zero fabrication; final submission blocked by this environment's own permission layer |
 | Power Queen | `OWNER_ACTION_REQUIRED` | Real Awin merchant 118441 confirmed + GoAffPro direct route found; both need account creation |
 | MatchBurst | `OWNER_ACTION_REQUIRED` | Same Awin account blocker as Power Queen (consolidated, not duplicated) |
@@ -723,4 +723,52 @@ Ran before every commit this pass: `git diff --cached | grep -iE "client_secret|
 **REJECTED (4 new):** BrokerCalls, CallVox, PermitFlow partners, power.solar.
 
 **No change this pass:** everything else in the master status index above.
+
+---
+
+## Eighth pass — 2026-08-19: Angi closed with primary-source evidence
+
+**Angi status update.**
+
+| Field | Value |
+|---|---|
+| Status | `REJECTED` |
+| Reason | Program / vertical mismatch |
+| Evidence | Angi Affiliate Team directly confirmed on 2026-08-19: *"Thank you for your interest in partnering with Angi, however we do not currently accept solar leads from affiliate partners."* |
+| Owner action required | None |
+| Follow-up required | None |
+
+This is direct primary-source evidence — a real reply from the network itself, the strongest evidence tier this pipeline has for any candidate. It is explicitly **not** a judgment on GridPermit's traffic, site quality, geography, or publisher size — Angi's own wording specifies the disqualifier is that they don't currently accept solar leads through affiliate partners at all, independent of who's asking. No re-contact planned. Removed from the CONTACTED-awaiting-response list, the actionable application queue, the owner-action queue, and first-dollar candidate calculations below. The historical outreach record (original draft, send date, and this resolution) is preserved in `docs/PARTNER_OUTREACH_QUEUE.md` and in the master status index above — nothing about the historical record was deleted, only its live status changed.
+
+No production-site change was made or is warranted from this update alone — Angi was never a live link on `mygridpermit.com`.
+
+### Recalculated totals
+
+**1. Total viable partner candidates (VERIFIED + OWNER_ACTION_REQUIRED + WAITING_FOR_NETWORK + CONTACTED + APPLICATION_STARTED, i.e. not REJECTED and not NEEDS_VERIFICATION): 20** (was 21 — Angi moves out of this set)
+
+**2. Contacted, awaiting response: 1** — Profitise only (was 2)
+
+**3. Rejected count: 30** (was 29 — Angi joins the rejected list, this time with the single strongest evidence tier of any rejection in the pipeline: a direct network reply, not an inference)
+
+**4. Top 10 monetization opportunities** (re-ranked without Angi; by relevance to solar/battery traffic × realistic revenue × how close the remaining blocker is × account-sharing leverage):
+
+| Rank | Candidate | Why |
+|---|---|---|
+| 1 | **EnergySage** | Highest leverage — account, advertiser ID (5835771), and a reported live $10/lead rate already exist; only needs Payoneer/payment onboarding finished, not a new account |
+| 2 | **Profitise** | Strongest solar-specific fit of any new-relationship candidate; awaiting reply |
+| 3 | **Bark.com (Awin)** | Best-documented terms in the entire pipeline — up to $100/lead, 30-day cookie; solar+roofing+HVAC+electrical all confirmed |
+| 4 | **HomeAdvisor** | Same CJ account as EnergySage — zero incremental account-creation cost once that's resolved |
+| 5 | **BigBattery** | Closest to actually submittable of any brand-new application — no password/payment blocker, only owner-supplied data needed |
+| 6 | **Power Queen** | Real Awin merchant (118441) + a non-Awin GoAffPro route; solar explicitly named |
+| 7 | **MatchBurst** | Real Awin CPL network, solar is a named vertical; same Awin account as Power Queen/Bark |
+| 8 | **Bluetti** | Verified real terms (10% commission, 30-day cookie), direct battery-content fit |
+| 9 | **EcoFlow** | Verified real terms (min. 5%, 7-day cookie), same fit |
+| 10 | **ALLPOWERS** | Verified real terms (5–10% tiered, 30-day cookie), explicitly welcomes review/comparison sites |
+
+**5. First-dollar candidates** (re-derived from `docs/FIRST_DOLLAR_CHECKLIST.md`, Angi removed):
+- **Primary:** EnergySage — the only candidate with an *existing* account; the entire remaining gap is Payoneer/payment onboarding, not a new relationship
+- **Secondary (high-leverage cluster):** Bark.com, Power Queen, MatchBurst, Bluetti, EcoFlow, ALLPOWERS — one Awin publisher account (real, ~$6 refundable deposit) unlocks all six simultaneously
+- **Tertiary (fastest brand-new, non-networked win):** BigBattery — a single direct application, no shared account needed, already ~90% prepared
+
+Profitise remains a genuine candidate for "first dollar" but isn't ranked above these three groups specifically because its terms are still unknown pending reply — it could move to #1 immediately if a strong, low-friction offer comes back.
 

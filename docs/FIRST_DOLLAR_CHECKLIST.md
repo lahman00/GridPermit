@@ -25,7 +25,6 @@ For any partner, in order:
 | **EnergySage** | Step 0 (pre-approval) | Has a Channel Partner *relationship* and account, but the dedicated tracking page (`/p/gridpermit/`) 404s — production reverted to the plain, untracked link. Separately, the paid CJ program (real per-lead payout) requires a CJ publisher account that can't be created until Payoneer/payment onboarding is finished — an owner-only, outside-this-repo blocker. |
 | **HomeAdvisor** | Step 0 | Same CJ/Payoneer blocker as EnergySage's paid program — real, self-serve signup exists, but is gated on the same owner action. |
 | **Profitise** | Contacted (per user report) | Awaiting their reply with real terms — no application has been submitted, no terms are known yet. |
-| **Angi** | Contacted (per user report) | Same — awaiting reply. |
 | **BigBattery** | Step 0, application ~90% prepared | All truthful fields identified (name, email, website, niche); final form submission requires either owner action or a permission this environment's own safety layer denies to an automated agent. |
 | **Power Queen** | Step 0 | Real Awin merchant (118441) confirmed, plus a non-Awin GoAffPro route exists — both require account creation only the owner can complete. |
 | **MatchBurst** | Step 0 | Same Awin account-creation blocker (consolidated with Power Queen — one account unlocks both). |
@@ -33,6 +32,8 @@ For any partner, in order:
 | **Docan Power** | Step 0, hard stop | Signup requires password + payment method + Tax ID + CAPTCHA on the very first screen — no partial progress possible. |
 | **Advertising Results Inc.** | Step 0 | Real, detailed business-application form exists (no password) — blocked purely on missing legal entity name, business address, and phone number, none of which exist in this repo. |
 | **BuyTheCalls, Digital Master Media** | Pre-step-0 (economic evaluation phase) | Real programs, real solar payouts, but the actual go/no-go depends on real GridPermit traffic data that doesn't exist yet (no GA4 access) — see `docs/PAY_PER_CALL_FEASIBILITY.md`. |
+
+**Update, 2026-08-19: Angi removed from this table.** The Angi Affiliate Team replied directly: *"Thank you for your interest in partnering with Angi, however we do not currently accept solar leads from affiliate partners."* Program/vertical mismatch, not a rejection of GridPermit itself — closed, no follow-up, no longer a first-dollar candidate. Full record kept in `docs/PARTNER_OUTREACH_QUEUE.md` and `docs/AFFILIATE_PARTNER_PIPELINE.md`.
 
 ## What this means, plainly
 

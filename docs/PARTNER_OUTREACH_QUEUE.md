@@ -20,15 +20,19 @@ Per the user's report, ChatGPT sent this via the connected Gmail account on 2026
 
 **Priority:** High (strongest solar-specific fit found across all research passes).
 
-## 2. Angi — SENT
+## 2. Angi — RESOLVED: REJECTED (closed, no follow-up)
 
-Per the user's report, ChatGPT sent this on 2026-08-15. Not independently verified by me. Original draft (reference):
+Per the user's report, ChatGPT sent this on 2026-08-15. Not independently verified by me at the time. **Update, 2026-08-19: the Angi Affiliate Team replied directly.** Exact substantive response, quoted in full:
+
+> "Thank you for your interest in partnering with Angi, however we do not currently accept solar leads from affiliate partners."
+
+This is direct primary-source evidence — the strongest kind of evidence this pipeline has for any candidate, real or rejected. **Reason: program/vertical mismatch**, not a rejection of GridPermit's traffic, site quality, geography, or publisher size — Angi's own words specify the disqualifier is that they don't currently accept solar leads through affiliate partners at all, full stop. **No further contact planned or warranted.** Original outreach draft kept below for the historical record only — it is no longer active.
 
 > **To:** affiliate@angi.com **Subject:** GridPermit — Affiliate Partnership Inquiry
 >
 > GridPermit (mygridpermit.com) is a source-verified permit-information site publishing 341 city guides across all 50 US states, built on organic search traffic. We're interested in your affiliate/referral program and would like to know: publisher terms and commission structure, eligible traffic sources, payout model, geographic coverage, and tracking/attribution method.
 
-**Priority:** Medium (largest potential scale, weakest specific fit — general home services, not solar-specific).
+**Priority:** N/A — closed.
 
 ## 3. Aragon Advertising — READY_TO_SEND
 
