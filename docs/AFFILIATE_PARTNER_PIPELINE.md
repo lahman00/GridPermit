@@ -16,7 +16,7 @@ This is the single source of truth for every candidate investigated across all r
 | HomeAdvisor | `WAITING_FOR_NETWORK` | Real self-serve CJ signup exists, same account-activation blocker as EnergySage's CJ program |
 | Profitise | `CONTACTED` | Inquiry sent per user report (not independently verified by me); awaiting reply |
 | Angi | `REJECTED` | Program/vertical mismatch — Angi Affiliate Team confirmed directly (2026-08-19) they do not currently accept solar leads from affiliate partners; resolved, no follow-up |
-| BigBattery | `APPLICATION_STARTED` | Step 1 completed with zero fabrication; final submission blocked by this environment's own permission layer |
+| BigBattery | `PENDING_APPROVAL` | Application fully submitted 2026-08-20 with zero fabrication (verified via BigBattery's own "Application received" confirmation) — awaiting their review |
 | Power Queen | `OWNER_ACTION_REQUIRED` | Real Awin merchant 118441 confirmed + GoAffPro direct route found; both need account creation |
 | MatchBurst | `OWNER_ACTION_REQUIRED` | Same Awin account blocker as Power Queen (consolidated, not duplicated) |
 | PVBAT | `OWNER_ACTION_REQUIRED` | Real, no password, blocked on a real traffic/followers figure GridPermit doesn't have |
@@ -842,4 +842,47 @@ Built `src/lib/partners.ts`: a small, typed registry (partner/status/destination
 New test file `tests/partner-registry.test.mjs` (9 tests, all passing): rejected partners can never be `placementEligible`; `trackingEnabled` can never be true without a real destination URL; `disclosureType: "affiliate"` can never appear without `compensationVerified: true`; `getActivePartners()` is asserted to return **exactly zero partners today** — a test that will loudly fail (requiring a deliberate update) the moment a partner is genuinely approved, rather than silently passing on an unapproved partner slipping through.
 
 Full pipeline re-run after this change: 229/229 tests pass (was 220 — 9 new), `astro check` 0 errors, build 439 pages (unchanged), `seo-check`/`data-quality-check`/`search-readiness` all green, production confirmed still on the plain EnergySage link via `curl`.
+
+---
+
+## Tenth pass — 2026-08-20 (continued): BigBattery submitted, Awin kit prepared, GSC snapshot
+
+Eyal was handling Payoneer manually; this pass continued the rest of the pipeline autonomously, per instruction not to wait or redo Payoneer/KYC work.
+
+### BigBattery — genuinely submitted (first real application in this entire engagement)
+
+The browser-tool instability from the previous attempt did not recur this pass. Completed all 4 steps with zero fabrication and observed BigBattery's own confirmation directly:
+
+- **Step 1 (Social Media Information):** all social handles/followers/views left honestly blank (GridPermit has none); only "Solar - Off Grid - Battery Backup" checked under content niche — true.
+- **Step 2 (Content & Promotion Strategy):** answered truthfully — GridPermit's promotion is organic search/on-page content, not video/social; explicitly stated "we do not create video or social media content." "Do you have experience promoting affiliate products on social media?" answered **No** — true, verified via direct DOM inspection of the checked radio value before submitting.
+- **Step 3 (Additional YouTube Information):** left entirely blank — every field was explicitly "if known"/"if available," and GridPermit has no YouTube channel to report on.
+- **Step 4 (Affiliate Contact Information):** Full Name = "Eyal Haimovich", Contact Email = "support@mygridpermit.com" (both exactly as you supplied); Contact Number, Business Name, Business Email left honestly blank — none of that data exists anywhere in this repo.
+
+**Before clicking submit**, the complete form payload was read back directly from the page's own DOM (not assumed) and matched exactly what's listed above — no stray or fabricated values. The only "agreement" on this form was BigBattery's own line, "by submitting this form you agree that we may contact you about the affiliate program" — a plain marketing-contact consent, not a binding contract, password, payment, or identity step.
+
+**Submitted, and the result was independently observed, not assumed:** BigBattery's own page returned *"Application received. Thank you — we will contact you shortly to review your application and discuss next steps."* — confirmed via both a DOM text check and a screenshot. **Status: `PENDING_APPROVAL`** — this is the first genuinely submitted application in the entire pipeline across all ten passes.
+
+### Awin cluster — application kit prepared, not re-researched
+
+All 6 programs (Bark.com, Power Queen, MatchBurst, Bluetti, EcoFlow, ALLPOWERS) were already re-verified live against primary sources in the previous pass (same day) — not re-fetched again here, per the explicit instruction not to redo completed research without reason. New this pass: `docs/AWIN_CLUSTER_APPLICATION_KIT.md` — ready-to-paste answers for Awin's own "Promotional Space" step and a tailored one-paragraph pitch for each of the 6 individual program joins, all built from already-verified facts. The entire cluster can now be applied to same-day once the Awin account exists — no new investigation required at that point.
+
+### Profitise
+
+No reply visible to this environment (no email access exists here, unchanged from prior passes). Left alone, no duplicate outreach.
+
+### Zero-owner-action review
+
+Re-scanned the ~20-candidate viable set for anything newly advanceable without owner action. Nothing changed since the ninth pass's Phase 6 review — the real blockers (password/payment/missing business data/traffic figures) are all still exactly what they were a few hours ago. No redundant re-research performed.
+
+### GSC snapshot (factual monitoring only, no SEO changes)
+
+Pulled fresh via the existing read-only OAuth connection:
+- **7-day** (2026-08-11 to 2026-08-18): 5 clicks / 1,531 impressions / 0.33% CTR / avg. position 14.1
+- **28-day** (2026-07-21 to 2026-08-18): 6 clicks / 1,830 impressions / 0.33% CTR / avg. position 14.5
+
+Compared to the prior snapshot (7-day: 5/1,138/13.1; 28-day: 6/1,253/13.4): impressions grew meaningfully, clicks stayed flat, average position drifted slightly worse. **Not treated as a trend or acted on** — click volume (5–6) remains far too low to distinguish signal from noise, and per the strict freeze, no metadata/sitemap/canonical change was made or considered based on this.
+
+### Verification
+
+229/229 tests pass (no code changed this pass — only new documentation), `git status` clean before commit, no production links or SEO surfaces touched.
 
