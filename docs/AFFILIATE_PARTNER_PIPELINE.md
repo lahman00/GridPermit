@@ -886,3 +886,58 @@ Compared to the prior snapshot (7-day: 5/1,138/13.1; 28-day: 6/1,253/13.4): impr
 
 229/229 tests pass (no code changed this pass — only new documentation), `git status` clean before commit, no production links or SEO surfaces touched.
 
+---
+
+## Eleventh pass — 2026-08-21: Awin kit completed, zero-owner-action sweep, follow-up readiness, activation prep
+
+### Priority 1 — Awin cluster: kit expanded to full field set
+
+`docs/AWIN_CLUSTER_APPLICATION_KIT.md` now records, per program: exact Awin merchant/advertiser ID, commission, cookie window, geographic eligibility, accepted/prohibited traffic, GridPermit positioning copy, program-specific questions, approval-type (marked honestly as "not explicitly published" where true, not guessed), and the exact in-dashboard application path. New this pass: real Awin merchant IDs for Bluetti (59271, US-specific — distinct from its UK/CA/AU/EU siblings), EcoFlow (59181, Global/US — distinct from its UK profile at 51797), and ALLPOWERS (40342, US & CA — distinct from its international profile at 38934), confirmed via direct search of Awin's own merchant-profile pages. A recommended application order is documented (Bark → Power Queen → ALLPOWERS → Bluetti → MatchBurst → EcoFlow). No re-verification of already-confirmed commission/cookie figures was performed, per instruction not to redo completed research.
+
+### Priority 2 — zero-owner-action sweep: 2 candidates checked live, both hit a genuine new blocker
+
+- **First Call Solutions** — inspected the actual form fields via direct DOM query (not assumed): only **Email** and **Skype** are truly required (Name and Phone are not, contrary to what the page's visual layout implies). **GridPermit has no Skype identity to provide — this is a real, specific missing-business-information blocker**, not a password/payment one. Recorded, not fabricated, not submitted.
+- **OnCore Leads** — the actual application form is embedded via a `forms.monday.com` iframe; navigating to it directly in this environment was denied. Fields remain unconfirmed — this is an environment access limitation, not a business-data gap. No submission attempted.
+- No other candidate in the ~20-strong viable set was newly advanceable — everything else remains exactly as recorded in the tenth pass (password/payment/missing-data blockers, all previously documented). No broad re-discovery performed.
+
+### Priority 3 — BigBattery follow-up readiness
+
+**Status stays `PENDING_APPROVAL` — no claim of approval.** Prepared for whatever comes next:
+
+- **Likely response scenarios:** (a) approval with an affiliate dashboard + tracking link/code — the target outcome; (b) a request for more information (e.g., "tell us more about your audience/traffic") — answerable honestly from `docs/PARTNER_APPLICATION_PROFILE.md` without inventing a number; (c) rejection, most plausibly on the grounds of no track record/no social presence — a real possibility given the application's honest "no social media, no prior affiliate experience" answers, and not something to soften if it happens.
+- **Information that might legitimately be requested and GridPermit can supply truthfully:** website URL, content description, traffic source (organic search), estimated content volume (341 published guides — a real, verifiable number, distinct from *traffic* volume which remains unknown).
+- **Information that might be requested and GridPermit genuinely cannot supply without owner input:** legal business entity name, business address, tax ID/W-9 (US affiliate payouts typically require this) — flagged now so a reply asking for these isn't a surprise later.
+
+### Priority 4 — Profitise
+
+No inbox access exists in this environment; status unchanged: **CONTACTED / AWAITING RESPONSE**. No duplicate outreach sent.
+
+### Priority 5 — first-dollar ranking, recalculated against current reality
+
+Ranked by distance to activation, then monetization potential, then owner effort, then technical effort. No revenue figures invented — potential is described qualitatively only.
+
+| Rank | Path | Distance to activation | Monetization potential | Owner effort | Technical effort |
+|---|---|---|---|---|---|
+| 1 | **BigBattery** | Closest — already submitted, awaiting a yes/no | Real (published 5% commission on battery hardware), but per-sale not per-lead — likely smaller absolute $ per conversion than a lead-based model | None right now (passive wait) | None (link swap only, once approved) |
+| 2 | **Awin cluster (6 programs)** | One owner action (account + deposit) away from being appliable same-day | Best-documented terms in the whole pipeline (Bark's $100/lead ceiling is the single largest published figure found anywhere) | Low — one signup, ~10 minutes | None beyond the already-built application kit |
+| 3 | **EnergySage (existing account)** | Blocked behind Payoneer, which is already in progress | Known-real ($10/lead per your report) and already the live (untracked) CTA — the least *new* work if it clears, since the placement already exists | Currently in progress (Payoneer) | Low (swap one link, disclosure text, already-passing test) |
+| 4 | **Profitise** | Unknown — awaiting reply | Unknown until terms arrive | None right now (passive wait) | Unknown until terms arrive |
+
+**Why this order, explicitly:** BigBattery ranks #1 purely on *distance* (it's the only one with zero remaining owner action before a possible yes/no), not because its potential is the largest — Awin's Bark.com program has the single best-documented payout in the entire pipeline, and EnergySage is the only relationship with a *reported* real live rate. If EnergySage's Payoneer step clears before BigBattery or Awin resolve, its ranking would move to #1 immediately given the already-built placement and lowest incremental technical work.
+
+### Priority 6 — fast-activation targets identified
+
+| Partner | Exact production component that would receive the tracking link |
+|---|---|
+| **EnergySage** | `src/components/InstallerCTA.astro` (line 27, all 341 locality guides) + `src/pages/index.astro` (line 271, homepage) — the two files already hold the plain link and its disclosure copy |
+| **BigBattery** | Not yet placed anywhere in production — no component exists for it today. If approved, the natural placement is a new, narrow CTA on locality guide pages with populated `battery_programs` data, likely as a second block near `InstallerCTA.astro`, not a replacement for it |
+| **Awin cluster (Bark/Power Queen/MatchBurst/Bluetti/EcoFlow/ALLPOWERS)** | Same as BigBattery — no production placement exists yet; would need the same kind of contained, new component |
+
+`src/lib/partners.ts` (built in the ninth pass) already models all of the above as data (`destination`, `trackingEnabled`, `placementEligible`) — no new code was written this pass, since there is still nothing approved to wire in. Building the actual CTA component before any partner is approved would be exactly the premature scaffolding this project's standing discipline warns against; the registry is the correct amount of preparation until that changes.
+
+**Hard rule re-confirmed and unbroken this pass:** no partner is production-active without `APPROVED` + a real, verified tracking link. No placeholder URLs were added anywhere.
+
+### Verification
+
+No code changed this pass (documentation only) — 229/229 tests still pass, `git status` clean, no SEO/sitemap/canonical/robots/content touched.
+
