@@ -71,7 +71,7 @@ export const PARTNERS: Partner[] = [
 	{
 		id: "bigbattery",
 		name: "BigBattery",
-		status: "owner_action_required",
+		status: "pending_approval",
 		vertical: "battery",
 		destination: "",
 		trackingEnabled: false,
@@ -79,7 +79,7 @@ export const PARTNERS: Partner[] = [
 		placementEligible: false,
 		disclosureType: "none",
 		lastVerified: "2026-08-20",
-		notes: "Application step 1 completed with zero fabrication (niche checkbox only); remaining steps blocked by browser-automation tooling instability this pass, not by BigBattery or a password/payment wall.",
+		notes: "Application fully submitted 2026-08-20 with zero fabrication, confirmed via BigBattery's own \"Application received\" message. Awaiting their review — no tracking link yet.",
 	},
 	{
 		id: "power-queen",
