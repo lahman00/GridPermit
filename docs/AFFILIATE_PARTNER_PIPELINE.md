@@ -12,9 +12,9 @@ This is the single source of truth for every candidate investigated across all r
 
 | Candidate | Status | One-line reason |
 |---|---|---|
-| EnergySage (existing relationship) | `OWNER_ACTION_REQUIRED` | Real Channel Partner account + CJ advertiser ID 5835771 exist; partner landing page 404s, CJ program blocked on Payoneer/payment onboarding |
+| EnergySage (existing relationship) | `BLOCKED_BY_CJ_ACCOUNT_ACTIVATION` | Payoneer USD receiving account APPROVED, payment info entered into CJ and acknowledged; CJ still blocks applying to advertiser 5835771 pending onboarding-checklist/account-activation completion (diagnosis + support escalation in `docs/CJ_ACTIVATION_ESCALATION.md`) |
 | HomeAdvisor | `WAITING_FOR_NETWORK` | Real self-serve CJ signup exists, same account-activation blocker as EnergySage's CJ program |
-| Profitise | `CONTACTED` | Inquiry sent per user report (not independently verified by me); awaiting reply |
+| Profitise | `CONTACTED / AWAITING_RESPONSE` | Inquiry sent per user report (not independently verified by me — no email access exists here); no reply visible, no re-contact sent |
 | Angi | `REJECTED` | Program/vertical mismatch — Angi Affiliate Team confirmed directly (2026-08-19) they do not currently accept solar leads from affiliate partners; resolved, no follow-up |
 | BigBattery | `PENDING_APPROVAL` | Application fully submitted 2026-08-20 with zero fabrication (verified via BigBattery's own "Application received" confirmation) — awaiting their review |
 | Power Queen | `OWNER_ACTION_REQUIRED` | Real Awin merchant 118441 confirmed + GoAffPro direct route found; both need account creation |
@@ -940,4 +940,24 @@ Ranked by distance to activation, then monetization potential, then owner effort
 ### Verification
 
 No code changed this pass (documentation only) — 229/229 tests still pass, `git status` clean, no SEO/sitemap/canonical/robots/content touched.
+
+---
+
+## Twelfth pass — 2026-08-24: CJ activation diagnosis, support escalation prepared
+
+**Payoneer:** `APPROVED`. **Payoneer USD Receiving Account:** `APPROVED` (USA-based, Checking). **CJ Payment Information:** `SUBMITTED / VERIFICATION_PENDING` — Payoneer USD details entered into CJ, CJ acknowledged the change. None of this sensitive detail is recorded here or anywhere in this repo.
+
+**CJ/EnergySage diagnosis:** Full research and reasoning in `docs/CJ_ACTIVATION_ESCALATION.md`. Summary: CJ's own publisher-onboarding documentation describes a 7-step checklist ending in an explicit "Activate Account" button — a separate action from filling in individual fields. Cross-referenced against what's confirmed done (promotional property Active, W-8BEN submitted, payment info entered): the two most likely gaps are **(1)** the "Complete Your Network Profile" step, distinct from the promotional-property step and not confirmed done anywhere, or **(2)** the explicit "Activate Account" button simply never being clicked. A backend payment-verification hold is also plausible. I cannot distinguish between these from outside the account — this needs either finding the checklist inside CJ's dashboard (specifically **Account Settings**, not the Advertisers view) or CJ Support confirming the account's exact state. **EnergySage status: `BLOCKED_BY_CJ_ACCOUNT_ACTIVATION`.** Not retried blindly, per instruction.
+
+**CJ support escalation:** Not submitted — CJ's real Support Center (`members.cj.com/member/contactSupport.cj`) requires an authenticated login I don't have and won't create. A complete, ready-to-send message (no bank/routing/TIN/Payoneer sensitive data) plus the exact submission path (support center or phone 800-761-1072) is prepared in `docs/CJ_ACTIVATION_ESCALATION.md`.
+
+**Awin cluster:** Light-touch re-verification only (avoiding redundant full research per instruction) — spot-checked Power Queen (merchant 118441) and Bark.com (advertiser 58887) directly via curl, both still return HTTP 200. Kit (`docs/AWIN_CLUSTER_APPLICATION_KIT.md`) remains genuinely paste-ready, unchanged. **Status: `READY_AFTER_NETWORK_ACCOUNT_CREATION`** for all 6 (Bark.com, Power Queen, MatchBurst, Bluetti, EcoFlow, ALLPOWERS).
+
+**BigBattery:** Unchanged, `PENDING_APPROVAL` — no channel exists to check for a response.
+
+**Profitise:** Unchanged, `CONTACTED / AWAITING_RESPONSE` — no email access to check, no re-contact sent.
+
+**Angi:** Unchanged, `REJECTED` — not revisited.
+
+No Miloosh work performed or discussed further in this pass. No SEO metadata, sitemap, canonical, robots, or locality content touched.
 
