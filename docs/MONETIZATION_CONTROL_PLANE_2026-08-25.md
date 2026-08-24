@@ -1,5 +1,7 @@
 # GridPermit Monetization Control Plane — 2026-08-25
 
+> **Superseded for current state** by `docs/MONETIZATION_CANONICAL_STATE.md`. This document remains as historical evidence for this pass; check the canonical file for the latest partner statuses.
+
 Purpose: one operational view of the highest-value monetization routes that can realistically produce first revenue without violating the current SEO freeze or publishing unapproved tracking assets.
 
 ## Non-negotiable gates

@@ -1,5 +1,7 @@
 # Hardware Affiliate Expansion — 2026-08-25
 
+> **Superseded for current state** by `docs/MONETIZATION_CANONICAL_STATE.md`. This document remains as historical evidence for this pass; check the canonical file for the latest partner statuses.
+
 ## Objective
 Expand GridPermit's battery/solar-equipment monetization options without relying on Awin, while keeping production links disabled until approval + real tracking data exist.
 

@@ -1,5 +1,7 @@
 # Affiliate Partner Pipeline — Full Audit
 
+> **Current partner status now lives in `docs/MONETIZATION_CANONICAL_STATE.md`.** This document remains the append-only, pass-by-pass historical research log and evidence trail — keep reading it for *how* each status was reached, but treat the canonical file as the answer to "what is true right now."
+
 Written 2026-08-15. This document supersedes the narrower `docs/AFFILIATE_PIPELINE.md` (single-program EnergySage tracker) as the canonical partner pipeline. It records grounded, primary-source verification of 23 named candidates against GridPermit's actual current state: **341 live locality pages, 100% solar/battery permit content, zero HVAC/roofing/electrical/general-home-services/contractor-software content** (confirmed via `docs/FUTURE_EXPANSION.md` — none of those verticals has been built, and none is in scope right now).
 
 **No production monetization changes were made while producing this document.** Every finding below was verified via live web research (WebSearch/WebFetch/curl against primary sources — company sites, network advertiser pages, or the company's own affiliate/partner page) on 2026-08-15. Where a fact could not be verified from a primary source, it is marked **NOT FOUND** — nothing here is guessed or extrapolated from a similar-sounding company.

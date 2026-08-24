@@ -1,5 +1,7 @@
 # Monetization Research — 2026-08-25
 
+> **Superseded for current state** by `docs/MONETIZATION_CANONICAL_STATE.md`. This document remains as historical evidence for this pass; check the canonical file for the latest partner statuses.
+
 ## New direct affiliate lead: EASUNPOWER
 
 Primary source: https://www.easunpower.com/pages/easunpower-affiliate-program

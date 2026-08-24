@@ -1,5 +1,7 @@
 # GridPermit First-Revenue Sprint — 2026-08-25
 
+> **Superseded for current state** by `docs/MONETIZATION_CANONICAL_STATE.md`. This document remains as historical evidence for this pass; check the canonical file for the latest partner statuses.
+
 Purpose: move GridPermit from partner research into the shortest credible path to first tracked revenue without violating the SEO freeze or activating unapproved monetization.
 
 ## Executive priority
