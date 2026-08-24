@@ -1,0 +1,48 @@
+---
+// Reusable hardware-affiliate CTA for battery/backup-power editorial pages.
+// NOT wired into any page yet: see docs/MONETIZATION_CANONICAL_STATE.md,
+// Lane C (hardware affiliate cluster).
+//
+// Fail-closed by construction: getLaunchReadyPartner() returns null unless
+// the partner is status "approved", trackingEnabled, placementEligible,
+// launchEnabled, AND has a real destination URL, so this component renders
+// nothing at all today, for every partner in src/lib/partners.ts. Do not add
+// a placeholder tracking URL anywhere to "test" this component; test it via
+// the unit tests instead (see tests/product-affiliate-cta.test.mjs).
+import { getLaunchReadyPartner, getDisclosureText } from "../lib/partners";
+
+interface Props {
+	partnerId: string;
+	/** e.g. "Home battery storage" or "Portable power stations." Keep it a plain category label; put any editorial superlative in the surrounding page copy, not here. */
+	productLabel: string;
+}
+
+const { partnerId, productLabel } = Astro.props;
+const partner = getLaunchReadyPartner(partnerId, "hardware_affiliate");
+const rel = partner?.compensationVerified ? "sponsored noopener noreferrer" : "noopener noreferrer";
+---
+
+{partner && partner.destination && (
+	<div class="affiliate-cta">
+		<p class="affiliate-cta-label">{productLabel}</p>
+		<a
+			href={partner.destination}
+			target="_blank"
+			rel={rel}
+			class="affiliate-cta-btn"
+			data-track-view="affiliate_cta_viewed"
+			data-track-click="affiliate_cta_clicked"
+		>
+			View {partner.name} →
+		</a>
+		<p class="affiliate-cta-disclosure">{getDisclosureText(partner)}</p>
+	</div>
+)}
+
+<style>
+	.affiliate-cta { background: var(--bg-light, #f8fafc); border: 1px solid #e2e8f0; border-radius: 10px; padding: 1.25rem; text-align: center; margin: 1.5rem 0; }
+	.affiliate-cta-label { font-size: 0.8rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.03em; margin: 0 0 0.75rem 0; }
+	.affiliate-cta-btn { display: inline-block; background: var(--accent, #10b981); color: white; border: none; padding: 0.7rem 1.25rem; border-radius: 6px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: background 0.2s ease; }
+	.affiliate-cta-btn:hover { background: #059669; }
+	.affiliate-cta-disclosure { font-size: 0.72rem; color: #94a3b8; margin-top: 0.75rem !important; line-height: 1.4; }
+</style>

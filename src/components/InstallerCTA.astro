@@ -1,34 +1,35 @@
 ---
 // The one conversion point on every locality guide page. Placed after
-// Official Contacts (the reader has just absorbed the real permit facts —
+// Official Contacts (the reader has just absorbed the real permit facts,
 // the natural next question is "who actually does this for me?") and before
 // the footer disclaimer.
 //
-// GridPermit's dedicated partner landing page (energysage.com/p/gridpermit/)
-// returned a 404 as of 2026-08-15 — reverted to the plain root link until
-// EnergySage confirms it's live. Same pattern as the homepage's EnergySage
-// CTA (src/pages/index.astro). Compensation not independently verified
-// either way — do not add rel="sponsored" or claim compensation until
-// documentary evidence confirms it.
+// The link and disclosure both come from src/lib/partners.ts rather than
+// being hardcoded here. That's deliberate: partner.destination is today's
+// plain, untracked EnergySage root link (the dedicated partner landing page
+// is dead, see docs/MONETIZATION_CANONICAL_STATE.md), and getCplState()
+// derives the right disclosure sentence from the partner's actual verified
+// state. When CJ activation clears and a real tracked link exists, updating
+// partners.ts is the only change needed here, not this template.
+import { getPartner, getCplState, getCplDisclosureText } from "../lib/partners";
+
 interface Props {
 	city: string;
 }
 
 const { city } = Astro.props;
+const partner = getPartner("energysage")!;
+const disclosure = getCplDisclosureText(getCplState(partner), partner.name);
 ---
 
 <div class="installer-cta-box">
 	<h2>Need a solar installer who handles permits in {city}?</h2>
 	<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers familiar with local permitting.</p>
-	<!-- NOTE: partner landing page 404s as of 2026-08-15 — reverted to the
-	     plain root link. Compensation not independently verified either
-	     way — do not add rel="sponsored" or claim compensation until
-	     confirmed. -->
-	<a href="https://www.energysage.com" target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
+	<a href={partner.destination} target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
 		Compare quotes from solar installers →
 	</a>
 	<p class="installer-cta-disclosure">
-		You'll continue on EnergySage's website. GridPermit has a partner relationship with EnergySage; this link is not currently tracked, and whether the partnership results in compensation to GridPermit has not yet been confirmed.
+		You'll continue on {partner.name}'s website. {disclosure}
 	</p>
 </div>
 

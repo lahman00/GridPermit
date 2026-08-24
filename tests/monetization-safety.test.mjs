@@ -1,15 +1,18 @@
 // Regression guard for the one live monetization surface (InstallerCTA +
-// homepage EnergySage CTA). Nothing here was previously asserted by a
-// test — a future edit could silently point the CTA back at the dead
-// /p/gridpermit/ partner page (see docs/AFFILIATE_PARTNER_PIPELINE.md), or
-// start claiming compensation before it's actually confirmed, with nothing
-// catching it before production.
+// homepage EnergySage CTA). Both now source their link and disclosure from
+// src/lib/partners.ts (getPartner, getCplState, getCplDisclosureText)
+// rather than hardcoding prose, so a future approval only requires a data
+// change in partners.ts. This suite checks both layers: the pure state
+// machine in partners.ts, and structural safety invariants on the two
+// component sources (no dead URL, no premature rel="sponsored", correct
+// analytics attribute, safe external-link attributes).
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getPartner, getCplState, getCplDisclosureText } from "../src/lib/partners.ts";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const INSTALLER_CTA_PATH = path.join(REPO_ROOT, "src", "components", "InstallerCTA.astro");
@@ -19,67 +22,81 @@ const installerCta = readFileSync(INSTALLER_CTA_PATH, "utf8");
 const homepage = readFileSync(HOMEPAGE_PATH, "utf8");
 
 // The exact URL that returned a real 404 from EnergySage's own server on
-// 2026-08-15 (see docs/AFFILIATE_PARTNER_PIPELINE.md) — production was
+// 2026-08-15 (see docs/MONETIZATION_CANONICAL_STATE.md) — production was
 // reverted off it once; nothing should silently point back at it.
-const KNOWN_DEAD_URL = "https://www.energysage.com/p/gridpermit/";
+const KNOWN_DEAD_URL = "/p/gridpermit/";
+
+test("the live EnergySage partner record's destination is the plain root, not the known-dead page", () => {
+	const energysage = getPartner("energysage");
+	assert.ok(energysage);
+	assert.ok(!energysage.destination.includes(KNOWN_DEAD_URL), `partners.ts energysage.destination must not reference ${KNOWN_DEAD_URL}`);
+	assert.equal(energysage.destination, "https://www.energysage.com");
+});
+
+test("today's EnergySage relationship classifies as UNTRACKED_RELATIONSHIP", () => {
+	const energysage = getPartner("energysage");
+	assert.ok(energysage);
+	assert.equal(getCplState(energysage), "UNTRACKED_RELATIONSHIP", "trackingEnabled is false today, so the CPL state machine must classify it as untracked, not a stronger state");
+});
+
+test("getCplDisclosureText never asserts compensation is happening for an untracked relationship", () => {
+	const text = getCplDisclosureText("UNTRACKED_RELATIONSHIP", "EnergySage");
+	assert.ok(/has not yet been confirmed/.test(text), "must state compensation has not yet been confirmed");
+	assert.ok(!/\bearns?\s+(a\s+)?(commission|compensation)\b/i.test(text), "must not claim compensation is actively being earned");
+});
+
+test("getCplDisclosureText for ACTIVE_CPL states a real commission claim only for that state", () => {
+	const text = getCplDisclosureText("ACTIVE_CPL", "EnergySage");
+	assert.ok(/may earn GridPermit a commission/.test(text));
+});
+
+test("getCplDisclosureText produces four distinct, non-empty strings for the four CPL states", () => {
+	const states = ["UNTRACKED_RELATIONSHIP", "TRACKED_UNCONFIRMED_COMPENSATION", "APPROVED_CPL", "ACTIVE_CPL"];
+	const texts = states.map((s) => getCplDisclosureText(s, "EnergySage"));
+	for (const t of texts) assert.ok(t.length > 0);
+	assert.equal(new Set(texts).size, texts.length, "each CPL state must produce distinct disclosure copy");
+});
 
 for (const [label, source] of [
 	["InstallerCTA.astro", installerCta],
 	["index.astro (homepage)", homepage],
 ]) {
-	// Isolate the actual <a> tag pointing at EnergySage — several tests
-	// below need to check its attributes specifically, not the whole file
-	// (which also contains explanatory comments that happen to mention
-	// strings like rel="sponsored" as something NOT to do).
-	const anchorMatch = source.match(/<a\s+href="https:\/\/www\.energysage\.com[^>]*>/);
-
-	test(`${label} does not link to the known-dead EnergySage partner page`, () => {
-		assert.ok(
-			!source.includes(KNOWN_DEAD_URL),
-			`${label} must not reference ${KNOWN_DEAD_URL} — it 404s; the live CTA must use the plain https://www.energysage.com root link until EnergySage confirms the partner page is published`,
-		);
+	test(`${label} does not hardcode the known-dead EnergySage partner page`, () => {
+		assert.ok(!source.includes(KNOWN_DEAD_URL), `${label} must not reference ${KNOWN_DEAD_URL} anywhere in its source`);
 	});
 
-	test(`${label} EnergySage link is a plain https URL with no unverified tracking params`, () => {
-		const hrefMatch = source.match(/href="(https:\/\/www\.energysage\.com[^"]*)"/);
-		assert.ok(hrefMatch, `${label} must contain an https://www.energysage.com link`);
-		const href = hrefMatch[1];
-		assert.ok(!href.includes("?"), `${label}'s EnergySage link must not carry query-string tracking params until a real tracked affiliate URL is supplied`);
+	test(`${label} sources its EnergySage link from the partner registry, not a hardcoded literal`, () => {
+		assert.ok(
+			/href=\{(partner|energysage)\.destination\}/.test(source),
+			`${label} must use href={partner.destination} (or energysage.destination) so a future tracked-link update is a data change, not a template change`,
+		);
+		assert.ok(!/href="https:\/\/www\.energysage\.com/.test(source), `${label} must not also hardcode a literal EnergySage URL alongside the dynamic one`);
 	});
 
-	test(`${label} does not add rel="sponsored" while compensation is unverified`, () => {
-		assert.ok(anchorMatch, `${label} must contain an <a> tag linking to EnergySage`);
-		assert.ok(
-			!/\bsponsored\b/.test(anchorMatch[0]),
-			`${label} must not mark the EnergySage link rel="sponsored" — that asserts a paid placement, and compensation from this partnership has not been independently verified (see docs/AFFILIATE_PARTNER_PIPELINE.md)`,
-		);
+	test(`${label} does not add rel="sponsored" in its own markup`, () => {
+		assert.ok(!/rel="[^"]*\bsponsored\b/.test(source), `${label} must not mark the EnergySage link rel="sponsored" in its own markup — that asserts a paid placement, and compensation from this partnership has not been independently verified`);
 	});
 
 	test(`${label} external EnergySage link opens safely (target=_blank + noopener)`, () => {
-		assert.ok(anchorMatch, `${label} must contain an <a> tag linking to EnergySage`);
-		assert.ok(
-			/target="_blank"/.test(anchorMatch[0]) && /rel="noopener noreferrer"/.test(anchorMatch[0]),
-			`${label}'s external EnergySage link must use target="_blank" rel="noopener noreferrer"`,
-		);
+		assert.ok(/target="_blank"/.test(source) && /rel="noopener noreferrer"/.test(source), `${label}'s external EnergySage link must use target="_blank" rel="noopener noreferrer"`);
 	});
 
 	test(`${label} EnergySage link fires the external_partner_clicked analytics event`, () => {
-		assert.ok(anchorMatch, `${label} must contain an <a> tag linking to EnergySage`);
 		assert.ok(
-			anchorMatch[0].includes('data-track-click="external_partner_clicked"'),
+			source.includes('data-track-click="external_partner_clicked"'),
 			`${label} must keep data-track-click="external_partner_clicked" on the EnergySage link so click volume stays measurable`,
 		);
 	});
 
-	test(`${label} disclosure does not assert compensation is actually being earned`, () => {
-		// The honest, current disclosure says compensation "has not yet
-		// been confirmed" — that phrase is fine. What must never appear is
-		// language asserting compensation IS happening (e.g. "earns a
-		// commission", "receives compensation") without a "not confirmed"
-		// / "not verified" qualifier alongside it.
+	test(`${label} does not hardcode a compensation claim in its own markup`, () => {
 		const compensationClaims = source.match(/earns?\s+(a\s+)?(commission|compensation|referral fee)/gi) ?? [];
-		for (const claim of compensationClaims) {
-			assert.fail(`${label} contains an unqualified compensation claim ("${claim}") — compensation from the EnergySage partnership has not been independently verified`);
-		}
+		assert.equal(compensationClaims.length, 0, `${label} must not hardcode a compensation claim string; disclosure copy must come from getCplDisclosureText()`);
+	});
+
+	test(`${label} renders disclosure text via getCplDisclosureText, not a hardcoded sentence`, () => {
+		assert.ok(
+			/getCplDisclosureText\(getCplState\(/.test(source) || /\{(disclosure|energysageDisclosure)\}/.test(source),
+			`${label} must render its disclosure paragraph from the computed CPL state, not literal prose`,
+		);
 	});
 }

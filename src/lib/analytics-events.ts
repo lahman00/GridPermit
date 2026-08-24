@@ -17,6 +17,12 @@ export const ANALYTICS_EVENTS = [
 	"faq_expanded",
 	"pro_interest_clicked",
 	"page_not_found",
+	"affiliate_cta_viewed",
+	"affiliate_cta_clicked",
+	"cpl_cta_viewed",
+	"cpl_cta_clicked",
+	"pay_per_call_cta_viewed",
+	"pay_per_call_clicked",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[number];

@@ -1,0 +1,51 @@
+---
+// Pay-per-call click-to-call CTA. NOT wired into any page yet: see
+// docs/MONETIZATION_CANONICAL_STATE.md, Lane A (Digital Master Media).
+//
+// Fail-closed by construction: getLaunchReadyPartner() returns null unless
+// the partner is status "approved", trackingEnabled, placementEligible,
+// launchEnabled, AND has a real trackingPhone, so this component renders
+// nothing at all today, and will keep rendering nothing until a human
+// deliberately flips launchEnabled to true after real approval and a real
+// tracking number arrive. Do not add a placeholder phone number anywhere to
+// "test" this component; test it via the partner-registry/CTA unit tests
+// instead (see tests/pay-per-call-cta.test.mjs).
+import { getLaunchReadyPartner } from "../lib/partners";
+
+interface Props {
+	partnerId: string;
+	city?: string;
+	state?: string;
+}
+
+const { partnerId, city, state } = Astro.props;
+const partner = getLaunchReadyPartner(partnerId, "pay_per_call");
+const locationLabel = city && state ? `${city}, ${state}` : city ?? state ?? "";
+---
+
+{partner && partner.trackingPhone && (
+	<div class="pay-per-call-cta">
+		<h2>{locationLabel ? `Talk to a solar specialist about ${locationLabel}` : "Talk to a solar specialist"}</h2>
+		<p>Call to ask questions about residential solar options in your area.</p>
+		<a
+			href={`tel:${partner.trackingPhone}`}
+			class="pay-per-call-btn"
+			data-track-view="pay_per_call_cta_viewed"
+			data-track-click="pay_per_call_clicked"
+		>
+			Call {partner.trackingPhone}
+		</a>
+		{partner.campaignHours && <p class="pay-per-call-hours">Available {partner.campaignHours}.</p>}
+		<p class="pay-per-call-disclosure">Calls may be recorded for quality and compliance purposes.</p>
+	</div>
+)}
+
+<style>
+	.pay-per-call-cta { background: var(--bg-dark, #0f172a); color: white; border-radius: 10px; padding: 1.5rem; text-align: center; margin: 2rem 0; }
+	.pay-per-call-cta h2 { font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem 0; color: white; }
+	.pay-per-call-cta p { font-size: 0.85rem; color: #cbd5e1; margin: 0 0 1rem 0; line-height: 1.5; }
+	.pay-per-call-btn { display: inline-block; background: var(--accent, #10b981); color: white; border: none; padding: 0.85rem 1.5rem; border-radius: 6px; font-weight: 800; font-size: 0.9rem; text-decoration: none; transition: background 0.2s ease; }
+	.pay-per-call-btn:hover { background: #059669; }
+	.pay-per-call-hours { font-size: 0.78rem; color: #94a3b8; margin-top: 0.75rem !important; }
+	.pay-per-call-disclosure { font-size: 0.72rem; color: #94a3b8; margin-top: 0.5rem !important; line-height: 1.4; }
+</style>
