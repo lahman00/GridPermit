@@ -17,22 +17,23 @@ This is the single source of truth for every candidate investigated across all r
 | Profitise | `CONTACTED / AWAITING_RESPONSE` | Inquiry sent per user report (not independently verified by me — no email access exists here); no reply visible, no re-contact sent |
 | Angi | `REJECTED` | Program/vertical mismatch — Angi Affiliate Team confirmed directly (2026-08-19) they do not currently accept solar leads from affiliate partners; resolved, no follow-up |
 | BigBattery | `PENDING_APPROVAL` | Application fully submitted 2026-08-20 with zero fabrication (verified via BigBattery's own "Application received" confirmation) — awaiting their review |
-| Power Queen | `OWNER_ACTION_REQUIRED` | Real Awin merchant 118441 confirmed + GoAffPro direct route found; both need account creation |
-| MatchBurst | `OWNER_ACTION_REQUIRED` | Same Awin account blocker as Power Queen (consolidated, not duplicated) |
+| Power Queen | `ALTERNATE_ROUTE_FOUND` | Awin blocked (see below); real non-Awin GoAffPro portal confirmed live (ipowerqueen.goaffpro.com) — lightweight signup, email/password only, no payment/bank/tax info upfront. `OWNER_ACTION_REQUIRED` for account creation |
+| MatchBurst | `BLOCKED_BY_AWIN_TAX_RESIDENCY` | No non-Awin route found — direct fetch of matchburst.com blocked (403), searches for a direct/CJ/Impact/FlexOffers/Partnerize path found nothing but references back to the same Awin listing |
 | PVBAT | `OWNER_ACTION_REQUIRED` | Real, no password, blocked on a real traffic/followers figure GridPermit doesn't have |
 | Docan Power | `OWNER_ACTION_REQUIRED` | Hard stop — password + payment + Tax ID + CAPTCHA all on the first screen |
 | Advertising Results Inc. | `OWNER_ACTION_REQUIRED` | Real form, no password, blocked on missing legal entity/address/phone |
 | First Call Solutions | `OWNER_ACTION_REQUIRED` | Real, no password; weak vertical specificity (no roofing/HVAC/electrical named) |
 | OnCore Leads | `OWNER_ACTION_REQUIRED` | Real, solar+HVAC+roofing+electrical all named; no payout published |
 | homeyou | `OWNER_ACTION_REQUIRED` | Confirmed live Solar Energy directory category; "Apply Now"/"Login" pairing implies account creation, unconfirmed |
-| Bark.com (Awin) | `OWNER_ACTION_REQUIRED` | Best-documented terms found (up to $100/lead, 30-day cookie); same Awin account blocker |
+| Bark.com | `BLOCKED_BY_AWIN_TAX_RESIDENCY` | No non-Awin route found — bark.com's own affiliate page states verbatim it runs "using a best-in-class third-party platform called Awin"; a possible direct-inquiry contact (pro@bark.us) exists but is unconfirmed and untested |
 | Signature Solar | `OWNER_ACTION_REQUIRED` | Real, documented (up to 9%, 7-day cookie); product-affiliate model, application page didn't fully render for field confirmation |
 | Aragon Advertising | `NEEDS_VERIFICATION` | Credible, established network; solar vertical itself unconfirmed — outreach drafted in `PARTNER_OUTREACH_QUEUE.md` |
 | Modernize (QuinStreet) | `OWNER_ACTION_REQUIRED` | Real, public-company-backed, solar+roofing+HVAC listed; terms opaque until applied |
 | Fixr.com | `OWNER_ACTION_REQUIRED` | Real, solar included; login-gated portal, likely requires account creation |
-| Bluetti | `VERIFIED` | Real, 10% up to, 30-day cookie, network choice (Impact/Awin/CJ) — `OWNER_ACTION_REQUIRED` for account creation |
-| EcoFlow | `VERIFIED` | Real, min. 5%, 7-day cookie — `OWNER_ACTION_REQUIRED` for account creation |
-| ALLPOWERS | `VERIFIED` | Real, 5–10% tiered, 30-day cookie, explicitly welcomes review/comparison sites — `OWNER_ACTION_REQUIRED` for account creation |
+| Bluetti | `ALTERNATE_ROUTE_FOUND` | Awin blocked (see below); real Impact.com listing confirmed live (app.impact.com/advertiser-advertiser-info/bluettius.brand) — independently appliable, no CJ account needed. CJ option also exists but carries the identical "must have an active CJ account" gate as EnergySage, so it is not a real alternate. `OWNER_ACTION_REQUIRED` for Impact account creation |
+| EcoFlow | `ALTERNATE_ROUTE_FOUND` | Awin blocked (see below); real Impact.com listing confirmed live (app.impact.com/advertiser-advertiser-info/EcoFlow-Technology-Inc.brand) — independently appliable, no CJ account needed. Same CJ-gate caveat as Bluetti applies to its CJ option. `OWNER_ACTION_REQUIRED` for Impact account creation |
+| ALLPOWERS | `ALTERNATE_ROUTE_FOUND` | Awin blocked (see below); real non-Awin GoAffPro portal confirmed live (allpowers.goaffpro.com) — lightweight signup. Same CJ-gate caveat applies to its CJ option. `OWNER_ACTION_REQUIRED` for account creation |
+| Redodo | `ALTERNATE_ROUTE_FOUND` | New candidate (not Awin-dependent to begin with) — real LiFePO4/battery brand (redodopower.com), non-Awin GoAffPro portal confirmed live (redodopower.goaffpro.com); a separate Awin listing and a Germany-only Webgains listing also exist but neither is required. `OWNER_ACTION_REQUIRED` for account creation |
 | Autel Energy | `OWNER_ACTION_REQUIRED` | Real, 10%, 30-day cookie, fills the EV-charger gap; payout requires a PayPal account (payment info — owner-only) |
 | Jackery | `NEEDS_VERIFICATION` | Real program page confirmed live; commission/cookie figures only aggregator-sourced, not confirmed on Jackery's own page |
 | Renogy | `NEEDS_VERIFICATION` | Real, on-brand; commission (~6%) and cookie (30-day) only secondary-sourced |
@@ -96,7 +97,7 @@ For each candidate: company/program existence, network, application URL, US cove
 ## Candidate-by-candidate findings
 
 ### 1. EnergySage — solar marketplace
-- **Two distinct relationships — do not conflate:** (A) GridPermit's own Channel Partner page `energysage.com/p/gridpermit/` — **currently 404, see urgent flag above**. (B) EnergySage's public self-serve **CJ Affiliate** program: [public.cj.com/signup/publisher?advertiserId=5835771](https://public.cj.com/signup/publisher?advertiserId=5835771), confirmed live, "Partner with EnergySage," pay-per-qualified-lead, nationwide. Commission/cookie not published pre-approval (previously documented as $9.60/lead, 45-day cookie in `docs/AFFILIATE_PIPELINE.md` from a prior session — not re-confirmed publicly this session, likely gated behind CJ login now).
+- **Two distinct relationships — do not conflate:** (A) GridPermit's own Channel Partner page `energysage.com/p/gridpermit/` — **currently 404, see urgent flag above**. (B) EnergySage's public self-serve **CJ Affiliate** program: [public.cj.com/signup/publisher?advertiserId=5835771](https://public.cj.com/signup/publisher?advertiserId=5835771), confirmed live, "Partner with EnergySage," pay-per-qualified-lead, nationwide. **Updated 2026-08-24, superseding the earlier $9.60/lead figure:** current CJ terms, per your own dashboard, show **$10.00 USD per approved lead, 45-day referral period, manual application review** — this is your report from inside the CJ account, not independently verified by me (I have no CJ login), but it is the authoritative, current figure and replaces the stale $9.60 estimate from `docs/AFFILIATE_PIPELINE.md`.
 - **Network:** CJ Affiliate (B); unclear for A given the 404.
 - **US coverage:** Yes. **Vertical:** Solar — direct fit, already GridPermit's primary CTA.
 - **SEO traffic:** Not addressed on the public page either way.
@@ -960,4 +961,45 @@ No code changed this pass (documentation only) — 229/229 tests still pass, `gi
 **Angi:** Unchanged, `REJECTED` — not revisited.
 
 No Miloosh work performed or discussed further in this pass. No SEO metadata, sitemap, canonical, robots, or locality content touched.
+
+---
+
+## Thirteenth pass — 2026-08-24: Awin removed from the active path, non-Awin alternates found
+
+**Awin itself: `BLOCKED_BY_AWIN_TAX_RESIDENCY`.** Awin's publisher signup does not offer Israel in its Tax Residency dropdown — confirmed by you directly in the signup flow. No false country was substituted; no workaround attempted. This blocks Awin as a network entirely, independent of any individual program's own terms.
+
+### Non-Awin alternate routes found, per candidate (primary-source verified this pass)
+
+| Candidate | Alternate route status | Non-Awin path found |
+|---|---|---|
+| Bluetti | `ALTERNATE_ROUTE_FOUND` | Impact.com — real, live, independently appliable (`app.impact.com/advertiser-advertiser-info/bluettius.brand`). Its CJ option exists but requires an active CJ account, the same wall as EnergySage — not counted as a real alternate. |
+| EcoFlow | `ALTERNATE_ROUTE_FOUND` | Impact.com — real, live, independently appliable (`app.impact.com/advertiser-advertiser-info/EcoFlow-Technology-Inc.brand`). Same CJ-account caveat on its CJ option. |
+| Power Queen | `ALTERNATE_ROUTE_FOUND` | GoAffPro direct portal (`ipowerqueen.goaffpro.com`) — confirmed live, lightweight signup (name/email/password only, no payment or tax info requested upfront). |
+| ALLPOWERS | `ALTERNATE_ROUTE_FOUND` | GoAffPro direct portal (`allpowers.goaffpro.com`) — confirmed live, same lightweight signup shape as Power Queen's. Same CJ-account caveat on its CJ option. |
+| Redodo (new) | `ALTERNATE_ROUTE_FOUND` | Real LiFePO4/battery brand, not previously researched. GoAffPro direct portal (`redodopower.goaffpro.com`) confirmed live via the brand's own site navigation. An Awin listing and a Germany-only Webgains listing also exist but neither is needed. |
+| MatchBurst | `BLOCKED_BY_AWIN_TAX_RESIDENCY` | No alternate found. Direct fetch of matchburst.com was blocked (403); every search for a direct/CJ/Impact/FlexOffers/Partnerize path returned only re-references to the same Awin listing. |
+| Bark.com | `BLOCKED_BY_AWIN_TAX_RESIDENCY` | No alternate found. Bark.com's own affiliate page states verbatim it runs "using a best-in-class third-party platform called Awin." A possible direct-inquiry contact (pro@bark.us, listed on the same page) exists but is unconfirmed and untested — worth a cautious try only if the owner wants to pursue it directly. |
+| SUNcheck | `REJECTED` (unchanged) | Re-checked this pass per your explicit instruction — still no trace anywhere of a real affiliate program or the claimed $1,000/365-day figure, including a fresh search. No new evidence; stays rejected. |
+
+**Important cross-cutting finding:** every CJ-network option checked this pass (Bluetti, EcoFlow, ALLPOWERS) carries the identical explicit gate — *"you must have an active account on CJ"* — the same wall already blocking EnergySage. **CJ is not a distinct alternate route for these programs; it's the same blocker restated.** The genuine alternates are all either Impact.com (Bluetti, EcoFlow) or GoAffPro (Power Queen, ALLPOWERS, Redodo) — both independent of Awin *and* independent of CJ account activation.
+
+### Priority ranking (first-dollar potential × implementation effort), Awin removed
+
+1. **EnergySage (CJ)** — unchanged as the top priority per explicit instruction; no new evidence surfaced this pass that would displace it. Still blocked on CJ account activation (see twelfth pass).
+2. **Bluetti (Impact.com)** — real 10% commission, 30-day cookie, independently appliable, no CJ/Awin dependency.
+3. **EcoFlow (Impact.com)** — real minimum 5% commission, 7-day cookie, same independence.
+4. **Power Queen (GoAffPro)** — lower commission (5.5% base) but the lightest-weight signup of the whole battery cluster (name/email/password only).
+5. **ALLPOWERS (GoAffPro)** — same lightweight signup shape as Power Queen.
+6. **Redodo (GoAffPro)** — newly found, same shape; real but not yet weighed against the others beyond "genuinely viable."
+7. **MatchBurst, Bark.com** — `BLOCKED_BY_AWIN_TAX_RESIDENCY`, parked until Awin resolves or a genuine alternate surfaces.
+
+Every one of 2–6 still requires account creation (a password, at minimum) — none of this is zero-owner-action. What changed is that none of them are blocked by Israel/Tax Residency or by CJ account activation anymore; each has its own independent signup path.
+
+### Revenue placement plan — confirmed unchanged
+
+Per your explicit instruction to preserve it: locality/high-intent pages route to CPL/installer partners (EnergySage today); battery/product editorial content routes to hardware affiliates (Bluetti/EcoFlow/Power Queen/ALLPOWERS/Redodo once approved); pay-per-call (Digital Master Media first, BuyTheCalls second) stays parked for a contained high-intent subset later, no code built; trust/legal pages carry no monetization. Nothing in this pass touched placement, SEO metadata, sitemap, canonical, robots, or locality content — this was a documentation-only pass.
+
+### No partner marked APPROVED or TRACKING_LINK_RECEIVED
+
+Confirmed: nothing in this pass changed any partner to `APPROVED` or `TRACKING_LINK_RECEIVED` — every alternate found above is still `ALTERNATE_ROUTE_FOUND` + `OWNER_ACTION_REQUIRED`, not a live monetized relationship.
 
