@@ -1,5 +1,7 @@
 # Overnight commercial pass — 2026-08-25
 
+> **Superseded for current state** by `docs/MONETIZATION_CANONICAL_STATE.md`. This document remains as historical evidence for this pass; check the canonical file for the latest partner statuses.
+
 ## Digital Master Media
 
 Evidence source: direct email from Abid Ali, Digital Master Media LLC, received 2026-08-24.
