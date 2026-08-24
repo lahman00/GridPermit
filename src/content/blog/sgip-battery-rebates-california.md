@@ -32,4 +32,4 @@ Curious how battery storage fits into the permitting process itself? See GridPer
 
 **[Check Your Eligibility With a Local Solar Installer](https://www.energysage.com)**
 
-*Rebate tiers and rates above are illustrative examples based on publicly reported SGIP program ranges, not a live eligibility check — confirm current tiers and funding availability through the CPUC's SGIP program administrator before making a decision.*
+*Rebate tiers and rates above are illustrative examples based on publicly reported SGIP program ranges, not a live eligibility check. Confirm current tiers and funding availability through the CPUC's SGIP program administrator before making a decision.*

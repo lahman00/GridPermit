@@ -35,4 +35,4 @@ Looking for your city's specific solar permit requirements rather than rate anal
 
 **[See GridPermit's Illustrative California Solar & Battery Estimator](/)**
 
-*Rate and payback figures above are illustrative examples based on publicly reported rate ranges, not a live lookup of your bill — confirm current rates with SDG&E before making a decision.*
+*Rate and payback figures above are illustrative examples based on publicly reported rate ranges, not a live lookup of your bill. Confirm current rates with SDG&E before making a decision.*

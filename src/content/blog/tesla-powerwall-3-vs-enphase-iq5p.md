@@ -4,7 +4,7 @@ description: "A head-to-head financial and technical comparison of the two domin
 pubDate: "2026-07-27"
 ---
 
-Choosing the right battery storage system is the single most critical decision when going solar under NEM 3.0. The two market leaders in North America—**Tesla Powerwall 3** and **Enphase IQ Battery 5P**—offer fundamentally different architectures.
+Choosing the right battery storage system is the single most critical decision when going solar under NEM 3.0. The two market leaders in North America, **Tesla Powerwall 3** and **Enphase IQ Battery 5P**, offer fundamentally different architectures.
 
 ---
 
@@ -32,7 +32,7 @@ Enphase offers unmatched reliability with microinverter redundancy and a 15-year
 
 ## Which Battery Fits Your Budget?
 
-Before choosing a battery, check whether your city has specific permitting requirements for it — see GridPermit's <a href="/california/solar-permit-guides/">verified California city guides</a>.
+Before choosing a battery, check whether your city has specific permitting requirements for it: see GridPermit's <a href="/california/solar-permit-guides/">verified California city guides</a>.
 
 **[Get Custom Quotes for Tesla & Enphase Systems From Certified CA Installers](https://www.energysage.com)**
 

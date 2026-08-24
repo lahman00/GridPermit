@@ -40,4 +40,4 @@ Looking for your city's specific solar permit requirements rather than rate anal
 
 **[Compare Free Solar & Battery Quotes From Local Installers](https://www.energysage.com)**
 
-*Figures above are illustrative examples based on publicly reported rate ranges, not a live lookup of your bill — confirm current rates with PG&E before making a decision.*
+*Figures above are illustrative examples based on publicly reported rate ranges, not a live lookup of your bill. Confirm current rates with PG&E before making a decision.*

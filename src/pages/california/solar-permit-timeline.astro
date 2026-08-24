@@ -114,7 +114,7 @@ const faqSchema = {
 <body>
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div class="top-banner">
-		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
+		Independent Educational Guide: California residential solar and battery estimates. Illustrative only, not utility-specific.
 	</div>
 
 	<nav class="navbar">
@@ -149,7 +149,7 @@ const faqSchema = {
 		<div class="layout-grid">
 		<main class="content-card" id="main-content" tabindex="-1">
 			<h1>How Long Does a California Solar Permit Take?</h1>
-			<p class="subtitle">Verified review-timeline data, aggregated from each city's own guide — not a statewide estimate</p>
+			<p class="subtitle">Verified review-timeline data, aggregated from each city's own guide, not a statewide estimate</p>
 
 			<div class="stats-row">
 				<div class="stat-pill"><strong>{insights.documentedCount}</strong> of {insights.readyCount} cities have a documented timeline</div>
@@ -157,23 +157,23 @@ const faqSchema = {
 			</div>
 
 			<div class="disclaimer-box">
-				<strong>Informational only.</strong> Every figure below is copied from an individual city's own verified record — none is a statewide average, estimate, or prediction. If your city isn't in the examples below, check its own guide directly.
+				<strong>Informational only.</strong> Every figure below is copied from an individual city's own verified record. None is a statewide average, estimate, or prediction. If your city isn't in the examples below, check its own guide directly.
 			</div>
 
 			<section id="methodology">
 				<h2>How to read this page</h2>
-				<p>California has no single statewide solar-permit timeline — each city runs its own building department and review process. GridPermit tracks a review-timeline figure for each city where an official source states one, and classifies it one of two ways:</p>
+				<p>California has no single statewide solar-permit timeline: each city runs its own building department and review process. GridPermit tracks a review-timeline figure for each city where an official source states one, and classifies it one of two ways:</p>
 				<ul class="fact-list">
 					<li><strong>Same-day (SolarAPP+ or equivalent):</strong> the city's source states instant/same-day approval for qualifying projects, typically through an automated code-compliance platform.</li>
 					<li><strong>Standard path:</strong> the city's source states a specific day-range for manual plan-check review.</li>
 				</ul>
-				<p>A city with no timeline listed below simply hasn't stated one specifically enough for us to record — not necessarily a slow city. See <a href="/methodology#ready-criteria">our methodology</a> for the confidence rule behind every figure we publish.</p>
+				<p>A city with no timeline listed below simply hasn't stated one specifically enough for us to record (not necessarily a slow city). See <a href="/methodology#ready-criteria">our methodology</a> for the confidence rule behind every figure we publish.</p>
 			</section>
 
 			{insights.sameDaySolarAppExamples.length > 0 && (
 				<section id="same-day">
 					<h2>Cities with same-day SolarAPP+ review on file</h2>
-					<p>These cities' own sources confirm instant approval for qualifying projects — standard-path timelines for non-qualifying projects may still apply and are noted on each city's guide.</p>
+					<p>These cities' own sources confirm instant approval for qualifying projects. Standard-path timelines for non-qualifying projects may still apply and are noted on each city's guide.</p>
 					<ul class="timeline-list">
 						{insights.sameDaySolarAppExamples.map((ex) => (
 							<li>
@@ -189,7 +189,7 @@ const faqSchema = {
 			{insights.standardPathExamples.length > 0 && (
 				<section id="standard-path">
 					<h2>Standard-path review ranges (fastest verified examples)</h2>
-					<p>{insights.standardPathCount} cities have a documented standard-path range on file{insights.overallMinDays !== null && (<> — the fastest verified example is {insights.overallMinDays === 0 ? "same-day" : `${insights.overallMinDays} day${insights.overallMinDays === 1 ? "" : "s"}`}, the slowest is {insights.overallMaxDays} days</>)}. Shown below: the {insights.standardPathExamples.length} fastest verified examples.</p>
+					<p>{insights.standardPathCount} cities have a documented standard-path range on file{insights.overallMinDays !== null && (<>, the fastest verified example is {insights.overallMinDays === 0 ? "same-day" : `${insights.overallMinDays} day${insights.overallMinDays === 1 ? "" : "s"}`}, the slowest is {insights.overallMaxDays} days</>)}. Shown below: the {insights.standardPathExamples.length} fastest verified examples.</p>
 					<ul class="timeline-list">
 						{insights.standardPathExamples.map((ex) => (
 							<li>

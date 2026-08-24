@@ -100,7 +100,7 @@ const collectionSchema = {
 <body>
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div class="top-banner">
-		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
+		Independent Educational Guide: California residential solar and battery estimates. Illustrative only, not utility-specific.
 	</div>
 
 	<nav class="navbar">
@@ -137,14 +137,14 @@ const collectionSchema = {
 			<p class="subtitle">{hub.cities.length} verified cities · {hub.utilities.join(", ")}</p>
 
 			<div class="disclaimer-box">
-				<strong>Informational only.</strong> This page summarizes verified per-city facts already published on each city's own guide — it does not add new facts beyond what those pages state. Not legal, engineering, or permit advice.
+				<strong>Informational only.</strong> This page summarizes verified per-city facts already published on each city's own guide. It does not add new facts beyond what those pages state. Not legal, engineering, or permit advice.
 			</div>
 
 			<section id="overview">
 				<h2>Permitting in {hub.county}</h2>
-				<p>Each city below runs its own residential solar permitting process, verified independently — {hub.county} does not have one countywide process that applies the same way everywhere. {hub.utilities.length > 1 ? `Electric service in this county is split across ${hub.utilities.length} utilities (${hub.utilities.join(", ")}), so which utility applies depends on the specific city.` : `${hub.utilities[0]} is the electric utility verified for every city listed below.`}</p>
+				<p>Each city below runs its own residential solar permitting process, verified independently. {hub.county} does not have one countywide process that applies the same way everywhere. {hub.utilities.length > 1 ? `Electric service in this county is split across ${hub.utilities.length} utilities (${hub.utilities.join(", ")}), so which utility applies depends on the specific city.` : `${hub.utilities[0]} is the electric utility verified for every city listed below.`}</p>
 				{hub.countyContractedCities.length > 0 && (
-					<p><strong>{hub.countyContractedCities.join(" and ")}</strong> {hub.countyContractedCities.length === 1 ? "does" : "do"} not run their own building department — {hub.countyContractedCities.length === 1 ? "its" : "their"} residential solar permits are issued directly by {hub.county}'s own building department, per the permit authority verified on {hub.countyContractedCities.length === 1 ? "that city's" : "those cities'"} guide.</p>
+					<p><strong>{hub.countyContractedCities.join(" and ")}</strong> {hub.countyContractedCities.length === 1 ? "does" : "do"} not run their own building department: {hub.countyContractedCities.length === 1 ? "its" : "their"} residential solar permits are issued directly by {hub.county}'s own building department, per the permit authority verified on {hub.countyContractedCities.length === 1 ? "that city's" : "those cities'"} guide.</p>
 				)}
 			</section>
 

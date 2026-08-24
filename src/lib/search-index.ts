@@ -19,7 +19,7 @@ export interface SearchEntry {
 // existing <title>/description meta, not invented here.
 const STATIC_PAGES: SearchEntry[] = [
 	{
-		title: "GridPermit — California Solar & Battery Savings Estimator",
+		title: "GridPermit: California Solar & Battery Savings Estimator",
 		description: "An educational, California-only starting point for home solar and battery payback questions.",
 		url: "/",
 		category: "Page",

@@ -111,7 +111,7 @@ const collectionSchema = {
 <body>
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div class="top-banner">
-		Independent Educational Guide: {stateInfo.name} residential solar permit facts — sourced, dated, and confidence-scored. Not legal, engineering, or permit advice.
+		Independent Educational Guide: {stateInfo.name} residential solar permit facts, sourced, dated, and confidence-scored. Not legal, engineering, or permit advice.
 	</div>
 
 	<nav class="navbar">
@@ -144,7 +144,7 @@ const collectionSchema = {
 
 		<main class="content-card" id="main-content" tabindex="-1">
 			<h1>{stateInfo.name} Solar Permit Guides</h1>
-			<p class="subtitle">City-by-city permitting facts, sourced and confidence-scored — {entries.length} {entries.length === 1 ? "city" : "cities"} currently listed</p>
+			<p class="subtitle">City-by-city permitting facts, sourced and confidence-scored ({entries.length} {entries.length === 1 ? "city" : "cities"} currently listed)</p>
 
 			<form class="state-search-form" action="/search" method="get" role="search">
 				<label for="state-search-input" class="visually-hidden">Search for a city, county, or utility in {stateInfo.name}</label>
@@ -153,11 +153,11 @@ const collectionSchema = {
 			</form>
 
 			<div class="trust-note">
-				Only cities that clear GridPermit's verification threshold — see our <a href="/methodology#ready-criteria">READY criteria</a> — are listed. GridPermit is expanding state by state; more {stateInfo.name} cities are added as their official sources are verified.
+				Only cities that clear GridPermit's verification threshold (see our <a href="/methodology#ready-criteria">READY criteria</a>) are listed. GridPermit is expanding state by state; more {stateInfo.name} cities are added as their official sources are verified.
 			</div>
 
 			{entries.length === 0 ? (
-				<p class="empty-state">No {stateInfo.name} cities have cleared the verification threshold yet. Try the search above — we may have partial research on file, or a nearby city's utility may serve your area too. See our <a href="/permits">full state-by-state coverage</a>.</p>
+				<p class="empty-state">No {stateInfo.name} cities have cleared the verification threshold yet. Try the search above: we may have partial research on file, or a nearby city's utility may serve your area too. See our <a href="/permits">full state-by-state coverage</a>.</p>
 			) : (
 				<>
 					{lettersPresent.length > 1 && (
@@ -193,7 +193,7 @@ const collectionSchema = {
 			)}
 
 			<div class="footer-disclaimer">
-				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Each city's guide links to its own official sources — verify current requirements directly with the relevant permitting authority and utility before starting a project.</p>
+				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Each city's guide links to its own official sources. Verify current requirements directly with the relevant permitting authority and utility before starting a project.</p>
 				<p><a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
 			</div>
 		</main>

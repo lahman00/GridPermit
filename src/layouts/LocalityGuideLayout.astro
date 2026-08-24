@@ -178,7 +178,7 @@ const tocItems = [
 	<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
 
 	<div class="top-banner">
-		Independent Educational Guide: {currentStateMeta.name} residential solar permit facts — sourced, dated, and confidence-scored. Not legal, engineering, or permit advice.
+		Independent Educational Guide: {currentStateMeta.name} residential solar permit facts, sourced, dated, and confidence-scored. Not legal, engineering, or permit advice.
 	</div>
 
 	<nav class="navbar">
@@ -222,7 +222,7 @@ const tocItems = [
 			     banner that's hidden in print. -->
 			<div class="print-checklist-header">
 				<div class="print-title">{record.city.value} Solar Permit Checklist</div>
-				<div class="print-meta">Printed from mygridpermit.com/{pagePath.replace(/^\//, "")} · Last verified {record.last_verified} · {permitAuthorityLabel} / {utilityShort} · Verify current requirements before relying on this checklist — programs and fees change.</div>
+				<div class="print-meta">Printed from mygridpermit.com/{pagePath.replace(/^\//, "")} · Last verified {record.last_verified} · {permitAuthorityLabel} / {utilityShort} · Verify current requirements before relying on this checklist. Programs and fees change.</div>
 			</div>
 
 			<div class="page-toolbar">
@@ -240,7 +240,7 @@ const tocItems = [
 			<section id="overview">
 				<h2>Overview</h2>
 				<p>
-					GridPermit collects {currentStateMeta.name} residential solar and permitting facts directly from official sources — city, county, and state government sites, utilities, and public utilities commissions — and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology">our methodology</a> for the rules this page follows.
+					GridPermit collects {currentStateMeta.name} residential solar and permitting facts directly from official sources (city, county, and state government sites, utilities, and public utilities commissions) and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology">our methodology</a> for the rules this page follows.
 				</p>
 
 				{hasTimeline && timeline && td && (
@@ -262,7 +262,7 @@ const tocItems = [
 								<div class="program-item">
 									<p class="fact-value">{p.name}</p>
 									<p class="fact-notes">{p.description}</p>
-									<p class="fact-status">Status on file: <strong>{p.status}</strong> — verify current status before relying on this.</p>
+									<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 								</div>
 							))}
 							<ConfidenceBadge confidence={record.battery_programs.confidence} />
@@ -284,9 +284,9 @@ const tocItems = [
 								<li>
 									<strong>{fee.name}</strong>
 									{fee.amount_usd != null ? (
-										<span> — ${fee.amount_usd}{fee.unit && ` (${fee.unit})`}</span>
+										<span>: ${fee.amount_usd}{fee.unit && ` (${fee.unit})`}</span>
 									) : (
-										<span class="doc-condition"> — amount not verified{fee.unit && ` (${fee.unit})`}</span>
+										<span class="doc-condition">: amount not verified{fee.unit && ` (${fee.unit})`}</span>
 									)}
 									{fee.notes && <p class="fact-notes">{fee.notes}</p>}
 								</li>
@@ -307,7 +307,7 @@ const tocItems = [
 							<div class="program-item">
 								<p class="fact-value">{p.name}</p>
 								<p class="fact-notes">{p.description}</p>
-								<p class="fact-status">Status on file: <strong>{p.status}</strong> — verify current status before relying on this.</p>
+								<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 							</div>
 						))}
 						<ConfidenceBadge confidence={record.rebates.confidence} />
@@ -373,7 +373,7 @@ const tocItems = [
 							{record.required_documents.value.map((doc) => (
 								<li>
 									<strong>{doc.name}</strong>
-									{doc.required_when && <span class="doc-condition"> — required when: {doc.required_when}</span>}
+									{doc.required_when && <span class="doc-condition"> (required when: {doc.required_when})</span>}
 								</li>
 							))}
 						</ul>
@@ -432,7 +432,7 @@ const tocItems = [
 							{record.official_contacts.value.map((c) => (
 								<li>
 									<strong>{c.role ?? c.name ?? "Contact"}</strong>
-									{c.phone && <span> — phone: {c.phone}</span>}
+									{c.phone && <span>, phone: {c.phone}</span>}
 									{c.email && <span>, email: <a href={`mailto:${c.email}`}>{c.email}</a></span>}
 									{c.url && <span>, <a href={c.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">official website</a></span>}
 								</li>
@@ -454,7 +454,7 @@ const tocItems = [
 				<ul class="fact-list sources-list">
 					{record.sources.map((s) => (
 						<li>
-							<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a> — {s.publisher} ({s.type}). Accessed {s.accessed_date}.
+							<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a>, {s.publisher} ({s.type}). Accessed {s.accessed_date}.
 						</li>
 					))}
 				</ul>
@@ -478,11 +478,11 @@ const tocItems = [
 				<section id="other-guides">
 					<h2>Related {currentStateMeta.name} cities</h2>
 					<p>
-						Other verified cities related to {record.city.value} — see all cities on the <a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} solar permit guide index</a>.
+						Other verified cities related to {record.city.value}. See all cities on the <a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} solar permit guide index</a>.
 					</p>
 					<ul class="fact-list other-guides-list">
 						{relatedLocalities.map((g) => (
-							<li><a href={g.guideUrl}>{g.city}</a> — {g.utility} <span class="related-reason">({relationLabel(g.relation)})</span></li>
+							<li><a href={g.guideUrl}>{g.city}</a>, {g.utility} <span class="related-reason">({relationLabel(g.relation)})</span></li>
 						))}
 					</ul>
 				</section>

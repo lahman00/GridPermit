@@ -95,7 +95,7 @@ const collectionSchema = {
 <body>
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div class="top-banner">
-		Independent Educational Guide: California residential solar and battery estimates. Illustrative only — not utility-specific.
+		Independent Educational Guide: California residential solar and battery estimates. Illustrative only, not utility-specific.
 	</div>
 
 	<nav class="navbar">
@@ -132,12 +132,12 @@ const collectionSchema = {
 			<p class="subtitle">{hub.cities.length} verified cities across {hub.counties.length} {hub.counties.length === 1 ? "county" : "counties"}</p>
 
 			<div class="disclaimer-box">
-				<strong>Informational only.</strong> This page summarizes verified per-city facts already published on each city's own guide. {hub.utilityShort} is the interconnection and distribution utility for the cities listed — the city's own building department, not {hub.utilityShort}, issues the construction/electrical permit. Not legal, engineering, or permit advice.
+				<strong>Informational only.</strong> This page summarizes verified per-city facts already published on each city's own guide. {hub.utilityShort} is the interconnection and distribution utility for the cities listed. The city's own building department, not {hub.utilityShort}, issues the construction/electrical permit. Not legal, engineering, or permit advice.
 			</div>
 
 			<section id="role">
 				<h2>{hub.utilityShort}'s role</h2>
-				<p>{hub.utilityShort} reviews and approves grid interconnection for residential solar and battery systems in the cities below — a separate process from, and usually reviewed independently of, each city's building/electrical permit. See <a href="/california/#permit-vs-interconnection">why these are two separate approvals</a>.</p>
+				<p>{hub.utilityShort} reviews and approves grid interconnection for residential solar and battery systems in the cities below (a separate process from, and usually reviewed independently of, each city's building/electrical permit). See <a href="/california/#permit-vs-interconnection">why these are two separate approvals</a>.</p>
 				{hub.commonInterconnectionUrl && (
 					<p>{hub.utilityShort}'s own interconnection page (cited identically across every verified city below): <a href={hub.commonInterconnectionUrl} target="_blank" rel="noopener">{hub.commonInterconnectionUrl}</a></p>
 				)}
