@@ -14,7 +14,13 @@ const eligible = isCompareSolarServedLocality(state, city);
 ---
 
 {eligible && (
-	<section class="compare-solar-cta" aria-label="CompareSolarPrices referral" data-track-view="cpl_cta_viewed">
+	<section
+		class="compare-solar-cta"
+		aria-label="CompareSolarPrices referral"
+		data-compare-solar-cta-root
+		data-state={state}
+		data-city={city}
+	>
 		<p class="compare-solar-disclosure">
 			<strong>Paid referral disclosure:</strong> GridPermit has a paid referral relationship with CompareSolarPrices. If you use this link and later complete a qualifying action, GridPermit may receive compensation.
 		</p>
@@ -28,8 +34,40 @@ const eligible = isCompareSolarServedLocality(state, city);
 )}
 
 <script>
-	import { buildCompareSolarReferralUrl } from "../lib/compare-solar-prices";
+	import {
+		buildCompareSolarReferralUrl,
+		generateCompareSolarCid,
+		normalizeCompareSolarCitySlug,
+	} from "../lib/compare-solar-prices";
 	import { trackEvent } from "../lib/analytics-events";
+
+	const CTA_ID = "compare_solar_prices_locality";
+	const PARTNER_ID = "compare_solar_prices";
+
+	function getSafePlacementParams(state: string, city: string) {
+		return {
+			partner: PARTNER_ID,
+			cta_id: CTA_ID,
+			state_code: state.toUpperCase(),
+			city_slug: normalizeCompareSolarCitySlug(city),
+			page_path: window.location.pathname,
+		};
+	}
+
+	function trackCompareSolarView() {
+		const root = document.querySelector("[data-compare-solar-cta-root]");
+		if (!(root instanceof HTMLElement)) return;
+
+		const state = root.dataset.state ?? "";
+		const city = root.dataset.city ?? "";
+		trackEvent("cpl_cta_viewed", getSafePlacementParams(state, city));
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", trackCompareSolarView, { once: true });
+	} else {
+		trackCompareSolarView();
+	}
 
 	document.addEventListener("click", (event) => {
 		const target = event.target;
@@ -39,14 +77,16 @@ const eligible = isCompareSolarServedLocality(state, city);
 
 		const state = trigger.dataset.state ?? "";
 		const city = trigger.dataset.city ?? "";
-		const referralUrl = buildCompareSolarReferralUrl(state, city);
+		const cid = generateCompareSolarCid();
+		const referralUrl = buildCompareSolarReferralUrl(state, city, cid);
 		if (!referralUrl) return;
 
 		trackEvent("cpl_cta_clicked", {
-			partner: "compare_solar_prices",
-			state_code: state.toUpperCase(),
-			city_slug: city.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""),
-			page_path: window.location.pathname,
+			...getSafePlacementParams(state, city),
+			// CompareSolarPrices returns this same random non-PII CID in its
+			// referral reporting, allowing a paid lead/conversion to be matched
+			// back to the exact GridPermit click without storing homeowner data.
+			referral_cid: cid,
 		});
 
 		window.open(referralUrl, "_blank", "noopener,noreferrer");
