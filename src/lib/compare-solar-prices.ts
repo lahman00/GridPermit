@@ -9,11 +9,12 @@
 const COMPARE_SOLAR_ORIGIN = "https://www.comparesolarprices.net";
 const GRIDPERMIT_REF = "GridPermit";
 const CID_PATTERN = /^[A-Za-z0-9_-]{1,32}$/;
+const COMPARE_SOLAR_STATE = "CA";
 
 // Conservative allowlist copied from CompareSolarPrices' own Southern
-// California service-area pages/homepage. We deep-link only when the city is
-// explicitly represented by the partner. Unknown cities do not receive a
-// referral destination from this helper.
+// California service-area pages/homepage. We deep-link only when both the
+// state and city are explicitly eligible. Unknown cities and non-California
+// localities fail closed.
 export const COMPARE_SOLAR_SERVED_CITY_SLUGS = new Set([
 	"anaheim",
 	"apple-valley",
@@ -102,8 +103,12 @@ export function normalizeCompareSolarCitySlug(city: string): string {
 		.replace(/^-+|-+$/g, "");
 }
 
-export function isCompareSolarServedCity(city: string): boolean {
-	return COMPARE_SOLAR_SERVED_CITY_SLUGS.has(normalizeCompareSolarCitySlug(city));
+function isCalifornia(state: string): boolean {
+	return state.trim().toUpperCase() === COMPARE_SOLAR_STATE;
+}
+
+export function isCompareSolarServedLocality(state: string, city: string): boolean {
+	return isCalifornia(state) && COMPARE_SOLAR_SERVED_CITY_SLUGS.has(normalizeCompareSolarCitySlug(city));
 }
 
 export function generateCompareSolarCid(): string {
@@ -120,18 +125,19 @@ export function isValidCompareSolarCid(cid: string): boolean {
 	return CID_PATTERN.test(cid);
 }
 
-export function getCompareSolarDestination(city: string): string | null {
+export function getCompareSolarDestination(state: string, city: string): string | null {
+	if (!isCalifornia(state)) return null;
 	const slug = normalizeCompareSolarCitySlug(city);
 	if (!COMPARE_SOLAR_SERVED_CITY_SLUGS.has(slug)) return null;
 	return `${COMPARE_SOLAR_ORIGIN}/solar-${slug}-ca/`;
 }
 
-export function buildCompareSolarReferralUrl(city: string, cid = generateCompareSolarCid()): string | null {
+export function buildCompareSolarReferralUrl(state: string, city: string, cid = generateCompareSolarCid()): string | null {
 	if (!isValidCompareSolarCid(cid)) {
 		throw new Error("CompareSolarPrices cid must be 1-32 characters using only letters, numbers, dashes or underscores.");
 	}
 
-	const destination = getCompareSolarDestination(city);
+	const destination = getCompareSolarDestination(state, city);
 	if (!destination) return null;
 
 	const url = new URL(destination);
