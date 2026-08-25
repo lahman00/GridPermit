@@ -2,14 +2,15 @@
 // Staged only. This component is deliberately not imported by any production
 // page yet. GitHub issue #5 is the activation gate: payment setup + W-8BEN
 // must be complete before this can be wired into LocalityGuideLayout.
-import { isCompareSolarServedCity } from "../lib/compare-solar-prices";
+import { isCompareSolarServedLocality } from "../lib/compare-solar-prices";
 
 interface Props {
+	state: string;
 	city: string;
 }
 
-const { city } = Astro.props;
-const eligible = isCompareSolarServedCity(city);
+const { state, city } = Astro.props;
+const eligible = isCompareSolarServedLocality(state, city);
 ---
 
 {eligible && (
@@ -19,7 +20,7 @@ const eligible = isCompareSolarServedCity(city);
 		</p>
 		<h2>Want a solar quote after reviewing the permit requirements in {city}?</h2>
 		<p>Continue to CompareSolarPrices to request a homeowner solar quote for {city}.</p>
-		<button type="button" class="compare-solar-btn" data-compare-solar-cta data-city={city}>
+		<button type="button" class="compare-solar-btn" data-compare-solar-cta data-state={state} data-city={city}>
 			Request a quote from CompareSolarPrices →
 		</button>
 		<p class="compare-solar-note">You will continue on CompareSolarPrices' website. GridPermit is not the installer.</p>
@@ -36,12 +37,14 @@ const eligible = isCompareSolarServedCity(city);
 		const trigger = target.closest("[data-compare-solar-cta]");
 		if (!(trigger instanceof HTMLButtonElement)) return;
 
+		const state = trigger.dataset.state ?? "";
 		const city = trigger.dataset.city ?? "";
-		const referralUrl = buildCompareSolarReferralUrl(city);
+		const referralUrl = buildCompareSolarReferralUrl(state, city);
 		if (!referralUrl) return;
 
 		trackEvent("cpl_cta_clicked", {
 			partner: "compare_solar_prices",
+			state_code: state.toUpperCase(),
 			city_slug: city.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""),
 			page_path: window.location.pathname,
 		});
