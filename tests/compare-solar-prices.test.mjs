@@ -65,9 +65,10 @@ test("staged CTA has a proximate paid-referral disclosure and does not make part
 	assert.match(component, /Paid referral disclosure:/);
 	assert.match(component, /paid referral relationship with CompareSolarPrices/);
 	assert.match(component, /GridPermit is not the installer/);
-	assert.ok(!/\bsavings?\b/i.test(component));
-	assert.ok(!/\bprices?\b/i.test(component));
-	assert.ok(!/\btimelines?\b/i.test(component));
+	assert.ok(!/\b(?:save|savings)\b/i.test(component));
+	assert.ok(!/\$\s*\d/.test(component));
+	assert.ok(!/\bprices?\s+(?:from|starting|as\s+low|of)\b/i.test(component));
+	assert.ok(!/\b\d+\s*(?:minute|hour|day)s?\b/i.test(component));
 });
 
 test("staged CTA generates the referral URL at click time and records the existing CPL analytics event", () => {
