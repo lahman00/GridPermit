@@ -1,123 +1,114 @@
 # GridPermit Monetization — Canonical Current State
 
-Last reconciled: 2026-08-25
+Last reconciled: 2026-08-26
 
 ## Purpose
 
-This is the single current-state source of truth for every monetization partner and route. It supersedes the "current state" sections of every other monetization doc in this repo. Older docs (`docs/AFFILIATE_PARTNER_PIPELINE.md`, `docs/MONETIZATION_CONTROL_PLANE_2026-08-25.md`, `docs/FIRST_REVENUE_SPRINT_2026-08-25.md`, `docs/MONETIZATION_RESEARCH_2026-08-25.md`, `docs/HARDWARE_AFFILIATE_EXPANSION_2026-08-25.md`, `docs/PAY_PER_CALL_DECISION_2026-08-24.md`, `docs/CJ_ACTIVATION_ESCALATION.md`, `docs/AWIN_CLUSTER_APPLICATION_KIT.md`, `docs/PARTNER_OUTREACH_QUEUE.md`, `docs/MONETIZATION_EVIDENCE_ADDENDUM_2026-08-25.md`) remain as historical narrative and evidence trail, not deleted, but if any of them conflicts with this file on current status, this file wins.
+This is the single current-state source of truth for GridPermit monetization partners and routes. Historical monetization documents remain evidence/history, but this file wins whenever an older document conflicts with current status.
 
-The machine-readable mirror of this table lives in `src/lib/partners.ts`. If this document and that file ever disagree, treat it as a bug and reconcile both in the same commit.
+The machine-readable partner mirror lives in `src/lib/partners.ts`. Current commercial facts, approval state, tracking state and production gates must stay consistent between the two. Do not enable a production partner from documentation alone.
 
 ## Non-negotiable gates
 
-- No production affiliate/CPL link without real program approval + a real tracking URL.
-- No production pay-per-call CTA without real campaign approval + a real tracking number + final compliance terms.
-- No SEO title/meta/H1/canonical/robots/sitemap/locality-architecture change for monetization rollout.
-- No fabricated traffic, audience, company, tax, payment, social, or revenue figures.
-- No contract, exclusivity, deposit, paid subscription, or tax/bank change without explicit owner approval.
+- No production affiliate/CPL link without a real approval or direct commercial relationship plus a real attributable tracking mechanism.
+- No production pay-per-call CTA without campaign approval, a real tracking number and final campaign/compliance terms.
+- No fabricated traffic, audience, revenue, company/entity, tax, payment, customer, conversion or social figures.
+- No contract, network/publisher agreement, advertiser-specific agreement, tax certification, bank/payment change, identity verification, exclusivity, deposit or paid subscription without explicit owner approval.
+- No monetization-driven SEO title/meta/H1/canonical/robots/sitemap/locality-architecture changes.
+- No fake quote requests, fake calls or fake homeowner submissions for tracking tests.
+- Production placements must fail closed when geography, tracking or partner eligibility is uncertain.
 
 ## Canonical partner ledger
 
-| Partner | Channel | Status | Approved | Tracking | Payout (as published/directly confirmed) | Cookie | Geo | Blocker | Next executable action |
-|---|---|---|---|---|---|---|---|---|---|
-| **EnergySage** | CPL (solar) | `OWNER_ACTION_REQUIRED` | No | No (plain untracked root link is the live CTA) | Reported ~$10/approved lead on CJ program page; current live terms must be re-read before applying | Reported 45-day referral window; current live terms must be re-read | US | **CJ publisher account is now activated.** Remaining blocker is advertiser-level EnergySage application/approval + real tracking link | Owner logs into CJ, opens EnergySage advertiser 5835771, reviews current terms, submits Apply/Join, records result; see GitHub issue #3 |
-| **EnergySage (FlexOffers alt.)** | CPL (solar) | `APPLICATION_STARTED` | No (publisher account, not the advertiser program) | No | Unknown (FlexOffers-level publisher terms; EnergySage advertiser-specific terms not yet reachable) | Unknown | US (owner is outside the U.S.; FlexOffers confirmed non-U.S. publishers are accepted) | FlexOffers publisher registration fully submitted 2026-08-25 (site ownership verified via `fo-verify` meta tag on the homepage); FlexOffers itself said review takes up to 5 business days. EnergySage is confirmed to currently be in the FlexOffers network, but its advertiser-specific program has not yet been opened or applied to, since that requires the publisher account to be approved first | Wait for FlexOffers publisher approval (up to 5 business days), then locate EnergySage Solar Marketplace inside the dashboard, capture its advertiser-specific terms, and bring them to the owner before accepting anything |
-| **EnergySage (direct partner form)** | CPL (solar) | `DISCOVERED` | No | No | Unknown | Unknown | US | Requires owner-supplied identity/contact info at energysage.com/partner/register/ | Keep as fallback if CJ advertiser route stalls |
-| **Digital Master Media (DMM)** | Pay-per-call (solar) | `AWAITING_RESPONSE` | Fit confirmed by direct email, not final campaign approval | No tracking number | Public site advertises up to $53/call; **GridPermit-specific rate not received** | N/A; direct email confirms 120s post-IVR qualification threshold | US, nationwide | Missing GridPermit-specific payout, tracking number/setup, ZIP guidance, IVR logic, disclosure wording, final agreement/compliance | Standalone follow-up successfully sent 2026-08-25 to Abid Ali requesting all launch items; wait for response |
-| **BigBattery** | Hardware affiliate (battery) | `PENDING_APPROVAL` | No | No | Published 5% | Unknown | US | Submitted application awaiting review | Wait for BigBattery decision; do not resubmit |
-| **Profitise** | CPL (solar) | `AWAITING_RESPONSE` | No | No | Unknown | Unknown | US | Inquiry/follow-up sent; Gmail sweep 2026-08-25 found no substantive reply | Wait; do not duplicate outreach |
-| **Renogy** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | Direct fit confirmation only; no platform approval | No | **6% direct-confirmed U.S. rate** | **27 days direct-confirmed** | U.S.-focused audience; international publishers accepted | Renogy confirmed GridPermit is a great fit, organic/editorial accepted, contextual solar/battery guides welcomed, no brand-term paid search. Waiting preferred Impact application/invitation route and media assets | Wait for Yuna/Renogy reply; then apply via the confirmed Impact route. Do not send another follow-up yet |
-| **BougeRV** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | Direct fit confirmation only; no platform approval | No | **7% direct-confirmed standard rate** | Unknown | US | Independent publishers, organic/editorial and contextual solar/battery/home-energy links directly accepted; Impact or Awin available. Waiting preferred Impact application/invitation link | Wait for Vivia/BougeRV reply; use Impact, not Awin |
-| **ALLPOWERS** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 5% base, up to 10% tiers | 30 days | US | Non-Awin routes exist; direct outreach sent | Wait for reply; use GoAffPro/direct or another confirmed route |
-| **BLUETTI** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published up to 10% | 30 days | US | Impact alternate exists; direct outreach sent | Wait for reply; use Impact if accepted |
-| **EcoFlow** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | **U.S.-specific rate not confirmed** | **U.S.-specific cookie not confirmed** | US | Impact alternate exists; regional affiliate pages show differing economics, so those terms must not be imported into U.S. state | Wait for direct U.S. confirmation; do not record regional commission/cookie as U.S. terms |
-| **Power Queen** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 5.5% base | 30 days | US | GoAffPro route confirmed; direct outreach sent | Wait for reply; then use confirmed GoAffPro route |
-| **Redodo** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Unknown | Unknown | US | GoAffPro route exists; direct inquiry sent 2026-08-25 to service@redodopower.com | Wait for reply before account creation |
-| **EASUNPOWER** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 5% on confirmed orders | Unknown | US-focused traffic | Direct email program; outreach sent | Wait for reply |
-| **Vatrer Power** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Unknown | Unknown | US-focused traffic | UpPromote program; outreach sent | Wait for reply |
-| **LiTime** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published up to 5% | Unknown | US-focused traffic | GoAffPro and Impact non-Awin routes exist; direct inquiry sent 2026-08-25 to service@litime.com | Wait for route/terms confirmation before account creation |
-| **RICH SOLAR** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Unknown | Unknown | US | Case #8058 auto-ack received; no substantive affiliate response yet | Wait for human affiliate response |
-| **Anker SOLIX** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 5% | 30 days | US | Impact/LinkShare route exists; outreach sent 2026-08-24 to affiliate@anker.com | Wait for reply; no duplicate follow-up yet |
-| **Goal Zero** | Hardware affiliate (battery) | `VERIFIED` | No | No | Published dynamic up to 10% | 30 days | US | Partnerize-managed program; requires application/account action | Owner applies through Partnerize business route when ready |
-| **Signature Solar** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published up to 9% | 7 days | US and international referrals accepted | Direct in-house program; outreach already sent 2026-08-24 to support@signaturesolar.com | Wait for response or owner submits direct application |
-| **Nature's Generator** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 5% | Unknown | US | Official page references ShareASale and Awin; route ambiguity remains. Inquiry sent 2026-08-25 | Wait for current preferred route + terms confirmation |
-| **SunGoldPower** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 6% | Unknown | US | ShareASale route exists; outreach sent 2026-08-24 to sales@sungoldpower.com | Wait for reply; no duplicate follow-up yet |
-| **Zendure** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Official page inconsistent: up to 5% vs up to 10%; unconfirmed | 30 days | US | Impact route exists; outreach sent 2026-08-24 | Wait for reply or Impact terms; do not guess rate |
-| **Growatt** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 15%-20% on qualifying sales; GridPermit-specific rate not approved | Unknown | US | PartnerBoost/direct route exists; outreach sent 2026-08-25 to marketing.pps@growatt.com | Wait for direct fit/terms reply |
-| **ECO-WORTHY** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 5% | 30 days | US | Official U.S. page lists Impact/Awin; direct inquiry sent 2026-08-25 | Wait for GridPermit eligibility and Impact-route confirmation |
-| **Powerness** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Published 5% | **Unresolved: official page says both 45 and 30 days** | US-focused traffic | ShareASale; media publishers explicitly welcomed; PPC prohibited. Inquiry sent | Wait for attribution-window clarification and fit confirmation |
-| **ACOPOWER** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | **Unresolved: official pages conflict between 6% and 8%** | Unresolved | US | Official pages conflict on platform (AvantLink/ShareASale/direct), rate and payout form; clarification inquiry sent | Do not apply or record commercial terms until ACOPOWER resolves conflicts |
-| **WattCycle** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Unknown | Unknown | US | Official U.S. affiliate page exists but terms are not exposed in crawl; inquiry sent 2026-08-25 to official marketing contact | Wait for platform/commission/cookie/fit confirmation |
-| **SOK Battery** | Hardware affiliate (battery) | `AWAITING_RESPONSE` | No | No | Unknown | Unknown | US | U.S. site exposes Affiliate Programme navigation but terms not surfaced; inquiry sent 2026-08-25 to sales@sokbattery.com | Wait for program terms and publisher eligibility confirmation |
-| **ShopSolar** | Hardware affiliate / solar kits | `AWAITING_RESPONSE` | No | No | Unknown | Unknown | US | Official Affiliate Program redirects to ShopSolar-branded GoAffPro signup; direct inquiry sent 2026-08-25 | Wait for publisher eligibility + current commission/cookie/restrictions; then use GoAffPro if confirmed |
-| **Jackery** | Hardware affiliate (battery) | `DISCOVERED` | No | No | Unknown; automated fetch did not render terms | Unknown | US | Program exists but primary terms remain unverifiable in current tool environment | Do not contact until terms are independently verified |
-| **Modernize** | CPL (solar, multi-trade) | `DISCOVERED` | No | No | Unconfirmed | Unconfirmed | US | Primary program page bot-blocked; third-party terms are not sufficient | Do not contact until primary terms verified |
-| **Segway (portable power)** | Hardware affiliate (battery) | `DISCOVERED` | No | No | Unknown | Unknown | US | Program URL exists but portable-power commissionability unverified | Verify product scope before outreach |
-| **Oukitel Power** | Hardware affiliate (battery) | `REJECTED` | No | No | N/A | N/A | N/A | Awin-only; no alternate found | Closed unless non-Awin route surfaces |
-| **Battle Born Batteries** | Hardware affiliate (battery) | `REJECTED` | No | No | N/A | N/A | N/A | No live affiliate page confirmed | Closed unless live program surfaces |
-| **Mighty Max Battery** | Hardware affiliate (battery) | `REJECTED` | No | No | N/A | N/A | N/A | Program page 404/unverifiable | Closed unless live program surfaces |
-| **ADT Solar** | General referral | `REJECTED` | No | No | N/A | N/A | N/A | Consumer refer-a-friend structure, not a publisher channel | Closed |
-| **MatchBurst** | CPL (solar) | `BLOCKED` | No | No | Unknown | Unknown | Unknown | Awin blocked; no verified alternate found | Park until a genuine alternate surfaces |
-| **Bark.com** | General home services referral | `BLOCKED` | No | No | Unknown | Unknown | Unknown | Awin-dependent; no verified non-Awin publisher route | Park |
-| **Angi** | General home services referral | `REJECTED` | No | No | N/A | N/A | N/A | Angi Affiliate Team directly confirmed it does not accept solar leads from affiliate partners | Closed |
-| **Current Connected** | Hardware affiliate (battery) | `REJECTED` | No | No | Published 8% average | Unknown | US/Canada residents only | Applicant residency requirement does not fit | Closed unless eligibility changes |
-| **SUNcheck** | CPL (solar) | `REJECTED` | No | No | N/A | N/A | N/A | No evidence of a real affiliate program; old $1,000/365-day claim invalidated | Closed |
-| **Awin (network)** | Network | `BLOCKED` | N/A | N/A | N/A | N/A | N/A | Israel unavailable in Awin Tax Residency dropdown | Do not force Awin; use per-program alternates |
+| Partner / route | Channel | Status | Current verified commercial state | Current blocker / next executable action |
+|---|---|---|---|---|
+| **CompareSolarPrices** | CPL + installation conversion | `OWNER_ACTION_REQUIRED` | Directly confirmed: $25 qualified quote request, $200 funded installation conversion, Southern California, 30-day click-to-quote attribution; once attached, install conversion has no stated time limit. Dedicated `ref=GridPermit` + fresh non-PII `cid` mechanism received. PayPal selected. Monthly lead payout with $100 accumulated threshold accepted. | Await Aaron's exact PayPal setup detail; owner completes W-8BEN; then safe outbound-link verification, canonical/registry final check and deliberate production wiring. Draft PR #9 is staged and not live. |
+| **EnergySage via CJ** | CPL (solar) | `OWNER_ACTION_REQUIRED` | CJ publisher account is activated. EnergySage advertiser ID 5835771. No advertiser approval or CJ tracking link yet. | Owner opens current advertiser terms in CJ and submits Apply/Join only after reviewing the live binding terms. Issue #3. |
+| **EnergySage via FlexOffers** | CPL (solar) | `REJECTED` / reconsideration requested | FlexOffers support had confirmed non-U.S. publishers and EnergySage availability, but GridPermit account #1558079 and its verified organic/editorial traffic source were both declined with only a generic policy/current-needs reason. | Reconsideration request already sent asking for the specific reason. Do not wait on this route; prioritize CJ. |
+| **EnergySage direct partner form** | CPL (solar) | `DISCOVERED` | Direct partner-registration fallback exists; terms not accepted. | Keep as fallback if CJ stalls. |
+| **Digital Master Media (DMM)** | Pay-per-call (solar) | `OWNER_ACTION_REQUIRED` | Direct fit confirmed. Organic SEO/content accepted. Nationwide U.S. Public offer advertises up to $53/qualified call, not a GridPermit-approved rate. Mon-Fri 8AM-8PM EST. First qualified call only. Calls recorded. Buffer varies by traffic source; exact SEO buffer appears in application/campaign. | Owner reviews/signs formal Publisher Application only if acceptable. After approval still require GridPermit-specific payout, tracking number, exact buffer/IVR, ZIP guidance and disclosure/setup instructions. Issue #1. |
+| **BigBattery** | Hardware affiliate | `PENDING_APPROVAL` | Application submitted; public 5% commission. | Wait for decision; do not resubmit. |
+| **Profitise** | Solar PPL | `AWAITING_RESPONSE` | Official current solar publisher program pays per qualified/sold lead, supports affiliate links/forms, has no published minimum traffic requirement, $100 public payout threshold. Public pages conflict on weekly vs bi-weekly payout cadence. | Existing inquiry/follow-up pending. Need exact GridPermit payout, hosted click-out/low-PII model, geo, duplicates/reversals, international eligibility/payment and current agreement. Issue #14. |
+| **EnergyPal** | Solar/home-battery publisher | `AWAITING_RESPONSE` | Current Marketing Partner route and Publisher Agreement verified. Agreement contains heavy lead-gen obligations; GridPermit asked whether a tracking-link-only hosted-form model receives lighter requirements. | Wait for response on payout, tracking, international eligibility, TrustedForm/Jornaya and insurance requirements. Do not accept agreement. Issue #10. |
+| **Solar.com / Pick My Solar** | Solar marketplace affiliate | `AWAITING_RESPONSE` | Official legacy publisher affiliate page found; current platform/terms under Electrum/Solar.com not yet confirmed. | Existing direct inquiry to listed affiliate manager is pending. Do not use legacy application until current route confirmed. Issue #11. |
+| **Modernize** | Solar PPL | `VERIFIED` | Current official affiliate page explicitly pays per lead for Solar and other trades, provides links/creative, requires approval and Terms acceptance. Current consent architecture uses affiliate consent tooling / TrustedForm records. | Need current solar payout, international publisher eligibility, hosted-form/click-out option, duplicate/rejection rules, payment terms and current agreement before owner application. Issue #12. |
+| **Home Services Lead Group** | Solar/home-services PPL/PPC | `AWAITING_RESPONSE` | Current affiliate program supports solar, SEO/organic/content, real-time tracking, PPL/PPC models and campaign-specific rules. Existing outreach already sent. | Wait for exact solar campaign payout, geo, qualification, tracking, payment and agreement details. Issue #13. |
+| **Renogy** | Hardware affiliate | `OWNER_ACTION_REQUIRED` | Direct-confirmed GridPermit fit, international publisher with U.S. audience accepted, organic/editorial accepted, 6% U.S. rate, 27-day attribution, no Renogy brand-term paid search. Official Impact application link received. | Owner reviews live Impact/network + advertiser terms and submits. Notify Yuna immediately after submission as she requested. Issue #6. |
+| **BougeRV** | Hardware affiliate | `OWNER_ACTION_REQUIRED` | Direct-confirmed independent content publishers and organic/editorial accepted, contextual solar/battery/home-energy links accepted, standard U.S. 7% commission. Official Impact application link received. | Owner reviews live Impact/network + advertiser terms and submits. Issue #6. |
+| **ALLPOWERS** | Hardware affiliate | `AWAITING_RESPONSE` | Direct-confirmed international publisher with primarily U.S. organic traffic eligible through CJ or GoAffPro; current U.S. terms 5%, 30 days. Direct GoAffPro route verified. | Follow-up pending asking preferred activation route. Owner reviews live join/signup terms before submission. Issue #7. |
+| **Goal Zero** | Hardware affiliate | `OWNER_ACTION_REQUIRED` | Official direct program: up to 10%, 30-day cookie, Partnerize-managed, dedicated business application. Form includes Israel, U.S. customer reach and Content promotion. | Owner must review/accept binding Partnerize agreement and provide payment/tax fields. No tracking link yet. Issue #8. |
+| **BLUETTI** | Hardware affiliate | `AWAITING_RESPONSE` | Published up to 10%, 30 days; Impact route exists. | Wait for direct reply/approval route. |
+| **EcoFlow** | Hardware affiliate | `AWAITING_RESPONSE` | Impact route exists. U.S.-specific payout/cookie not yet directly confirmed; regional terms must not be imported. | Wait for U.S.-specific reply. |
+| **Power Queen** | Hardware affiliate | `AWAITING_RESPONSE` | GoAffPro route verified; published 5.5% base, 30 days. | Wait for direct fit/current-terms reply. |
+| **Redodo** | Hardware affiliate | `AWAITING_RESPONSE` | GoAffPro route exists. | Wait for direct current terms. |
+| **EASUNPOWER** | Hardware affiliate | `AWAITING_RESPONSE` | Official direct email program; published 5% on confirmed orders. | Wait for cookie/payment/eligibility clarification. |
+| **Vatrer Power** | Hardware affiliate | `AWAITING_RESPONSE` | Official UpPromote program; website/blog/newsletter promotion supported. | Wait for U.S. commission/cookie/payment confirmation. |
+| **LiTime** | Hardware affiliate | `AWAITING_RESPONSE` | Official program welcomes bloggers/site owners and lists GoAffPro/Impact/Awin; published up to 5%. | Wait for preferred non-Awin route/current cookie and restrictions. |
+| **RICH SOLAR** | Hardware affiliate | `AWAITING_RESPONSE` | Content-site fit indicated publicly. Auto-ack only; no substantive affiliate reply yet. | Wait for human response. |
+| **Anker SOLIX** | Hardware affiliate | `AWAITING_RESPONSE` | Published 5%, 30 days; Impact/LinkShare route. | Wait for reply. |
+| **Signature Solar** | Hardware affiliate | `AWAITING_RESPONSE` | Direct program; published up to 9%, 7-day cookie; international referrals described as compensable. | Wait for response or owner direct application. |
+| **Nature's Generator** | Hardware affiliate | `AWAITING_RESPONSE` | Published 5%; official page has ShareASale/Awin route ambiguity. | Wait for current preferred route and cookie. |
+| **SunGoldPower** | Hardware affiliate | `AWAITING_RESPONSE` | Published 6%; ShareASale route. | Wait for reply/current cookie. |
+| **Zendure** | Hardware affiliate | `AWAITING_RESPONSE` | Impact route; official page conflicts between up to 5% and up to 10%; 30-day cookie. | Wait for exact current rate. |
+| **Growatt** | Hardware affiliate | `AWAITING_RESPONSE` | Official page accepts publishers/content creators; published 15%-20% on qualifying sales; multiple routes including PartnerBoost. | Wait for GridPermit-specific route/terms. |
+| **ECO-WORTHY** | Hardware affiliate | `AWAITING_RESPONSE` | Official U.S. page lists Impact/Awin, published 5%, 30 days. | Wait for GridPermit/Impact confirmation. |
+| **Powerness** | Hardware affiliate | `AWAITING_RESPONSE` | Published 5%; official page conflicts on 45 vs 30-day cookie. | Wait for attribution clarification. |
+| **ACOPOWER** | Hardware affiliate | `AWAITING_RESPONSE` | Official pages conflict on network, 6% vs 8% and payout model. | Do not apply until conflicts resolved. |
+| **WattCycle** | Hardware affiliate | `AWAITING_RESPONSE` | Official affiliate page exists; public commercial terms not exposed. | Wait for reply. |
+| **SOK Battery** | Hardware affiliate | `AWAITING_RESPONSE` | Official affiliate navigation exists; terms not exposed. | Wait for reply. |
+| **ShopSolar** | Hardware affiliate / solar kits | `AWAITING_RESPONSE` | Official Affiliate Program redirects to ShopSolar-branded GoAffPro. | Wait for eligibility/current rate/cookie/restrictions. |
+| **Jackery** | Hardware affiliate | `DISCOVERED` | Program exists but primary commercial terms not yet verified. | Verify before outreach/application. |
+| **Segway portable power** | Hardware affiliate | `DISCOVERED` | Program route exists; portable-power commissionability unverified. | Verify product scope before outreach. |
+| **Oukitel Power** | Hardware affiliate | `REJECTED` | Awin-only route found. | Closed unless a non-Awin route surfaces. |
+| **Battle Born Batteries** | Hardware affiliate | `REJECTED` | No current live affiliate page confirmed. | Closed unless a live program surfaces. |
+| **Mighty Max Battery** | Hardware affiliate | `REJECTED` | Current affiliate URLs unverifiable/404. | Closed unless a live program surfaces. |
+| **ADT Solar** | General referral | `REJECTED` | Consumer refer-a-friend structure, not a publisher channel. | Closed. |
+| **MatchBurst** | Solar CPL | `BLOCKED` | Awin blocked; no verified alternate. | Park. |
+| **Bark.com** | Home-services referral | `BLOCKED` | Awin-dependent; no verified non-Awin publisher route. | Park. |
+| **Angi** | Home-services referral | `REJECTED` | Angi Affiliate Team directly said it does not accept solar leads from affiliate partners. | Closed. |
+| **Current Connected** | Hardware affiliate | `REJECTED` | Applicant residency restricted to U.S./Canada residents. | Closed unless eligibility changes. |
+| **SUNcheck** | Solar CPL | `REJECTED` | No real current affiliate program verified; old payout/cookie claim invalidated. | Closed. |
+| **Awin network** | Network | `BLOCKED` | Israel unavailable in Awin Tax Residency dropdown. | Use per-program alternatives. |
 
 ## Production-ready status: none
 
-Zero partners are `APPROVED` + tracking-received + launch-enabled. The one live production CTA (EnergySage, `src/components/InstallerCTA.astro` + `src/pages/index.astro`) remains a **plain, untracked referral link**. It is not an earning link and must not be described as one.
+Zero partners are currently production-active with all approval, tracking, compliance, placement and launch gates satisfied.
+
+The existing EnergySage production CTA is a plain, untracked destination and must not be described as an earning link. CompareSolarPrices is staged only in draft PR #9 and is intentionally not imported into production layouts.
 
 ## Status vocabulary
 
 `DISCOVERED` · `VERIFIED` · `CONTACTED` · `AWAITING_RESPONSE` · `APPLICATION_STARTED` · `OWNER_ACTION_REQUIRED` · `PENDING_APPROVAL` · `APPROVED` · `TRACKING_RECEIVED` · `READY_FOR_PRODUCTION` · `PRODUCTION_ACTIVE` · `REJECTED` · `BLOCKED`
 
-No other status values should be introduced without updating this table and `src/lib/partners.ts` together.
+## First-revenue priority
 
-## First-revenue priority engine
+1. **CompareSolarPrices** — closest to live revenue; commercial/tracking mechanics are directly confirmed and code is staged. Remaining external gate is PayPal detail + W-8BEN, then verification and deliberate activation.
+2. **EnergySage via CJ** — CJ network account is already activated; advertiser-level owner application is the remaining commercial gate.
+3. **DMM pay-per-call** — strong revenue potential but requires owner acceptance of the publisher application and then real campaign/tracking assets.
+4. **Renogy / BougeRV / ALLPOWERS / Goal Zero** — strong battery/backup-power diversification; binding network/advertiser joins are the main remaining gates.
+5. **Profitise / Modernize / Home Services Lead Group / EnergyPal / Solar.com** — parallel solar CPL diversification routes under qualification; do not accept heavier lead-gen agreements until low-PII routing and exact commercial terms are clear.
 
-Scoring weights: revenue potential 30% · probability of approval 20% · time to activation 20% · traffic/content fit 15% · implementation effort 10% · compliance risk 5%. Scores are qualitative because no real conversion data exists yet. This ranks distance-to-first-dollar, not expected revenue.
+## Placement and attribution policy
 
-| Route | Revenue potential | Approval odds | Time to activation | Content fit | Impl. effort | Compliance risk | Weighted rank |
-|---|---|---|---|---|---|---|---|
-| A. EnergySage CPL | Medium-high | Medium-high network readiness; advertiser still must approve | **High now that CJ account activation is complete** | High | Very low | Low | **1** |
-| B. DMM pay-per-call | High | Medium; fit already confirmed | Medium; waiting 7 launch-grade items | High | Low | Medium | **2** |
-| C. Hardware affiliate cluster | Low-medium per sale, broad parallel portfolio | Medium-high across many candidates; Renogy and BougeRV already fit-confirmed directly | Medium | Medium | Low | Low | **3** |
-| D. FlexOffers EnergySage alternate | Same ceiling as A if resolved first | Unknown | Unknown | High | Very low | Low | **4** |
-| E. BigBattery | Low-medium per sale | Unknown; application pending | Unknown | Medium | Low | Low | **5** |
+The detailed placement rules live in `docs/MONETIZATION_PLACEMENT_MAP.md`.
 
-### Top 5 immediate monetization routes
+Core rules:
+- one commercial CTA per page
+- service-area eligibility before payout optimization
+- no CompareSolarPrices placement outside explicitly supported Southern California locality pages
+- no partner/sub-ID/CID analytics containing PII
+- no monetized CTA above the primary informational content
+- no fake leads/calls for testing
+- no production switch until real approval/tracking/compliance gates are complete
 
-**1. EnergySage CPL (solar)**
-- Why #1 now: the CJ publisher account is officially active, removing the network-level blocker. The existing homepage/locality CTA and CPL state architecture are already in place.
-- Missing blocker: EnergySage advertiser approval plus a real CJ tracking URL.
-- Immediate executable action: owner opens EnergySage advertiser 5835771 in CJ, reviews current live terms and submits Apply/Join. GitHub issue #3 contains the exact sequence.
-- Target pages: locality guides + homepage, using existing placement.
-- Trigger to monetize: advertiser approval + verified tracking link.
-- Until then: keep the plain untracked EnergySage root link and `trackingEnabled=false`, `launchEnabled=false`.
+## Owner-only queue
 
-**2. DMM pay-per-call (solar)**
-- Why #2: high likely per-conversion value and direct fit confirmation already exists.
-- Missing blocker: GridPermit-specific payout, tracking number/setup, ZIP guidance, IVR logic, disclosure wording, final agreement/compliance.
-- Action already taken: standalone follow-up successfully sent 2026-08-25 after threaded Gmail replies repeatedly failed technically.
-- Target pages: contained high-intent locality subset only.
-- Trigger to monetize: tracking number + final campaign/compliance terms.
+These steps are intentionally not automated because they can create binding/tax/payment obligations:
 
-**3. Hardware affiliate cluster (first to approve)**
-- Why #3: many parallel routes now exist, and Renogy/BougeRV have already given direct positive fit confirmation.
-- Highest-quality near-term candidates: Renogy, BougeRV, BLUETTI, ALLPOWERS, Power Queen, LiTime, Growatt, ECO-WORTHY, ShopSolar.
-- Trigger to monetize: any one program returns formal platform approval + real tracking URL.
-- Target pages: battery/backup-power editorial and relevant blog content, not blanket locality pages.
-- CTA/event architecture already exists and fails closed.
+- CompareSolarPrices: W-8BEN and final PayPal setup when Aaron replies.
+- EnergySage: advertiser join in CJ after live-term review.
+- Renogy and BougeRV: Impact applications after live-term review.
+- DMM: Publisher Application/agreement after owner review.
+- Goal Zero: Partnerize business application/agreement plus payment/tax setup after owner review.
 
-**4. FlexOffers (EnergySage alternate)**
-- Keep as fallback only. No substantive program/eligibility response yet.
-- Do not place a second EnergySage CTA or create duplicate attribution paths.
-
-**5. BigBattery**
-- Real application remains pending.
-- No owner-side lever is currently available; wait for decision and tracking asset.
-
-## Current highest-value owner action
-
-**Apply to EnergySage in CJ now.** CJ network activation is no longer a blocker. Do not change production until the EnergySage advertiser application is approved and a real tracking link is issued.
+Everything else should continue through nonbinding research, inbox management, follow-up and staging without owner interruption unless a materially new decision is required.
