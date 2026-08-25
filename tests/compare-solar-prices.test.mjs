@@ -7,7 +7,7 @@ import {
 	buildCompareSolarReferralUrl,
 	generateCompareSolarCid,
 	getCompareSolarDestination,
-	isCompareSolarServedCity,
+	isCompareSolarServedLocality,
 	isValidCompareSolarCid,
 	normalizeCompareSolarCitySlug,
 } from "../src/lib/compare-solar-prices.ts";
@@ -33,7 +33,7 @@ test("cid validation rejects spaces, PII-like punctuation, empty strings, and ov
 	for (const invalid of ["", "hello world", "person@example.com", "555.123.4567", "a".repeat(33)]) {
 		assert.equal(isValidCompareSolarCid(invalid), false, invalid);
 	}
-	assert.throws(() => buildCompareSolarReferralUrl("Irvine", "person@example.com"));
+	assert.throws(() => buildCompareSolarReferralUrl("CA", "Irvine", "person@example.com"));
 });
 
 test("city normalization matches partner URL slugs", () => {
@@ -42,11 +42,11 @@ test("city normalization matches partner URL slugs", () => {
 	assert.equal(normalizeCompareSolarCitySlug("Simi Valley"), "simi-valley");
 });
 
-test("known served cities deep-link to the partner's city route with GridPermit ref and supplied cid", () => {
-	assert.equal(isCompareSolarServedCity("Irvine"), true);
-	assert.equal(getCompareSolarDestination("Irvine"), "https://www.comparesolarprices.net/solar-irvine-ca/");
+test("known California service cities deep-link with GridPermit ref and supplied cid", () => {
+	assert.equal(isCompareSolarServedLocality("CA", "Irvine"), true);
+	assert.equal(getCompareSolarDestination("CA", "Irvine"), "https://www.comparesolarprices.net/solar-irvine-ca/");
 
-	const built = buildCompareSolarReferralUrl("Irvine", "test_click_001");
+	const built = buildCompareSolarReferralUrl("CA", "Irvine", "test_click_001");
 	assert.ok(built);
 	const url = new URL(built);
 	assert.equal(url.origin, "https://www.comparesolarprices.net");
@@ -55,10 +55,17 @@ test("known served cities deep-link to the partner's city route with GridPermit 
 	assert.equal(url.searchParams.get("cid"), "test_click_001");
 });
 
-test("non-allowlisted cities fail closed instead of sending out-of-area traffic", () => {
-	assert.equal(isCompareSolarServedCity("San Francisco"), false);
-	assert.equal(getCompareSolarDestination("San Francisco"), null);
-	assert.equal(buildCompareSolarReferralUrl("San Francisco", "safe_001"), null);
+test("non-allowlisted California cities fail closed instead of sending out-of-area traffic", () => {
+	assert.equal(isCompareSolarServedLocality("CA", "San Francisco"), false);
+	assert.equal(getCompareSolarDestination("CA", "San Francisco"), null);
+	assert.equal(buildCompareSolarReferralUrl("CA", "San Francisco", "safe_001"), null);
+});
+
+test("a same-named city outside California can never receive a CompareSolarPrices referral URL", () => {
+	assert.equal(isCompareSolarServedLocality("DE", "Irvine"), false);
+	assert.equal(isCompareSolarServedLocality("RI", "Pasadena"), false);
+	assert.equal(getCompareSolarDestination("DE", "Irvine"), null);
+	assert.equal(buildCompareSolarReferralUrl("RI", "Pasadena", "safe_002"), null);
 });
 
 test("staged CTA has a proximate paid-referral disclosure and does not make partner savings, price, or timeline claims", () => {
@@ -71,8 +78,9 @@ test("staged CTA has a proximate paid-referral disclosure and does not make part
 	assert.ok(!/\b\d+\s*(?:minute|hour|day)s?\b/i.test(component));
 });
 
-test("staged CTA generates the referral URL at click time and records the existing CPL analytics event", () => {
-	assert.match(component, /buildCompareSolarReferralUrl\(city\)/);
+test("staged CTA generates the referral URL at click time with state + city and records the existing CPL analytics event", () => {
+	assert.match(component, /buildCompareSolarReferralUrl\(state, city\)/);
+	assert.match(component, /data-state=\{state\}/);
 	assert.match(component, /trackEvent\("cpl_cta_clicked"/);
 	assert.match(component, /window\.open\(referralUrl/);
 });
