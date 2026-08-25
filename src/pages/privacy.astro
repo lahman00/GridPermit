@@ -36,6 +36,7 @@ const webPageSchema = {
 		body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 2rem 1rem; }
 		.container { max-width: 800px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }
 		h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: #0f172a; }
+		h2 { font-size: 1.15rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #0f172a; }
 		p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
 		.back-link { display: inline-block; margin-bottom: 1.5rem; color: #2563eb; font-weight: 600; text-decoration: none; }
 		.cross-links { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; }
@@ -47,9 +48,16 @@ const webPageSchema = {
 		<a href="/" class="back-link">← Back to Home</a>
 		<p class="cross-links"><a href="/blog">Blog</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a></p>
 		<h1>Privacy Policy</h1>
-		<p>GridPermit is a California-focused solar and battery estimator. Our calculator operates without requiring personal contact details such as names, email addresses, or phone numbers.</p>
+		<p>GridPermit is an independent educational resource for U.S. solar permitting research, with a separate California-only illustrative solar and battery calculator. The calculator does not require you to provide a name, email address, or phone number.</p>
 
-		<p><strong>Data Processing:</strong> Input data such as 5-digit ZIP codes and monthly utility spend are processed locally in your browser to calculate baseline estimated values.</p>
+		<h2>Calculator Inputs</h2>
+		<p>Calculator inputs such as a 5-digit ZIP code and monthly utility spend are processed in your browser to produce the illustrative estimate. GridPermit's analytics event helper is designed to strip ZIP codes, bill amounts, names, email addresses, phone numbers, and addresses from event parameters before an event can be sent.</p>
+
+		<h2>Analytics</h2>
+		<p>GridPermit uses Google Analytics 4 to understand aggregate site usage and interactions, such as page views and selected on-site events. Google Analytics may process technical and usage information and may use cookies or similar technologies according to Google's own practices. GridPermit does not intentionally send calculator ZIP codes, bill amounts, names, email addresses, phone numbers, or street addresses as analytics event parameters.</p>
+
+		<h2>Third-Party Links</h2>
+		<p>GridPermit links to third-party websites, including solar marketplaces and product providers. Those services operate under their own privacy policies and data practices. GridPermit does not control how a third-party site handles information after you leave GridPermit.</p>
 
 		<p>Privacy inquiries and requests may be submitted to privacy@gridpermit.com. Depending on your location, applicable privacy laws may provide additional rights regarding personal information.</p>
 	</main>
