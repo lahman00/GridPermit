@@ -79,7 +79,7 @@ export const COMPARE_SOLAR_SERVED_CITY_SLUGS = new Set([
 	"santa-ana",
 	"santa-clarita",
 	"santee",
-	"simI-valley".toLowerCase(),
+	"simi-valley",
 	"temecula",
 	"thousand-oaks",
 	"torrance",
