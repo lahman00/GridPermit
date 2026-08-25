@@ -78,11 +78,22 @@ test("staged CTA has a proximate paid-referral disclosure and does not make part
 	assert.ok(!/\b\d+\s*(?:minute|hour|day)s?\b/i.test(component));
 });
 
-test("staged CTA generates the referral URL at click time with state + city and records the existing CPL analytics event", () => {
-	assert.match(component, /buildCompareSolarReferralUrl\(state, city\)/);
-	assert.match(component, /data-state=\{state\}/);
+test("staged CTA creates one fresh CID per click and sends that same non-PII CID to the partner and revenue-attribution telemetry", () => {
+	assert.match(component, /const cid = generateCompareSolarCid\(\)/);
+	assert.match(component, /buildCompareSolarReferralUrl\(state, city, cid\)/);
+	assert.match(component, /referral_cid: cid/);
+	assert.match(component, /cta_id: CTA_ID/);
+	assert.match(component, /partner: PARTNER_ID/);
+	assert.match(component, /normalizeCompareSolarCitySlug\(city\)/);
 	assert.match(component, /trackEvent\("cpl_cta_clicked"/);
 	assert.match(component, /window\.open\(referralUrl/);
+});
+
+test("staged CTA records partner/page/locality dimensions on views without double-firing the generic data-track-view hook", () => {
+	assert.match(component, /trackEvent\("cpl_cta_viewed", getSafePlacementParams\(state, city\)\)/);
+	assert.match(component, /page_path: window\.location\.pathname/);
+	assert.match(component, /data-compare-solar-cta-root/);
+	assert.ok(!component.includes('data-track-view="cpl_cta_viewed"'));
 });
 
 test("production locality pages do not import or render the staged CTA before the tax/payment gate clears", () => {
