@@ -97,7 +97,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: SOLAR_CPL_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Channel Partner relationship + CJ advertiser ID 5835771 exist; dedicated /p/gridpermit/ page 404s and current production link is the plain untracked root. CJ sent official publisher-account activation confirmation on 2026-08-25, so the network-level activation blocker is cleared. Remaining owner action: open EnergySage in CJ, review current live terms and submit Apply/Join. No advertiser approval or tracking link exists yet. Reported ~$10/approved lead and 45-day referral window must be re-read on the current CJ program page before relying on them. FlexOffers alternate remains open, awaiting substantive reply.",
+		notes: "Channel Partner relationship + CJ advertiser ID 5835771 exist; dedicated /p/gridpermit/ page 404s and current production link is the plain untracked root. CJ sent official publisher-account activation confirmation on 2026-08-25, so the network-level activation blocker is cleared. Remaining owner action: open EnergySage in CJ, review current live terms and submit Apply/Join. No advertiser approval or tracking link exists yet. Reported ~$10/approved lead and 45-day referral window must be re-read on the current CJ program page before relying on them. FlexOffers publisher registration fully submitted 2026-08-25 (site ownership verified via the fo-verify meta tag on the homepage); FlexOffers said review takes up to 5 business days. EnergySage is confirmed to currently be in the FlexOffers network, but its advertiser-specific program has not been opened or applied to yet, since that requires the FlexOffers publisher account to be approved first.",
 	},
 	{
 		id: "digital-master-media",
