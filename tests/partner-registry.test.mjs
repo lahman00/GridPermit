@@ -1,7 +1,7 @@
-// Regression guard for src/lib/partners.ts — the partner control-plane
-// data. This registry is not yet wired into any rendered component, but
-// these invariants must hold from day one so a future wiring change can't
-// accidentally surface a rejected/unapproved/untracked partner.
+// Regression guard for src/lib/partners.ts — the partner control-plane.
+// These invariants must hold as partners move from staged to production so a
+// launch can never surface a rejected, unapproved, untracked, or accidentally
+// enabled partner.
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -15,13 +15,21 @@ test("rejected partners can never be placement-eligible", () => {
 	}
 });
 
-test("no partner claims tracking is enabled without a real destination or tracking phone", () => {
+test("no partner claims tracking is enabled without a real static, phone, or explicitly dynamic tracking asset", () => {
 	for (const p of PARTNERS) {
 		if (p.trackingEnabled) {
 			assert.ok(
-				p.destination.length > 0 || Boolean(p.trackingPhone),
-				`${p.name} has trackingEnabled=true but no destination or trackingPhone — a missing tracking asset must never masquerade as tracked`,
+				p.destination.length > 0 || Boolean(p.trackingPhone) || p.dynamicTracking === true,
+				`${p.name} has trackingEnabled=true but no static destination, trackingPhone, or dynamicTracking asset — a missing tracking asset must never masquerade as tracked`,
 			);
+		}
+	}
+});
+
+test("dynamic tracking can never be declared while tracking is disabled", () => {
+	for (const p of PARTNERS) {
+		if (p.dynamicTracking) {
+			assert.equal(p.trackingEnabled, true, `${p.name} declares dynamicTracking but trackingEnabled is false`);
 		}
 	}
 });
@@ -34,20 +42,23 @@ test("no partner is marked affiliate-disclosed without verified compensation", (
 	}
 });
 
-test("every partner defaults launchEnabled to false", () => {
+test("launchEnabled=true exists only on a deliberately production-active partner that passes the full gate", () => {
 	for (const p of PARTNERS) {
-		assert.equal(p.launchEnabled, false, `${p.name} must default launchEnabled to false — no partner has been deliberately launched yet`);
+		if (p.launchEnabled) {
+			assert.equal(p.status, "production_active", `${p.name} has launchEnabled=true without production_active status`);
+			assert.equal(isLaunchReady(p), true, `${p.name} has launchEnabled=true but does not pass the full launch gate`);
+		}
 	}
 });
 
-test("getActivePartners() is currently empty — no partner has reached approved + tracking + launch-enabled yet", () => {
-	// This is the honest current state of the whole pipeline (see
-	// docs/MONETIZATION_CANONICAL_STATE.md). If this test ever fails because
-	// the array is non-empty, that's good news — it means a partner was
-	// genuinely approved, tracked, and deliberately launched — but it should
-	// fail LOUDLY and require deliberately updating this test, not pass
-	// silently on a partner that was never actually approved.
-	assert.deepEqual(getActivePartners(), []);
+test("CompareSolarPrices is the one current active partner and every other partner remains launch-disabled", () => {
+	const active = getActivePartners();
+	assert.deepEqual(active.map((p) => p.id), ["compare-solar-prices"]);
+	for (const p of PARTNERS) {
+		if (p.id !== "compare-solar-prices") {
+			assert.equal(p.launchEnabled, false, `${p.name} must remain launch-disabled until deliberately activated`);
+		}
+	}
 });
 
 test("isLaunchReady() fails closed: unapproved status never passes even with everything else set", () => {
@@ -69,7 +80,7 @@ test("isLaunchReady() fails closed: unapproved status never passes even with eve
 		eligiblePageTypes: ["locality_guide"],
 		lastVerified: "2026-08-25",
 	};
-	assert.equal(isLaunchReady(hypothetical), false, "status !== 'approved' must fail closed regardless of every other field");
+	assert.equal(isLaunchReady(hypothetical), false, "an unapproved status must fail closed regardless of every other field");
 });
 
 test("isLaunchReady() fails closed: approved but trackingEnabled=false never passes", () => {
@@ -116,7 +127,7 @@ test("isLaunchReady() fails closed: approved + tracked but launchEnabled=false n
 	assert.equal(isLaunchReady(hypothetical), false, "launchEnabled === false must fail closed even when approved and tracked");
 });
 
-test("isLaunchReady() fails closed: approved + tracked + launchEnabled but empty destination and no phone never passes", () => {
+test("isLaunchReady() fails closed: approved + tracked + launchEnabled but empty destination and no phone/dynamic asset never passes", () => {
 	const hypothetical = {
 		id: "hypothetical",
 		name: "Hypothetical",
@@ -135,7 +146,7 @@ test("isLaunchReady() fails closed: approved + tracked + launchEnabled but empty
 		eligiblePageTypes: ["locality_guide"],
 		lastVerified: "2026-08-25",
 	};
-	assert.equal(isLaunchReady(hypothetical), false, "a missing destination AND missing trackingPhone must fail closed even with every other gate satisfied");
+	assert.equal(isLaunchReady(hypothetical), false, "a missing static, phone, and dynamic tracking asset must fail closed even with every other gate satisfied");
 });
 
 test("isLaunchReady() passes only when every gate is satisfied, and accepts a phone-only tracking asset", () => {
@@ -159,6 +170,29 @@ test("isLaunchReady() passes only when every gate is satisfied, and accepts a ph
 		lastVerified: "2026-08-25",
 	};
 	assert.equal(isLaunchReady(hypothetical), true, "a fully-satisfied partner with a phone-only tracking asset must pass");
+});
+
+test("isLaunchReady() accepts an explicitly dynamic tracking asset when every other gate is satisfied", () => {
+	const hypothetical = {
+		id: "hypothetical-dynamic",
+		name: "Hypothetical Dynamic",
+		status: "production_active",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		dynamicTracking: true,
+		trackingEnabled: true,
+		compensationVerified: true,
+		placementEligible: true,
+		disclosureType: "affiliate",
+		launchEnabled: true,
+		payoutType: "per_lead",
+		geo: "US",
+		trafficSources: ["organic_search"],
+		eligiblePageTypes: ["locality_guide"],
+		lastVerified: "2026-08-26",
+	};
+	assert.equal(isLaunchReady(hypothetical), true);
 });
 
 test("every partner with a non-empty destination uses https", () => {
