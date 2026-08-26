@@ -10,7 +10,7 @@ const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..
 const INSTALLER_CTA_PATH = path.join(REPO_ROOT, "src", "components", "InstallerCTA.astro");
 const source = readFileSync(INSTALLER_CTA_PATH, "utf8");
 
-test("installer CTA is prewired to CompareSolarPrices behind the existing launch-ready gate", () => {
+test("installer CTA routes CompareSolarPrices through the existing launch-ready gate", () => {
 	assert.match(source, /getLaunchReadyPartner\("compare-solar-prices", "cpl"\)/);
 	assert.match(source, /isCompareSolarServedLocality\("CA", city\)/);
 	assert.match(source, /<CompareSolarPricesCTA state="CA" city=\{city\} \/>/);
@@ -23,8 +23,8 @@ test("the CompareSolarPrices route is California-only and cannot activate from c
 	assert.equal(isCompareSolarServedLocality("DE", "Irvine"), false);
 });
 
-test("today the paid route remains off, proving the production edit is behavior-preserving until activation", () => {
-	assert.equal(getLaunchReadyPartner("compare-solar-prices", "cpl"), null);
+test("the paid route is launch-ready while EnergySage remains the explicit fallback outside the eligible route", () => {
+	assert.ok(getLaunchReadyPartner("compare-solar-prices", "cpl"));
 	assert.match(source, /useCompareSolar \? \(/);
 	assert.match(source, /EnergySage is an independent solar marketplace/);
 	assert.match(source, /href=\{energysage\.destination\}/);

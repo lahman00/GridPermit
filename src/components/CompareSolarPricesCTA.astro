@@ -1,17 +1,11 @@
 ---
-// Staged only. This component is deliberately not imported by any production
-// page yet. GitHub issue #5 is the activation gate: payment setup + W-8BEN
-// must be complete before this can be wired into LocalityGuideLayout.
-//
-// Two independent gates must both pass before anything renders: geo
-// eligibility (isCompareSolarServedLocality — California, allowlisted city)
+// Production CompareSolarPrices CTA for explicitly served Southern California
+// locality pages. Two independent gates must both pass before anything renders:
+// geo eligibility (isCompareSolarServedLocality — California, allowlisted city)
 // AND the partner registry's own launch gate (getLaunchReadyPartner —
-// approved, tracked, placement-eligible, and deliberately launchEnabled).
-// Without the second gate, this component would render for every eligible
-// Southern California city the instant it was ever imported into a page,
-// regardless of whether src/lib/partners.ts had actually been approved for
-// production — the same fail-closed guarantee every other partner CTA
-// component in this codebase already has via getLaunchReadyPartner().
+// approved-like status, verified tracking, placement eligibility and the
+// deliberate launch switch). The referral URL itself is generated dynamically
+// on each real click so every outbound visit receives a fresh non-PII CID.
 import { isCompareSolarServedLocality } from "../lib/compare-solar-prices";
 import { getLaunchReadyPartner } from "../lib/partners";
 
