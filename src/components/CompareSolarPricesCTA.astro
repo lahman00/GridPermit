@@ -27,7 +27,7 @@ const eligible = isCompareSolarServedLocality(state, city);
 		<h2>Want a solar quote after reviewing the permit requirements in {city}?</h2>
 		<p>Continue to CompareSolarPrices to request a homeowner solar quote for {city}.</p>
 		<button type="button" class="compare-solar-btn" data-compare-solar-cta data-state={state} data-city={city}>
-			Request a quote from CompareSolarPrices →
+			Request a quote from CompareSolarPrices → <span class="visually-hidden">(opens in a new tab)</span>
 		</button>
 		<p class="compare-solar-note">You will continue on CompareSolarPrices' website. GridPermit is not the installer.</p>
 	</section>
@@ -69,28 +69,46 @@ const eligible = isCompareSolarServedLocality(state, city);
 		trackCompareSolarView();
 	}
 
-	document.addEventListener("click", (event) => {
-		const target = event.target;
-		if (!(target instanceof Element)) return;
-		const trigger = target.closest("[data-compare-solar-cta]");
-		if (!(trigger instanceof HTMLButtonElement)) return;
+	// Idempotency guard: if this script body ever executes more than once on
+	// the same page (e.g. the component is accidentally included twice), only
+	// the first execution attaches the delegated click listener. Without this,
+	// a single real click would fire the analytics event and open the popup
+	// twice.
+	const GUARD_KEY = "__gridpermitCompareSolarClickBound";
+	if (!(window as typeof window & Record<string, boolean>)[GUARD_KEY]) {
+		(window as typeof window & Record<string, boolean>)[GUARD_KEY] = true;
 
-		const state = trigger.dataset.state ?? "";
-		const city = trigger.dataset.city ?? "";
-		const cid = generateCompareSolarCid();
-		const referralUrl = buildCompareSolarReferralUrl(state, city, cid);
-		if (!referralUrl) return;
+		document.addEventListener("click", (event) => {
+			const target = event.target;
+			if (!(target instanceof Element)) return;
+			const trigger = target.closest("[data-compare-solar-cta]");
+			if (!(trigger instanceof HTMLButtonElement)) return;
 
-		trackEvent("cpl_cta_clicked", {
-			...getSafePlacementParams(state, city),
-			// CompareSolarPrices returns this same random non-PII CID in its
-			// referral reporting, allowing a paid lead/conversion to be matched
-			// back to the exact GridPermit click without storing homeowner data.
-			referral_cid: cid,
+			const state = trigger.dataset.state ?? "";
+			const city = trigger.dataset.city ?? "";
+			const cid = generateCompareSolarCid();
+			const referralUrl = buildCompareSolarReferralUrl(state, city, cid);
+			if (!referralUrl) return;
+
+			trackEvent("cpl_cta_clicked", {
+				...getSafePlacementParams(state, city),
+				// CompareSolarPrices returns this same random non-PII CID in its
+				// referral reporting, allowing a paid lead/conversion to be matched
+				// back to the exact GridPermit click without storing homeowner data.
+				referral_cid: cid,
+			});
+
+			// window.open can return null if a popup blocker intervenes even for
+			// a synchronous, direct-response-to-click call (some mobile browsers
+			// and locked-down desktop configurations still block it). Fall back
+			// to same-tab navigation rather than silently doing nothing, so the
+			// user is never stranded on a dead button.
+			const popup = window.open(referralUrl, "_blank", "noopener,noreferrer");
+			if (!popup) {
+				window.location.assign(referralUrl);
+			}
 		});
-
-		window.open(referralUrl, "_blank", "noopener,noreferrer");
-	});
+	}
 </script>
 
 <style>
@@ -141,6 +159,18 @@ const eligible = isCompareSolarServedLocality(state, city);
 	.compare-solar-btn:focus-visible {
 		outline: 3px solid white;
 		outline-offset: 3px;
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
 	}
 
 	.compare-solar-note {

@@ -42,7 +42,21 @@ Revalidated against CompareSolarPrices' current official homepage/service-area c
 - no non-California city is eligible in the GridPermit builder
 - the builder still fails closed for unknown California cities
 
-This validates city eligibility, not every individual deep-link HTTP response. A safe outbound check of the actual production referral URL remains a pre-launch gate.
+This validates city eligibility, not every individual deep-link HTTP response.
+
+A safe, read-only outbound reachability check (HTTP HEAD/GET, no form submission, no fake lead) was run 2026-08-26 against 11 of the 75 allowlisted destinations, including the exact query-string shape the CTA sends (`?ref=GridPermit&cid=...`): all returned HTTP 200. This confirms the destination pages are live and accept the referral parameters without erroring. It does not and cannot confirm CompareSolarPrices' own internal attribution/reporting actually captures those parameters, since that can only be verified from inside their dashboard after a real click.
+
+## Engineering hardening (2026-08-26 audit pass)
+
+Added after a deep audit against the full CompareSolarPrices go-live checklist:
+
+- **Popup-blocked fallback:** if `window.open` returns null (blocked by the browser), the click handler falls back to same-tab navigation (`window.location.assign`) instead of silently doing nothing.
+- **Duplicate-listener guard:** a `window`-scoped flag ensures the delegated click listener attaches at most once, even if the component script body were ever to execute more than once on the same page.
+- **Screen-reader "opens in a new tab" hint:** a visually-hidden span was added to the button text, since a JS-driven `window.open` button (unlike a native `target="_blank"` link) gives assistive-technology users no built-in signal that activating it opens a new tab.
+- Confirmed the CTA's `<script>` is a real Astro module script (not `is:inline`), so it ships as an external, build-hashed file rather than requiring an `unsafe-inline` CSP allowance.
+- Confirmed the site has no client-side router/View Transitions (`astro.config.mjs` has no such integration), so there is no SPA-navigation scenario in which this component's listener could survive a page change and double-bind.
+- Confirmed the CID is never written to `localStorage`, `sessionStorage`, or `document.cookie` — it exists only for the duration of a single click's synchronous execution.
+- Added regression tests for all of the above.
 
 ## Attribution design
 

@@ -100,3 +100,38 @@ test("production locality pages do not import or render the staged CTA before th
 	assert.ok(!localityLayout.includes("CompareSolarPricesCTA"));
 	assert.ok(!localityLayout.includes("compare-solar-prices"));
 });
+
+test("a blocked popup falls back to same-tab navigation instead of stranding the user", () => {
+	assert.match(component, /const popup = window\.open\(referralUrl, "_blank", "noopener,noreferrer"\)/);
+	assert.match(component, /if \(!popup\)\s*{\s*window\.location\.assign\(referralUrl\)/);
+});
+
+test("the click listener is idempotent even if the component script body runs more than once on one page", () => {
+	assert.match(component, /GUARD_KEY/);
+	assert.match(component, /if \(!\(window as typeof window & Record<string, boolean>\)\[GUARD_KEY\]\)/);
+	// The guard must wrap the listener attachment itself, not just be present
+	// somewhere in the file, so the click handler is genuinely conditional.
+	const guardIndex = component.indexOf("GUARD_KEY] = true");
+	const listenerIndex = component.indexOf('document.addEventListener("click"');
+	assert.ok(guardIndex > -1 && listenerIndex > guardIndex, "the click listener must be attached inside the guard block, after the guard is set");
+});
+
+test("the button is a real, keyboard-operable, accessibly-labeled control", () => {
+	assert.match(component, /<button type="button" class="compare-solar-btn"/);
+	assert.match(component, /aria-label="CompareSolarPrices referral"/);
+	assert.match(component, /:focus-visible/);
+});
+
+test("the button tells assistive-technology users it opens in a new tab", () => {
+	assert.match(component, /visually-hidden">\(opens in a new tab\)<\/span>/);
+});
+
+test("the cid is never written to any persistent client-side storage", () => {
+	assert.ok(!component.includes("localStorage"));
+	assert.ok(!component.includes("sessionStorage"));
+	assert.ok(!component.includes("document.cookie"));
+});
+
+test("the CTA script is a real Astro module script, not a raw inline script requiring an unsafe-inline CSP allowance", () => {
+	assert.ok(!component.includes('<script is:inline'), "must not use is:inline, which would require unsafe-inline in the site's CSP");
+});
