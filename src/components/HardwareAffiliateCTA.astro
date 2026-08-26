@@ -1,0 +1,28 @@
+---
+// One fail-closed hardware-affiliate slot for battery / backup-power editorial.
+// The routing engine selects at most one launch-ready hardware partner using
+// the deliberate channel priority in src/lib/partner-routing.ts. Today every
+// hardware partner still fails the launch gate, so this wrapper renders
+// nothing in production until a real approval + tracking asset + deliberate
+// launch switch exist.
+import ProductAffiliateCTA from "./ProductAffiliateCTA.astro";
+import { selectPartner } from "../lib/partner-routing";
+
+interface Props {
+	productLabel: string;
+	state?: string;
+	city?: string;
+}
+
+const { productLabel, state = "CA", city = "" } = Astro.props;
+const partner = selectPartner({
+	channel: "hardware_affiliate",
+	pageType: "battery_editorial",
+	state,
+	city,
+});
+---
+
+{partner && (
+	<ProductAffiliateCTA partnerId={partner.id} productLabel={productLabel} />
+)}
