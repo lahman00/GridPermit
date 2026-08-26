@@ -22,7 +22,7 @@ The machine-readable partner mirror lives in `src/lib/partners.ts`. Current comm
 
 | Partner / route | Channel | Status | Current verified commercial state | Current blocker / next executable action |
 |---|---|---|---|---|
-| **CompareSolarPrices** | CPL + installation conversion | `PRODUCTION_ACTIVE` | Directly confirmed: $25 qualified quote request, $200 funded installation conversion, Southern California, 30-day click-to-quote attribution; once attached, install conversion has no stated time limit. Dedicated `ref=GridPermit` + fresh non-PII `cid` per click is the approved tracking mechanism. PayPal selected; Aaron confirmed Israel/PayPal are accepted, received the PayPal-account email, and explicitly cleared GridPermit to put the referral link live. | Production route is deliberately enabled only for the verified Southern California locality allowlist. W-8BEN remains a separate tax-file follow-up and is not a launch blocker. Continue real-click/no-fake-lead verification and payout reconciliation. Issue #5. |
+| **CompareSolarPrices** | CPL + installation conversion | `PRODUCTION_ACTIVE` | Directly confirmed: $25 qualified quote request, $200 funded installation conversion, Southern California, 30-day click-to-quote attribution; once attached, install conversion has no stated time limit. Dedicated `ref=GridPermit` + fresh non-PII `cid` per click is the approved tracking mechanism. PayPal selected; Aaron confirmed Israel/PayPal are accepted, received the PayPal-account email, and explicitly cleared GridPermit to put the referral link live. External production verification completed 2026-08-26: the eligible Irvine page returned HTTP 200 and rendered the paid CTA/disclosure; one real outbound click produced the correct city deep link, `ref=GridPermit`, and a valid 24-character non-PII CID without form submission; the noneligible Oakland page returned HTTP 200, did not render CompareSolarPrices, and retained one plain untracked EnergySage fallback. | Production routing remains limited to the verified Southern California locality allowlist. Reconcile real partner reporting and payouts as genuine traffic converts. W-8BEN remains a separate nonblocking tax-file follow-up. Issue #5 is complete and closed. |
 | **EnergySage via CJ** | CPL (solar) | `OWNER_ACTION_REQUIRED` | CJ publisher account is activated. EnergySage advertiser ID 5835771. No advertiser approval or CJ tracking link yet. | Owner opens current advertiser terms in CJ and submits Apply/Join only after reviewing the live binding terms. Issue #3. |
 | **EnergySage via FlexOffers** | CPL (solar) | `REJECTED` / reconsideration requested | FlexOffers support had confirmed non-U.S. publishers and EnergySage availability, but GridPermit account #1558079 and its verified organic/editorial traffic source were both declined with only a generic policy/current-needs reason. | Reconsideration request already sent asking for the specific reason. Do not wait on this route; prioritize CJ. |
 | **EnergySage direct partner form** | CPL (solar) | `DISCOVERED` | Direct partner-registration fallback exists; terms not accepted. | Keep as fallback if CJ stalls. |
@@ -85,7 +85,7 @@ The machine-readable partner mirror lives in `src/lib/partners.ts`. Current comm
 
 **CompareSolarPrices is the first production-active monetization partner.** The live route remains deliberately narrow: only explicitly supported Southern California locality pages can render the paid CompareSolarPrices CTA. The referral destination is generated dynamically on each click with `ref=GridPermit` and a fresh compliant non-PII CID; no static tracked URL is fabricated in the registry.
 
-The existing EnergySage fallback remains a plain, untracked destination and must not be described as an earning link. Outside the verified CompareSolarPrices geography, production behavior continues to fall back safely.
+The existing EnergySage fallback remains a plain, untracked destination and must not be described as an earning link. Outside the verified CompareSolarPrices geography, production behavior continues to fall back safely. A one-time GitHub-hosted Playwright smoke test completed on 2026-08-26 and evidenced the eligible CTA/disclosure, correct outbound city/ref/CID contract, no form submission, and the noneligible plain fallback.
 
 ## Status vocabulary
 
@@ -93,7 +93,7 @@ The existing EnergySage fallback remains a plain, untracked destination and must
 
 ## First-revenue priority
 
-1. **CompareSolarPrices** — production-active. Verify the merged production deployment, one real outbound click with a fresh CID and no fake quote submission, then reconcile actual partner reporting/payouts as real traffic arrives.
+1. **CompareSolarPrices** — production-active and externally verified on 2026-08-26 with one real outbound click and no form submission. Reconcile actual partner reporting and payouts as genuine traffic arrives.
 2. **EnergySage via CJ** — CJ network account is already activated; advertiser-level owner application is the remaining commercial gate.
 3. **DMM pay-per-call** — strong revenue potential but requires owner acceptance of the publisher application and then real campaign/tracking assets.
 4. **Renogy / BougeRV / ALLPOWERS / LiTime / Goal Zero** — strong battery/backup-power diversification; binding network/advertiser joins are the main remaining gates.
