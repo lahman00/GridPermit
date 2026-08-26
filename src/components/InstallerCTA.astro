@@ -23,8 +23,8 @@ interface Props {
 }
 
 const { city } = Astro.props;
-const energySage = getPartner("energysage")!;
-const energySageDisclosure = getCplDisclosureText(getCplState(energySage), energySage.name);
+const energysage = getPartner("energysage")!;
+const energysageDisclosure = getCplDisclosureText(getCplState(energysage), energysage.name);
 
 // Locality routes use the state slug as their first path segment. We still
 // require the partner-specific CA/city allowlist below, so a malformed or
@@ -44,11 +44,11 @@ const useCompareSolar = Boolean(
 	<div class="installer-cta-box">
 		<h2>Need a solar installer who handles permits in {city}?</h2>
 		<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers familiar with local permitting.</p>
-		<a href={energySage.destination} target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
+		<a href={energysage.destination} target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
 			Compare quotes from solar installers →
 		</a>
 		<p class="installer-cta-disclosure">
-			You'll continue on {energySage.name}'s website. {energySageDisclosure}
+			You'll continue on {energysage.name}'s website. {energysageDisclosure}
 		</p>
 	</div>
 )}
