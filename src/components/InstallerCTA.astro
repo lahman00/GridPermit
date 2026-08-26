@@ -4,34 +4,54 @@
 // the natural next question is "who actually does this for me?") and before
 // the footer disclaimer.
 //
-// The link and disclosure both come from src/lib/partners.ts rather than
-// being hardcoded here. That's deliberate: partner.destination is today's
-// plain, untracked EnergySage root link (the dedicated partner landing page
-// is dead, see docs/MONETIZATION_CANONICAL_STATE.md), and getCplState()
-// derives the right disclosure sentence from the partner's actual verified
-// state. When CJ activation clears and a real tracked link exists, updating
-// partners.ts is the only change needed here, not this template.
-import { getPartner, getCplState, getCplDisclosureText } from "../lib/partners";
+// Revenue routing is fail-closed. CompareSolarPrices can replace the existing
+// untracked EnergySage surface only when ALL of these are true:
+// 1) this is a California locality route,
+// 2) the city is in CompareSolarPrices' verified Southern California allowlist,
+// 3) the partner registry says CompareSolarPrices is fully launch-ready.
+//
+// Until those gates clear, the production output is exactly the existing
+// EnergySage CTA. This lets the payment/tax activation happen later as a
+// registry-state change without another risky layout edit or a period with
+// two competing solar CTAs on one page.
+import CompareSolarPricesCTA from "./CompareSolarPricesCTA.astro";
+import { isCompareSolarServedLocality } from "../lib/compare-solar-prices";
+import { getPartner, getLaunchReadyPartner, getCplState, getCplDisclosureText } from "../lib/partners";
 
 interface Props {
 	city: string;
 }
 
 const { city } = Astro.props;
-const partner = getPartner("energysage")!;
-const disclosure = getCplDisclosureText(getCplState(partner), partner.name);
+const energySage = getPartner("energysage")!;
+const energySageDisclosure = getCplDisclosureText(getCplState(energySage), energySage.name);
+
+// Locality routes use the state slug as their first path segment. We still
+// require the partner-specific CA/city allowlist below, so a malformed or
+// future non-California route can never widen eligibility.
+const isCaliforniaRoute = Astro.url.pathname.split("/").filter(Boolean)[0]?.toLowerCase() === "california";
+const compareSolar = getLaunchReadyPartner("compare-solar-prices", "cpl");
+const useCompareSolar = Boolean(
+	compareSolar &&
+	isCaliforniaRoute &&
+	isCompareSolarServedLocality("CA", city),
+);
 ---
 
-<div class="installer-cta-box">
-	<h2>Need a solar installer who handles permits in {city}?</h2>
-	<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers familiar with local permitting.</p>
-	<a href={partner.destination} target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
-		Compare quotes from solar installers →
-	</a>
-	<p class="installer-cta-disclosure">
-		You'll continue on {partner.name}'s website. {disclosure}
-	</p>
-</div>
+{useCompareSolar ? (
+	<CompareSolarPricesCTA state="CA" city={city} />
+) : (
+	<div class="installer-cta-box">
+		<h2>Need a solar installer who handles permits in {city}?</h2>
+		<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers familiar with local permitting.</p>
+		<a href={energySage.destination} target="_blank" rel="noopener noreferrer" class="installer-cta-btn" data-track-click="external_partner_clicked">
+			Compare quotes from solar installers →
+		</a>
+		<p class="installer-cta-disclosure">
+			You'll continue on {energySage.name}'s website. {energySageDisclosure}
+		</p>
+	</div>
+)}
 
 <style>
 	.installer-cta-box { background: var(--bg-dark, #0f172a); color: white; border-radius: 10px; padding: 1.5rem; text-align: center; margin: 2rem 0; }
