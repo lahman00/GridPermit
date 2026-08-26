@@ -33,6 +33,9 @@ No entry in this file is evidence that GridPermit is approved or earning from th
 | ALLWEI | `VERIFIED / OUTREACH_SCHEDULED` | GoAffPro, PartnerBoost, Shopify Collective; partnership page also exposes Impact; published rate reverts to 10%; AOV about $900 | Safe-time qualification for international eligibility, preferred route, cookie and exact starting rate | #49 |
 | BigBlue | `VERIFIED / OUTREACH_SCHEDULED` | U.S. store links directly to branded GoAffPro; high-ticket CellPowa power stations + solar | Safe-time qualification for eligibility, commission, cookie, restrictions and payment/tax | #50 |
 | WEIZE | `AWAITING_RESPONSE` | U.S. store links directly to branded GoAffPro; high-ticket off-grid/home-backup solar and LiFePO4 products | Await affiliate-team response on eligibility, rate, cookie and non-U.S. payment/tax | #51 |
+| Aolithium | `AWAITING_RESPONSE` | Content publishers/reviewers/media networks explicit; GoAffPro; 6% starting rate; 30-day cookie; AOV over $500 | Await international eligibility, U.S. GoAffPro confirmation, restrictions and non-U.S. payment/tax | #53 |
+| GRECELL | `AWAITING_RESPONSE` | Editors/bloggers/product reviewers explicit; GoAffPro; at least 5% / average 5% public | Await exact U.S. rate, cookie, eligibility, deep links and payment/tax | #54 |
+| FOSSiBOT US | `VERIFIED / OUTREACH_SCHEDULED` | U.S. site exposes Affiliate-GoAffPro; global current program invites review sites/bloggers/content websites and publishes 5%-10% + 30 days | Safe-time confirmation that U.S. GoAffPro uses those economics plus international eligibility/restrictions/payment | #55 |
 
 ## Routes deliberately not promoted to owner action
 
