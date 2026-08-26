@@ -1,35 +1,61 @@
 ---
-title: "California SGIP Battery Rebates 2026: How to Cover Up to 80% of Storage Costs"
-description: "Learn if your household qualifies for Self-Generation Incentive Program (SGIP) high-equity or medical baseline rebates in California."
+title: "California SGIP Battery Rebates in 2026: What Is Still Open"
+description: "A current guide to California SGIP battery funding after the 2025 ratepayer-budget deadline, including AB 209 equity funding and live availability checks."
 pubDate: "2026-07-27"
+updatedDate: "2026-08-26"
 ---
 
-California’s **Self-Generation Incentive Program (SGIP)** provides thousands of dollars in direct rebates for homeowners installing battery storage systems. 
+California's **Self-Generation Incentive Program (SGIP)** still supports qualifying solar and battery projects in 2026, but not every historical SGIP budget remains open to new applications.
 
-When combined with the **30% Federal Tax Credit**, eligible households can cover **up to 80% or more** of their total energy storage investment.
+The most important distinction is the source of the funding:
 
----
+- New applications and waitlist applications for **ratepayer-funded SGIP budgets closed on December 30, 2025**.
+- The **AB 209 Residential Solar and Storage Equity (RSSE)** funding path has a published application deadline of **June 30, 2028**, subject to eligibility and available funds.
 
-## SGIP Rebate Tiers Explained
+Do not rely on an old article or installer estimate to determine whether funding is available. The official SGIP tracker is updated as program administrators process reservations, waitlists, and budget reallocations.
 
-### 1. General Residential Tier
-Provides a baseline rebate (typically $150 – $200 per kWh of installed storage), lowering the net cost of a standard 13.5 kWh battery by $2,000–$2,700.
+## Published 2026 Incentive Rates
 
-### 2. Equity & Equity Resiliency Tiers (Highest Payout)
-Designed for homeowners living in high-fire threat districts (HFTD), low-income communities, or those reliant on medical equipment (Medical Baseline).
-* **Rebate Rate:** Up to **$1,000 per kWh**
-* **Total Incentive:** Can cover up to $10,000+ per battery system.
+The official 2026 SGIP Handbook lists the following flat rates for several equity and pilot categories:
 
----
+| Budget category | Published incentive rate |
+| :--- | :--- |
+| Residential Solar and Storage Equity, solar | $3.10 per watt |
+| Residential Solar and Storage Equity, storage | $1.10 per watt-hour |
+| Equity Resiliency, storage | $1.00 per watt-hour |
+| San Joaquin Valley Residential, storage | $1.10 per watt-hour |
 
-## How to Apply for SGIP Funds
+These are program rates, not a promise that a specific household or project will receive the maximum amount. Eligibility, project-cost limits, equipment rules, system sizing, budget availability, and program-administrator review all apply. The handbook also caps incentivized single-family storage capacity at 30 kWh.
 
-1. **Work with an Approved SGIP Developer:** Rebate allocations must be submitted by licensed installation contractors.
-2. **Verify Medical & Tier Eligibility:** Check if your household falls within Tier 2 or Tier 3 fire zones or qualifies for utility medical baseline rates.
-3. **Combine Incentives:** Apply the 30% Federal Clean Energy Credit on the remaining out-of-pocket balance.
+## Who May Qualify
 
-Curious how battery storage fits into the permitting process itself? See GridPermit's <a href="/california/#batteries">California battery permitting overview</a>.
+The AB 209 RSSE path is designed for eligible low-income single-family and multifamily housing projects. Equity Resiliency and other SGIP categories use their own eligibility pathways. Qualification may depend on factors such as:
 
-**[Check Your Eligibility With a Local Solar Installer](https://www.energysage.com)**
+- household or property income status
+- deed-restricted affordable-housing status
+- utility and program-administrator territory
+- project type and system size
+- equipment and installation requirements
+- available funding in the applicable budget category
 
-*Rebate tiers and rates above are illustrative examples based on publicly reported SGIP program ranges, not a live eligibility check. Confirm current tiers and funding availability through the CPUC's SGIP program administrator before making a decision.*
+A high-fire-threat location, medical need, or participation in a low-income utility program does not automatically establish eligibility for every SGIP budget. Check the exact pathway in the current handbook and with the applicable program administrator.
+
+## How to Check a Project in 2026
+
+1. **Identify the correct program administrator.** SGIP is administered by PG&E, SCE, SoCalGas, the Center for Sustainable Energy for SDG&E customers, and LADWP for eligible customers in its territory.
+2. **Check the live budget tracker.** Review the applicable category and territory on the [official SGIP Program Metrics page](https://www.selfgenca.com/home/program_metrics/).
+3. **Review the current handbook.** The [2026 SGIP Handbook](https://www.selfgenca.com/documents/handbook/2026) contains the controlling eligibility, sizing, documentation, and incentive rules.
+4. **Use a qualified applicant or developer when required.** SGIP applications are submitted through the program database and must include the required project documents.
+5. **Treat any reservation as unconfirmed until approved.** A quote that assumes an SGIP award is not the same as an approved incentive reservation.
+
+## Federal Tax-Credit Warning for 2026 Installations
+
+The federal Residential Clean Energy Credit changed after this article was first published. The IRS now states that the residential credit applies to qualified property installed through **December 31, 2025**, and is **not available for property placed in service after that date**.
+
+A 2026 battery estimate should therefore not automatically subtract a 30% residential federal credit. Review the current [IRS Residential Clean Energy Credit guidance](https://www.irs.gov/credits-deductions/residential-clean-energy-credit) and obtain tax advice for the project's actual placed-in-service date and taxpayer circumstances.
+
+For the permitting side of a storage project, see GridPermit's <a href="/california/#batteries">California battery permitting overview</a>.
+
+[Compare solar and battery installer options on EnergySage](https://www.energysage.com)
+
+*This page summarizes current public program rules and is not a funding determination, tax opinion, or guarantee of an incentive. Confirm eligibility, rates, and budget availability with the applicable SGIP program administrator before signing a contract.*
