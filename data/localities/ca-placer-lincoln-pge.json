@@ -55,24 +55,26 @@
   "battery_programs": {
     "value": [
       {
-        "name": "SGIP - Residential Solar and Storage Equity",
-        "administrator": "Pacific Gas and Electric Company (PG&E), under the CPUC's Self-Generation Incentive Program",
-        "description": "Storage incentive of $1,100/kWh paired with a solar incentive of $3,100/kW, funded via a $280 million CPUC-authorized statewide budget that opened for reservations June 2, 2025 and remains an active program per SGIP's own statewide announcements (most recently dated 2026-07-23). Administered across PG&E's entire distribution territory, which includes Lincoln/Placer County.",
+        "name": "California SGIP - current category and budget check required",
+        "administrator": "Applicable SGIP Program Administrator",
+        "description": "New applications and waitlist applications for ratepayer-funded SGIP budgets closed on December 30, 2025. New AB 209 applications have a June 30, 2028 deadline. The 2026 SGIP rate table publishes $3.10/W for solar and $1.10/Wh for storage in applicable Residential Solar and Storage Equity categories. Household eligibility and live budget availability vary by category and program administrator; check the official Program Metrics tracker before relying on an incentive.",
         "value_usd_per_kwh": 1100,
         "value_usd_flat": null,
-        "value_usd_per_watt": null,
-        "eligibility": "PG&E, SCE, or SDG&E residential customers (general market tier)",
-        "url": "https://www.selfgenca.com/home/about/",
-        "effective_from": "2025-06-02",
+        "value_usd_per_watt": 3.1,
+        "eligibility": "Eligibility varies by 2026 SGIP budget category, program administrator, property, income/pathway, project rules, and live funding availability.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
         "expires_on": null,
         "status": "unknown"
       }
     ],
-    "confidence": 0.65,
+    "confidence": 0.9,
     "source_ids": [
-      "S3"
+      "S3",
+      "SGIP_HANDBOOK_2026",
+      "SGIP_METRICS_2026"
     ],
-    "notes": "Reused as a utility-level fact already established for other IOU-territory records this session: the CPUC-administered SGIP program applies uniformly across the named utility's entire distribution territory, directly verified via SGIP's own site (selfgenca.com) / the CPUC's own SGIP program page, including a program-status announcement as recent as 2026-07-23 confirming the program remains active."
+    "notes": "SGIP program data refreshed on 2026-08-26 from the official 2026 Handbook and live Program Metrics. Earlier locality records contained 2025 opening/availability language. This record does not assert household eligibility, reservation availability, or a guaranteed incentive; current category and program-administrator status must be checked before reliance."
   },
   "required_documents": {
     "value": [
@@ -201,6 +203,22 @@
       "publisher": "City of Lincoln",
       "type": "government",
       "accessed_date": "2026-08-09"
+    },
+    {
+      "id": "SGIP_HANDBOOK_2026",
+      "title": "2026 Self-Generation Incentive Program Handbook",
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "SGIP_METRICS_2026",
+      "title": "SGIP Program Metrics and Incentive Step Tracker",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-26"
     }
   ]
 }
