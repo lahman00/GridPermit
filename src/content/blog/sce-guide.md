@@ -1,31 +1,57 @@
 ---
-title: "SCE NEM 3.0 Guide: Why Battery Storage Now Drives Solar Payback"
-description: "How Southern California Edison (SCE) customers are affected by NEM 3.0 export-rate cuts, and why battery storage has become central to solar payback math."
+title: "SCE Solar Billing Plan and Battery Storage: 2026 Guide"
+description: "How Southern California Edison's Solar Billing Plan values imports and exports, why battery timing matters, and what to verify before estimating savings."
 pubDate: "2026-07-26"
+updatedDate: "2026-08-26"
 ---
 
-If you are a **Southern California Edison (SCE)** customer considering solar, California's **NEM 3.0 (Net Billing Tariff)** changed the economics of how your system pays for itself.
+California's current export-compensation system is formally the **Net Billing Tariff (NBT)**. Southern California Edison refers to it as the **Solar Billing Plan**. It generally applies to customers who submitted a qualifying interconnection application after April 14, 2023.
 
-Under NEM 3.0, exporting daytime solar power to the grid earns credits at the utility's avoided-cost rate, which is substantially lower than SCE's retail evening rates. That gap is what makes storing solar energy in a home battery (rather than exporting it) the more common strategy for maximizing self-generated savings under the current tariff.
+Electricity generated and used onsite avoids a retail purchase. Excess generation exported to the grid receives an hourly Energy Export Credit based on its value to the grid. Export credits are usually lower than retail rates, but they are not a single fixed rate and can rise during high-value late-summer evening hours.
 
----
+## The Required SCE Rate Structure
 
-## Why the Export Gap Matters
+The California Public Utilities Commission currently identifies **TOU-D-PRIME** as the required Time-of-Use rate for SCE residential customers on the Net Billing Tariff.
 
-* SCE's residential Time-Of-Use plans price evening peak hours well above midday hours, and NEM 3.0 export credits track the lower midday value, not the peak rate.
-* A solar-only system exports most of its output during the exact hours it's worth the least, and buys back power in the evening at the full retail rate.
-* Pairing solar with a battery lets a household shift its own generation from midday (low export value) to evening (high retail value) instead of selling it low and buying it back high.
+Project economics therefore depend on more than total annual solar production. The timing of energy matters:
 
----
+- solar used immediately offsets the applicable retail rate
+- exported solar earns the hourly export-credit value
+- evening imports are billed at the customer's current Time-of-Use rate
+- battery charging and discharging change both imports and exports
+- fixed charges may not be offset by generation credits
 
-## Action Plan for SCE Homeowners
+## When Storage May Help
 
-1. **Size for self-consumption, not export.** An oversized, export-heavy system no longer pays back the way it did under the prior tariff.
-2. **Check your specific SCE rate plan.** SCE offers multiple residential Time-Of-Use plans; exact peak windows and rates vary by plan and change over time. Confirm your current plan and rates directly with SCE.
-3. **Check SGIP eligibility.** Households in high fire-threat districts, low-income programs, or on medical baseline may qualify for additional battery rebates through California's Self-Generation Incentive Program.
+A battery can store midday production for use during evening hours and may allow selected exports during higher-value periods when the system and tariff permit it. That can improve the value of solar production compared with exporting every excess midday kilowatt-hour.
 
-Looking for your city's specific solar permit requirements rather than rate analysis? See our <a href="/california/utility/sce/">verified SCE city guides</a>.
+It is not accurate to promise that every SCE customer will save more or reach a particular payback period with a battery. The result depends on:
 
-**[Compare Free Solar & Battery Quotes From Local Installers](https://www.energysage.com)**
+- hourly household load
+- solar production and shading
+- battery capacity, power, efficiency, reserve settings, and degradation
+- installed cost and financing
+- current TOU-D-PRIME prices and hourly export credits
+- outage-backup priorities
+- actual approved incentives
 
-*This page describes the general structure of NEM 3.0 and SCE's Time-Of-Use billing, not a live lookup of your bill or your specific rate plan. Confirm current rates and plan options with SCE before making a decision.*
+## A Practical Evaluation Process
+
+1. **Use interval usage data.** Model when the home consumes electricity, not only the monthly total.
+2. **Compare solar-only and solar-plus-storage.** Use the same production estimate and current tariff inputs for both.
+3. **Model battery dispatch realistically.** Include efficiency losses, backup reserve, power limits, and degradation.
+4. **Use current installed quotes.** Include permitting, interconnection, electrical upgrades, and financing.
+5. **Check SGIP separately.** A household must meet the current eligibility pathway and receive an approved reservation before treating an incentive as certain.
+6. **Stress-test the estimate.** Evaluate lower export values, higher financing costs, and different household usage patterns.
+
+The CPUC's [current Net Billing overview](https://www.cpuc.ca.gov/NEM/) explains the statewide tariff and the required utility rate plans. Review SCE's current rate and Solar Billing Plan materials for the customer's exact tariff.
+
+## Federal Tax-Credit Warning for 2026 Installations
+
+Do not automatically subtract a 30% residential federal credit from a 2026 installation. The IRS currently states that the Residential Clean Energy Credit is not available for property placed in service after December 31, 2025. Check the actual placed-in-service date against the [current IRS guidance](https://www.irs.gov/credits-deductions/residential-clean-energy-credit) and obtain tax advice where appropriate.
+
+Looking for city-specific permit requirements rather than tariff analysis? See GridPermit's <a href="/california/utility/sce/">verified SCE city guides</a>.
+
+[Compare solar and battery installer options on EnergySage](https://www.energysage.com)
+
+*This page explains the general tariff structure. It is not a live rate lookup, savings guarantee, tax opinion, or project-specific financial model. Confirm current SCE rates, export credits, charges, and system assumptions before making a decision.*
