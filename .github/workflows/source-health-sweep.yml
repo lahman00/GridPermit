@@ -1,0 +1,50 @@
+name: One-time external source health sweep
+
+on:
+  push:
+    branches: ["ops/source-health-sweep-2026-08-26"]
+
+permissions:
+  contents: read
+
+jobs:
+  source-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run read-only external source health report
+        run: npm run source-health-report
+
+      - name: Print machine-readable summary and confirmed broken URLs
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync } from 'node:fs';
+          const report = JSON.parse(readFileSync('output/source-health-report.json', 'utf8'));
+          console.log(`READY_RECORDS_CHECKED=${report.ready_records_checked}`);
+          console.log(`UNIQUE_URLS_CHECKED=${report.unique_urls_checked}`);
+          console.log(`REACHABLE_COUNT=${report.reachable_count}`);
+          console.log(`BLOCKED_OR_UNVERIFIABLE_COUNT=${report.blocked_or_unverifiable_count}`);
+          console.log(`CONFIRMED_BROKEN_COUNT=${report.confirmed_broken_count}`);
+          for (const item of report.confirmed_broken ?? []) {
+            console.log(`BROKEN_URL=${item.url}`);
+            console.log(`BROKEN_DETAILS=${item.details}`);
+            console.log(`BROKEN_CITED_BY=${item.citedBy.join(',')}`);
+          }
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-health-report-2026-08-26
+          path: output/source-health-report.json
+          if-no-files-found: error
+          retention-days: 14
