@@ -1,10 +1,19 @@
 # Monetization Placement Map
 
-Last reconciled: 2026-08-25
+Last reconciled: 2026-08-26
 
 Maps every current GridPermit page type to what it is allowed to monetize with, once a route clears the launch gate in `docs/MONETIZATION_CANONICAL_STATE.md`. Nothing here activates anything: it is the rule set a future implementation pass must follow so monetization never spreads beyond intent-appropriate pages. `eligiblePageTypes` on each `src/lib/partners.ts` record uses the same page-type vocabulary as this doc.
 
 ## High intent
+
+### Homepage (`src/pages/index.astro`)
+- Primary monetization: solar CPL (EnergySage today), placed immediately after the illustrative ROI calculator's results.
+- Secondary monetization: none.
+- Forbidden: hardware affiliate, pay-per-call (this is a broad-audience entry page, not a single-locality high-intent page).
+- CTA position: directly below the calculator's output, the moment a visitor has just seen an illustrative savings estimate. This is arguably the single highest-intent moment on the whole site, since the visitor has self-selected into "I want to know what solar could do for me" immediately beforehand.
+- Maximum CTA density: one.
+- Disclosure pattern: same CPL state machine as the locality guides.
+- Analytics event: `external_partner_clicked` today, reclassify to `cpl_cta_clicked` once tracked.
 
 ### Locality guide (`src/layouts/LocalityGuideLayout.astro`, ~341 pages)
 - Primary monetization: solar CPL (EnergySage today) or pay-per-call (DMM) once launch-ready.
@@ -14,6 +23,7 @@ Maps every current GridPermit page type to what it is allowed to monetize with, 
 - Maximum CTA density: one monetized CTA per page.
 - Disclosure pattern: CPL state machine (`getCplState`/`getCplDisclosureText`) for CPL; pay-per-call taxonomy for DMM.
 - Analytics event: `external_partner_clicked` (CPL, reclassify to `cpl_cta_clicked` once tracked) or `pay_per_call_cta_viewed`/`pay_per_call_clicked`.
+- **Considered and deliberately excluded:** every locality guide has its own "Battery/solar incentive program on record" section (`LocalityGuideLayout.astro`, sourced from `record.battery_programs`), which is a genuine battery-specific decision moment. It stays hardware-affiliate-free anyway: a reader here is mid-permit-research for their *city*, not shopping for a specific product, and a second CTA would break the one-CTA-per-page density rule below. If a locality's battery-incentive section is ever judged worth its own monetization, that requires a deliberate placement-map amendment, not an automatic addition just because the section exists.
 
 ### State hub (`src/pages/[state]/index.astro`)
 - Primary: solar CPL, matching the locality guides it lists.
