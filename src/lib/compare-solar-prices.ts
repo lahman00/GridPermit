@@ -1,10 +1,11 @@
 // CompareSolarPrices referral-link builder.
 //
-// This module is intentionally inert on its own. Production pages must not
-// import or render it until the payment/tax activation gates in GitHub issue
-// #5 are complete. The referral partner requires a fresh unique `cid` on
-// every click, limited to letters, numbers, dashes and underscores, with a
-// maximum length of 32 characters and no personally identifiable data.
+// This module implements the approved dynamic tracking contract used by the
+// live Southern California locality placement. The partner registry remains
+// the production switch, while this helper enforces the second fail-closed
+// boundary: an explicitly served California city plus a fresh non-PII `cid`
+// on every click. CIDs are limited to letters, numbers, dashes and underscores,
+// with a maximum length of 32 characters and no personally identifiable data.
 
 const COMPARE_SOLAR_ORIGIN = "https://www.comparesolarprices.net";
 const GRIDPERMIT_REF = "GridPermit";
