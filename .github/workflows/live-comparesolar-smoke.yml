@@ -1,0 +1,97 @@
+name: CompareSolarPrices live production smoke
+
+on:
+  push:
+    branches: ["ops/live-smoke-comparesolar"]
+
+permissions:
+  contents: read
+
+jobs:
+  live-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.12.0"
+
+      - name: Install browser test runtime
+        run: |
+          npm install --no-save --no-package-lock playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify eligible CTA, one real outbound click, and noneligible fallback
+        env:
+          ELIGIBLE_URL: https://mygridpermit.com/california/irvine/solar-permit-guide/
+          NONELIGIBLE_URL: https://mygridpermit.com/california/oakland/solar-permit-guide/
+        run: |
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright';
+          import assert from 'node:assert/strict';
+
+          const browser = await chromium.launch({ headless: true });
+          const context = await browser.newContext();
+          const page = await context.newPage();
+
+          try {
+            const eligibleResponse = await page.goto(process.env.ELIGIBLE_URL, {
+              waitUntil: 'networkidle',
+              timeout: 60000,
+            });
+            assert.equal(eligibleResponse?.status(), 200, `Eligible page returned ${eligibleResponse?.status()}`);
+
+            const cta = page.locator('[data-compare-solar-cta]');
+            await cta.waitFor({ state: 'visible', timeout: 30000 });
+            await page.locator('[data-compare-solar-cta-root]').waitFor({ state: 'visible' });
+            const disclosure = await page.locator('.compare-solar-disclosure').innerText();
+            assert.match(disclosure, /Paid referral disclosure/i);
+            assert.match(disclosure, /CompareSolarPrices/i);
+
+            const popupPromise = page.waitForEvent('popup', { timeout: 30000 });
+            await cta.click();
+            const popup = await popupPromise;
+            await popup.waitForLoadState('domcontentloaded', { timeout: 60000 }).catch(() => {});
+
+            const outbound = new URL(popup.url());
+            assert.equal(outbound.origin, 'https://www.comparesolarprices.net');
+            assert.equal(outbound.pathname, '/solar-irvine-ca/');
+            assert.equal(outbound.searchParams.get('ref'), 'GridPermit');
+            const cid = outbound.searchParams.get('cid') ?? '';
+            assert.match(cid, /^[a-f0-9]{24}$/);
+
+            console.log(`ELIGIBLE_PAGE_STATUS=${eligibleResponse.status()}`);
+            console.log('ELIGIBLE_CTA=present');
+            console.log('DISCLOSURE=present');
+            console.log(`OUTBOUND_ORIGIN=${outbound.origin}`);
+            console.log(`OUTBOUND_PATH=${outbound.pathname}`);
+            console.log(`OUTBOUND_REF=${outbound.searchParams.get('ref')}`);
+            console.log(`OUTBOUND_CID_FORMAT=${/^[a-f0-9]{24}$/.test(cid) ? 'valid-24-hex' : 'invalid'}`);
+            console.log('NO_FORM_SUBMITTED=true');
+            await popup.close();
+
+            const noneligibleResponse = await page.goto(process.env.NONELIGIBLE_URL, {
+              waitUntil: 'networkidle',
+              timeout: 60000,
+            });
+            assert.equal(noneligibleResponse?.status(), 200, `Noneligible page returned ${noneligibleResponse?.status()}`);
+            assert.equal(await page.locator('[data-compare-solar-cta]').count(), 0, 'CompareSolarPrices CTA rendered outside allowlist');
+
+            const energySageLinks = page.locator('a[href^="https://www.energysage.com"]');
+            assert.ok((await energySageLinks.count()) >= 1, 'Expected plain EnergySage fallback was not present');
+            for (let index = 0; index < await energySageLinks.count(); index += 1) {
+              const href = await energySageLinks.nth(index).getAttribute('href');
+              const url = new URL(href);
+              assert.equal(url.origin, 'https://www.energysage.com');
+              assert.equal(url.search, '', `EnergySage fallback unexpectedly contains tracking parameters: ${href}`);
+            }
+
+            console.log(`NONELIGIBLE_PAGE_STATUS=${noneligibleResponse.status()}`);
+            console.log('NONELIGIBLE_COMPARE_CTA=absent');
+            console.log(`PLAIN_ENERGYSAGE_FALLBACK_COUNT=${await energySageLinks.count()}`);
+          } finally {
+            await browser.close();
+          }
+          NODE
