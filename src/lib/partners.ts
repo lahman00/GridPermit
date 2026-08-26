@@ -44,6 +44,8 @@ export interface Partner {
 	destination: string;
 	/** Verified tracking phone number for pay-per-call partners. Undefined until a real number is received. */
 	trackingPhone?: string;
+	/** True when the attributable tracking URL is deliberately generated at click time instead of being stored as a static destination. */
+	dynamicTracking?: boolean;
 	/** True only once a real attributable tracking asset exists and is approved for use. */
 	trackingEnabled: boolean;
 	/** True only with documentary evidence of a compensation arrangement or directly confirmed compensation mechanics. */
@@ -70,20 +72,22 @@ const ORGANIC_ONLY: string[] = ["organic_search", "content"];
 const SOLAR_CPL_PAGES: EligiblePageType[] = ["locality_guide", "state_hub", "county_hub", "utility_hub"];
 const LOCALITY_ONLY: EligiblePageType[] = ["locality_guide"];
 const BATTERY_PAGES: EligiblePageType[] = ["battery_editorial", "blog_general"];
+const APPROVED_LIKE_STATUSES = new Set<PartnerStatus>(["approved", "tracking_received", "ready_for_production", "production_active"]);
 
 export const PARTNERS: Partner[] = [
 	{
 		id: "compare-solar-prices",
 		name: "CompareSolarPrices",
-		status: "owner_action_required",
+		status: "production_active",
 		vertical: "solar",
 		channel: "cpl",
 		destination: "",
-		trackingEnabled: false,
+		dynamicTracking: true,
+		trackingEnabled: true,
 		compensationVerified: true,
-		placementEligible: false,
+		placementEligible: true,
 		disclosureType: "affiliate",
-		launchEnabled: false,
+		launchEnabled: true,
 		payoutType: "per_lead",
 		payoutValue: 25,
 		currency: "USD",
@@ -92,7 +96,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: LOCALITY_ONLY,
 		lastVerified: "2026-08-26",
-		notes: "Direct relationship with Aaron. Confirmed $25 per qualified quote request and $200 per funded installation conversion, Southern California, 30-day click-to-quote attribution and no stated time limit on the later funded-install conversion once the GridPermit referral is attached. Dedicated ref=GridPermit plus fresh non-PII cid contract received. PayPal selected and Eyal accepted monthly qualified-lead payouts with a $100 accumulated minimum that rolls over. W-8BEN accepted for the non-U.S. individual payee. Draft PR #9 stages compliant California-only routing and fresh per-click cid generation, but production is blocked until Aaron confirms the exact PayPal setup detail, owner completes W-8BEN, current CI is green, safe outbound verification is complete and launch is deliberately enabled.",
+		notes: "Direct relationship with Aaron. Confirmed $25 per qualified quote request and $200 per funded installation conversion, Southern California, 30-day click-to-quote attribution and no stated time limit on the later funded-install conversion once the GridPermit referral is attached. Dedicated ref=GridPermit plus a fresh non-PII cid on every click is the approved tracking contract. PayPal selected; Aaron confirmed Israel and PayPal are accepted, received the requested PayPal-account email, and explicitly cleared GridPermit to put the referral link live. W-8BEN remains a later tax-file follow-up and is not a launch blocker. Production routing is limited to the verified Southern California locality allowlist, with paid-referral disclosure and fail-closed geography.",
 	},
 	{
 		id: "energysage",
@@ -266,7 +270,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: LOCALITY_ONLY,
 		lastVerified: "2026-08-26",
-		notes: "Large international pay-per-call network (10,000+ publishers), explicitly supports non-U.S. publishers generating U.S. homeowner calls and SEO/local-search traffic. Third-party OfferVault listing shows a Solar Panels pay-per-call campaign; not yet confirmed directly by Lead Smart. Nonbinding inquiry sent 2026-08-26. Need direct solar-campaign confirmation, GridPermit-specific payout/billable-call rules and a real tracking number before owner action. See issue #15.",
+		notes: "Lead Smart directly confirmed GridPermit fit, non-U.S. publisher eligibility for U.S. homeowner calls, SEO/local-search traffic, and consumer-initiated inbound-call requirements. Seth said payout can be duration-based or qualified-lead based and that a W-8 is required, but he did not yet provide current Solar coverage or payout economics. Follow-up sent asking for states/ZIPs, hours, payout/rate, minimum billable duration and disqualifiers before tax onboarding. See issue #15.",
 	},
 	{
 		id: "solarreviews",
@@ -502,12 +506,12 @@ export const PARTNERS: Partner[] = [
 	{
 		id: "allpowers",
 		name: "ALLPOWERS",
-		status: "awaiting_response",
+		status: "owner_action_required",
 		vertical: "battery",
 		channel: "hardware_affiliate",
 		destination: "",
 		trackingEnabled: false,
-		compensationVerified: false,
+		compensationVerified: true,
 		placementEligible: false,
 		disclosureType: "none",
 		launchEnabled: false,
@@ -518,7 +522,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-26",
-		notes: "ALLPOWERS directly confirmed CJ or GoAffPro accepts U.S.-audience content publishers, an international publisher with primarily U.S. organic-search traffic is eligible, current U.S. terms are 5% and 30 days, and there are no extra editorial/review requirements. Direct GoAffPro route is verified. Follow-up asking the preferred activation path is pending; owner reviews any live join/signup terms before submission. See issue #7.",
+		notes: "ALLPOWERS directly confirmed international publishers with primarily U.S. organic traffic are eligible and current U.S. terms are 5% with 30-day attribution. The program is being transitioned to third-party networks including CJ, Awin and AvantLink. CJ advertiser ID 7797916 was provided directly, and Bei Li confirmed she is the person handling the manual approval. Next gate is review and submission of the live CJ advertiser application; after submission, reply to Bei so she can match and process it. See issue #7.",
 	},
 	{
 		id: "goal-zero",
@@ -1154,9 +1158,9 @@ export const PARTNERS: Partner[] = [
  * partner is allowed to render as active production monetization.
  */
 export function isLaunchReady(partner: Partner): boolean {
-	const hasRealTrackingAsset = partner.destination.length > 0 || Boolean(partner.trackingPhone);
+	const hasRealTrackingAsset = partner.destination.length > 0 || Boolean(partner.trackingPhone) || partner.dynamicTracking === true;
 	return (
-		partner.status === "approved" &&
+		APPROVED_LIKE_STATUSES.has(partner.status) &&
 		partner.trackingEnabled === true &&
 		partner.placementEligible === true &&
 		partner.launchEnabled === true &&
@@ -1164,7 +1168,7 @@ export function isLaunchReady(partner: Partner): boolean {
 	);
 }
 
-/** Expected to remain empty until a partner genuinely clears every launch gate. */
+/** Partners that genuinely clear every production gate. */
 export function getActivePartners(): Partner[] {
 	return PARTNERS.filter(isLaunchReady);
 }
@@ -1190,7 +1194,7 @@ export type CplState = "UNTRACKED_RELATIONSHIP" | "TRACKED_UNCONFIRMED_COMPENSAT
 
 export function getCplState(partner: Partner): CplState {
 	if (isLaunchReady(partner)) return "ACTIVE_CPL";
-	if (partner.status === "approved" && partner.trackingEnabled && partner.compensationVerified) return "APPROVED_CPL";
+	if (APPROVED_LIKE_STATUSES.has(partner.status) && partner.trackingEnabled && partner.compensationVerified) return "APPROVED_CPL";
 	if (partner.trackingEnabled) return "TRACKED_UNCONFIRMED_COMPENSATION";
 	return "UNTRACKED_RELATIONSHIP";
 }
