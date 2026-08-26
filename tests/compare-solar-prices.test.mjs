@@ -11,6 +11,7 @@ import {
 	isValidCompareSolarCid,
 	normalizeCompareSolarCitySlug,
 } from "../src/lib/compare-solar-prices.ts";
+import { getLaunchReadyPartner, getPartner } from "../src/lib/partners.ts";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const COMPONENT_PATH = path.join(REPO_ROOT, "src", "components", "CompareSolarPricesCTA.astro");
@@ -134,4 +135,20 @@ test("the cid is never written to any persistent client-side storage", () => {
 
 test("the CTA script is a real Astro module script, not a raw inline script requiring an unsafe-inline CSP allowance", () => {
 	assert.ok(!component.includes('<script is:inline'), "must not use is:inline, which would require unsafe-inline in the site's CSP");
+});
+
+test("the component gates rendering on BOTH geo eligibility AND the partner registry's own launch-ready state", () => {
+	assert.match(component, /getLaunchReadyPartner\("compare-solar-prices", "cpl"\)/, "must consult the partner registry, not just the geo allowlist, so an accidental import can never render before real approval");
+	assert.match(component, /Boolean\(partner\) && isCompareSolarServedLocality\(state, city\)/);
+});
+
+test("today, CompareSolarPrices is not launch-ready in the registry, so the component would render nothing even for an eligible California city if it were imported", () => {
+	// This directly proves the fix: even Irvine, CA (a real allowlisted city)
+	// must not become eligible while src/lib/partners.ts still has
+	// launchEnabled: false for compare-solar-prices.
+	assert.equal(getLaunchReadyPartner("compare-solar-prices", "cpl"), null);
+	assert.equal(isCompareSolarServedLocality("CA", "Irvine"), true, "the geo allowlist itself should still say Irvine is served, proving the null above comes from the registry gate, not the geo gate");
+	const partner = getPartner("compare-solar-prices");
+	assert.ok(partner);
+	assert.equal(partner.launchEnabled, false);
 });
