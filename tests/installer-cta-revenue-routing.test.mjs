@@ -27,7 +27,7 @@ test("today the paid route remains off, proving the production edit is behavior-
 	assert.equal(getLaunchReadyPartner("compare-solar-prices", "cpl"), null);
 	assert.match(source, /useCompareSolar \? \(/);
 	assert.match(source, /EnergySage is an independent solar marketplace/);
-	assert.match(source, /href=\{energySage\.destination\}/);
+	assert.match(source, /href=\{energysage\.destination\}/);
 });
 
 test("the component never renders both solar CTAs at once", () => {
