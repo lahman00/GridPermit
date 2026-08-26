@@ -54,7 +54,7 @@ The machine-readable partner mirror lives in `src/lib/partners.ts`. Current comm
 | **Redodo** | Hardware affiliate | `AWAITING_RESPONSE` | GoAffPro route exists. | Wait for direct current terms. |
 | **EASUNPOWER** | Hardware affiliate | `AWAITING_RESPONSE` | Official direct email program; published 5% on confirmed orders. | Wait for cookie/payment/eligibility clarification. |
 | **Vatrer Power** | Hardware affiliate | `AWAITING_RESPONSE` | Official UpPromote program; website/blog/newsletter promotion supported. | Wait for U.S. commission/cookie/payment confirmation. |
-| **LiTime** | Hardware affiliate | `AWAITING_RESPONSE` | Official program welcomes bloggers/site owners and lists GoAffPro/Impact/Awin; published up to 5%. | Wait for preferred non-Awin route/current cookie and restrictions. |
+| **LiTime** | Hardware affiliate | `OWNER_ACTION_REQUIRED` | LiTime U.S. Marketing directly confirmed GridPermit fit, Impact as the preferred U.S. route, 5% starting commission per qualified sale, 30-day cookie, and acceptance of editorial/SEO content plus contextual product links. Strong-performing partners may become eligible for 8–10% based on sales volume/performance, but that higher tier is not guaranteed. | Owner reviews live Impact/network + advertiser terms and submits. After submission, send Elena the exact publisher/account name so LiTime can look out for the application. No approval or tracking link exists yet. Issue #6. |
 | **RICH SOLAR** | Hardware affiliate | `AWAITING_RESPONSE` | Content-site fit indicated publicly. Auto-ack only; no substantive affiliate reply yet. | Wait for human response. |
 | **Anker SOLIX** | Hardware affiliate | `AWAITING_RESPONSE` | Published 5%, 30 days; Impact/LinkShare route. | Wait for reply. |
 | **Signature Solar** | Hardware affiliate | `AWAITING_RESPONSE` | Direct program; published up to 9%, 7-day cookie; international referrals described as compensable. | Wait for response or owner direct application. |
@@ -96,7 +96,7 @@ The existing EnergySage fallback remains a plain, untracked destination and must
 1. **CompareSolarPrices** — production-active. Verify the merged production deployment, one real outbound click with a fresh CID and no fake quote submission, then reconcile actual partner reporting/payouts as real traffic arrives.
 2. **EnergySage via CJ** — CJ network account is already activated; advertiser-level owner application is the remaining commercial gate.
 3. **DMM pay-per-call** — strong revenue potential but requires owner acceptance of the publisher application and then real campaign/tracking assets.
-4. **Renogy / BougeRV / ALLPOWERS / Goal Zero** — strong battery/backup-power diversification; binding network/advertiser joins are the main remaining gates.
+4. **Renogy / BougeRV / ALLPOWERS / LiTime / Goal Zero** — strong battery/backup-power diversification; binding network/advertiser joins are the main remaining gates.
 5. **Profitise / Modernize / Home Services Lead Group / EnergyPal / Solar.com / Lead Smart** — parallel solar diversification routes under qualification; do not accept heavier lead-gen agreements or submit tax documents until the economics and integration model justify it.
 
 ## Placement and attribution policy
@@ -119,7 +119,7 @@ These steps are intentionally not automated because they can create binding/tax/
 - CompareSolarPrices: W-8BEN remains a later tax-file follow-up requested by Aaron; it is not a launch blocker.
 - EnergySage: advertiser join in CJ after live-term review.
 - ALLPOWERS: advertiser join in CJ for advertiser ID 7797916 after live-term review; then notify Bei for manual matching/approval.
-- Renogy and BougeRV: Impact applications after live-term review.
+- Renogy, BougeRV and LiTime: Impact applications after live-term review; after LiTime submission, send Elena the exact publisher/account name.
 - DMM: Publisher Application/agreement after owner review.
 - Goal Zero: Partnerize business application/agreement plus payment/tax setup after owner review.
 
