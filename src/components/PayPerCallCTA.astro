@@ -10,20 +10,28 @@
 // tracking number arrive. Do not add a placeholder phone number anywhere to
 // "test" this component; test it via the partner-registry/CTA unit tests
 // instead (see tests/pay-per-call-cta.test.mjs).
-import { getLaunchReadyPartner } from "../lib/partners";
+import { getLaunchReadyPartner, getDisclosureText } from "../lib/partners";
 
 interface Props {
 	partnerId: string;
 	city?: string;
 	state?: string;
+	/** The service ZIP for this page's locality, if known. Only used to fail closed against partner.eligibleZips when that list is actually populated; omitting it never widens eligibility. */
+	serviceZip?: string;
 }
 
-const { partnerId, city, state } = Astro.props;
+const { partnerId, city, state, serviceZip } = Astro.props;
 const partner = getLaunchReadyPartner(partnerId, "pay_per_call");
 const locationLabel = city && state ? `${city}, ${state}` : city ?? state ?? "";
+// A partner with a real, populated eligibleZips list is ZIP-restricted; only
+// render when the page's own serviceZip is confirmed to be in that list. A
+// partner with no eligibleZips set is not ZIP-restricted at all, so this
+// check is skipped rather than treated as "no ZIPs eligible."
+const zipEligible = !partner?.eligibleZips?.length || (serviceZip ? partner.eligibleZips.includes(serviceZip) : false);
+const disclosure = partner ? getDisclosureText(partner) : "";
 ---
 
-{partner && partner.trackingPhone && (
+{partner && partner.trackingPhone && zipEligible && (
 	<div class="pay-per-call-cta">
 		<h2>{locationLabel ? `Talk to a solar specialist about ${locationLabel}` : "Talk to a solar specialist"}</h2>
 		<p>Call to ask questions about residential solar options in your area.</p>
@@ -36,7 +44,7 @@ const locationLabel = city && state ? `${city}, ${state}` : city ?? state ?? "";
 			Call {partner.trackingPhone}
 		</a>
 		{partner.campaignHours && <p class="pay-per-call-hours">Available {partner.campaignHours}.</p>}
-		<p class="pay-per-call-disclosure">Calls may be recorded for quality and compliance purposes.</p>
+		{disclosure && <p class="pay-per-call-disclosure">{disclosure}</p>}
 	</div>
 )}
 

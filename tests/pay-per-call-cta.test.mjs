@@ -11,7 +11,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { getLaunchReadyPartner, getPartner } from "../src/lib/partners.ts";
+import { getLaunchReadyPartner, getPartner, getDisclosureText, PARTNERS } from "../src/lib/partners.ts";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const COMPONENT_PATH = path.join(REPO_ROOT, "src", "components", "PayPerCallCTA.astro");
@@ -67,8 +67,35 @@ test("the component uses the correct analytics event names", () => {
 	assert.ok(source.includes('data-track-click="pay_per_call_clicked"'));
 });
 
-test("the component includes a call-recording disclosure", () => {
-	assert.ok(/recorded/i.test(source), "must disclose that calls may be recorded");
+test("the component renders its disclosure from getDisclosureText(), not a hardcoded sentence", () => {
+	assert.match(source, /getDisclosureText\(partner\)/, "disclosure must be computed from partner state, not literal prose, so a partner-specific requiredDisclosureText override actually takes effect");
+	assert.match(source, /\{disclosure &&/, "the disclosure paragraph must only render when getDisclosureText() actually returns text");
+});
+
+test("the generic pay_per_call disclosure template still mentions call recording for any partner without a requiredDisclosureText override", () => {
+	const genericPayPerCall = { disclosureType: "pay_per_call" };
+	assert.match(getDisclosureText(genericPayPerCall), /recorded/i);
+});
+
+test("a partner's requiredDisclosureText, when set, overrides the generic pay_per_call template verbatim", () => {
+	const withOverride = {
+		disclosureType: "pay_per_call",
+		requiredDisclosureText: "GridPermit connects you with an independent service provider. Calls may be recorded; results are not guaranteed.",
+	};
+	assert.equal(getDisclosureText(withOverride), withOverride.requiredDisclosureText);
+});
+
+test("every current pay_per_call partner's payout fields are never referenced anywhere in the component source", () => {
+	for (const p of PARTNERS) {
+		if (p.channel !== "pay_per_call") continue;
+		assert.ok(!source.includes("payoutValue"), "PayPerCallCTA.astro must never render payoutValue to users");
+		assert.ok(!source.includes("payoutType"), "PayPerCallCTA.astro must never render payoutType to users");
+	}
+});
+
+test("the component fails closed against a populated eligibleZips list when serviceZip is not confirmed to be in it", () => {
+	assert.match(source, /zipEligible/, "must gate rendering on a computed zipEligible check when eligibleZips is populated");
+	assert.match(source, /partner\?\.eligibleZips\?\.length/, "must only apply the ZIP gate when eligibleZips is actually populated, never treat an unset list as zero eligible ZIPs");
 });
 
 test("the component contains no em dash", () => {

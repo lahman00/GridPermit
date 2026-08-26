@@ -61,6 +61,26 @@ export interface Partner {
 	launchEnabled: boolean;
 	/** Confirmed business hours during which a pay-per-call campaign is live, e.g. "Monday-Friday, 8:00 AM-8:00 PM EST". Only set when documented by the partner. */
 	campaignHours?: string;
+	/**
+	 * Verified list of eligible service ZIP codes for a pay-per-call/CPL
+	 * partner whose coverage is narrower than statewide, when the partner has
+	 * actually published or confirmed one. Undefined means no ZIP-level
+	 * restriction is known (not the same as "nationwide confirmed") — a
+	 * partner-specific geo check (see src/lib/partner-routing.ts) should be
+	 * used instead of guessing from this field alone if real ZIP data exists.
+	 */
+	eligibleZips?: string[];
+	/**
+	 * Verbatim, partner-specific required disclosure text that overrides the
+	 * generic disclosureType templates in getDisclosureText(), for partners
+	 * whose compliance rules are stricter or more specific than the generic
+	 * categories below (e.g. a required "independent service provider,
+	 * calls may be recorded" combination, or a ban on certain claim words
+	 * that the generic templates don't need to worry about). Only ever set
+	 * from the partner's own actually-published or actually-confirmed
+	 * requirement — never invented.
+	 */
+	requiredDisclosureText?: string;
 	payoutType: PayoutType;
 	/** Numeric payout value: dollars for per_lead/per_call, percent for per_sale_percent. Undefined when not independently confirmed — never a guess. */
 	payoutValue?: number;
@@ -938,6 +958,10 @@ export function getCplDisclosureText(state: CplState, partnerName: string): stri
  */
 export function getDisclosureText(partner: Partner): string {
 	if (partner.disclosureType === "none") return "";
+
+	// A partner's own confirmed compliance language always wins over the
+	// generic categorized templates below — never overridden or paraphrased.
+	if (partner.requiredDisclosureText) return partner.requiredDisclosureText;
 
 	if (partner.disclosureType === "pay_per_call") {
 		return "Calls may be recorded for quality and compliance purposes.";
