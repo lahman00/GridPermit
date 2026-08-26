@@ -2,8 +2,8 @@
 // relationship's real state. Production CTA components read from this registry
 // and fail closed unless approval, tracking, placement eligibility, and the
 // manual launch switch all agree. Current-state narrative lives in
-// docs/MONETIZATION_CANONICAL_STATE.md. If the two ever disagree, that's a
-// bug: reconcile both in the same commit.
+// docs/MONETIZATION_CANONICAL_STATE.md. If the two ever disagree, reconcile
+// both in the same commit.
 
 export type PartnerStatus =
 	| "discovered"
@@ -26,7 +26,6 @@ export type PartnerChannel = "cpl" | "pay_per_call" | "hardware_affiliate" | "ge
 
 export type PayoutType = "per_lead" | "per_call" | "per_sale_percent" | "unknown";
 
-/** Page-intent categories used to gate where a partner's CTA is eligible to render. See docs/MONETIZATION_PLACEMENT_MAP.md. */
 export type EligiblePageType =
 	| "locality_guide"
 	| "state_hub"
@@ -41,45 +40,60 @@ export interface Partner {
 	status: PartnerStatus;
 	vertical: PartnerVertical;
 	channel: PartnerChannel;
-	/** Current safe destination URL — a tracked affiliate link ONLY if trackingEnabled is true. Empty string when no safe link exists yet. */
+	/** A tracked affiliate URL only when trackingEnabled is true. Plain untracked destinations are allowed for non-monetized relationships. */
 	destination: string;
-	/** Verified tracking phone number for pay-per-call partners. Undefined until a real number is received — never a placeholder. */
+	/** Verified tracking phone number for pay-per-call partners. Undefined until a real number is received. */
 	trackingPhone?: string;
-	/** True only once a real, verified, attributable tracking asset (URL or phone) exists — never set from a guess. */
+	/** True only once a real attributable tracking asset exists and is approved for use. */
 	trackingEnabled: boolean;
-	/** True only with documentary evidence of an actual compensation agreement. */
+	/** True only with documentary evidence of a compensation arrangement or directly confirmed compensation mechanics. */
 	compensationVerified: boolean;
-	/** Whether this partner is allowed to appear anywhere in production at all. */
+	/** Whether the partner is allowed to render as a production monetization placement. */
 	placementEligible: boolean;
 	disclosureType: "plain_partner" | "affiliate" | "pay_per_call" | "none";
-	/**
-	 * Manual launch switch. Must default to false and stay false until a human
-	 * deliberately flips it after real approval + real tracking arrive. This
-	 * is a second, independent gate on top of status/trackingEnabled — see
-	 * isLaunchReady(), which requires ALL gates to pass, not just this one.
-	 */
+	/** Independent manual launch switch. Defaults false until the final production gate is deliberately cleared. */
 	launchEnabled: boolean;
-	/** Confirmed business hours during which a pay-per-call campaign is live, e.g. "Monday-Friday, 8:00 AM-8:00 PM EST". Only set when documented by the partner. */
 	campaignHours?: string;
 	payoutType: PayoutType;
-	/** Numeric payout value: dollars for per_lead/per_call, percent for per_sale_percent. Undefined when not independently confirmed — never a guess. */
+	/** Dollars for per_lead/per_call, percent for per_sale_percent. Omitted when exact value is not verified. */
 	payoutValue?: number;
 	currency?: "USD";
 	cookieDays?: number;
-	/** ISO 3166-1 alpha-2 or plain-English geo scope, e.g. "US". */
 	geo: string;
 	trafficSources: string[];
 	eligiblePageTypes: EligiblePageType[];
-	/** ISO date this entry's status was last confirmed against a primary source. */
 	lastVerified: string;
 	notes?: string;
 }
 
 const ORGANIC_ONLY: string[] = ["organic_search", "content"];
 const SOLAR_CPL_PAGES: EligiblePageType[] = ["locality_guide", "state_hub", "county_hub", "utility_hub"];
+const LOCALITY_ONLY: EligiblePageType[] = ["locality_guide"];
 const BATTERY_PAGES: EligiblePageType[] = ["battery_editorial", "blog_general"];
 
 export const PARTNERS: Partner[] = [
+	{
+		id: "compare-solar-prices",
+		name: "CompareSolarPrices",
+		status: "owner_action_required",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: true,
+		placementEligible: false,
+		disclosureType: "affiliate",
+		launchEnabled: false,
+		payoutType: "per_lead",
+		payoutValue: 25,
+		currency: "USD",
+		cookieDays: 30,
+		geo: "US-CA-Southern-California",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Direct relationship with Aaron. Confirmed $25 per qualified quote request and $200 per funded installation conversion, Southern California, 30-day click-to-quote attribution and no stated time limit on the later funded-install conversion once the GridPermit referral is attached. Dedicated ref=GridPermit plus fresh non-PII cid contract received. PayPal selected and Eyal accepted monthly qualified-lead payouts with a $100 accumulated minimum that rolls over. W-8BEN accepted for the non-U.S. individual payee. Draft PR #9 stages compliant California-only routing and fresh per-click cid generation, but production is blocked until Aaron confirms the exact PayPal setup detail, owner completes W-8BEN, current CI is green, safe outbound verification is complete and launch is deliberately enabled.",
+	},
 	{
 		id: "energysage",
 		name: "EnergySage",
@@ -96,13 +110,13 @@ export const PARTNERS: Partner[] = [
 		geo: "US",
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: SOLAR_CPL_PAGES,
-		lastVerified: "2026-08-25",
-		notes: "Channel Partner relationship + CJ advertiser ID 5835771 exist; dedicated /p/gridpermit/ page 404s and current production link is the plain untracked root. CJ sent official publisher-account activation confirmation on 2026-08-25, so the network-level activation blocker is cleared. Remaining owner action: open EnergySage in CJ, review current live terms and submit Apply/Join. No advertiser approval or tracking link exists yet. Reported ~$10/approved lead and 45-day referral window must be re-read on the current CJ program page before relying on them. FlexOffers publisher registration fully submitted 2026-08-25 (site ownership verified via the fo-verify meta tag on the homepage); FlexOffers said review takes up to 5 business days. EnergySage is confirmed to currently be in the FlexOffers network, but its advertiser-specific program has not been opened or applied to yet, since that requires the FlexOffers publisher account to be approved first.",
+		lastVerified: "2026-08-26",
+		notes: "CJ publisher account is activated and EnergySage advertiser ID 5835771 is known. No advertiser approval or attributable CJ link exists yet. Owner must review the current live advertiser terms and submit Apply/Join. The alternate FlexOffers route was declined at both account and verified traffic-source level with only a generic policy/current-needs reason; reconsideration was requested, so CJ is the priority. The live EnergySage destination remains the plain untracked root and must not be described as an earning link.",
 	},
 	{
 		id: "digital-master-media",
 		name: "Digital Master Media (DMM)",
-		status: "awaiting_response",
+		status: "owner_action_required",
 		vertical: "solar",
 		channel: "pay_per_call",
 		destination: "",
@@ -116,28 +130,9 @@ export const PARTNERS: Partner[] = [
 		currency: "USD",
 		geo: "US",
 		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: SOLAR_CPL_PAGES,
-		lastVerified: "2026-08-25",
-		notes: "Direct email 2026-08-24 from Abid Ali confirmed GridPermit is a fit: organic SEO/content accepted, solar qualification threshold 120s post-IVR, nationwide US, Mon-Fri 8AM-8PM EST, first qualified call only, no daily minimum, calls recorded and publisher disclosure required. Public site advertises up to $53/call, but that is not GridPermit's confirmed rate, so payoutValue remains unset. A standalone follow-up was successfully sent 2026-08-25 requesting GridPermit-specific payout, tracking number/setup, ZIP guidance, exact IVR logic, disclosure wording, final agreement/compliance and other launch requirements. Awaiting response; see GitHub issue #1.",
-	},
-	{
-		id: "angi",
-		name: "Angi",
-		status: "rejected",
-		vertical: "general_home_services",
-		channel: "general_referral",
-		destination: "",
-		trackingEnabled: false,
-		compensationVerified: false,
-		placementEligible: false,
-		disclosureType: "none",
-		launchEnabled: false,
-		payoutType: "unknown",
-		geo: "US",
-		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: [],
-		lastVerified: "2026-08-19",
-		notes: 'Angi Affiliate Team confirmed directly: "we do not currently accept solar leads from affiliate partners." Program/vertical mismatch, not a GridPermit-quality judgment. No follow-up.',
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Direct fit confirmed for organic SEO/content and nationwide U.S. solar traffic. Public offer advertises up to $53 per qualified call, but that is not a GridPermit-specific approved rate. DMM says the exact buffer depends on traffic source and is shown in the application/campaign. Abid clarified the India/Pakistan language as targeting fake callers originating outside the U.S. who pretend to be U.S. consumers, not legitimate U.S. homeowners by ethnicity; GridPermit will not target by ethnicity or national origin. Formal Publisher Application includes binding terms/signature and is now the owner-only gate. After approval, real payout, tracking number, exact buffer/IVR, ZIP guidance and disclosure/setup instructions are still required before production.",
 	},
 	{
 		id: "bigbattery",
@@ -157,7 +152,394 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-20",
-		notes: "Application fully submitted 2026-08-20 with zero fabrication, confirmed via BigBattery's own 'Application received' message. Awaiting review, no tracking link yet. Published 5% commission on hardware.",
+		notes: "Application submitted and acknowledged by BigBattery. Public 5% commission. Awaiting review; do not resubmit and do not create tracking links before approval.",
+	},
+	{
+		id: "profitise",
+		name: "Profitise",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: SOLAR_CPL_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Current official solar PPL program supports publishers, affiliate links and lead forms and publishes a $100 minimum payout. Exact GridPermit payout is not confirmed and current official pages conflict on weekly versus bi-weekly payment cadence. Existing inquiry/follow-up is pending. Need international-publisher eligibility, a hosted click-out or otherwise low-PII model, exact geo, attribution, duplicate/reversal rules, payment/tax requirements and current agreement before owner action. See issue #14.",
+	},
+	{
+		id: "energy-pal",
+		name: "EnergyPal",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: SOLAR_CPL_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Current Marketing Partner signup and Publisher Agreement verified. The public agreement contains heavier lead-gen obligations including TrustedForm/Jornaya, insurance and broad compliance terms. GridPermit sent a nonbinding inquiry asking whether a tracking-link-only EnergyPal-hosted form model exists with lighter requirements, plus payout, attribution and international eligibility. Await reply; do not accept the agreement. See issue #10.",
+	},
+	{
+		id: "solar-com-pick-my-solar",
+		name: "Solar.com / Pick My Solar",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: SOLAR_CPL_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Official Pick My Solar publisher affiliate page was found, but the current platform and terms under Electrum/Solar.com have not yet been reconfirmed. A duplicate-checked inquiry was sent to the official listed affiliate manager asking current program status, platform, payout, payable action, attribution, international eligibility and organic/editorial acceptance. Do not use a legacy application until the current route is confirmed. See issue #11.",
+	},
+	{
+		id: "modernize",
+		name: "Modernize",
+		status: "verified",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: SOLAR_CPL_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Current official affiliate page explicitly lists Solar as a payable lead trade and says affiliates receive links/creative, must be approved and must agree to Terms. Current consent guidance documents affiliate consent tooling and TrustedForm/Modernize consent records. Need exact Solar payout, non-U.S.-publisher eligibility, hosted-form/click-out option, attribution/duplicate/rejection rules, payment terms and live agreement before any owner application. See issue #12.",
+	},
+	{
+		id: "home-services-lead-group",
+		name: "Home Services Lead Group",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: SOLAR_CPL_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Current official publisher program supports Solar plus other home-services verticals, SEO/organic/content traffic, PPL/PPC, sub-IDs/UTMs and billable/rejected reporting, with campaign-specific rules. A nonbinding GridPermit inquiry was already sent and no substantive reply has arrived. Need exact solar payout, geo, qualification, tracking, payment and agreement terms before owner action. See issue #13.",
+	},
+	{
+		id: "lead-smart",
+		name: "Lead Smart",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Large international pay-per-call network (10,000+ publishers), explicitly supports non-U.S. publishers generating U.S. homeowner calls and SEO/local-search traffic. Third-party OfferVault listing shows a Solar Panels pay-per-call campaign; not yet confirmed directly by Lead Smart. Nonbinding inquiry sent 2026-08-26. Need direct solar-campaign confirmation, GridPermit-specific payout/billable-call rules and a real tracking number before owner action. See issue #15.",
+	},
+	{
+		id: "solarreviews",
+		name: "SolarReviews",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: SOLAR_CPL_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Major residential-solar demand-generation business; its own privacy policy references marketing-partner/affiliate/aggregator data sources, indicating a publisher relationship may exist, but no publisher program terms are confirmed yet. The public installer-facing flow is for lead buyers, not GridPermit's route. Nonbinding inquiry sent 2026-08-26 to sales@solarreviews.com. See issue #16.",
+	},
+	{
+		id: "callflowmarket",
+		name: "Callflowmarket",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Active publisher/seller pay-per-call network with a Home Services vertical that explicitly lists Solar and SEO/local content as a supported channel. Published $15-75/call is a broad home-services range, not GridPermit-specific. The applicable current publisher agreement was not reliably retrievable and must be reviewed before any onboarding. Nonbinding inquiry sent 2026-08-26 to write@callflowmarket.com. See issue #17.",
+	},
+	{
+		id: "bettrdeal",
+		name: "BettrDeal",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Affiliate program focused specifically on U.S. solar leads, using unique tracking links or phone numbers; no longer buys form-only leads as of January 2025. Public average payout $25-60 per qualified lead, not GridPermit-specific. International-publisher eligibility and a low-PII hosted/tracked model are not yet confirmed. Site terms include binding arbitration/class-action waiver language requiring review before any application. Nonbinding inquiry sent 2026-08-26 to contact@bettrdeal.com. See issue #18.",
+	},
+	{
+		id: "service-direct",
+		name: "Service Direct",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Established (since 2006) pay-per-call affiliate program; Solar is an explicit supported category, and the no-code 'Easy Earn' static-DID model fits GridPermit's low-PII preference. Payout is dynamic based on live buyer inventory (~$40/call home-services average, not Solar- or GridPermit-specific). Publisher quality rules are stricter than a generic affiliate disclosure (no 'free'/superlative/guarantee claims, must disclose independent-provider status) and must be reflected in any future CTA copy. Only an automated support-ticket acknowledgement received so far, not a substantive reply. Nonbinding inquiry sent 2026-08-26. See issue #19.",
+	},
+	{
+		id: "ridgerise-media",
+		name: "RidgeRise Media",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "U.S.-focused performance network buying/selling qualified inbound calls and CPL leads across home services, with Solar explicitly listed. Public site does not confirm GridPermit-specific payout, international-publisher eligibility, or a low-PII integration model. Nonbinding inquiry sent 2026-08-26 to info@ridgerisemedia.com. See issue #20.",
+	},
+	{
+		id: "voax-media",
+		name: "Voax Media",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Early-stage, founder-led global pay-per-call/lead-gen network with Solar explicitly listed as active. Publisher compliance policy includes audit rights, payout reversals/withholding and broad indemnification, so the actual publisher/campaign agreement needs careful owner review before onboarding. Nonbinding inquiry sent 2026-08-26 to the founder's published performance-marketing contact. See issue #21.",
+	},
+	{
+		id: "revenue-click-media",
+		name: "Revenue Click Media",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Global performance network (Everflow tracking, TrackDrive call routing) with Solar/HVAC explicitly listed. The current signup flow asks for legal-entity, tax ID/VAT/SSN and payment details, so it is a binding, owner-only gate; not submitted. Nonbinding inquiry sent 2026-08-26 to support@revenueclickmedia.com. See issue #22.",
+	},
+	{
+		id: "marketcall",
+		name: "Marketcall",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "Large global pay-per-call network (165 countries) with active current U.S. Solar inbound campaigns per third-party OfferVault listings (not yet GridPermit-confirmed); SEO/Search traffic accepted per those listings. A separate $84 listing is for GMB/local-directory traffic only and must not be treated as GridPermit's economics. Nonbinding inquiry sent 2026-08-26 to affiliate@marketcall.com. See issue #23.",
+	},
+	{
+		id: "ringpartner-buyerlink",
+		name: "RingPartner / Buyerlink",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "pay_per_call",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: LOCALITY_ONLY,
+		lastVerified: "2026-08-26",
+		notes: "RingPartner (calls/clicks/data leads/transfers) now operates as part of Buyerlink, which acquired solar/home-warranty CPL business FiveStrata and serves the solar sector at a corporate level; no GridPermit-specific Solar offer is confirmed yet. The live publisher application asks for company/ad-spend/performance history that must not be fabricated. Nonbinding inquiry sent 2026-08-26 to contact@ringpartner.com. See issue #24.",
+	},
+	{
+		id: "px-solar",
+		name: "PX (Solar)",
+		status: "awaiting_response",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: SOLAR_CPL_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Large marketplace with an active Solar vertical. 'Common publisher' model (link to a PX-hosted lead form, no GridPermit-side PII handling) is the preferred integration if accepted; 'call publisher' (dedicated tracking number) is a possible alternate. API lead-posting with Jornaya/consent obligations exists but is not GridPermit's preferred model. Nonbinding inquiry sent 2026-08-26 to hello@px.com requesting publisher-team routing. See issue #25.",
+	},
+	{
+		id: "renogy",
+		name: "Renogy",
+		status: "owner_action_required",
+		vertical: "battery",
+		channel: "hardware_affiliate",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "per_sale_percent",
+		payoutValue: 6,
+		cookieDays: 27,
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: BATTERY_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Renogy directly described GridPermit as a great fit, accepts international publishers with U.S.-focused audience, organic search/editorial and residential solar/battery permitting guides. Direct-confirmed U.S. rate 6%, attribution 27 days and no Renogy brand-term paid search. Official Impact application link received. Owner must review live Impact/network and advertiser terms before submission; after submission, notify Yuna because she asked to expedite approval. See issue #6.",
+	},
+	{
+		id: "bougerv",
+		name: "BougeRV",
+		status: "owner_action_required",
+		vertical: "battery",
+		channel: "hardware_affiliate",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "per_sale_percent",
+		payoutValue: 7,
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: BATTERY_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "BougeRV directly confirmed independent content publishers, organic/editorial traffic and contextual solar/battery/home-energy links are accepted. U.S. standard commission 7%. Official Impact application link received and deep links become available after approval. Owner must review the live Impact/network and advertiser terms before submitting. See issue #6.",
+	},
+	{
+		id: "allpowers",
+		name: "ALLPOWERS",
+		status: "awaiting_response",
+		vertical: "battery",
+		channel: "hardware_affiliate",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "per_sale_percent",
+		payoutValue: 5,
+		cookieDays: 30,
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: BATTERY_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "ALLPOWERS directly confirmed CJ or GoAffPro accepts U.S.-audience content publishers, an international publisher with primarily U.S. organic-search traffic is eligible, current U.S. terms are 5% and 30 days, and there are no extra editorial/review requirements. Direct GoAffPro route is verified. Follow-up asking the preferred activation path is pending; owner reviews any live join/signup terms before submission. See issue #7.",
+	},
+	{
+		id: "goal-zero",
+		name: "Goal Zero",
+		status: "owner_action_required",
+		vertical: "battery",
+		channel: "hardware_affiliate",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "per_sale_percent",
+		payoutValue: 10,
+		cookieDays: 30,
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: BATTERY_PAGES,
+		lastVerified: "2026-08-26",
+		notes: "Official direct program publishes dynamic commission up to 10% and 30-day cookie and is managed through Partnerize. Dedicated business registration route verified; live form includes Israel, U.S. customer reach and Content promotion. Registration requires binding Partnerize/Pepperjam agreement plus payment/tax fields, so owner action is required. No tracking link exists. See issue #8.",
 	},
 	{
 		id: "power-queen",
@@ -178,49 +560,11 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Awin blocked. Non-Awin route confirmed live: GoAffPro direct portal (ipowerqueen.goaffpro.com). Direct inquiry sent 2026-08-25 to service@ipowerqueen.com confirming GoAffPro eligibility and current 5.5%/30-day terms for GridPermit specifically.",
-	},
-	{
-		id: "matchburst",
-		name: "MatchBurst",
-		status: "blocked",
-		vertical: "solar",
-		channel: "cpl",
-		destination: "",
-		trackingEnabled: false,
-		compensationVerified: false,
-		placementEligible: false,
-		disclosureType: "none",
-		launchEnabled: false,
-		payoutType: "unknown",
-		geo: "US",
-		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: [],
-		lastVerified: "2026-08-24",
-		notes: "Awin blocked and no non-Awin alternate found. matchburst.com blocks direct fetch and no direct/CJ/Impact/FlexOffers/Partnerize path has been verified. Park until a genuine alternate surfaces.",
-	},
-	{
-		id: "bark",
-		name: "Bark.com",
-		status: "blocked",
-		vertical: "general_home_services",
-		channel: "general_referral",
-		destination: "",
-		trackingEnabled: false,
-		compensationVerified: false,
-		placementEligible: false,
-		disclosureType: "none",
-		launchEnabled: false,
-		payoutType: "unknown",
-		geo: "US",
-		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: [],
-		lastVerified: "2026-08-24",
-		notes: "Awin blocked. Bark's own affiliate page states it runs on Awin and no verified non-Awin publisher route has been found.",
+		notes: "Direct GoAffPro route verified. Published 5.5% base and 30-day cookie. Existing inquiry asks for GridPermit-specific eligibility/current terms; await reply before account creation.",
 	},
 	{
 		id: "bluetti",
-		name: "Bluetti",
+		name: "BLUETTI",
 		status: "awaiting_response",
 		vertical: "battery",
 		channel: "hardware_affiliate",
@@ -237,7 +581,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Non-Awin alternate confirmed live: Impact.com. Direct outreach sent 2026-08-25 to marketing@bluetti.com. Published terms: up to 10% commission, 30-day cookie. No approval or tracking link yet.",
+		notes: "Impact alternate exists. Published terms up to 10% and 30-day cookie. Direct outreach sent; no approval or tracking link yet.",
 	},
 	{
 		id: "ecoflow",
@@ -256,28 +600,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Impact.com alternate is confirmed live and direct outreach was sent 2026-08-25 to affiliate@ecoflow.com. Regional EcoFlow affiliate pages publish differing commission/cookie economics; those must not be imported into the U.S. entry. payoutValue/cookieDays intentionally remain unset until U.S.-specific confirmation arrives.",
-	},
-	{
-		id: "allpowers",
-		name: "ALLPOWERS",
-		status: "awaiting_response",
-		vertical: "battery",
-		channel: "hardware_affiliate",
-		destination: "",
-		trackingEnabled: false,
-		compensationVerified: false,
-		placementEligible: false,
-		disclosureType: "none",
-		launchEnabled: false,
-		payoutType: "per_sale_percent",
-		payoutValue: 5,
-		cookieDays: 30,
-		geo: "US",
-		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: BATTERY_PAGES,
-		lastVerified: "2026-08-25",
-		notes: "Non-Awin routes confirmed live: GoAffPro direct, CJ and AvantLink. Direct outreach sent 2026-08-25 to marketing@allpowers.com. Published terms: 5% base with tiers up to 10%, 30-day cookie. No approval/tracking yet.",
+		notes: "Impact alternate exists and direct outreach was sent. Regional affiliate pages show different economics, so U.S.-specific payout/cookie remain unset until directly confirmed.",
 	},
 	{
 		id: "redodo",
@@ -296,7 +619,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "U.S. site confirms a GoAffPro Program exists alongside Awin. Direct inquiry sent 2026-08-25 to official service@redodopower.com asking GridPermit U.S. GoAffPro eligibility, SEO/editorial acceptance, current commission/cookie, deep-link support, restrictions and disclosures. Wait for reply before account creation.",
+		notes: "U.S. site confirms a GoAffPro program. Existing inquiry asks international/U.S.-audience eligibility, SEO/editorial acceptance, commission, cookie, deep links and restrictions. Await reply.",
 	},
 	{
 		id: "easunpower",
@@ -316,7 +639,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Primary source: easunpower.com/pages/easunpower-affiliate-program. Direct email program explicitly accepts bloggers/content creators/website owners; published 5% on confirmed orders. Outreach sent 2026-08-25 to avy@easunpower.com asking SEO/content eligibility, U.S.-audience eligibility, cookie window, minimums and payment methods.",
+		notes: "Official direct email program welcomes bloggers/content creators/site owners and publishes 5% on confirmed orders. Existing outreach asks U.S.-audience eligibility, cookie, minimums and payment methods. Await reply.",
 	},
 	{
 		id: "vatrer-power",
@@ -335,7 +658,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official program confirmed on vatrerpower.com and hosted on UpPromote. Website/blog/newsletter promotion explicitly supported. Outreach sent 2026-08-25 to brand@vatrerpower.com asking current U.S. commission, attribution window, restrictions and payment methods.",
+		notes: "Official UpPromote program supports website/blog/newsletter promotion. Existing outreach asks current U.S. commission, attribution, restrictions and payment methods. Await reply.",
 	},
 	{
 		id: "litime",
@@ -355,7 +678,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official program explicitly welcomes bloggers and website owners and lists GoAffPro, Impact and Awin; public page advertises up to 5% commission. Direct inquiry sent 2026-08-25 to service@litime.com asking international publisher eligibility for U.S. traffic, SEO/editorial acceptance, preferred GoAffPro vs Impact route, actual base/tier commission, cookie window, restrictions and disclosures.",
+		notes: "Official program welcomes bloggers/site owners, advertises up to 5% and lists GoAffPro, Impact and Awin. Existing inquiry asks international eligibility, preferred non-Awin route, actual base/tier rate, cookie and restrictions. Await reply.",
 	},
 	{
 		id: "rich-solar",
@@ -374,26 +697,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official site states content sites can participate. Strong product fit: solar kits, batteries, inverters, panels and system components. Outreach sent 2026-08-25 to support@richsolar.com; automated case #8058 received, no substantive affiliate answer yet.",
-	},
-	{
-		id: "current-connected",
-		name: "Current Connected",
-		status: "rejected",
-		vertical: "battery",
-		channel: "hardware_affiliate",
-		destination: "",
-		trackingEnabled: false,
-		compensationVerified: false,
-		placementEligible: false,
-		disclosureType: "none",
-		launchEnabled: false,
-		payoutType: "unknown",
-		geo: "US_CA_residents_only",
-		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: [],
-		lastVerified: "2026-08-25",
-		notes: "Strong content/product fit in isolation, but the program's own eligibility page restricts applicants to U.S./Canada residents and requires W-9/payment information. Do not re-apply unless published eligibility changes.",
+		notes: "Official site indicates content sites can participate. Outreach received only automated case #8058; no substantive affiliate response yet.",
 	},
 	{
 		id: "anker-solix",
@@ -414,28 +718,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Primary source explicitly lists forums/blogs/product-review websites as allowed channels. Routes via LinkShare or Impact, avoiding Awin. Published 5% commission and 30-day cookie. Outreach sent 2026-08-24 to affiliate@anker.com; no reply yet.",
-	},
-	{
-		id: "goal-zero",
-		name: "Goal Zero",
-		status: "verified",
-		vertical: "battery",
-		channel: "hardware_affiliate",
-		destination: "",
-		trackingEnabled: false,
-		compensationVerified: false,
-		placementEligible: false,
-		disclosureType: "none",
-		launchEnabled: false,
-		payoutType: "per_sale_percent",
-		payoutValue: 10,
-		cookieDays: 30,
-		geo: "US",
-		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: BATTERY_PAGES,
-		lastVerified: "2026-08-25",
-		notes: "Primary source: Goal Zero Affiliate Marketing Program. Managed by Partnerize; businesses have a dedicated apply route. Dynamic commission up to 10%, 30-day cookie. Requires owner/account application action; no tracking link exists.",
+		notes: "Primary source lists blogs/review sites as allowed channels. Impact/LinkShare routes exist. Published 5% and 30 days. Direct outreach sent; await reply.",
 	},
 	{
 		id: "signature-solar",
@@ -456,7 +739,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Direct in-house program, up to 9% depending on product, 7-day cookie, no minimum sales requirement; official page says international referrals can earn compensation. GridPermit outreach was already sent 2026-08-24 to support@signaturesolar.com. Await reply or owner direct application.",
+		notes: "Direct in-house program publishes up to 9% depending on product, 7-day cookie and no minimum sales requirement; official page states international referrals can earn compensation. Outreach already sent; await reply or owner direct application.",
 	},
 	{
 		id: "natures-generator",
@@ -476,7 +759,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official affiliate page publishes 5% and tells affiliates to create a free ShareASale account, but the same page also references Awin. Outreach sent 2026-08-25 to support@naturesgenerator.com asking GridPermit eligibility, SEO/editorial acceptance, current preferred U.S. route, 5% applicability, cookie window, restrictions and disclosures.",
+		notes: "Official affiliate page publishes 5% but references both ShareASale and Awin. Existing inquiry asks current preferred route, eligibility, cookie and restrictions. Await reply.",
 	},
 	{
 		id: "sungoldpower",
@@ -496,7 +779,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Primary source publishes a ShareASale route (Merchant ID 107752), 6% commission and stated AOV around $1,000. GridPermit outreach sent 2026-08-24 to sales@sungoldpower.com; no reply yet. Cookie window not confirmed.",
+		notes: "Official program publishes 6% and a ShareASale route. Existing GridPermit outreach has no substantive reply yet; cookie not confirmed.",
 	},
 	{
 		id: "zendure",
@@ -516,7 +799,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Impact route exists. Official page states both 'up to 5%' and 'up to 10%' in different sections, so payoutValue deliberately remains unset. 30-day cookie published. Outreach sent 2026-08-24 to sales_us@zendure.com; no reply yet.",
+		notes: "Impact route exists. Official page conflicts between up to 5% and up to 10%, so payoutValue is intentionally unset. 30-day cookie published. Await direct clarification.",
 	},
 	{
 		id: "growatt",
@@ -536,7 +819,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Primary source explicitly accepts content creators, publishers, installers and affiliate marketers; offers PartnerBoost/direct/Awin routes and publishes 15%-20% on qualifying sales. payoutValue records only the lower bound, not a GridPermit-approved rate. Outreach sent 2026-08-25 to official marketing.pps@growatt.com asking fit, preferred U.S. route, cookie, tier rules and restrictions.",
+		notes: "Primary source accepts publishers/content creators and publishes 15%-20% on qualifying sales with PartnerBoost/direct/Awin routes. payoutValue records only the public lower bound, not a GridPermit-approved rate. Await direct route/terms reply.",
 	},
 	{
 		id: "eco-worthy",
@@ -557,7 +840,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official U.S. affiliate page lists Impact/Awin, 5% commission and 30-day cookie. Outreach sent 2026-08-25 to service@eco-worthy.com asking GridPermit publisher eligibility, SEO/editorial acceptance, Impact preference, current terms, restrictions and disclosure requirements.",
+		notes: "Official U.S. page lists Impact/Awin and publishes 5% with 30-day cookie. Direct inquiry asks GridPermit eligibility, Impact preference, current restrictions and disclosures. Await reply.",
 	},
 	{
 		id: "powerness",
@@ -577,7 +860,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official affiliate page welcomes media publishers and review/ranking sites, uses ShareASale, publishes 5% and prohibits PPC. The same official page conflicts on cookie duration: 45 days in the summary vs 30 days later, so cookieDays remains unset. Outreach sent 2026-08-25 to service@powerness.com asking for clarification and GridPermit fit.",
+		notes: "Official page welcomes media publishers and publishes 5%, but conflicts on 45-day versus 30-day cookie. Existing inquiry asks for attribution clarification and GridPermit fit. cookieDays remains unset.",
 	},
 	{
 		id: "acopower",
@@ -596,7 +879,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official ACOPOWER pages conflict materially: AvantLink/8%/30 days on one page, ShareASale/8% on another, 6% on another, while a direct agreement describes ACOPOWER Credits and prohibits SEM/PPC. Clarification inquiry sent 2026-08-25 to support@acopower.com. Leave payoutValue/cookieDays unset until ACOPOWER resolves platform, rate and payout form.",
+		notes: "Official pages conflict materially on platform, 6% versus 8% rate and payout model. Clarification inquiry sent. Leave payout/cookie unset and do not apply until ACOPOWER resolves the conflicts.",
 	},
 	{
 		id: "wattcycle",
@@ -615,7 +898,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official U.S. site has a live Affiliate page and publishes marketing@wattcycle.com as PR & Influencer contact, but public crawl does not expose usable commission/platform/cookie terms. Outreach sent 2026-08-25 asking publisher fit, SEO/editorial acceptance, platform, commission, cookie, deep links, restrictions and disclosures.",
+		notes: "Official U.S. affiliate page exists but public crawl does not expose commission/platform/cookie details. Inquiry sent; await reply.",
 	},
 	{
 		id: "sok-battery",
@@ -634,7 +917,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official U.S. site exposes an Affiliate Programme navigation entry and official sales@sokbattery.com contact; products include LiFePO4 batteries and solar storage. Public crawl does not expose affiliate commercial terms. Outreach sent 2026-08-25 asking publisher eligibility, SEO/editorial acceptance, platform, commission, cookie, deep links, restrictions and disclosures.",
+		notes: "Official U.S. site exposes Affiliate Programme navigation but commercial terms are not surfaced. Direct inquiry sent; await reply.",
 	},
 	{
 		id: "shopsolar",
@@ -653,7 +936,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
 		lastVerified: "2026-08-25",
-		notes: "Official shopsolarkits.com Affiliate Program link redirects to a ShopSolar-branded GoAffPro signup. Strong fit: complete solar kits, batteries, inverters, portable power and permit-adjacent system content. Outreach sent 2026-08-25 to official info@shopsolarkits.com asking independent publisher eligibility, SEO/editorial acceptance, current GoAffPro status, commission, cookie, deep links, restrictions and disclosures.",
+		notes: "Official Affiliate Program redirects to a ShopSolar-branded GoAffPro signup. Existing inquiry asks publisher eligibility, SEO/editorial acceptance, current commission/cookie, deep links and restrictions. Await reply before account creation.",
 	},
 	{
 		id: "jackery",
@@ -672,26 +955,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: [],
 		lastVerified: "2026-08-25",
-		notes: "Program page exists, but commission, cookie window, network and geo restrictions could not be verified from a primary automated fetch. Needs manual verification before any new outreach.",
-	},
-	{
-		id: "modernize",
-		name: "Modernize",
-		status: "discovered",
-		vertical: "solar",
-		channel: "cpl",
-		destination: "",
-		trackingEnabled: false,
-		compensationVerified: false,
-		placementEligible: false,
-		disclosureType: "none",
-		launchEnabled: false,
-		payoutType: "unknown",
-		geo: "US",
-		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: [],
-		lastVerified: "2026-08-25",
-		notes: "Program page returned HTTP 403 on direct fetch, so terms could not be independently verified from a primary source. Third-party synthesis is explicitly insufficient. Do not contact until verified.",
+		notes: "Program page exists but primary commercial terms/network/geo restrictions have not yet been independently verified. Verify before outreach/application.",
 	},
 	{
 		id: "segway-power",
@@ -710,7 +974,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: [],
 		lastVerified: "2026-08-25",
-		notes: "Program URL exists, but automated fetch did not confirm whether the portable-power line is commissionable. Verify product scope and terms before outreach.",
+		notes: "Program route exists but portable-power product commissionability is not yet verified. Verify product scope before outreach.",
 	},
 	{
 		id: "oukitel-power",
@@ -729,7 +993,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: [],
 		lastVerified: "2026-08-25",
-		notes: "Primary source lists Awin as the only network route and no non-Awin alternate has been found. Do not pursue unless an alternate surfaces.",
+		notes: "Primary source exposes Awin as the only verified network route and no non-Awin alternate has been found. Closed unless an alternate surfaces.",
 	},
 	{
 		id: "battle-born-batteries",
@@ -748,7 +1012,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: [],
 		lastVerified: "2026-08-25",
-		notes: "No live affiliate program page could be confirmed. Do not pursue without a live primary program page.",
+		notes: "No live affiliate program page could be confirmed. Closed unless a current primary-source program surfaces.",
 	},
 	{
 		id: "mighty-max-battery",
@@ -767,7 +1031,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: [],
 		lastVerified: "2026-08-25",
-		notes: "Indexed references suggest a program may have existed, but current affiliate URLs return 404. Do not pursue until a live page is confirmed.",
+		notes: "Current affiliate URLs are 404/unverifiable. Closed unless a live primary-source program surfaces.",
 	},
 	{
 		id: "adt-solar",
@@ -786,12 +1050,69 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: [],
 		lastVerified: "2026-08-25",
-		notes: "Consumer/homeowner refer-a-friend structure, not a content-publisher affiliate channel. Wrong program type for GridPermit.",
+		notes: "Consumer refer-a-friend structure, not a content-publisher monetization route. Closed.",
 	},
 	{
-		id: "renogy",
-		name: "Renogy",
-		status: "awaiting_response",
+		id: "matchburst",
+		name: "MatchBurst",
+		status: "blocked",
+		vertical: "solar",
+		channel: "cpl",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: [],
+		lastVerified: "2026-08-24",
+		notes: "Awin blocked and no verified non-Awin alternate found. Park until a genuine alternate surfaces.",
+	},
+	{
+		id: "bark",
+		name: "Bark.com",
+		status: "blocked",
+		vertical: "general_home_services",
+		channel: "general_referral",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: [],
+		lastVerified: "2026-08-24",
+		notes: "Awin-dependent and no verified non-Awin publisher route exists. Park.",
+	},
+	{
+		id: "angi",
+		name: "Angi",
+		status: "rejected",
+		vertical: "general_home_services",
+		channel: "general_referral",
+		destination: "",
+		trackingEnabled: false,
+		compensationVerified: false,
+		placementEligible: false,
+		disclosureType: "none",
+		launchEnabled: false,
+		payoutType: "unknown",
+		geo: "US",
+		trafficSources: ORGANIC_ONLY,
+		eligiblePageTypes: [],
+		lastVerified: "2026-08-19",
+		notes: "Angi Affiliate Team directly confirmed it does not currently accept solar leads from affiliate partners. Closed.",
+	},
+	{
+		id: "current-connected",
+		name: "Current Connected",
+		status: "rejected",
 		vertical: "battery",
 		channel: "hardware_affiliate",
 		destination: "",
@@ -800,39 +1121,17 @@ export const PARTNERS: Partner[] = [
 		placementEligible: false,
 		disclosureType: "none",
 		launchEnabled: false,
-		payoutType: "per_sale_percent",
-		payoutValue: 6,
-		cookieDays: 27,
-		geo: "US",
+		payoutType: "unknown",
+		geo: "US_CA_residents_only",
 		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: BATTERY_PAGES,
+		eligiblePageTypes: [],
 		lastVerified: "2026-08-25",
-		notes: "Direct 2026-08-25 email from Renogy Affiliate Team: GridPermit is a great fit; international publishers welcome when primary focus/target audience are U.S.-based; organic search/editorial accepted; residential solar/battery permitting guides described as ideal contextual placements; current U.S. rate 6%; attribution 27 days; no paid-search bidding on Renogy brand terms. GridPermit replied requesting preferred Impact application/invitation route and official media assets. No platform approval/tracking yet; do not send another follow-up until Renogy responds.",
+		notes: "Program restricts applicants to U.S./Canada residents. Closed unless eligibility changes.",
 	},
 	{
-		id: "bougerv",
-		name: "BougeRV",
-		status: "awaiting_response",
-		vertical: "battery",
-		channel: "hardware_affiliate",
-		destination: "",
-		trackingEnabled: false,
-		compensationVerified: false,
-		placementEligible: false,
-		disclosureType: "none",
-		launchEnabled: false,
-		payoutType: "per_sale_percent",
-		payoutValue: 7,
-		geo: "US",
-		trafficSources: ORGANIC_ONLY,
-		eligiblePageTypes: BATTERY_PAGES,
-		lastVerified: "2026-08-25",
-		notes: "Direct email from BougeRV Affiliate Manager confirmed independent content publishers, organic/editorial traffic and contextual links in solar/battery/home-energy content are accepted. U.S. routes: Impact or Awin. Standard commission directly confirmed at 7%; potential adjustments are not recorded until documented. Deep links available after platform approval. GridPermit replied requesting preferred Impact application/invitation link. No platform approval/tracking yet; do not send another follow-up until reply.",
-	},
-	{
-		id: "profitise",
-		name: "Profitise",
-		status: "awaiting_response",
+		id: "suncheck",
+		name: "SUNcheck",
+		status: "rejected",
 		vertical: "solar",
 		channel: "cpl",
 		destination: "",
@@ -846,16 +1145,13 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: [],
 		lastVerified: "2026-08-25",
-		notes: "Inquiry and follow-up have been sent. Gmail is available in the current environment; a 2026-08-25 sweep found no substantive Profitise reply. Awaiting response; do not duplicate outreach.",
+		notes: "No current real affiliate program verified and the old payout/cookie claim was invalidated. Closed.",
 	},
 ];
 
 /**
- * The single fail-closed launch gate. Every condition must hold — status
- * approved, tracking confirmed, placement eligible, AND the manual
- * launchEnabled switch flipped, AND a real destination or phone number
- * present — before a partner is allowed to render anywhere in production.
- * Any one missing condition fails the whole check closed.
+ * The single fail-closed launch gate. Every condition must hold before a
+ * partner is allowed to render as active production monetization.
  */
 export function isLaunchReady(partner: Partner): boolean {
 	const hasRealTrackingAsset = partner.destination.length > 0 || Boolean(partner.trackingPhone);
@@ -868,7 +1164,7 @@ export function isLaunchReady(partner: Partner): boolean {
 	);
 }
 
-/** Partners actually allowed to render in production today. Expected to be empty until a real approved tracking link exists — that emptiness is itself the correct, tested state. */
+/** Expected to remain empty until a partner genuinely clears every launch gate. */
 export function getActivePartners(): Partner[] {
 	return PARTNERS.filter(isLaunchReady);
 }
@@ -881,14 +1177,7 @@ export function getPartner(id: string): Partner | undefined {
 	return PARTNERS.find((p) => p.id === id);
 }
 
-/**
- * The single entry point CTA components should use to decide whether to
- * render at all. Returns the partner only when isLaunchReady() passes AND
- * (if given) the channel matches what the calling component expects — e.g.
- * PayPerCallCTA.astro must never accidentally render for a hardware
- * affiliate entry. Returns null in every other case, which the calling
- * component must treat as "render nothing."
- */
+/** Component-facing lookup that fails closed on status, channel, tracking and launch state. */
 export function getLaunchReadyPartner(id: string, expectedChannel?: PartnerChannel): Partner | null {
 	const partner = getPartner(id);
 	if (!partner) return null;
@@ -899,14 +1188,6 @@ export function getLaunchReadyPartner(id: string, expectedChannel?: PartnerChann
 
 export type CplState = "UNTRACKED_RELATIONSHIP" | "TRACKED_UNCONFIRMED_COMPENSATION" | "APPROVED_CPL" | "ACTIVE_CPL";
 
-/**
- * Classifies a CPL/referral partner's relationship into exactly one of four
- * states, so a CTA component can render the right copy from state rather
- * than from hand-written prose that has to be edited every time the
- * underlying relationship changes (see docs/MONETIZATION_CANONICAL_STATE.md,
- * Phase 7). Moving from one real state to the next is a data change in this
- * file, never a copy rewrite in the component.
- */
 export function getCplState(partner: Partner): CplState {
 	if (isLaunchReady(partner)) return "ACTIVE_CPL";
 	if (partner.status === "approved" && partner.trackingEnabled && partner.compensationVerified) return "APPROVED_CPL";
@@ -914,7 +1195,6 @@ export function getCplState(partner: Partner): CplState {
 	return "UNTRACKED_RELATIONSHIP";
 }
 
-/** Disclosure copy for a given CplState. Only ever describes what's actually true for that state. */
 export function getCplDisclosureText(state: CplState, partnerName: string): string {
 	switch (state) {
 		case "ACTIVE_CPL":
@@ -929,13 +1209,6 @@ export function getCplDisclosureText(state: CplState, partnerName: string): stri
 	}
 }
 
-/**
- * Derives disclosure copy from a partner's actual verified state rather than
- * hardcoding prose per partner — see docs/MONETIZATION_CANONICAL_STATE.md
- * and the disclosure taxonomy in docs/MONETIZATION_PLACEMENT_MAP.md. Only
- * ever describes what's actually true; never asserts compensation, tracking,
- * or approval that hasn't been verified.
- */
 export function getDisclosureText(partner: Partner): string {
 	if (partner.disclosureType === "none") return "";
 

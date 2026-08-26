@@ -1,0 +1,193 @@
+---
+// Staged only. This component is deliberately not imported by any production
+// page yet. GitHub issue #5 is the activation gate: payment setup + W-8BEN
+// must be complete before this can be wired into LocalityGuideLayout.
+//
+// Two independent gates must both pass before anything renders: geo
+// eligibility (isCompareSolarServedLocality — California, allowlisted city)
+// AND the partner registry's own launch gate (getLaunchReadyPartner —
+// approved, tracked, placement-eligible, and deliberately launchEnabled).
+// Without the second gate, this component would render for every eligible
+// Southern California city the instant it was ever imported into a page,
+// regardless of whether src/lib/partners.ts had actually been approved for
+// production — the same fail-closed guarantee every other partner CTA
+// component in this codebase already has via getLaunchReadyPartner().
+import { isCompareSolarServedLocality } from "../lib/compare-solar-prices";
+import { getLaunchReadyPartner } from "../lib/partners";
+
+interface Props {
+	state: string;
+	city: string;
+}
+
+const { state, city } = Astro.props;
+const partner = getLaunchReadyPartner("compare-solar-prices", "cpl");
+const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
+---
+
+{eligible && (
+	<section
+		class="compare-solar-cta"
+		aria-label="CompareSolarPrices referral"
+		data-compare-solar-cta-root
+		data-state={state}
+		data-city={city}
+	>
+		<p class="compare-solar-disclosure">
+			<strong>Paid referral disclosure:</strong> GridPermit has a paid referral relationship with CompareSolarPrices. If you use this link and later complete a qualifying action, GridPermit may receive compensation.
+		</p>
+		<h2>Want a solar quote after reviewing the permit requirements in {city}?</h2>
+		<p>Continue to CompareSolarPrices to request a homeowner solar quote for {city}.</p>
+		<button type="button" class="compare-solar-btn" data-compare-solar-cta data-state={state} data-city={city}>
+			Request a quote from CompareSolarPrices → <span class="visually-hidden">(opens in a new tab)</span>
+		</button>
+		<p class="compare-solar-note">You will continue on CompareSolarPrices' website. GridPermit is not the installer.</p>
+	</section>
+)}
+
+<script>
+	import {
+		buildCompareSolarReferralUrl,
+		generateCompareSolarCid,
+		normalizeCompareSolarCitySlug,
+	} from "../lib/compare-solar-prices";
+	import { trackEvent } from "../lib/analytics-events";
+
+	const CTA_ID = "compare_solar_prices_locality";
+	const PARTNER_ID = "compare_solar_prices";
+
+	function getSafePlacementParams(state: string, city: string) {
+		return {
+			partner: PARTNER_ID,
+			cta_id: CTA_ID,
+			state_code: state.toUpperCase(),
+			city_slug: normalizeCompareSolarCitySlug(city),
+			page_path: window.location.pathname,
+		};
+	}
+
+	function trackCompareSolarView() {
+		const root = document.querySelector("[data-compare-solar-cta-root]");
+		if (!(root instanceof HTMLElement)) return;
+
+		const state = root.dataset.state ?? "";
+		const city = root.dataset.city ?? "";
+		trackEvent("cpl_cta_viewed", getSafePlacementParams(state, city));
+	}
+
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", trackCompareSolarView, { once: true });
+	} else {
+		trackCompareSolarView();
+	}
+
+	// Idempotency guard: if this script body ever executes more than once on
+	// the same page (e.g. the component is accidentally included twice), only
+	// the first execution attaches the delegated click listener. Without this,
+	// a single real click would fire the analytics event and open the popup
+	// twice.
+	const GUARD_KEY = "__gridpermitCompareSolarClickBound";
+	if (!(window as typeof window & Record<string, boolean>)[GUARD_KEY]) {
+		(window as typeof window & Record<string, boolean>)[GUARD_KEY] = true;
+
+		document.addEventListener("click", (event) => {
+			const target = event.target;
+			if (!(target instanceof Element)) return;
+			const trigger = target.closest("[data-compare-solar-cta]");
+			if (!(trigger instanceof HTMLButtonElement)) return;
+
+			const state = trigger.dataset.state ?? "";
+			const city = trigger.dataset.city ?? "";
+			const cid = generateCompareSolarCid();
+			const referralUrl = buildCompareSolarReferralUrl(state, city, cid);
+			if (!referralUrl) return;
+
+			trackEvent("cpl_cta_clicked", {
+				...getSafePlacementParams(state, city),
+				// CompareSolarPrices returns this same random non-PII CID in its
+				// referral reporting, allowing a paid lead/conversion to be matched
+				// back to the exact GridPermit click without storing homeowner data.
+				referral_cid: cid,
+			});
+
+			// window.open can return null if a popup blocker intervenes even for
+			// a synchronous, direct-response-to-click call (some mobile browsers
+			// and locked-down desktop configurations still block it). Fall back
+			// to same-tab navigation rather than silently doing nothing, so the
+			// user is never stranded on a dead button.
+			const popup = window.open(referralUrl, "_blank", "noopener,noreferrer");
+			if (!popup) {
+				window.location.assign(referralUrl);
+			}
+		});
+	}
+</script>
+
+<style>
+	.compare-solar-cta {
+		background: var(--bg-dark, #0f172a);
+		color: white;
+		border-radius: 10px;
+		padding: 1.5rem;
+		text-align: center;
+		margin: 2rem 0;
+	}
+
+	.compare-solar-cta h2 {
+		font-size: 1.15rem;
+		font-weight: 700;
+		margin: 0 0 0.5rem;
+		color: white;
+	}
+
+	.compare-solar-cta p {
+		font-size: 0.85rem;
+		color: #cbd5e1;
+		line-height: 1.5;
+	}
+
+	.compare-solar-disclosure {
+		margin: 0 0 1rem;
+		font-size: 0.78rem !important;
+	}
+
+	.compare-solar-btn {
+		display: inline-block;
+		background: var(--accent, #10b981);
+		color: white;
+		border: 0;
+		padding: 0.85rem 1.5rem;
+		border-radius: 6px;
+		font: inherit;
+		font-weight: 800;
+		font-size: 0.9rem;
+		cursor: pointer;
+	}
+
+	.compare-solar-btn:hover {
+		background: #059669;
+	}
+
+	.compare-solar-btn:focus-visible {
+		outline: 3px solid white;
+		outline-offset: 3px;
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	.compare-solar-note {
+		font-size: 0.72rem !important;
+		color: #94a3b8 !important;
+		margin: 0.9rem 0 0 !important;
+	}
+</style>
