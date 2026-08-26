@@ -69,7 +69,7 @@ test("a same-named city outside California can never receive a CompareSolarPrice
 	assert.equal(buildCompareSolarReferralUrl("RI", "Pasadena", "safe_002"), null);
 });
 
-test("staged CTA has a proximate paid-referral disclosure and does not make partner savings, price, or timeline claims", () => {
+test("CTA has a proximate paid-referral disclosure and does not make partner savings, price, or timeline claims", () => {
 	assert.match(component, /Paid referral disclosure:/);
 	assert.match(component, /paid referral relationship with CompareSolarPrices/);
 	assert.match(component, /GridPermit is not the installer/);
@@ -79,7 +79,7 @@ test("staged CTA has a proximate paid-referral disclosure and does not make part
 	assert.ok(!/\b\d+\s*(?:minute|hour|day)s?\b/i.test(component));
 });
 
-test("staged CTA creates one fresh CID per click and sends that same non-PII CID to the partner and revenue-attribution telemetry", () => {
+test("CTA creates one fresh CID per click and sends that same non-PII CID to the partner and revenue-attribution telemetry", () => {
 	assert.match(component, /const cid = generateCompareSolarCid\(\)/);
 	assert.match(component, /buildCompareSolarReferralUrl\(state, city, cid\)/);
 	assert.match(component, /referral_cid: cid/);
@@ -90,14 +90,14 @@ test("staged CTA creates one fresh CID per click and sends that same non-PII CID
 	assert.match(component, /window\.open\(referralUrl/);
 });
 
-test("staged CTA records partner/page/locality dimensions on views without double-firing the generic data-track-view hook", () => {
+test("CTA records partner/page/locality dimensions on views without double-firing the generic data-track-view hook", () => {
 	assert.match(component, /trackEvent\("cpl_cta_viewed", getSafePlacementParams\(state, city\)\)/);
 	assert.match(component, /page_path: window\.location\.pathname/);
 	assert.match(component, /data-compare-solar-cta-root/);
 	assert.ok(!component.includes('data-track-view="cpl_cta_viewed"'));
 });
 
-test("production locality pages do not import or render the staged CTA before the tax/payment gate clears", () => {
+test("LocalityGuideLayout does not duplicate the CompareSolarPrices integration owned by InstallerCTA", () => {
 	assert.ok(!localityLayout.includes("CompareSolarPricesCTA"));
 	assert.ok(!localityLayout.includes("compare-solar-prices"));
 });
@@ -110,8 +110,6 @@ test("a blocked popup falls back to same-tab navigation instead of stranding the
 test("the click listener is idempotent even if the component script body runs more than once on one page", () => {
 	assert.match(component, /GUARD_KEY/);
 	assert.match(component, /if \(!\(window as typeof window & Record<string, boolean>\)\[GUARD_KEY\]\)/);
-	// The guard must wrap the listener attachment itself, not just be present
-	// somewhere in the file, so the click handler is genuinely conditional.
 	const guardIndex = component.indexOf("GUARD_KEY] = true");
 	const listenerIndex = component.indexOf('document.addEventListener("click"');
 	assert.ok(guardIndex > -1 && listenerIndex > guardIndex, "the click listener must be attached inside the guard block, after the guard is set");
@@ -138,17 +136,20 @@ test("the CTA script is a real Astro module script, not a raw inline script requ
 });
 
 test("the component gates rendering on BOTH geo eligibility AND the partner registry's own launch-ready state", () => {
-	assert.match(component, /getLaunchReadyPartner\("compare-solar-prices", "cpl"\)/, "must consult the partner registry, not just the geo allowlist, so an accidental import can never render before real approval");
+	assert.match(component, /getLaunchReadyPartner\("compare-solar-prices", "cpl"\)/, "must consult the partner registry, not just the geo allowlist");
 	assert.match(component, /Boolean\(partner\) && isCompareSolarServedLocality\(state, city\)/);
 });
 
-test("today, CompareSolarPrices is not launch-ready in the registry, so the component would render nothing even for an eligible California city if it were imported", () => {
-	// This directly proves the fix: even Irvine, CA (a real allowlisted city)
-	// must not become eligible while src/lib/partners.ts still has
-	// launchEnabled: false for compare-solar-prices.
-	assert.equal(getLaunchReadyPartner("compare-solar-prices", "cpl"), null);
-	assert.equal(isCompareSolarServedLocality("CA", "Irvine"), true, "the geo allowlist itself should still say Irvine is served, proving the null above comes from the registry gate, not the geo gate");
+test("CompareSolarPrices is production-active through an explicit dynamic tracking asset, not a fabricated static destination", () => {
+	const launchReady = getLaunchReadyPartner("compare-solar-prices", "cpl");
+	assert.ok(launchReady);
+	assert.equal(isCompareSolarServedLocality("CA", "Irvine"), true);
 	const partner = getPartner("compare-solar-prices");
 	assert.ok(partner);
-	assert.equal(partner.launchEnabled, false);
+	assert.equal(partner.status, "production_active");
+	assert.equal(partner.destination, "");
+	assert.equal(partner.dynamicTracking, true);
+	assert.equal(partner.trackingEnabled, true);
+	assert.equal(partner.placementEligible, true);
+	assert.equal(partner.launchEnabled, true);
 });
