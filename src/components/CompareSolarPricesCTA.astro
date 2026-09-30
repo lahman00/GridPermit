@@ -16,7 +16,7 @@ interface Props {
 	qualificationLabel?: string;
 }
 
-const { state, city, requireFirstLeadQualification = false, qualificationLabel = 'I own this home and this property does not already have solar.' } = Astro.props;
+const { state, city, requireFirstLeadQualification = false, qualificationLabel = 'I own this home.' } = Astro.props;
 const partner = getLaunchReadyPartner("compare-solar-prices", "cpl");
 const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 ---
@@ -35,13 +35,11 @@ const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 		<h2>Want a solar quote after reviewing the permit requirements in {city}?</h2>
 		<p>Continue to CompareSolarPrices to request a homeowner solar quote for {city}.</p>
 		<p class="compare-solar-preparation">Have a recent electricity bill ready. CompareSolarPrices will ask you to confirm your contact details and receipt of its quote. Submit those details only on its website, not to GridPermit.</p>
-		{requireFirstLeadQualification && (
-			<label class="first-lead-qualification">
-				<input type="checkbox" data-first-lead-qualification />
-				<span>{qualificationLabel}</span>
-			</label>
-		)}
-		<button type="button" class="compare-solar-btn" data-compare-solar-cta data-state={state} data-city={city} disabled={requireFirstLeadQualification}>
+		<label class="first-lead-qualification">
+			<input type="checkbox" data-first-lead-qualification />
+			<span>{qualificationLabel}</span>
+		</label>
+		<button type="button" class="compare-solar-btn" data-compare-solar-cta data-state={state} data-city={city} disabled>
 			Request a quote from CompareSolarPrices → <span class="visually-hidden">(opens in a new tab)</span>
 		</button>
 		<p class="compare-solar-note">You will continue on CompareSolarPrices' website. GridPermit is not the installer.</p>
@@ -229,12 +227,13 @@ const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 			const trigger = target.closest("[data-compare-solar-cta]");
 			if (!(trigger instanceof HTMLButtonElement)) return;
 			if (trigger.disabled) return;
-			if (FIRST_LEAD_TARGET_PATHS.has(window.location.pathname)) {
-				const checkbox = document.querySelector("[data-first-lead-qualification]");
-				// Re-read the actual confirmation at click time. Missing or unchecked
-				// fails closed before CID generation, click analytics or navigation.
-				if (!(checkbox instanceof HTMLInputElement) || !checkbox.checked) return;
-			}
+			const checkbox = document.querySelector("[data-first-lead-qualification]");
+			// Aaron's 2026-09-30 written qualification clarification requires the
+			// request to come from the homeowner. Re-read the self-attestation at
+			// click time on every CSP locality route. Missing or unchecked fails
+			// closed before CID generation, analytics or navigation. Partner-side
+			// contact verification remains the authoritative qualification step.
+			if (!(checkbox instanceof HTMLInputElement) || !checkbox.checked) return;
 
 			const state = trigger.dataset.state ?? "";
 			const city = trigger.dataset.city ?? "";

@@ -9,7 +9,7 @@ import {buildCommercialOutbound} from '../src/lib/commercial/attribution.ts';
 import {inspectPartnerHtml} from '../scripts/partner-health.mjs';
 
 const ROOT=path.resolve('.');
-const NOW='2026-09-29T20:00:00Z';
+const NOW='2026-09-30T12:00:00Z';
 const CID='a'.repeat(24);
 const registry=await loadPlatformRegistry(ROOT);
 const partner=registry.partners.find(p=>p.partner_id==='compare-solar-prices');
@@ -26,8 +26,8 @@ test('Aaron written approval binds CSP to new-solar plus existing-solar battery 
   assert.equal(partner.qualification.existing_solar,'ALLOW');
   assert.equal(partner.paths.battery,'https://www.comparesolarprices.net/#quote');
   assert.ok(!partner.categories.includes('BATTERY_NEW_INSTALL'));
-  assert.equal(partner.approval_reference,'csp-aaron-email-20260929');
-  assert.equal(partner.program.terms_reference,'gmail:1a0eafa285b84cf3');
+  assert.equal(partner.approval_reference,'csp-aaron-email-20260930');
+  assert.equal(partner.program.terms_reference,'gmail:1a0eafa285b84cf3; gmail:1a0f1bf9041d8bb6');
 });
 
 test('reviewed SDGE battery page selects CSP without GridPermit PII and preserves approved direct quote tracking',async()=>{
@@ -52,6 +52,13 @@ test('new-solar remains live on verified unambiguous Aaron-territory locality re
     ['ca-los-angeles-norwalk-sce','norwalk'],
     ['ca-orange-orange-sce','orange'],
     ['ca-san-bernardino-victorville-sce','victorville'],
+    ['ca-los-angeles-duarte-sce','duarte'],
+    ['ca-riverside-norco-sce','norco'],
+    ['ca-orange-brea-sce','brea'],
+    ['ca-los-angeles-inglewood-sce','inglewood'],
+    ['ca-los-angeles-baldwin-park-sce','baldwin-park'],
+    ['ca-orange-fountain-valley-sce','fountain-valley'],
+    ['ca-san-diego-del-mar-sdge','del-mar'],
   ]){
     const r=record(id),ctx=contextFor(r,'/california/'+slug+'/solar-permit-guide/');
     assert.equal(selectPartner(ctx,registry,NOW)?.partner_id,'compare-solar-prices',slug);
