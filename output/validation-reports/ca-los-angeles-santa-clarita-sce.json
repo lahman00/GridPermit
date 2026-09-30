@@ -1,0 +1,113 @@
+{
+  "record_id": "ca-los-angeles-santa-clarita-sce",
+  "file": "data/localities/ca-los-angeles-santa-clarita-sce.json",
+  "validated_at": "2026-09-30",
+  "status": "REVIEW",
+  "score": 94,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "interconnection_url",
+      "category": "broken_url",
+      "message": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[SCE_SERVICE].url",
+      "category": "broken_url",
+      "message": "https://www.sce.com/outages-safety/outage-center/reliability-reports — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[SCE_SGIP].url",
+      "category": "broken_url",
+      "message": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive — DNS failure (ENOTFOUND) — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://santaclarita.gov/building-safety/instantpermits/",
+      "checked_at": "2026-09-30T09:23:27.217Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+      "checked_at": "2026-09-30T09:23:27.496Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "checked_at": "2026-09-30T09:23:37.370Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://santaclarita.gov/building-safety/",
+      "checked_at": "2026-09-30T09:23:38.202Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.sce.com/outages-safety/outage-center/reliability-reports",
+      "checked_at": "2026-09-30T09:23:38.466Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
+      "checked_at": "2026-09-30T09:23:38.472Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://santaclarita.gov/building-safety/wp-content/uploads/sites/12/2026/01/Agency-Referrals-RESIDENTIAL-1-5.pdf",
+      "checked_at": "2026-09-30T09:23:38.476Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://santaclarita.gov/building-safety/wp-content/uploads/sites/12/2026/08/2026-2027-BS-Fee-Brochure.pdf",
+      "checked_at": "2026-09-30T09:23:38.525Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "checked_at": "2026-09-30T09:23:38.572Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

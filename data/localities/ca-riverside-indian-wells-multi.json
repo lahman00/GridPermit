@@ -1,0 +1,147 @@
+{
+  "record_id": "ca-riverside-indian-wells-multi",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Split-territory: SCE and IID serve portions of this city (sce-territory; iid-governance, service-boundary discussion). Address-level wires utility remains unresolved."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No citywide generation supplier established. A CCA must not be treated as the wires utility."
+  },
+  "city": {
+    "value": "Indian Wells",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-governance",
+      "sce-territory"
+    ],
+    "notes": "Named in the IID-hosted governance study."
+  },
+  "county": {
+    "value": "Riverside",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-governance"
+    ],
+    "notes": "Study identifies the Riverside County communities; older territorial source accessed this run."
+  },
+  "permit_authority": {
+    "value": "City of Indian Wells Building",
+    "confidence": 0.9,
+    "source_ids": [
+      "city-inspections"
+    ],
+    "notes": "City Building department and building-inspection page."
+  },
+  "permit_url": {
+    "value": "https://www.cityofindianwells.org/city-hall/indian-wells-permit-hub",
+    "confidence": 0.8,
+    "source_ids": [
+      "city-inspections"
+    ],
+    "notes": "Permit Hub is linked in the official city's navigation. The hub's body could not be fetched; detailed application instructions remain unverified."
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Resolve the property's SCE or IID service before selecting an interconnection pathway."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Utility-specific program applicability is unresolved for this split-territory record."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Residential PV requirements located in official search results; direct document retrieval was blocked, so the checklist remains unverified."
+  },
+  "inspection_steps": {
+    "value": [
+      "The city instructs applicants to email inspections@indianwells.com before 4:00 p.m. to schedule the next business day.",
+      "Include the address, permit number, inspection type, contact name and number.",
+      "AM/PM requests depend on the inspector's schedule."
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "city-inspections"
+    ],
+    "notes": "General building-inspection scheduling; not a solar permit issuance deadline."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Inspection scheduling guidance does not establish solar permit processing time."
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The accessible schedule was updated July 2025 and provides annual adjustments; the September 2026 charge was not established."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Building inspections",
+        "phone": null,
+        "email": "inspections@indianwells.com",
+        "url": "https://www.cityofindianwells.org/city-hall/departments/building/schedule-an-inspection"
+      }
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "city-inspections"
+    ],
+    "notes": "Contact information only; no request has been submitted."
+  },
+  "last_verified": "2026-09-30",
+  "sources": [
+    {
+      "id": "iid-governance",
+      "title": "Imperial Irrigation District Alternative Governance Study",
+      "url": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000",
+      "publisher": "Riverside and Imperial County LAFCO",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sce-territory",
+      "title": "SCE service territory: incorporated cities",
+      "url": "https://www.sce.com/sites/default/files/inline-files/080508_Service_Territory_Map.pdf",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-inspections",
+      "title": "Schedule an Inspection",
+      "url": "https://www.cityofindianwells.org/city-hall/departments/building/schedule-an-inspection",
+      "publisher": "City of Indian Wells",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    }
+  ]
+}

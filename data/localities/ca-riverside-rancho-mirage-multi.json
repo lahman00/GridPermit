@@ -1,0 +1,214 @@
+{
+  "record_id": "ca-riverside-rancho-mirage-multi",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Split-territory: SCE and IID serve portions of this city (sce-territory; iid-governance, service-boundary discussion). Address-level wires utility remains unresolved."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No citywide generation supplier established. A CCA must not be treated as the wires utility."
+  },
+  "city": {
+    "value": "Rancho Mirage",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-governance",
+      "sce-territory"
+    ],
+    "notes": "Named in the IID-hosted governance study."
+  },
+  "county": {
+    "value": "Riverside",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-governance"
+    ],
+    "notes": "Study identifies the Riverside County communities; older territorial source accessed this run."
+  },
+  "permit_authority": {
+    "value": "City of Rancho Mirage Building & Safety Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "city-solar-plans"
+    ],
+    "notes": "Department identified in the city solar handout."
+  },
+  "permit_url": {
+    "value": "https://ranchomirageca-energovweb.tylerhost.net/apps/selfservice#/home",
+    "confidence": 0.9,
+    "source_ids": [
+      "city-solar-portal"
+    ],
+    "notes": "City-hosted solar guide identifies this CSS portal; portal account and submission actions were not performed."
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Resolve the property's SCE or IID service before selecting an interconnection pathway."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Utility-specific program applicability is unresolved for this split-territory record."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Signed solar plans",
+        "required_when": "Three sets for paper submission or one digital set, per the city handout",
+        "source_ids": [
+          "city-solar-plans"
+        ]
+      },
+      {
+        "name": "Equipment specification sheets",
+        "required_when": null,
+        "source_ids": [
+          "city-solar-plans"
+        ]
+      },
+      {
+        "name": "Single-line electrical drawing and equipment-location details",
+        "required_when": null,
+        "source_ids": [
+          "city-solar-plans"
+        ]
+      },
+      {
+        "name": "Attachment, flashing and support details with engineering calculations",
+        "required_when": null,
+        "source_ids": [
+          "city-solar-plans"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "city-solar-plans"
+    ],
+    "notes": "The accessible handout is dated June 2023. Confirm the current checklist and code edition before submitting; older fees and technical design values are not adopted here."
+  },
+  "inspection_steps": {
+    "value": [
+      "The expedited pathway allows one inspection; a failed inspection can require another."
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "city-solar-code"
+    ],
+    "notes": "Chapter 15.84.050; see eligibility_constraints. No numeric inspection deadline stated."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The city code specifies timely inspections but no numeric processing deadline."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Small residential rooftop solar expedited permitting (Chapter 15.84)",
+      "other_conditions": [
+        "Meet the city-approved checklist.",
+        "Obtain the city building permit before installing.",
+        "Meet applicable health, safety and electrical performance standards."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "city-solar-code"
+    ],
+    "notes": "This chapter cross-references state definitions; no unverified numeric limits are copied into this record."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The June 2023 handout gives an approximate average, not a verified current fee."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Building & Safety Division",
+        "phone": "760-202-9253",
+        "email": null,
+        "url": "https://cms3.revize.com/revize/ranchomirageca/CITY%20STAFF%20USE%20THIS%20FILE/Department%20Files/Building%20and%20Safety/Solar%20Permitting/Photovoltaic-Solar-Plan-Requirements-June-2023.pdf"
+      },
+      {
+        "name": null,
+        "role": "Building inspections",
+        "phone": "760-202-9852",
+        "email": null,
+        "url": "https://cms3.revize.com/revize/ranchomirageca/CITY%20STAFF%20USE%20THIS%20FILE/Department%20Files/Building%20and%20Safety/Solar%20Permitting/Photovoltaic-Solar-Plan-Requirements-June-2023.pdf"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "city-solar-plans"
+    ],
+    "notes": "Published city solar-handout contacts; source is older than 90 days."
+  },
+  "last_verified": "2026-09-30",
+  "sources": [
+    {
+      "id": "iid-governance",
+      "title": "Imperial Irrigation District Alternative Governance Study",
+      "url": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000",
+      "publisher": "Riverside and Imperial County LAFCO",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sce-territory",
+      "title": "SCE service territory: incorporated cities",
+      "url": "https://www.sce.com/sites/default/files/inline-files/080508_Service_Territory_Map.pdf",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-solar-plans",
+      "title": "Photovoltaic Solar Plan Submittal Requirements — June 2023",
+      "url": "https://cms3.revize.com/revize/ranchomirageca/CITY%20STAFF%20USE%20THIS%20FILE/Department%20Files/Building%20and%20Safety/Solar%20Permitting/Photovoltaic-Solar-Plan-Requirements-June-2023.pdf",
+      "publisher": "City of Rancho Mirage",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-solar-portal",
+      "title": "Rancho Mirage Online Solar Permitting",
+      "url": "https://cms3.revize.com/revize/ranchomirageca/CITY%20STAFF%20USE%20THIS%20FILE/Department%20Files/Building%20and%20Safety/Solar%20Permitting/2023-CRM-Create-an-Account.pdf",
+      "publisher": "City of Rancho Mirage",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-solar-code",
+      "title": "Municipal Code Chapter 15.84: Small Residential Rooftop Solar Energy Systems",
+      "url": "https://ecode360.com/43376311",
+      "publisher": "City of Rancho Mirage",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    }
+  ]
+}

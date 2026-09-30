@@ -339,6 +339,7 @@ const tocItems = [
 			<!-- ===== Permit fees ===== -->
 			<section id="permit-fees">
 				<h2>Permit fees</h2>
+				{record.permit_fees.notes && <p class="fact-notes" data-permit-fee-context>{record.permit_fees.notes}</p>}
 				{record.permit_fees.value ? (
 					<>
 						<ul class="fact-list">

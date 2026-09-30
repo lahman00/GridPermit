@@ -1,0 +1,215 @@
+{
+  "record_id": "ca-riverside-cathedral-city-sce",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": "Southern California Edison",
+    "confidence": 0.9,
+    "source_ids": [
+      "sce-territory",
+      "iid-governance"
+    ],
+    "notes": "SCE lists the city; the IID study excludes it from IID's extended electric territory."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "city": {
+    "value": "Cathedral City",
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "City solar page identifies the jurisdiction."
+  },
+  "county": {
+    "value": "Riverside",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-governance"
+    ],
+    "notes": "Study identifies the Riverside County communities; older territorial source accessed this run."
+  },
+  "permit_authority": {
+    "value": "City of Cathedral City Building & Safety",
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "Issuing city department named on its solar page."
+  },
+  "permit_url": {
+    "value": "https://www.cathedralcity.gov/departments/community-economic-development-department/building-and-safety/solar-photovoltaic",
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "SolarAPP+ review precedes the city's CSS application for Solar PV System; city permit and fees remain required."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+    "confidence": 0.9,
+    "source_ids": [
+      "sce-interconnection"
+    ],
+    "notes": "SCE interconnection and permission to operate are separate from city permitting; CCA customers still use SCE's interconnection process."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Self-Generation Incentive Program — Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison",
+        "description": "SCE reports exhausted RSSE funds and a waitlist. Its ratepayer-funded SGIP budgets are closed to new applicants.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Individual program eligibility and funding must be confirmed with SCE; inclusion does not mean an award is available.",
+        "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "sce-sgip"
+    ],
+    "notes": "The schema has no waitlisted status; unknown does not mean currently funded. No incentive amount or precise program dates asserted."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "SolarAPP+ approval documents",
+        "required_when": "City CSS application after SolarAPP+ review",
+        "source_ids": [
+          "city-solar"
+        ]
+      },
+      {
+        "name": "Revised SolarAPP+ approval document",
+        "required_when": "Design revisions before inspection",
+        "source_ids": [
+          "city-solar"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "Pathway-specific submission documents; see eligibility_constraints."
+  },
+  "inspection_steps": {
+    "value": [
+      "Request city inspection through CSS.",
+      "Complete SolarAPP+ revisions before inspection; contact Building & Safety if the revision leaves this pathway."
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "Applies to the SolarAPP+ pathway in eligibility_constraints."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Automated review is not an end-to-end permit, inspection or interconnection deadline."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+",
+      "other_conditions": [
+        "Licensed contractors only.",
+        "Permitted main-dwelling rooftop residential structures.",
+        "No ballasted systems or manufactured homes.",
+        "Outside special districts, historic neighborhoods, environmentally sensitive areas and hillside development zones."
+      ]
+    },
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "City lists PV, panel changes and energy storage for this pathway; numeric capacity limits were not established."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No current adopted solar fee verified; a proposed schedule is insufficient."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Building & Safety",
+        "phone": null,
+        "email": "building@cathedralcity.gov",
+        "url": "https://www.cathedralcity.gov/departments/community-economic-development-department/building-and-safety/solar-photovoltaic"
+      }
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "City-listed contact for solar application and revision questions."
+  },
+  "last_verified": "2026-09-30",
+  "sources": [
+    {
+      "id": "iid-governance",
+      "title": "Imperial Irrigation District Alternative Governance Study",
+      "url": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000",
+      "publisher": "Riverside and Imperial County LAFCO",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sce-territory",
+      "title": "SCE service territory: incorporated cities",
+      "url": "https://www.sce.com/sites/default/files/inline-files/080508_Service_Territory_Map.pdf",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sce-interconnection",
+      "title": "Solar Billing Plan frequently asked questions",
+      "url": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sce-sgip",
+      "title": "Self-Generation Incentive Program: current funding notices",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-solar",
+      "title": "Solar Photovoltaic",
+      "url": "https://www.cathedralcity.gov/departments/community-economic-development-department/building-and-safety/solar-photovoltaic",
+      "publisher": "City of Cathedral City",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    }
+  ]
+}
