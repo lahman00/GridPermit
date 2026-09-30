@@ -56,17 +56,17 @@ test("distribution outputs are byte-deterministic and contain no generated times
 });
 
 test("the report reconciles every locality into a published or suppressed partition", () => {
-	assert.equal(pack.summary.record_count, 404);
-	assert.equal(pack.records.length, 404);
-	assert.equal(pack.summary.published_route_count, 344);
-	assert.equal(pack.summary.suppressed_record_count, 60);
+	assert.equal(pack.summary.record_count, 414);
+	assert.equal(pack.records.length, 414);
+	assert.equal(pack.summary.published_route_count, 347);
+	assert.equal(pack.summary.suppressed_record_count, 67);
 	assert.equal(pack.summary.published_route_count + pack.summary.suppressed_record_count, pack.summary.record_count);
-	assert.equal(pack.summary.recorded_ready_count, 344);
-	assert.equal(pack.summary.recorded_limited_count, 60);
-	assert.equal(pack.summary.recorded_not_ready_count, 0);
-	assert.equal(pack.summary.recomputed_ready_count, 343);
-	assert.equal(pack.summary.recomputed_limited_count, 61);
-	assert.equal(pack.summary.recomputed_not_ready_count, 0);
+	assert.equal(pack.summary.recorded_ready_count, 347);
+	assert.equal(pack.summary.recorded_limited_count, 65);
+	assert.equal(pack.summary.recorded_not_ready_count, 2);
+	assert.equal(pack.summary.recomputed_ready_count, 346);
+	assert.equal(pack.summary.recomputed_limited_count, 66);
+	assert.equal(pack.summary.recomputed_not_ready_count, 2);
 	// ca-riverside-corona-multi graduated into this disagreement set once its
 	// utility field was properly sourced (was null/genuinely-ambiguous; now a
 	// well-sourced majority-provider value per the City of Corona's own GIS
@@ -184,10 +184,10 @@ test("the current suppressed inventory is completeness-only, while published rea
 	const corona = pack.suppressed_rows.find((row) => row.record_id === "ca-riverside-corona-multi");
 	assert.equal(corona.primary_suppression_kind, "stale_evaluation");
 	assert.equal(corona.fields_needed_to_publish, 0);
-	assert.equal(Math.min(...pack.suppressed_rows.map((row) => row.recomputed_readiness.validation_score)), 91);
+	assert.equal(Math.min(...pack.suppressed_rows.map((row) => row.recomputed_readiness.validation_score)), 88);
 	assert.deepEqual(
 		Object.fromEntries([1, 2, 3, 4].map((gap) => [gap, pack.suppressed_rows.filter((row) => row.fields_needed_to_publish === gap).length])),
-		{ 1: 23, 2: 16, 3: 10, 4: 10 },
+		{ 1: 24, 2: 17, 3: 12, 4: 11 },
 	);
 	assert.deepEqual(
 		pack.records.filter((row) => row.readiness_disagreement).map((row) => row.record_id),
@@ -208,9 +208,9 @@ test("the current suppressed inventory is completeness-only, while published rea
 	}
 });
 
-test("CompareSolar overlay flags identify the remaining allowlisted suppressed record without reclassifying coverage", () => {
+test("CompareSolar overlay flags identify the remaining allowlisted suppressed records without reclassifying coverage", () => {
 	const allowlisted = pack.suppressed_rows.filter((row) => row.compare_solar_allowlisted);
-	assert.deepEqual(allowlisted.map((row) => row.city_slug).sort(), ["corona"]);
+	assert.deepEqual(allowlisted.map((row) => row.city_slug).sort(), ["cathedral-city", "corona", "indian-wells", "indio", "lancaster", "palm-desert", "palm-springs", "rancho-mirage"]);
 	assert.equal(allowlisted.every((row) => row.compare_solar_production_verified === false), true);
 	assert.equal(pack.suppressed_rows.some((row) => "classification" in row), false);
 });

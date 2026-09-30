@@ -1,0 +1,207 @@
+{
+  "record_id": "ca-los-angeles-lancaster-sce",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 1,
+    "source_ids": [
+      "LANCASTER_ENERGY",
+      "SCE_SERVICE"
+    ],
+    "notes": "Lancaster Energy's FAQ assigns electricity delivery, grid maintenance and outages to SCE; Lancaster Energy supplies generation."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Lancaster Energy",
+      "type": "cca",
+      "notes": "Opt-out CCA generation service within Lancaster city limits; SCE remains the delivery utility."
+    },
+    "confidence": 1,
+    "source_ids": [
+      "LANCASTER_ENERGY"
+    ],
+    "notes": "The utility FAQ explicitly describes automatic CCA enrollment and the option to remain with SCE."
+  },
+  "city": {
+    "value": "Lancaster",
+    "confidence": 1,
+    "source_ids": [
+      "LANCASTER_ENERGY"
+    ]
+  },
+  "county": {
+    "value": "Los Angeles",
+    "confidence": 1,
+    "source_ids": [
+      "SCE_SERVICE"
+    ],
+    "notes": "The city is listed under Los Angeles County in SCE's reliability directory."
+  },
+  "permit_authority": {
+    "value": "City of Lancaster",
+    "confidence": 0.9,
+    "source_ids": [
+      "CITY_PORTAL"
+    ],
+    "notes": "The city's public Accela portal is verified; the department's own website was unavailable for this review."
+  },
+  "permit_url": {
+    "value": "https://aca-prod.accela.com/LANCASTER/Welcome.aspx",
+    "confidence": 1,
+    "source_ids": [
+      "CITY_PORTAL"
+    ],
+    "notes": "The portal announces Symbium availability for residential solar submissions and provides the permitting entry point."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+    "confidence": 1,
+    "source_ids": [
+      "SCE_INTERCONNECTION"
+    ],
+    "notes": "SCE's FAQ links its online interconnection system; utility approval is separate from city permitting."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "California SGIP - current category and budget check required",
+        "administrator": "Southern California Edison",
+        "description": "Ratepayer budgets are closed to new applicants; RSSE funds are exhausted and waitlisted.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Category and program-administrator rules apply; consult the live budget tracker.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "SCE_SGIP",
+      "SGIP_HANDBOOK_2026",
+      "SGIP_METRICS_2026"
+    ],
+    "notes": "SCE's closure/waitlist notice and the joint utility administrators' handbook and tracker were checked live. The schema has no closed/waitlisted status; no active award or amount is asserted."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No current Lancaster solar plan checklist was directly verified. Research evidence is retained separately; utility interconnection documents are not substituted for the city's checklist."
+  },
+  "inspection_steps": {
+    "value": [
+      "Use Schedule an Inspection in the Lancaster Accela portal."
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "CITY_PORTAL"
+    ],
+    "notes": "Only the scheduling entry point was verified; the solar-specific inspection sequence remains unresolved."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No numeric city solar-permit turnaround was verified. Instant-permit wording is not an end-to-end deadline."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Symbium residential solar permitting",
+      "other_conditions": [
+        "The city portal identifies residential solar as available through Symbium."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "CITY_PORTAL"
+    ],
+    "notes": "System-size, roof-type and battery eligibility limits were not established."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No current Lancaster solar permit fee schedule was directly verified."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No additional current solar rebate was verified; this does not mean no rebate exists."
+  },
+  "official_contacts": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Current permit-office contact details were not directly verified."
+  },
+  "last_verified": "2026-09-30",
+  "sources": [
+    {
+      "id": "SCE_SERVICE",
+      "title": "Outage Reliability Reports — Los Angeles County",
+      "url": "https://www.sce.com/outages-safety/outage-center/reliability-reports",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "SCE_INTERCONNECTION",
+      "title": "FAQs about the Solar Billing Plan",
+      "url": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "SCE_SGIP",
+      "title": "Self-Generation Incentive Program — current budget notice",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "CITY_PORTAL",
+      "title": "Lancaster Accela Citizen Access — solar announcement and inspections",
+      "url": "https://aca-prod.accela.com/LANCASTER/Welcome.aspx",
+      "publisher": "City of Lancaster (Accela)",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "LANCASTER_ENERGY",
+      "title": "Lancaster Energy FAQs",
+      "url": "https://lancasterenergy.com/about-le/faqs/",
+      "publisher": "Lancaster Energy",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "SGIP_HANDBOOK_2026",
+      "title": "2026 Self-Generation Incentive Program Handbook",
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "publisher": "SGIP Program Administrators, including Southern California Edison",
+      "type": "program_administrator",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "SGIP_METRICS_2026",
+      "title": "SGIP Program Metrics and Incentive Step Tracker — SCE budgets",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "SGIP Program Administrators, including Southern California Edison",
+      "type": "program_administrator",
+      "accessed_date": "2026-09-30"
+    }
+  ]
+}

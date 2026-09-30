@@ -1,0 +1,267 @@
+{
+  "record_id": "ca-los-angeles-palmdale-sce",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 1,
+    "source_ids": [
+      "CITY_EPIC",
+      "SCE_SERVICE"
+    ],
+    "notes": "The city distinguishes SCE delivery, line maintenance and billing from EPIC generation."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Energy for Palmdale's Independent Choice (EPIC)",
+      "type": "cca",
+      "notes": "EPIC supplies generation; SCE delivers electricity and bills customers. Check the account's enrollment."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "CITY_EPIC"
+    ],
+    "notes": "The city announcement is archived; it directly establishes the CCA relationship, not current rates or individual enrollment."
+  },
+  "city": {
+    "value": "Palmdale",
+    "confidence": 1,
+    "source_ids": [
+      "CITY_SOLAR"
+    ]
+  },
+  "county": {
+    "value": "Los Angeles",
+    "confidence": 1,
+    "source_ids": [
+      "SCE_SERVICE"
+    ],
+    "notes": "The city is listed under Los Angeles County in SCE's reliability directory."
+  },
+  "permit_authority": {
+    "value": "City of Palmdale Building & Safety",
+    "confidence": 1,
+    "source_ids": [
+      "CITY_BUILDING"
+    ]
+  },
+  "permit_url": {
+    "value": "https://cityofpalmdaleca.gov/1513/SolarAPP",
+    "confidence": 1,
+    "source_ids": [
+      "CITY_SOLAR"
+    ],
+    "notes": "Eligible contractors obtain SolarAPP+ approval, then upload it to the city's linked Accela portal and complete the city application."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+    "confidence": 1,
+    "source_ids": [
+      "SCE_INTERCONNECTION"
+    ],
+    "notes": "SCE's FAQ links its online interconnection system; utility approval is separate from city permitting."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "California SGIP - current category and budget check required",
+        "administrator": "Southern California Edison",
+        "description": "Ratepayer budgets are closed to new applicants; RSSE funds are exhausted and waitlisted.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Category and program-administrator rules apply; consult the live budget tracker.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "SCE_SGIP",
+      "SGIP_HANDBOOK_2026",
+      "SGIP_METRICS_2026"
+    ],
+    "notes": "SCE's closure/waitlist notice and the joint utility administrators' handbook and tracker were checked live. The schema has no closed/waitlisted status; no active award or amount is asserted."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "SolarAPP+ approval checklist",
+        "required_when": "SolarAPP+ city application",
+        "source_ids": [
+          "CITY_INSTRUCTIONS"
+        ]
+      },
+      {
+        "name": "Solar equipment specification sheets",
+        "required_when": "SolarAPP+ city application",
+        "source_ids": [
+          "CITY_INSTRUCTIONS"
+        ]
+      },
+      {
+        "name": "Electrical single-line diagram",
+        "required_when": "SolarAPP+ city application",
+        "source_ids": [
+          "CITY_INSTRUCTIONS"
+        ]
+      },
+      {
+        "name": "State declaration by license holder, or agent with notarized authorization",
+        "required_when": "Listed in the city's SolarAPP+ attachment instructions",
+        "source_ids": [
+          "CITY_INSTRUCTIONS"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "CITY_INSTRUCTIONS"
+    ],
+    "notes": "The attachment section says three documents but enumerates four, including the declaration. Retain all listed items and confirm the upload categories in Accela."
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule the inspection online in the city's Accela account.",
+      "For revisions, obtain SolarAPP+ approval, upload the revised checklist to the original BSA record and have it available for inspection."
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "CITY_INSTRUCTIONS"
+    ],
+    "notes": "The city's linked instructions provide these steps; field revisions can require additional inspection fees."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No numeric city solar-permit turnaround was verified. Instant-permit wording is not an end-to-end deadline."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "single-family",
+        "duplex"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ express permitting",
+      "other_conditions": [
+        "A licensed contractor must register with SolarAPP+.",
+        "Commercial and multifamily projects use standard city permitting.",
+        "The city's linked instructions exclude mobile homes and solar batteries/energy storage systems."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "CITY_SOLAR",
+      "CITY_INSTRUCTIONS"
+    ],
+    "notes": "These are Palmdale's published pathway limits, not a claim about SolarAPP+ capabilities in other jurisdictions."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The live Building & Safety page links an FY 2025-26 schedule. Its continuing applicability on 2026-09-30 was not established; amounts are retained only in research evidence."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No additional current solar rebate was verified; this does not mean no rebate exists."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Building & Safety",
+        "role": "City permit office",
+        "phone": "661-267-5353",
+        "email": "BuildingAdmin@cityofpalmdaleca.gov",
+        "url": "https://www.cityofpalmdaleca.gov/152/Building-Safety"
+      }
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "CITY_BUILDING"
+    ]
+  },
+  "last_verified": "2026-09-30",
+  "sources": [
+    {
+      "id": "SCE_SERVICE",
+      "title": "Outage Reliability Reports — Los Angeles County",
+      "url": "https://www.sce.com/outages-safety/outage-center/reliability-reports",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "SCE_INTERCONNECTION",
+      "title": "FAQs about the Solar Billing Plan",
+      "url": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "SCE_SGIP",
+      "title": "Self-Generation Incentive Program — current budget notice",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "CITY_SOLAR",
+      "title": "SolarAPP+",
+      "url": "https://cityofpalmdaleca.gov/1513/SolarAPP",
+      "publisher": "City of Palmdale",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "CITY_INSTRUCTIONS",
+      "title": "SolarAPP+ Application Instructions",
+      "url": "https://www.cityofpalmdaleca.gov/DocumentCenter/View/17041/Solar-APP-Instructions",
+      "publisher": "City of Palmdale",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "CITY_BUILDING",
+      "title": "Building & Safety",
+      "url": "https://www.cityofpalmdaleca.gov/152/Building-Safety",
+      "publisher": "City of Palmdale",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "CITY_EPIC",
+      "title": "Palmdale EPIC Energy — city announcement",
+      "url": "https://cityofpalmdaleca.gov/CivicAlerts.aspx?AID=1380&ARC=1931",
+      "publisher": "City of Palmdale",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "SGIP_HANDBOOK_2026",
+      "title": "2026 Self-Generation Incentive Program Handbook",
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "publisher": "SGIP Program Administrators, including Southern California Edison",
+      "type": "program_administrator",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "SGIP_METRICS_2026",
+      "title": "SGIP Program Metrics and Incentive Step Tracker — SCE budgets",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "SGIP Program Administrators, including Southern California Edison",
+      "type": "program_administrator",
+      "accessed_date": "2026-09-30"
+    }
+  ]
+}

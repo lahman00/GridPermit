@@ -1,0 +1,181 @@
+{
+  "record_id": "ca-riverside-indio-iid",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": "Imperial Irrigation District",
+    "confidence": 0.9,
+    "source_ids": [
+      "city-utilities",
+      "iid-governance"
+    ],
+    "notes": "City analysis identifies IID as the electric distribution provider throughout Indio; the IID service-boundary discussion corroborates Indio service."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "city": {
+    "value": "Indio",
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "City's photovoltaic permitting page."
+  },
+  "county": {
+    "value": "Riverside",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-governance"
+    ],
+    "notes": "Study identifies the Riverside County communities; older territorial source accessed this run."
+  },
+  "permit_authority": {
+    "value": "City of Indio Building & Safety Division",
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "City department named on its photovoltaic page."
+  },
+  "permit_url": {
+    "value": "https://www.indio.org/departments/community-development-department/building-safety-division/photovoltaic-information",
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "After SolarAPP+ approval, apply in CSS for Residential Photovoltaic Roof Mounted – Electrical (SolarAPP)."
+  },
+  "interconnection_url": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "IID rooftop-solar/net-billing guidance was found in official search results, but direct retrieval was blocked."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "SolarAPP+ approval documents",
+        "required_when": "City CSS application",
+        "source_ids": [
+          "city-solar"
+        ]
+      },
+      {
+        "name": "Revised SolarAPP+ approval document",
+        "required_when": "Revision to an approved design",
+        "source_ids": [
+          "city-solar"
+        ]
+      }
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "SolarAPP+ approval still requires a city permit application."
+  },
+  "inspection_steps": {
+    "value": [
+      "Track the permit and schedule inspections in city CSS."
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "No inspection deadline stated."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "SolarAPP+ automated review does not establish a total permit or interconnection deadline."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+",
+      "other_conditions": [
+        "Licensed contractors only.",
+        "Permitted main-dwelling rooftop residential structures.",
+        "PV systems must be less than 38.4 kW; the page does not specify AC or DC.",
+        "No ballasted systems.",
+        "Outside special districts, historic neighborhoods, environmentally sensitive areas and hillside development zones."
+      ]
+    },
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "AC and DC limits stay null because the city's threshold does not identify its electrical basis."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Current solar fees were not verified; comparison tables and proposed amounts were not used."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "Building & Safety Division",
+        "phone": null,
+        "email": "building&safety@indio.org",
+        "url": "https://www.indio.org/departments/community-development-department/building-safety-division/photovoltaic-information"
+      }
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "city-solar"
+    ],
+    "notes": "City contact for revisions that leave SolarAPP+ eligibility."
+  },
+  "last_verified": "2026-09-30",
+  "sources": [
+    {
+      "id": "iid-governance",
+      "title": "Imperial Irrigation District Alternative Governance Study",
+      "url": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000",
+      "publisher": "Riverside and Imperial County LAFCO",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-solar",
+      "title": "Photovoltaic Information",
+      "url": "https://www.indio.org/departments/community-development-department/building-safety-division/photovoltaic-information",
+      "publisher": "City of Indio",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-utilities",
+      "title": "Indio utilities and service systems analysis",
+      "url": "https://www.indio.org/home/showpublisheddocument/908/637874287863170000",
+      "publisher": "City of Indio",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    }
+  ]
+}

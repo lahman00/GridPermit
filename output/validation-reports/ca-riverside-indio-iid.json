@@ -1,0 +1,77 @@
+{
+  "record_id": "ca-riverside-indio-iid",
+  "file": "data/localities/ca-riverside-indio-iid.json",
+  "validated_at": "2026-09-30",
+  "status": "REVIEW",
+  "score": 94,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "broken_url",
+      "message": "https://www.indio.org/departments/community-development-department/building-safety-division/photovoltaic-information — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[iid-governance].url",
+      "category": "broken_url",
+      "message": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[city-utilities].url",
+      "category": "broken_url",
+      "message": "https://www.indio.org/home/showpublisheddocument/908/637874287863170000 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "interconnection_url",
+      "message": "'interconnection_url' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "permit_fees",
+      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.indio.org/departments/community-development-department/building-safety-division/photovoltaic-information",
+      "checked_at": "2026-09-30T09:23:27.230Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000",
+      "checked_at": "2026-09-30T09:23:27.543Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.indio.org/home/showpublisheddocument/908/637874287863170000",
+      "checked_at": "2026-09-30T09:23:27.613Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    }
+  ]
+}

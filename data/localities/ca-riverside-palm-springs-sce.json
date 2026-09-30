@@ -1,0 +1,191 @@
+{
+  "record_id": "ca-riverside-palm-springs-sce",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": "Southern California Edison",
+    "confidence": 1,
+    "source_ids": [
+      "dce",
+      "sce-territory"
+    ],
+    "notes": "DCE explicitly distinguishes its electricity purchasing from SCE delivery and grid maintenance."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Desert Community Energy",
+      "type": "cca",
+      "notes": "Default generation supplier for Palm Springs; customer opt-out is available. SCE remains the wires utility."
+    },
+    "confidence": 1,
+    "source_ids": [
+      "dce"
+    ],
+    "notes": "City-specific enrollment statement; membership of another city would not establish that city's enrollment."
+  },
+  "city": {
+    "value": "Palm Springs",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-governance"
+    ],
+    "notes": "Named in the IID-hosted governance study."
+  },
+  "county": {
+    "value": "Riverside",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-governance"
+    ],
+    "notes": "Study identifies the Riverside County communities; older territorial source accessed this run."
+  },
+  "permit_authority": {
+    "value": "City of Palm Springs Building Department",
+    "confidence": 0.8,
+    "source_ids": [
+      "city-building"
+    ],
+    "notes": "Official Building navigation; returned page content is older, so current solar requirements remain unverified."
+  },
+  "permit_url": {
+    "value": "https://www.palmspringsca.gov/government/departments/building/plan-review",
+    "confidence": 0.8,
+    "source_ids": [
+      "city-building"
+    ],
+    "notes": "Official Building navigation links Plan Review. Destination content was blocked; no current solar submittal workflow is asserted."
+  },
+  "interconnection_url": {
+    "value": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+    "confidence": 0.9,
+    "source_ids": [
+      "sce-interconnection"
+    ],
+    "notes": "SCE interconnection and permission to operate are separate from city permitting; CCA customers still use SCE's interconnection process."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Self-Generation Incentive Program — Residential Solar and Storage Equity",
+        "administrator": "Southern California Edison",
+        "description": "SCE reports exhausted RSSE funds and a waitlist. Its ratepayer-funded SGIP budgets are closed to new applicants.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Individual program eligibility and funding must be confirmed with SCE; inclusion does not mean an award is available.",
+        "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "sce-sgip"
+    ],
+    "notes": "The schema has no waitlisted status; unknown does not mean currently funded. No incentive amount or precise program dates asserted."
+  },
+  "required_documents": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Current solar checklist and plan requirements could not be directly retrieved."
+  },
+  "inspection_steps": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Current city inspection instructions appeared in official search results, but direct retrieval was blocked."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No directly verified permit processing deadline."
+  },
+  "eligibility_constraints": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "City-code solar scope appeared in search results; the code could not be directly retrieved."
+  },
+  "permit_fees": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No current adopted solar fee verified."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Not verified from an accessible primary source in this research pass."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": null,
+        "role": "City Hall general contact",
+        "phone": "760-323-8299",
+        "email": null,
+        "url": "https://www.palmspringsca.gov/government/departments/building/handouts-and-guidelines"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "city-building"
+    ],
+    "notes": "General city contact from the accessible page, not a verified current solar plan-review desk."
+  },
+  "last_verified": "2026-09-30",
+  "sources": [
+    {
+      "id": "iid-governance",
+      "title": "Imperial Irrigation District Alternative Governance Study",
+      "url": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000",
+      "publisher": "Riverside and Imperial County LAFCO",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sce-territory",
+      "title": "SCE service territory: incorporated cities",
+      "url": "https://www.sce.com/sites/default/files/inline-files/080508_Service_Territory_Map.pdf",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sce-interconnection",
+      "title": "Solar Billing Plan frequently asked questions",
+      "url": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sce-sgip",
+      "title": "Self-Generation Incentive Program: current funding notices",
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
+      "publisher": "Southern California Edison",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "dce",
+      "title": "Desert Community Energy frequently asked questions: CCA, Palm Springs enrollment and SCE delivery",
+      "url": "https://desertcommunityenergy.org/frequently-asked-questions/",
+      "publisher": "Desert Community Energy",
+      "type": "program_administrator",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-building",
+      "title": "Building: Handouts and Guidelines",
+      "url": "https://www.palmspringsca.gov/government/departments/building/handouts-and-guidelines",
+      "publisher": "City of Palm Springs",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    }
+  ]
+}
