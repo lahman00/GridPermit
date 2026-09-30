@@ -134,16 +134,44 @@
     "notes": "No current Lancaster solar permit fee schedule was directly verified."
   },
   "rebates": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No additional current solar rebate was verified; this does not mean no rebate exists."
+    "value": [
+      {
+        "name": "Residential Solar and Storage Equity — paired solar component (waitlisted)",
+        "administrator": "Southern California Edison",
+        "description": "CPUC assigns Lancaster Choice Energy customers to SCE; Lancaster Energy is the city CCA generation supplier and SCE remains the wires utility. The program includes solar paired with eligible storage for qualifying low-income residential customers. The administrator tracker, retrieved on 2026-10-01 and displaying 2026-09-30 data, lists SCE AB 209 Non-POU as Waitlist. This is the solar component of the same paired program referenced under battery_programs, not a separate or standalone award.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Income-qualified residential customers; solar and storage must meet program rules. Eligibility, any waitlist place and a funding reservation must be confirmed with the administrator. No available reservation is asserted.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "NIGHT_CPUC_RSSE",
+      "NIGHT_CPUC_ASSIGNMENTS",
+      "NIGHT_SGIP_TRACKER"
+    ],
+    "notes": "Paired solar component, not an additional award beyond the storage program. Verified tracker data date: 2026-09-30. The schema does not encode waitlisted; amounts and award dates remain null. Recheck current funding before making a project decision. Source registry dates use UTC; retrieval was 2026-09-30 22:00 UTC (2026-10-01 in Israel)."
   },
   "official_contacts": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Current permit-office contact details were not directly verified."
+    "value": [
+      {
+        "name": "City of Lancaster",
+        "role": "General City contact listed on the official permit portal",
+        "phone": "(661) 723-6000",
+        "email": null,
+        "url": "https://aca-prod.accela.com/lancaster/Default.aspx"
+      }
+    ],
+    "confidence": 1,
+    "source_ids": [
+      "CITY_PORTAL_CONTACT"
+    ],
+    "notes": "The public portal lists this general City number with the City Hall address. A dedicated Building & Safety contact was not directly verified."
   },
   "last_verified": "2026-09-30",
   "sources": [
@@ -200,6 +228,38 @@
       "title": "SGIP Program Metrics and Incentive Step Tracker — SCE budgets",
       "url": "https://www.selfgenca.com/home/program_metrics/",
       "publisher": "SGIP Program Administrators, including Southern California Edison",
+      "type": "program_administrator",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "CITY_PORTAL_CONTACT",
+      "title": "City of Lancaster Online Portal — general City contact",
+      "url": "https://aca-prod.accela.com/lancaster/Default.aspx",
+      "publisher": "City of Lancaster (Accela)",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "NIGHT_CPUC_RSSE",
+      "title": "CPUC Residential Solar and Storage Equity program scope",
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "publisher": "California Public Utilities Commission",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "NIGHT_CPUC_ASSIGNMENTS",
+      "title": "CPUC Appendix D — SGIP program-administrator assignments for AB 209 funds",
+      "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M528/K053/528053537.PDF",
+      "publisher": "California Public Utilities Commission",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "NIGHT_SGIP_TRACKER",
+      "title": "SGIP current tracker — SCE AB 209 Non-POU waitlist, data dated 2026-09-30",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "SGIP Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-09-30"
     }

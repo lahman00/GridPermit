@@ -98,16 +98,39 @@
     "notes": "Current city inspection instructions appeared in official search results, but direct retrieval was blocked."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No directly verified permit processing deadline."
+    "value": {
+      "min_days": null,
+      "max_days": 3,
+      "notes": "Three BUSINESS days for issuance of a building permit or other nondiscretionary authorization for an application that meets the City checklist, under Palm Springs Municipal Code section 8.100.060(B). See eligibility_constraints for the small residential rooftop pathway scope. This is the stated permit-review/issuance rule, not an end-to-end installation, inspection or utility permission-to-operate turnaround; incomplete applications require correction and resubmission."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "city-expedited-solar-code"
+    ],
+    "notes": "Explicit City code issuance deadline for checklist-compliant applications only; no minimum, calendar-day conversion or general processing-time estimate is supplied."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "City-code solar scope appeared in search results; the code could not be directly retrieved."
+    "value": {
+      "property_types": [
+        "single-family",
+        "duplex"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Palm Springs Municipal Code Chapter 8.100 — expedited small residential rooftop solar permitting",
+      "other_conditions": [
+        "The application must meet the City checklist requirements to qualify for the three-business-day issuance rule.",
+        "The system must meet applicable state and City fire, structural, electrical and other building codes and state health and safety standards.",
+        "The panel or module array must not exceed the maximum legal building height as defined by the City.",
+        "Incomplete applications receive a written correction notice for resubmission; a use permit may be required on a documented finding of a specific adverse public-health or safety impact."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "city-expedited-solar-code"
+    ],
+    "notes": "Scope of the Chapter 8.100 expedited pathway only; this is not a general limit on all solar installations in Palm Springs."
   },
   "permit_fees": {
     "value": null,
@@ -116,10 +139,29 @@
     "notes": "No current adopted solar fee verified."
   },
   "rebates": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not verified from an accessible primary source in this research pass."
+    "value": [
+      {
+        "name": "Self-Generation Incentive Program — Residential Solar and Storage Equity, solar component (waitlisted)",
+        "administrator": "Southern California Edison",
+        "description": "The state-funded Residential Solar and Storage Equity program includes a solar incentive paired with energy storage for qualifying low-income households. CPUC assigns Desert Community Energy customers to SCE. SCE reports that RSSE funds are exhausted and applications are waitlisted; the SGIP tracker also lists SCE AB 209 Non-POU as Waitlist. This is not a standalone solar rebate or a separate award from the paired storage program.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Income-qualified residential customers; solar must be paired with eligible energy storage. Individual eligibility, program requirements and a funding reservation must be confirmed with the assigned program administrator.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "cpuc-rsse",
+      "cpuc-rsse-administrators",
+      "sgip-current-metrics",
+      "sce-sgip"
+    ],
+    "notes": "Solar component of the same paired RSSE program identified in battery_programs. The current tracker lists Waitlist; inclusion does not establish an available funding reservation. The schema has no waitlisted status; no dollar amount or award date is asserted."
   },
   "official_contacts": {
     "value": [
@@ -185,6 +227,38 @@
       "url": "https://www.palmspringsca.gov/government/departments/building/handouts-and-guidelines",
       "publisher": "City of Palm Springs",
       "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "city-expedited-solar-code",
+      "title": "Palm Springs Municipal Code Chapter 8.100: Small Residential Rooftop Solar Energy System Permits",
+      "url": "https://ecode360.com/42997503",
+      "publisher": "City of Palm Springs, official code published by General Code",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "cpuc-rsse",
+      "title": "Self-Generation Incentive Program: Residential Solar and Storage Equity",
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "cpuc-rsse-administrators",
+      "title": "SGIP PA Assignments for AB 209 Funds, Appendix D",
+      "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M528/K053/528053537.PDF",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sgip-current-metrics",
+      "title": "SGIP Program Metrics: current incentive step status",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "Self-Generation Incentive Program",
+      "type": "program_administrator",
       "accessed_date": "2026-09-30"
     }
   ]

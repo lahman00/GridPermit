@@ -50,16 +50,36 @@
     "notes": "After SolarAPP+ approval, apply in CSS for Residential Photovoltaic Roof Mounted – Electrical (SolarAPP)."
   },
   "interconnection_url": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "IID rooftop-solar/net-billing guidance was found in official search results, but direct retrieval was blocked."
+    "value": "https://www.iid.com/power/rooftop-solar/interconnection",
+    "confidence": 0.9,
+    "source_ids": [
+      "iid-solar-document-directory"
+    ],
+    "notes": "The directly readable IID document directory links this destination under Rooftop Solar / Interconnection. The destination itself blocks direct retrieval; current application steps, fees and processing deadlines are not asserted."
   },
   "battery_programs": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not verified from an accessible primary source in this research pass."
+    "value": [
+      {
+        "name": "Self-Generation Incentive Program — Residential Solar and Storage Equity, storage component (waitlisted)",
+        "administrator": "Southern California Gas Company (SoCalGas)",
+        "description": "CPUC assigns IID customers to SoCalGas for the state-funded AB 209 Residential Solar and Storage Equity budget. The SGIP tracker lists the SoCalGas budget as Waitlist on 2026-09-30. This is a conditional storage incentive program, not confirmation of available funding.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Income-qualified residential customers; solar must be paired with eligible energy storage. Individual eligibility, program requirements and a funding reservation must be confirmed with the assigned program administrator.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "cpuc-rsse",
+      "cpuc-rsse-administrators",
+      "sgip-current-metrics"
+    ],
+    "notes": "SoCalGas is the CPUC-assigned incentive administrator for IID customers, not a claim about gas service at a property. The schema has no waitlisted status, so status is unknown; amounts and award dates remain null."
   },
   "required_documents": {
     "value": [
@@ -130,10 +150,28 @@
     "notes": "Current solar fees were not verified; comparison tables and proposed amounts were not used."
   },
   "rebates": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not verified from an accessible primary source in this research pass."
+    "value": [
+      {
+        "name": "Self-Generation Incentive Program — Residential Solar and Storage Equity, solar component (waitlisted)",
+        "administrator": "Southern California Gas Company (SoCalGas)",
+        "description": "The state-funded AB 209 Residential Solar and Storage Equity program includes a solar incentive paired with energy storage for qualifying low-income households. CPUC assigns IID customers to SoCalGas; that budget is Waitlist on the current SGIP tracker. This solar component is not a standalone solar rebate or a separate award from the paired storage program.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Income-qualified residential customers; solar must be paired with eligible energy storage. Individual eligibility, program requirements and a funding reservation must be confirmed with the assigned program administrator.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "cpuc-rsse",
+      "cpuc-rsse-administrators",
+      "sgip-current-metrics"
+    ],
+    "notes": "Solar component of the same paired RSSE program identified in battery_programs. The current tracker lists Waitlist; inclusion does not establish an available funding reservation. The schema has no waitlisted status; no dollar amount or award date is asserted."
   },
   "official_contacts": {
     "value": [
@@ -175,6 +213,38 @@
       "url": "https://www.indio.org/home/showpublisheddocument/908/637874287863170000",
       "publisher": "City of Indio",
       "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "iid-solar-document-directory",
+      "title": "IID rooftop-solar document directory and interconnection navigation",
+      "url": "https://www.iid.com/about-iid/advanced-components/custom-pages/custom-documents-images-calendar/-toggle-today/-folder-1339",
+      "publisher": "Imperial Irrigation District",
+      "type": "utility",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "cpuc-rsse",
+      "title": "Self-Generation Incentive Program: Residential Solar and Storage Equity",
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "cpuc-rsse-administrators",
+      "title": "SGIP PA Assignments for AB 209 Funds, Appendix D",
+      "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M528/K053/528053537.PDF",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "sgip-current-metrics",
+      "title": "SGIP Program Metrics: current incentive step status",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "Self-Generation Incentive Program",
+      "type": "program_administrator",
       "accessed_date": "2026-09-30"
     }
   ]

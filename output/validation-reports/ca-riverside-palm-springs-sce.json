@@ -3,7 +3,7 @@
   "file": "data/localities/ca-riverside-palm-springs-sce.json",
   "validated_at": "2026-09-30",
   "status": "REVIEW",
-  "score": 88,
+  "score": 86,
   "errors": [],
   "warnings": [
     {
@@ -35,6 +35,11 @@
       "field": "sources[sce-territory].url",
       "category": "broken_url",
       "message": "https://www.sce.com/sites/default/files/inline-files/080508_Service_Territory_Map.pdf — DNS failure (ENOTFOUND) — recommend a manual check"
+    },
+    {
+      "field": "sources[city-expedited-solar-code].url",
+      "category": "broken_url",
+      "message": "https://ecode360.com/42997503 — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
@@ -47,26 +52,14 @@
       "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     },
     {
-      "field": "timeline_days",
-      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.palmspringsca.gov/government/departments/building/plan-review",
-      "checked_at": "2026-09-30T09:23:27.147Z",
+      "checked_at": "2026-09-30T22:03:20.313Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -74,7 +67,7 @@
     },
     {
       "url": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
-      "checked_at": "2026-09-30T09:23:27.350Z",
+      "checked_at": "2026-09-30T22:03:20.379Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -82,15 +75,23 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
-      "checked_at": "2026-09-30T09:23:37.353Z",
+      "checked_at": "2026-09-30T22:03:30.388Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "DNS failure (ENOTFOUND)"
     },
     {
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "checked_at": "2026-09-30T22:03:30.397Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
       "url": "https://www.palmspringsca.gov/government/departments/building/handouts-and-guidelines",
-      "checked_at": "2026-09-30T09:23:37.371Z",
+      "checked_at": "2026-09-30T22:03:31.142Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -98,7 +99,7 @@
     },
     {
       "url": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000",
-      "checked_at": "2026-09-30T09:23:37.433Z",
+      "checked_at": "2026-09-30T22:03:31.197Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -106,7 +107,7 @@
     },
     {
       "url": "https://www.sce.com/sites/default/files/inline-files/080508_Service_Territory_Map.pdf",
-      "checked_at": "2026-09-30T09:23:37.494Z",
+      "checked_at": "2026-09-30T22:03:31.262Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -114,7 +115,31 @@
     },
     {
       "url": "https://desertcommunityenergy.org/frequently-asked-questions/",
-      "checked_at": "2026-09-30T09:23:37.499Z",
+      "checked_at": "2026-09-30T22:03:31.267Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://ecode360.com/42997503",
+      "checked_at": "2026-09-30T22:03:31.321Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "checked_at": "2026-09-30T22:03:31.362Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M528/K053/528053537.PDF",
+      "checked_at": "2026-09-30T22:03:32.283Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

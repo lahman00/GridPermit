@@ -3,9 +3,14 @@
   "file": "data/localities/ca-los-angeles-lancaster-sce.json",
   "validated_at": "2026-09-30",
   "status": "REVIEW",
-  "score": 94,
+  "score": 89,
   "errors": [],
   "warnings": [
+    {
+      "field": null,
+      "category": "duplicate_source",
+      "message": "duplicate source url 'https://www.selfgenca.com/home/program_metrics' under different ids: SGIP_METRICS_2026, NIGHT_SGIP_TRACKER"
+    },
     {
       "field": "interconnection_url",
       "category": "broken_url",
@@ -34,20 +39,12 @@
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "official_contacts",
-      "message": "'official_contacts' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://aca-prod.accela.com/LANCASTER/Welcome.aspx",
-      "checked_at": "2026-09-30T09:23:27.286Z",
+      "checked_at": "2026-09-30T22:03:20.283Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -55,7 +52,7 @@
     },
     {
       "url": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
-      "checked_at": "2026-09-30T09:23:30.563Z",
+      "checked_at": "2026-09-30T22:03:20.535Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -63,7 +60,15 @@
     },
     {
       "url": "https://www.selfgenca.com/home/program_metrics/",
-      "checked_at": "2026-09-30T09:23:37.369Z",
+      "checked_at": "2026-09-30T22:03:30.395Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://aca-prod.accela.com/lancaster/Default.aspx",
+      "checked_at": "2026-09-30T22:03:31.145Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -71,7 +76,7 @@
     },
     {
       "url": "https://www.sce.com/outages-safety/outage-center/reliability-reports",
-      "checked_at": "2026-09-30T09:23:38.190Z",
+      "checked_at": "2026-09-30T22:03:31.355Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -79,7 +84,7 @@
     },
     {
       "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
-      "checked_at": "2026-09-30T09:23:38.196Z",
+      "checked_at": "2026-09-30T22:03:31.358Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
@@ -87,7 +92,7 @@
     },
     {
       "url": "https://lancasterenergy.com/about-le/faqs/",
-      "checked_at": "2026-09-30T09:23:38.200Z",
+      "checked_at": "2026-09-30T22:03:31.364Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -95,7 +100,23 @@
     },
     {
       "url": "https://www.selfgenca.com/documents/handbook/2026",
-      "checked_at": "2026-09-30T09:23:39.389Z",
+      "checked_at": "2026-09-30T22:03:32.339Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "checked_at": "2026-09-30T22:03:33.286Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M528/K053/528053537.PDF",
+      "checked_at": "2026-09-30T22:03:34.455Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",

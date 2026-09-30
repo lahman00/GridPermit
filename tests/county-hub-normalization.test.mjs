@@ -1,0 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {buildCountyHubs,countySlug} from '../src/lib/county-hub.ts';
+function fixture(){const records=new Map();const evaluations=[];for(let i=0;i<4;i++){const id='fixture-'+i;records.set(id,{record_id:id,state:'CA',city:{value:'Test City '+i},county:{value:i%2?'Los Angeles County':'Los Angeles'},utility:{value:'SCE'},permit_authority:{value:'City Building Department'}});evaluations.push({record_id:id,readiness:'READY'});}return {records,evaluations};}
+test('county label variants resolve to exactly one stable hub with all eligible cities',()=>{const f=fixture();const a=buildCountyHubs(f.evaluations,f.records),b=buildCountyHubs([...f.evaluations].reverse(),f.records);assert.equal(a.length,1);assert.equal(a[0].countySlug,'los-angeles');assert.equal(a[0].county,'Los Angeles County');assert.equal(a[0].cities.length,4);assert.deepEqual(a,b);assert.equal(countySlug(' Los Angeles County '),'los-angeles');});
+test('duplicate evaluation rows do not fabricate enough distinct cities for a county hub',()=>{const f=fixture();assert.equal(buildCountyHubs(Array(4).fill(f.evaluations[0]),f.records).length,0);assert.equal(buildCountyHubs([...f.evaluations,...f.evaluations],f.records)[0].cities.length,4);});

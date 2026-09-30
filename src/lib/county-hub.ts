@@ -43,7 +43,7 @@ export interface CountyHubData {
 
 export function countySlug(countyValue: string): string {
 	// "Contra Costa County" -> "contra-costa"; strips a trailing " County".
-	return citySlug(countyValue.replace(/\s+County$/i, ""));
+	return citySlug(countyValue.trim().replace(/\s+County$/i, ""));
 }
 
 function isCountyContracted(permitAuthority: string | null, county: string): boolean {
@@ -67,17 +67,19 @@ export function buildCountyHubs(
 	evaluationRecords: ReadyEvaluationSummary[],
 	recordsById: Map<string, LocalityRecord>,
 ): CountyHubData[] {
-	// Keyed by "STATE::County Name", not county name alone — a county name is
+	// Keyed by "STATE::normalized-county-slug", not raw county spelling — a county name is
 	// not unique across states (and even where it happens to be, its READY
 	// cities must never be mixed into one hub page spanning two states). See
 	// the identical fix in src/lib/utility-hub.ts.
 	const byCounty = new Map<string, { state: string; county: string; cities: CountyCityEntry[] }>();
+	const seenRecordIds = new Set<string>();
 	for (const evalRecord of evaluationRecords) {
-		if (evalRecord.readiness !== "READY") continue;
+		if (evalRecord.readiness !== "READY" || seenRecordIds.has(evalRecord.record_id)) continue;
 		const record = recordsById.get(evalRecord.record_id);
 		if (!record || !record.county?.value) continue;
-		const county = record.county.value;
-		const key = `${record.state}::${county}`;
+		seenRecordIds.add(evalRecord.record_id);
+		const county = record.county.value.trim();
+		const key = `${record.state}::${countySlug(county)}`;
 		const slug = citySlug(record.city.value);
 		const entry: CountyCityEntry = {
 			city: record.city.value,
@@ -89,7 +91,10 @@ export function buildCountyHubs(
 			countyContracted: isCountyContracted(record.permit_authority?.value ?? null, county),
 		};
 		if (!byCounty.has(key)) byCounty.set(key, { state: record.state, county, cities: [] });
-		byCounty.get(key)!.cities.push(entry);
+		const group = byCounty.get(key)!;
+		// Prefer an actually supplied full county label; do not invent a new name.
+		if (/\s+County$/i.test(county) && !/\s+County$/i.test(group.county)) group.county = county;
+		group.cities.push(entry);
 	}
 
 	const hubs: CountyHubData[] = [];
