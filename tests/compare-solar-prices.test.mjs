@@ -56,6 +56,34 @@ test("known California service cities deep-link with GridPermit ref and supplied
 	assert.equal(url.searchParams.get("cid"), "test_click_001");
 });
 
+test("Aaron-confirmed 2026-09-29 Southern California 14-city batch remains explicitly eligible", () => {
+	const confirmedCities = [
+		"Cathedral City",
+		"Corona",
+		"Indian Wells",
+		"Indio",
+		"Lancaster",
+		"Long Beach",
+		"Norwalk",
+		"Orange",
+		"Palm Desert",
+		"Palm Springs",
+		"Palmdale",
+		"Rancho Mirage",
+		"Santa Clarita",
+		"Victorville",
+	];
+
+	for (const city of confirmedCities) {
+		assert.equal(isCompareSolarServedLocality("CA", city), true, city);
+		const destination = getCompareSolarDestination("CA", city);
+		assert.ok(destination, city);
+		const url = new URL(destination);
+		assert.equal(url.origin, "https://www.comparesolarprices.net");
+		assert.equal(url.pathname, `/solar-${normalizeCompareSolarCitySlug(city)}-ca/`);
+	}
+});
+
 test("non-allowlisted California cities fail closed instead of sending out-of-area traffic", () => {
 	assert.equal(isCompareSolarServedLocality("CA", "San Francisco"), false);
 	assert.equal(getCompareSolarDestination("CA", "San Francisco"), null);
