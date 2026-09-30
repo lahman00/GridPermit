@@ -233,7 +233,7 @@ const tocItems = [
 		<main class="content-card" id="main-content" tabindex="-1">
 			<h1>{record.city.value} Solar Permit Guide</h1>
 			<p class="subtitle">{utilityHubUrl ? <a href={utilityHubUrl}>{record.utility.value}</a> : record.utility.value} territory{record.county.value && <> · {countyHubUrl ? <a href={countyHubUrl}>{record.county.value}</a> : record.county.value}</>}</p>
-			
+
 			<!-- Screen-hidden, print-only: a checklist masthead so a printed
 			     page is identifiable and dated on its own, without the nav/
 			     banner that's hidden in print. -->
