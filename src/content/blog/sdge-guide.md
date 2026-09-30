@@ -23,6 +23,8 @@ A project model must distinguish among:
 
 Quoting a single SDG&E rate or payback period without the customer's current tariff and interval usage is not a reliable 2026 analysis.
 
+Homeowners in the **City of San Diego** whose electric utility is **SDG&E** and who already have solar can review the [battery-retrofit quote option and its eligibility check](/blog/sdge-battery-roi-guide/#battery-quote-options). This is a paid referral route, not a guaranteed saving or an offer for every SDG&E service-area city.
+
 ## When a Battery May Improve Solar Value
 
 A battery can move midday solar production into evening household use. It may also allow selected exports during higher-value periods when the system, interconnection agreement, and operating controls permit them.

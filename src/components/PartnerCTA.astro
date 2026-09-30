@@ -6,13 +6,15 @@ interface Props { selection:{selected:SelectedCommercialRoute|null;assignment?:{
 const {selection,partner}=Astro.props,selected=selection.selected;
 const qualify=qualificationPolicy(partner);
 const copy={SOLAR_QUOTE:'Compare local solar options',BATTERY_SERVICE:selected?.context.intent==='BATTERY_NEW_INSTALL'?'Compare solar and battery installation options':'Compare battery retrofit options',PERMIT_ENGINEERING:'Get help with permit-ready plans',PTO_HELP:'Get help resolving PTO / inspection issues',B2B:'Explore professional permitting services',LOCAL_INSTALLER:'Contact the sponsored local installer',PAY_PER_CALL:'Call the approved project specialist',NONE:''};
+const scopedBattery = partner.partner_id==='compare-solar-prices' && selected?.context.intent==='BATTERY_RETROFIT';
+const qualificationLabel=scopedBattery?`I own this home in the City of ${selected.context.city}, my electric utility is ${selected.context.utility?.value}, and I am considering adding a battery to existing solar.`:qualify.label;
 const id=`qualify-${partner.partner_id}`;
 ---
-{selected&&<section class="partner-cta" aria-label={copy[selected.route.channel]} data-partner-v2={JSON.stringify({selected,phone:partner.phone,assignment:selection.assignment})}>
+{selected&&<section class="partner-cta" id={scopedBattery?"battery-quote-options":undefined} aria-label={copy[selected.route.channel]} data-partner-v2={JSON.stringify({selected,phone:partner.phone,assignment:selection.assignment})}>
  {partner.logo&&<img src={partner.logo} alt={`${partner.name} logo`} width="120" height="48" loading="lazy"/>}
  <h2>{copy[selected.route.channel]}</h2><p>{selected.disclosure}</p>
- {partner.partner_id==='compare-solar-prices'&&selected.context.intent==='BATTERY_RETROFIT'&&<p>Already have solar? This route is for homeowners considering a battery retrofit. Have a recent electricity bill ready and confirm your contact details directly with CompareSolarPrices. GridPermit does not collect your bill or contact details.</p>}
- {qualify.required&&<label for={id}><input id={id} type="checkbox" data-qualification/>{qualify.label}</label>}
+ {scopedBattery&&<p>This quote route is for homeowners in the City of {selected.context.city}, served by {selected.context.utility?.value}, who already have solar and are considering a battery retrofit. Have a recent electricity bill ready and confirm your contact details directly with CompareSolarPrices. GridPermit does not collect your bill or contact details.</p>}
+ {qualify.required&&<label for={id}><input id={id} type="checkbox" data-qualification/>{qualificationLabel}</label>}
  <button type="button" data-partner-action disabled={qualify.required}>{copy[selected.route.channel]}{partner.tracking_type!=='PHONE_TRACKING'&&<span> (opens in a new tab)</span>}</button>
  {partner.phone&&<p>Campaign hours: {partner.phone.start}–{partner.phone.end} {partner.phone.time_zone}. {partner.phone.minimum_conditions.join('; ')}</p>}
  <p role="status" aria-live="polite"></p>

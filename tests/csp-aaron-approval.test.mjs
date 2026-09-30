@@ -39,7 +39,7 @@ test('reviewed SDGE battery page selects CSP without GridPermit PII and preserve
   assert.equal(selected?.selected?.context.existingSolar,true);
   assert.equal(qualificationPolicy(partner).label,'I own this home.');
   assert.equal(buildCommercialOutbound(selected.selected,CID),'https://www.comparesolarprices.net/?ref=GridPermit&cid='+CID+'#quote');
-  const source=await readFile(new URL('../src/components/PartnerCTA.astro',import.meta.url),'utf8');
+  const {readFile}=await import('node:fs/promises');const source=await readFile(new URL('../src/components/PartnerCTA.astro',import.meta.url),'utf8');
   assert.match(source,/Object\.entries\(\{cid,page_path:window\.location\.pathname,qualified:/);
   assert.doesNotMatch(source,/Object\.entries\(\{[^}]*email/i);
   assert.doesNotMatch(source,/Object\.entries\(\{[^}]*phone/i);
@@ -86,4 +86,10 @@ test('partner health accepts the generic CSP battery disclosure while keeping le
   const payload=JSON.stringify({selected:selected.selected}).replace(/&/g,'&amp;').replace(/"/g,'&quot;');
   const html='<section data-partner-v2="'+payload+'"><p>'+selected.selected.disclosure+'</p></section>';
   assert.deepEqual(inspectPartnerHtml(html,selected).errors,[]);
+});
+
+
+test('battery quote UI scopes homeowner confirmation to its canonical city, utility and existing-solar intent',async()=>{
+ const {readFile}=await import('node:fs/promises');const source=await readFile(new URL('../src/components/PartnerCTA.astro',import.meta.url),'utf8');
+ assert.match(source,/I own this home in the City of/);assert.match(source,/my electric utility is/);assert.match(source,/adding a battery to existing solar/);
 });
