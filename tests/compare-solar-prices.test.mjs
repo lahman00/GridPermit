@@ -93,6 +93,26 @@ test("Aaron-confirmed 2026-09-29 Southern California 14-city batch confirms comm
 	}
 });
 
+test("Aaron-confirmed 2026-09-30 seven-city batch is explicitly covered", () => {
+	for (const city of ["Duarte", "Norco", "Brea", "Inglewood", "Baldwin Park", "Fountain Valley", "Del Mar"]) {
+		assert.equal(isCompareSolarServedLocality("CA", city), true, city);
+		const url = new URL(buildCompareSolarReferralUrl("CA", city, "homeowner_001"));
+		assert.equal(url.origin, "https://www.comparesolarprices.net");
+		assert.equal(url.searchParams.get("ref"), "GridPermit");
+		assert.equal(url.searchParams.get("cid"), "homeowner_001");
+		assert.equal(url.hash, "#quote");
+	}
+});
+
+test("every legacy CSP locality CTA requires homeowner self-attestation before CID generation or navigation", () => {
+	assert.match(component, /qualificationLabel = 'I own this home\.'/);
+	assert.match(component, /<input type="checkbox" data-first-lead-qualification \/>/);
+	assert.match(component, /data-compare-solar-cta data-state=\{state\} data-city=\{city\} disabled>/);
+	assert.match(component, /const checkbox = document\.querySelector\("\[data-first-lead-qualification\]"\)/);
+	assert.match(component, /if \(!\(checkbox instanceof HTMLInputElement\) \|\| !checkbox\.checked\) return/);
+	assert.ok(component.indexOf("!checkbox.checked") < component.indexOf("generateCompareSolarCid()"), "homeowner gate must precede CID creation");
+});
+
 test("non-allowlisted California cities fail closed instead of sending out-of-area traffic", () => {
 	assert.equal(isCompareSolarServedLocality("CA", "San Francisco"), false);
 	assert.equal(getCompareSolarDestination("CA", "San Francisco"), null);

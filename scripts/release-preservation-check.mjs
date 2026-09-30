@@ -1,7 +1,7 @@
 import {readFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-export const REQUIRED_CITY_SLUGS=['escondido','hemet','pomona','irvine','norwalk','orange','victorville'];
+export const REQUIRED_CITY_SLUGS=['escondido','hemet','pomona','irvine','norwalk','orange','victorville','palmdale','long-beach','santa-clarita','duarte','norco','brea','inglewood','baldwin-park','fountain-valley','del-mar'];
 export function checkReleaseContract({routes,release,cityHtml,batteryHtml,functionNames}) {
  const errors=[];
  if(release?.schema_version!==2||!release?.base_commit||!/^[a-f0-9]{64}$/.test(release?.source_sha256??''))errors.push('RELEASE_IDENTITY_MISSING');
@@ -9,8 +9,9 @@ export function checkReleaseContract({routes,release,cityHtml,batteryHtml,functi
  for(const city of REQUIRED_CITY_SLUGS){
   const page=`/california/${city}/solar-permit-guide/`,r=routes.find(r=>r.page_path===page&&r.partner_id==='compare-solar-prices');
   if(!r)errors.push('RECOVERED_ROUTE_MISSING:'+city);
+  else if(!r.qualification_required)errors.push('HOMEOWNER_QUALIFICATION_MISSING:'+city);
   const html=cityHtml[city]??'';
-  if((html.match(/data-compare-solar-cta-root/g)??[]).length!==1||!html.includes('Paid referral disclosure:'))errors.push('CTA_CONTRACT:'+city);
+  if((html.match(/data-compare-solar-cta-root/g)??[]).length!==1||!html.includes('Paid referral disclosure:')||!html.includes('data-first-lead-qualification'))errors.push('CTA_CONTRACT:'+city);
  }
  for(const city of ['mission-viejo','corona'])if(routes.some(r=>r.page_path===`/california/${city}/solar-permit-guide/`)||(cityHtml[city]??'').includes('data-compare-solar-cta-root'))errors.push('UNSAFE_UTILITY_ROUTE:'+city);
  const battery=routes.find(r=>r.page_path==='/blog/sdge-battery-roi-guide/'&&r.partner_id==='compare-solar-prices');
