@@ -95,8 +95,8 @@ export const PARTNERS: Partner[] = [
 		geo: "US-CA-Southern-California",
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: LOCALITY_ONLY,
-		lastVerified: "2026-08-26",
-		notes: "Direct relationship with Aaron. Confirmed $25 per qualified quote request and $200 per funded installation conversion, Southern California, 30-day click-to-quote attribution and no stated time limit on the later funded-install conversion once the GridPermit referral is attached. Dedicated ref=GridPermit plus a fresh non-PII cid on every click is the approved tracking contract. PayPal selected; Aaron confirmed Israel and PayPal are accepted, received the requested PayPal-account email, and explicitly cleared GridPermit to put the referral link live. W-8BEN remains a later tax-file follow-up and is not a launch blocker. Production routing is limited to the verified Southern California locality allowlist, with paid-referral disclosure and fail-closed geography.",
+		lastVerified: "2026-09-29",
+		notes: "Direct relationship with Aaron. On 2026-09-29 Aaron explicitly confirmed in writing (\"Yes, we service those areas. 100%\") the 14-city Southern California batch: Cathedral City, Corona, Indian Wells, Indio, Lancaster, Long Beach, Norwalk, Orange, Palm Desert, Palm Springs, Palmdale, Rancho Mirage, Santa Clarita, and Victorville.  Confirmed $25 per qualified quote request and $200 per funded installation conversion, Southern California, 30-day click-to-quote attribution and no stated time limit on the later funded-install conversion once the GridPermit referral is attached. Dedicated ref=GridPermit plus a fresh non-PII cid on every click is the approved tracking contract. PayPal selected; Aaron confirmed Israel and PayPal are accepted, received the requested PayPal-account email, and explicitly cleared GridPermit to put the referral link live. W-8BEN remains a later tax-file follow-up and is not a launch blocker. Production routing is limited to the verified Southern California locality allowlist, with paid-referral disclosure and fail-closed geography.",
 	},
 	{
 		id: "energysage",
