@@ -756,7 +756,12 @@ const tocItems = [
 		.first-lead-note { font-size: 0.78rem; color: #475569; margin-top: -0.75rem; }
 
 		.print-checklist-header { display: none; }
-	</style>
+	
+	@media (max-width: 600px) {
+		.first-lead-panel { padding: 1rem; }
+		.first-lead-panel :global(.compare-solar-cta) { margin: 1rem 0 0; }
+	}
+</style>
 
 	<script>
 		// Reading progress bar — pure scroll-position math, no library.
