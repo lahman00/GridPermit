@@ -44,7 +44,7 @@ A battery does not automatically produce a shorter payback period. The result de
 3. **Model solar-only and solar-plus-storage separately.** Apply the current PG&E rate and hourly export-credit schedule to both cases.
 4. **Use real installed quotes.** Do not substitute a national average for local labor, electrical upgrades, permitting, interconnection, or financing.
 5. **Separate bill savings from backup value.** Outage protection may matter to the buyer, but it is not an electric-bill saving.
-6. **Check current SGIP availability.** A public incentive rate is not the same as an approved reservation.
+6. **Check current SGIP availability.** A public incentive rate is not the same as an approved reservation. See GridPermit's <a href="/blog/sgip-battery-rebates-california/">current SGIP battery rebate guide</a> for which budget categories are still open in 2026.
 7. **Run conservative cases.** Test lower-than-expected export value, higher financing cost, battery degradation, and future rate changes.
 
 The CPUC's [current Net Billing overview](https://www.cpuc.ca.gov/NEM/) explains the statewide tariff structure. PG&E's [solar-bill guidance](https://www.pge.com/en/account/billing-and-assistance/understand-your-bill/solar-bill.html) explains current billing changes and statement formats.

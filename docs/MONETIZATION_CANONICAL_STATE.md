@@ -1,10 +1,22 @@
 # GridPermit Monetization — Canonical Current State
 
-Last reconciled: 2026-08-26
+Last reconciled: 2026-09-30
+
+## Current release and evidence precedence (2026-09-30)
+
+The production router reads `data/commercial/partners/` plus reviewed verification, canonical locality and utility records. `src/lib/partners.ts` is retained as a legacy compatibility registry; its city helper alone is NOT proof that a page exists or a production CTA is eligible.
+
+Aaron's written answer on 2026-09-29, message `1a0ef13f175fb849`, confirms commercial coverage of the exact 14 cities in request `1a0eed725339af3f`. It does not override utility, locality-record or release gates. Norwalk, Orange and Victorville have verified canonical records and active locality routes. Corona is held because its utility territory is split. Cathedral City, Indian Wells, Indio, Lancaster, Long Beach, Palm Desert, Palm Springs, Palmdale, Rancho Mirage and Santa Clarita remain held because the release source lacks their canonical locality records. Mission Viejo remains utility-blocked.
+
+The reconciled release source contains 63 new-solar placements and one separately qualified battery-retrofit placement on `/blog/sdge-battery-roi-guide/`. Actual production identity must be checked in `/gridpermit-release.json` and the Netlify published deployment, not inferred from source configuration. The prior stable production deployment was restored on 2026-09-30 after stale `main` documentation commits unintentionally removed newer production features. The release build now checks route, disclosure, tracking, utility-safety and backend preservation.
+
+CSP uses the approved direct quote destination `https://www.comparesolarprices.net/#quote`, preserving `ref=GridPermit` and a fresh anonymous CID. A qualified quote requires contact verification, an electricity bill and confirmation the homeowner has or will receive the quote report. Aaron reports on Fridays when requests occurred. An outbound record is not a partner referral or payable lead. The later installation payment remains a separate event. No new partner is activated without independently verified written approval and tracking.
+
+The August ledger below is historical unless confirmed by the current machine registry and current written evidence; old city deep-link and staging descriptions do not describe the current runtime contract.
 
 ## Purpose
 
-This is the single current-state source of truth for GridPermit monetization partners and routes. Historical monetization documents remain evidence/history, but this file wins whenever an older document conflicts with current status.
+This is the human-readable reconciliation companion for GridPermit monetization partners and routes. Historical monetization documents remain evidence/history, but this file wins whenever an older document conflicts with current status.
 
 The machine-readable partner mirror lives in `src/lib/partners.ts`. Current commercial facts, approval state, tracking state and production gates must stay consistent between the two. Do not enable a production partner from documentation alone.
 

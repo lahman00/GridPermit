@@ -132,10 +132,28 @@
     "notes": "Norwalk Municipal Code Section 15.52.060(B) states the Building Official shall administratively approve a complete application and issue permits, but states no explicit day-count turnaround figure."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Norwalk Municipal Code Section 15.52.020 defines 'small residential rooftop solar energy systems' by direct reference to Government Code Section 65850.5(j)(3) rather than restating specific numeric size caps or dwelling-type limits in the ordinance text itself, so no eligibility_constraints figures are recorded here."
+    "value": {
+      "property_types": [
+        "single-family dwelling",
+        "duplex-family dwelling"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Expedited small residential rooftop solar permit review (Norwalk Municipal Code Chapter 15.52)",
+      "other_conditions": [
+        "System must comply with applicable state and local fire, structural, electrical, and other building codes",
+        "Solar panel or module array must not exceed the maximum legal building height",
+        "Application must satisfy the City Building Official's adopted standard plan and checklist",
+        "System may not be installed on a structure the Building Official determines is unpermitted"
+      ]
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "S7",
+      "S8"
+    ],
+    "notes": "Norwalk Municipal Code Sections 15.52.020, 15.52.040, and 15.52.080 incorporate the statewide definition and add the City checklist and permitted-structure conditions. California Government Code Section 65850.5(j)(3) supplies the incorporated capacity, dwelling-type, code-compliance, and height limits."
   },
   "permit_fees": {
     "value": null,
@@ -162,7 +180,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-11",
+  "last_verified": "2026-09-04",
   "sources": [
     {
       "id": "S1",
@@ -218,7 +236,15 @@
       "url": "https://ecode360.com/43501146",
       "publisher": "City of Norwalk (via eCode360 official code host)",
       "type": "government",
-      "accessed_date": "2026-08-11"
+      "accessed_date": "2026-09-04"
+    },
+    {
+      "id": "S8",
+      "title": "California Government Code Section 65850.5",
+      "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=65850.5.",
+      "publisher": "California Legislative Information",
+      "type": "government",
+      "accessed_date": "2026-09-04"
     },
     {
       "id": "SGIP_HANDBOOK_2026",

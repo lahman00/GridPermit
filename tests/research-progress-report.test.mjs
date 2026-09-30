@@ -9,17 +9,20 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const SCRIPT = path.join(REPO_ROOT, "scripts", "generate-research-progress-report.mjs");
-const REPORT_PATH = path.join(REPO_ROOT, "output", "research-progress-report.json");
+const TEMP_DIR = mkdtempSync(path.join(tmpdir(), "gp-progress-test-"));
+const REPORT_PATH = path.join(TEMP_DIR, "research-progress-report.json");
+test.after(() => rmSync(TEMP_DIR, { recursive: true, force: true }));
 const OUTPUT_DIR = path.join(REPO_ROOT, "output");
 
 function runScript() {
-	return spawnSync("node", [SCRIPT], { cwd: REPO_ROOT, encoding: "utf8" });
+	return spawnSync("node", [SCRIPT], { cwd: REPO_ROOT, encoding: "utf8", env: { ...process.env, GRIDPERMIT_PROGRESS_REPORT_PATH: REPORT_PATH } });
 }
 
 test("generate-research-progress-report.mjs runs cleanly against the real dataset", () => {

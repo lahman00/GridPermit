@@ -1,4 +1,5 @@
 ---
+import ContextualPartnerSlot from '../components/ContextualPartnerSlot.astro';
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
@@ -8,7 +9,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, decisionStage } = Astro.props;
 ---
 
 <html lang="en">
@@ -52,6 +53,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			.decision-cta {
+				margin: 2.5rem 0 0;
+				padding: 1.25rem 1.35rem;
+				border: 1px solid #bfdbfe;
+				border-radius: 12px;
+				background: #eff6ff;
+			}
+			.decision-cta strong { display: block; color: #0f172a; margin-bottom: .35rem; }
+			.decision-cta p { margin: 0 0 .8rem; color: #475569; }
+			.decision-cta a { display: inline-block; font-weight: 700; color: #1d4ed8; text-decoration: none; }
+			.decision-cta small { display: block; color: #64748b; margin-top: .7rem; }
 		</style>
 	</head>
 
@@ -78,6 +90,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						<hr />
 					</div>
 					<slot />
+				<ContextualPartnerSlot />
+					{
+						decisionStage && (
+							<div class="decision-cta">
+								<strong>Have a project-specific permit or PTO question?</strong>
+								<p>Send GridPermit the jurisdiction, utility, project scope and the exact decision or correction you are trying to resolve.</p>
+								<a href="/project-help/">Send the project facts →</a>
+								<small>Do not include account numbers or other sensitive personal information. GridPermit will label anything it cannot verify rather than guess.</small>
+							</div>
+						)
+					}
 				</div>
 			</article>
 		</main>

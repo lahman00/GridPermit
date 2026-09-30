@@ -169,7 +169,17 @@ function planFor({ recordId, filePath, record }, { readyIds, force }) {
   // every existing fixture's expectations.
   const urlStateSlug = stateSlug ?? "california";
   const pagePath = `/${urlStateSlug}/${citySlug}/solar-permit-guide/`;
-  const cityPath = `/${urlStateSlug}/${citySlug}/`;
+  // cityPath is passed to LocalityGuideLayout's breadcrumb as the "city"
+  // level's URL. It intentionally equals pagePath: no distinct per-city hub
+  // page (e.g. a bare /${urlStateSlug}/${citySlug}/ index listing multiple
+  // guide types) exists for any locality, READY or not — every locality has
+  // exactly one page, the solar-permit-guide itself. Pointing cityPath at a
+  // separate bare-city path that resolves only via a netlify.toml redirect
+  // (see that file's now-obsolete per-city redirect block) forced every
+  // breadcrumb's city link, and the BreadcrumbList JSON-LD schema, through an
+  // avoidable 301. If a real city-hub page is ever built, give it its own
+  // real path here instead of reintroducing a path with no page behind it.
+  const cityPath = pagePath;
 
   const isReady = readyIds.has(recordId);
   const pageExists = existsSync(pageFile);

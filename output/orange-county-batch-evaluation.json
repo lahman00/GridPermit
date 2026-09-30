@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T22:39:28.865Z",
+  "evaluated_at": "2026-09-04T10:54:39.622Z",
   "record_count": 10,
   "records": [
     {
@@ -44,11 +44,11 @@
       "record_id": "ca-orange-orange-sce",
       "city": "Orange",
       "county": "Orange County",
-      "completeness_pct": 73.3,
-      "validation_score": 90,
+      "completeness_pct": 80,
+      "validation_score": 88,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 5,
+      "warning_count": 6,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -60,12 +60,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "timeline_days",
         "eligibility_constraints",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
@@ -73,10 +73,10 @@
       ],
       "utility_type": "IOU",
       "separate_cca_present": false,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-orange-garden-grove-sce",
@@ -388,10 +388,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 82,
-    "average_validation_score": 92.5,
-    "ready_count": 9,
-    "limited_count": 1,
+    "average_completeness_pct": 82.7,
+    "average_validation_score": 92.3,
+    "ready_count": 10,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -406,7 +406,7 @@
       "inspection_steps": 0,
       "timeline_days": 6,
       "eligibility_constraints": 1,
-      "permit_fees": 6,
+      "permit_fees": 5,
       "rebates": 10,
       "official_contacts": 0
     },
@@ -421,7 +421,7 @@
       },
       {
         "field": "permit_fees",
-        "missing_in_records": 6
+        "missing_in_records": 5
       },
       {
         "field": "generation_supplier",
@@ -466,6 +466,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "ca-orange-anaheim-apu",
+      "ca-orange-orange-sce",
       "ca-orange-garden-grove-sce",
       "ca-orange-westminster-sce",
       "ca-orange-costa-mesa-sce",
@@ -475,13 +476,7 @@
       "ca-orange-yorba-linda-sce",
       "ca-orange-brea-sce"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-orange-orange-sce",
-        "city": "Orange",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 90)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
       "municipal",

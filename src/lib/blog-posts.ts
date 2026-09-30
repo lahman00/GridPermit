@@ -28,6 +28,15 @@ const CATEGORY_BY_ID: Record<string, string> = {
 	"sdge-guide": "SDG&E",
 	"sgip-battery-rebates-california": "Incentives",
 	"tesla-powerwall-3-vs-enphase-iq5p": "Battery Comparisons",
+	"pge-no-pto-installer-closed": "Permitting & PTO",
+	"sce-add-battery-existing-solar": "Permitting & PTO",
+	"solarapp-eligibility-2026": "Permitting & PTO",
+	"city-permit-vs-utility-pto": "Permitting & PTO",
+	"long-beach-solar-ess-express-vs-plan-review": "Permitting & PTO",
+	"pge-zero-export-solar-battery-interconnection": "Permitting & PTO",
+	"california-sb868-plugin-solar-status": "Permitting & PTO",
+	"el-cerrito-solar-permit-plan-service": "Permitting & PTO",
+	"epe-failed-solar-inspection-rec-meter": "Permitting & PTO",
 };
 
 // The 3 standalone .astro posts under src/pages/blog/ aren't part of the

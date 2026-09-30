@@ -1,3 +1,4 @@
+import {partnerEvidenceHold} from './commercial/partner-evidence-holds.ts';
 // Partner control-plane: a single, typed source of truth for every partner
 // relationship's real state. Production CTA components read from this registry
 // and fail closed unless approval, tracking, placement eligibility, and the
@@ -332,8 +333,8 @@ export const PARTNERS: Partner[] = [
 	{
 		id: "service-direct",
 		name: "Service Direct",
-		status: "awaiting_response",
-		vertical: "solar",
+		status: "blocked",
+		vertical: "general_home_services",
 		channel: "pay_per_call",
 		destination: "",
 		trackingEnabled: false,
@@ -346,7 +347,7 @@ export const PARTNERS: Partner[] = [
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: LOCALITY_ONLY,
 		lastVerified: "2026-08-26",
-		notes: "Established (since 2006) pay-per-call affiliate program; Solar is an explicit supported category, and the no-code 'Easy Earn' static-DID model fits GridPermit's low-PII preference. Payout is dynamic based on live buyer inventory (~$40/call home-services average, not Solar- or GridPermit-specific). Publisher quality rules are stricter than a generic affiliate disclosure (no 'free'/superlative/guarantee claims, must disclose independent-provider status) and must be reflected in any future CTA copy. Only an automated support-ticket acknowledgement received so far, not a substantive reply. Nonbinding inquiry sent 2026-08-26. See issue #19.",
+		notes: "Commercial contradiction hold. If later approved, GridPermit may configure Service Direct only for a separately verified ELECTRICAL_ONLY campaign and DID. It must never enter solar, battery, PTO, permit, or generic home-services routing. No approval or tracking number exists.",
 	},
 	{
 		id: "ridgerise-media",
@@ -1160,6 +1161,7 @@ export const PARTNERS: Partner[] = [
  * partner is allowed to render as active production monetization.
  */
 export function isLaunchReady(partner: Partner): boolean {
+	if (partnerEvidenceHold({partner_id:partner.id,name:partner.name,destination:partner.destination})) return false;
 	const hasRealTrackingAsset = partner.destination.length > 0 || Boolean(partner.trackingPhone) || partner.dynamicTracking === true;
 	return (
 		APPROVED_LIKE_STATUSES.has(partner.status) &&

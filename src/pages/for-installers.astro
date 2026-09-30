@@ -1,0 +1,75 @@
+---
+import Analytics from "../components/Analytics.astro";
+const title = "Solar Permit & PTO Exception Desk for Installers | GridPermit";
+const description = "Source-backed permit, SolarAPP+, interconnection, inspection and PTO decision support for solar and battery installers handling exception projects.";
+const canonical = "https://mygridpermit.com/for-installers/";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Analytics />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta name="twitter:card" content="summary" />
+  <style>
+    :root{--blue:#2563eb;--blue-dark:#1d4ed8;--slate:#0f172a;--muted:#64748b;--border:#e2e8f0;--bg:#f8fafc}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--slate);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}.nav{background:#fff;border-bottom:1px solid var(--border)}.nav-inner{max-width:1080px;margin:auto;padding:.9rem 1.4rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}.brand{font-size:1.35rem;color:var(--slate);text-decoration:none}.brand strong{font-weight:850}.nav a:not(.brand){color:var(--blue);font-weight:750;text-decoration:none}main{max-width:1080px;margin:auto;padding:4rem 1.4rem 5rem}.eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:850;color:var(--blue)}h1{font-size:clamp(2.3rem,5vw,4.3rem);line-height:1.02;letter-spacing:-.04em;max-width:950px;margin:.45rem 0 1rem}.lead{font-size:1.08rem;color:#475569;max-width:820px}.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin:1.5rem 0 3rem}.button{display:inline-block;padding:.82rem 1rem;border-radius:9px;text-decoration:none;font-weight:800}.primary{background:var(--blue);color:#fff}.secondary{background:#fff;color:var(--slate);border:1px solid var(--border)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}.card{background:#fff;border:1px solid var(--border);border-radius:13px;padding:1.2rem}.card h2{font-size:1.03rem;margin:0 0 .45rem}.card p{font-size:.9rem;color:var(--muted);margin:0}section{margin-top:3.2rem}section>h2{font-size:1.55rem;margin-bottom:.5rem}section>p{color:#475569;max-width:800px}.list{display:grid;gap:.7rem;margin-top:1.1rem}.row{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1rem}.row strong{display:block}.row span{color:var(--muted);font-size:.9rem}.proof{background:#0f172a;color:#fff;border-radius:16px;padding:1.7rem;margin-top:3.2rem}.proof p{color:#cbd5e1;max-width:800px}.proof a{background:#fff;color:#0f172a}.small{font-size:.8rem;color:var(--muted);margin-top:2.5rem}@media(max-width:620px){main{padding-top:3rem}.nav-inner{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-inner"><a class="brand" href="/">Grid<strong>Permit</strong></a><div><a href="/permit-path/">Permit Path Checker</a></div></div></nav>
+  <main>
+    <div class="eyebrow">For solar, storage & electrical contractors</div>
+    <h1>Keep the install crew moving when the project falls off the normal permit path.</h1>
+    <p class="lead">GridPermit is an exception-research layer for the jobs that create back-and-forth between sales, design, permitting, the AHJ and the utility. We separate local permit facts from utility interconnection facts, show the current first-party source, and label what still needs project-specific verification.</p>
+    <div class="actions">
+      <a class="button primary" href="/partner-inquiry/?utm_source=installer_page&utm_medium=owned&utm_campaign=b2b_exception_desk">Discuss an installer pilot</a>
+      <a class="button secondary" href="/permit-path/?utm_source=installer_page&utm_medium=owned&utm_campaign=b2b_exception_desk">Try the Permit Path Checker</a>
+    </div>
+
+    <div class="grid">
+      <div class="card"><h2>Battery add-on to existing PV</h2><p>Clarify the AHJ permit track and the utility interconnection update before assuming the original solar approval carries forward.</p></div>
+      <div class="card"><h2>MPU / service change</h2><p>Identify when a main-panel or service change can move a project out of an expedited path or add a separate utility dependency.</p></div>
+      <div class="card"><h2>Ground mount / canopy</h2><p>Surface when a rooftop-only automated pathway no longer fits and structural or alternate plan review needs to be confirmed.</p></div>
+      <div class="card"><h2>Existing / unpermitted work</h2><p>Do not bury a legacy condition inside a standard permit package. Flag the unknown and resolve it with the responsible AHJ.</p></div>
+      <div class="card"><h2>Equipment changed after approval</h2><p>Separate a field substitution from an approved design and utility application before inspection or PTO becomes the place it is discovered.</p></div>
+      <div class="card"><h2>Inspection or PTO stalled</h2><p>Turn “still waiting” into dated milestones, exact correction text, current owner of the next action and the missing submission or approval.</p></div>
+    </div>
+
+    <section>
+      <h2>What the handoff looks like</h2>
+      <p>The goal is not to replace your designer, engineer, electrician, permit coordinator or utility rep. It is to reduce the time spent figuring out which one actually owns the next step.</p>
+      <div class="list">
+        <div class="row"><strong>1. Send the exception facts</strong><span>Jurisdiction, utility, project scope, current stage and the exact non-sensitive correction or missing milestone.</span></div>
+        <div class="row"><strong>2. GridPermit classifies the path</strong><span>AHJ vs utility, known SolarAPP+ pathway, source-backed document/fee/timeline facts, and the project modifiers that still require verification.</span></div>
+        <div class="row"><strong>3. Your team routes execution</strong><span>Back to design, engineering, permitting, inspection coordination or interconnection with a clearer question and the official source attached.</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Good pilot projects</h2>
+      <p>Start with a small batch of jobs your standard checklist does not resolve cleanly. Measure whether the research reduces rework, incomplete submissions and time spent figuring out who owns the next action.</p>
+      <div class="grid">
+        <div class="card"><h2>Multi-AHJ installer</h2><p>You work across many cities/counties and maintain separate internal notes for each permit office.</p></div>
+        <div class="card"><h2>Battery retrofit shop</h2><p>You regularly add storage to systems your company did not originally install.</p></div>
+        <div class="card"><h2>Electrical + solar contractor</h2><p>MPUs, EV charging, storage and PV are often bundled into one customer project.</p></div>
+        <div class="card"><h2>Service / takeover team</h2><p>You inherit orphaned projects, failed inspections, changed equipment or customers waiting on PTO.</p></div>
+      </div>
+    </section>
+
+    <div class="proof">
+      <h2>Test the decision layer before committing to anything.</h2>
+      <p>Use the public Permit Path Checker on a locality GridPermit has already researched. If the record does not establish a fact, it should say so rather than filling the gap with a community anecdote.</p>
+      <a class="button" href="/permit-path/?utm_source=installer_page&utm_medium=owned&utm_campaign=b2b_exception_desk">Open Permit Path Checker</a>
+    </div>
+    <p class="small">GridPermit provides informational permit and interconnection research. Project-specific engineering, electrical safety, code interpretation and approval decisions remain with the responsible authorities and qualified professionals.</p>
+  </main>
+</body>
+</html>

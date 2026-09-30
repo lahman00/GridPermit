@@ -40,9 +40,23 @@ interface Props {
 
 const { record, pagePath, cityPath } = Astro.props;
 
+const FIRST_LEAD_SPRINT_PATHS = new Set([
+	"/california/escondido/solar-permit-guide/",
+	"/california/hemet/solar-permit-guide/",
+	"/california/pomona/solar-permit-guide/",
+]);
+const isFirstLeadSprintPage = FIRST_LEAD_SPRINT_PATHS.has(pagePath);
+
 const { canonicalUrl, title, description, utilityShortName: utilityShort } = buildPageMeta(record, pagePath);
 const permitAuthorityLabel = resolvePermitAuthorityLabel(record);
 const sourceCount = record.sources.length;
+
+const firstLeadTimeline = record.timeline_days?.value ?? null;
+const firstLeadLocalFact = isFirstLeadSprintPage
+	? firstLeadTimeline?.min_days === 0 && firstLeadTimeline?.max_days === 0
+		? "Local fact: for SolarAPP+-eligible projects, GridPermit's verified city source says permit issuance can be immediate after fee payment."
+		: "Local fact: GridPermit's source-backed record identifies " + permitAuthorityLabel + " as the permit authority for " + record.city.value + "."
+	: null;
 
 // "Other verified California guides" cross-links (never linking to this
 // page itself) — driven by the same READY-only entry list the locality
@@ -127,6 +141,7 @@ const faqSchema = buildFaqSchema(faqs);
 // render (mirrors each section's own conditional).
 const tocItems = [
 	{ id: "overview", label: "Overview" },
+	...(isFirstLeadSprintPage ? [{ id: "installer-cta", label: "Compare Solar Quote" }] : []),
 	{ id: "utility-supplier", label: "Utility & Supplier" },
 	{ id: "permit-authority", label: "Permit Authority" },
 	{ id: "required-documents", label: "Required Documents" },
@@ -187,16 +202,18 @@ const tocItems = [
 				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
 			</a>
 			<div class="nav-links">
-				<a href="/permits">Browse States</a>
-				<a href="/how-it-works">How It Works</a>
+				<a href="/permits/">Browse States</a>
+				<a href="/how-it-works/">How It Works</a>
 				<a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} Guides</a>
-				<a href="/blog">Blog</a>
-				<a href="/methodology">Methodology</a>
+				<a href="/blog/">Blog</a>
+				<a href="/methodology/">Methodology</a>
 			</div>
-			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
-			{record.state === "CA"
-				? <a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
-				: <a href="#installer-cta" class="btn-cta-nav">Find an Installer</a>}
+			<a href="/search/" class="nav-search-link" aria-label="Search">🔍</a>
+			{isFirstLeadSprintPage
+				? <a href="#installer-cta" class="btn-cta-nav">Compare Solar Quote</a>
+				: record.state === "CA"
+					? <a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+					: <a href="#installer-cta" class="btn-cta-nav">Find an Installer</a>}
 		</div>
 	</nav>
 
@@ -236,11 +253,15 @@ const tocItems = [
 				<strong>Informational only.</strong> This page is not legal, engineering, or permit advice. Every fact below links to the official source it came from and shows how confident we are in it. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before making a decision.
 			</div>
 
+			{isFirstLeadSprintPage && (
+				<p class="first-lead-jump"><a href="#installer-cta">Planning a new solar project? Jump to the homeowner quote path →</a></p>
+			)}
+
 			<!-- ===== Overview ===== -->
 			<section id="overview">
 				<h2>Overview</h2>
 				<p>
-					GridPermit collects {currentStateMeta.name} residential solar and permitting facts directly from official sources (city, county, and state government sites, utilities, and public utilities commissions) and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology">our methodology</a> for the rules this page follows.
+					GridPermit collects {currentStateMeta.name} residential solar and permitting facts directly from official sources (city, county, and state government sites, utilities, and public utilities commissions) and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology/">our methodology</a> for the rules this page follows.
 				</p>
 
 				{hasTimeline && timeline && td && (
@@ -254,25 +275,66 @@ const tocItems = [
 					</div>
 				)}
 
-				<div class="fact-callout fact-callout-caution">
-					<h3>Battery/solar incentive program on record</h3>
-					{batteryPrograms.length > 0 ? (
-						<>
-							{batteryPrograms.map((p) => (
-								<div class="program-item">
-									<p class="fact-value">{p.name}</p>
-									<p class="fact-notes">{p.description}</p>
-									<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
-								</div>
-							))}
-							<ConfidenceBadge confidence={record.battery_programs.confidence} />
-							<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
-						</>
-					) : (
-						<p class="fact-value muted">No battery/storage incentive program is on record for this locality.</p>
-					)}
-				</div>
+				{!isFirstLeadSprintPage && (
+					<div class="fact-callout fact-callout-caution">
+						<h3>Battery/solar incentive program on record</h3>
+						{batteryPrograms.length > 0 ? (
+							<>
+								{batteryPrograms.map((p) => (
+									<div class="program-item">
+										<p class="fact-value">{p.name}</p>
+										<p class="fact-notes">{p.description}</p>
+										<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
+									</div>
+								))}
+								<ConfidenceBadge confidence={record.battery_programs.confidence} />
+								<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+							</>
+						) : (
+							<p class="fact-value muted">No battery/storage incentive program is on record for this locality.</p>
+						)}
+					</div>
+				)}
 			</section>
+
+			{isFirstLeadSprintPage && (
+				<section id="installer-cta" class="first-lead-panel" data-lead-sprint="first_lead_v1">
+					<p class="first-lead-kicker">Homeowner quote path</p>
+					<h2>Ready to compare a new solar quote in {record.city.value}?</h2>
+					<p>
+						A new project in {record.city.value} still has two approval tracks: permit review with {permitAuthorityLabel} and utility interconnection/PTO with {utilityShort}. GridPermit explains the approval path; CompareSolarPrices handles the quote request.
+					</p>
+					{firstLeadLocalFact && <p class="first-lead-local-fact">{firstLeadLocalFact}</p>}
+					<ol class="first-lead-process">
+						<li><strong>Compare the project:</strong> request a homeowner quote and confirm the system scope.</li>
+						<li><strong>Permit path:</strong> the project still needs review or issuance through {permitAuthorityLabel}.</li>
+						<li><strong>Utility path:</strong> interconnection and PTO remain separate from the city permit process.</li>
+					</ol>
+					<ul class="first-lead-fit">
+						<li><strong>Best fit:</strong> you own the home and do not already have solar.</li>
+						<li><strong>Not the right quote path:</strong> renters or properties that already have solar. You can still use this page for permit and utility facts.</li>
+						<li><strong>Utility bill:</strong> helpful for an accurate quote, but not required before you click. CompareSolarPrices may collect it on the form or during follow-up.</li>
+						<li><strong>Privacy boundary:</strong> contact details are entered on CompareSolarPrices, not GridPermit.</li>
+					</ul>
+					<InstallerCTA city={record.city.value} requireFirstLeadQualification={true} recordId={record.record_id} utility={record.utility} />
+					<p class="first-lead-note">GridPermit sends only a random non-PII referral code in the outbound link so a genuine quote request can be reconciled back to the click.</p>
+				</section>
+			)}
+
+			{isFirstLeadSprintPage && batteryPrograms.length > 0 && (
+				<section id="battery-incentive" class="fact-callout fact-callout-caution first-lead-post-incentive">
+					<h3>Battery/solar incentive program on record</h3>
+					{batteryPrograms.map((p) => (
+						<div class="program-item">
+							<p class="fact-value">{p.name}</p>
+							<p class="fact-notes">{p.description}</p>
+							<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
+						</div>
+					))}
+					<ConfidenceBadge confidence={record.battery_programs.confidence} />
+					<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+				</section>
+			)}
 
 			<!-- ===== Permit fees ===== -->
 			<section id="permit-fees">
@@ -444,9 +506,11 @@ const tocItems = [
 			</section>
 
 			<!-- ===== Installer CTA ===== -->
-			<div id="installer-cta">
-				<InstallerCTA city={record.city.value} />
-			</div>
+			{!isFirstLeadSprintPage && (
+				<div id="installer-cta">
+					<InstallerCTA city={record.city.value} recordId={record.record_id} utility={record.utility} />
+				</div>
+			)}
 
 			<!-- ===== Sources ===== -->
 			<section id="sources">
@@ -502,7 +566,7 @@ const tocItems = [
 
 			<div class="footer-disclaimer">
 				<p><strong>Disclaimers:</strong> This page is for informational purposes only and is not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Requirements, fees, and program terms change. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before starting a project. Last verified {record.last_verified}.</p>
-				<p><a href={stateGuidesIndexUrl(record.state)}>All {currentStateMeta.name} Guides</a> · <a href="/methodology">Methodology</a> · <a href="/how-it-works">How It Works</a> · <a href="/">Back to GridPermit</a></p>
+				<p><a href={stateGuidesIndexUrl(record.state)}>All {currentStateMeta.name} Guides</a> · <a href="/methodology/">Methodology</a> · <a href="/how-it-works/">How It Works</a> · <a href="/">Back to GridPermit</a></p>
 			</div>
 		</main>
 		<aside class="toc-sidebar">
@@ -525,7 +589,7 @@ const tocItems = [
 				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
 			</p>
 			<div class="footer-links">
-				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} Guides</a> | <a href="/pro">GridPermit Pro</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+				<a href="/about/">About Us</a> | <a href="/how-it-works/">How It Works</a> | <a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} Guides</a> | <a href="/pro/">GridPermit Pro</a> | <a href="/blog/">Blog</a> | <a href="/methodology/">Methodology</a> | <a href="/contact/">Contact</a> | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a>
 			</div>
 		</div>
 	</footer>
@@ -652,8 +716,52 @@ const tocItems = [
 			#inspection-steps ul.fact-list li { counter-increment: step; }
 			#inspection-steps ul.fact-list li::before { content: counter(step) ".  "; font-weight: 700; }
 		}
+		.first-lead-jump {
+			margin: 0 0 1.25rem;
+			font-size: 0.92rem;
+		}
+		.first-lead-jump a {
+			color: #0f766e;
+			font-weight: 700;
+			text-decoration: none;
+		}
+		.first-lead-jump a:hover { text-decoration: underline; }
+		.first-lead-post-incentive { margin-top: -0.5rem; margin-bottom: 1.75rem; }
+		.first-lead-panel {
+			margin: 1.75rem 0 2rem;
+			padding: 1.25rem;
+			border: 2px solid #0f766e;
+			border-radius: 12px;
+			background: #f0fdfa;
+		}
+		.first-lead-panel > h2 { margin-top: 0.2rem; }
+		.first-lead-kicker {
+			margin: 0;
+			font-size: 0.76rem;
+			font-weight: 800;
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+			color: #0f766e;
+		}
+		.first-lead-local-fact {
+			background: white;
+			border-left: 4px solid #0f766e;
+			padding: 0.7rem 0.85rem;
+			font-size: 0.88rem;
+		}
+		.first-lead-process { margin: 0.8rem 0 0.8rem 1.2rem; }
+		.first-lead-process li { margin-bottom: 0.45rem; }
+		.first-lead-fit { margin: 0.75rem 0 0.25rem 1.2rem; }
+		.first-lead-fit li { margin-bottom: 0.4rem; }
+		.first-lead-note { font-size: 0.78rem; color: #475569; margin-top: -0.75rem; }
+
 		.print-checklist-header { display: none; }
-	</style>
+	
+	@media (max-width: 600px) {
+		.first-lead-panel { padding: 1rem; }
+		.first-lead-panel :global(.compare-solar-cta) { margin: 1rem 0 0; }
+	}
+</style>
 
 	<script>
 		// Reading progress bar — pure scroll-position math, no library.

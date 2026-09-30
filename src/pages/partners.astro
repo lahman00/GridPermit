@@ -1,0 +1,126 @@
+---
+import Analytics from "../components/Analytics.astro";
+
+const pageUrl = "https://mygridpermit.com/partners/";
+const title = "Partner With GridPermit | Permit & PTO Intelligence";
+const description = "Explore a GridPermit integration pilot for source-backed solar permitting, interconnection, SolarAPP+, inspection and PTO decision intelligence.";
+
+const webPageSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	name: title,
+	description,
+	url: pageUrl,
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<Analytics />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+	<meta name="description" content={description} />
+	<link rel="canonical" href={pageUrl} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={pageUrl} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
+	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+	<style>
+		:root { --blue:#2563eb; --blue-dark:#1d4ed8; --slate:#0f172a; --muted:#64748b; --border:#e2e8f0; --bg:#f8fafc; }
+		* { box-sizing: border-box; }
+		body { margin:0; font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--bg); color:var(--slate); line-height:1.6; }
+		.nav { background:white; border-bottom:1px solid var(--border); }
+		.nav-inner { max-width:1080px; margin:auto; padding:0.9rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+		.brand { color:var(--slate); text-decoration:none; font-size:1.3rem; } .brand strong{font-weight:800;}
+		.nav-links { display:flex; gap:1rem; flex-wrap:wrap; } .nav-links a{color:#475569;text-decoration:none;font-size:.9rem;font-weight:600;}
+		main { max-width:1080px; margin:auto; padding:4.5rem 1.5rem 5rem; }
+		.eyebrow { display:inline-block; color:var(--blue); background:#eff6ff; border:1px solid #bfdbfe; border-radius:999px; padding:.28rem .7rem; font-size:.76rem; font-weight:800; letter-spacing:.02em; }
+		h1 { max-width:850px; margin:.8rem 0 1rem; font-size:clamp(2.2rem,5vw,4rem); line-height:1.05; letter-spacing:-.035em; }
+		.lead { max-width:800px; color:#475569; font-size:1.08rem; }
+		.actions { margin:1.75rem 0 3.5rem; display:flex; gap:.8rem; flex-wrap:wrap; }
+		.button { display:inline-block; padding:.8rem 1.05rem; border-radius:8px; font-weight:700; text-decoration:none; }
+		.primary { background:var(--blue); color:white; } .primary:hover{background:var(--blue-dark);} .secondary{background:white;color:var(--slate);border:1px solid var(--border);}
+		.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+		.card { background:white; border:1px solid var(--border); border-radius:12px; padding:1.35rem; }
+		.card h2 { margin:0 0 .55rem; font-size:1.08rem; }
+		.card p { color:var(--muted); font-size:.9rem; margin:0; }
+		section { margin-top:3.5rem; }
+		section > h2 { font-size:1.55rem; margin-bottom:.6rem; }
+		section > p { max-width:800px; color:#475569; }
+		.flow { counter-reset:step; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1.25rem; }
+		.flow .card::before { counter-increment:step; content:counter(step); display:inline-grid; place-items:center; width:30px;height:30px;border-radius:999px;background:#eff6ff;color:var(--blue);font-weight:800;margin-bottom:.7rem; }
+		.truth-box { background:#fff; border-left:4px solid var(--blue); border-radius:10px; padding:1.2rem 1.35rem; color:#475569; }
+		.truth-box strong { color:var(--slate); }
+		.pilot { background:#0f172a; color:white; border-radius:16px; padding:2rem; }
+		.pilot h2 { margin-top:0; color:white; } .pilot p{color:#cbd5e1;max-width:780px;} .pilot .button{background:white;color:#0f172a;}
+		.small { font-size:.8rem; color:var(--muted); margin-top:2.5rem; }
+		@media(max-width:640px){ .nav-inner{align-items:flex-start;flex-direction:column;} main{padding-top:3rem;} }
+	</style>
+</head>
+<body>
+	<nav class="nav">
+		<div class="nav-inner">
+			<a class="brand" href="/">Grid<strong>Permit</strong></a>
+			<div class="nav-links">
+				<a href="/permits/">Permit Guides</a>
+				<a href="/methodology/">Methodology</a>
+				<a href="/blog/">Decision Guides</a>
+				<a href="/contact/">Contact</a>
+			</div>
+		</div>
+	</nav>
+
+	<main>
+		<span class="eyebrow">PARTNERS & INTEGRATIONS</span>
+		<h1>Put permitting and PTO decision intelligence inside the solar workflow.</h1>
+		<p class="lead">GridPermit is building a source-backed decision layer for the questions that send solar operations teams into manual research: which authority owns the next step, which permit/interconnection path applies, what changed, and what evidence supports the answer.</p>
+		<div class="actions">
+			<a class="button primary" href="/partner-inquiry/">Discuss an integration pilot</a>
+			<a class="button secondary" href="/for-installers/">For solar installers</a>
+			<a class="button secondary" href="/methodology/">Review our methodology</a>
+		</div>
+
+		<div class="grid">
+			<div class="card"><h2>AHJ + utility separation</h2><p>Identify the permitting authority and utility as separate approval tracks instead of collapsing both into one vague project status.</p></div>
+			<div class="card"><h2>Path-changing project facts</h2><p>Flag when storage, an MPU, existing PV, ground mount, prior work or equipment changes may alter the approval route.</p></div>
+			<div class="card"><h2>SolarAPP+ eligibility</h2><p>Check project scope and participating-jurisdiction facts against current first-party SolarAPP+ guidance before choosing the submission path.</p></div>
+			<div class="card"><h2>Permit / inspection / PTO exceptions</h2><p>Turn “still waiting” into dated milestones, current owner of the next action, and the missing evidence or correction that must be resolved.</p></div>
+		</div>
+
+		<section>
+			<h2>Designed to sit before the handoff</h2>
+			<p>GridPermit is not positioning this layer as a replacement for permit designers, engineers, AHJs, utilities or execution partners. The goal is to improve the decision immediately before the handoff: classify the route, collect the missing facts, show the official evidence, then send the project to the right workflow.</p>
+			<div class="flow">
+				<div class="card"><h2>Ingest project context</h2><p>Address, jurisdiction context, utility, system design and current project milestone where available.</p></div>
+				<div class="card"><h2>Ask only what is missing</h2><p>Battery/storage, existing system, MPU/service changes, mount type, revised equipment and other decision facts.</p></div>
+				<div class="card"><h2>Return a decision card</h2><p>Approval path, known unknowns, first-party sources, verification date, missing requirement and next responsible authority.</p></div>
+				<div class="card"><h2>Route execution</h2><p>Continue into the platform's existing permit, engineering, interconnection, inspection or PTO workflow.</p></div>
+			</div>
+		</section>
+
+		<section>
+			<h2>What we will not pretend to know</h2>
+			<div class="truth-box"><strong>Unknown stays unknown.</strong> If a local requirement, fee, timeline, professional-stamp requirement or project status cannot be verified from a current first-party source or project record, GridPermit should label it rather than infer it from a community anecdote. Project-specific engineering and electrical safety decisions remain with qualified professionals and the responsible authorities.</div>
+		</section>
+
+		<section class="pilot">
+			<h2>Integration pilot</h2>
+			<p>A useful first pilot is small: take a set of projects that are off the normal path, compare GridPermit's classification against the partner's existing manual research, and measure whether the decision layer reduces incomplete routing and time spent determining who owns the next action.</p>
+			<a class="button" href="/partner-inquiry/">Contact GridPermit</a>
+		</section>
+
+		<p class="small">GridPermit is an independent educational permitting and interconnection research product. This page describes a proposed partner/integration workflow; it does not claim that GridPermit is currently integrated with any third-party platform named elsewhere on the site.</p>
+	</main>
+</body>
+</html>

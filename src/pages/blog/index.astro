@@ -1,7 +1,7 @@
 ---
-// Blog index. Lists every existing post — the 5 Markdown posts in
-// src/content/blog/ (rendered via BlogPost.astro) and the 3 standalone
-// .astro posts in this same directory — without inventing any new content.
+// Blog index. Lists every current Markdown content-collection post plus the
+// standalone .astro posts in this directory. The post list and categories
+// are generated from the shared source of truth below.
 // The post list and category assignments live in src/lib/blog-posts.ts, the
 // single source of truth also used by LocalityGuideLayout.astro's "Related
 // articles" section — no independent copy of this data lives here.
@@ -27,7 +27,7 @@ const categories = [...new Set(allPosts.map((p) => p.category))].sort();
 const PAGE_PATH = "/blog/";
 const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
 const title = "Solar & Battery Guides Blog | GridPermit";
-const description = "California-focused solar, battery, and utility rate guides — PG&E, SCE, and SDG&E rate analysis, NEM 3.0 payback math, and SGIP rebate breakdowns.";
+const description = "Solar permitting, interconnection, PTO, SolarAPP+, battery modification, and California utility decision guides — built around current first-party sources.";
 
 const breadcrumbItems = [
 	{ name: "Home", url: `${SITE_ORIGIN}/` },
@@ -90,11 +90,11 @@ const blogSchema = {
 			</a>
 			<div class="nav-links">
 				<a href="/#calculator">ROI Calculator</a>
-				<a href="/how-it-works">How It Works</a>
+				<a href="/how-it-works/">How It Works</a>
 				<a href="/california/solar-permit-guides/">California Guides</a>
-				<a href="/methodology">Methodology</a>
+				<a href="/methodology/">Methodology</a>
 			</div>
-			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
+			<a href="/search/" class="nav-search-link" aria-label="Search">🔍</a>
 			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
 		</div>
 	</nav>
@@ -150,7 +150,7 @@ const blogSchema = {
 
 			<div class="footer-disclaimer">
 				<p><strong>Disclaimers:</strong> These guides are for informational purposes only and are not legal, engineering, financial, tax, or permit advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Rate figures cited are illustrative examples based on publicly reported ranges, not a live lookup of your bill. Confirm current rates with your utility before making a decision.</p>
-				<p><a href="/methodology">Methodology</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/">Back to GridPermit</a></p>
+				<p><a href="/methodology/">Methodology</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/">Back to GridPermit</a></p>
 			</div>
 		</main>
 	</div>
@@ -162,7 +162,7 @@ const blogSchema = {
 				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
 			</p>
 			<div class="footer-links">
-				<a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro">GridPermit Pro</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+				<a href="/about/">About Us</a> | <a href="/how-it-works/">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro/">GridPermit Pro</a> | <a href="/methodology/">Methodology</a> | <a href="/contact/">Contact</a> | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a>
 			</div>
 		</div>
 	</footer>

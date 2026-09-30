@@ -5,13 +5,14 @@ import HeaderLink from './HeaderLink.astro';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href="/" class="site-brand"><img src="/brand/gridpermit-logo.png" alt="" width="36" height="36" /> <span>{SITE_TITLE}</span></a></h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/blog/">Blog</HeaderLink>
 			<HeaderLink href="/california/solar-permit-guides/">California Guides</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
-			<HeaderLink href="/methodology">Methodology</HeaderLink>
+			<HeaderLink href="/about/">About</HeaderLink>
+			<HeaderLink href="/methodology/">Methodology</HeaderLink>
+			<HeaderLink href="/partners/">Partners</HeaderLink>
 		</div>
 	</nav>
 </header>
@@ -30,6 +31,17 @@ import HeaderLink from './HeaderLink.astro';
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
+	}
+	.site-brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.55rem;
+	}
+	.site-brand img {
+		width: 36px;
+		height: 36px;
+		object-fit: contain;
+		border-radius: 8px;
 	}
 	nav {
 		display: flex;

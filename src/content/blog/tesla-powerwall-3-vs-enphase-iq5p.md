@@ -5,7 +5,7 @@ pubDate: "2026-07-27"
 updatedDate: "2026-08-26"
 ---
 
-Tesla Powerwall 3 and Enphase IQ Battery 5P are both home-energy storage systems, but they are built around different system architectures. A useful comparison starts with verified specifications and the design of the home, not a universal return-on-investment claim.
+Tesla Powerwall 3 and Enphase IQ Battery 5P are both home-energy storage systems, but they are built around different system architectures. Enphase's current 5-kWh residential battery is the IQ Battery 5P, so a "Tesla Powerwall vs. Enphase" comparison in practice means Powerwall 3 vs. one or more IQ Battery 5P units. A useful comparison starts with verified specifications and the design of the home, not a universal return-on-investment claim.
 
 ## Current Published Specifications
 

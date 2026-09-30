@@ -136,9 +136,18 @@
     "notes": "Search-engine synthesis confirms SolarAPP+ is used for most residential, roof-mounted, retrofit photovoltaic systems, but specific size/eligibility limits were not independently confirmed via direct fetch this session (victorvilleca.gov returned HTTP 403)."
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": "Residential photovoltaic system permit (up to 15 kW)",
+        "amount_usd": 372,
+        "unit": "per permit",
+        "notes": "The City adds a technology fee equal to 4.6% of the subtotal plus applicable seismic and green fees; additional fees may apply."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S9"
+    ]
   },
   "rebates": {
     "value": null,
@@ -168,7 +177,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-11",
+  "last_verified": "2026-09-04",
   "sources": [
     {
       "id": "S1",
@@ -233,6 +242,14 @@
       "publisher": "Western Community Energy",
       "type": "other_official",
       "accessed_date": "2026-08-11"
+    },
+    {
+      "id": "S9",
+      "title": "Stand Alone Permits Fee Calculation Chart - 2026",
+      "url": "https://www.victorvilleca.gov/files/assets/city/v/1/building/documents/fees/stand_alone_fees_2026.pdf",
+      "publisher": "City of Victorville",
+      "type": "government",
+      "accessed_date": "2026-09-04"
     },
     {
       "id": "SGIP_HANDBOOK_2026",

@@ -14,6 +14,7 @@ const organizationSchema = {
 	"@type": "Organization",
 	name: "GridPermit",
 	url: `${SITE_ORIGIN}/`,
+	logo: `${SITE_ORIGIN}/brand/gridpermit-logo.png`,
 };
 const websiteSchema = {
 	"@context": "https://schema.org",
@@ -60,9 +61,12 @@ const websiteSchema = {
 	<meta property="og:url" content="https://mygridpermit.com/" />
 	<meta property="og:title" content="GridPermit - Solar Permit Guides for U.S. Cities (All 50 States)" />
 	<meta property="og:description" content="Search verified, source-linked solar permit guides for U.S. cities. Research on file for all 50 states — deepest coverage in California." />
-	<meta name="twitter:card" content="summary" />
+	<meta property="og:image" content="https://mygridpermit.com/brand/gridpermit-banner.png" />
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="GridPermit - Solar Permit Guides for U.S. Cities (All 50 States)" />
 	<meta name="twitter:description" content="Search verified, source-linked solar permit guides for U.S. cities. Research on file for all 50 states — deepest coverage in California." />
+	<meta name="twitter:image" content="https://mygridpermit.com/brand/gridpermit-banner.png" />
+	<link rel="icon" type="image/png" href="/brand/gridpermit-favicon.png" />
 
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
@@ -76,21 +80,22 @@ const websiteSchema = {
 	<nav class="navbar">
 		<div class="nav-container">
 			<a href="/" class="brand-logo" aria-label="GridPermit Home">
+				<img src="/brand/gridpermit-logo.png" alt="" width="44" height="44" class="brand-mark" />
 				<div class="logo-flex">
 					<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
 				</div>
 			</a>
 			<div class="nav-links">
-				<a href="/permits">Browse States</a>
-				<a href="/how-it-works">How It Works</a>
+				<a href="/permits/">Browse States</a>
+				<a href="/how-it-works/">How It Works</a>
 				<a href="/california/solar-permit-guides/">California Guides</a>
-				<a href="/blog">Blog</a>
-				<a href="/about">About</a>
-				<a href="/methodology">Methodology</a>
-				<a href="/contact">Contact</a>
+				<a href="/blog/">Blog</a>
+				<a href="/about/">About</a>
+				<a href="/methodology/">Methodology</a>
+				<a href="/contact/">Contact</a>
 			</div>
-			<a href="/search" class="nav-search-link" aria-label="Search">🔍</a>
-			<a href="/search" class="btn-cta-nav">Find Your City</a>
+			<a href="/search/" class="nav-search-link" aria-label="Search">🔍</a>
+			<a href="/search/" class="btn-cta-nav">Find Your City</a>
 		</div>
 	</nav>
 
@@ -108,7 +113,7 @@ const websiteSchema = {
 						<button type="submit" class="hero-search-btn">Search →</button>
 					</div>
 				</form>
-				<p class="hero-search-examples">Try: <a href="/search?q=Austin">Austin, TX</a> · <a href="/search?q=Sacramento">Sacramento, CA</a> · <a href="/search?q=Ohio">Ohio</a> · <a href="/permits">or browse all 50 states →</a></p>
+				<p class="hero-search-examples">Try: <a href="/search?q=Austin">Austin, TX</a> · <a href="/search?q=Sacramento">Sacramento, CA</a> · <a href="/search?q=Ohio">Ohio</a> · <a href="/permits/">or browse all 50 states →</a></p>
 
 				<div class="hero-stats">
 					<div class="stat-item"><span class="stat-number">50</span><span class="stat-label">States With Research on File</span></div>
@@ -118,7 +123,7 @@ const websiteSchema = {
 					<div class="stat-item"><span class="stat-number">404</span><span class="stat-label">Verified Locality Records</span></div>
 				</div>
 				<p style="font-size: 0.85rem; color: #94a3b8; margin-top: 1.5rem;">
-					Coverage depth varies by state. California is by far our deepest, with 288 published city guides. Where we don't yet have enough verified information to publish a full guide, we say so rather than guessing. See our <a href="/methodology" style="color:#93c5fd;">Methodology</a> for exactly how a page earns "published" status.
+					Coverage depth varies by state. California is by far our deepest, with 288 published city guides. Where we don't yet have enough verified information to publish a full guide, we say so rather than guessing. See our <a href="/methodology/" style="color:#93c5fd;">Methodology</a> for exactly how a page earns "published" status.
 				</p>
 			</div>
 
@@ -130,7 +135,7 @@ const websiteSchema = {
 					<li><strong>We say what we don't know.</strong> A city with incomplete research is marked as limited coverage, not silently filled in.</li>
 					<li><strong>After the facts, one clear next step.</strong> Guides link to a real installer marketplace if you're ready to compare quotes, never before you've read the actual permit requirements.</li>
 				</ul>
-				<a href="/how-it-works" class="trust-card-link">How GridPermit verifies information →</a>
+				<a href="/how-it-works/" class="trust-card-link">How GridPermit verifies information →</a>
 			</div>
 		</div>
 	</main>
@@ -170,7 +175,7 @@ const websiteSchema = {
 			<div class="guides-teaser-links">
 				<a href="/california/" class="btn-teaser-primary">Read the California Solar Permit Guide →</a>
 				<a href="/california/solar-permit-guides/" class="btn-teaser-secondary">Browse verified California cities →</a>
-				<a href="/permits" class="btn-teaser-secondary">See coverage in all 50 states →</a>
+				<a href="/permits/" class="btn-teaser-secondary">See coverage in all 50 states →</a>
 			</div>
 		</div>
 	</section>
@@ -194,7 +199,7 @@ const websiteSchema = {
 						<label for="zip">California ZIP Code</label>
 						<input type="text" id="zip" placeholder="e.g. 90210, 94103, 92101" required pattern="[0-9]{5}" />
 						<div id="utility-detected" class="utility-pill hidden">✓ ZIP code is within California's range</div>
-						<div id="utility-not-ca" class="utility-pill-warn hidden">This doesn't look like a California ZIP code. This estimator currently covers California only. Try our <a href="/search">location search</a> instead for other states.</div>
+						<div id="utility-not-ca" class="utility-pill-warn hidden">This doesn't look like a California ZIP code. This estimator currently covers California only. Try our <a href="/search/">location search</a> instead for other states.</div>
 					</div>
 					<div class="input-field">
 						<label for="bill">Avg. Monthly Electric Bill ($)</label>
@@ -267,7 +272,7 @@ const websiteSchema = {
 						</table>
 					</div>
 
-					<p class="disclaimer-text">*Illustrative estimate based on one flat, statewide placeholder assumption, not your actual utility rate, solar production, or property details. Actual system size, pricing, incentives, and savings vary significantly. Review our <a href="/methodology" style="color:#2563eb;">Methodology</a> and verify final figures with a qualified installer.</p>
+					<p class="disclaimer-text">*Illustrative estimate based on one flat, statewide placeholder assumption, not your actual utility rate, solar production, or property details. Actual system size, pricing, incentives, and savings vary significantly. Review our <a href="/methodology/" style="color:#2563eb;">Methodology</a> and verify final figures with a qualified installer.</p>
 
 					<div class="lead-action-box">
 						<h3>Compare Quotes From Solar Installers</h3>
@@ -291,7 +296,7 @@ const websiteSchema = {
 				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
 			</p>
 			<div class="footer-links">
-				<a href="/permits">Browse States</a> | <a href="/about">About Us</a> | <a href="/how-it-works">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro">GridPermit Pro</a> | <a href="/blog">Blog</a> | <a href="/methodology">Methodology</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a>
+				<a href="/permits/">Browse States</a> | <a href="/about/">About Us</a> | <a href="/how-it-works/">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro/">GridPermit Pro</a> | <a href="/blog/">Blog</a> | <a href="/methodology/">Methodology</a> | <a href="/contact/">Contact</a> | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a>
 			</div>
 		</div>
 	</footer>
@@ -390,7 +395,8 @@ const websiteSchema = {
 		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
 		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
 		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-		.brand-logo { text-decoration: none; display: inline-block; }
+		.brand-logo { text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; }
+		.brand-mark { width: 44px; height: 44px; object-fit: contain; border-radius: 10px; flex: none; }
 		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0F172A; }
 		.logo-bold { font-weight: 800; }
 		.nav-links { display: flex; gap: 1.25rem; }

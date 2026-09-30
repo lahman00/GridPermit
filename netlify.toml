@@ -1745,6 +1745,24 @@
   force = false
 
 [[redirects]]
+  from = "/california/orange/"
+  to = "/california/orange/solar-permit-guide/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/california/norwalk/"
+  to = "/california/norwalk/solar-permit-guide/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/california/victorville/"
+  to = "/california/victorville/solar-permit-guide/"
+  status = 301
+  force = false
+
+[[redirects]]
   from = "/colorado/denver/"
   to = "/colorado/denver/solar-permit-guide/"
   status = 301
@@ -2070,3 +2088,7 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
