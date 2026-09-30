@@ -28,7 +28,9 @@ import { fileURLToPath } from "node:url";
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const LOCALITIES_DIR = path.join(REPO_ROOT, "data", "localities");
 const OUTPUT_DIR = path.join(REPO_ROOT, "output");
-const OUT_PATH = path.join(OUTPUT_DIR, "source-freshness-report.json");
+const OUT_PATH = process.env.GRIDPERMIT_FRESHNESS_REPORT_PATH
+	? path.resolve(process.env.GRIDPERMIT_FRESHNESS_REPORT_PATH)
+	: path.join(OUTPUT_DIR, "source-freshness-report.json");
 const EXCLUDED_OUTPUT_FILES = new Set([
 	"research-progress-report.json",
 	"statewide-research-queue.json",

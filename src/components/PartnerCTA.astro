@@ -1,0 +1,50 @@
+---
+import type {PartnerV2} from '../lib/commercial/partner-platform';
+import type {SelectedCommercialRoute} from '../lib/commercial/types';
+import {qualificationPolicy} from '../lib/commercial/qualification';
+interface Props { selection:{selected:SelectedCommercialRoute|null;assignment?:{experimentId:string;variant:string}|null}; partner:PartnerV2 }
+const {selection,partner}=Astro.props,selected=selection.selected;
+const qualify=qualificationPolicy(partner);
+const copy={SOLAR_QUOTE:'Compare local solar options',BATTERY_SERVICE:selected?.context.intent==='BATTERY_NEW_INSTALL'?'Compare solar and battery installation options':'Compare battery retrofit options',PERMIT_ENGINEERING:'Get help with permit-ready plans',PTO_HELP:'Get help resolving PTO / inspection issues',B2B:'Explore professional permitting services',LOCAL_INSTALLER:'Contact the sponsored local installer',PAY_PER_CALL:'Call the approved project specialist',NONE:''};
+const id=`qualify-${partner.partner_id}`;
+---
+{selected&&<section class="partner-cta" aria-label={copy[selected.route.channel]} data-partner-v2={JSON.stringify({selected,phone:partner.phone,assignment:selection.assignment})}>
+ {partner.logo&&<img src={partner.logo} alt={`${partner.name} logo`} width="120" height="48" loading="lazy"/>}
+ <h2>{copy[selected.route.channel]}</h2><p>{selected.disclosure}</p>
+ {partner.partner_id==='compare-solar-prices'&&selected.context.intent==='BATTERY_RETROFIT'&&<p>Already have solar? This route is for homeowners considering a battery retrofit. Have a recent electricity bill ready and confirm your contact details directly with CompareSolarPrices. GridPermit does not collect your bill or contact details.</p>}
+ {qualify.required&&<label for={id}><input id={id} type="checkbox" data-qualification/>{qualify.label}</label>}
+ <button type="button" data-partner-action disabled={qualify.required}>{copy[selected.route.channel]}{partner.tracking_type!=='PHONE_TRACKING'&&<span> (opens in a new tab)</span>}</button>
+ {partner.phone&&<p>Campaign hours: {partner.phone.start}–{partner.phone.end} {partner.phone.time_zone}. {partner.phone.minimum_conditions.join('; ')}</p>}
+ <p role="status" aria-live="polite"></p>
+</section>}
+<script>
+ import {newCommercialCid,commercialRouteCurrent} from '../lib/commercial/attribution';
+ import {trackCommercialEvent} from '../lib/commercial/events';
+ import {campaignOpen} from '../lib/commercial/campaign-hours';
+ for(const root of document.querySelectorAll<HTMLElement>('[data-partner-v2]')){
+  if(root.dataset.initialized)continue;root.dataset.initialized='true';
+  const {selected,phone,assignment}=JSON.parse(root.dataset.partnerV2!);
+  const current=()=>commercialRouteCurrent(selected)&&(!phone||phone.campaign_active===true&&campaignOpen(phone,new Date().toISOString()));
+  if(!current()){root.hidden=true;continue;}
+  const button=root.querySelector<HTMLButtonElement>('[data-partner-action]')!,check=root.querySelector<HTMLInputElement>('[data-qualification]');
+  check?.addEventListener('change',()=>{button.disabled=!check.checked;});
+  const emit=(stage:'rendered'|'exposed'|'clicked',cid?:string)=>{try{trackCommercialEvent(stage,selected,cid,assignment?.experimentId??'none',assignment?.variant??'none');}catch{}};
+  emit('rendered');
+  if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting&&e.intersectionRatio>=0.5)){emit('exposed');observer.disconnect();}},{threshold:0.5});observer.observe(button);}
+  if(phone)setInterval(()=>{if(!current())root.hidden=true;},30000);
+  setTimeout(()=>{root.hidden=true;},Math.max(0,Date.parse(selected.validUntil)-Date.now()));
+  button.addEventListener('click',()=>{
+   if(!current()||(check&&!check.checked)){root.hidden=true;return;}
+   try{const cid=newCommercialCid();emit('clicked',cid);
+    if(phone){window.location.href='tel:'+phone.number;}else {
+     const form=document.createElement('form');form.method='POST';form.action='/go/'+selected.partner.id;form.target='_blank';form.rel='noopener';form.hidden=true;
+     for(const[name,value]of Object.entries({cid,page_path:window.location.pathname,qualified:check?.checked?'1':'0'})){const input=document.createElement('input');input.type='hidden';input.name=name;input.value=value;form.append(input);}
+     document.body.append(form);form.submit();form.remove();
+    }
+   }catch{root.querySelector('[role=status]')!.textContent='This provider is unavailable. Please try again later.';}
+  });
+ }
+</script>
+<style>
+.partner-cta{box-sizing:border-box;max-width:48rem;padding:1.5rem;margin:2rem 0;background:#0f172a;color:#f8fafc;border-radius:10px;font:1rem/1.6 system-ui}.partner-cta h2{color:inherit;font-size:1.25rem}.partner-cta label{display:flex;gap:12px;align-items:center;margin:1rem 0}.partner-cta input{width:24px;height:24px;flex-shrink:0}.partner-cta button{max-width:100%;min-height:48px;padding:1rem;border:0;border-radius:6px;background:#6ee7b7;color:#052e23;font-weight:700}.partner-cta button:disabled{opacity:.55}.partner-cta :focus-visible{outline:3px solid #fbbf24;outline-offset:4px}.partner-cta [role=status]{min-height:1.6em}.partner-cta img{object-fit:contain}
+</style>

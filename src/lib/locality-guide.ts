@@ -317,9 +317,16 @@ export function buildPageMeta(record: LocalityRecord, pagePath: string): PageMet
 }
 
 export interface BreadcrumbOptions {
-	// Explicit path to the city's own index page (e.g. "/california/oakland/").
-	// Never derived by splitting pagePath — a route's URL shape is not a
-	// reliable stand-in for its city's canonical listing path.
+	// Explicit path to the city's own index page. Never derived by splitting
+	// pagePath — a route's URL shape is not a reliable stand-in for its
+	// city's canonical listing path, and this function stays agnostic to
+	// whether cityPath equals pagePath or points somewhere else entirely.
+	// In practice, every caller today (scripts/generate-locality-pages.mjs)
+	// passes the same value as pagePath: no distinct per-city hub page
+	// exists for any locality, so the city breadcrumb link should resolve
+	// directly to the one real page rather than through a redirect. If a
+	// real city-hub page is ever built, its generator should pass that
+	// page's own real path here instead.
 	cityPath: string;
 	pageUrl: string;
 	pageLabel?: string;

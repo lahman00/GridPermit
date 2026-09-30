@@ -149,6 +149,24 @@ test("a negative permit_fees amount_usd is an impossible_value error", async () 
 	assert.ok(report.errors.some((e) => e.category === "impossible_value" && e.field === "permit_fees"));
 });
 
+test("a municipal permit fee sourced to the issuing government is not an unsupported claim", async () => {
+	const r = baseRecord();
+	r.permit_fees = { value: [{ name: "Residential photovoltaic permit", amount_usd: 250, unit: "flat", notes: null }], confidence: 0.9, source_ids: ["S1"] };
+	const report = await validate(writeFixture(r));
+	assert.equal(report.warnings.some((w) => w.category === "unsupported_claim" && w.field === "permit_fees"), false);
+});
+
+test("a rebate amount sourced only to a generic government page remains an unsupported claim", async () => {
+	const r = baseRecord();
+	r.rebates = {
+		value: [{ name: "Test rebate", administrator: "Test Utility", description: "Fixture incentive", value_usd_per_kwh: null, value_usd_flat: 250, value_usd_per_watt: null, eligibility: null, url: null, effective_from: null, expires_on: null, status: "unknown" }],
+		confidence: 0.7,
+		source_ids: ["S1"],
+	};
+	const report = await validate(writeFixture(r));
+	assert.ok(report.warnings.some((w) => w.category === "unsupported_claim" && w.field === "rebates"));
+});
+
 test("a malformed URL is a CONFIRMED_BROKEN broken_url error, with no live network call", async () => {
 	const r = baseRecord();
 	r.permit_url = { value: "not a valid url::", confidence: 0.5, source_ids: ["S1"] };

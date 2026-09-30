@@ -37,7 +37,7 @@ const webPageSchema = {
 		.container { max-width: 800px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }
 		h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: #0f172a; }
 		h2 { font-size: 1.15rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #0f172a; }
-		p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
+		p, li { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
 		.back-link { display: inline-block; margin-bottom: 1.5rem; color: #2563eb; font-weight: 600; text-decoration: none; }
 		.cross-links { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; }
 		.cross-links a { color: #2563eb; text-decoration: none; }
@@ -46,23 +46,31 @@ const webPageSchema = {
 <body>
 	<main class="container">
 		<a href="/" class="back-link">← Back to Home</a>
-		<p class="cross-links"><a href="/blog">Blog</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a></p>
+		<p class="cross-links"><a href="/blog/">Blog</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/terms/">Terms</a> · <a href="/contact/">Contact</a></p>
 		<h1>Privacy Policy</h1>
 		<p>GridPermit is an independent educational resource for U.S. solar permitting research, with a separate California-only illustrative solar and battery calculator. The calculator does not require you to provide a name, email address, or phone number.</p>
 
 		<h2>Calculator Inputs</h2>
 		<p>Calculator inputs such as a 5-digit ZIP code and monthly utility spend are processed in your browser to produce the illustrative estimate. GridPermit's analytics event helper is designed to strip ZIP codes, bill amounts, names, email addresses, phone numbers, and addresses from event parameters before an event can be sent.</p>
 
+		<h2>Project-help and partner-inquiry forms</h2>
+		<p>If you choose to submit a project-help or partner-inquiry form, GridPermit collects the information you enter so the request can be reviewed and responded to. Depending on the form, this can include an email address, company name, jurisdiction/AHJ, electric utility, project scope, project stage, non-sensitive milestone dates, referral/UTM context, and the question or partnership message you provide.</p>
+		<p>These forms are processed through Netlify Forms, the form-processing service used with GridPermit's hosting. Form submissions may therefore be processed and stored by Netlify on GridPermit's behalf under Netlify's applicable service and privacy terms.</p>
+		<p>Do not submit utility account numbers, passwords, payment-card or bank information, government ID numbers, or other sensitive credentials. GridPermit does not need a street address to review the initial permit/PTO question.</p>
+		<p>Submitting a project-help form does not automatically send your personal information to a solar installer, engineer, permitting company, utility, or referral partner. If a future referral requires sharing information with another company, GridPermit should present that disclosure or obtain the relevant permission before the information is shared.</p>
+
 		<h2>Analytics</h2>
-		<p>GridPermit uses Google Analytics 4 to understand aggregate site usage and interactions, such as page views and selected on-site events. Google Analytics may process technical and usage information and may use cookies or similar technologies according to Google's own practices. GridPermit does not intentionally send calculator ZIP codes, bill amounts, names, email addresses, phone numbers, or street addresses as analytics event parameters.</p>
+		<p>GridPermit uses Google Analytics 4 to understand aggregate site usage and interactions, such as page views and selected on-site events. Google Analytics may process technical and usage information and may use cookies or similar technologies according to Google's own practices. GridPermit does not intentionally send calculator ZIP codes, bill amounts, form-entered names, email addresses, phone numbers, street addresses, or utility account information as analytics event parameters.</p>
 
 		<h2>Referral Attribution</h2>
 		<p>When GridPermit offers a tracked referral link to a third-party partner, GridPermit may generate a random referral identifier for the outbound click. The identifier is designed not to contain your name, email address, phone number, street address, ZIP code, utility bill amount, or other information you enter on GridPermit. The referral identifier may be included in the partner URL and recorded with GridPermit's click analytics so partner reports can be reconciled to the originating referral click. Any information you later provide directly to the partner is handled under that partner's own privacy policy and data practices.</p>
+		<p>Some referral buttons pass through a GridPermit redirect before opening the partner website. GridPermit stores the random referral code, partner, button identifier, page path, city described by that page, project intent and time in private Netlify storage. The city comes from the page, not your location. These records contain no contact details, IP addresses or browser identifiers. Hosting and security providers may process IP addresses as part of normal request handling.</p>
+		<p>First-party referral records are available for reconciliation for seven days. An hourly cleanup removes expired records; storage failures can delay deletion and stop new recording until cleanup recovers. Global Privacy Control and Do Not Track requests skip this first-party recording while allowing the referral to continue. This does not change the separate analytics or partner practices described above.</p>
 
 		<h2>Third-Party Links</h2>
 		<p>GridPermit links to third-party websites, including solar marketplaces and product providers. Those services operate under their own privacy policies and data practices. GridPermit does not control how a third-party site handles information after you leave GridPermit.</p>
 
-		<p>Privacy inquiries and requests may be submitted to privacy@gridpermit.com. Depending on your location, applicable privacy laws may provide additional rights regarding personal information.</p>
+		<p>Privacy inquiries and requests may be submitted to privacy@mygridpermit.com. Depending on your location, applicable privacy laws may provide additional rights regarding personal information.</p>
 	</main>
 </body>
 </html>

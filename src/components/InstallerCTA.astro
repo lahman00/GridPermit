@@ -8,21 +8,39 @@
 // untracked EnergySage surface only when ALL of these are true:
 // 1) this is a California locality route,
 // 2) the city is in CompareSolarPrices' verified Southern California allowlist,
-// 3) the partner registry says CompareSolarPrices is fully launch-ready.
+// 3) the partner registry says CompareSolarPrices is fully launch-ready,
+// 4) the locality record's own utility field is verified unambiguous for the
+//    whole city (see src/lib/utility-split-guard.ts) — a city can be on the
+//    served-city allowlist and still have a genuinely multi-utility record
+//    (e.g. Corona's utility is null; Mission Viejo/Laguna Hills/Laguna
+//    Niguel's records explicitly cover only part of the city), and a
+//    generic "your utility is X" referral would be misleading for those.
 //
 // Until those gates clear, the production output is exactly the existing
 // EnergySage CTA. This lets the payment/tax activation happen later as a
 // registry-state change without another risky layout edit or a period with
 // two competing solar CTAs on one page.
+import {PARTNER_REGISTRY,REVIEWED_PAGE_INTENTS,PARTNER_EXPERIMENTS} from '../lib/commercial/runtime-registry';
+import {routePartnerSlot} from '../lib/commercial/partner-platform';
+import {qualificationPolicy} from '../lib/commercial/qualification';
+import type {CommercialIntent} from '../lib/commercial/types';
 import CompareSolarPricesCTA from "./CompareSolarPricesCTA.astro";
 import { isCompareSolarServedLocality } from "../lib/compare-solar-prices";
 import { getPartner, getLaunchReadyPartner, getCplState, getCplDisclosureText } from "../lib/partners";
+import { hasVerifiedUnambiguousUtility, type UtilitySplitGuardUtilityField } from "../lib/utility-split-guard";
 
 interface Props {
 	city: string;
+	requireFirstLeadQualification?: boolean;
+	// Identifies the locality record and carries its utility field so this
+	// gate can run the utility-split guard. Optional so any pre-existing
+	// caller that doesn't pass them fails closed (no record_id/utility means
+	// hasVerifiedUnambiguousUtility returns false, never true).
+	recordId?: string | null;
+	utility?: UtilitySplitGuardUtilityField | null;
 }
 
-const { city } = Astro.props;
+const { city, requireFirstLeadQualification = false, recordId, utility } = Astro.props;
 const energysage = getPartner("energysage")!;
 const energysageDisclosure = getCplDisclosureText(getCplState(energysage), energysage.name);
 
@@ -31,16 +49,35 @@ const energysageDisclosure = getCplDisclosureText(getCplState(energysage), energ
 // future non-California route can never widen eligibility.
 const isCaliforniaRoute = Astro.url.pathname.split("/").filter(Boolean)[0]?.toLowerCase() === "california";
 const compareSolar = getLaunchReadyPartner("compare-solar-prices", "cpl");
-const useCompareSolar = Boolean(
+const legacyEligible = Boolean(
 	compareSolar &&
 	isCaliforniaRoute &&
-	isCompareSolarServedLocality("CA", city),
+	isCompareSolarServedLocality("CA", city) &&
+	hasVerifiedUnambiguousUtility({ record_id: recordId, utility }),
 );
+// Existing locality offer remains grandfathered until a reviewed page intent
+// replaces it. An explicit battery/PTO/informational intent never falls back
+// to a new-solar offer merely because CSP is active.
+const mappedIntent=REVIEWED_PAGE_INTENTS.get(Astro.url.pathname) as CommercialIntent|undefined;
+const pageIntent=mappedIntent??(legacyEligible?'NEW_SOLAR':'UNKNOWN');
+const canonicalRecord=PARTNER_REGISTRY.records.find(r=>r.record_id===recordId);
+const context={state:canonicalRecord?.state??'',city,recordId:recordId??undefined,utility,pageType:'locality_guide',pagePath:Astro.url.pathname,intent:pageIntent,pageIntent,
+  ...(pageIntent==='BATTERY_RETROFIT'?{existingSolar:true,batteryIntent:'RETROFIT' as const}:{})};
+const routing=canonicalRecord&&(isCaliforniaRoute||mappedIntent)?routePartnerSlot(context,PARTNER_REGISTRY,PARTNER_EXPERIMENTS):null;
+const selection=routing?.selected??null;
+const useCompareSolar=selection?.partner_id==='compare-solar-prices';
+const selectedPartner=PARTNER_REGISTRY.partners.find(p=>p.partner_id===selection?.partner_id);
+const qualification=selectedPartner?qualificationPolicy(selectedPartner,requireFirstLeadQualification):null;
+const GenericCTA=selection&&!useCompareSolar?(await import('./PartnerCTA.astro')).default:null;
+const allowUnpaidResource=!mappedIntent&&!routing?.assignment&&!['INVALID_EXPERIMENT_CONFIG','OVERLAPPING_EXPERIMENTS'].includes(routing?.reason??'');
+
 ---
 
 {useCompareSolar ? (
-	<CompareSolarPricesCTA state="CA" city={city} />
-) : (
+	<CompareSolarPricesCTA state="CA" city={city} requireFirstLeadQualification={requireFirstLeadQualification} qualificationLabel={qualification?.label} />
+) : GenericCTA && selection ? (
+  <GenericCTA selection={selection} partner={selectedPartner!}/>
+) : allowUnpaidResource && (
 	<div class="installer-cta-box">
 		<h2>Need a solar installer who handles permits in {city}?</h2>
 		<p>EnergySage is an independent solar marketplace where you can request property-specific pricing from installers familiar with local permitting.</p>

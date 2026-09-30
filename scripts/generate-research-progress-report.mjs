@@ -23,7 +23,9 @@ import { fileURLToPath } from "node:url";
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const OUTPUT_DIR = path.join(REPO_ROOT, "output");
 const LOCALITIES_DIR = path.join(REPO_ROOT, "data", "localities");
-const OUT_PATH = path.join(OUTPUT_DIR, "research-progress-report.json");
+const OUT_PATH = process.env.GRIDPERMIT_PROGRESS_REPORT_PATH
+	? path.resolve(process.env.GRIDPERMIT_PROGRESS_REPORT_PATH)
+	: path.join(OUTPUT_DIR, "research-progress-report.json");
 
 // Cities explicitly investigated this campaign but blocked on every official
 // source attempted, so no data/localities/ record was ever created for them.

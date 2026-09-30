@@ -1,0 +1,68 @@
+---
+import Analytics from "../components/Analytics.astro";
+const title = "Partner Integration Inquiry | GridPermit";
+const description = "Submit a GridPermit platform, workflow, referral or integration inquiry.";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Analytics />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href="https://mygridpermit.com/partner-inquiry/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mygridpermit.com/partner-inquiry/" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.55}main{max-width:720px;margin:0 auto;padding:3.5rem 1.25rem 5rem}.card{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:2rem}h1{font-size:2rem;line-height:1.15;margin:0 0 .75rem}p{color:#475569}label{display:block;font-weight:700;font-size:.88rem;margin:1rem 0 .35rem}input,textarea{width:100%;padding:.78rem .85rem;border:1px solid #cbd5e1;border-radius:8px;font:inherit;background:white}textarea{min-height:150px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.button{margin-top:1.25rem;border:0;border-radius:8px;background:#2563eb;color:white;font:inherit;font-weight:800;padding:.85rem 1.1rem;cursor:pointer}.small{font-size:.8rem;color:#64748b}@media(max-width:620px){.two{grid-template-columns:1fr}.card{padding:1.25rem}}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1>Discuss a GridPermit integration or distribution pilot</h1>
+      <p>Use this for software integrations, workflow pilots, referral/distribution partnerships or permit/interconnection service routing.</p>
+      <p>The strongest pilot candidates already have project context—address, AHJ, utility, system design or milestone data—but still send operations teams into manual research when a battery, MPU, existing PV, equipment revision, SolarAPP+ eligibility question, failed inspection or stalled PTO changes the normal path. GridPermit's proposed role is to classify that exception, show current first-party evidence and route the project into the partner's existing execution workflow rather than replace it.</p>
+      <form name="partner-integration" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="partner-integration" />
+        <input type="hidden" name="source_page" value="" />
+        <input type="hidden" name="referrer" value="" />
+        <input type="hidden" name="utm_source" value="" />
+        <input type="hidden" name="utm_medium" value="" />
+        <input type="hidden" name="utm_campaign" value="" />
+        <input type="hidden" name="utm_term" value="" />
+        <div class="two">
+          <div><label for="email">Work email</label><input id="email" name="email" type="email" required /></div>
+          <div><label for="company">Company</label><input id="company" name="company" required /></div>
+        </div>
+        <label for="role">Role / team</label><input id="role" name="role" placeholder="Product, Partnerships, Operations, Engineering…" />
+        <label for="workflow">Where does permit/interconnection decision work create friction today?</label>
+        <textarea id="workflow" name="workflow" required placeholder="Examples: routing the correct permit service, SolarAPP+ eligibility, AHJ vs utility responsibility, inspection exceptions, PTO delays…"></textarea>
+        <button class="button" type="submit">Submit partner inquiry</button>
+        <p class="small">This form is for business/workflow discussions. Do not submit customer account numbers or private project credentials.</p>
+      </form>
+    </div>
+  </main>
+
+  <script is:inline>
+    const params = new URLSearchParams(window.location.search);
+    const setField = (name, value) => {
+      const field = document.querySelector(`input[name="${name}"]`);
+      if (field instanceof HTMLInputElement) field.value = value || "";
+    };
+    setField("source_page", window.location.href);
+    setField("referrer", document.referrer);
+    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_term"]) {
+      setField(key, params.get(key));
+    }
+  </script>
+</body>
+</html>

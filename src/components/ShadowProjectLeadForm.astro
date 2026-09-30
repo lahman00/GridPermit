@@ -1,0 +1,21 @@
+---
+interface Props { intent:'PERMIT_ENGINEERING'|'PTO_RESCUE'; preview?:boolean }
+const {intent,preview=false}=Astro.props;
+// Public builds never expose a lead intake. Even local review fields cannot
+// collect or submit contact data before a partner/privacy workflow is approved.
+const localReview=preview&&['localhost','127.0.0.1'].includes(Astro.site?.hostname??'');
+const prefix=intent.toLowerCase();
+---
+{localReview&&<section aria-label={`${intent} form preview`} class="shadow-form">
+ <h2>{intent==='PTO_RESCUE'?'PTO assistance':'Permit engineering'} — local preview</h2>
+ <p>This form is inactive. It does not collect or send information.</p>
+ <form aria-label="Inactive project request" onsubmit="return false">
+ <fieldset disabled><legend>Project details — disabled preview</legend>
+ <label for={`${prefix}-city`}>Project city</label><input id={`${prefix}-city`} type="text" autocomplete="off"/>
+ <label for={`${prefix}-type`}>Project type</label><select id={`${prefix}-type`}><option>New solar</option><option>Battery retrofit</option><option>Existing project</option></select>
+ <label for={`${prefix}-need`}>{intent==='PTO_RESCUE'?'PTO or inspection issue':'Permit need'}</label><textarea id={`${prefix}-need`}></textarea>
+ <label for={`${prefix}-contact`}>Email or contact (optional)</label><input id={`${prefix}-contact`} type="email" autocomplete="off"/>
+ <button type="button" disabled>Not available</button>
+ </fieldset></form>
+ </section>}
+<style>.shadow-form{padding:1.5rem;border:1px solid #64748b;border-radius:8px;margin:1rem 0}label,input,select,textarea{display:block;box-sizing:border-box;width:100%;margin:.5rem 0}input,select,button{min-height:48px}fieldset{min-width:0}</style>

@@ -130,7 +130,7 @@ export function getCompareSolarDestination(state: string, city: string): string 
 	if (!isCalifornia(state)) return null;
 	const slug = normalizeCompareSolarCitySlug(city);
 	if (!COMPARE_SOLAR_SERVED_CITY_SLUGS.has(slug)) return null;
-	return `${COMPARE_SOLAR_ORIGIN}/solar-${slug}-ca/`;
+	return `${COMPARE_SOLAR_ORIGIN}/#quote`;
 }
 
 export function buildCompareSolarReferralUrl(state: string, city: string, cid = generateCompareSolarCid()): string | null {

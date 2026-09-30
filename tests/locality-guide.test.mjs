@@ -196,6 +196,17 @@ test("resolvePermitAuthorityLabel renders Not yet verified. when permit_authorit
 });
 
 // --- Explicit city breadcrumb path (never derived from splitting pagePath) ---
+//
+// buildBreadcrumbItems itself stays agnostic to what cityPath actually is —
+// this test proves that with a deliberately-mismatched hypothetical
+// (a county-scoped city-hub URL that doesn't exist in production). In real
+// usage today, scripts/generate-locality-pages.mjs always passes the same
+// value for cityPath and pagePath: no distinct per-city hub page exists for
+// any of the 340+ generated localities, so the breadcrumb's city link
+// resolves directly to the one real page instead of through the
+// now-obsolete netlify.toml per-city redirects. See
+// tests/generate-locality-pages.test.mjs's CITY_PATH/PAGE_PATH assertion
+// for that real-usage regression guard.
 
 test("buildBreadcrumbItems uses the explicit cityPath, not a path derived from pagePath", () => {
 	const record = buildRecord({ city: { value: "Pasadena" } });

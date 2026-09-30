@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Local analysis overlay only. It does not change src/lib/partners.ts or any production activation flag.",
+  "source": {
+    "path": "docs/MONETIZATION_CANONICAL_STATE.md",
+    "last_reconciled": "2026-08-29",
+    "scope_note": "The canonical document says the listed refreshed routes were checked against live Gmail; production is authoritative for CompareSolarPrices."
+  },
+  "route_updates": {
+    "digital-master-media": {
+      "status": "owner_action_required",
+      "payout": { "type": "per_call", "value": null, "upper_value": null, "confidence": "unknown" },
+      "cookie": { "days": null, "confidence": "not_applicable" },
+      "next_action": "Owner reviews the publisher agreement and signs only if its binding terms are acceptable.",
+      "evidence": "Canonical ledger: public headline says up to $53/call, but the GridPermit-specific rate is not confirmed and must remain unset."
+    },
+    "renogy": {
+      "status": "owner_action_required",
+      "payout": { "type": "per_sale_percent", "value": 6, "upper_value": null, "confidence": "direct_confirmed" },
+      "cookie": { "days": 27, "confidence": "direct_confirmed" },
+      "next_action": "Owner applies through the received Impact invitation using the existing account, then tells Renogy the application was submitted.",
+      "evidence": "Canonical ledger: direct fit, 6% U.S. rate, and 27-day attribution confirmed by Renogy."
+    },
+    "bougerv": {
+      "status": "owner_action_required",
+      "payout": { "type": "per_sale_percent", "value": 7, "upper_value": null, "confidence": "direct_confirmed" },
+      "cookie": { "days": null, "confidence": "unknown" },
+      "next_action": "Owner applies through the received BougeRV Impact link using the existing account.",
+      "evidence": "Canonical ledger: direct fit and 7% standard rate confirmed; cookie duration is unknown."
+    },
+    "litime": {
+      "status": "owner_action_required",
+      "payout": { "type": "per_sale_percent", "value": 5, "upper_value": 10, "confidence": "direct_confirmed" },
+      "cookie": { "days": 30, "confidence": "direct_confirmed" },
+      "next_action": "Owner applies through the received LiTime U.S. Impact link using the existing account.",
+      "evidence": "Canonical ledger refreshed row: 5% base, 8-10% at volume, and 30 days confirmed."
+    },
+    "allpowers": {
+      "status": "owner_action_required",
+      "payout": { "type": "per_sale_percent", "value": 5, "upper_value": 10, "confidence": "published" },
+      "cookie": { "days": 30, "confidence": "published" },
+      "next_action": "Owner applies to CJ advertiser 7797916 using the active GridPermit CJ publisher account.",
+      "evidence": "Canonical ledger: CJ advertiser ID confirmed; public program terms state 5% base, tiers up to 10%, and 30 days."
+    }
+  },
+  "supplemental_routes": [
+    {
+      "route_id": "compare-solar-prices",
+      "partner_id": "compare-solar-prices",
+      "name": "CompareSolarPrices",
+      "channel": "cpl",
+      "status": "production_active",
+      "payout": { "type": "per_qualified_quote", "value": 25, "upper_value": null, "secondary_type": "per_funded_install", "secondary_value": 200, "confidence": "direct_confirmed" },
+      "cookie": { "days": 30, "confidence": "direct_confirmed" },
+      "geo": "US:CA allowlist only",
+      "eligible_page_types": ["locality_guide"],
+      "next_action": "Keep routing fail-closed; owner sends the prepared W-8BEN for payout processing.",
+      "evidence": "Canonical ledger: direct relationship, live production tracking, $25/qualified quote plus $200/funded install, 30-day cookie."
+    },
+    {
+      "route_id": "energysage-flexoffers",
+      "partner_id": "energysage",
+      "name": "EnergySage (FlexOffers alternative)",
+      "channel": "cpl",
+      "status": "application_started",
+      "payout": { "type": "per_lead", "value": null, "upper_value": null, "confidence": "unknown" },
+      "cookie": { "days": null, "confidence": "unknown" },
+      "geo": "US",
+      "eligible_page_types": ["locality_guide", "state_hub", "county_hub", "utility_hub"],
+      "next_action": "Wait for publisher-account approval, then inspect advertiser-specific terms before accepting anything.",
+      "evidence": "Canonical ledger: publisher registration submitted; advertiser-specific terms are not reachable yet."
+    },
+    {
+      "route_id": "energysage-direct",
+      "partner_id": "energysage",
+      "name": "EnergySage (direct fallback)",
+      "channel": "cpl",
+      "status": "discovered",
+      "payout": { "type": "per_lead", "value": null, "upper_value": null, "confidence": "unknown" },
+      "cookie": { "days": null, "confidence": "unknown" },
+      "geo": "US",
+      "eligible_page_types": ["locality_guide", "state_hub", "county_hub", "utility_hub"],
+      "next_action": "Keep as a fallback; registration requires owner-supplied identity and contact data.",
+      "evidence": "Canonical ledger: direct partner form exists, but terms are unknown."
+    },
+    {
+      "route_id": "lead-smart",
+      "partner_id": "lead-smart",
+      "name": "Lead Smart Inc",
+      "channel": "pay_per_call",
+      "status": "rejected",
+      "payout": { "type": "unknown", "value": null, "upper_value": null, "confidence": "unknown" },
+      "cookie": { "days": null, "confidence": "unknown" },
+      "geo": "unknown",
+      "eligible_page_types": [],
+      "next_action": "Do not route or pursue without materially new verified evidence.",
+      "evidence": "docs/AFFILIATE_PARTNER_PIPELINE.md: rejected for no confirmed solar vertical and mixed trust signals, including an unresolved reported payment dispute; no published commission or cookie."
+    },
+    {
+      "route_id": "suncheck",
+      "partner_id": "suncheck",
+      "name": "SUNcheck",
+      "channel": "cpl",
+      "status": "rejected",
+      "payout": { "type": "unknown", "value": null, "upper_value": null, "confidence": "unknown" },
+      "cookie": { "days": null, "confidence": "unknown" },
+      "geo": "unknown",
+      "eligible_page_types": [],
+      "next_action": "Do not route; reopen only if a real primary-source publisher program appears.",
+      "evidence": "Canonical ledger and pipeline: the old $1,000/365-day claim was invalidated and must not be represented as partner terms."
+    },
+    {
+      "route_id": "awin-network",
+      "partner_id": "awin-network",
+      "name": "Awin (network)",
+      "channel": "network",
+      "status": "blocked",
+      "payout": { "type": "not_applicable", "value": null, "upper_value": null, "confidence": "not_applicable" },
+      "cookie": { "days": null, "confidence": "not_applicable" },
+      "geo": "not_applicable",
+      "eligible_page_types": [],
+      "next_action": "Do not force Awin; use verified per-program alternatives.",
+      "evidence": "Canonical ledger: Israel is unavailable in the tax-residency dropdown."
+    }
+  ]
+}

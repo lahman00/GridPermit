@@ -45,18 +45,26 @@ test("city normalization matches partner URL slugs", () => {
 
 test("known California service cities deep-link with GridPermit ref and supplied cid", () => {
 	assert.equal(isCompareSolarServedLocality("CA", "Irvine"), true);
-	assert.equal(getCompareSolarDestination("CA", "Irvine"), "https://www.comparesolarprices.net/solar-irvine-ca/");
+	assert.equal(getCompareSolarDestination("CA", "Irvine"), "https://www.comparesolarprices.net/#quote");
 
 	const built = buildCompareSolarReferralUrl("CA", "Irvine", "test_click_001");
 	assert.ok(built);
 	const url = new URL(built);
 	assert.equal(url.origin, "https://www.comparesolarprices.net");
-	assert.equal(url.pathname, "/solar-irvine-ca/");
+	assert.equal(url.pathname, "/");
+	assert.equal(url.hash, "#quote");
 	assert.equal(url.searchParams.get("ref"), "GridPermit");
 	assert.equal(url.searchParams.get("cid"), "test_click_001");
 });
 
-test("Aaron-confirmed 2026-09-29 Southern California 14-city batch remains explicitly eligible", () => {
+test("named out-of-boundary California cities remain fail closed", () => {
+	assert.equal(isCompareSolarServedLocality("CA", "Santa Barbara"), false);
+	assert.equal(isCompareSolarServedLocality("CA", "Barstow"), false);
+	assert.equal(getCompareSolarDestination("CA", "Santa Barbara"), null);
+	assert.equal(getCompareSolarDestination("CA", "Barstow"), null);
+});
+
+test("Aaron-confirmed 2026-09-29 Southern California 14-city batch confirms commercial coverage without bypassing utility or page gates", () => {
 	const confirmedCities = [
 		"Cathedral City",
 		"Corona",
@@ -80,7 +88,8 @@ test("Aaron-confirmed 2026-09-29 Southern California 14-city batch remains expli
 		assert.ok(destination, city);
 		const url = new URL(destination);
 		assert.equal(url.origin, "https://www.comparesolarprices.net");
-		assert.equal(url.pathname, `/solar-${normalizeCompareSolarCitySlug(city)}-ca/`);
+		assert.equal(url.pathname, "/");
+		assert.equal(url.hash, "#quote");
 	}
 });
 
@@ -108,14 +117,17 @@ test("CTA has a proximate paid-referral disclosure and does not make partner sav
 });
 
 test("CTA creates one fresh CID per click and sends that same non-PII CID to the partner and revenue-attribution telemetry", () => {
-	assert.match(component, /const cid = generateCompareSolarCid\(\)/);
+	assert.match(component, /const randomCid = generateCompareSolarCid\(\)/);
+	assert.match(component, /const cid = reservedCidPrefix/);
+	assert.match(component, /reservedCidPrefix \+ randomCid\.slice\(4\)/);
 	assert.match(component, /buildCompareSolarReferralUrl\(state, city, cid\)/);
 	assert.match(component, /referral_cid: cid/);
 	assert.match(component, /cta_id: CTA_ID/);
 	assert.match(component, /partner: PARTNER_ID/);
 	assert.match(component, /normalizeCompareSolarCitySlug\(city\)/);
 	assert.match(component, /trackEvent\("cpl_cta_clicked"/);
-	assert.match(component, /window\.open\(referralUrl/);
+	assert.match(component, /form\.action = "\/go\/compare-solar-prices"/);
+	assert.match(component, /form\.submit\(\)/);
 });
 
 test("CTA records partner/page/locality dimensions on views without double-firing the generic data-track-view hook", () => {
@@ -125,14 +137,29 @@ test("CTA records partner/page/locality dimensions on views without double-firin
 	assert.ok(!component.includes('data-track-view="cpl_cta_viewed"'));
 });
 
+test("CTA keeps rendered and actual viewport exposure telemetry separate", () => {
+	assert.match(component, /const EXPOSURE_RATIO = 0\.25/);
+	assert.match(component, /new IntersectionObserver/);
+	assert.match(component, /entry\.intersectionRatio < EXPOSURE_RATIO/);
+	assert.match(component, /trackEvent\(\"cpl_cta_exposed\", getSafePlacementParams\(state, city\)\)/);
+	assert.match(component, /observer\.disconnect\(\)/);
+	assert.match(component, /EXPOSURE_GUARD_KEY/);
+	assert.match(component, /typeof IntersectionObserver !== \"function\"/);
+});
+
 test("LocalityGuideLayout does not duplicate the CompareSolarPrices integration owned by InstallerCTA", () => {
 	assert.ok(!localityLayout.includes("CompareSolarPricesCTA"));
 	assert.ok(!localityLayout.includes("compare-solar-prices"));
 });
 
-test("a blocked popup falls back to same-tab navigation instead of stranding the user", () => {
-	assert.match(component, /const popup = window\.open\(referralUrl, "_blank", "noopener,noreferrer"\)/);
-	assert.match(component, /if \(!popup\)\s*{\s*window\.location\.assign\(referralUrl\)/);
+test("outbound referral navigation uses a noopener first-party POST without ambiguous popup-handle fallback", () => {
+	assert.match(component, /const form = document\.createElement\("form"\)/);
+	assert.match(component, /form\.action = "\/go\/compare-solar-prices"/);
+	assert.match(component, /form\.target = "_blank"/);
+	assert.match(component, /form\.rel = "noopener"/);
+	assert.match(component, /form\.submit\(\)/);
+	assert.ok(!component.includes("window.open("));
+	assert.ok(!component.includes("window.location.assign(referralUrl)"));
 });
 
 test("the click listener is idempotent even if the component script body runs more than once on one page", () => {

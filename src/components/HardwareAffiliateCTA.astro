@@ -5,6 +5,7 @@
 // hardware partner still fails the launch gate, so this wrapper renders
 // nothing in production until a real approval + tracking asset + deliberate
 // launch switch exist.
+import {resolvePagePartner} from '../lib/commercial/page-slot';
 import ProductAffiliateCTA from "./ProductAffiliateCTA.astro";
 import { selectPartner } from "../lib/partner-routing";
 
@@ -21,8 +22,11 @@ const partner = selectPartner({
 	state,
 	city,
 });
+const contextual=resolvePagePartner(Astro.url.pathname);
+const ContextualCTA=contextual?(await import('./PartnerCTA.astro')).default:null;
+
 ---
 
-{partner && (
+{contextual&&ContextualCTA ? <ContextualCTA {...contextual}/> : partner && (
 	<ProductAffiliateCTA partnerId={partner.id} productLabel={productLabel} />
 )}

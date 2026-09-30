@@ -41,7 +41,7 @@ It is not accurate to promise that every SCE customer will save more or reach a 
 2. **Compare solar-only and solar-plus-storage.** Use the same production estimate and current tariff inputs for both.
 3. **Model battery dispatch realistically.** Include efficiency losses, backup reserve, power limits, and degradation.
 4. **Use current installed quotes.** Include permitting, interconnection, electrical upgrades, and financing.
-5. **Check SGIP separately.** A household must meet the current eligibility pathway and receive an approved reservation before treating an incentive as certain.
+5. **Check SGIP separately.** A household must meet the current eligibility pathway and receive an approved reservation before treating an incentive as certain. See GridPermit's <a href="/blog/sgip-battery-rebates-california/">current SGIP battery rebate guide</a> for what is still open in 2026.
 6. **Stress-test the estimate.** Evaluate lower export values, higher financing costs, and different household usage patterns.
 
 The CPUC's [current Net Billing overview](https://www.cpuc.ca.gov/NEM/) explains the statewide tariff and the required utility rate plans. Review SCE's current rate and Solar Billing Plan materials for the customer's exact tariff.

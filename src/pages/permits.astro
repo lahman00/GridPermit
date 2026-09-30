@@ -109,6 +109,11 @@ const collectionSchema = {
 		.summary-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
 		.summary-stat .num { display: block; font-size: 1.4rem; font-weight: 800; color: var(--primary); }
 		.summary-stat .label { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+		.decision-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+		.decision-card { display: block; background: white; border: 1px solid var(--border-color); border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--text-main); }
+		.decision-card:hover { border-color: var(--primary); box-shadow: 0 4px 14px -4px rgba(37,99,235,0.25); }
+		.decision-card strong { display: block; margin-bottom: 0.35rem; }
+		.decision-card span { display: block; color: var(--text-muted); font-size: 0.86rem; line-height: 1.45; }
 		h2.section-heading { font-size: 1.25rem; font-weight: 800; margin: 2.5rem 0 1rem 0; }
 		.state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
 		.state-card { display: block; background: white; border: 1px solid var(--border-color); border-radius: 10px; padding: 1.1rem 1.25rem; text-decoration: none; color: var(--text-main); transition: border-color 0.15s ease, box-shadow 0.15s ease; }
@@ -129,7 +134,7 @@ const collectionSchema = {
 	<nav class="navbar">
 		<div class="nav-container">
 			<a href="/" class="brand-logo" aria-label="GridPermit Home">Grid<span class="logo-bold">Permit</span></a>
-			<a href="/search" class="nav-search-link" aria-label="Search">🔍 Search</a>
+			<a href="/search/" class="nav-search-link" aria-label="Search">🔍 Search</a>
 		</div>
 	</nav>
 
@@ -140,13 +145,28 @@ const collectionSchema = {
 
 		<main id="main-content" tabindex="-1">
 			<h1>Solar Permit Guides by State</h1>
-			<p class="page-lead">GridPermit has research on file for all 50 states. {publishedStates.length} states have at least one guide that's cleared our bar to publish. The rest have real research in progress that hasn't yet met that bar. We say so plainly rather than filling gaps with guesses. See our <a href="/methodology">Methodology</a> for exactly what "published" requires.</p>
+			<p class="page-lead">GridPermit has research on file for all 50 states. {publishedStates.length} states have at least one guide that's cleared our bar to publish. The rest have real research in progress that hasn't yet met that bar. We say so plainly rather than filling gaps with guesses. See our <a href="/methodology/">Methodology</a> for exactly what "published" requires.</p>
 
 			<div class="summary-stats">
 				<div class="summary-stat"><span class="num">50</span><span class="label">States With Research on File</span></div>
 				<div class="summary-stat"><span class="num">{publishedStates.length}</span><span class="label">States With Published Guides</span></div>
 				<div class="summary-stat"><span class="num">{totalGuides}</span><span class="label">Total Published Guides</span></div>
 				<div class="summary-stat"><span class="num">{stateCoverage.find((s) => s.code === "CA")?.readyCount ?? 0}</span><span class="label">Published in California Alone</span></div>
+			</div>
+
+			<h2 class="section-heading">Decision guides for permit and PTO problems</h2>
+			<p class="in-progress-note">Use these when the question is not just “what does my city require?” but “which approval path am I actually on, what changed, and who owns the next step?” Each guide is tied to current first-party utility or SolarAPP+ sources.</p>
+			<div class="decision-grid">
+				<a class="decision-card" href="/permit-path/"><strong>Permit Path Checker</strong><span>Choose a researched jurisdiction and flag battery, MPU, ground mount, existing PV, owner-builder or equipment-change facts before deciding where to file.</span></a>
+				<a class="decision-card" href="/blog/pge-no-pto-installer-closed/"><strong>Installed solar, but no PG&amp;E PTO</strong><span>Find the missing interconnection milestone, document, owner and submission date before paying someone to fix PTO.</span></a>
+				<a class="decision-card" href="/blog/sce-add-battery-existing-solar/"><strong>Adding a battery to existing SCE solar</strong><span>Separate the AHJ permit path from SCE interconnection and check whether the proposed configuration changes the application.</span></a>
+				<a class="decision-card" href="/blog/solarapp-eligibility-2026/"><strong>Can this project use SolarAPP+?</strong><span>Check storage, MPU, existing PV, homeowner installation and ground-mount eligibility before choosing the submission path.</span></a>
+				<a class="decision-card" href="/blog/city-permit-vs-utility-pto/"><strong>City permit vs utility interconnection/PTO</strong><span>Understand why a passed local inspection does not necessarily mean the utility process is complete.</span></a>
+				<a class="decision-card" href="/blog/long-beach-solar-ess-express-vs-plan-review/"><strong>Long Beach solar + ESS permit rejected</strong><span>Determine whether the project should be on the Express route or full plan review, and identify the exact professional-document requirement before hiring a plan provider.</span></a>
+				<a class="decision-card" href="/blog/pge-zero-export-solar-battery-interconnection/"><strong>PG&amp;E zero-export solar + battery</strong><span>Classify the Rule 21 non-export path before assuming which application, fee or review process applies.</span></a>
+				<a class="decision-card" href="/blog/california-sb868-plugin-solar-status/"><strong>California plug-in solar / SB 868 status</strong><span>Check whether the proposed 1,200 W plug-in solar exemption is actually law before relying on it for a current project.</span></a>
+				<a class="decision-card" href="/blog/el-cerrito-solar-permit-plan-service/"><strong>El Cerrito permit-plan service quote</strong><span>Separate SolarAPP+ eligibility, City plan/engineering scope and PG&amp;E interconnection work before paying for a permit package.</span></a>
+				<a class="decision-card" href="/blog/epe-failed-solar-inspection-rec-meter/"><strong>EPE solar field inspection failed</strong><span>Separate the AHJ final from EPE field inspection and compare approved metering drawings with the as-built layout before authorizing a correction.</span></a>
 			</div>
 
 			<h2 class="section-heading">States with published guides</h2>
@@ -160,7 +180,7 @@ const collectionSchema = {
 			</div>
 
 			<h2 class="section-heading">Research in progress</h2>
-			<p class="in-progress-note">These states have real locality records on file, but none has yet reached the completeness and source-verification bar GridPermit requires before publishing a guide. Check back, or use <a href="/search">search</a> to see exactly what's on file today.</p>
+			<p class="in-progress-note">These states have real locality records on file, but none has yet reached the completeness and source-verification bar GridPermit requires before publishing a guide. Check back, or use <a href="/search/">search</a> to see exactly what's on file today.</p>
 			<div class="state-grid">
 				{inProgressStates.map((s) => (
 					<a href={s.url} class="state-card">
@@ -172,7 +192,7 @@ const collectionSchema = {
 		</main>
 
 		<div class="footer-disclaimer">
-			<p>Coverage counts reflect GridPermit's own verified dataset as of the last data update. A state showing published guides may still have cities with no guide yet. Search for your specific city to check. See <a href="/methodology">Methodology</a> for how a record earns "published" status, and <a href="/how-it-works">How It Works</a> for the full process.</p>
+			<p>Coverage counts reflect GridPermit's own verified dataset as of the last data update. A state showing published guides may still have cities with no guide yet. Search for your specific city to check. See <a href="/methodology/">Methodology</a> for how a record earns "published" status, and <a href="/how-it-works/">How It Works</a> for the full process.</p>
 		</div>
 	</div>
 </body>

@@ -1,0 +1,6 @@
+---
+import {resolvePagePartner} from '../lib/commercial/page-slot';
+const slot=resolvePagePartner(Astro.url.pathname);
+const CTA=slot?(await import('./PartnerCTA.astro')).default:null;
+---
+{slot&&CTA&&<CTA {...slot}/>}

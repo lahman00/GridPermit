@@ -8,16 +8,19 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, mkdtempSync, rmSync } from "node:fs";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const SCRIPT = path.join(REPO_ROOT, "scripts", "source-freshness-report.mjs");
-const REPORT_PATH = path.join(REPO_ROOT, "output", "source-freshness-report.json");
+const TEMP_DIR = mkdtempSync(path.join(tmpdir(), "gp-freshness-test-"));
+const REPORT_PATH = path.join(TEMP_DIR, "source-freshness-report.json");
+test.after(() => rmSync(TEMP_DIR, { recursive: true, force: true }));
 
 function runScript() {
-	return spawnSync("node", [SCRIPT], { cwd: REPO_ROOT, encoding: "utf8" });
+	return spawnSync("node", [SCRIPT], { cwd: REPO_ROOT, encoding: "utf8", env: { ...process.env, GRIDPERMIT_FRESHNESS_REPORT_PATH: REPORT_PATH } });
 }
 
 test("source-freshness-report.mjs runs cleanly against the real dataset", () => {

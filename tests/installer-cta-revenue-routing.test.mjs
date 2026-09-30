@@ -13,7 +13,7 @@ const source = readFileSync(INSTALLER_CTA_PATH, "utf8");
 test("installer CTA routes CompareSolarPrices through the existing launch-ready gate", () => {
 	assert.match(source, /getLaunchReadyPartner\("compare-solar-prices", "cpl"\)/);
 	assert.match(source, /isCompareSolarServedLocality\("CA", city\)/);
-	assert.match(source, /<CompareSolarPricesCTA state="CA" city=\{city\} \/>/);
+	assert.match(source, /<CompareSolarPricesCTA state="CA" city=\{city\} requireFirstLeadQualification=\{requireFirstLeadQualification\} qualificationLabel=\{qualification\?\.label\} \/>/);
 });
 
 test("the CompareSolarPrices route is California-only and cannot activate from city name alone", () => {
@@ -31,7 +31,7 @@ test("the paid route is launch-ready while EnergySage remains the explicit fallb
 });
 
 test("the component never renders both solar CTAs at once", () => {
-	assert.match(source, /\{useCompareSolar \? \([\s\S]*CompareSolarPricesCTA[\s\S]*\) : \([\s\S]*installer-cta-box/);
+	assert.match(source, /\{useCompareSolar \? \([\s\S]*CompareSolarPricesCTA[\s\S]*\) : GenericCTA && selection \?[\s\S]*\) : allowUnpaidResource && \([\s\S]*installer-cta-box/);
 });
 
 test("no CompareSolarPrices referral URL or CID is duplicated in the wrapper", () => {

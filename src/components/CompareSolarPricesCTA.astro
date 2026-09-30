@@ -12,9 +12,11 @@ import { getLaunchReadyPartner } from "../lib/partners";
 interface Props {
 	state: string;
 	city: string;
+	requireFirstLeadQualification?: boolean;
+	qualificationLabel?: string;
 }
 
-const { state, city } = Astro.props;
+const { state, city, requireFirstLeadQualification = false, qualificationLabel = 'I own this home and this property does not already have solar.' } = Astro.props;
 const partner = getLaunchReadyPartner("compare-solar-prices", "cpl");
 const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 ---
@@ -32,7 +34,14 @@ const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 		</p>
 		<h2>Want a solar quote after reviewing the permit requirements in {city}?</h2>
 		<p>Continue to CompareSolarPrices to request a homeowner solar quote for {city}.</p>
-		<button type="button" class="compare-solar-btn" data-compare-solar-cta data-state={state} data-city={city}>
+		<p class="compare-solar-preparation">Have a recent electricity bill ready. CompareSolarPrices will ask you to confirm your contact details and receipt of its quote. Submit those details only on its website, not to GridPermit.</p>
+		{requireFirstLeadQualification && (
+			<label class="first-lead-qualification">
+				<input type="checkbox" data-first-lead-qualification />
+				<span>{qualificationLabel}</span>
+			</label>
+		)}
+		<button type="button" class="compare-solar-btn" data-compare-solar-cta data-state={state} data-city={city} disabled={requireFirstLeadQualification}>
 			Request a quote from CompareSolarPrices → <span class="visually-hidden">(opens in a new tab)</span>
 		</button>
 		<p class="compare-solar-note">You will continue on CompareSolarPrices' website. GridPermit is not the installer.</p>
@@ -49,15 +58,70 @@ const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 
 	const CTA_ID = "compare_solar_prices_locality";
 	const PARTNER_ID = "compare_solar_prices";
+	const GRIDPERMIT_ORIGIN = "https://mygridpermit.com";
+
+	// First-lead acquisition tags are deliberately finite and non-PII.
+	// We do not capture arbitrary query strings, search terms or referrers.
+	// A future community/owned-distribution link may add ?gp_src=<allowlisted tag>;
+	// unknown values are discarded rather than forwarded to analytics or partner URLs.
+	const FIRST_LEAD_ACQUISITION_TAGS = new Set([
+		"fl_src_01",
+		"fl_src_02",
+		"fl_src_03",
+	]);
+	const FIRST_LEAD_SOURCE_PATHS = new Map([
+		["fl_src_01", "/california/escondido/solar-permit-guide/"],
+		["fl_src_02", "/california/hemet/solar-permit-guide/"],
+		["fl_src_03", "/california/pomona/solar-permit-guide/"],
+	]);
+	const FIRST_LEAD_TARGET_PATHS = new Set([
+		"/california/escondido/solar-permit-guide/",
+		"/california/hemet/solar-permit-guide/",
+		"/california/pomona/solar-permit-guide/",
+	]);
+	const FIRST_LEAD_ROUTE_CID_PREFIXES = new Map([
+		["/california/escondido/solar-permit-guide/", "e101"],
+		["/california/hemet/solar-permit-guide/", "e102"],
+		["/california/pomona/solar-permit-guide/", "e103"],
+	]);
+
+	function getFirstLeadAcquisitionTag(): string | null {
+		if (!FIRST_LEAD_TARGET_PATHS.has(window.location.pathname)) return null;
+		const search = typeof window.location.search === "string" ? window.location.search : "";
+		// Ambiguous or repeated source markers fail closed, including encoded
+		// duplicate parameter names normalized by URLSearchParams.
+		if (new URLSearchParams(search).getAll("gp_src").length !== 1) return null;
+		const match = search.match(/(?:^|[?&])gp_src=([^&]*)/);
+		const raw = match?.[1] ?? "";
+		if (!raw || !FIRST_LEAD_ACQUISITION_TAGS.has(raw)) return null;
+		if (FIRST_LEAD_SOURCE_PATHS.get(raw) !== window.location.pathname) return null;
+		return raw;
+	}
 
 	function getSafePlacementParams(state: string, city: string) {
+		const acquisitionTag = getFirstLeadAcquisitionTag();
 		return {
 			partner: PARTNER_ID,
 			cta_id: CTA_ID,
 			state_code: state.toUpperCase(),
 			city_slug: normalizeCompareSolarCitySlug(city),
 			page_path: window.location.pathname,
+			...(acquisitionTag ? { acquisition_tag: acquisitionTag } : {}),
 		};
+	}
+
+	// page_location is a standard GA4 dimension, unlike our custom CID/source
+	// parameters. For the three first-lead routes only, encode the non-PII CID
+	// and allowlisted source slot into an analytics-only page_location override.
+	// This does not change the browser URL and is never forwarded to the partner.
+	// It gives first-lead reconciliation a built-in reportable source-to-CID join
+	// even if GA4 custom dimensions have not been registered yet.
+	function getFirstLeadReportablePageLocation(cid: string, acquisitionTag: string | null): string | null {
+		if (!FIRST_LEAD_TARGET_PATHS.has(window.location.pathname)) return null;
+		const reportable = new URL(window.location.pathname, GRIDPERMIT_ORIGIN);
+		reportable.searchParams.set("gp_cid", cid);
+		if (acquisitionTag) reportable.searchParams.set("gp_src", acquisitionTag);
+		return reportable.toString();
 	}
 
 	function trackCompareSolarView() {
@@ -66,13 +130,88 @@ const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 
 		const state = root.dataset.state ?? "";
 		const city = root.dataset.city ?? "";
-		trackEvent("cpl_cta_viewed", getSafePlacementParams(state, city));
+		try {
+			trackEvent("cpl_cta_viewed", getSafePlacementParams(state, city));
+		} catch {
+			// Optional measurement must never abort initialization before the
+			// visitor's click handler is attached.
+		}
 	}
 
-	if (document.readyState === "loading") {
-		document.addEventListener("DOMContentLoaded", trackCompareSolarView, { once: true });
-	} else {
+	// `cpl_cta_viewed` remains the historical rendered-on-eligible-page event.
+	// A separate exposure event answers the stricter funnel question: did the
+	// visitor actually scroll far enough for a meaningful part of the CTA to
+	// enter the viewport? Keeping the names separate avoids silently changing
+	// the meaning of the existing time series.
+	const EXPOSURE_RATIO = 0.25;
+	const EXPOSURE_GUARD_KEY = "__gridpermitCompareSolarExposureTracked";
+	const TELEMETRY_GUARD_KEY = "__gridpermitCompareSolarTelemetryInitialized";
+
+	function observeCompareSolarExposure() {
+		const root = document.querySelector("[data-compare-solar-cta-root]");
+		if (!(root instanceof HTMLElement)) return;
+		if (typeof IntersectionObserver !== "function") return;
+
+		const exposureWindow = window as typeof window & Record<string, boolean>;
+		if (exposureWindow[EXPOSURE_GUARD_KEY]) return;
+
+		const state = root.dataset.state ?? "";
+		const city = root.dataset.city ?? "";
+		const observer = new IntersectionObserver((entries) => {
+			if (exposureWindow[EXPOSURE_GUARD_KEY]) return;
+			for (const entry of entries) {
+				if (!entry.isIntersecting || entry.intersectionRatio < EXPOSURE_RATIO) continue;
+				exposureWindow[EXPOSURE_GUARD_KEY] = true;
+				try {
+					trackEvent("cpl_cta_exposed", getSafePlacementParams(state, city));
+				} catch {
+					// Preserve the once-only exposure guard and disconnect even when
+					// analytics fails; no successful event is implied.
+				}
+				observer.disconnect();
+				break;
+			}
+		}, { threshold: [EXPOSURE_RATIO] });
+		observer.observe(root);
+	}
+
+	const QUALIFICATION_BINDING_GUARD_KEY = "__gridpermitFirstLeadQualificationBound";
+
+	function initializeFirstLeadQualificationGate() {
+		const checkbox = document.querySelector("[data-first-lead-qualification]");
+		const trigger = document.querySelector("[data-compare-solar-cta]");
+		if (!(checkbox instanceof HTMLInputElement) || !(trigger instanceof HTMLButtonElement)) return;
+
+		const qualificationWindow = window as typeof window & Record<string, boolean>;
+		const sync = () => {
+			trigger.disabled = !checkbox.checked;
+			trigger.setAttribute("aria-disabled", trigger.disabled ? "true" : "false");
+		};
+		sync();
+		if (qualificationWindow[QUALIFICATION_BINDING_GUARD_KEY]) return;
+		qualificationWindow[QUALIFICATION_BINDING_GUARD_KEY] = true;
+		checkbox.addEventListener("change", sync);
+	}
+
+	function initializeCompareSolarTelemetry() {
+		const telemetryWindow = window as typeof window & Record<string, boolean>;
+		if (telemetryWindow[TELEMETRY_GUARD_KEY]) return;
+		if (!(document.querySelector("[data-compare-solar-cta-root]") instanceof HTMLElement)) return;
+		telemetryWindow[TELEMETRY_GUARD_KEY] = true;
+		initializeFirstLeadQualificationGate();
 		trackCompareSolarView();
+		observeCompareSolarExposure();
+	}
+
+	const TELEMETRY_BINDING_GUARD_KEY = "__gridpermitCompareSolarTelemetryBound";
+	const telemetryWindow = window as typeof window & Record<string, boolean>;
+	if (!telemetryWindow[TELEMETRY_BINDING_GUARD_KEY]) {
+		telemetryWindow[TELEMETRY_BINDING_GUARD_KEY] = true;
+		if (document.readyState === "loading") {
+			document.addEventListener("DOMContentLoaded", initializeCompareSolarTelemetry, { once: true });
+		} else {
+			initializeCompareSolarTelemetry();
+		}
 	}
 
 	// Idempotency guard: if this script body ever executes more than once on
@@ -89,30 +228,81 @@ const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 			if (!(target instanceof Element)) return;
 			const trigger = target.closest("[data-compare-solar-cta]");
 			if (!(trigger instanceof HTMLButtonElement)) return;
+			if (trigger.disabled) return;
+			if (FIRST_LEAD_TARGET_PATHS.has(window.location.pathname)) {
+				const checkbox = document.querySelector("[data-first-lead-qualification]");
+				// Re-read the actual confirmation at click time. Missing or unchecked
+				// fails closed before CID generation, click analytics or navigation.
+				if (!(checkbox instanceof HTMLInputElement) || !checkbox.checked) return;
+			}
 
 			const state = trigger.dataset.state ?? "";
 			const city = trigger.dataset.city ?? "";
-			const cid = generateCompareSolarCid();
+			const acquisitionTag = getFirstLeadAcquisitionTag();
+
+			// Preserve the existing 24-hex CID contract used by the open
+			// reconciliation CLI (PR #90), while making controlled first-lead
+			// sources self-reconciling if analytics is unavailable. Four reserved
+			// hex characters encode only the finite non-PII source slot; the
+			// remaining 20 hex characters are fresh random bytes (80 bits).
+			const SOURCE_CID_PREFIXES: Record<string, string> = {
+				fl_src_01: "f101",
+				fl_src_02: "f102",
+				fl_src_03: "f103",
+			};
+			const sourceCidPrefix = acquisitionTag ? SOURCE_CID_PREFIXES[acquisitionTag] ?? null : null;
+			const routeCidPrefix = FIRST_LEAD_ROUTE_CID_PREFIXES.get(window.location.pathname) ?? null;
+			const reservedCidPrefix = sourceCidPrefix ?? routeCidPrefix;
+			const randomCid = generateCompareSolarCid();
+			// Traffic outside the first-lead cohort must never accidentally look
+			// like a route/source-coded first-lead CID. Avoid a second random
+			// generation by deterministically rewriting only the first hex nibble
+			// in the rare reserved-prefix case. This preserves 92 random bits.
+			const safeRandomCid = !reservedCidPrefix && /^(?:e10[1-3]|f10[1-6])/.test(randomCid)
+				? "0" + randomCid.slice(1)
+				: randomCid;
+			const cid = reservedCidPrefix
+				? reservedCidPrefix + randomCid.slice(4)
+				: safeRandomCid;
 			const referralUrl = buildCompareSolarReferralUrl(state, city, cid);
 			if (!referralUrl) return;
 
-			trackEvent("cpl_cta_clicked", {
-				...getSafePlacementParams(state, city),
-				// CompareSolarPrices returns this same random non-PII CID in its
-				// referral reporting, allowing a paid lead/conversion to be matched
-				// back to the exact GridPermit click without storing homeowner data.
-				referral_cid: cid,
-			});
-
-			// window.open can return null if a popup blocker intervenes even for
-			// a synchronous, direct-response-to-click call (some mobile browsers
-			// and locked-down desktop configurations still block it). Fall back
-			// to same-tab navigation rather than silently doing nothing, so the
-			// user is never stranded on a dead button.
-			const popup = window.open(referralUrl, "_blank", "noopener,noreferrer");
-			if (!popup) {
-				window.location.assign(referralUrl);
+			try {
+				const reportablePageLocation = getFirstLeadReportablePageLocation(cid, acquisitionTag);
+				trackEvent("cpl_cta_clicked", {
+					...getSafePlacementParams(state, city),
+					// CompareSolarPrices returns this same random non-PII CID in its
+					// referral reporting, allowing a paid lead/conversion to be matched
+					// back to the exact GridPermit click without storing homeowner data.
+					referral_cid: cid,
+					...(acquisitionTag ? { acquisition_tag: acquisitionTag } : {}),
+					...(reportablePageLocation ? { page_location: reportablePageLocation } : {}),
+				});
+			} catch {
+				// Measurement is optional. A failing analytics integration must
+				// not cancel the visitor's requested navigation or invent an event.
 			}
+
+			// With `noopener`, browsers may return `null` even when the new tab
+			// opened successfully. Treating a null handle as proof of blocking can
+			// therefore navigate both the new tab and the current GridPermit page.
+			// Submit to the first-party recorder: the browser owns the navigation
+			// contract. The recorder response suppresses the external referrer;
+			// the first-party POST keeps its Origin for CSRF validation.
+			const form = document.createElement("form");
+			form.method = "POST";
+			form.action = "/go/compare-solar-prices";
+			form.target = "_blank";
+			form.rel = "noopener";
+			form.hidden = true;
+			const confirmed = document.querySelector<HTMLInputElement>("[data-first-lead-qualification]")?.checked === true;
+			for (const [name, value] of Object.entries({ cid, page_path: window.location.pathname, qualified: confirmed ? "1" : "0" })) {
+				const input = document.createElement("input");
+				input.type = "hidden"; input.name = name; input.value = value; form.append(input);
+			}
+			document.body.append(form);
+			form.submit();
+			form.remove();
 		});
 	}
 </script>
@@ -145,10 +335,32 @@ const eligible = Boolean(partner) && isCompareSolarServedLocality(state, city);
 		font-size: 0.78rem !important;
 	}
 
+	.first-lead-qualification {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.55rem;
+		max-width: 34rem;
+		margin: 0.9rem auto 1rem;
+		text-align: left;
+		font-size: 0.84rem;
+		line-height: 1.4;
+		color: #e2e8f0;
+	}
+	.first-lead-qualification input {
+		margin-top: 0.15rem;
+		inline-size: 1rem;
+		block-size: 1rem;
+		flex: 0 0 auto;
+	}
+	.compare-solar-btn:disabled {
+		cursor: not-allowed;
+		opacity: 0.55;
+	}
+
 	.compare-solar-btn {
 		display: inline-block;
 		background: var(--accent, #10b981);
-		color: white;
+		color: #0f172a;
 		border: 0;
 		padding: 0.85rem 1.5rem;
 		border-radius: 6px;

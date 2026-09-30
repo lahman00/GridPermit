@@ -15,11 +15,10 @@ const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..
 const SCRIPT = path.join(REPO_ROOT, "scripts", "collect-pilot.mjs");
 const REAL_LOCALITIES_DIR = path.join(REPO_ROOT, "data", "localities");
 const REAL_RUNS_DIR = path.join(REPO_ROOT, "output", "pilot-runs");
-// scripts/validate-record.mjs (out of this task's scope to modify) has no
-// output-path override, so any test that lets a target reach the "write +
-// validate" step causes it to write a report here using the fixture's
-// record_id as the filename. Those tests must delete their own stray report.
-const REAL_VALIDATION_REPORTS_DIR = path.join(REPO_ROOT, "output", "validation-reports");
+// Validator reports use a dedicated temporary directory so fixture runs
+// cannot overwrite operational reports. Removed after this test suite.
+const REAL_VALIDATION_REPORTS_DIR = mkdtempSync(path.join(tmpdir(), "gp-validation-test-"));
+test.after(() => rmSync(REAL_VALIDATION_REPORTS_DIR, { recursive: true, force: true }));
 
 function snapshotDir(dir) {
   return existsSync(dir) ? readdirSync(dir).sort() : null;
@@ -29,7 +28,7 @@ function runCLI(args, envOverrides = {}) {
   const result = spawnSync("node", [SCRIPT, ...args], {
     cwd: REPO_ROOT,
     encoding: "utf8",
-    env: { ...process.env, ...envOverrides },
+    env: { ...process.env, ...envOverrides, GRIDPERMIT_VALIDATION_REPORT_DIR: REAL_VALIDATION_REPORTS_DIR },
   });
   return result;
 }
@@ -190,7 +189,7 @@ test("--force <record_id> overwrites only that record, leaving others untouched"
     assert.equal(resultB.status, "SKIPPED_EXISTS", "non-forced existing target must be SKIPPED_EXISTS");
 
     // targetA reached validate-record.mjs, which writes its report to the
-    // real output/validation-reports/ (no override exists for that path) —
+    // temporary validation reports selected through GRIDPERMIT_VALIDATION_REPORT_DIR —
     // clean up the stray file this test caused there.
     rmSync(path.join(REAL_VALIDATION_REPORTS_DIR, `${targetA.record_id}.json`), { force: true });
   } finally {

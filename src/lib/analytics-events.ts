@@ -20,6 +20,7 @@ export const ANALYTICS_EVENTS = [
 	"affiliate_cta_viewed",
 	"affiliate_cta_clicked",
 	"cpl_cta_viewed",
+	"cpl_cta_exposed",
 	"cpl_cta_clicked",
 	"pay_per_call_cta_viewed",
 	"pay_per_call_clicked",
@@ -32,18 +33,41 @@ export type AnalyticsEventParams = Record<string, string | number | boolean>;
 // Defense in depth: even if a caller passes params, anything that looks like
 // a personally-identifying or input-sensitive field (ZIP code, bill amount,
 // contact details) is stripped before it ever reaches gtag.
-const FORBIDDEN_PARAM_KEYS = new Set([
+const FORBIDDEN_PARAM_TOKENS = new Set([
 	"zip",
-	"zip_code",
 	"zipcode",
+	"postal",
+	"postalcode",
 	"bill",
-	"bill_amount",
-	"monthly_bill",
 	"email",
 	"phone",
 	"name",
 	"address",
+	"credit",
 ]);
+
+function normalizedParamTokens(key: string): string[] {
+	return key
+		.replace(/([a-z0-9])([A-Z])/g, "$1_$2")
+		.replace(/[^A-Za-z0-9]+/g, "_")
+		.toLowerCase()
+		.split("_")
+		.filter(Boolean);
+}
+
+function isForbiddenAnalyticsParamKey(key: string): boolean {
+	return normalizedParamTokens(key).some((token) => FORBIDDEN_PARAM_TOKENS.has(token));
+}
+
+const SAFE_FIRST_LEAD_PAGE_LOCATIONS = [
+	/^https:\/\/mygridpermit\.com\/california\/escondido\/solar-permit-guide\/\?gp_cid=[A-Za-z0-9_-]{1,32}(?:&gp_src=fl_src_01)?$/,
+	/^https:\/\/mygridpermit\.com\/california\/hemet\/solar-permit-guide\/\?gp_cid=[A-Za-z0-9_-]{1,32}(?:&gp_src=fl_src_02)?$/,
+	/^https:\/\/mygridpermit\.com\/california\/pomona\/solar-permit-guide\/\?gp_cid=[A-Za-z0-9_-]{1,32}(?:&gp_src=fl_src_03)?$/,
+];
+
+function isSafeFirstLeadPageLocation(value: string): boolean {
+	return SAFE_FIRST_LEAD_PAGE_LOCATIONS.some((pattern) => pattern.test(value));
+}
 
 declare global {
 	interface Window {
@@ -58,7 +82,10 @@ export function isKnownAnalyticsEvent(name: string): name is AnalyticsEventName 
 export function sanitizeAnalyticsParams(params: AnalyticsEventParams): AnalyticsEventParams {
 	const safe: AnalyticsEventParams = {};
 	for (const [key, value] of Object.entries(params)) {
-		if (FORBIDDEN_PARAM_KEYS.has(key.toLowerCase())) continue;
+		if (isForbiddenAnalyticsParamKey(key)) continue;
+		if (key.toLowerCase() === "page_location") {
+			if (typeof value !== "string" || !isSafeFirstLeadPageLocation(value)) continue;
+		}
 		safe[key] = value;
 	}
 	return safe;

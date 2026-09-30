@@ -58,7 +58,7 @@ export function getEligiblePartners(ctx: RoutingContext, partners: Partner[] = P
  */
 export const CHANNEL_PRIORITY: Record<PartnerChannel, string[]> = {
 	cpl: ["compare-solar-prices", "energysage"],
-	pay_per_call: ["digital-master-media", "lead-smart", "service-direct"],
+	pay_per_call: ["digital-master-media", "lead-smart"],
 	hardware_affiliate: ["renogy", "bougerv", "allpowers"],
 	general_referral: [],
 };

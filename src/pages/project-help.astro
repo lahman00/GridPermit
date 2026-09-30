@@ -1,0 +1,115 @@
+---
+import Analytics from "../components/Analytics.astro";
+const title = "Project Permit & PTO Question | GridPermit";
+const description = "Send the jurisdiction, utility, project scope and exact permit, inspection, interconnection or PTO decision you are trying to resolve.";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Analytics />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href="https://mygridpermit.com/project-help/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mygridpermit.com/project-help/" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <meta name="robots" content="index,follow" />
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.55}main{max-width:760px;margin:0 auto;padding:3.5rem 1.25rem 5rem}.card{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:2rem}h1{font-size:2rem;line-height:1.15;margin:0 0 .75rem}p{color:#475569}label{display:block;font-weight:700;font-size:.88rem;margin:1rem 0 .35rem}input,textarea,select{width:100%;padding:.78rem .85rem;border:1px solid #cbd5e1;border-radius:8px;font:inherit;background:white}textarea{min-height:130px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.button{margin-top:1.25rem;border:0;border-radius:8px;background:#2563eb;color:white;font:inherit;font-weight:800;padding:.85rem 1.1rem;cursor:pointer}.note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:.9rem 1rem;font-size:.88rem}.timeline{margin:1.25rem 0;border:1px solid #e2e8f0;border-radius:10px;padding:.9rem 1rem}.timeline summary{cursor:pointer;font-weight:800}.small{font-size:.8rem;color:#64748b}@media(max-width:620px){.two{grid-template-columns:1fr}.card{padding:1.25rem}}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card">
+      <h1>What permit or PTO decision are you trying to resolve?</h1>
+      <p>Send the project facts that determine the approval path. GridPermit will not turn an unverified community anecdote into a local rule.</p>
+      <p class="note">Do not submit private account information. For technical electrical or structural decisions, use the responsible AHJ, utility and qualified professionals.</p>
+      <p>Useful submissions usually include the city or county that issues the permit, the electric utility, whether the project is new PV or a modification, and any storage, main-panel, existing-system or equipment-change facts. If the issue is a correction or delay, include the exact non-sensitive wording and the date of the last completed milestone. That lets GridPermit separate a local permit issue from a utility interconnection, inspection or PTO issue before researching the current first-party rules.</p>
+      <form name="project-help" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="project-help" />
+        <input type="hidden" name="source_page" value="" />
+        <input type="hidden" name="referrer" value="" />
+        <input type="hidden" name="utm_source" value="" />
+        <input type="hidden" name="utm_medium" value="" />
+        <input type="hidden" name="utm_campaign" value="" />
+        <input type="hidden" name="utm_term" value="" />
+        <div class="two">
+          <div><label for="email">Work email</label><input id="email" name="email" type="email" required /></div>
+          <div><label for="company">Company (optional)</label><input id="company" name="company" /></div>
+        </div>
+        <div class="two">
+          <div><label for="jurisdiction">Jurisdiction / AHJ</label><input id="jurisdiction" name="jurisdiction" required /></div>
+          <div><label for="utility">Utility</label><input id="utility" name="utility" required /></div>
+        </div>
+        <label for="scope">Project scope</label><input id="scope" name="scope" placeholder="PV size, battery, MPU, existing PV, ground mount, equipment change…" required />
+        <label for="stage">Current stage</label>
+        <select id="stage" name="stage" required>
+          <option value="">Select one</option>
+          <option>Planning / choosing permit path</option>
+          <option>Permit application / correction</option>
+          <option>Installation / equipment revision</option>
+          <option>AHJ inspection</option>
+          <option>Utility interconnection</option>
+          <option>Utility inspection / meter step</option>
+          <option>Waiting for PTO</option>
+          <option>Other</option>
+        </select>
+        <details class="timeline">
+          <summary>Optional project milestone dates</summary>
+          <p class="small">Use only dates you can verify from the permit/utility record. Leave unknown dates blank.</p>
+          <div class="two">
+            <div><label for="permit_submitted_date">AHJ permit submitted</label><input id="permit_submitted_date" name="permit_submitted_date" type="date" /></div>
+            <div><label for="permit_approved_date">AHJ permit approved</label><input id="permit_approved_date" name="permit_approved_date" type="date" /></div>
+          </div>
+          <div class="two">
+            <div><label for="interconnection_submitted_date">Utility interconnection submitted</label><input id="interconnection_submitted_date" name="interconnection_submitted_date" type="date" /></div>
+            <div><label for="ahj_final_date">AHJ final inspection passed</label><input id="ahj_final_date" name="ahj_final_date" type="date" /></div>
+          </div>
+          <div class="two">
+            <div><label for="last_utility_submission_date">Last utility correction/resubmission</label><input id="last_utility_submission_date" name="last_utility_submission_date" type="date" /></div>
+            <div><label for="utility_inspection_date">Utility inspection / meter visit</label><input id="utility_inspection_date" name="utility_inspection_date" type="date" /></div>
+          </div>
+        </details>
+        <label for="question">Exact question, rejection or missing milestone</label>
+        <textarea id="question" name="question" required></textarea>
+        <button class="button" type="submit">Send project facts</button>
+        <p class="small">Submitting this form does not create an engineering, contracting, legal or utility-representation relationship. Do not include a utility account number, street address, payment information, government ID or passwords. See the <a href="/privacy/">Privacy Policy</a>.</p>
+      </form>
+    </div>
+  </main>
+
+  <script is:inline>
+    const params = new URLSearchParams(window.location.search);
+    const setField = (name, value) => {
+      const field = document.querySelector(`input[name="${name}"]`);
+      if (field instanceof HTMLInputElement) field.value = value || "";
+    };
+    setField("source_page", window.location.href);
+    setField("referrer", document.referrer);
+    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_term", "jurisdiction", "utility", "scope"]) {
+      setField(key, params.get(key));
+    }
+    const stageParam = params.get("stage");
+    const stageMap = {
+      planning: "Planning / choosing permit path",
+      permit: "Permit application / correction",
+      installation: "Installation / equipment revision",
+      inspection: "AHJ inspection",
+      interconnection: "Utility interconnection",
+      pto: "Waiting for PTO",
+    };
+    const stageField = document.querySelector('select[name="stage"]');
+    if (stageField instanceof HTMLSelectElement && stageParam && stageMap[stageParam]) {
+      stageField.value = stageMap[stageParam];
+    }
+  </script>
+</body>
+</html>

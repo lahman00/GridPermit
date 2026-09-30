@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-08-11T23:44:22.354Z",
+  "evaluated_at": "2026-09-04T10:54:39.703Z",
   "record_count": 9,
   "records": [
     {
@@ -160,10 +160,10 @@
       "city": "Yucaipa",
       "county": "San Bernardino County",
       "completeness_pct": 80,
-      "validation_score": 89,
+      "validation_score": 87,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 4,
+      "warning_count": 5,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -198,11 +198,11 @@
       "record_id": "ca-san-bernardino-victorville-sce",
       "city": "Victorville",
       "county": "San Bernardino County",
-      "completeness_pct": 73.3,
-      "validation_score": 92,
+      "completeness_pct": 80,
+      "validation_score": 90,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 4,
+      "warning_count": 5,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -214,12 +214,12 @@
         "battery_programs",
         "required_documents",
         "inspection_steps",
+        "permit_fees",
         "official_contacts"
       ],
       "missing_fields": [
         "timeline_days",
         "eligibility_constraints",
-        "permit_fees",
         "rebates"
       ],
       "warning_categories": [
@@ -227,10 +227,10 @@
       ],
       "utility_type": "IOU",
       "separate_cca_present": false,
-      "permit_fees_available": false,
+      "permit_fees_available": true,
       "timeline_available": false,
       "required_documents_available": true,
-      "readiness": "LIMITED"
+      "readiness": "READY"
     },
     {
       "record_id": "ca-san-bernardino-hesperia-sce",
@@ -348,10 +348,10 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 80,
-    "average_validation_score": 94,
-    "ready_count": 8,
-    "limited_count": 1,
+    "average_completeness_pct": 80.7,
+    "average_validation_score": 93.6,
+    "ready_count": 9,
+    "limited_count": 0,
     "not_ready_count": 0,
     "fields_missing_count": {
       "utility": 0,
@@ -366,7 +366,7 @@
       "inspection_steps": 1,
       "timeline_days": 4,
       "eligibility_constraints": 2,
-      "permit_fees": 6,
+      "permit_fees": 5,
       "rebates": 8,
       "official_contacts": 0
     },
@@ -376,11 +376,11 @@
         "missing_in_records": 8
       },
       {
-        "field": "permit_fees",
-        "missing_in_records": 6
+        "field": "generation_supplier",
+        "missing_in_records": 5
       },
       {
-        "field": "generation_supplier",
+        "field": "permit_fees",
         "missing_in_records": 5
       },
       {
@@ -430,17 +430,12 @@
       "ca-san-bernardino-highland-sce",
       "ca-san-bernardino-loma-linda-sce",
       "ca-san-bernardino-yucaipa-sce",
+      "ca-san-bernardino-victorville-sce",
       "ca-san-bernardino-hesperia-sce",
       "ca-san-bernardino-apple-valley-sce",
       "ca-san-bernardino-barstow-sce"
     ],
-    "limited_for_now": [
-      {
-        "record_id": "ca-san-bernardino-victorville-sce",
-        "city": "Victorville",
-        "reason": "readiness=LIMITED (completeness 73.3%, score 92)"
-      }
-    ],
+    "limited_for_now": [],
     "not_ready": [],
     "utilities_represented_in_recommended_set": [
       "municipal",

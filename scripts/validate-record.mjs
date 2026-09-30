@@ -12,7 +12,9 @@ import addFormats from "ajv-formats";
 
 const REPO_ROOT = path.resolve(new URL(".", import.meta.url).pathname, "..");
 const SCHEMA_PATH = path.join(REPO_ROOT, "data", "schema.json");
-const REPORT_DIR = path.join(REPO_ROOT, "output", "validation-reports");
+const REPORT_DIR = process.env.GRIDPERMIT_VALIDATION_REPORT_DIR
+  ? path.resolve(process.env.GRIDPERMIT_VALIDATION_REPORT_DIR)
+  : path.join(REPO_ROOT, "output", "validation-reports");
 
 // Only phrases about the FACT itself. Phrases about network/retrieval access
 // ("blocked", "403", "could not render", "could not fetch") must NOT appear
@@ -49,7 +51,16 @@ const FIELD_NAMES = [
   "official_contacts",
 ];
 const MONETARY_FIELDS = ["permit_fees", "battery_programs", "rebates"];
-const WEAK_SOURCE_TYPES = new Set(["government", "other_official"]);
+const WEAK_SOURCE_TYPES_BY_FIELD = {
+  // The permitting jurisdiction is the issuing authority for its own fees.
+  // A government fee schedule is therefore primary evidence, while a generic
+  // "other official" source is still too indirect for a monetary claim.
+  permit_fees: new Set(["other_official"]),
+  // Incentive amounts should still come from the regulator, utility, or
+  // program administrator that funds/administers the program.
+  battery_programs: new Set(["government", "other_official"]),
+  rebates: new Set(["government", "other_official"]),
+};
 const KNOWN_UTILITIES = [
   ["PG&E", "PACIFIC GAS"],
   ["SCE", "SOUTHERN CALIFORNIA EDISON"],
@@ -427,14 +438,20 @@ export async function validate(filePath) {
     }
   }
 
-  // 9. unsupported_claim: monetary fields sourced only by weak-tier types
+  // 9. unsupported_claim: monetary fields sourced only by weak-tier types.
+  // Source authority is field-specific: a municipality is authoritative for
+  // its permit fees, but not necessarily for a utility/program incentive.
   const sourcesById = new Map((record.sources ?? []).map((s) => [s.id, s]));
   for (const fn of MONETARY_FIELDS) {
     const f = record[fn];
     if (f?.value == null) continue;
     const types = new Set(f.source_ids.map((sid) => sourcesById.get(sid)?.type).filter(Boolean));
-    if (types.size > 0 && [...types].every((t) => WEAK_SOURCE_TYPES.has(t))) {
-      addFinding(warnings, fn, "unsupported_claim", `monetary field sourced only by weak-tier types [${[...types].join(", ")}]; recommend a cpuc/utility/program_administrator source`);
+    const weakTypes = WEAK_SOURCE_TYPES_BY_FIELD[fn];
+    if (types.size > 0 && [...types].every((t) => weakTypes.has(t))) {
+      const recommendation = fn === "permit_fees"
+        ? "recommend the issuing government's fee schedule"
+        : "recommend a cpuc/utility/program_administrator source";
+      addFinding(warnings, fn, "unsupported_claim", `monetary field sourced only by weak-tier types [${[...types].join(", ")}]; ${recommendation}`);
     }
   }
 

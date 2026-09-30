@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { COMMERCIAL_INTENTS } from './lib/commercial/types';
 
 const blog = defineCollection({
 	// Load Markdown and MDX files in the `src/content/blog/` directory.
@@ -14,6 +15,8 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
+			decisionStage: z.boolean().optional(),
+			commercialIntent: z.enum(COMMERCIAL_INTENTS).optional(),
 		}),
 });
 

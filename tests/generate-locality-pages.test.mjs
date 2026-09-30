@@ -200,7 +200,12 @@ test("a generated wrapper imports the correct locality JSON and passes an explic
     assert.doesNotMatch(content, /New City/, "generated wrapper must contain no hardcoded locality fact");
 
     // Passes an explicit cityPath, not something the layout has to guess.
-    assert.match(content, /const CITY_PATH = "\/california\/new-city\/";/);
+    // CITY_PATH intentionally equals PAGE_PATH: no distinct per-city hub
+    // page exists for any locality, so the breadcrumb's city link must
+    // resolve directly to the real guide page, not through a redirect. See
+    // the comment above `const cityPath = pagePath;` in
+    // scripts/generate-locality-pages.mjs.
+    assert.match(content, /const CITY_PATH = "\/california\/new-city\/solar-permit-guide\/";/);
     assert.match(content, /const PAGE_PATH = "\/california\/new-city\/solar-permit-guide\/";/);
     assert.match(content, /cityPath=\{CITY_PATH\}/);
   } finally {

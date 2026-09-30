@@ -15,7 +15,7 @@ import {
 	trackEvent,
 } from "../src/lib/analytics-events.ts";
 
-test("ANALYTICS_EVENTS is exactly the 17 approved conversion events", () => {
+test("ANALYTICS_EVENTS is exactly the 18 approved conversion events", () => {
 	assert.deepEqual(
 		[...ANALYTICS_EVENTS].sort(),
 		[
@@ -33,6 +33,7 @@ test("ANALYTICS_EVENTS is exactly the 17 approved conversion events", () => {
 			"affiliate_cta_viewed",
 			"affiliate_cta_clicked",
 			"cpl_cta_viewed",
+			"cpl_cta_exposed",
 			"cpl_cta_clicked",
 			"pay_per_call_cta_viewed",
 			"pay_per_call_clicked",
@@ -107,5 +108,49 @@ test("trackEvent silently ignores an unknown event name and never calls gtag", (
 		assert.equal(calls.length, 0);
 	} finally {
 		delete globalThis.window;
+	}
+});
+
+test("cpl_cta_exposed is an approved first-lead funnel event", () => {
+	assert.equal(isKnownAnalyticsEvent("cpl_cta_exposed"), true);
+});
+
+test("sanitizeAnalyticsParams strips common PII aliases and camelCase variants", () => {
+	const dirty = {
+		email_address: "user@example.com",
+		contactEmail: "user@example.com",
+		phone_number: "555-1234",
+		contactPhone: "555-1234",
+		street_address: "1 Market St",
+		postal_code: "94103",
+		credit_score: "720",
+		utility_bill: "250",
+		full_name: "Jane Doe",
+		referral_cid: "abc123",
+		acquisition_tag: "fl_src_01",
+		page_path: "/california/hemet/solar-permit-guide/",
+	};
+	assert.deepEqual(sanitizeAnalyticsParams(dirty), {
+		referral_cid: "abc123",
+		acquisition_tag: "fl_src_01",
+		page_path: "/california/hemet/solar-permit-guide/",
+	});
+});
+
+test("sanitizeAnalyticsParams allows only the fixed non-PII first-lead page_location shape", () => {
+	const safeLocation = "https://mygridpermit.com/california/hemet/solar-permit-guide/?gp_cid=abc123&gp_src=fl_src_02";
+	assert.deepEqual(
+		sanitizeAnalyticsParams({ page_location: safeLocation, partner: "compare_solar_prices" }),
+		{ page_location: safeLocation, partner: "compare_solar_prices" },
+	);
+	for (const unsafe of [
+		"https://mygridpermit.com/california/hemet/solar-permit-guide/?email=user@example.com",
+		"https://evil.example/california/hemet/solar-permit-guide/?gp_cid=abc123&gp_src=fl_src_02",
+		"https://mygridpermit.com/california/irvine/solar-permit-guide/?gp_cid=abc123&gp_src=fl_src_01",
+		"https://mygridpermit.com/california/hemet/solar-permit-guide/?gp_cid=abc123&gp_src=fl_src_01",
+		"https://mygridpermit.com/california/hemet/solar-permit-guide/?gp_cid=abc123&gp_src=fl_src_04",
+		"https://mygridpermit.com/california/hemet/solar-permit-guide/?gp_cid=abc123&gp_src=arbitrary",
+	]) {
+		assert.deepEqual(sanitizeAnalyticsParams({ page_location: unsafe, partner: "compare_solar_prices" }), { partner: "compare_solar_prices" });
 	}
 });

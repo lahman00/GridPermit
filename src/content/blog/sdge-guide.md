@@ -45,7 +45,7 @@ That does not mean every home should install the same battery size or that stora
 3. **Apply hourly export credits.** Annual averages can hide both low-value midday exports and higher-value evening periods.
 4. **Use real installed quotes.** Include permitting, interconnection, electrical upgrades, equipment, labor, and financing.
 5. **Separate backup value from bill savings.** Resilience can be valuable, but it is not a utility-bill credit.
-6. **Check live SGIP availability and eligibility.** Do not count a public program rate as certain until a reservation is approved.
+6. **Check live SGIP availability and eligibility.** Do not count a public program rate as certain until a reservation is approved. See GridPermit's <a href="/blog/sgip-battery-rebates-california/">current SGIP battery rebate guide</a> for which budget categories are still open in 2026.
 7. **Run conservative scenarios.** Test lower exports, higher costs, battery degradation, and changes in household usage.
 
 The CPUC's [current Net Billing overview](https://www.cpuc.ca.gov/NEM/) explains the statewide tariff structure and required utility rate plans. Confirm the customer's current SDG&E tariff and Solar Billing Plan details directly with SDG&E.
