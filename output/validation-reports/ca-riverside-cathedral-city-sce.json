@@ -14,7 +14,7 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs — timeout — recommend a manual check"
+      "message": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs — DNS failure (ENOTFOUND) — recommend a manual check"
     },
     {
       "field": "battery_programs[0].url",
@@ -44,16 +44,12 @@
     {
       "field": "permit_fees",
       "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "rebates",
-      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.cathedralcity.gov/departments/community-economic-development-department/building-and-safety/solar-photovoltaic",
-      "checked_at": "2026-09-30T09:23:27.263Z",
+      "checked_at": "2026-09-30T22:03:20.225Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -61,23 +57,31 @@
     },
     {
       "url": "https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs",
-      "checked_at": "2026-09-30T09:23:27.359Z",
-      "status": "BLOCKED_OR_UNVERIFIABLE",
-      "http_status": null,
-      "method": "HEAD",
-      "details": "timeout"
-    },
-    {
-      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
-      "checked_at": "2026-09-30T09:23:37.360Z",
+      "checked_at": "2026-09-30T22:03:20.381Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "DNS failure (ENOTFOUND)"
     },
     {
+      "url": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/self-generation-incentive",
+      "checked_at": "2026-09-30T22:03:30.396Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": null,
+      "method": "HEAD",
+      "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "checked_at": "2026-09-30T22:03:30.399Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
       "url": "https://www.iid.com/home/showpublisheddocument/21807/638370476822070000",
-      "checked_at": "2026-09-30T09:23:37.372Z",
+      "checked_at": "2026-09-30T22:03:31.139Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
@@ -85,11 +89,27 @@
     },
     {
       "url": "https://www.sce.com/sites/default/files/inline-files/080508_Service_Territory_Map.pdf",
-      "checked_at": "2026-09-30T09:23:37.449Z",
+      "checked_at": "2026-09-30T22:03:31.218Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": null,
       "method": "HEAD",
       "details": "DNS failure (ENOTFOUND)"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "checked_at": "2026-09-30T22:03:31.223Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M528/K053/528053537.PDF",
+      "checked_at": "2026-09-30T22:03:32.225Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

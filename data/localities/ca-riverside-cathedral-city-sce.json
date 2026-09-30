@@ -148,10 +148,28 @@
     "notes": "No current adopted solar fee verified; a proposed schedule is insufficient."
   },
   "rebates": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not verified from an accessible primary source in this research pass."
+    "value": [
+      {
+        "name": "Residential Solar and Storage Equity — paired solar component (waitlisted)",
+        "administrator": "Southern California Edison",
+        "description": "This entry is scoped to eligible SCE-served homes in Cathedral City. SCE is the program administrator; no unverified default generation supplier is asserted. The program includes solar paired with eligible storage for qualifying low-income residential customers. The administrator tracker, retrieved on 2026-10-01 and displaying 2026-09-30 data, lists SCE AB 209 Non-POU as Waitlist. This is the solar component of the same paired program referenced under battery_programs, not a separate or standalone award.",
+        "value_usd_flat": null,
+        "value_usd_per_kwh": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Income-qualified residential customers; solar and storage must meet program rules. Eligibility, any waitlist place and a funding reservation must be confirmed with the administrator. No available reservation is asserted.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "NIGHT_CPUC_RSSE",
+      "NIGHT_CPUC_ASSIGNMENTS",
+      "NIGHT_SGIP_TRACKER"
+    ],
+    "notes": "Paired solar component, not an additional award beyond the storage program. Verified tracker data date: 2026-09-30. The schema does not encode waitlisted; amounts and award dates remain null. Recheck current funding before making a project decision. Source registry dates use UTC; retrieval was 2026-09-30 22:00 UTC (2026-10-01 in Israel)."
   },
   "official_contacts": {
     "value": [
@@ -209,6 +227,30 @@
       "url": "https://www.cathedralcity.gov/departments/community-economic-development-department/building-and-safety/solar-photovoltaic",
       "publisher": "City of Cathedral City",
       "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "NIGHT_CPUC_RSSE",
+      "title": "CPUC Residential Solar and Storage Equity program scope",
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "publisher": "California Public Utilities Commission",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "NIGHT_CPUC_ASSIGNMENTS",
+      "title": "CPUC Appendix D — SGIP program-administrator assignments for AB 209 funds",
+      "url": "https://docs.cpuc.ca.gov/PublishedDocs/Published/G000/M528/K053/528053537.PDF",
+      "publisher": "California Public Utilities Commission",
+      "type": "government",
+      "accessed_date": "2026-09-30"
+    },
+    {
+      "id": "NIGHT_SGIP_TRACKER",
+      "title": "SGIP current tracker — SCE AB 209 Non-POU waitlist, data dated 2026-09-30",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "SGIP Program Administrators",
+      "type": "program_administrator",
       "accessed_date": "2026-09-30"
     }
   ]

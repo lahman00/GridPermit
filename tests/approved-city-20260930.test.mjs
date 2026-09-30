@@ -6,8 +6,8 @@ import {isCompareSolarServedLocality,buildCompareSolarReferralUrl} from '../src/
 import {calculateCompleteness,classifyReadiness} from '../scripts/lib/revenue-intelligence.mjs';
 const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
 const evaluation=read('output/aaron-approved-city-batch-evaluation.json');
-const published=new Set(['palmdale','long-beach','santa-clarita']);
-test('all ten records retain independent computed readiness and only the three READY records have routes',()=>{
+const published=new Set(['palmdale','long-beach','santa-clarita','lancaster','cathedral-city','indio','palm-springs']);
+test('all ten records retain independent computed readiness and only the seven READY records have routes',()=>{
  assert.equal(evaluation.records.length,10);
  for(const row of evaluation.records){
   const r=read('data/localities/'+row.record_id+'.json'),v=read('output/validation-reports/'+row.record_id+'.json'),c=calculateCompleteness(r);

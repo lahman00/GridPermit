@@ -256,6 +256,9 @@ const tocItems = [
 			{isFirstLeadSprintPage && (
 				<p class="first-lead-jump"><a href="#installer-cta">Planning a new solar project? Jump to the homeowner quote path →</a></p>
 			)}
+			{!isFirstLeadSprintPage && (
+				<p class="first-lead-jump" data-approved-quote-jump hidden><a href="#installer-cta">Planning a new solar project? See the homeowner quote option →</a></p>
+			)}
 
 			<!-- ===== Overview ===== -->
 			<section id="overview">
@@ -795,5 +798,19 @@ const tocItems = [
 		// Print — native browser print dialog.
 		document.getElementById("print-btn")?.addEventListener("click", () => window.print());
 	</script>
+
+<script>
+	function showApprovedQuoteShortcut() {
+		const shortcut = document.querySelector<HTMLElement>("[data-approved-quote-jump]");
+		if (shortcut) shortcut.hidden = !document.querySelector("#installer-cta button[data-compare-solar-cta]");
+	}
+	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showApprovedQuoteShortcut, { once: true });
+	else showApprovedQuoteShortcut();
+</script>
+<style>
+	#installer-cta { scroll-margin-top: 8rem; }
+	.content-card { min-width: 0; overflow-wrap: anywhere; }
+</style>
+
 </body>
 </html>

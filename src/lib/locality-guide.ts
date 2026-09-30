@@ -190,21 +190,37 @@ export interface TimelineDisplay {
 // speed qualitatively but states no day range) — that must render
 // NOT_VERIFIED, never the literal string "null–null days".
 export function formatTimeline(td: TimelineValue): TimelineDisplay {
-	const isSameDaySolarAppOnly = td.min_days === 0 && td.max_days === 0;
-	if (isSameDaySolarAppOnly) {
+	const min = td?.min_days;
+	const max = td?.max_days;
+	const validBound = (n: unknown): n is number => typeof n === "number" && Number.isFinite(n) && n >= 0;
+	const hasMin = validBound(min);
+	const hasMax = validBound(max);
+	const malformed = (min != null && !hasMin) || (max != null && !hasMax) || (hasMin && hasMax && min > max);
+	if (malformed || (!hasMin && !hasMax)) {
+		return { isSameDaySolarAppOnly: false, label: NOT_VERIFIED, standardPathCaveat: null };
+	}
+	if (min === 0 && max === 0) {
 		return {
 			isSameDaySolarAppOnly: true,
 			label: "Same-day review for eligible expedited-permit projects",
 			standardPathCaveat: "No verified standard-path permit timeline is available.",
 		};
 	}
-	if (td.min_days === null || td.max_days === null) {
-		return { isSameDaySolarAppOnly: false, label: NOT_VERIFIED, standardPathCaveat: null };
+	// Only label business days when the source notes explicitly and unambiguously say so.
+	const notes = td.notes ?? "";
+	const business = /\bbusiness[\s-]+days?\b/i.test(notes) && !/\bcalendar[\s-]+days?\b/i.test(notes);
+	const unit = (n: number) => `${business ? "business " : ""}${n === 1 ? "day" : "days"}`;
+	if (!hasMin && hasMax) {
+		return { isSameDaySolarAppOnly: false, label: `Up to ${max} ${unit(max)}`,
+			standardPathCaveat: "Only the stated upper bound is verified. The source's project scope and conditions apply." };
 	}
-	const label =
-		td.min_days === td.max_days
-			? `${td.min_days} days`
-			: `${td.min_days}–${td.max_days} days`;
+	if (hasMin && !hasMax) {
+		return { isSameDaySolarAppOnly: false, label: `At least ${min} ${unit(min)}`,
+			standardPathCaveat: "No upper bound is verified. The source's project scope and conditions apply." };
+	}
+	// Preserve established complete-range rendering; notes may describe other phases
+	// in business days, which does not justify reinterpreting the recorded range.
+	const label = min === max ? `${min} days` : `${min}–${max} days`;
 	return { isSameDaySolarAppOnly: false, label, standardPathCaveat: null };
 }
 
@@ -386,7 +402,7 @@ export function buildFaqs(record: LocalityRecord): FaqEntry[] {
 		const timeline = formatTimeline(td);
 		const baseAnswer =
 			td.notes ??
-			(td.min_days !== null && td.max_days !== null ? `${td.min_days}–${td.max_days} days.` : NOT_VERIFIED);
+			(timeline.label === NOT_VERIFIED ? NOT_VERIFIED : `${timeline.label}.`);
 		faqs.push({
 			q: timeline.isSameDaySolarAppOnly
 				? `How long does an expedited-eligible residential solar permit take in ${record.city.value}?`

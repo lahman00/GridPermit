@@ -1,7 +1,7 @@
 import {readFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-export const REQUIRED_CITY_SLUGS=['escondido','hemet','pomona','irvine','norwalk','orange','victorville','palmdale','long-beach','santa-clarita','duarte','norco','brea','inglewood','baldwin-park','fountain-valley','del-mar'];
+export const REQUIRED_CITY_SLUGS=['escondido','hemet','pomona','irvine','norwalk','orange','victorville','palmdale','long-beach','santa-clarita','duarte','norco','brea','inglewood','baldwin-park','fountain-valley','del-mar','lancaster','cathedral-city','indio','palm-springs'];
 export function checkReleaseContract({routes,release,cityHtml,batteryHtml,functionNames}) {
  const errors=[];
  if(release?.schema_version!==2||!release?.base_commit||!/^[a-f0-9]{64}$/.test(release?.source_sha256??''))errors.push('RELEASE_IDENTITY_MISSING');
