@@ -22,6 +22,7 @@ test('qualification after day30 is valid when request submission was within day3
 test('missing request date remains unknown rather than using qualification date',()=>{
  const p={...partner};delete p.quote_requested_at;const r=reconcile(outbound,[p]);
  assert.ok(codes(r).includes('quote_request_date_missing'));assert.equal(r.fully_reconciled,false);
+ assert.equal(r.summary.qualified_quotes,0);assert.equal(r.summary.qualified_quotes_unverified,1);
  assert.equal(r.summary.expected_total_payout_usd,null);assert.equal(r.summary.reported_total_payout_usd,25);
 });
 test('request boundary is inclusive at day30 and rejects a later request',()=>{
@@ -55,4 +56,18 @@ test('invalid calendar dates and timestamps without UTC are not accepted as requ
   const r=reconcile(outbound,[{...partner,quote_requested_at:value}]);
   assert.ok(codes(r).includes('invalid_quote_request_date'),value);assert.equal(r.summary.expected_total_payout_usd,null);
  }
+});
+
+test('unmatched partner outcomes are separated from verified headline counts',()=>{
+ const other='89abcdef0123456789abcdef';
+ const q=reconcile(outbound,[{...partner,cid:other}]);
+ assert.equal(q.summary.qualified_quotes,0);assert.equal(q.summary.qualified_quotes_unverified,1);
+ const f=reconcile(outbound,[{...partner,cid:other,quote_status:'unqualified',quote_payout:'0',reason_code:'not_qualified',install_status:'funded',install_status_date:'2026-09-20T00:00:00Z',install_payout:'200'}]);
+ assert.equal(f.summary.funded_installs,0);assert.equal(f.summary.funded_installs_unverified,1);
+});
+test('errored matched outcomes do not inflate verified headline counts',()=>{
+ const q=reconcile(outbound,[{...partner,quote_payout:'999'}]);
+ assert.ok(codes(q).includes('quote_payout_mismatch'));assert.equal(q.summary.qualified_quotes,0);assert.equal(q.summary.qualified_quotes_unverified,1);
+ const f=reconcile(outbound,[{...partner,install_status:'funded',install_status_date:'',install_payout:'200'}]);
+ assert.ok(codes(f).includes('invalid_install_status_date'));assert.equal(f.summary.funded_installs,0);assert.equal(f.summary.funded_installs_unverified,1);
 });
