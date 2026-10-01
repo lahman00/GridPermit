@@ -316,3 +316,19 @@ test("buildPageMeta title and description never contain unsupported superlative 
 		assert.ok(!bannedPhrases.test(meta.description), `${record.record_id}: description contains an unsupported superlative: "${meta.description}"`);
 	}
 });
+
+
+test("buildFaqs never describes the same utility as separate from itself", () => {
+	const record = buildRecord({
+		city: { value: "Duarte", confidence: 1, source_ids: ["s"] },
+		utility: { value: "Southern California Edison (SCE)", confidence: 1, source_ids: ["s"] },
+		generation_supplier: {
+			value: { name: "Southern California Edison (SCE)", type: "utility", notes: null },
+			confidence: 1,
+			source_ids: ["s"],
+		},
+	});
+	const answer = buildFaqs(record)[0].a;
+	assert.match(answer, /same utility is also listed/i);
+	assert.doesNotMatch(answer, /separate from Southern California Edison/i);
+});
