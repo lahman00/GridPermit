@@ -1,4 +1,5 @@
 import {createHash} from 'node:crypto';
+import {RETENTION_DAYS,RETENTION_MS} from '../../src/lib/commercial/outbound-service.mjs';
 
 export const REVENUE_STAGES=['CTA_RENDERED','CTA_EXPOSED','CTA_CLICKED','OUTBOUND_RECORDED','PARTNER_REPORTED_REFERRAL','QUALIFIED_LEAD','FUNDED_INSTALL','COMMISSION_APPROVED','COMMISSION_PAYABLE','COMMISSION_PAID'];
 export const TOP8=['energysage','modernize','profitise','energyaid','oc-solar','norcal-solar-repair','greenlancer','permitdesign'];
@@ -16,15 +17,15 @@ function validateClick(row){
  return row;
 }
 export function aggregateOutbound(exportFile,{now=new Date().toISOString()}={}){
- if(!exportFile||exportFile.stage!=='OUTBOUND_RECORDED'||exportFile.retention_days!==7||!Array.isArray(exportFile.rows))throw new Error('Invalid outbound export envelope');
+ if(!exportFile||exportFile.stage!=='OUTBOUND_RECORDED'||exportFile.retention_days!==RETENTION_DAYS||!Array.isArray(exportFile.rows))throw new Error('Invalid outbound export envelope');
  const nowMs=Date.parse(now);if(!Number.isFinite(nowMs))throw new Error('Invalid clock');
- const unique=new Map();for(const row of exportFile.rows){validateClick(row);if(Date.parse(row.timestamp)>nowMs||nowMs-Date.parse(row.timestamp)>7*86400000)throw new Error('Outbound row outside verified seven-day window');const key=row.partner_id+'|'+row.cid,prior=unique.get(key);if(prior&&JSON.stringify(prior)!==JSON.stringify(row))throw new Error('CID/partner click conflict');unique.set(key,row);}
+ const unique=new Map();for(const row of exportFile.rows){validateClick(row);if(Date.parse(row.timestamp)>nowMs||nowMs-Date.parse(row.timestamp)>RETENTION_MS)throw new Error('Outbound row outside verified retention window');const key=row.partner_id+'|'+row.cid,prior=unique.get(key);if(prior&&JSON.stringify(prior)!==JSON.stringify(row))throw new Error('CID/partner click conflict');unique.set(key,row);}
  const rows=[...unique.values()];const report=[];
  for(const [window,hours] of [['OUTBOUND_CLICKS_24H',24],['OUTBOUND_CLICKS_7D',168]]){
   const selected=rows.filter(r=>nowMs-Date.parse(r.timestamp)<=hours*3600000);report.push({window,dimension:'TOTAL',value:'ALL',count:selected.length,truth:'OUTBOUND_RECORDED'});
   for(const [dimension,key] of [['BY_PARTNER','partner_id'],['BY_INTENT','intent'],['BY_CITY','city'],['BY_PAGE','page_path']]){const counts=new Map();for(const r of selected)counts.set(r[key],(counts.get(r[key])??0)+1);for(const [value,count] of [...counts].sort(([a],[b])=>a.localeCompare(b)))report.push({window,dimension,value,count,truth:'OUTBOUND_RECORDED'});}
  }
- return {rows,report,health:{generated_at:now,retention_days:7,unique_recorded_outbounds:rows.length,duplicates_suppressed:exportFile.duplicates_suppressed??0,expired_suppressed:exportFile.expired_suppressed??0,pii_fields_persisted:false,human_clicks_proven:false,partner_referrals:null,qualified_leads:null,funded_installs:null,commission_approved_cents:null,commission_payable_cents:null,commission_paid_cents:null,empty_baseline:rows.length===0}};
+ return {rows,report,health:{generated_at:now,retention_days:RETENTION_DAYS,unique_recorded_outbounds:rows.length,duplicates_suppressed:exportFile.duplicates_suppressed??0,expired_suppressed:exportFile.expired_suppressed??0,pii_fields_persisted:false,human_clicks_proven:false,partner_referrals:null,qualified_leads:null,funded_installs:null,commission_approved_cents:null,commission_payable_cents:null,commission_paid_cents:null,empty_baseline:rows.length===0}};
 }
 
 export function importCodexHandoffs(input,{now=new Date().toISOString()}={}){
