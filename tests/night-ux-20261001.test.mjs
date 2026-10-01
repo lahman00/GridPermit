@@ -22,7 +22,7 @@ test('Palm Springs upper-bound FAQ preserves the exact checklist and permit-only
 });
 test('new shortcut is an internal scroll only and actual rendered approval remains the eligibility authority',()=>{
  const layout=readFileSync(new URL('../src/layouts/LocalityGuideLayout.astro',import.meta.url),'utf8');
- assert.match(layout,/data-approved-quote-jump hidden/);assert.match(layout,/#installer-cta button\[data-compare-solar-cta\]/);assert.match(layout,/shortcut.hidden = !document.querySelector/);assert.match(layout,/scroll-margin-top: 8rem/);
+ assert.match(layout,/data-approved-quote-jump hidden/);assert.match(layout,/const approvedQuote = document.querySelector\("#installer-cta button\[data-compare-solar-cta\]"\)/);assert.match(layout,/shortcut.hidden = !approvedQuote/);assert.match(layout,/scroll-margin-top: 8rem/);
 });
 
 test('complete ranges are not reinterpreted from a different stage mentioned in notes',()=>{

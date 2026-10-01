@@ -212,7 +212,7 @@ const tocItems = [
 			{isFirstLeadSprintPage
 				? <a href="#installer-cta" class="btn-cta-nav">Compare Solar Quote</a>
 				: record.state === "CA"
-					? <a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
+					? <a href="/#calculator" class="btn-cta-nav" data-contextual-revenue-nav>Estimate Savings</a>
 					: <a href="#installer-cta" class="btn-cta-nav">Find an Installer</a>}
 		</div>
 	</nav>
@@ -801,8 +801,20 @@ const tocItems = [
 
 <script>
 	function showApprovedQuoteShortcut() {
+		const approvedQuote = document.querySelector("#installer-cta button[data-compare-solar-cta]");
 		const shortcut = document.querySelector<HTMLElement>("[data-approved-quote-jump]");
-		if (shortcut) shortcut.hidden = !document.querySelector("#installer-cta button[data-compare-solar-cta]");
+		if (shortcut) shortcut.hidden = !approvedQuote;
+
+		// Keep the default calculator destination on non-monetized California
+		// pages. Only when the approved, fail-closed partner CTA actually
+		// rendered do we promote the nav action to the real quote section.
+		// This deliberately derives conversion affordance from the rendered
+		// route instead of reimplementing partner/utility eligibility here.
+		const nav = document.querySelector<HTMLAnchorElement>("[data-contextual-revenue-nav]");
+		if (nav && approvedQuote) {
+			nav.href = "#installer-cta";
+			nav.textContent = "Compare Solar Quote";
+		}
 	}
 	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showApprovedQuoteShortcut, { once: true });
 	else showApprovedQuoteShortcut();
