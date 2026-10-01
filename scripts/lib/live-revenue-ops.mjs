@@ -1,7 +1,8 @@
 import {createHash} from 'node:crypto';
 import {RETENTION_DAYS,RETENTION_MS} from '../../src/lib/commercial/outbound-service.mjs';
 
-export const REVENUE_STAGES=['CTA_RENDERED','CTA_EXPOSED','CTA_CLICKED','OUTBOUND_RECORDED','PARTNER_REPORTED_REFERRAL','QUALIFIED_LEAD','FUNDED_INSTALL','COMMISSION_APPROVED','COMMISSION_PAYABLE','COMMISSION_PAID'];
+export const REVENUE_STAGES=['CTA_RENDERED','CTA_EXPOSED','CTA_CLICKED','OUTBOUND_RECORDED','PARTNER_REPORTED_REFERRAL','QUALIFIED_LEAD','LEAD_REVERSED','FUNDED_INSTALL','COMMISSION_APPROVED','COMMISSION_PAYABLE','COMMISSION_PAID'];
+const COMMISSION_STAGE_ORDER=['COMMISSION_APPROVED','COMMISSION_PAYABLE','COMMISSION_PAID'];
 export const TOP8=['energysage','modernize','profitise','energyaid','oc-solar','norcal-solar-repair','greenlancer','permitdesign'];
 const CLICK_FIELDS=['stage','cid','partner_id','page_path','city','intent','cta_id','timestamp'];
 const HANDOFF_FIELDS=['partner_id','approval_reference','approval_evidence_ref','tracking_type','tracking_url','destination','territories','intents','verified_at','expires_at'];
@@ -42,9 +43,46 @@ export function importCodexHandoffs(input,{now=new Date().toISOString()}={}){
 
 export function revenueLedger(outboundRows=[],reportedRows=[]){
  const rows=outboundRows.map(r=>({event_id:createHash('sha256').update(`OUTBOUND_RECORDED|${r.partner_id}|${r.cid}`).digest('hex'),stage:'OUTBOUND_RECORDED',cid:r.cid,partner_id:r.partner_id,timestamp:r.timestamp,evidence_ref:'first-party-private-store',amount_cents:null,currency:null,payment_evidence_ref:null}));
- for(const r of reportedRows){if(!REVENUE_STAGES.includes(r.stage)||r.stage==='OUTBOUND_RECORDED'||!cid.test(r.cid)||!id.test(r.partner_id)||!utc.test(r.timestamp)||typeof r.evidence_ref!=='string')throw new Error('Invalid evidence-gated revenue row');const money=r.stage.startsWith('COMMISSION_');if(money&&(!Number.isSafeInteger(r.amount_cents)||r.amount_cents<0||r.currency!=='USD'))throw new Error('Commission stage needs integer USD cents');if(!money&&r.amount_cents!=null)throw new Error('Non-commission stage cannot claim money');if(r.stage==='COMMISSION_PAID'&&typeof r.payment_evidence_ref!=='string')throw new Error('Paid stage requires payment evidence');rows.push({...r,event_id:createHash('sha256').update(`${r.stage}|${r.partner_id}|${r.cid}|${r.evidence_ref}`).digest('hex'),amount_cents:money?r.amount_cents:null,currency:money?'USD':null,payment_evidence_ref:r.payment_evidence_ref??null});}
+ for(const r of reportedRows){if(!REVENUE_STAGES.includes(r.stage)||r.stage==='OUTBOUND_RECORDED'||!cid.test(r.cid)||!id.test(r.partner_id)||!utc.test(r.timestamp)||typeof r.evidence_ref!=='string'||!r.evidence_ref)throw new Error('Invalid evidence-gated revenue row');const money=r.stage.startsWith('COMMISSION_');if(money&&(!Number.isSafeInteger(r.amount_cents)||r.amount_cents<0||r.currency!=='USD'))throw new Error('Commission stage needs integer USD cents');if(!money&&r.amount_cents!=null)throw new Error('Non-commission stage cannot claim money');if(r.stage==='COMMISSION_PAID'&&typeof r.payment_evidence_ref!=='string')throw new Error('Paid stage requires payment evidence');rows.push({...r,event_id:createHash('sha256').update(`${r.stage}|${r.partner_id}|${r.cid}|${r.evidence_ref}`).digest('hex'),amount_cents:money?r.amount_cents:null,currency:money?'USD':null,payment_evidence_ref:r.payment_evidence_ref??null});}
  const keys=new Set();for(const row of rows){const key=`${row.stage}|${row.partner_id}|${row.cid}`;if(keys.has(key))throw new Error('Duplicate ledger stage');keys.add(key);}
+ // LEAD_REVERSED never mutates or removes the QUALIFIED_LEAD row it reverses
+ // (append-only; historical evidence is preserved by construction above).
+ // It must instead reference a real, earlier qualification for the same
+ // partner+cid - a reversal with nothing to reverse, or one that claims to
+ // predate its own qualification, is malformed evidence and fails closed.
+ for(const row of rows){
+  if(row.stage!=='LEAD_REVERSED')continue;
+  const qualified=rows.find(q=>q.stage==='QUALIFIED_LEAD'&&q.partner_id===row.partner_id&&q.cid===row.cid);
+  if(!qualified||qualified.timestamp>=row.timestamp)throw new Error('LEAD_REVERSED requires a prior QUALIFIED_LEAD event for the same partner and CID');
+ }
  return rows.sort((a,b)=>a.timestamp.localeCompare(b.timestamp)||a.event_id.localeCompare(b.event_id));
+}
+
+/**
+ * Per (partner_id, cid), answers three independent questions from the
+ * append-only ledger without ever rewriting or discarding a row:
+ *  - historical_qualified_event: did a QUALIFIED_LEAD ever happen? (never
+ *    flips back to false - a reversal cannot erase proof that it occurred)
+ *  - currently_active_qualified: is it still active right now? (false once a
+ *    LEAD_REVERSED exists for the same key)
+ *  - financial_settlement_state: the furthest COMMISSION_* stage reached, if
+ *    any - independent of reversal, since a reversal must never silently
+ *    convert already-paid evidence to zero (that requires its own future,
+ *    separately evidence-gated clawback/refund stage, not invented here).
+ */
+export function currentLeadStates(ledger){
+ const byKey=new Map();
+ for(const row of ledger){
+  const key=`${row.partner_id}|${row.cid}`;
+  if(!byKey.has(key))byKey.set(key,{partner_id:row.partner_id,cid:row.cid,historical_qualified_event:false,currently_active_qualified:false,reversed:false,reversed_at:null,financial_settlement_state:null});
+  const state=byKey.get(key);
+  if(row.stage==='QUALIFIED_LEAD'){state.historical_qualified_event=true;state.currently_active_qualified=true;}
+  else if(row.stage==='LEAD_REVERSED'){state.reversed=true;state.reversed_at=row.timestamp;state.currently_active_qualified=false;}
+  else if(COMMISSION_STAGE_ORDER.includes(row.stage)){
+   if(!state.financial_settlement_state||COMMISSION_STAGE_ORDER.indexOf(row.stage)>COMMISSION_STAGE_ORDER.indexOf(state.financial_settlement_state))state.financial_settlement_state=row.stage;
+  }
+ }
+ return [...byKey.values()];
 }
 
 export function firstLeadAlert(ledger){const first=ledger.filter(r=>r.stage==='PARTNER_REPORTED_REFERRAL'||r.stage==='QUALIFIED_LEAD').sort((a,b)=>a.timestamp.localeCompare(b.timestamp))[0];return first?{status:'ACTION_REQUIRED_FIRST_REPORTED_LEAD',partner_id:first.partner_id,cid:first.cid,stage:first.stage,timestamp:first.timestamp,evidence_ref:first.evidence_ref,external_notification_sent:false}:{status:'NO_PARTNER_REPORTED_LEAD',external_notification_sent:false};}
