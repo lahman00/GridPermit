@@ -10,7 +10,7 @@ Netlify Blobs store `gridpermit-outbound-v1` is site-scoped and private to authe
 
 Each event occupies an immutable slot keyed by UTC date and a 16-bit hash of partner/CID. Conditional creation plus a strong read-back confirms the exact stored event. This bounds new event data to 65,536 records, each at most 512 bytes, per day (32 MiB before storage metadata). A slot collision is `CAPACITY_COLLISION`, never an overwrite or a counted success. At small traffic volumes this is deliberately conservative; this ledger is a lower bound, not a lossless total-click counter. Replays within the day do not add rows; the operator export deduplicates partner/CID across all retained days as well.
 
-Records are logically available for seven days. Hourly cleanup deletes expired events, with up to one normal scheduling interval of physical delay. It marks itself unhealthy before work. Interruption or a heartbeat older than 90 minutes stops new recording. A provider outage can delay physical deletion; `/telemetry/health` exposes cleanup health without exposing events. Recovery reruns cleanup, not a synthetic click. Site-scoped storage survives deployment rollback; never delete the store as part of rollback.
+Records are logically available for 37 days: the current 30-day quote-attribution window plus a seven-day reporting buffer. Hourly cleanup deletes expired events, with up to one normal scheduling interval of physical delay. It marks itself unhealthy before work. Interruption or a heartbeat older than 90 minutes stops new recording. A provider outage can delay physical deletion; `/telemetry/health` exposes cleanup health without exposing events. Recovery reruns cleanup, not a synthetic click. Site-scoped storage survives deployment rollback; never delete the store as part of rollback.
 
 ## Abuse, cost and failure behavior
 
@@ -31,7 +31,7 @@ The recorder waits at most 1.2 seconds for persistence. Failure or timeout still
 7. FUNDED_INSTALL: partner installation/funding evidence.
 8. COMMISSION: authentic commission stage, with paid cash requiring payment evidence.
 
-Never infer a later stage from an earlier one. `scripts/outbound-export.mjs --out NEW_FILE.json` reads through an operator's normal Netlify session token supplied via `NETLIFY_AUTH_TOKEN`. It filters expired records, deduplicates receipts and leaves partner/lead/commission fields null. No token belongs in source, output artifacts or browser code. The existing partner-report normalizers remain separate.
+Never infer a later stage from an earlier one. `scripts/outbound-export.mjs --out NEW_FILE.json` reads through an operator's normal Netlify session token supplied via `NETLIFY_AUTH_TOKEN`. It filters records outside the same 37-day reconciliation window, deduplicates receipts and leaves partner/lead/commission fields null. No token belongs in source, output artifacts or browser code. The existing partner-report normalizers remain separate.
 
 ## Release and rollback
 
