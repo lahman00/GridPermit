@@ -26,6 +26,8 @@ No. SCE interconnection approval does not replace local building/electrical perm
 
 Your AHJ may require a permit and inspection for the battery, associated electrical work, equipment relocation, panel work, or other scope. SCE itself notes that cities/AHJs can have their own requirements for certain interconnection methods and tells customers/contractors to determine whether the AHJ accepts the proposed method. See the same [SCE Solar FAQ](https://www.sce.com/customer-service-center/help-center/solar/net-energy-metering/faq).
 
+Open the guide for your actual city in our [SCE city-guide directory](/california/utility/sce/), then use its linked permitting-authority sources to check the local permit and inspection path for your retrofit. Do not substitute a neighboring city's rules. The directory is for permit research; it does not mean that battery quotes or installation services are available throughout SCE territory.
+
 ## What if the equipment or output changes?
 
 SCE's Solar Billing Plan FAQ says some system modifications require notification, and distinguishes certain qualified changes from changes that require a new interconnection application or approval. It also states that **any change to the point of interconnection requires a new application**. See [SCE Solar Billing Plan FAQs](https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs).
