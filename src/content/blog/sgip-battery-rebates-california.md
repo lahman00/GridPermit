@@ -56,6 +56,4 @@ A 2026 battery estimate should therefore not automatically subtract a 30% reside
 
 For the permitting side of a storage project, see GridPermit's <a href="/california/#batteries">California battery permitting overview</a>.
 
-[Compare solar and battery installer options on EnergySage](https://www.energysage.com)
-
 *This page summarizes current public program rules and is not a funding determination, tax opinion, or guarantee of an incentive. Confirm eligibility, rates, and budget availability with the applicable SGIP program administrator before signing a contract.*

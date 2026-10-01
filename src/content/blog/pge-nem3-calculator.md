@@ -55,6 +55,4 @@ Do not automatically deduct a 30% residential federal credit from a 2026 project
 
 Looking for city-specific permit requirements rather than tariff analysis? See GridPermit's <a href="/california/utility/pg-e/">verified PG&E city guides</a>.
 
-[Compare solar and battery installer options on EnergySage](https://www.energysage.com)
-
 *This page is an evaluation framework, not a bill calculator, savings guarantee, tax opinion, or live tariff lookup. Confirm the current PG&E rate plan, export-credit schedule, service charges, and project assumptions before making a purchase decision.*

@@ -52,6 +52,4 @@ Do not automatically subtract a 30% residential federal credit from a 2026 insta
 
 Looking for city-specific permit requirements rather than tariff analysis? See GridPermit's <a href="/california/utility/sce/">verified SCE city guides</a>.
 
-[Compare solar and battery installer options on EnergySage](https://www.energysage.com)
-
 *This page explains the general tariff structure. It is not a live rate lookup, savings guarantee, tax opinion, or project-specific financial model. Confirm current SCE rates, export credits, charges, and system assumptions before making a decision.*
