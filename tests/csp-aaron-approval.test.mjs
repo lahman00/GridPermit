@@ -12,6 +12,10 @@ const ROOT=path.resolve('.');
 const NOW='2026-09-30T12:00:00Z';
 const CID='a'.repeat(24);
 const registry=await loadPlatformRegistry(ROOT);
+// This suite tests Aaron approval/routing semantics, not wall-clock destination freshness.
+// Pin cached health to the suite clock so a legitimate later health refresh cannot make
+// these deterministic approval assertions fail as if production routing regressed.
+for(const health of registry.health) health.checkedAt=NOW;
 const partner=registry.partners.find(p=>p.partner_id==='compare-solar-prices');
 
 function record(id){const r=registry.records.find(x=>x.record_id===id);assert.ok(r,'missing '+id);return r;}

@@ -14,7 +14,7 @@ const partner=(line)=>parseCsv("cid,quote_status,quote_status_date,quote_payout,
 
 test("current outbound export reconciles a qualified quote and later funded install",()=>{
  const r=reconcile(outbound,partner(cid+",qualified,2026-09-20T12:00:00Z,25,funded,2026-10-20T12:00:00Z,200,,2026-09,accrued"));
- assert.equal(r.summary.errors,0);assert.equal(r.summary.matched_cids,1);assert.equal(r.summary.expected_total_payout_usd,225);
+ assert.equal(r.summary.errors,0);assert.equal(r.summary.matched_cids,1);assert.equal(r.summary.qualified_quotes,1);assert.equal(r.summary.qualified_quotes_unverified,0);assert.equal(r.summary.funded_installs,1);assert.equal(r.summary.funded_installs_unverified,0);assert.equal(r.summary.expected_total_payout_usd,225);
 });
 test("quote outside 30-day attribution is flagged while funded install has no invented time limit",()=>{
  const r=reconcile(outbound,partner(cid+",qualified,2026-10-05T12:00:00Z,25,funded,2026-12-20T12:00:00Z,200,,2026-10,accrued").map(r=>({...r,quote_requested_at:"2026-10-05T12:00:00Z"})));
@@ -24,7 +24,7 @@ test("quote outside 30-day attribution is flagged while funded install has no in
 test("unknown partner CID is not silently treated as invalid lead",()=>{
  const other="89abcdef0123456789abcdef";
  const r=reconcile(outbound,partner(other+",qualified,2026-09-20T12:00:00Z,25,pending,,0,,2026-09,accrued"));
- const d=r.discrepancies.find(x=>x.code==="cid_not_in_retained_outbound");assert.ok(d);assert.match(d.detail,/Do not infer that the referral is invalid/);
+ const d=r.discrepancies.find(x=>x.code==="cid_not_in_retained_outbound");assert.ok(d);assert.match(d.detail,/Do not infer that the referral is invalid/);assert.equal(r.summary.qualified_quotes,0);assert.equal(r.summary.qualified_quotes_unverified,1);
 });
 test("PII-like partner report columns are rejected",()=>{
  assert.throws(()=>parseCsv("cid,email,quote_status,quote_status_date,quote_payout,install_status,install_status_date,install_payout,reason_code,payment_period,paid_or_accrued\n"+cid+",person@example.com,qualified,2026-09-20T12:00:00Z,25,pending,,0,,2026-09,accrued\n"),/forbidden PII-like header/);

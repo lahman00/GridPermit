@@ -42,7 +42,7 @@ export function normalizeOutboundExport(envelope){
 
 export function reconcile(outboundEnvelope,partnerRows){
  const clicks=normalizeOutboundExport(outboundEnvelope),byCid=new Map(clicks.map(r=>[r.cid.toLowerCase(),r]));
- const discrepancies=[],seenPartner=new Set();let qualified=0,funded=0,reportedQuote=0,reportedInstall=0;
+ const discrepancies=[],seenPartner=new Set();let qualified=0,qualifiedUnverified=0,funded=0,fundedUnverified=0,reportedQuote=0,reportedInstall=0;
  const add=(severity,code,cid,detail)=>discrepancies.push({severity,code,cid,detail});
  if(!Array.isArray(partnerRows))throw new Error("Partner rows must be an array");
  const groups=new Map();
@@ -56,12 +56,13 @@ export function reconcile(outboundEnvelope,partnerRows){
   if(group.length!==1){add("error","duplicate_partner_cid",cid,"Multiple rows for this CID are excluded from outcome and amount totals until resolved; no first/last row is silently chosen.");continue;}
   const p=group[0];
   if(!["qualified","unqualified","pending","duplicate","reversed","unknown"].includes(status(p.quote_status))||!["funded","not_funded","pending","unknown"].includes(status(p.install_status))){add("error","unrecognized_partner_status",cid,"Unsupported status; normalize from the original statement without guessing.");continue;}
+  const issueStart=discrepancies.length;
   const click=byCid.get(cid);if(!click)add("error","cid_not_in_retained_outbound",p.cid,"CID is not present in the retained GridPermit outbound export. Do not infer that the referral is invalid; preserve partner evidence and investigate retention/export timing.");
   const qs=status(p.quote_status),ins=status(p.install_status),qp=money(p.quote_payout),ip=money(p.install_payout);reportedQuote+=Number.isFinite(qp)?qp:0;reportedInstall+=Number.isFinite(ip)?ip:0;
   if(!Number.isFinite(qp))add("error","invalid_quote_payout",p.cid,"quote_payout is not numeric");
   if(!Number.isFinite(ip))add("error","invalid_install_payout",p.cid,"install_payout is not numeric");
   if(qs==="qualified"){
-   qualified++;if(qp!==QUOTE_PAYOUT)add("error","quote_payout_mismatch",p.cid,`Qualified quote expected $${QUOTE_PAYOUT}; reported amount differs`);
+   if(qp!==QUOTE_PAYOUT)add("error","quote_payout_mismatch",p.cid,`Qualified quote expected $${QUOTE_PAYOUT}; reported amount differs`);
    const qd=when(p.quote_status_date);if(!Number.isFinite(qd))add("error","invalid_quote_status_date",p.cid,"Qualified quote needs a valid status date");
    // The commercial clock ends at request submission, NOT later qualification.
    // Never substitute quote_status_date when the submission date is missing.
@@ -77,15 +78,18 @@ export function reconcile(outboundEnvelope,partnerRows){
    }
   } else if(Number.isFinite(qp)&&qp!==0)add("error","nonqualified_quote_has_payout",p.cid,"Non-qualified quote has non-zero payout");
   if(ins==="funded"){
-   funded++;if(ip!==INSTALL_PAYOUT)add("error","install_payout_mismatch",p.cid,`Funded install expected $${INSTALL_PAYOUT}; reported amount differs`);
+   if(ip!==INSTALL_PAYOUT)add("error","install_payout_mismatch",p.cid,`Funded install expected $${INSTALL_PAYOUT}; reported amount differs`);
    if(!Number.isFinite(when(p.install_status_date)))add("error","invalid_install_status_date",p.cid,"Funded install needs a valid status date");
   } else if(Number.isFinite(ip)&&ip!==0)add("error","nonfunded_install_has_payout",p.cid,"Non-funded install has non-zero payout");
   if(["unqualified","duplicate","reversed"].includes(qs)&&!p.reason_code)add("warning","missing_reason_code",p.cid,"Non-PII reason_code is recommended for this quote status");
+  const rowVerified=Boolean(click)&&discrepancies.slice(issueStart).length===0;
+  if(qs==="qualified"){if(rowVerified)qualified++;else qualifiedUnverified++;}
+  if(ins==="funded"){if(rowVerified)funded++;else fundedUnverified++;}
  }
  const matched=[...groups].filter(([cid,group])=>group.length===1&&byCid.has(cid)).length;
  const errors=discrepancies.filter(x=>x.severity==="error").length,warnings=discrepancies.filter(x=>x.severity==="warning").length;
  const fullyReconciled=partnerRows.length>0&&errors===0&&warnings===0;
- return {partner_report_status:partnerRows.length?"ROWS_PROVIDED_AUTHENTICITY_REQUIRES_OPERATOR_VERIFICATION":"NO_ROWS_PROVIDED_NOT_PROOF_OF_NO_LEADS",fully_reconciled:fullyReconciled,commission_approved_usd:null,commission_payable_usd:null,commission_paid_usd:null,generated_at:new Date().toISOString(),evidence_stage:"RECONCILIATION_ONLY",constants:{retention_days:RETENTION_DAYS,quote_attribution_days:ATTRIBUTION_DAYS,quote_payout_usd:QUOTE_PAYOUT,install_payout_usd:INSTALL_PAYOUT},summary:{retained_compare_solar_outbounds:clicks.length,partner_rows:partnerRows.length,matched_cids:matched,qualified_quotes:qualified,funded_installs:funded,expected_total_payout_usd:fullyReconciled?qualified*QUOTE_PAYOUT+funded*INSTALL_PAYOUT:null,reported_total_payout_usd:errors?null:reportedQuote+reportedInstall,quarantined_partner_rows:[...groups.values()].filter(g=>g.length>1).reduce((n,g)=>n+g.length,0),unique_partner_cids:groups.size,clicks_without_partner_row:clicks.filter(r=>!seenPartner.has(r.cid.toLowerCase())).length,errors,warnings},discrepancies};
+ return {partner_report_status:partnerRows.length?"ROWS_PROVIDED_AUTHENTICITY_REQUIRES_OPERATOR_VERIFICATION":"NO_ROWS_PROVIDED_NOT_PROOF_OF_NO_LEADS",fully_reconciled:fullyReconciled,commission_approved_usd:null,commission_payable_usd:null,commission_paid_usd:null,generated_at:new Date().toISOString(),evidence_stage:"RECONCILIATION_ONLY",constants:{retention_days:RETENTION_DAYS,quote_attribution_days:ATTRIBUTION_DAYS,quote_payout_usd:QUOTE_PAYOUT,install_payout_usd:INSTALL_PAYOUT},summary:{retained_compare_solar_outbounds:clicks.length,partner_rows:partnerRows.length,matched_cids:matched,qualified_quotes:qualified,qualified_quotes_unverified:qualifiedUnverified,funded_installs:funded,funded_installs_unverified:fundedUnverified,expected_total_payout_usd:fullyReconciled?qualified*QUOTE_PAYOUT+funded*INSTALL_PAYOUT:null,reported_total_payout_usd:errors?null:reportedQuote+reportedInstall,quarantined_partner_rows:[...groups.values()].filter(g=>g.length>1).reduce((n,g)=>n+g.length,0),unique_partner_cids:groups.size,clicks_without_partner_row:clicks.filter(r=>!seenPartner.has(r.cid.toLowerCase())).length,errors,warnings},discrepancies};
 }
 function write(report,out){
  fs.mkdirSync(out,{recursive:true});fs.writeFileSync(path.join(out,"reconciliation.json"),JSON.stringify(report,null,2)+"\n");
