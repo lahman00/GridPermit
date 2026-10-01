@@ -100,3 +100,15 @@ for (const [label, source] of [
 		);
 	});
 }
+
+
+for (const rel of [
+	"src/content/blog/pge-nem3-calculator.md",
+	"src/content/blog/sce-guide.md",
+	"src/content/blog/sgip-battery-rebates-california.md",
+]) {
+	test(`${rel} does not leak decision-stage traffic to a hardcoded untracked EnergySage CTA`, () => {
+		const source = readFileSync(path.join(REPO_ROOT, rel), "utf8");
+		assert.ok(!source.includes("[Compare solar and battery installer options on EnergySage](https://www.energysage.com)"));
+	});
+}
