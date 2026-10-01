@@ -385,14 +385,19 @@ export function buildFaqs(record: LocalityRecord): FaqEntry[] {
 	const timelineValue = record.timeline_days?.value ?? null;
 
 	if (record.utility.value) {
+		const normalizedUtility = record.utility.value.trim().toLowerCase();
+		const normalizedSupplier = generationSupplier?.name.trim().toLowerCase() ?? null;
+		const sameUtilityAndSupplier = normalizedSupplier === normalizedUtility;
 		faqs.push({
 			q: `What utility serves solar customers in ${record.city.value}, ${stateName(record.state)}?`,
 			a:
 				`${record.utility.value} is the interconnection and distribution utility for ${record.city.value}.` +
 				(generationSupplier
-					? ` The default electricity generation supplier is ${generationSupplier.name}, a ${
-							generationSupplier.type === "cca" ? "Community Choice Aggregator (CCA)" : generationSupplier.type
-						}, separate from ${record.utility.value}.`
+					? sameUtilityAndSupplier
+						? ` The same utility is also listed as the default electricity generation supplier.`
+						: ` The default electricity generation supplier is ${generationSupplier.name}, a ${
+								generationSupplier.type === "cca" ? "Community Choice Aggregator (CCA)" : generationSupplier.type
+							}, separate from ${record.utility.value}.`
 					: ""),
 		});
 	}
