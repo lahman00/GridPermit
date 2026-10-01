@@ -15,23 +15,23 @@
 
 ## 2. Historical evidence we possess
 
-Per the brief for this audit, a conversation with Seth Pikus / Lead Smart on **Aug 31, 2026** (5 days after the repo's `lastVerified` date) reportedly reached further than what's recorded:
-- GridPermit CTA copy and placement were approved
+The historical email thread with Seth Pikus / Lead Smart progressed materially beyond the repo's 2026-08-26 snapshot:
+- GridPermit CTA copy and placement were approved on Aug 31
 - A Ringba publisher invite was provided
 - A live solar tracking number was supplied
-- Offer described as residential solar inbound calls, nationwide
-- Variable rate depending on buyer/call quality
-- A live buyer coverage sheet existed
-- Consumer-initiated inbound calls only
-- W-8 required
-- Modest initial volume requested
+- The solar offer was described as residential consumer-initiated inbound calls with nationwide buyer coverage, subject to live buyer/cap availability
+- A live buyer coverage sheet URL was supplied
+- Historical buyer hours were supplied: 8:00 AM–7:00 PM Central Monday–Friday and 10:00 AM–2:00 PM weekends
+- Payout was described as variable by buyer/call quality, with the exact amount per call visible in Ringba rather than a fixed GridPermit-specific rate in the email
+- W-8 was required
+- Modest initial volume was requested
 
 This is treated here strictly as **historical** evidence of a conversation that happened — not as proof that any of it is still valid today.
 
 ## 3. Contradictions / stale state
 
-- The repo's notes say Seth "did not yet provide current Solar coverage or payout economics" — but the Aug 31 evidence describes a tracking number and Ringba invite already issued, which would not normally happen before coverage/economics are at least roughly settled. Either the Aug 31 conversation resolved more than the repo reflects, or the invite/number were provided ahead of finalized economics (common in some pay-per-call onboarding flows, but not confirmed either way here).
-- The repo's narrative is written as "pre-tracking-asset"; the historical evidence describes a tracking asset already in hand. These cannot both be the current truth — the repo is stale relative to the evidence by construction, since nothing was updated after Aug 31.
+- The repo's notes say current Solar coverage or payout economics were still missing. The historical thread later supplied a live buyer-coverage sheet, campaign hours, a Ringba invite and tracking number. A fixed GridPermit-specific payout was still not stated in the email; compensation remained variable by routed buyer/call quality and visible per call in Ringba.
+- The repo's narrative is therefore stale in two ways: it understates the historical onboarding/tracking progress, and it omits the historical coverage/hours evidence. Keeping every launch gate false is still correct because none of those Aug 26–31 facts has been freshly reconfirmed today.
 - **Nothing** in the Aug 31 evidence is re-confirmed as still valid as of today. Tracking numbers get reassigned, campaigns get paused, Ringba invites expire, and rate cards change — none of that staleness risk is unique to this partner, it's just unverified here.
 
 ## 4. Exact fresh evidence required before activation
@@ -40,9 +40,9 @@ All of the following must be **independently reconfirmed in writing**, not assum
 
 1. The campaign is still active today (not paused, not closed).
 2. The previously-supplied tracking number is still assigned to GridPermit specifically (not reassigned, not expired).
-3. Current eligible states/ZIP coverage for solar (the repo itself says this was never provided even as of its last update — confirm whether it since was).
-4. Current buyer hours (time-of-day / day-of-week availability).
-5. Current payout/rate structure, in writing, not "variable depending on quality" without a number or range.
+3. Current eligible states/ZIP coverage for solar. Historical coverage was supplied, but it must be re-confirmed because buyer availability and caps can change.
+4. Current buyer hours (the historical schedule must not be assumed current).
+5. Current payout/rate structure, in writing. The historical email described variable per-call economics visible in Ringba, not a fixed GridPermit-specific payout.
 6. Minimum billable call duration.
 7. Duplicate/repeat-caller policy.
 8. Explicit disqualifiers (what makes a call non-billable).
