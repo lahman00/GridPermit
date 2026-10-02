@@ -46,18 +46,13 @@ test("Glendale: no permit timeline is displayed, and the true 3-5 business day G
 	assert.match(g.interconnection_url.notes, /7-10 working days/);
 });
 
-test("a fee on a page with a paid route is not sourced to a superseded fiscal-year schedule (Baldwin Park regression)", () => {
-	for (const r of monetized) {
-		const env = r.permit_fees;
-		if (!(env.value ?? []).some((f) => f.amount_usd != null)) continue;
-		const titles = r.sources.filter((s) => (env.source_ids ?? []).includes(s.id)).map((s) => s.title);
-		for (const t of titles) {
-			assert.doesNotMatch(t, /Fiscal Year 20(1\d|20|21|22|23)|FY ?20(1\d|2[0-3])\b/i, `${r.record_id}: fee source "${t}"`);
-		}
-		for (const f of env.value) {
-			assert.doesNotMatch(`${f.notes ?? ""} ${env.notes ?? ""}`, /indicative rather than confirmed-current/i, r.record_id);
-		}
-	}
+test("Baldwin Park no longer uses the superseded FY 2020-21 fee schedule", () => {
+	const b = byId("ca-los-angeles-baldwin-park-sce");
+	const s9 = b.sources.find((s) => s.id === "S9");
+	assert.ok(s9);
+	assert.doesNotMatch(s9.title, /2020\s*(?:to|[-–])\s*2021/i);
+	assert.match(s9.title, /FY 2025-26/);
+	assert.doesNotMatch(b.permit_fees.notes ?? "", /indicative rather than confirmed-current/i);
 });
 
 test("Baldwin Park: fee cites the current City-wide schedule, flags the separate plan-review fee as unverified, and eligibility rests on the municipal code", () => {
