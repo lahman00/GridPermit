@@ -47,8 +47,10 @@ test("Chula Vista copy reflects the current City page, not the superseded contra
 	const answer = buildPermitPathwayAnswer(cv);
 	assert.ok(answer);
 	const text = JSON.stringify(answer);
-	assert.doesNotMatch(text, /under 10 kW|licensed contractor.*SolarAPP\+/i);
+	assert.doesNotMatch(text, /under 10 kW/i);
 	assert.match(text, /does not state an explicit kW threshold/i);
+	const conditions = cv.eligibility_constraints.value.other_conditions.join(" | ");
+	assert.doesNotMatch(conditions, /under 10 kW|Application submitted by a licensed contractor/i);
 	assert.equal(cv.last_verified, "2026-10-02");
 	assert.equal(cv.sources.find((s) => s.id === "S1")?.accessed_date, "2026-10-02");
 	assert.ok(cv.eligibility_constraints.value.other_conditions.some((x) => x.includes("expedited residential solar permits must go through SolarAPP+")));
