@@ -123,16 +123,29 @@
   "permit_fees": {
     "value": [
       {
-        "name": "Residential rooftop solar permit (first 15kW)",
+        "name": "Residential rooftop solar permit (first 15 kW)",
         "amount_usd": 275,
         "unit": "flat",
-        "notes": "Search-engine synthesis of the city's fee schedule indicates roughly $275 for the first 15kW of a residential rooftop system; not independently confirmed via direct fetch of the fee schedule PDF this session."
+        "notes": "Listed as \"Solar Energy Permit, Residential rooftop, first 15 kilowatts\" in the City's FY 2023/2024 user fee schedule."
+      },
+      {
+        "name": "Residential solar permit, each additional kW above 15 kW",
+        "amount_usd": 15,
+        "unit": "per kW",
+        "notes": "Listed in the same FY 2023/2024 schedule."
+      },
+      {
+        "name": "Solar plan review",
+        "amount_usd": 175,
+        "unit": "flat",
+        "notes": "Listed separately under Solar in the same FY 2023/2024 schedule, so the permit fee above is not the whole fee."
       }
     ],
-    "confidence": 0.45,
+    "confidence": 0.6,
     "source_ids": [
-      "S1"
-    ]
+      "S8"
+    ],
+    "notes": "These amounts come from the City's FY 2023/2024 user fee schedule, the most recent City fee schedule located. A current-year schedule was not found, and the schedule cites Cal. Gov. Code section 66015 provisions dated through 2025-01-01. Confirm current amounts with the City, for example through its online Permit Fee Estimator."
   },
   "rebates": {
     "value": null,
@@ -203,6 +216,14 @@
       "publisher": "Self-Generation Incentive Program (statewide administrator site)",
       "type": "program_administrator",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S8",
+      "title": "2023/2024 City of Yucaipa Comprehensive User Fee Schedule",
+      "url": "https://yucaipa.org/wp-content/uploads/dev_svcs/forms/2023-Applications-NoFeeonApps/UserFeesFY2324vFINAL.pdf",
+      "publisher": "City of Yucaipa",
+      "type": "government",
+      "accessed_date": "2026-10-02"
     },
     {
       "id": "S6",

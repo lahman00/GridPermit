@@ -22,7 +22,7 @@ const { answer } = Astro.props;
 			<tr role="row">
 				<th scope="col" role="columnheader">Situation</th>
 				<th scope="col" role="columnheader">Who files and how</th>
-				<th scope="col" role="columnheader">What the City lists</th>
+				<th scope="col" role="columnheader">{answer.listsHeading}</th>
 				<th scope="col" role="columnheader">Not verified here</th>
 			</tr>
 		</thead>
@@ -31,7 +31,7 @@ const { answer } = Astro.props;
 				<tr role="row">
 					<th scope="row" role="rowheader">{row.situation}</th>
 					<td role="cell" data-label="Who files and how">{row.whoFiles}</td>
-					<td role="cell" data-label="What the City lists">{row.whatTheCityLists}</td>
+					<td role="cell" data-label={answer.listsHeading}>{row.whatTheCityLists}</td>
 					<td role="cell" data-label="Not verified here">{row.notVerified}</td>
 				</tr>
 			))}
@@ -52,11 +52,14 @@ const { answer } = Astro.props;
 		Source: <a href={answer.source.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{answer.source.title}</a>, {answer.source.publisher}. Accessed {answer.source.accessed_date}. Record last verified {answer.verifiedAsOf}. Requirements change; confirm with the City before relying on this.
 	</p>
 	<p class="fact-meta">
-		Next: <a href={answer.handoffs[0].href}>{answer.handoffs[0].label}</a> · <a href={answer.handoffs[1].href}>{answer.handoffs[1].label}</a>
+		Next: {answer.handoffs.map((h, i) => <>{i > 0 && " · "}<a href={h.href}>{h.label}</a></>)}
 	</p>
 </section>
 
 <style>
+	/* The page nav is sticky; without an offset an anchor jump (table of contents,
+	   #permit-pathway) lands with the heading hidden underneath it. */
+	#permit-pathway { scroll-margin-top: 8rem; }
 	.pathway-answer { font-size: 1rem; margin-bottom: 1rem; }
 	.pathway-subhead { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
 	/* The guide's content column is narrow (it shares the row with the table of

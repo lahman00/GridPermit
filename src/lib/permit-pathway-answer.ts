@@ -22,6 +22,8 @@ export interface PermitPathwayAnswer {
 	heading: string;
 	answer: string;
 	rows: PathwayRow[];
+	// Column heading for the "what the source lists" column.
+	listsHeading: string;
 	prepare: string[];
 	// Internal, non-commercial handoffs only.
 	handoffs: Array<{ href: string; label: string }>;
@@ -34,7 +36,11 @@ interface ReviewedEntry {
 	heading: string;
 	answer: string;
 	rows: PathwayRow[];
+	listsHeading?: string;
 	prepare: string[];
+	// Internal, same-intent handoffs only; defaults to HANDOFFS. A utility- or
+	// pathway-specific entry must list only articles that are valid for it.
+	handoffs?: Array<{ href: string; label: string }>;
 	// Each predicate must hold for the record or the block is suppressed.
 	requires: Array<(record: LocalityRecord) => boolean>;
 }
@@ -46,10 +52,13 @@ const hasDoc = (needle: string) => (r: LocalityRecord) => docNames(r).some((n) =
 const hasCondition = (needle: string) => (r: LocalityRecord) => conditions(r).some((c) => c.includes(needle));
 const hasInspection = (needle: string) => (r: LocalityRecord) =>
 	(r.inspection_steps.value ?? []).some((s) => s.includes(needle));
+const hasFeeAmount = (amount: number) => (r: LocalityRecord) =>
+	(r.permit_fees.value ?? []).some((f) => f.amount_usd === amount);
 
+const PERMIT_VS_PTO = { href: "/blog/city-permit-vs-utility-pto/", label: "City permit vs utility interconnection and PTO: why one approval is not the other" };
 const HANDOFFS = [
 	{ href: "/blog/solarapp-eligibility-2026/", label: "Can this project use SolarAPP+? Battery, panel upgrade and homeowner-install rules" },
-	{ href: "/blog/city-permit-vs-utility-pto/", label: "City permit vs utility interconnection and PTO: why one approval is not the other" },
+	PERMIT_VS_PTO,
 ];
 
 const REVIEWED: Record<string, ReviewedEntry> = {
@@ -168,6 +177,85 @@ const REVIEWED: Record<string, ReviewedEntry> = {
 			(r) => r.timeline_days.value?.min_days === 1 && r.timeline_days.value?.max_days === 3,
 		],
 	},
+	"ca-los-angeles-pasadena-pwp": {
+		sourceId: "S2",
+		heading: "Which approval comes first for solar in Pasadena?",
+		listsHeading: "What the official source lists",
+		answer:
+			"Pasadena's electric utility is the City-owned Pasadena Water and Power (PWP), and PWP's own page says customers must first obtain an initial review approval from PWP before applying for a building permit. The building permit is issued separately by the City's Department of Planning & Development, so here the utility's review comes before the City permit.",
+		rows: [
+			{
+				situation: "Step 1: Utility review by PWP",
+				whoFiles: "Applicant submits the self-generation application package to PWP",
+				whatTheCityLists: "A GFIA form, site plan, single-line diagram, certification test and, if available, a signed contractor agreement, plus an $800 application fee payable to \"City of Pasadena\". PWP reviews the package and issues an approval letter.",
+				notVerified: "Any extra fee if PWP requires a supplemental review or detailed interconnection study (amount not specified by the source).",
+			},
+			{
+				situation: "Step 2: Interconnection agreement",
+				whoFiles: "Applicant signs the GFIA Interconnection Agreement",
+				whatTheCityLists: "Separate agreement forms for systems above and below 15 kW.",
+				notVerified: "Which form applies to your system size.",
+			},
+			{
+				situation: "Step 3: City building permit",
+				whoFiles: "Applicant, with the City's Department of Planning & Development",
+				whatTheCityLists: "Per PWP's page, the building permit is obtained after PWP's approval letter.",
+				notVerified: "This guide has not read a City Planning & Development page, so permit documents, fees and timing are not verified here.",
+			},
+			{
+				situation: "Step 4: Install, inspect, then permission to operate",
+				whoFiles: "Fire and building inspections, then a Permission to Operate request to PWP",
+				whatTheCityLists: "PWP performs a field inspection and meter replacement, then issues the Permission to Operate letter.",
+				notVerified: "Timing for any step is not stated in the sources reviewed.",
+			},
+		],
+		prepare: [
+			"Ask your installer whether they have handled PWP's self-generation application before and who will submit it. The approval letter has to exist before the building-permit application.",
+			"PWP caps system size at 150% of your average annual consumption on your PWP billing record (or 2 watts DC per square foot of conditioned floor area for new construction with no billing history), so size the system with that limit in mind.",
+			"PWP handles interconnection and Permission to Operate; the City handles the building permit. They are separate offices.",
+		],
+		handoffs: [PERMIT_VS_PTO],
+		requires: [
+			hasDoc("GFIA"),
+			hasFeeAmount(800),
+			hasInspection("approval letter"),
+			hasInspection("Permission to Operate"),
+			hasCondition("150%"),
+			(r) => pathway(r).includes("GFIA"),
+		],
+	},
+	"ca-riverside-norco-sce": {
+		sourceId: "S1",
+		heading: "Who can file the solar permit in Norco, and how?",
+		answer:
+			"The City of Norco's Building & Safety FAQ says that generally only a California licensed contractor or the property owner can pull a permit. For residential solar it lists three ways to apply: in person at City Hall, online through SolarAPP+, or by email. If a project goes through SolarAPP+, the City says the person submitting must first register and complete IREC's one-time SolarAPP+ training.",
+		rows: [
+			{
+				situation: "Property owner pulling the permit",
+				whoFiles: "Property owner, in person or by email",
+				whatTheCityLists: "Proof of identification, typically a state photo ID. The City's FAQ lists no other paperwork for owners.",
+				notVerified: "Whether an owner may submit through SolarAPP+ in Norco. The City ties SolarAPP+ account enablement to jurisdictions \"where you are licensed\", so ask the City.",
+			},
+			{
+				situation: "Licensed contractor",
+				whoFiles: "Contractor, in person, by email or through SolarAPP+",
+				whatTheCityLists: "California contractor's state license, a current City of Norco business license (including subcontractors) and, for SolarAPP+, the one-time IREC training certificate, with a storage-specific training if batteries are included.",
+				notVerified: "Whether your project is eligible for SolarAPP+ review. The City points to SolarAPP+'s own eligibility list.",
+			},
+		],
+		prepare: [
+			"Decide with your installer whether they will apply in person, by email or through SolarAPP+, and who the applicant is.",
+			"If you apply as the owner, bring proof of identification.",
+			"The City says SolarAPP+ technical support, application questions and refund inquiries go to SolarAPP+, not City staff.",
+			"Keep the SCE interconnection in mind as a separate step from the City permit.",
+		],
+		requires: [
+			hasDoc("property owner proof of identification"),
+			hasDoc("Business License"),
+			hasDoc("SolarAPP+ training"),
+			(r) => /SolarApp\+/i.test(pathway(r)),
+		],
+	},
 };
 
 export const PERMIT_PATHWAY_RECORD_IDS = Object.keys(REVIEWED);
@@ -183,8 +271,9 @@ export function buildPermitPathwayAnswer(record: LocalityRecord): PermitPathwayA
 		heading: entry.heading,
 		answer: entry.answer,
 		rows: entry.rows,
+		listsHeading: entry.listsHeading ?? "What the City lists",
 		prepare: entry.prepare,
-		handoffs: HANDOFFS,
+		handoffs: entry.handoffs ?? HANDOFFS,
 		source,
 		verifiedAsOf: record.last_verified,
 	};
