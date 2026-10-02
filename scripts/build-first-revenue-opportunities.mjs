@@ -1,43 +1,79 @@
 #!/usr/bin/env node
-// One-off deterministic local analysis for the 2026-10-02 first-revenue
-// sprint. Reads only already-saved GSC artifacts and real repo state - no
-// new credentials, no live fetch. Not part of the production build.
+// Deterministic first-revenue opportunity analysis over already-saved GSC
+// artifacts plus the same fail-closed commercial routing state production uses.
+// No new credentials, live analytics fetches, referral clicks or mutations.
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { COMPARE_SOLAR_SERVED_CITY_SLUGS, normalizeCompareSolarCitySlug } from "../src/lib/compare-solar-prices.ts";
-import { hasVerifiedUnambiguousUtility } from "../src/lib/utility-split-guard.ts";
+import { loadPlatformRegistry } from "./lib/partner-config-io.mjs";
+import { debugPartnerRoutes } from "../src/lib/commercial/partner-platform.ts";
+import { normalizeCompareSolarCitySlug } from "../src/lib/compare-solar-prices.ts";
+import { stateSlug as canonicalStateSlug } from "../src/lib/state-meta.ts";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 function localityInfoFromUrl(url) {
 	const u = new URL(url);
 	const parts = u.pathname.split("/").filter(Boolean);
-	// /{state-slug}/{city}/solar-permit-guide/ - works for any state, not just CA.
 	if (parts.length === 3 && parts[2] === "solar-permit-guide") return { stateSlug: parts[0], citySlug: parts[1] };
 	return null;
 }
 
-async function loadLocalityRecord(citySlug) {
-	const { readdir } = await import("node:fs/promises");
-	const files = await readdir(path.join(ROOT, "data/localities"));
-	const match = files.find((f) => f.startsWith("ca-") && f.includes(`-${citySlug}-`) && f.endsWith(".json"));
-	if (!match) return null;
-	return JSON.parse(await readFile(path.join(ROOT, "data/localities", match), "utf8"));
+function parseArgs(argv) {
+	if (!argv.length) throw new Error("Usage: build-first-revenue-opportunities.mjs <path-to-saved-gsc-dir> [--now <ISO timestamp>]");
+	const gscDir = argv[0];
+	let now = new Date().toISOString();
+	for (let i = 1; i < argv.length; i++) {
+		if (argv[i] === "--now" && argv[i + 1]) now = argv[++i];
+		else throw new Error("Invalid option");
+	}
+	if (!Number.isFinite(Date.parse(now))) throw new Error("Invalid --now timestamp");
+	return { gscDir, now };
 }
 
-async function main(gscDir) {
-	if (!gscDir) throw new Error("Usage: build-first-revenue-opportunities.mjs <path-to-saved-gsc-dir-with-current_page.json>");
-	const pageData = JSON.parse(await readFile(path.join(gscDir, "current_page.json"), "utf8"));
+function findLocalityRecord(registry, locality) {
+	const matches = registry.records.filter((r) =>
+		canonicalStateSlug(r.state) === locality.stateSlug &&
+		normalizeCompareSolarCitySlug(r.city?.value ?? "") === locality.citySlug
+	);
+	return matches.length === 1 ? matches[0] : null;
+}
+
+function currentCommercialState(record, pagePath, registry, now) {
+	const context = {
+		state: record.state,
+		city: record.city.value,
+		recordId: record.record_id,
+		utility: record.utility,
+		pagePath,
+		pageType: "locality_guide",
+		intent: "NEW_SOLAR",
+		pageIntent: "NEW_SOLAR",
+	};
+	const audit = debugPartnerRoutes(context, registry, now);
+	const selected = audit.selected ?? null;
+	const csp = audit.candidates?.find((c) => c.partner_id === "compare-solar-prices") ?? null;
+	return { audit, selected, csp };
+}
+
+async function main(gscDir, { now = new Date().toISOString() } = {}) {
+	if (!gscDir) throw new Error("Usage: build-first-revenue-opportunities.mjs <path-to-saved-gsc-dir> [--now <ISO timestamp>]");
+	if (!Number.isFinite(Date.parse(now))) throw new Error("Invalid clock");
+
+	const [pageData, registry] = await Promise.all([
+		readFile(path.join(gscDir, "current_page.json"), "utf8").then(JSON.parse),
+		loadPlatformRegistry(ROOT),
+	]);
+	if (!Array.isArray(pageData.rows)) throw new Error("current_page.json rows required");
 	const rows = pageData.rows.filter((r) => r.clicks > 0 || r.impressions >= 10);
 
 	const opportunities = [];
 	for (const row of rows) {
 		const url = row.keys[0];
+		const pagePath = new URL(url).pathname;
 		const locality = localityInfoFromUrl(url);
-		const citySlug = locality && locality.stateSlug === "california" ? locality.citySlug : null;
 		const entry = {
-			page_path: new URL(url).pathname,
+			page_path: pagePath,
 			gsc_clicks: row.clicks,
 			gsc_impressions: row.impressions,
 			gsc_position: Math.round(row.position * 100) / 100,
@@ -46,66 +82,71 @@ async function main(gscDir) {
 			intent: null,
 			currently_paid_route: false,
 			partner: null,
+			routing_reason: null,
+			partner_blockers: [],
 			reason: "",
 			classification: null,
 			confidence: null,
 			actionability: null,
 		};
 
-		if (citySlug) {
-			entry.city = citySlug;
+		if (locality) {
+			entry.city = locality.citySlug;
 			entry.intent = "PERMIT_INFORMATION_NEW_SOLAR_SECONDARY";
-			const record = await loadLocalityRecord(citySlug);
+			const record = findLocalityRecord(registry, locality);
 			if (!record) {
 				entry.classification = "NO_ACTION";
-				entry.reason = "Locality page matched by URL but no corresponding data record found - data integrity gap, not a monetization gap.";
+				entry.reason = "Locality URL did not resolve to exactly one canonical record; treat as a data-integrity question, not a monetization opportunity.";
 				entry.confidence = "HIGH";
 				entry.actionability = "NONE";
 				opportunities.push(entry);
 				continue;
 			}
 			entry.utility = record.utility?.value ?? null;
-			const normalizedSlug = normalizeCompareSolarCitySlug(citySlug);
-			const onAllowlist = COMPARE_SOLAR_SERVED_CITY_SLUGS.has(normalizedSlug);
-			const utilitySafe = hasVerifiedUnambiguousUtility(record);
-			if (onAllowlist && utilitySafe) {
+
+			const { audit, selected, csp } = currentCommercialState(record, pagePath, registry, now);
+			entry.routing_reason = audit.reason ?? null;
+			entry.partner_blockers = csp?.reasons ?? [];
+
+			if (selected?.selected) {
 				entry.currently_paid_route = true;
-				entry.partner = "compare-solar-prices";
+				entry.partner = selected.partner_id;
 				entry.classification = "ALREADY_MONETIZED_SAFE";
-				entry.reason = "On the CompareSolarPrices allowlist with a verified unambiguous utility - the CTA renders live on this page today.";
+				entry.reason = `The production routing engine selects ${selected.partner_id} for this exact canonical context at the supplied clock; approval, tracking, territory, utility and destination-health gates all pass.`;
 				entry.confidence = "HIGH";
 				entry.actionability = "MONITOR_ONLY";
-			} else if (onAllowlist && !utilitySafe) {
+			} else if (entry.partner_blockers.includes("UTILITY_UNSAFE")) {
 				entry.classification = "UTILITY_UNSAFE";
-				entry.reason = "On the CompareSolarPrices allowlist but utility-split-guard fails closed (ambiguous or split utility) - CTA correctly does not render.";
+				entry.reason = "Production routing fails closed because the canonical utility context is ambiguous or split.";
 				entry.confidence = "HIGH";
 				entry.actionability = "NEEDS_NEW_WRITTEN_UTILITY_EVIDENCE_BEFORE_ANY_CHANGE";
-			} else {
+			} else if (
+				record.state !== "CA" ||
+				entry.partner_blockers.includes("TERRITORY_MISMATCH") ||
+				entry.partner_blockers.includes("APPROVED_SCOPE_MISMATCH")
+			) {
 				entry.classification = "GEOGRAPHY_MISMATCH";
-				entry.reason = "Real organic demand exists, but this city is not on CompareSolarPrices' confirmed served-city allowlist.";
+				entry.reason = "Real organic demand exists, but no currently verified production partner route covers this exact locality context.";
 				entry.confidence = "HIGH";
-				entry.actionability = "REQUIRES_PARTNER_TERRITORY_CONFIRMATION_NOT_ENGINEERING";
+				entry.actionability = record.state === "CA"
+					? "REQUIRES_PARTNER_TERRITORY_CONFIRMATION_NOT_ENGINEERING"
+					: "REQUIRES_A_NON_CA_PARTNER_NOT_ENGINEERING";
+			} else {
+				entry.classification = "NO_ACTION";
+				entry.reason = `No paid route is currently selectable by the production routing engine at the supplied clock. Blockers: ${entry.partner_blockers.join(";") || audit.reason || "UNKNOWN"}.`;
+				entry.confidence = "HIGH";
+				entry.actionability = "COMMERCIAL_ROUTE_NOT_CURRENTLY_LIVE";
 			}
 		} else if (url.includes("/blog/")) {
 			entry.intent = "BLOG_EDITORIAL";
 			entry.classification = "SAFE_INTERNAL_HANDOFF_OPPORTUNITY";
-			entry.reason = "Blog/editorial page with real impressions - already reviewed for internal-link opportunities in PR101/PR102/PR103; no further untapped handoff identified this pass without new evidence.";
+			entry.reason = "Blog/editorial page with real demand; requires manual intent/geography review before any internal handoff is added.";
 			entry.confidence = "MEDIUM";
-			entry.actionability = "ALREADY_ACTED_ON_OR_NO_FURTHER_ACTION";
-		} else if (locality) {
-			// A real locality guide, just not in California - CompareSolarPrices
-			// (the only production-active partner) is confirmed CA-only, so this
-			// is a real, state-level geography mismatch, not "no action."
-			entry.city = locality.citySlug;
-			entry.intent = "PERMIT_INFORMATION_NEW_SOLAR_SECONDARY";
-			entry.classification = "GEOGRAPHY_MISMATCH";
-			entry.reason = `Real organic demand for a ${locality.stateSlug} locality guide, but the only production-active partner (CompareSolarPrices) is confirmed California-only - no state-level route exists.`;
-			entry.confidence = "HIGH";
-			entry.actionability = "REQUIRES_A_NON_CA_PARTNER_NOT_ENGINEERING";
+			entry.actionability = "MANUAL_REVIEW_ONLY";
 		} else {
 			entry.intent = "OTHER_SITE_STRUCTURE";
 			entry.classification = "NO_ACTION";
-			entry.reason = "Non-locality, non-blog page (hub/static/home). Not a money-page candidate.";
+			entry.reason = "Non-locality, non-blog page (hub/static/home). Not automatically a money-page candidate.";
 			entry.confidence = "HIGH";
 			entry.actionability = "NONE";
 		}
@@ -113,13 +154,12 @@ async function main(gscDir) {
 	}
 
 	opportunities.sort((a, b) => b.gsc_clicks - a.gsc_clicks || b.gsc_impressions - a.gsc_impressions);
-
 	const summary = {};
 	for (const o of opportunities) summary[o.classification] = (summary[o.classification] ?? 0) + 1;
 
 	const output = {
-		generated_at: "2026-10-02",
-		method: "Deterministic local analysis over already-saved GSC artifacts (current_page.json, window 2026-09-01..2026-09-28) cross-referenced with the live COMPARE_SOLAR_SERVED_CITY_SLUGS allowlist and hasVerifiedUnambiguousUtility() guard. No new credentials or live fetches used.",
+		generated_at: now,
+		method: "Read-only analysis over an already-saved GSC current_page.json joined to the same fail-closed partner registry and debugPartnerRoutes() logic used by production. currently_paid_route=true only when the exact canonical locality context is selectable at the supplied clock, including destination-health freshness.",
 		gsc_window: { start: pageData.start, end: pageData.end },
 		candidate_count: opportunities.length,
 		classification_summary: summary,
@@ -127,5 +167,14 @@ async function main(gscDir) {
 	};
 	console.log(JSON.stringify(output, null, 2));
 }
+
 const isDirectRun = Boolean(process.argv[1]) && import.meta.url === pathToFileURL(process.argv[1]).href;
-if (isDirectRun) main(process.argv[2]).catch((e) => { console.error(e); process.exitCode = 1; });
+if (isDirectRun) {
+	try {
+		const { gscDir, now } = parseArgs(process.argv.slice(2));
+		await main(gscDir, { now });
+	} catch (e) {
+		console.error(e);
+		process.exitCode = 1;
+	}
+}
