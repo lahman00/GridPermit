@@ -68,10 +68,10 @@ test("Pasadena: utility review is presented before the City permit, and the sequ
 	const pwp = loadRecord("ca-los-angeles-pasadena-pwp");
 	const answer = buildPermitPathwayAnswer(pwp);
 	assert.ok(answer);
-	assert.equal(answer.source.id, "S2");
+	assert.equal(answer.source.id, "S8");
 	const steps = answer.rows.map((r) => r.situation);
 	assert.ok(steps[0].includes("PWP") && steps[2].includes("City building permit"), steps.join(" | "));
-	assert.match(answer.answer, /first obtain an initial review approval from PWP before applying for a building permit/);
+	assert.match(answer.answer, /PWP completes its Initial Review before the customer proceeds to the City Permit Center/);
 	// A municipal-utility page must not hand off to SolarAPP+ or SCE-specific material.
 	assert.deepEqual(answer.handoffs.map((h) => h.href), ["/blog/city-permit-vs-utility-pto/"]);
 	assert.doesNotMatch(JSON.stringify(answer), /SolarAPP\+|\bSCE\b|Southern California Edison/);
@@ -117,13 +117,15 @@ test("a fee amount on a page with a paid route never rests on a search-engine sy
 	}
 	assert.ok(monetized > 50, `expected the served-locality gate to select many records, got ${monetized}`);
 	const yuc = loadRecord("ca-san-bernardino-yucaipa-sce");
-	const names = yuc.permit_fees.value.map((f) => f.name).join(" | ");
-	assert.match(names, /Solar plan review/);
+	const fees = new Map(yuc.permit_fees.value.map((f) => [f.name, f.amount_usd]));
+	assert.equal(fees.get("Residential rooftop solar permit (first 15 kW)"), 237);
+	assert.equal(fees.get("Residential solar permit, each additional kW above 15 kW"), 15);
+	assert.equal(fees.get("Solar plan review"), 213);
 	assert.deepEqual(yuc.permit_fees.source_ids, ["S8"]);
 	const s8 = yuc.sources.find((s) => s.id === "S8");
-	assert.match(s8.url, /yucaipa\.org\/.+UserFeesFY2324/);
-	assert.match(yuc.permit_fees.notes, /FY 2023\/2024/);
-	assert.match(yuc.permit_fees.notes, /current-year schedule was not found/);
+	assert.match(s8.url, /User-Fees-Effective-7\.1\.26\.pdf/);
+	assert.match(yuc.permit_fees.notes, /effective July 1, 2026/i);
+	assert.equal(yuc.last_verified, "2026-10-02");
 });
 
 test("block fails closed when the record no longer supports the reviewed copy", () => {
@@ -144,10 +146,10 @@ test("block fails closed when the record no longer supports the reviewed copy", 
 	assert.equal(buildPermitPathwayAnswer(sb), null);
 
 	const pwp = structuredClone(loadRecord("ca-los-angeles-pasadena-pwp"));
-	pwp.permit_fees.value = pwp.permit_fees.value.filter((f) => f.amount_usd !== 800);
+	pwp.required_documents.value = pwp.required_documents.value.filter((d) => !d.name.includes("Net Metering and Surplus Compensation"));
 	assert.equal(buildPermitPathwayAnswer(pwp), null);
 	const pwp2 = structuredClone(loadRecord("ca-los-angeles-pasadena-pwp"));
-	pwp2.inspection_steps.value = pwp2.inspection_steps.value.filter((s) => !s.includes("approval letter"));
+	pwp2.inspection_steps.value = pwp2.inspection_steps.value.filter((s) => !s.includes("Initial Review"));
 	assert.equal(buildPermitPathwayAnswer(pwp2), null);
 
 	const norco = structuredClone(loadRecord("ca-riverside-norco-sce"));
