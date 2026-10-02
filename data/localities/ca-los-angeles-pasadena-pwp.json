@@ -39,27 +39,28 @@
   },
   "permit_authority": {
     "value": "City of Pasadena Department of Planning & Development (building permit)",
-    "confidence": 0.85,
+    "confidence": 0.95,
     "source_ids": [
-      "S2"
-    ],
-    "notes": "The City's Planning & Development department issues the building permit. Pasadena Water and Power (PWP) is the separate interconnection authority and the utility itself, and PWP's interconnection approval is required first, before a building permit application can be submitted. This distinguishes the two authorities per this record's collection rules. No City of Pasadena Planning & Development page was independently fetched this session — this fact comes from PWP's own description of the process."
-  },
-  "permit_url": {
-    "value": "https://pwp.cityofpasadena.net/solar-eligibility-and-requirements/",
-    "confidence": 0.85,
-    "source_ids": [
+      "S8",
       "S3"
     ],
-    "notes": "PWP's own solar eligibility/requirements page — the practical entry point for a Pasadena solar permit, since PWP pre-approval gates the building permit application."
+    "notes": "PWP's current Solar Application Instructions say the PWP Initial Review must complete before the customer proceeds to the Permit Center for the City building permit. PWP handles interconnection/PTO separately."
+  },
+  "permit_url": {
+    "value": "https://pwp.cityofpasadena.net/solar-application-instructions/",
+    "confidence": 0.95,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "Current PWP solar-specific application instructions, including PowerClerk initial review, City permit phase, PWP inspection, meter installation and PTO."
   },
   "interconnection_url": {
-    "value": "https://pwp.cityofpasadena.net/selfgenusp/",
-    "confidence": 0.9,
+    "value": "https://pwp.cityofpasadena.net/solar-application-instructions/",
+    "confidence": 0.95,
     "source_ids": [
-      "S2"
+      "S8"
     ],
-    "notes": "PWP's own self-generation/interconnection requirements page. Content directly confirmed, including the full application process — no bot-blocking encountered on pwp.cityofpasadena.net this session, unlike pge.com/sanjoseca.gov/fremont.gov in prior records."
+    "notes": "Current PWP solar-specific PowerClerk workflow."
   },
   "battery_programs": {
     "value": [
@@ -86,62 +87,83 @@
   "required_documents": {
     "value": [
       {
-        "name": "Completed GFIA (Generation Facility Interconnection Application) Form",
+        "name": "Single Line Diagram",
         "required_when": null,
         "source_ids": [
-          "S2"
+          "S8"
         ]
       },
       {
-        "name": "Site plan with system description and parameters",
+        "name": "Site Plan",
         "required_when": null,
         "source_ids": [
-          "S2"
+          "S8"
         ]
       },
       {
-        "name": "Single line diagram of electrical components",
+        "name": "Net Metering and Surplus Compensation Enrollment Form",
         "required_when": null,
         "source_ids": [
-          "S2"
+          "S8"
         ]
       },
       {
-        "name": "Certification test verifying equipment compliance",
+        "name": "Signed contract between customer and installer",
         "required_when": null,
         "source_ids": [
-          "S2"
+          "S8"
         ]
       },
       {
-        "name": "Signed contractor agreement",
-        "required_when": "if available",
+        "name": "Copy of customer's electric bill",
+        "required_when": null,
         "source_ids": [
-          "S2"
+          "S8"
+        ]
+      },
+      {
+        "name": "Interconnection Agreement",
+        "required_when": "Small Solar Generator Interconnection Agreement up to 15 kW combined inverter nameplate rating; Qualifying Facility Interconnection and Metering Agreement above 15 kW",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Service account billing history or verification of building square footage",
+        "required_when": null,
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "HOA board approval letter",
+        "required_when": "if applicable",
+        "source_ids": [
+          "S8"
         ]
       }
     ],
-    "confidence": 0.85,
+    "confidence": 0.95,
     "source_ids": [
-      "S2"
-    ]
+      "S8"
+    ],
+    "notes": "Current PWP Solar Application Instructions."
   },
   "inspection_steps": {
     "value": [
-      "Submit application package (GFIA form, site plan, single-line diagram, certification test, contractor agreement if available) to PWP Customer Relations - DG Applications",
-      "PWP reviews and determines if simplified interconnection or a detailed study is needed",
-      "PWP issues an approval letter (required before applying for a building permit)",
-      "Sign the applicable GFIA Interconnection Agreement (separate forms for systems above vs. below 15 kW)",
-      "Obtain a building permit from the City of Pasadena Department of Planning & Development",
-      "Install the system and schedule fire/building inspections",
-      "Submit a 'Permission to Operate' request with final inspection documentation",
-      "PWP performs a field inspection and meter replacement, then issues the 'Permission to Operate' letter"
+      "Installer submits the solar application and required documents to PWP through PowerClerk",
+      "PWP completes Initial Review; only after approval does the applicant proceed to the Permit Center for the City building permit",
+      "Customer/installer obtains applicable City building permits and completes construction",
+      "Installer obtains Fire and Building & Safety inspection signoffs",
+      "After permit signoffs, PWP performs an on-site inspection in 5-7 business days or may accept a virtual inspection through PowerClerk",
+      "After PWP inspection passes, PWP replaces the meter with a bi-directional solar meter",
+      "PWP switches the account to the Net Energy Metering billing schedule and issues Permission to Operate"
     ],
-    "confidence": 0.85,
+    "confidence": 0.95,
     "source_ids": [
-      "S2"
+      "S8"
     ],
-    "notes": "This is PWP's full 8-step interconnection-to-operate sequence, not a narrower 'inspection only' list, because PWP's own material presents it as one unified process with the building-permit step (step 5) embedded partway through."
+    "notes": "Current solar-specific workflow from PWP Solar Application Instructions."
   },
   "timeline_days": {
     "value": null,
@@ -155,40 +177,28 @@
       "system_size_kw_ac_max": 1000,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
-      "program_or_pathway": "Net Energy Metering (Pasadena Municipal Code 13.04.177) via GFIA Interconnection Agreement",
+      "program_or_pathway": "PWP solar application / Net Surplus Compensation (Net Energy Metering) through PowerClerk",
       "other_conditions": [
-        "System size also capped at 150% of the customer's average annual energy consumption per PWP billing record (or 2 watts DC per square foot of conditioned floor area for new construction without billing history)",
-        "System must serve on-site load to qualify under the renewable/Net Energy Metering pathway (PMC 13.04.177); other self-generation technologies (reciprocating engines, micro-turbines, fuel cells, combined heat and power) are billed under a separate Self-Generation Rate Schedule, PMC 13.04.178",
-        "Separate GFIA Interconnection Agreement forms apply for systems above vs. below 15 kW combined inverter nameplate rating"
+        "PWP customers must obtain Initial Review approval before applying for the City building permit.",
+        "System size is capped at 150% of the customer's average annual energy consumption on the PWP billing record, or 2 watts DC per square foot of conditioned floor area for new construction with no billing history.",
+        "Separate interconnection agreement forms apply at up to 15 kW versus above 15 kW combined solar-and-storage inverter nameplate rating."
       ]
     },
-    "confidence": 0.85,
+    "confidence": 0.95,
     "source_ids": [
-      "S2",
+      "S8",
       "S3"
     ],
-    "notes": "property_types left empty — sources describe eligibility by customer/meter account ('all PWP electric customers'), not by a residential-only or single-family-only property restriction; both residential and commercial customers are explicitly in scope across S2-S4."
+    "notes": "Refreshed from current PWP solar-specific application and eligibility pages on 2026-10-02."
   },
   "permit_fees": {
-    "value": [
-      {
-        "name": "Self-Generation/Interconnection Application Fee (GFIA)",
-        "amount_usd": 800,
-        "unit": "flat",
-        "notes": "Check payable to 'City of Pasadena'. Additional fees may apply if a supplemental review or detailed interconnection study is required (amount not specified by source)."
-      },
-      {
-        "name": "Plan Review and Inspection Fees",
-        "amount_usd": 0,
-        "unit": "flat",
-        "notes": "PWP states it is not charging plan review and inspection fees for solar and battery systems. Structural, Building & Safety, meter, and other non-energy-related fees may still apply. The relationship between this waiver and the separately-stated $800 GFIA application fee above is not fully reconciled by these two source pages — confirm directly with PWP before treating both as simultaneously accurate."
-      }
-    ],
-    "confidence": 0.85,
+    "value": null,
+    "confidence": 0,
     "source_ids": [
-      "S2",
-      "S4"
-    ]
+      "S8",
+      "S9"
+    ],
+    "notes": "The current PWP Solar Application Instructions do not state a solar application fee. PWP Regulation 23 lists no Initial Review or Supplemental Review fee for Net Energy Metering, while the separate general self-generation page shows an $800 fee for other generating-facility applications. City building-permit fees were not verified here."
   },
   "rebates": {
     "value": [
@@ -248,7 +258,7 @@
       "S2"
     ]
   },
-  "last_verified": "2026-08-01",
+  "last_verified": "2026-10-02",
   "sources": [
     {
       "id": "S1",
@@ -305,6 +315,22 @@
       "publisher": "City of Pasadena (Pasadena Water and Power)",
       "type": "utility",
       "accessed_date": "2026-08-01"
+    },
+    {
+      "id": "S8",
+      "title": "Solar Application Instructions",
+      "url": "https://pwp.cityofpasadena.net/solar-application-instructions/",
+      "publisher": "City of Pasadena (Pasadena Water and Power)",
+      "type": "utility",
+      "accessed_date": "2026-10-02"
+    },
+    {
+      "id": "S9",
+      "title": "Distributed Generation Facilities Interconnection Requirements - Regulation 23",
+      "url": "https://pwp.cityofpasadena.net/wp-content/uploads/2018/05/Regulation23_Rev2_2018-04-30.pdf",
+      "publisher": "City of Pasadena (Pasadena Water and Power)",
+      "type": "utility",
+      "accessed_date": "2026-10-02"
     }
   ]
 }
