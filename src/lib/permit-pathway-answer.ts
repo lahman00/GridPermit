@@ -52,9 +52,6 @@ const hasDoc = (needle: string) => (r: LocalityRecord) => docNames(r).some((n) =
 const hasCondition = (needle: string) => (r: LocalityRecord) => conditions(r).some((c) => c.includes(needle));
 const hasInspection = (needle: string) => (r: LocalityRecord) =>
 	(r.inspection_steps.value ?? []).some((s) => s.includes(needle));
-const hasFeeAmount = (amount: number) => (r: LocalityRecord) =>
-	(r.permit_fees.value ?? []).some((f) => f.amount_usd === amount);
-
 const PERMIT_VS_PTO = { href: "/blog/city-permit-vs-utility-pto/", label: "City permit vs utility interconnection and PTO: why one approval is not the other" };
 const HANDOFFS = [
 	{ href: "/blog/solarapp-eligibility-2026/", label: "Can this project use SolarAPP+? Battery, panel upgrade and homeowner-install rules" },
