@@ -9,11 +9,13 @@ import { fileURLToPath } from "node:url";
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const SCRIPT = path.join(REPO_ROOT, "scripts/build-first-revenue-opportunities.mjs");
 
-async function runWithRows(rows) {
+const ROUTING_NOW = "2026-10-01T21:00:00.000Z";
+
+async function runWithRows(rows, now = ROUTING_NOW) {
 	const dir = await mkdtemp(path.join(os.tmpdir(), "gp-first-revenue-"));
 	await writeFile(path.join(dir, "current_page.json"), JSON.stringify({ start: "2026-09-01", end: "2026-09-28", rows }));
 	try {
-		const out = execFileSync(process.execPath, ["--experimental-strip-types", SCRIPT, dir], { encoding: "utf8" });
+		const out = execFileSync(process.execPath, ["--experimental-strip-types", SCRIPT, dir, "--now", now], { encoding: "utf8" });
 		return JSON.parse(out);
 	} finally {
 		await rm(dir, { recursive: true, force: true });
@@ -44,10 +46,22 @@ test("a non-California locality guide is a geography mismatch, not mis-labeled a
 	assert.equal(c.city, "hilo");
 });
 
-test("a California city not on the allowlist is a geography mismatch", async () => {
+test("a California city not in the verified CSP territory is a geography mismatch", async () => {
 	const out = await runWithRows([row("https://mygridpermit.com/california/san-francisco/solar-permit-guide/", 0, 10)]);
-	const c = out.candidates.find((x) => x.page_path.includes("san-francisco"));
-	assert.ok(["GEOGRAPHY_MISMATCH", "NO_ACTION"].includes(c.classification));
+	const candidate = out.candidates.find((x) => x.page_path.includes("san-francisco"));
+	assert.equal(candidate.classification, "GEOGRAPHY_MISMATCH");
+	assert.equal(candidate.currently_paid_route, false);
+});
+
+test("expired destination health cannot be mislabeled as a currently paid route", async () => {
+	const out = await runWithRows(
+		[row("https://mygridpermit.com/california/poway/solar-permit-guide/", 1, 10)],
+		"2026-10-04T21:00:00.000Z",
+	);
+	const candidate = out.candidates.find((x) => x.page_path.includes("poway"));
+	assert.equal(candidate.currently_paid_route, false);
+	assert.equal(candidate.classification, "NO_ACTION");
+	assert.ok(candidate.partner_blockers.includes("DESTINATION_UNVERIFIED_OR_BROKEN"));
 });
 
 test("the homepage is no-action, not misclassified as a locality page", async () => {
