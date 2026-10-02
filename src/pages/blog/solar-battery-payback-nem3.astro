@@ -45,44 +45,71 @@ const articleSchema = {
 </head>
 <body data-track-view="blog_article_viewed">
 	<a href="#main-content" class="skip-link">Skip to main content</a>
-	<nav class="navbar"><div class="nav-container"><a href="/" class="brand-logo">Grid<strong>Permit</strong></a><div class="nav-links"><a href="/blog/">Blog</a><a href="/california/solar-permit-guides/">California Guides</a><a href="/methodology/">Methodology</a><a href="/search/">Search</a></div><a href="/#calculator" class="btn-cta-nav">Run Free ROI Audit</a></div></nav>
+	<nav class="navbar"><div class="nav-container"><a href="/" class="brand-logo">Grid<strong>Permit</strong></a><div class="nav-links"><a href="/blog/">Blog</a><a href="/california/solar-permit-guides/">California Guides</a><a href="/methodology/">Methodology</a><a href="/search/">Search</a></div><a href="#quote-checklist" class="btn-cta-nav">Compare quote assumptions</a></div></nav>
 	<main class="article-container" id="main-content" tabindex="-1">
 		<span class="article-category">NEM 3.0 Guide</span>
 		<h1>{HEADLINE}</h1>
-		<p class="article-meta">Updated July 2026 • 8 min read</p>
-		
-		<p class="lead-paragraph">Under California's Net Billing Tariff (NEM 3.0), grid export credits dropped by ~75%. Adding battery storage allows homeowners to store daytime solar energy and avoid peak time-of-use (TOU) charges.</p>
+		<p class="article-meta">Source review: October 2, 2026. A quote-comparison framework, not a live tariff lookup or a property-specific payback estimate.</p>
+		<p class="lead-paragraph">Comparing solar-only with solar plus a battery? Ask for two proposals using the same home, energy-use profile and tariff. A battery can change when energy is used or exported, but it also adds cost. There is no defensible statewide payback period without those inputs.</p>
+		<nav class="article-jumps" aria-label="On this page"><a href="#billing-scope">Check your billing plan</a> · <a href="#quote-checklist">Compare written quotes</a> · <a href="#payback-check">Check the payback calculation</a> · <a href="#local-next-step">Find the local permit path</a></nav>
 
-		<h2>1. Key Policy Changes Under NEM 3.0</h2>
-		<p>Unlike NEM 2.0, which granted 1:1 retail credits for solar export, NEM 3.0 calculates export value using the Avoided Cost Calculator (ACC). Daytime exports yield around $0.05/kWh, while evening grid imports cost $0.50/kWh or higher across PG&E, SCE, and SDG&E.</p>
+		<h2 id="billing-scope">1. Check whether the Net Billing Tariff applies to you</h2>
+		<p>The CPUC calls this program the <strong>Net Billing Tariff (NBT)</strong>; PG&amp;E, SCE and SDG&amp;E call it the Solar Billing Plan. It generally applies to new interconnection applications from April 15, 2023. This is not a single tariff covering every California electricity provider: municipal utilities have their own arrangements. Start with the tariff and interconnection agreement for your actual account. See the <a href="https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/customer-generation/net-energy-metering-and-net-billing" rel="noopener noreferrer">CPUC's NEM and net-billing overview</a>.</p>
+		<p>Already have solar under NEM 1.0 or NEM 2.0? Do not use a new-system NBT proposal as a substitute for checking your existing agreement. Ask the utility and installer how the precise battery or solar-expansion scope affects that agreement before approving any change.</p>
 
-		<h2>2. Estimated Payback Comparison</h2>
+		<h2>2. Use the correct utility and rate-plan inputs</h2>
 		<table class="data-table">
-			<thead>
-				<tr><th>System</th><th>Est. Payback</th><th>Primary Driver</th></tr>
-			</thead>
+			<caption>Residential NBT rate plans identified by CPUC; verify the current tariff for the account</caption>
+			<thead><tr><th scope="col">Utility</th><th scope="col">Plan</th><th scope="col">Official source</th></tr></thead>
 			<tbody>
-				<tr><td>Solar Only</td><td>8 - 11 Years</td><td>Daytime direct power use</td></tr>
-				<tr class="highlight-row"><td>Solar + Battery</td><td>5 - 8 Years</td><td>Evening TOU rate arbitrage</td></tr>
+				<tr><th scope="row">PG&amp;E</th><td>E-ELEC</td><td><a href="https://www.pge.com/en/clean-energy/solar/getting-started-with-solar/solar-billing-plan.html" rel="noopener noreferrer">PG&amp;E</a></td></tr>
+				<tr><th scope="row">SCE</th><td>TOU-D-PRIME</td><td><a href="https://www.sce.com/save-money/rates-financing/solar-billing-plan" rel="noopener noreferrer">SCE</a></td></tr>
+				<tr><th scope="row">SDG&amp;E</th><td>EV-TOU-5</td><td><a href="https://www.sdge.com/solar/solar-billing-plan" rel="noopener noreferrer">SDG&amp;E</a></td></tr>
 			</tbody>
 		</table>
+		<p>These are plan names, not price quotes. Under NBT, energy used at home avoids an import; surplus sent to the grid earns an export credit. The CPUC explains that export values are usually below retail import prices but can exceed them at particular late-summer hours. Do not model a whole year with one fixed import/export price pair.</p>
+		<p>Check both generation and delivery on the bill. If a Community Choice Aggregator (CCA) supplies generation, use its applicable prices too; <a href="https://www.sdge.com/solar/solar-billing-plan" rel="noopener noreferrer">SDG&amp;E explains the CCA distinction</a>. Keep fixed charges and other charges that remain after solar separate from avoidable energy purchases.</p>
+
+		<h2>3. Separate battery capability from estimated bill savings</h2>
+		<p>A battery is not automatically large enough to cover every expensive hour or every backup circuit. Ask how usable energy, output power, efficiency, backup reserve and household load were modeled. Energy reserved for an outage is not simultaneously available for ordinary bill management. A comparison must also avoid counting the same stored energy as both exported and consumed at home.</p>
+		<p>The operating plan must fit the interconnection agreement, not just a product's technical capabilities. SCE's <a href="https://www.sce.com/customer-service-center/help-center/solar/solar-billing-plan/solar-billing-plan-faqs" rel="noopener noreferrer">Solar Billing Plan FAQ</a> sets out paired-storage charging and metering conditions. Ask the installer to identify the applicable rules before relying on proposed grid charging or export behavior.</p>
+
+		<h2 id="quote-checklist">4. Ask for comparable written quotes</h2>
+		<p>The <a href="https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/customer-generation/california-solar-consumer-protection-guide" rel="noopener noreferrer">CPUC Solar Consumer Protection Guide</a> recommends bids from at least three qualified providers. Use the following questions to make the proposals comparable, rather than choosing the most attractive savings headline.</p>
+		<ol class="quote-checklist">
+			<li><strong>What is included in the cash price?</strong> Request itemized equipment, labor, electrical upgrades, permit and interconnection work. Show the battery's additional installed cost separately from the solar system. Compare financing fees, repayments and escalation terms separately from cash pricing.</li>
+			<li><strong>Are both proposals based on the same household?</strong> Ask for the usage period, interval-load data, site-specific solar-production estimate and assumptions about an EV, heat pump or other future load. Compare solar-only and solar-plus-battery on that same basis.</li>
+			<li><strong>Which tariff and export schedule are used?</strong> Ask for the utility, generation provider, rate name, schedule date and treatment of fixed charges. A single annual average cannot show how charging and discharge interact with hourly prices.</li>
+			<li><strong>What battery operation is assumed?</strong> Identify usable capacity, power limits, efficiency losses, backup reserve, degradation and permitted charging/export behavior. Ask which circuits can actually be backed up and whether extra equipment is included.</li>
+			<li><strong>What is the remaining bill?</strong> Ask for a monthly and annual comparison with and without the project. Separate avoided purchases, export credits, fixed charges, non-bypassable charges and estimated loan payments. Backup capability is a separate benefit, not an electricity-bill saving.</li>
+			<li><strong>Which incentives are confirmed?</strong> Separate an approved award from an assumption. Ask which customer, installation date and program rules support any incentive in the proposal; do not subtract an incentive solely because another household received it.</li>
+			<li><strong>What happens when an assumption changes?</strong> Request a conservative case with lower export values, lower usable battery energy or a different future load. Ask who handles warranty labor, replacement work and any costs excluded from the proposal.</li>
+		</ol>
+
+		<h2 id="payback-check">5. Check the battery's incremental payback claim</h2>
+		<p>As a simple arithmetic screen, divide the battery's <strong>additional installed cost</strong>, less only confirmed applicable incentives, by its <strong>positive additional annual net benefit</strong> compared with the same solar-only proposal. The denominator is the difference between the two cases, not the entire solar-plus-battery saving.</p>
+		<p>If the additional annual benefit is zero or negative, this screen produces no positive payback period. It is not a full investment model: it leaves out the timing of cash flows and requires separate treatment of financing, maintenance, replacement, degradation and changing rates. Do not describe the result as guaranteed or use a statewide year range in place of a household-specific calculation.</p>
+
+		<h2>6. Verify 2026 incentive assumptions</h2>
+		<p><strong>Do not automatically deduct a 30% residential federal credit from a new 2026 installation.</strong> The IRS says the Residential Clean Energy Credit is not available for property placed in service after December 31, 2025. Check the installation's actual dates against <a href="https://www.irs.gov/credits-deductions/residential-clean-energy-credit" rel="noopener noreferrer">current IRS guidance</a>; existing unused credits and other ownership or tax arrangements need separate review. This page does not determine anyone's tax eligibility.</p>
+		<p>For California storage incentives, use the <a href="/blog/sgip-battery-rebates-california/">SGIP guide and its official program references</a> to identify the relevant administrator and current eligibility checks. Treat a projected incentive as unconfirmed until the applicable program accepts it; an installer estimate is not an award.</p>
 
 		<HardwareAffiliateCTA productLabel="Battery and backup-power products" state="CA" />
 
-		<h2>3. Frequently Asked Questions</h2>
-		<h3>Does a battery eliminate grid bills completely?</h3>
-		<p>No, but it covers the peak hours (4 PM to 9 PM) when electricity rates are most expensive.</p>
+		<h2 id="local-next-step">7. Find the next step for your project, not somebody else's</h2>
+		<p>For local requirements, start with the <a href="/california/solar-permit-guides/">verified California city guides</a>. These are permit-information links, <strong>not a statement of installer coverage</strong> or a promise that a provider handles every battery project.</p>
+		<p class="related-guides-nav">For a new solar project at an SCE-served property, the existing local permit guides include <a href="/california/apple-valley/solar-permit-guide/">Apple Valley</a>, <a href="/california/moreno-valley/solar-permit-guide/">Moreno Valley</a>, <a href="/california/chino/solar-permit-guide/">Chino</a>, <a href="/california/whittier/solar-permit-guide/">Whittier</a>, and <a href="/california/yucaipa/solar-permit-guide/">Yucaipa</a>. A city's guide does not establish the utility or project eligibility of an individual address.</p>
+		<p>Already have solar and considering storage? SCE readers can use the <a href="/blog/sce-add-battery-existing-solar/">existing-solar battery checklist</a>; SDG&amp;E readers can use the <a href="/blog/sdge-battery-roi-guide/">SDG&amp;E retrofit guide</a>. Any quote route shown there has its own city, utility and homeowner conditions; an informational link does not expand those conditions.</p>
 
-		<h2>4. Regulatory Sources</h2>
-		<p class="sources-text">Data derived from CPUC Decision D.22-12-056 and utility rate schedules for PG&E, SCE, and SDG&E (2026). <em>Payback figures above are illustrative examples, not property-specific quotes. Confirm current rates and NEM 3.0 export values with your utility before making a decision.</em></p>
-
-		<p>Looking for your city's specific solar permit requirements rather than rate analysis? See our <a href="/california/solar-permit-guides/">verified California city guides</a>.</p>
-		<p class="related-guides-nav">On Southern California Edison (SCE) and want a specific city's permit process? See the GridPermit guides for <a href="/california/apple-valley/solar-permit-guide/">Apple Valley</a>, <a href="/california/moreno-valley/solar-permit-guide/">Moreno Valley</a>, <a href="/california/chino/solar-permit-guide/">Chino</a>, <a href="/california/whittier/solar-permit-guide/">Whittier</a>, and <a href="/california/yucaipa/solar-permit-guide/">Yucaipa</a>.</p>
-
-		<div class="cta-banner">
-			<h3>Estimate Your NEM 3.0 Payback</h3>
-			<a href="/#calculator" class="btn-banner-cta">Start Calculator →</a>
-		</div>
+		<h2>Questions to resolve before signing</h2>
+		<h3>Does adding a battery eliminate the utility bill?</h3>
+		<p>No such result should be assumed. A battery has capacity and output limits, and the account can still incur fixed charges and other bill components. SCE's <a href="https://www.sce.com/save-money/rates-financing/solar-billing-plan" rel="noopener noreferrer">billing explanation</a> and SDG&amp;E's <a href="https://www.sdge.com/solar/solar-billing-plan" rel="noopener noreferrer">plan guidance</a> describe charges that remain for solar customers. Review the proposal's remaining bill, not only its savings headline.</p>
+		<h3>Do the NBT plan names apply to every California utility?</h3>
+		<p>No. The three-utility comparison above does not establish a municipal utility's tariff or a CCA's generation pricing. Verify the bill and the specific provider's current rules.</p>
+		<h3>Is the lowest monthly payment the lowest total cost?</h3>
+		<p>Not necessarily. Request the cash price, the full financing terms and the total scheduled repayments. Compare the same installation scope, and read the contract and consumer-protection material before deciding.</p>
+		<p class="sources-text">Source review: October 2, 2026. The linked CPUC, IRS and utility pages support the regulatory and billing facts; the comparison checklist and simplified arithmetic are GridPermit's editorial guidance, not a utility-approved financial model. GridPermit does not issue permits, approve incentives, determine tax treatment or guarantee prices, savings or provider availability.</p>
+		<div class="cta-banner"><h3>Compare the assumptions before the headline savings</h3><a href="#quote-checklist" class="btn-banner-cta">Use the quote checklist →</a></div>
 	</main>
 	<footer class="footer"><p>© 2026 GridPermit. All rights reserved.</p><p class="footer-links"><a href="/blog/">Blog</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/pro/">GridPermit Pro</a> · <a href="/methodology/">Methodology</a> · <a href="/">Home</a></p></footer>
 	<style>
@@ -112,7 +139,13 @@ const articleSchema = {
 		.data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 		.data-table th, .data-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid #e2e8f0; font-size: 0.9rem; }
 		.data-table th { background: #f1f5f9; font-weight: 700; }
-		.highlight-row { background: #f0fdf4; font-weight: 700; color: #166534; }
+		.article-jumps { font-size: 0.9rem; margin: 1.25rem 0; line-height: 1.9; }
+		.quote-checklist { padding-left: 1.4rem; }
+		.quote-checklist li { margin: 0.9rem 0; color: #334155; }
+		.data-table { table-layout: fixed; overflow-wrap: anywhere; }
+		@media (max-width: 420px) { .data-table th, .data-table td { padding: 0.65rem 0.45rem; } }
+		.data-table caption { text-align: left; padding-bottom: 0.75rem; font-weight: 600; }
+		[id] { scroll-margin-top: 1rem; }
 		.sources-text { font-size: 0.82rem; color: #64748b; background: #e2e8f0; padding: 1rem; border-radius: 8px; margin-top: 2rem; }
 		.related-guides-nav { font-size: 0.9rem; }
 		.cta-banner { background: #0f172a; color: white; padding: 2.5rem; border-radius: 12px; text-align: center; margin-top: 3rem; }
