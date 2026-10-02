@@ -29,6 +29,8 @@ import { stateMeta } from "../lib/state-meta";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
 import Analytics from "../components/Analytics.astro";
 import InstallerCTA from "../components/InstallerCTA.astro";
+import PermitPathwayAnswer from "../components/PermitPathwayAnswer.astro";
+import { buildPermitPathwayAnswer } from "../lib/permit-pathway-answer";
 
 interface Props {
 	record: LocalityRecord;
@@ -123,6 +125,9 @@ const allBlogPosts = await getAllBlogPosts();
 const relatedArticles = relatedPostsForUtility(allBlogPosts, utilityShort, 3);
 
 const sourcesFor = buildSourceResolver(record.sources);
+// Reviewed "who files the permit" answer; null for every locality not on the
+// reviewed list (and for any listed one whose record no longer supports it).
+const permitPathway = buildPermitPathwayAnswer(record);
 const batteryPrograms = getDisplayablePrograms(record.battery_programs.value);
 const rebatePrograms = getDisplayablePrograms(record.rebates.value);
 const td = record.timeline_days?.value ?? null;
@@ -141,6 +146,7 @@ const faqSchema = buildFaqSchema(faqs);
 // render (mirrors each section's own conditional).
 const tocItems = [
 	{ id: "overview", label: "Overview" },
+	...(permitPathway ? [{ id: "permit-pathway", label: "Who Files the Permit" }] : []),
 	...(isFirstLeadSprintPage ? [{ id: "installer-cta", label: "Compare Solar Quote" }] : []),
 	{ id: "utility-supplier", label: "Utility & Supplier" },
 	{ id: "permit-authority", label: "Permit Authority" },
@@ -299,6 +305,8 @@ const tocItems = [
 					</div>
 				)}
 			</section>
+
+			{permitPathway && <PermitPathwayAnswer answer={permitPathway} />}
 
 			{isFirstLeadSprintPage && (
 				<section id="installer-cta" class="first-lead-panel" data-lead-sprint="first_lead_v1">
