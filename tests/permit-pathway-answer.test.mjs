@@ -64,6 +64,12 @@ test("Chula Vista copy reflects the current City page, not the superseded contra
 	assert.ok(cv.eligibility_constraints.value.other_conditions.some((x) => x.includes("expedited residential solar permits must go through SolarAPP+")));
 });
 
+test("Pasadena solar guide does not surface the generic $800 self-generation fee as a solar permit fact", () => {
+	const pwp = loadRecord("ca-los-angeles-pasadena-pwp");
+	assert.doesNotMatch(pwp.permit_fees.notes ?? "", /\$800/);
+	assert.equal(pwp.permit_fees.value, null);
+});
+
 test("Pasadena: utility review is presented before the City permit, and the sequence matches the record", () => {
 	const pwp = loadRecord("ca-los-angeles-pasadena-pwp");
 	const answer = buildPermitPathwayAnswer(pwp);
