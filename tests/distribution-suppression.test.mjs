@@ -69,8 +69,14 @@ test("the report reconciles every locality into a published or suppressed partit
 	// interconnection review - stopped being presented as a permit timeline. The
 	// page stays published; its recorded evaluation is now stale and the drift is
 	// kept visible here rather than hidden by a mislabeled number.
-	assert.equal(pack.summary.recomputed_ready_count, 349);
-	assert.equal(pack.summary.recomputed_limited_count, 63);
+	// The integrity cleanup removed four more false or generic figures, so these records
+	// also moved from READY (80%) to LIMITED on recomputation and stay published:
+	// ca-san-bernardino-loma-linda-sce (66.7%, generic $39.50 fee and generic 15-30 day
+	// figure removed) and ca-san-joaquin-lodi-leu, ca-shasta-shasta-lake-slmu and
+	// ok-oklahoma-oklahomacity-oge (73.3%, utility-stage durations removed from
+	// timeline_days). ca-riverside-banning-beu stays READY (86.7% -> 80%).
+	assert.equal(pack.summary.recomputed_ready_count, 345);
+	assert.equal(pack.summary.recomputed_limited_count, 67);
 	assert.equal(pack.summary.recomputed_not_ready_count, 2);
 	// ca-riverside-corona-multi graduated into this disagreement set once its
 	// utility field was properly sourced (was null/genuinely-ambiguous; now a
@@ -79,11 +85,11 @@ test("the report reconciles every locality into a published or suppressed partit
 	// src/lib/utility-split-guard.ts, which checks the -multi record_id
 	// independent of the value) - its recorded batch evaluation (LIMITED,
 	// 73.3%) hasn't caught up to its recomputed state (READY, 80%) yet.
-	assert.equal(pack.summary.readiness_disagreement_count, 4);
-	assert.equal(pack.summary.published_readiness_disagreement_count, 3);
+	assert.equal(pack.summary.readiness_disagreement_count, 8);
+	assert.equal(pack.summary.published_readiness_disagreement_count, 7);
 	// Baldwin Park's completeness also changed (eligibility now sourced to its municipal code).
-	assert.equal(pack.summary.evaluation_stale_count, 34);
-	assert.equal(pack.summary.published_evaluation_stale_count, 29);
+	assert.equal(pack.summary.evaluation_stale_count, 39);
+	assert.equal(pack.summary.published_evaluation_stale_count, 34);
 	assert.equal(pack.summary.suppressed_evaluation_stale_count, 5);
 });
 
@@ -197,7 +203,16 @@ test("the current suppressed inventory is completeness-only, while published rea
 	);
 	assert.deepEqual(
 		pack.records.filter((row) => row.readiness_disagreement).map((row) => row.record_id),
-		["ca-los-angeles-glendale-gwp", "ca-riverside-corona-multi", "me-cumberland-southportland-cmp", "vt-statewide-vermont-gmp"],
+		[
+			"ca-los-angeles-glendale-gwp",
+			"ca-riverside-corona-multi",
+			"ca-san-bernardino-loma-linda-sce",
+			"ca-san-joaquin-lodi-leu",
+			"ca-shasta-shasta-lake-slmu",
+			"me-cumberland-southportland-cmp",
+			"ok-oklahoma-oklahomacity-oge",
+			"vt-statewide-vermont-gmp",
+		],
 	);
 	assert.deepEqual(
 		pack.suppressed_rows.filter((row) => row.evaluation_drift.stale).map((row) => row.record_id).sort(),
