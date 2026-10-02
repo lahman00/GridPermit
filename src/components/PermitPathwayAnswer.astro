@@ -1,0 +1,80 @@
+---
+// Renders the reviewed "who files the permit" answer from
+// src/lib/permit-pathway-answer.ts. Presentation only: no links to any
+// commercial destination, no form, no data collection, no tracking beyond the
+// site-wide official-source click attribute already used on this page type.
+import type { PermitPathwayAnswer } from "../lib/permit-pathway-answer";
+
+interface Props {
+	answer: PermitPathwayAnswer;
+}
+
+const { answer } = Astro.props;
+---
+
+<section id="permit-pathway" data-permit-pathway-answer>
+	<h2>{answer.heading}</h2>
+	<p class="pathway-answer">{answer.answer}</p>
+
+	<table class="pathway-table" role="table">
+		<caption role="caption">Filing paths on record for this city</caption>
+		<thead role="rowgroup">
+			<tr role="row">
+				<th scope="col" role="columnheader">Situation</th>
+				<th scope="col" role="columnheader">Who files and how</th>
+				<th scope="col" role="columnheader">What the City lists</th>
+				<th scope="col" role="columnheader">Not verified here</th>
+			</tr>
+		</thead>
+		<tbody role="rowgroup">
+			{answer.rows.map((row) => (
+				<tr role="row">
+					<th scope="row" role="rowheader">{row.situation}</th>
+					<td role="cell" data-label="Who files and how">{row.whoFiles}</td>
+					<td role="cell" data-label="What the City lists">{row.whatTheCityLists}</td>
+					<td role="cell" data-label="Not verified here">{row.notVerified}</td>
+				</tr>
+			))}
+		</tbody>
+	</table>
+
+	<h3 class="pathway-subhead">Before you hire or file</h3>
+	<ul class="fact-list">
+		{answer.prepare.map((item) => <li>{item}</li>)}
+	</ul>
+	<p class="fact-notes">Nothing on this page collects your address, utility bill, contact details or documents. These are questions to take to your installer or the City.</p>
+
+	<p class="fact-notes pathway-boundary">
+		<strong>Permits and quotes are separate.</strong> GridPermit is an independent information site. It does not file, expedite, approve or price permits, and it is not an installer or a government agency. Any installer-quote option elsewhere on this page is a separate paid-referral route and does not change which permit path applies.
+	</p>
+
+	<p class="fact-meta">
+		Source: <a href={answer.source.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{answer.source.title}</a>, {answer.source.publisher}. Accessed {answer.source.accessed_date}. Record last verified {answer.verifiedAsOf}. Requirements change; confirm with the City before relying on this.
+	</p>
+	<p class="fact-meta">
+		Next: <a href={answer.handoffs[0].href}>{answer.handoffs[0].label}</a> · <a href={answer.handoffs[1].href}>{answer.handoffs[1].label}</a>
+	</p>
+</section>
+
+<style>
+	.pathway-answer { font-size: 1rem; margin-bottom: 1rem; }
+	.pathway-subhead { font-size: 1rem; margin: 1.25rem 0 0.5rem; }
+	/* The guide's content column is narrow (it shares the row with the table of
+	   contents), so each filing path is a stacked card at every width instead
+	   of a four-column grid that breaks words mid-letter. The semantic table is
+	   kept for assistive technology. */
+	.pathway-table, .pathway-table tbody, .pathway-table tr, .pathway-table th, .pathway-table td { display: block; width: 100%; box-sizing: border-box; }
+	.pathway-table { font-size: 0.9rem; margin-bottom: 1rem; }
+	.pathway-table caption { display: block; text-align: left; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+	.pathway-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+	.pathway-table tr { margin-bottom: 0.8rem; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; }
+	.pathway-table th, .pathway-table td { border: 0; border-bottom: 1px solid var(--border-color); padding: 0.55rem 0.8rem; text-align: left; overflow-wrap: break-word; word-break: normal; }
+	.pathway-table tr > :last-child { border-bottom: 0; }
+	.pathway-table tbody th { background: #f8fafc; font-weight: 700; }
+	.pathway-table td::before { content: attr(data-label); display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 0.15rem; }
+	.pathway-boundary { background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 0.75rem 1rem; }
+	@media print {
+		.pathway-boundary { border: 1px solid #94a3b8; }
+		.pathway-table tr { break-inside: avoid; }
+	}
+</style>
