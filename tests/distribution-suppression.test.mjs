@@ -71,8 +71,8 @@ test("the report reconciles every locality into a published or suppressed partit
 	// kept visible here rather than hidden by a mislabeled number.
 	// The integrity cleanup removed four more false or generic figures, so these records
 	// also moved from READY (80%) to LIMITED on recomputation and stay published:
-	// ca-san-bernardino-loma-linda-sce (66.7%, generic $39.50 fee and generic 15-30 day
-	// figure removed) and ca-san-joaquin-lodi-leu, ca-shasta-shasta-lake-slmu and
+	// ca-san-bernardino-loma-linda-sce (73.3%, generic 15-30 day timeline removed;
+	// current solar-specific fee restored from the City's fee schedule) and ca-san-joaquin-lodi-leu, ca-shasta-shasta-lake-slmu and
 	// ok-oklahoma-oklahomacity-oge (73.3%, utility-stage durations removed from
 	// timeline_days). ca-riverside-banning-beu stays READY (86.7% -> 80%).
 	assert.equal(pack.summary.recomputed_ready_count, 345);
