@@ -111,7 +111,7 @@
     "source_ids": [
       "S8"
     ],
-    "notes": "The City's Municipal Code Chapter 156 ('Small Residential Solar Energy System Permits') likely specifies a more tailored submittal checklist, but codelibrary.amlegal.com returned a Cloudflare challenge page to automated/browser fetch on every attempt this session (retried again this pass; still blocked). This record instead uses the City's general Building Permit/Certificate of Occupancy Application form, which explicitly includes 'Photovoltaic Panels' as a scope-of-work option and lists standard plan-check submittal items; the City does not publish a separate, solar-specific document checklist page that could be independently verified this session."
+    "notes": "Municipal Code section 156.06 says the documents for an expedited small residential rooftop solar application shall be on the City's website and that the Building Department shall adopt a standard plan and checklist. As of 2026-10-02 the Building & Safety page links only the general Building Permit/Certificate of Occupancy application (which includes a 'Photovoltaic Panels' scope-of-work checkbox) and no solar-specific checklist, so this record uses that general form."
   },
   "inspection_steps": {
     "value": [
@@ -128,13 +128,29 @@
     "value": null,
     "confidence": 0,
     "source_ids": [],
-    "notes": "No SolarAPP+, Symbium, or other automated/instant-permitting page was found on the City's site this session, and Municipal Code Chapter 156 (which may specify an expedited review timeline) remains inaccessible (codelibrary.amlegal.com blocked)."
+    "notes": "Municipal Code section 156.07(A) says that for an application meeting the City's approved checklist and standard plan, a permit shall issue no later than five working days from submittal. No such checklist or standard plan was found on the City's Building & Safety page, so that commitment is not shown as a verified timeline here."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Municipal Code Chapter 156 likely specifies solar-specific eligibility constraints, but codelibrary.amlegal.com remains blocked (Cloudflare challenge) to both automated and browser fetch this session."
+    "value": {
+      "property_types": [
+        "residential",
+        "duplex"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": 30,
+      "program_or_pathway": "Small Residential Solar Energy System Permits (Baldwin Park Municipal Code Chapter 156)",
+      "other_conditions": [
+        "Applies to systems installed on one- and two-family homes of R3 occupancy",
+        "System must conform to all applicable state fire, structural, electrical and other building codes",
+        "Solar panel or module array must not exceed the maximum legal building height as defined by the City"
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S10"
+    ],
+    "notes": "From the code's definition of a small residential rooftop solar energy system (section 156.03). The code site notes it may not reflect the most current legislation; confirm with the City."
   },
   "permit_fees": {
     "value": [
@@ -142,20 +158,20 @@
         "name": "Building Permit - Photovoltaic System (Residential, AB1414)",
         "amount_usd": 447,
         "unit": "up to 15kW, plus $15/kW for each additional kW",
-        "notes": "Per the City's own Building Permit, Plan Check & Inspection Fee Schedule."
+        "notes": "Per the City's FY 2025-26 City-Wide Fee Schedule (effective October 20, 2025), Exhibit A-1 Building Permit, Plan Check & Inspection Fee Schedule."
       },
       {
         "name": "Building Permit - Photovoltaic System (Commercial, AB1414)",
         "amount_usd": 1000,
         "unit": "up to 50kW, plus $7/kW between 51-250kW, plus $5/kW above 251kW",
-        "notes": "Per the City's own Building Permit, Plan Check & Inspection Fee Schedule."
+        "notes": "Per the City's FY 2025-26 City-Wide Fee Schedule (effective October 20, 2025), Exhibit A-1 Building Permit, Plan Check & Inspection Fee Schedule."
       }
     ],
-    "confidence": 0.5,
+    "confidence": 0.85,
     "source_ids": [
       "S9"
     ],
-    "notes": "This fee schedule document is titled 'Fiscal Year 2020 to 2021' and states fees are 'Effective September 16, 2019' and 'Remain Unchanged from Prior Fiscal Year' — it is the only official fee schedule found on the City's site this session, and no more recent version could be located via site search. The figures follow the standard statewide AB1414 solar permit fee cap structure also seen in several other California cities' current fee schedules, but given the document's age (originally published 2019-2021), confidence is reduced and this should be treated as indicative rather than confirmed-current pricing."
+    "notes": "From the City's FY 2025-26 City-Wide Fee Schedule, effective October 20, 2025, the most recent City-wide schedule found. The Building & Safety page still links an older FY 2020-21 schedule that lists the same figures. Municipal Code section 156.08 says separate permit and plan review fees apply to residential solar systems, but the schedule lists only this permit line, so any separate plan-review fee is not verified here."
   },
   "rebates": {
     "value": null,
@@ -254,11 +270,11 @@
     },
     {
       "id": "S9",
-      "title": "Building and Safety Fees (Fiscal Year 2020 to 2021)",
-      "url": "https://www.baldwinpark.com/DocumentCenter/View/97/Building-and-Safety-Fees-Fiscal-Year-2020-to-2021-PDF",
+      "title": "City-Wide Fee Schedule, FY 2025-26 (effective October 20, 2025), Exhibit A-1 Building Permit, Plan Check & Inspection Fee Schedule",
+      "url": "https://www.baldwinpark.com/DocumentCenter/View/3937/City-Wide-Fee-Schedule--FY-2025-26-Fee-ALL---Effective-102025",
       "publisher": "City of Baldwin Park",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-10-02"
     },
     {
       "id": "SGIP_HANDBOOK_2026",
@@ -275,6 +291,14 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "S10",
+      "title": "Chapter 156: Small Residential Solar Energy System Permits (Baldwin Park Municipal Code)",
+      "url": "https://codelibrary.amlegal.com/codes/baldwinpark/latest/baldwinpark_ca/0-0-0-13640",
+      "publisher": "City of Baldwin Park (via American Legal Publishing)",
+      "type": "government",
+      "accessed_date": "2026-10-02"
     }
   ]
 }
