@@ -94,7 +94,7 @@ test("an authority field is a name, never a sentence about sequence (Pasadena re
 		assert.doesNotMatch(r.permit_authority.value ?? "", /\b(is|are) required\b|\bissues the\b/i, r.record_id);
 	}
 	const pwp = loadRecord("ca-los-angeles-pasadena-pwp");
-	assert.match(pwp.permit_authority.notes, /interconnection approval is required first/);
+	assert.match(pwp.permit_authority.notes, /Initial Review must complete before the customer proceeds to the Permit Center/);
 });
 
 test("a fee amount on a page with a paid route never rests on a search-engine synthesis (Yucaipa regression)", () => {
