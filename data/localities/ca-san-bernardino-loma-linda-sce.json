@@ -38,12 +38,13 @@
     ]
   },
   "permit_url": {
-    "value": "https://www.lomalinda-ca.gov/our_city/departments/community_development/Building%20and%20Safety/building_and_safety_f_a_q_s",
-    "confidence": 0.75,
+    "value": "https://www.lomalinda-ca.gov/our_city/departments/community_development/Building%20and%20Safety/permit_applications",
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
+      "S6",
+      "S7"
     ],
-    "notes": "The city's Building and Safety FAQ page describes only general building-permit process information; no solar-specific page was located this session."
+    "notes": "Current City permit-applications page links the Residential Solar Requirements PDF and the online permit portal."
   },
   "interconnection_url": {
     "value": "https://www.sce.com/clean-energy-efficiency/solar-generating-your-own-power/billing-incentives/net-energy-metering",
@@ -80,52 +81,107 @@
   "required_documents": {
     "value": [
       {
-        "name": "Panel layout and electrical schematics",
+        "name": "11 x 17 plan sheets",
         "required_when": "always",
         "source_ids": [
-          "S1"
+          "S7"
         ]
       },
       {
-        "name": "Engineering certification verifying existing roof structure can support additional dead load",
+        "name": "Two sets of plans",
         "required_when": "always",
         "source_ids": [
-          "S1"
+          "S7"
         ]
       },
       {
-        "name": "Preliminary site plan/plot plan showing size and shape of the property",
+        "name": "Plot plan showing PV modules, conduit/conductor route, equipment and electrical service interface",
         "required_when": "always",
         "source_ids": [
-          "S1"
+          "S7"
+        ]
+      },
+      {
+        "name": "Single-line diagram (A/C disconnect required)",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "PV module/rack/roof attachment details",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Grounding and bonding details",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Roof-load calculations",
+        "required_when": "if added load exceeds 6.5 lb/sq ft",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Manufacturer specifications for PV modules, inverter, batteries, conductors, disconnects and over-current devices",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Conductor and over-current device sizing justification",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Permanent signage locations per California Electrical Code",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Roof plan showing 3-foot setbacks per California Fire Code",
+        "required_when": "always",
+        "source_ids": [
+          "S7"
         ]
       }
     ],
-    "confidence": 0.6,
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
-    ]
+      "S7"
+    ],
+    "notes": "Directly verified from the City's Residential Solar Minimum Requirements PDF."
   },
   "inspection_steps": {
     "value": [
-      "Call 909-799-2830 or 909-799-2836 to schedule/confirm inspections",
-      "Inspections conducted 11:00 AM-1:00 PM"
+      "Fire final inspection is required before Building final inspection",
+      "Call 909-799-2830 or 909-799-2836 to schedule or confirm Building & Safety inspections",
+      "Building inspections are generally conducted 11:00 AM-1:00 PM"
     ],
-    "confidence": 0.75,
+    "confidence": 0.9,
     "source_ids": [
+      "S7",
       "S1"
-    ]
+    ],
+    "notes": "Solar-specific final-inspection order comes from the Residential Solar Minimum Requirements PDF; scheduling details come from the Building & Safety FAQ."
   },
   "timeline_days": {
-    "value": {
-      "min_days": 15,
-      "max_days": 30,
-      "notes": "The city's general permit FAQ states more complex projects typically require 15 to 30 working days, though simpler installations may process faster; this is a general figure, not solar-specific."
-    },
-    "confidence": 0.5,
-    "source_ids": [
-      "S1"
-    ]
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No solar-specific permit review timeline was found. The City's Building and Safety FAQ gives only a general range for more complex projects of any kind (15 to 30 working days), which is not shown as a solar permit timeline."
   },
   "eligibility_constraints": {
     "value": null,
@@ -136,16 +192,23 @@
   "permit_fees": {
     "value": [
       {
-        "name": "Building permit fee (general, varies by project scope)",
-        "amount_usd": 39.5,
+        "name": "Residential Solar Photovoltaic Permit",
+        "amount_usd": 275,
         "unit": "flat",
-        "notes": "The city's general FAQ states fees range 'from $39.50 and up' depending on project scope; not a solar-specific figure."
+        "notes": "Current City Planning and Building Fees schedule lists Residential Solar Photovoltaic Permit at $275, plus $15 per kilowatt for each kilowatt above 15 kW."
+      },
+      {
+        "name": "Residential Solar Photovoltaic Permit - each kW above 15 kW",
+        "amount_usd": 15,
+        "unit": "per kW",
+        "notes": "Applies to each kilowatt above 15 kW under the same current City fee schedule."
       }
     ],
-    "confidence": 0.45,
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
-    ]
+      "S8"
+    ],
+    "notes": "Solar-specific values from the current Planning and Building Fees document linked by the City's Community Development page. Other project-specific fees may still apply; confirm applicability with Building & Safety."
   },
   "rebates": {
     "value": null,
@@ -175,7 +238,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-10-02",
   "sources": [
     {
       "id": "S1",
@@ -183,7 +246,7 @@
       "url": "https://www.lomalinda-ca.gov/our_city/departments/community_development/Building%20and%20Safety/building_and_safety_f_a_q_s",
       "publisher": "City of Loma Linda",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-10-02"
     },
     {
       "id": "S2",
@@ -232,6 +295,30 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "S6",
+      "title": "Permit Applications",
+      "url": "https://www.lomalinda-ca.gov/our_city/departments/community_development/Building%20and%20Safety/permit_applications",
+      "publisher": "City of Loma Linda",
+      "type": "government",
+      "accessed_date": "2026-10-02"
+    },
+    {
+      "id": "S7",
+      "title": "Minimum Requirements for Residential Solar",
+      "url": "https://www.lomalinda-ca.gov/UserFiles/Servers/Server_7279443/File/Departments/Building/Residential%20Solar%20Minimum%20Requirements.pdf",
+      "publisher": "City of Loma Linda Building Department",
+      "type": "government",
+      "accessed_date": "2026-10-02"
+    },
+    {
+      "id": "S8",
+      "title": "Planning and Building Fees (Nov 2025)",
+      "url": "https://lomalinda.hosted.civiclive.com/UserFiles/Servers/Server_7279443/File/Community%20Development/Planning%20and%20Building%20Fees%20Nov2025.docx",
+      "publisher": "City of Loma Linda",
+      "type": "government",
+      "accessed_date": "2026-10-02"
     }
   ]
 }
