@@ -46,6 +46,17 @@ test("a non-California locality guide is a geography mismatch, not mis-labeled a
 	assert.equal(c.city, "hilo");
 });
 
+
+test("non-CA geography remains the primary blocker even when the locality utility is also unsafe", async () => {
+	const out = await runWithRows([row("https://mygridpermit.com/virginia/loudoun-county/solar-permit-guide/", 1, 10)]);
+	const candidate = out.candidates.find((x) => x.page_path.includes("loudoun-county"));
+	assert.equal(candidate.classification, "GEOGRAPHY_MISMATCH");
+	assert.equal(candidate.actionability, "REQUIRES_A_NON_CA_PARTNER_NOT_ENGINEERING");
+	assert.equal(candidate.currently_paid_route, false);
+	assert.ok(candidate.partner_blockers.includes("STATE_OUTSIDE_TERRITORY"));
+	assert.ok(candidate.partner_blockers.includes("UTILITY_UNSAFE"));
+});
+
 test("a California city not in the verified CSP territory is a geography mismatch", async () => {
 	const out = await runWithRows([row("https://mygridpermit.com/california/san-francisco/solar-permit-guide/", 0, 10)]);
 	const candidate = out.candidates.find((x) => x.page_path.includes("san-francisco"));
