@@ -31,16 +31,30 @@ test("a fee amount is never shown when its own note says it is not a solar figur
 	}
 });
 
-test("Loma Linda shows no solar permit fee or timeline, and says why instead of showing a generic one", () => {
+test("Loma Linda uses the current solar-specific fee and requirements, while keeping the generic timeline out", () => {
 	const ll = byId("ca-san-bernardino-loma-linda-sce");
-	assert.equal(ll.permit_fees.value, null);
-	assert.deepEqual(ll.permit_fees.source_ids, []);
-	assert.match(ll.permit_fees.notes, /No solar-specific permit fee/);
-	assert.match(ll.permit_fees.notes, /Not shown as a solar permit fee/);
 	assert.equal(ll.timeline_days.value, null);
 	assert.equal(formatTimeline(ll.timeline_days.value).label, "Not yet verified.");
-	// The generic 15-30 working day / $39.50 figures must not reappear as data.
-	assert.doesNotMatch(JSON.stringify({ f: ll.permit_fees.value, t: ll.timeline_days.value }), /39\.5|15|30/);
+
+	const fees = new Map((ll.permit_fees.value ?? []).map((f) => [f.name, f.amount_usd]));
+	assert.equal(fees.get("Residential Solar Photovoltaic Permit"), 275);
+	assert.equal(fees.get("Residential Solar Photovoltaic Permit - each kW above 15 kW"), 15);
+	assert.deepEqual(ll.permit_fees.source_ids, ["S8"]);
+
+	const names = (ll.required_documents.value ?? []).map((d) => d.name).join(" | ");
+	assert.match(names, /Two sets of plans/);
+	assert.match(names, /Single-line diagram/);
+	assert.match(names, /Roof-load calculations/);
+	assert.deepEqual(ll.required_documents.source_ids, ["S7"]);
+
+	const source7 = ll.sources.find((s) => s.id === "S7");
+	const source8 = ll.sources.find((s) => s.id === "S8");
+	assert.match(source7?.url ?? "", /Residential%20Solar%20Minimum%20Requirements\.pdf/);
+	assert.match(source8?.url ?? "", /Planning%20and%20Building%20Fees%20Nov2025\.docx/);
+
+	// The generic FAQ figures must not reappear as solar data.
+	const solarData = JSON.stringify({ f: ll.permit_fees.value, t: ll.timeline_days.value });
+	assert.doesNotMatch(solarData, /39\.5|15 to 30 working days/i);
 });
 
 // ---------------------------------------------------------------- Lane B
