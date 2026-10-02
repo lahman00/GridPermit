@@ -115,22 +115,26 @@ async function main(gscDir, { now = new Date().toISOString() } = {}) {
 				entry.reason = `The production routing engine selects ${selected.partner_id} for this exact canonical context at the supplied clock; approval, tracking, territory, utility and destination-health gates all pass.`;
 				entry.confidence = "HIGH";
 				entry.actionability = "MONITOR_ONLY";
-			} else if (entry.partner_blockers.includes("UTILITY_UNSAFE")) {
-				entry.classification = "UTILITY_UNSAFE";
-				entry.reason = "Production routing fails closed because the canonical utility context is ambiguous or split.";
-				entry.confidence = "HIGH";
-				entry.actionability = "NEEDS_NEW_WRITTEN_UTILITY_EVIDENCE_BEFORE_ANY_CHANGE";
 			} else if (
 				record.state !== "CA" ||
 				entry.partner_blockers.includes("TERRITORY_MISMATCH") ||
 				entry.partner_blockers.includes("APPROVED_SCOPE_MISMATCH")
 			) {
+				// Geography is the primary blocker when the only active paid
+				// partner does not cover the state/city. Do not mislabel a
+				// non-covered locality as an actionable utility problem merely
+				// because its record also fails the utility-split guard.
 				entry.classification = "GEOGRAPHY_MISMATCH";
 				entry.reason = "Real organic demand exists, but no currently verified production partner route covers this exact locality context.";
 				entry.confidence = "HIGH";
 				entry.actionability = record.state === "CA"
 					? "REQUIRES_PARTNER_TERRITORY_CONFIRMATION_NOT_ENGINEERING"
 					: "REQUIRES_A_NON_CA_PARTNER_NOT_ENGINEERING";
+			} else if (entry.partner_blockers.includes("UTILITY_UNSAFE")) {
+				entry.classification = "UTILITY_UNSAFE";
+				entry.reason = "The locality is inside the verified commercial geography, but production routing still fails closed because the canonical utility context is ambiguous or split.";
+				entry.confidence = "HIGH";
+				entry.actionability = "NEEDS_NEW_WRITTEN_UTILITY_EVIDENCE_BEFORE_ANY_CHANGE";
 			} else {
 				entry.classification = "NO_ACTION";
 				entry.reason = `No paid route is currently selectable by the production routing engine at the supplied clock. Blockers: ${entry.partner_blockers.join(";") || audit.reason || "UNKNOWN"}.`;
