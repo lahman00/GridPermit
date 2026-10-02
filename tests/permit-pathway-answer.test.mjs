@@ -42,6 +42,18 @@ test("every other locality record gets no answer block", () => {
 	assert.ok(checked > 100);
 });
 
+test("Chula Vista copy reflects the current City page, not the superseded contractor-only/10-kW assumptions", () => {
+	const cv = loadRecord("ca-san-diego-chula-vista-sdge");
+	const answer = buildPermitPathwayAnswer(cv);
+	assert.ok(answer);
+	const text = JSON.stringify(answer);
+	assert.doesNotMatch(text, /under 10 kW|licensed contractor.*SolarAPP\+/i);
+	assert.match(text, /does not state an explicit kW threshold/i);
+	assert.equal(cv.last_verified, "2026-10-02");
+	assert.equal(cv.sources.find((s) => s.id === "S1")?.accessed_date, "2026-10-02");
+	assert.ok(cv.eligibility_constraints.value.other_conditions.some((x) => x.includes("expedited residential solar permits must go through SolarAPP+")));
+});
+
 test("block fails closed when the record no longer supports the reviewed copy", () => {
 	const cv = loadRecord("ca-san-diego-chula-vista-sdge");
 	const noDocs = structuredClone(cv);
