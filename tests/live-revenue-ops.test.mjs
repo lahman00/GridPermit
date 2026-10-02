@@ -110,6 +110,21 @@ test('firstLeadAlert behavior after reversal: the historical first-reported even
  assert.equal(alert.timestamp,'2026-09-05T00:00:00.000Z');
 });
 
+test('firstLeadAlert does not mislead an operator into chasing an already-reversed first lead',()=>{
+ const stillActive=firstLeadAlert(revenueLedger([],[qualifiedRow('2026-09-05T00:00:00.000Z')]));
+ assert.equal(stillActive.currently_reversed,false);
+ const reversed=firstLeadAlert(revenueLedger([],[qualifiedRow('2026-09-05T00:00:00.000Z'),reversedRow('2026-09-10T00:00:00.000Z')]));
+ assert.equal(reversed.status,'ACTION_REQUIRED_FIRST_REPORTED_LEAD');
+ // The historical alert must still surface (never erased), but it must also
+ // say plainly that this exact lead was later reversed, so "first lead!"
+ // does not read as still-actionable when it is not.
+ assert.equal(reversed.currently_reversed,true);
+ // A PARTNER_REPORTED_REFERRAL-only alert (no QUALIFIED_LEAD/LEAD_REVERSED
+ // for that key at all) has nothing to check reversal against.
+ const referralOnly=firstLeadAlert(revenueLedger([],[{stage:'PARTNER_REPORTED_REFERRAL',cid:'e'.repeat(24),partner_id:'oc-solar',timestamp:'2026-09-05T00:00:00.000Z',evidence_ref:'report-x',amount_cents:null,currency:null}]));
+ assert.equal(referralOnly.currently_reversed,false);
+});
+
 test('summary counts before/after reversal: currently_active_qualified count drops, historical count never does',()=>{
  const before=currentLeadStates(revenueLedger([],[qualifiedRow('2026-09-05T00:00:00.000Z')]));
  const after=currentLeadStates(revenueLedger([],[qualifiedRow('2026-09-05T00:00:00.000Z'),reversedRow('2026-09-10T00:00:00.000Z')]));

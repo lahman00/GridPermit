@@ -85,7 +85,15 @@ export function currentLeadStates(ledger){
  return [...byKey.values()];
 }
 
-export function firstLeadAlert(ledger){const first=ledger.filter(r=>r.stage==='PARTNER_REPORTED_REFERRAL'||r.stage==='QUALIFIED_LEAD').sort((a,b)=>a.timestamp.localeCompare(b.timestamp))[0];return first?{status:'ACTION_REQUIRED_FIRST_REPORTED_LEAD',partner_id:first.partner_id,cid:first.cid,stage:first.stage,timestamp:first.timestamp,evidence_ref:first.evidence_ref,external_notification_sent:false}:{status:'NO_PARTNER_REPORTED_LEAD',external_notification_sent:false};}
+export function firstLeadAlert(ledger){
+ const first=ledger.filter(r=>r.stage==='PARTNER_REPORTED_REFERRAL'||r.stage==='QUALIFIED_LEAD').sort((a,b)=>a.timestamp.localeCompare(b.timestamp))[0];
+ if(!first)return {status:'NO_PARTNER_REPORTED_LEAD',external_notification_sent:false};
+ // The historical alert must never be erased by a later reversal (see
+ // currentLeadStates), but "ACTION_REQUIRED" must not misrepresent an
+ // already-reversed lead as still live - check, don't assume either way.
+ const currentlyReversed=ledger.some(r=>r.stage==='LEAD_REVERSED'&&r.partner_id===first.partner_id&&r.cid===first.cid);
+ return {status:'ACTION_REQUIRED_FIRST_REPORTED_LEAD',partner_id:first.partner_id,cid:first.cid,stage:first.stage,timestamp:first.timestamp,evidence_ref:first.evidence_ref,external_notification_sent:false,currently_reversed:currentlyReversed};
+}
 
 export function coverageReport(partners,report){
  const clicks=report.filter(r=>r.window==='OUTBOUND_CLICKS_7D'&&r.dimension==='BY_PARTNER'),total=report.find(r=>r.window==='OUTBOUND_CLICKS_7D'&&r.dimension==='TOTAL')?.count??0;
