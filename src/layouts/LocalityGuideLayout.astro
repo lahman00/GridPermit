@@ -828,7 +828,11 @@ const tocItems = [
 	else showApprovedQuoteShortcut();
 </script>
 <style>
-	#installer-cta { scroll-margin-top: 8rem; }
+	/* The navbar is position: sticky (about 73px tall on desktop, up to 116px when
+	   it wraps on narrow phones). Every anchor target on the page, including the
+	   table-of-contents sections and the CTA, must clear it. 8rem leaves a margin
+	   above the tallest measured nav height. */
+	main section[id], #installer-cta { scroll-margin-top: 8rem; }
 	.content-card { min-width: 0; overflow-wrap: anywhere; }
 </style>
 
