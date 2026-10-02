@@ -56,6 +56,6 @@ The CPUC's [current Net Billing overview](https://www.cpuc.ca.gov/NEM/) explains
 
 Do not automatically deduct a 30% residential federal credit from a 2026 installation. The IRS currently states that the Residential Clean Energy Credit is not available for property placed in service after December 31, 2025. Check the project's actual placed-in-service date against the [current IRS guidance](https://www.irs.gov/credits-deductions/residential-clean-energy-credit) and obtain tax advice where appropriate.
 
-Looking for city-specific permit requirements rather than tariff analysis? See GridPermit's <a href="/california/utility/sdg-e/">verified SDG&E city guides</a>.
+Looking for city-specific permit requirements rather than tariff analysis? See GridPermit's <a href="/california/utility/sdg-e/">verified SDG&E city guides</a>, including the guides for [Poway](/california/poway/solar-permit-guide/) and [Vista](/california/vista/solar-permit-guide/).
 
 *This page is an evaluation framework, not a live rate lookup, savings guarantee, tax opinion, or project-specific financial model. Confirm current SDG&E rates, export credits, charges, and system assumptions before making a decision.*
