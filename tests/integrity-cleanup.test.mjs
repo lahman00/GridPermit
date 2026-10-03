@@ -82,7 +82,7 @@ const UTILITY_STAGE_NOTE =
 
 // Records reviewed in this cleanup whose timeline_days was a utility stage and has been removed.
 const FIXED_UTILITY_STAGE = {
-	"ca-riverside-banning-beu": [/up to 45 days[^.]*application[^.]*plan check up to a further 45 days/i, /Electric Utility's own stages/],
+	"ca-riverside-banning-beu": [/application review can take up to 45 days/i, /plan check up to a further 45 days/i, /utility stages/i],
 	"ca-san-joaquin-lodi-leu": [/pre-approval review[^.]*up to two weeks/i, /ten business days/],
 	"ca-shasta-shasta-lake-slmu": [/Electric Department 30 days[^.]*initial review/i, /separate building permit application/],
 	"ok-oklahoma-oklahomacity-oge": [/Net Metering application review process is 30 business days/i, /up to seven business days/],
