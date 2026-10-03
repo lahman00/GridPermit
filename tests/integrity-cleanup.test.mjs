@@ -57,6 +57,22 @@ test("Loma Linda uses the current solar-specific fee and requirements, while kee
 	assert.doesNotMatch(solarData, /39\.5|15 to 30 working days/i);
 });
 
+test("Banning uses Building & Safety as the permit authority and keeps BEU program charges out of permit fees", () => {
+	const b = byId("ca-riverside-banning-beu");
+	assert.equal(b.permit_authority.value, "City of Banning Building & Safety Division");
+	assert.match(b.permit_url.value, /\/944\/Solar-Permits$/);
+	assert.match(b.eligibility_constraints.value.program_or_pathway, /Banning Electric.*Symbium.*Building & Safety/s);
+	assert.equal(b.permit_fees.value, null);
+	assert.match(b.permit_fees.notes ?? "", /utility\/interconnection program/i);
+	assert.match(b.interconnection_url.notes ?? "", /\$500 utility-program contribution/i);
+	assert.match(b.interconnection_url.notes ?? "", /\$245 production meter/i);
+	assert.match(b.interconnection_url.notes ?? "", /\$255 utility application\/plan-check\/inspection review/i);
+	const s4 = b.sources.find((s) => s.id === "S4");
+	const s5 = b.sources.find((s) => s.id === "S5");
+	assert.match(s4?.url ?? "", /\/944\/Solar-Permits$/);
+	assert.match(s5?.url ?? "", /\/71\/Building-Safety$/);
+});
+
 // ---------------------------------------------------------------- Lane B
 
 // Phrases a timeline note uses when it admits the figure is a utility/interconnection stage rather
@@ -66,7 +82,7 @@ const UTILITY_STAGE_NOTE =
 
 // Records reviewed in this cleanup whose timeline_days was a utility stage and has been removed.
 const FIXED_UTILITY_STAGE = {
-	"ca-riverside-banning-beu": [/up to 45 days[^.]*application[^.]*plan check up to a further 45 days/i, /Electric Utility's own stages/],
+	"ca-riverside-banning-beu": [/application review can take up to 45 days/i, /plan check up to a further 45 days/i, /utility stages/i],
 	"ca-san-joaquin-lodi-leu": [/pre-approval review[^.]*up to two weeks/i, /ten business days/],
 	"ca-shasta-shasta-lake-slmu": [/Electric Department 30 days[^.]*initial review/i, /separate building permit application/],
 	"ok-oklahoma-oklahomacity-oge": [/Net Metering application review process is 30 business days/i, /up to seven business days/],

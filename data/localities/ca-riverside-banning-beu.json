@@ -37,26 +37,31 @@
     ]
   },
   "permit_authority": {
-    "value": "City of Banning Electric Utility",
-    "confidence": 0.85,
+    "value": "City of Banning Building & Safety Division",
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
-    ]
+      "S4",
+      "S5"
+    ],
+    "notes": "The current City Solar Permits page sends the final permit package to the City of Banning Building & Safety division through SmartGov. The Building & Safety page states that the division reviews plans, issues permits and performs inspections. Banning Electric remains the utility/interconnection authority, not the building-permit authority."
   },
   "permit_url": {
-    "value": "https://banningca.gov/573/Solar",
-    "confidence": 0.85,
+    "value": "https://www.banningca.gov/944/Solar-Permits",
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
-    ]
+      "S4"
+    ],
+    "notes": "Current City solar-permit page. It lists a three-step path: plans to Banning Electric, application to Symbium, then stamped/approved plans plus the Symbium-approved application to Building & Safety through SmartGov."
   },
   "interconnection_url": {
     "value": "https://banningca.gov/573/Solar",
-    "confidence": 0.7,
+    "confidence": 0.85,
     "source_ids": [
-      "S1"
+      "S1",
+      "S3",
+      "S4"
     ],
-    "notes": "Banning Electric Utility's own solar program page, which hosts the Solar Application form and interconnection-related program guidelines. The City's Program Guidelines say the Electric Utility's application review can take up to 45 days from a completed application, and its plan check up to a further 45 days from completed plans (up to 90 days combined). Those are the Electric Utility's own stages. After utility plan-check approval, the plans go to City of Banning Building and Safety for plan check and permitting, whose duration the guidelines do not state."
+    "notes": "Banning Electric Utility remains the utility/interconnection authority. The current City Solar Permits page says plans go to Banning Electric first, before Symbium and the Building & Safety permit submission. The BEU Program Guidelines say the utility application review can take up to 45 days and its plan check up to a further 45 days. Those are utility stages, not City permit review time. The same guidelines list a $500 utility-program contribution in aid of construction ($245 production meter + $255 utility application/plan-check/inspection review) and a $60 minimum for additional utility plan checks/inspections beyond the included set; these are preserved here as interconnection/program context rather than displayed as City permit fees."
   },
   "battery_programs": {
     "value": null,
@@ -119,42 +124,26 @@
       "system_size_kw_ac_max": null,
       "system_size_kw_dc_max": null,
       "thermal_capacity_kw_max": null,
-      "program_or_pathway": "Residential Self Generating Facility Program (Photovoltaic Systems)",
+      "program_or_pathway": "Banning Electric plan review → Symbium automated residential solar/ESS review → City Building & Safety submission through SmartGov",
       "other_conditions": [
+        "Current City Solar Permits page lists a three-step permit path: first submit plans to Banning Electric, second submit the application to Symbium, third submit stamped/approved plans and the Symbium-approved application to City Building & Safety through SmartGov",
         "Participant must be a City of Banning electric service customer at the address where service is provided",
         "PV system sized not to exceed 100% of the participant's annual electrical usage; Energy Storage Systems sized according to the PV system",
-        "A City-owned Production Meter is required to monitor system production, at the participant's/contractor's cost",
-        "Requires approval from both the Electric Utility and the City of Banning Building and Safety Department (application, plan check, and inspection) before interconnection"
+        "A City-owned Production Meter is required to monitor system production, at the participant's/contractor's cost"
       ]
     },
-    "confidence": 0.85,
+    "confidence": 0.9,
     "source_ids": [
-      "S3"
-    ]
+      "S3",
+      "S4"
+    ],
+    "notes": "Current permit path refreshed from the City's Solar Permits page; utility sizing/meter conditions remain from the BEU program guidelines."
   },
   "permit_fees": {
-    "value": [
-      {
-        "name": "Production Meter (contribution in aid of construction)",
-        "amount_usd": 245,
-        "unit": "flat fee"
-      },
-      {
-        "name": "Application/plan-check/inspection review (up to 3 plan checks and up to 3 inspections)",
-        "amount_usd": 255,
-        "unit": "flat fee"
-      },
-      {
-        "name": "Additional plan check or inspection beyond the included set",
-        "amount_usd": 60,
-        "unit": "per occurrence (minimum)"
-      }
-    ],
-    "confidence": 0.85,
-    "source_ids": [
-      "S3"
-    ],
-    "notes": "Per the City's own Program Guidelines PDF, item 13: a $500.00 total contribution in aid of construction is due at application submission, itemized as $245.00 Production Meter + $255.00 application/plan-check/inspection review; any additional plan check/inspection beyond the included set is a $60.00 minimum service charge each."
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "City Building & Safety solar permit fees were not verified in the sources reviewed. BEU's $500 contribution in aid of construction and additional utility review charges belong to the utility/interconnection program and are kept under interconnection context rather than displayed as City permit fees."
   },
   "rebates": {
     "value": null,
@@ -176,7 +165,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-11",
+  "last_verified": "2026-10-03",
   "sources": [
     {
       "id": "S1",
@@ -184,7 +173,7 @@
       "url": "https://banningca.gov/573/Solar",
       "publisher": "City of Banning Electric Utility",
       "type": "utility",
-      "accessed_date": "2026-08-11"
+      "accessed_date": "2026-10-03"
     },
     {
       "id": "S2",
@@ -200,7 +189,23 @@
       "url": "https://banningca.gov/DocumentCenter/View/222/Self-Generating-Facility-Program-Guidelines-PV?bidId=",
       "publisher": "City of Banning Electric Utility",
       "type": "utility",
-      "accessed_date": "2026-10-02"
+      "accessed_date": "2026-10-03"
+    },
+    {
+      "id": "S4",
+      "title": "Solar Permits",
+      "url": "https://www.banningca.gov/944/Solar-Permits",
+      "publisher": "City of Banning Building & Safety",
+      "type": "government",
+      "accessed_date": "2026-10-03"
+    },
+    {
+      "id": "S5",
+      "title": "Building & Safety",
+      "url": "https://banningca.gov/71/Building-Safety",
+      "publisher": "City of Banning",
+      "type": "government",
+      "accessed_date": "2026-10-03"
     }
   ]
 }
