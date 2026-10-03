@@ -88,4 +88,6 @@ Have these ready:
 
 With those facts, you can shop for the **specific missing design service** instead of buying a generic “permit plan package” and hoping it satisfies the correction.
 
+For the current local permit authority, fee context, required-document checklist and official source links, use the [Long Beach solar permit guide](/california/long-beach/solar-permit-guide/).
+
 *GridPermit is an educational permitting/interconnection guide, not the City of Long Beach or SCE. The City can change forms and eligibility criteria, and the exact correction controls a specific application. The first-party pages above were reviewed September 9, 2026; confirm the live checklist and correction requirements before resubmitting.*
