@@ -74,10 +74,14 @@ test("the report reconciles every locality into a published or suppressed partit
 	// ca-san-bernardino-loma-linda-sce (73.3%, generic 15-30 day timeline removed;
 	// current solar-specific fee restored from the City's fee schedule) and ca-san-joaquin-lodi-leu, ca-shasta-shasta-lake-slmu and
 	// ok-oklahoma-oklahomacity-oge (73.3%, utility-stage durations removed from
-	// timeline_days). ca-riverside-banning-beu now also recomputes LIMITED after
+	// timeline_days). ca-riverside-banning-beu also recomputes LIMITED after
 	// utility-program charges were removed from the City permit-fee field.
-	assert.equal(pack.summary.recomputed_ready_count, 344);
-	assert.equal(pack.summary.recomputed_limited_count, 68);
+	// Removing the last three utility-stage "permit timelines" moved
+	// de-new-castle-new-castle-county-delmarva and mi-washtenaw-annarbor-dte from READY (80%)
+	// to LIMITED (73.3%) on recomputation; wv-kanawha-charleston-appalachianpower stays READY
+	// (86.7% -> 80%). All of them stay published.
+	assert.equal(pack.summary.recomputed_ready_count, 342);
+	assert.equal(pack.summary.recomputed_limited_count, 70);
 	assert.equal(pack.summary.recomputed_not_ready_count, 2);
 	// ca-riverside-corona-multi graduated into this disagreement set once its
 	// utility field was properly sourced (was null/genuinely-ambiguous; now a
@@ -86,11 +90,11 @@ test("the report reconciles every locality into a published or suppressed partit
 	// src/lib/utility-split-guard.ts, which checks the -multi record_id
 	// independent of the value) - its recorded batch evaluation (LIMITED,
 	// 73.3%) hasn't caught up to its recomputed state (READY, 80%) yet.
-	assert.equal(pack.summary.readiness_disagreement_count, 9);
-	assert.equal(pack.summary.published_readiness_disagreement_count, 8);
+	assert.equal(pack.summary.readiness_disagreement_count, 11);
+	assert.equal(pack.summary.published_readiness_disagreement_count, 10);
 	// Baldwin Park's completeness also changed (eligibility now sourced to its municipal code).
-	assert.equal(pack.summary.evaluation_stale_count, 39);
-	assert.equal(pack.summary.published_evaluation_stale_count, 34);
+	assert.equal(pack.summary.evaluation_stale_count, 42);
+	assert.equal(pack.summary.published_evaluation_stale_count, 37);
 	assert.equal(pack.summary.suppressed_evaluation_stale_count, 5);
 });
 
@@ -211,7 +215,9 @@ test("the current suppressed inventory is completeness-only, while published rea
 			"ca-san-bernardino-loma-linda-sce",
 			"ca-san-joaquin-lodi-leu",
 			"ca-shasta-shasta-lake-slmu",
+			"de-new-castle-new-castle-county-delmarva",
 			"me-cumberland-southportland-cmp",
+			"mi-washtenaw-annarbor-dte",
 			"ok-oklahoma-oklahomacity-oge",
 			"vt-statewide-vermont-gmp",
 		],

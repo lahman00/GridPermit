@@ -51,12 +51,14 @@
     ]
   },
   "interconnection_url": {
-    "value": "https://aem-qa1.newlook.dteenergy.com/us/en/residential/service-request/gmop/interconnection-process.html",
-    "confidence": 0.9,
+    "value": "https://solutions.dteenergy.com/dte/en/Services/CleanVision-Service/Rooftop-Solar-and-Private-Generation/p/ROOFTOP_SOLAR",
+    "confidence": 0.85,
     "source_ids": [
-      "S2"
+      "S2",
+      "S3",
+      "S4"
     ],
-    "notes": "DTE Energy's traditional Net Metering program closed to new applications on 2019-05-09. Current interconnection runs through the 'Rider 18 Distributed Generation Program' (approved by the Michigan Public Service Commission), which most residential systems (Category 1, up to 20kW) enter via a $50 interconnection application fee with a typical 5-6 week timeline to Permission to Operate. Applications are submitted through DTE's PowerClerk-based portal (dteinterconnect.powerclerk.com); customers must obtain a signed Parallel Operating Agreement before DTE's site visit and install an externally located, taggable disconnect switch within 5 feet of the meter. The system must stay off until DTE completes inspection and testing. Existing Rider 16 (legacy net metering) customers convert to Rider 18 upon their 10-year net-metering anniversary."
+    "notes": "DTE's residential interconnection runs through its Rider 18 Distributed Generation Program. DTE's interconnection process overview says the interconnection process takes approximately six weeks, that DTE emails whether an application is approved or needs changes within 10 business days of receiving the application and fee, and that the installer then uploads the construction documents, including an approved electrical inspection sticker, photos, a photo showing the disconnect switch within 5 feet of the meter, and a signed Parallel Operating Agreement, before DTE's site visit; the installer completes DTE's application in PowerClerk. DTE's Level 1 and 2 procedures list a $50 applicant cost for Level 1, defined as a certified project of 20 kWac or less, under Rider 18. These are the utility's steps and durations, not a City of Ann Arbor permit review time."
   },
   "battery_programs": {
     "value": null,
@@ -101,13 +103,10 @@
     "notes": "Not detailed on the City's own page fetched this session."
   },
   "timeline_days": {
-    "value": {
-      "min_days": 35,
-      "max_days": 42,
-      "notes": "This is DTE Energy's own stated 'typical 5-6 week timeline to Permission to Operate' under the Rider 18 Distributed Generation Program interconnection process (5-6 weeks converted to 35-42 days) — a utility interconnection timeline, not the City of Ann Arbor's own permit review timeline, which the City's page does not separately state (though it describes its process as expedited relative to standard permitting)."
-    },
-    "confidence": 0.75,
-    "source_ids": ["S2"]
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City of Ann Arbor permit review time is stated in the sources reviewed. DTE's interconnection process duration is the utility's, and is recorded under the interconnection field, not as a permit timeline."
   },
   "eligibility_constraints": {
     "value": {
@@ -127,7 +126,8 @@
     "confidence": 0.85,
     "source_ids": [
       "S1",
-      "S2"
+      "S2",
+      "S4"
     ]
   },
   "permit_fees": {
@@ -142,13 +142,14 @@
         "name": "DTE Energy Rider 18 interconnection application fee, Category 1 (systems ≤20kW)",
         "amount_usd": 50,
         "unit": "flat fee",
-        "notes": "Per DTE Energy's own interconnection process page — this is a utility interconnection fee, separate from the City's $0 permitting fee."
+        "notes": "Per DTE Energy's Level 1 and 2 interconnection procedures (Rider 18 applicant costs) — this is a utility interconnection fee, separate from the City's $0 permitting fee."
       }
     ],
     "confidence": 0.9,
     "source_ids": [
       "S1",
-      "S2"
+      "S2",
+      "S4"
     ],
     "notes": "A genuinely notable finding: Ann Arbor charges no city-side fees at all for approved residential solar permits under its expedited process, though DTE's separate utility interconnection fee still applies."
   },
@@ -185,11 +186,27 @@
     },
     {
       "id": "S2",
-      "title": "Interconnection Process",
-      "url": "https://aem-qa1.newlook.dteenergy.com/us/en/residential/service-request/gmop/interconnection-process.html",
+      "title": "Residential Solar Power Generation: Interconnection Process",
+      "url": "https://solutions.dteenergy.com/dte/en/Services/CleanVision-Service/Rooftop-Solar-and-Private-Generation/p/ROOFTOP_SOLAR",
       "publisher": "DTE Energy",
       "type": "utility",
-      "accessed_date": "2026-08-13"
+      "accessed_date": "2026-10-04"
+    },
+    {
+      "id": "S3",
+      "title": "Solar Panel Interconnection Process Overview (PDF)",
+      "url": "https://www.dteenergy.com/content/dam/dteenergy/deg/website/common/service-and-request/interconnection-process/SolarPanelInstallationOverview.pdf",
+      "publisher": "DTE Energy",
+      "type": "utility",
+      "accessed_date": "2026-10-04"
+    },
+    {
+      "id": "S4",
+      "title": "DTE Electric Generator Interconnection Procedures, Level 1 and 2 Projects (PDF)",
+      "url": "https://www.dteenergy.com/content/dam/dteenergy/deg/website/hybris/rooftop-solar/InterconnectionCategory1_2Requirement.pdf",
+      "publisher": "DTE Energy",
+      "type": "utility",
+      "accessed_date": "2026-10-04"
     }
   ]
 }

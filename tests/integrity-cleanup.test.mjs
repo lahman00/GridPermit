@@ -86,15 +86,15 @@ const FIXED_UTILITY_STAGE = {
 	"ca-san-joaquin-lodi-leu": [/pre-approval review[^.]*up to two weeks/i, /ten business days/],
 	"ca-shasta-shasta-lake-slmu": [/Electric Department 30 days[^.]*initial review/i, /separate building permit application/],
 	"ok-oklahoma-oklahomacity-oge": [/Net Metering application review process is 30 business days/i, /up to seven business days/],
+	"wv-kanawha-charleston-appalachianpower": [/within 10 business days/, /further 10 business days/, /Those are utility steps, not a City permit review time/],
+	"de-new-castle-new-castle-county-delmarva": [/approximately 77 business days/, /utility's full process[^.]*not a County permit review time/],
+	"mi-washtenaw-annarbor-dte": [/approximately six weeks/, /within 10 business days/, /not a City of Ann Arbor permit review time/],
 };
 
 // Known, reported, not-yet-fixed records with the same defect. The set must match exactly: a new
 // record with the defect fails the test, and fixing one of these forces its removal from the list.
-const KNOWN_UNFIXED_UTILITY_STAGE = new Set([
-	"de-new-castle-new-castle-county-delmarva",
-	"mi-washtenaw-annarbor-dte",
-	"wv-kanawha-charleston-appalachianpower",
-]);
+// (Currently empty: Charleston, New Castle County and Ann Arbor were the last three.)
+const KNOWN_UNFIXED_UTILITY_STAGE = new Set([]);
 
 test("a timeline whose note admits it is a utility stage is only allowed on the explicit known-follow-up list", () => {
 	const flagged = records
@@ -137,4 +137,36 @@ test("changing a timeline cannot change routing: no commercial or eligibility ga
 		if (!/\.(ts|astro|mjs)$/.test(f)) continue;
 		assert.doesNotMatch(read(f), /timeline_days|timelineDays/, f);
 	}
+});
+
+test("no record cites a QA, dev or staging hostname as a source or interconnection link (Ann Arbor regression)", () => {
+	const STAGING_HOST = /^(aem-)?(qa|dev|stg|stage|staging|uat|test)\d*[.-]|[.-](qa|dev|stg|staging|uat)\d*\./i;
+	const urls = (r) => [
+		...r.sources.map((s) => s.url),
+		r.permit_url?.value,
+		r.interconnection_url?.value,
+	].filter(Boolean);
+	for (const r of records) {
+		for (const u of urls(r)) {
+			let host;
+			try {
+				host = new URL(u).hostname;
+			} catch {
+				continue;
+			}
+			assert.doesNotMatch(host, STAGING_HOST, `${r.record_id}: ${u}`);
+		}
+	}
+});
+
+test("Ann Arbor cites production DTE sources for the interconnection claims it makes", () => {
+	const a = byId("mi-washtenaw-annarbor-dte");
+	const ids = new Set(a.interconnection_url.source_ids);
+	for (const id of ["S2", "S3", "S4"]) {
+		assert.ok(ids.has(id), id);
+		const s = a.sources.find((x) => x.id === id);
+		assert.match(new URL(s.url).hostname, /(^|\.)dteenergy\.com$/, s.url);
+	}
+	// The $50 Level 1 fee is DTE's, shown beside the City's $0 fee, and cites the DTE procedures document.
+	assert.ok(a.permit_fees.source_ids.includes("S4"));
 });
