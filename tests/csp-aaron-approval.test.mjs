@@ -63,6 +63,14 @@ test('new-solar remains live on verified unambiguous Aaron-territory locality re
     ['ca-los-angeles-baldwin-park-sce','baldwin-park'],
     ['ca-orange-fountain-valley-sce','fountain-valley'],
     ['ca-san-diego-del-mar-sdge','del-mar'],
+    ['ca-orange-san-clemente-sdge','san-clemente'],
+    ['ca-orange-cypress-sce','cypress'],
+    ['ca-orange-laguna-beach-sce','laguna-beach'],
+    ['ca-los-angeles-lakewood-sce','lakewood'],
+    ['ca-ventura-ventura-sce','ventura'],
+    ['ca-los-angeles-cerritos-sce','cerritos'],
+    ['ca-los-angeles-hawthorne-sce','hawthorne'],
+    ['ca-los-angeles-carson-sce','carson'],
   ]){
     const r=record(id),ctx=contextFor(r,'/california/'+slug+'/solar-permit-guide/');
     assert.equal(selectPartner(ctx,registry,NOW)?.partner_id,'compare-solar-prices',slug);
