@@ -115,6 +115,19 @@ test("utility-stage durations were removed from timeline_days and kept, labelled
 	}
 });
 
+test("Salt Lake City does not publish a search-derived 4-8 week estimate as a permit timeline", () => {
+	const slc = byId("ut-saltlake-saltlakecity-rmp");
+	assert.equal(slc.timeline_days.value, null);
+	assert.equal(slc.timeline_days.confidence, 0);
+	assert.deepEqual(slc.timeline_days.source_ids, []);
+	assert.equal(formatTimeline(slc.timeline_days.value).label, "Not yet verified.");
+	assert.match(slc.timeline_days.notes, /current Solar PV page and Solar PV Systems Packet do not state a solar permit review-turnaround time/i);
+	assert.match(slc.timeline_days.notes, /previous 28-56 day figure came from search-derived reporting/i);
+	assert.doesNotMatch(JSON.stringify(slc.timeline_days.value), /28|56|4-8 week/i);
+	assert.equal(slc.sources.find((source) => source.id === "S1")?.accessed_date, "2026-10-04");
+	assert.equal(slc.sources.find((source) => source.id === "S2")?.accessed_date, "2026-10-04");
+});
+
 test("changing a timeline cannot change routing: no commercial or eligibility gate reads timeline_days", () => {
 	const gates = [
 		"src/lib/commercial",
