@@ -104,6 +104,17 @@ test("Aaron-confirmed 2026-09-30 seven-city batch is explicitly covered", () => 
 	}
 });
 
+test("Aaron-confirmed 2026-10-02 eight-city batch is explicitly covered", () => {
+	for (const city of ["San Clemente", "Cypress", "Laguna Beach", "Lakewood", "Ventura", "Cerritos", "Hawthorne", "Carson"]) {
+		assert.equal(isCompareSolarServedLocality("CA", city), true, city);
+		const url = new URL(buildCompareSolarReferralUrl("CA", city, "homeowner_002"));
+		assert.equal(url.origin, "https://www.comparesolarprices.net");
+		assert.equal(url.searchParams.get("ref"), "GridPermit");
+		assert.equal(url.searchParams.get("cid"), "homeowner_002");
+		assert.equal(url.hash, "#quote");
+	}
+});
+
 test("every legacy CSP locality CTA requires homeowner self-attestation before CID generation or navigation", () => {
 	assert.match(component, /qualificationLabel = 'I own this home\.'/);
 	assert.match(component, /<input type="checkbox" data-first-lead-qualification \/>/);
