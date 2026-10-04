@@ -1,4 +1,7 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import DesignHead from "../components/DesignHead.astro";
 import Analytics from "../components/Analytics.astro";
 
 const webPageSchema = {
@@ -10,9 +13,10 @@ const webPageSchema = {
 };
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 	<Analytics />
+	<DesignHead />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>How It Works - GridPermit</title>
@@ -27,28 +31,15 @@ const webPageSchema = {
 	<meta name="twitter:description" content="How GridPermit finds and verifies solar permit information for U.S. cities, plus how our California-only savings calculator works." />
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
-	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-	<style>
-		body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 2rem 1rem; }
-		.container { max-width: 800px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }
-		h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: #0f172a; }
-		h2 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #2563eb; }
-		p, li { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
-		.intro { font-size: 1.05rem; color: #334155; font-weight: 500; margin-bottom: 1.5rem; }
-		.back-link { display: inline-block; margin-bottom: 1.5rem; color: #2563eb; font-weight: 600; text-decoration: none; }
-		.footer-text { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; font-size: 0.85rem; color: #64748b; text-align: center; }
-		.cross-links { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; }
-		.cross-links a { color: #2563eb; text-decoration: none; }
-		.section-divider { margin: 2.5rem 0 1.5rem 0; padding-top: 1.5rem; border-top: 1px solid #e2e8f0; }
-		.badge-pill-light { display: inline-block; background: #f1f5f9; color: #475569; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 999px; margin-bottom: 0.6rem; }
+	<style>li { font-size: 0.95rem; color: var(--gp-muted); margin-bottom: 1rem; }.intro { font-size: 1.05rem; color: var(--gp-ink); font-weight: 500; margin-bottom: 1.5rem; }.back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--gp-accent); font-weight: 600; text-decoration: none; }.footer-text { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--gp-line); font-size: 0.85rem; color: var(--gp-muted); text-align: center; }.cross-links { font-size: 0.85rem; color: var(--gp-muted); margin-bottom: 1.5rem; }.cross-links a { color: var(--gp-accent); text-decoration: none; }.section-divider { margin: 2.5rem 0 1.5rem 0; padding-top: 1.5rem; border-top: 1px solid var(--gp-line); }.badge-pill-light { display: inline-block; background: var(--gp-surface); color: var(--gp-muted); font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.7rem; border-radius: 2px; margin-bottom: 0.6rem; }
 	</style>
 </head>
 <body>
-	<main class="container">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<Header />
+	<main class="gp-reading-page" id="main-content" tabindex="-1">
 		<a href="/" class="back-link">← Back to Home</a>
 		<p class="cross-links"><a href="/blog/">Blog</a> · <a href="/permits/">Browse States</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/methodology/">Methodology</a> · <a href="/contact/">Contact</a></p>
 		<h1>How GridPermit Works</h1>
@@ -85,5 +76,6 @@ const webPageSchema = {
 			© 2026 GridPermit. GridPermit is an independent educational affiliate and referral website.
 		</div>
 	</main>
+<Footer />
 </body>
 </html>

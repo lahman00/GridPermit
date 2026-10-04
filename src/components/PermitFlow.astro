@@ -1,0 +1,27 @@
+<aside class="gp-permit-flow" aria-labelledby="permit-flow-title">
+  <div class="gp-permit-flow-head"><span class="gp-kicker">Two authorities / one project</span><strong id="permit-flow-title">Permit is not PTO.</strong></div>
+  <div class="gp-flow-lane">
+    <span>Local authority</span><ol><li>Permit</li><li>Install</li><li>Final inspection</li></ol>
+  </div>
+  <div class="gp-flow-bridge" aria-hidden="true"><span>Final approval feeds the utility track</span>↓</div>
+  <div class="gp-flow-lane gp-flow-lane--utility">
+    <span>Electric utility</span><ol><li>Interconnection</li><li>Meter / review</li><li>PTO</li></ol>
+  </div>
+</aside>
+<style is:global>
+  .gp-permit-flow { margin: 38px 0 52px; padding: 26px; border: 1px solid var(--gp-line); background: var(--gp-surface); }
+  .gp-permit-flow-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 22px; border-bottom: 1px solid var(--gp-line); }
+  .gp-permit-flow-head .gp-kicker { margin: 0; }
+  .gp-permit-flow-head strong { font-size: 22px; font-weight: 400; }
+  .gp-flow-lane { display: grid; grid-template-columns: 125px 1fr; gap: 20px; align-items: center; padding-top: 22px; }
+  .gp-flow-lane > span { color: var(--gp-muted); font: 10px/1.5 var(--gp-mono); text-transform: uppercase; letter-spacing: .06em; }
+  .gp-flow-lane ol { display: grid; grid-template-columns: repeat(3,1fr); list-style: none; padding: 0; margin: 0; counter-reset: flow; }
+  .gp-flow-lane li { position: relative; margin: 0; padding: 0 18px 0 22px; font-size: 13px; }
+  .gp-flow-lane li::before { counter-increment: flow; content: counter(flow,decimal-leading-zero); display: block; margin-bottom: 8px; color: var(--gp-accent); font: 9px/1 var(--gp-mono); }
+  .gp-flow-lane li::after { content: ''; position: absolute; left: 0; right: 0; top: 25px; height: 1px; background: var(--gp-line); transform: translateY(14px); }
+  .gp-flow-lane li:last-child { color: var(--gp-ink); }
+  .gp-flow-lane li:last-child::after { background: var(--gp-accent); }
+  .gp-flow-bridge { margin: 18px 0 -2px 145px; color: var(--gp-muted); font: 9px/1.5 var(--gp-mono); text-transform: uppercase; }
+  .gp-flow-bridge span { margin-right: 12px; }
+  @media(max-width:640px) { .gp-permit-flow { padding: 20px; } .gp-permit-flow-head { display: block; } .gp-permit-flow-head strong { display: block; margin-top: 8px; } .gp-flow-lane { grid-template-columns: 1fr; gap: 12px; } .gp-flow-lane ol { gap: 8px; } .gp-flow-lane li { padding-inline: 0; font-size: 11px; } .gp-flow-bridge { margin-left: 0; } }
+</style>

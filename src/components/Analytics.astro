@@ -13,12 +13,18 @@
 ---
 
 <!-- Google tag (gtag.js) -->
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-PGX9SJ9QLG"></script>
 <script is:inline>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-PGX9SJ9QLG');
+  // Preview visits must not pollute the production measurement stream.
+  if (window.location.hostname === 'mygridpermit.com' || window.location.hostname === 'www.mygridpermit.com') {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', 'G-PGX9SJ9QLG');
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-PGX9SJ9QLG';
+    document.head.append(tag);
+  }
 </script>
 
 <!-- Every page preloads its Google Fonts stylesheet (rel="preload") instead

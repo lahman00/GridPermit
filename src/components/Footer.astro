@@ -1,34 +1,19 @@
 ---
-const today = new Date();
----
+import BrandLogo from './BrandLogo.astro';
 
-<footer>
-	<p>&copy; {today.getFullYear()} GridPermit. All rights reserved.</p>
-	<p class="disclosure">
-		GridPermit is an independent educational resource and referral website covering residential solar permitting and, for California, battery decisions, across verified jurisdictions in 37 states. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency. Outbound links may include third-party services with which GridPermit has current or prospective partner relationships. Unless a page specifically says otherwise, those links are not currently tracked for compensation. If a link becomes monetized, we will disclose that clearly on the specific page where it appears.
-	</p>
-	<p class="footer-links">
-		<a href="/">Home</a> | <a href="/blog/">Blog</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro/">GridPermit Pro</a> | <a href="/about/">About</a> | <a href="/methodology/">Methodology</a> | <a href="/how-it-works/">How It Works</a> | <a href="/partners/">Partners</a> | <a href="/contact/">Contact</a> | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a>
-	</p>
+const year = new Date().getFullYear();
+---
+<footer class="gp-footer">
+  <div class="gp-container">
+    <div class="gp-footer-top">
+      <div class="gp-footer-intro"><a href="/" class="gp-wordmark" aria-label="GridPermit home"><BrandLogo /></a><p>A clearer path from local requirements to your next solar decision.</p></div>
+      <nav class="gp-footer-nav" aria-label="Footer navigation">
+        <div><a href="/search/">Find a permit guide</a><a href="/permits/">Browse states</a><a href="/california/solar-permit-guides/">California cities</a><a href="/blog/">Solar guides</a></div>
+        <div><a href="/methodology/">Methodology</a><a href="/how-it-works/">How it works</a><a href="/for-installers/">For installers</a><a href="/pro/">GridPermit Pro</a></div>
+        <div><a href="/about/">About</a><a href="/partners/">Partners</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
+      </nav>
+    </div>
+    <p class="gp-footer-note">GridPermit is an independent educational resource and referral website, not a government agency, public utility, installer or engineering firm. Information is not legal, engineering, financial, tax or permit advice. Verify current requirements with your local authority and utility. Paid relationships are disclosed beside the relevant referral option; a resource link alone does not imply a compensated relationship.</p>
+    <div class="gp-footer-bottom"><span>© {year} GridPermit</span><span>Official sources. Clear boundaries.</span></div>
+  </div>
 </footer>
-<style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
-	}
-	.disclosure {
-		max-width: 640px;
-		margin: 0.75em auto 0 auto;
-		font-size: 0.8em;
-		line-height: 1.5;
-	}
-	.footer-links {
-		margin-top: 1em;
-		font-size: 0.85em;
-	}
-	.footer-links a {
-		color: rgb(var(--gray));
-	}
-</style>

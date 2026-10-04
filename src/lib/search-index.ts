@@ -19,8 +19,8 @@ export interface SearchEntry {
 // existing <title>/description meta, not invented here.
 const STATIC_PAGES: SearchEntry[] = [
 	{
-		title: "GridPermit: California Solar & Battery Savings Estimator",
-		description: "An educational, California-only starting point for home solar and battery payback questions.",
+		title: "GridPermit: Local Solar Permit Guides",
+		description: "Find local permit requirements, utility steps and source-linked solar guides.",
 		url: "/",
 		category: "Page",
 	},
@@ -65,6 +65,9 @@ export function buildSearchIndex(params: {
 	// with no hub page has nothing to link a search result to.
 	countyHubs?: CountyHubData[];
 	utilityHubs?: UtilityHubData[];
+	// Callers pass the state pages that are actually published. Keep homepage
+	// suggestions and full search on the same index instead of appending privately.
+	states?: Array<{ name: string; slug: string }>;
 }): SearchEntry[] {
 	const entries: SearchEntry[] = [...STATIC_PAGES];
 
@@ -126,6 +129,13 @@ export function buildSearchIndex(params: {
 			url: p.url,
 			category: `Blog · ${p.category}`,
 		});
+	}
+
+	for (const state of params.states ?? []) {
+		const url = `/${state.slug}/`;
+		if (!entries.some(entry => entry.url === url)) {
+			entries.push({ title: `${state.name} solar permit guides`, description: "Browse published guides and current research coverage.", url, category: "State" });
+		}
 	}
 
 	return entries;

@@ -1,4 +1,7 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import DesignHead from "../components/DesignHead.astro";
 // Site-wide, client-side-only search. The entire index is embedded in the
 // page at build time (as JSON) and matched instantly in the browser — no
 // external search service, no network request per keystroke. See
@@ -10,6 +13,7 @@ import { buildSearchIndex } from "../lib/search-index";
 import { buildCountyHubs, type ReadyEvaluationSummary } from "../lib/county-hub";
 import { buildUtilityHubs } from "../lib/utility-hub";
 import Analytics from "../components/Analytics.astro";
+import { STATE_META, SUPPORTED_STATE_CODES } from "../lib/state-meta";
 
 const localityModules = import.meta.glob("../../data/localities/*.json", { eager: true }) as Record<
 	string,
@@ -29,7 +33,12 @@ const blogPosts = await getAllBlogPosts();
 const countyHubs = buildCountyHubs(allEvaluatedRecords as ReadyEvaluationSummary[], recordsById);
 const utilityHubs = buildUtilityHubs(allEvaluatedRecords as ReadyEvaluationSummary[], recordsById);
 
-const searchIndex = buildSearchIndex({ localityEntries, blogPosts, countyHubs, utilityHubs });
+const searchIndex = buildSearchIndex({
+  localityEntries, blogPosts,
+  countyHubs: countyHubs.filter(hub => hub.state === 'CA'),
+  utilityHubs: utilityHubs.filter(hub => hub.state === 'CA'),
+  states: SUPPORTED_STATE_CODES.map(code => STATE_META[code]),
+});
 
 const PAGE_PATH = "/search/";
 const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
@@ -44,18 +53,15 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 	<Analytics />
+	<DesignHead />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={CANONICAL_URL} />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
-	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
@@ -73,25 +79,9 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 </head>
 <body>
 	<a href="#main-content" class="skip-link">Skip to main content</a>
-	<div class="top-banner">
-		Independent Educational Guide: Residential solar permit facts for verified jurisdictions across 37 states (CA, RI, DE, VT, CO, AZ, HI, OR, NM, NV, IL, NJ, UT, MD, VA, NC, SC, GA, WI, MN, CT, NH, WA, ID, FL, KY, TN, PA, AK, NY, WV, OK, TX, AR, AL, IA, NE), plus a California solar & battery savings estimator. Illustrative only, not utility-specific.
-	</div>
 
-	<nav class="navbar">
-		<div class="nav-container">
-			<a href="/" class="brand-logo" aria-label="GridPermit Home">
-				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
-			</a>
-			<div class="nav-links">
-				<a href="/#calculator">ROI Calculator</a>
-				<a href="/how-it-works/">How It Works</a>
-				<a href="/california/solar-permit-guides/">California Guides</a>
-				<a href="/blog/">Blog</a>
-				<a href="/methodology/">Methodology</a>
-			</div>
-			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
-		</div>
-	</nav>
+
+	<Header />
 
 	<div class="page-container">
 		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -99,33 +89,24 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 		</nav>
 
 		<main class="content-card" id="main-content" tabindex="-1">
-			<h1>Search GridPermit</h1>
-			<p class="subtitle">Search across permit guides for 37 states (CA, RI, DE, VT, CO, AZ, HI, OR, NM, NV, IL, NJ, UT, MD, VA, NC, SC, GA, WI, MN, CT, NH, WA, ID, FL, KY, TN, PA, AK, NY, WV, OK, TX, AR, AL, IA, NE), plus blog posts and site pages ({searchIndex.length} indexed pages)</p>
+			<p class="gp-kicker">Find your place</p><h1>Start local.<br/>Get clear.</h1>
+			<p class="subtitle">Search published city guides, counties, electric utilities and solar topics. Coverage varies by location.</p>
 
-			<input type="search" id="search-input" placeholder="Search for a city, utility, or topic…" aria-label="Site search" autofocus />
+			<label for="search-input" class="gp-kicker">City, county, utility or topic</label><input type="search" id="search-input" placeholder="Search for a city, utility, or topic…" aria-label="Site search" aria-controls="results-list" aria-describedby="search-hint" />
 
-			<ul class="results-list" id="results-list"></ul>
+			<noscript><p>Instant search requires JavaScript. You can still <a href="/permits/">browse guides by state</a>.</p></noscript>
+			<p id="search-result-count" role="status" class="gp-kicker"></p><ul class="results-list" id="results-list" aria-label="Search results"></ul>
 			<p class="search-hint" id="search-hint">Start typing to search cities (e.g. "Oakland"), counties (e.g. "Alameda County"), utilities (e.g. "PG&E" or "SCE"), or topics (e.g. "SGIP", "NEM 3.0").</p>
 			<div class="no-results" id="no-results" hidden>
 				<p>No results found for that search.</p>
 				<p class="no-results-hint">Try searching by city, county, utility name, or state (e.g. "Texas" or "Ohio"). You can also browse <a href="/california/solar-permit-guides/">California guides</a> or go to the <a href="/">homepage</a>.</p>
 			</div>
 
-			<script is:inline type="application/json" id="search-index-data" set:html={JSON.stringify(searchIndex)} />
+			<script is:inline type="application/json" id="search-index-data" set:html={JSON.stringify(searchIndex).replace(/</g, "\\u003c")} />
 		</main>
 	</div>
 
-	<footer class="footer">
-		<div class="footer-container">
-			<p>© 2026 GridPermit. All rights reserved.</p>
-			<p class="affiliate-disclosure">
-				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
-			</p>
-			<div class="footer-links">
-				<a href="/about/">About Us</a> | <a href="/how-it-works/">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro/">GridPermit Pro</a> | <a href="/blog/">Blog</a> | <a href="/methodology/">Methodology</a> | <a href="/contact/">Contact</a> | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a>
-			</div>
-		</div>
-	</footer>
+	<Footer />
 
 	<script>
 		import { trackEvent } from "../lib/analytics-events";
@@ -172,11 +153,14 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 				hint.hidden = false;
 				noResults.hidden = true;
 				lastTrackedQuery = "";
+                const count = document.getElementById("search-result-count"); if (count) count.textContent = "";
 				return;
 			}
 			hint.hidden = true;
 			noResults.hidden = results.length > 0;
 
+			const count = document.getElementById("search-result-count");
+            if (count) count.textContent = `${results.length} ${results.length === 1 ? "result" : "results"}`;
 			const normalizedQuery = query.trim().toLowerCase();
 			if (normalizedQuery !== lastTrackedQuery) {
 				lastTrackedQuery = normalizedQuery;
@@ -242,55 +226,18 @@ const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
 		});
 	</script>
 
-	<style>
-		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
-		.skip-link { position: absolute; top: -3rem; left: 0; background: var(--primary); color: white; padding: 0.75rem 1.25rem; z-index: 1000; text-decoration: none; font-weight: 700; border-radius: 0 0 8px 0; transition: top 0.15s ease; }
-		.skip-link:focus { top: 0; }
-		* { box-sizing: border-box; }
-		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
-		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
-		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
-		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-		.brand-logo { text-decoration: none; }
-		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
-		.logo-bold { font-weight: 800; }
-		.nav-links { display: flex; gap: 1.25rem; }
-		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
-		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-		@media (max-width: 640px) {
-			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
-			.nav-links { flex-wrap: wrap; justify-content: center; }
-		}
 
-		.page-container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem 4rem; }
-		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
-		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
-		.crumb-sep { margin: 0 0.4rem; }
-		.crumb-current { color: var(--text-main); font-weight: 600; }
-
-		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
-		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
-		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
-
-		#search-input { width: 100%; padding: 0.85rem 1.1rem; border: 1px solid var(--border-color); border-radius: 10px; font-size: 1rem; font-family: inherit; margin-bottom: 1.25rem; }
-		#search-input:focus { outline: none; border-color: var(--primary); }
-
-		.search-hint, .no-results { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1rem 0; }
-		.no-results-hint { font-size: 0.85rem; }
-		.no-results a { color: var(--primary); text-decoration: none; }
-
-		.results-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
-		.result-item a { display: block; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem 1.25rem; text-decoration: none; color: var(--text-main); }
-		.result-item a:hover, .result-item a.is-active { border-color: var(--primary); background: #eff6ff; }
-		.result-category { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--primary); margin-bottom: 0.25rem; }
-		.result-title { display: block; font-size: 1.02rem; font-weight: 700; margin-bottom: 0.25rem; }
-		.result-description { display: block; font-size: 0.85rem; color: #475569; }
-
-		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
-		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
-		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
-		p { margin: 0 0 0.75rem; }
-	</style>
+<style>
+ .page-container { max-width: 960px; }
+ #search-input { width: 100%; padding: 22px; font-size: 22px; margin-bottom: 24px; }
+ .results-list { list-style: none; margin: 24px 0; padding: 0; }
+ .result-item { margin: 0; }
+ .result-item a { display: block; padding: 24px 0; border-top: 1px solid var(--gp-line); text-decoration: none; }
+ .result-item a.is-active { background: var(--gp-surface); outline: 2px solid var(--gp-focus); outline-offset: 4px; }
+ .result-category { display: block; font: 10px/1.5 var(--gp-mono); color: var(--gp-muted); text-transform: uppercase; margin: 0 0 10px; }
+ .result-title { display: block; font-size: 24px; font-weight: 300; margin-bottom: 10px; }
+ .result-description { display: block; font-size: 14px; color: var(--gp-muted); max-width: 720px; }
+ .search-hint,.no-results { color: var(--gp-muted); font-size: 14px; padding: 24px 0; }
+</style>
 </body>
 </html>

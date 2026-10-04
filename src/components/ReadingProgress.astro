@@ -1,0 +1,16 @@
+<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" data-reading-progress></div></div>
+<script>
+  const progressBar = document.querySelector<HTMLElement>('[data-reading-progress]');
+  let progressFrame = 0;
+  function updateReadingProgress() {
+    cancelAnimationFrame(progressFrame);
+    progressFrame = requestAnimationFrame(() => {
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      const percentage = available > 0 ? (window.scrollY / available) * 100 : 0;
+      progressBar?.style.setProperty('width', `${Math.min(100, Math.max(0, percentage))}%`);
+    });
+  }
+  window.addEventListener('scroll', updateReadingProgress, { passive: true });
+  window.addEventListener('resize', updateReadingProgress, { passive: true });
+  updateReadingProgress();
+</script>

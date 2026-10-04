@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+---
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#f7f6f2" />
+<script is:inline>
+  (() => {
+    let theme = 'light';
+    try { if (localStorage.getItem('gridpermit-appearance') === 'dark') theme = 'dark'; } catch {}
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.gridpermitDesign = 'architectural-20261004';
+  })();
+</script>
+
+<script is:inline>
+  // A preview is for design review, not real partner traffic or intake submissions.
+  (() => {
+    const production = location.hostname === 'mygridpermit.com' || location.hostname === 'www.mygridpermit.com';
+    if (production) return;
+    document.documentElement.dataset.previewSafety = 'active';
+    const explain = (root) => {
+      if (!root) return;
+      let note = root.querySelector('[data-preview-notice]');
+      if (!note) {
+        note = document.createElement('p');
+        note.dataset.previewNotice = '';
+        note.className = 'gp-preview-note';
+        note.setAttribute('role', 'status');
+        root.append(note);
+      }
+      note.textContent = 'Design preview only. Partner navigation and form submissions are disabled.';
+    };
+    const partnerActions = '[data-compare-solar-cta], [data-partner-action], .installer-cta-btn, .btn-green-action-link, [data-track-click="external_partner_clicked"]';
+    const stopPartnerNavigation = (event) => {
+      const target = event.target instanceof Element ? event.target.closest(partnerActions) : null;
+      if (!target) return;
+      event.preventDefault(); event.stopImmediatePropagation();
+      explain(target.closest('section,.installer-cta-box'));
+    };
+    document.addEventListener('click', stopPartnerNavigation, true);
+    document.addEventListener('auxclick', stopPartnerNavigation, true);
+    document.addEventListener('submit', (event) => {
+      const form = event.target;
+      if (!(form instanceof HTMLFormElement)) return;
+      if (form.getAttribute('method')?.toLowerCase() !== 'post' && !form.hasAttribute('data-netlify')) return;
+      if (form.id === 'solar-form') return;
+      event.preventDefault(); event.stopImmediatePropagation(); explain(form);
+    }, true);
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('section.compare-solar-cta,section.partner-cta').forEach(explain);
+      // A context-menu open does not dispatch click. Remove external preview
+      // targets as well, so opening a partner anchor in a new tab stays local.
+      document.querySelectorAll(partnerActions).forEach(action => {
+        if (action.tagName !== 'A') return;
+        action.setAttribute('href', '#');
+        action.setAttribute('aria-disabled', 'true');
+        action.removeAttribute('target');
+      });
+    }, {once: true});
+  })();
+</script>

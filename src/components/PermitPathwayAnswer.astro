@@ -70,12 +70,12 @@ const { answer } = Astro.props;
 	.pathway-table { font-size: 0.9rem; margin-bottom: 1rem; }
 	.pathway-table caption { display: block; text-align: left; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.4rem; }
 	.pathway-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-	.pathway-table tr { margin-bottom: 0.8rem; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; }
+	.pathway-table tr { margin-bottom: 0.8rem; border: 1px solid var(--border-color); border-radius: 2px; overflow: hidden; }
 	.pathway-table th, .pathway-table td { border: 0; border-bottom: 1px solid var(--border-color); padding: 0.55rem 0.8rem; text-align: left; overflow-wrap: break-word; word-break: normal; }
 	.pathway-table tr > :last-child { border-bottom: 0; }
-	.pathway-table tbody th { background: #f8fafc; font-weight: 700; }
+	.pathway-table tbody th { background: var(--gp-surface); font-weight: 700; }
 	.pathway-table td::before { content: attr(data-label); display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 0.15rem; }
-	.pathway-boundary { background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 0.75rem 1rem; }
+	.pathway-boundary { background: var(--gp-surface); border: 1px solid var(--border-color); border-radius: 2px; padding: 0.75rem 1rem; }
 	@media print {
 		.pathway-boundary { border: 1px solid #94a3b8; }
 		.pathway-table tr { break-inside: avoid; }

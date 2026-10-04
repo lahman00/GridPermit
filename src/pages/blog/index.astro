@@ -1,4 +1,7 @@
 ---
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import DesignHead from "../../components/DesignHead.astro";
 // Blog index. Lists every current Markdown content-collection post plus the
 // standalone .astro posts in this directory. The post list and categories
 // are generated from the shared source of truth below.
@@ -51,18 +54,15 @@ const blogSchema = {
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 	<Analytics />
+	<DesignHead />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={CANONICAL_URL} />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
-	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={CANONICAL_URL} />
@@ -79,25 +79,9 @@ const blogSchema = {
 </head>
 <body>
 	<a href="#main-content" class="skip-link">Skip to main content</a>
-	<div class="top-banner">
-		Independent Educational Guide: California residential solar and battery estimates. Illustrative only, not utility-specific.
-	</div>
 
-	<nav class="navbar">
-		<div class="nav-container">
-			<a href="/" class="brand-logo" aria-label="GridPermit Home">
-				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
-			</a>
-			<div class="nav-links">
-				<a href="/#calculator">ROI Calculator</a>
-				<a href="/how-it-works/">How It Works</a>
-				<a href="/california/solar-permit-guides/">California Guides</a>
-				<a href="/methodology/">Methodology</a>
-			</div>
-			<a href="/search/" class="nav-search-link" aria-label="Search">🔍</a>
-			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
-		</div>
-	</nav>
+
+	<Header />
 
 	<div class="page-container">
 		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -105,11 +89,11 @@ const blogSchema = {
 		</nav>
 
 		<main class="content-card" id="main-content" tabindex="-1">
-			<h1>Solar &amp; Battery Guides</h1>
-			<p class="subtitle">California-focused rate analysis, NEM 3.0 payback math, and battery economics ({allPosts.length} guides)</p>
+			<p class="gp-kicker">The reading room</p><h1>Solar, made clearer.</h1>
+			<p class="subtitle">Permitting, utility approvals and solar + battery decisions. Explore {allPosts.length} guides, with sources and clear limits.</p>
 
 			<div class="filter-bar">
-				<input type="search" id="post-search" placeholder="Search guides…" aria-label="Search blog guides" />
+				<input type="search" id="post-search" placeholder="Search guides…" aria-label="Search solar guides" />
 				<div class="category-chips" role="group" aria-label="Filter by category">
 					<button type="button" class="chip active" data-category="all">All</button>
 					{categories.map((c) => (
@@ -131,12 +115,14 @@ const blogSchema = {
 			<section aria-labelledby="latest-heading">
 				<h2 id="latest-heading">Latest Guides</h2>
 				<div class="post-grid" id="post-grid">
-					{latest.map((post) => (
+					{latest.map((post, index) => (
 						<a href={post.url} class="post-card" data-category={post.category} data-search-text={`${post.title} ${post.description}`.toLowerCase()}>
+							<span class="post-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
 							<span class="post-category">{post.category}</span>
 							<h3>{post.title}</h3>
 							<p>{post.description}</p>
 							<span class="card-meta">{post.displayDate}</span>
+							<span class="post-arrow" aria-hidden="true">↗</span>
 						</a>
 					))}
 				</div>
@@ -155,17 +141,7 @@ const blogSchema = {
 		</main>
 	</div>
 
-	<footer class="footer">
-		<div class="footer-container">
-			<p>© 2026 GridPermit. All rights reserved.</p>
-			<p class="affiliate-disclosure">
-				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
-			</p>
-			<div class="footer-links">
-				<a href="/about/">About Us</a> | <a href="/how-it-works/">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro/">GridPermit Pro</a> | <a href="/methodology/">Methodology</a> | <a href="/contact/">Contact</a> | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a>
-			</div>
-		</div>
-	</footer>
+	<Footer />
 
 	<script>
 		// Instant, client-side-only search + category filter — no external
@@ -201,66 +177,7 @@ const blogSchema = {
 	</script>
 
 	<style>
-		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
-		.skip-link { position: absolute; top: -3rem; left: 0; background: var(--primary); color: white; padding: 0.75rem 1.25rem; z-index: 1000; text-decoration: none; font-weight: 700; border-radius: 0 0 8px 0; transition: top 0.15s ease; }
-		.skip-link:focus { top: 0; }
-		* { box-sizing: border-box; }
-		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
-		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
-		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
-		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-		.brand-logo { text-decoration: none; }
-		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
-		.logo-bold { font-weight: 800; }
-		.nav-links { display: flex; gap: 1.25rem; }
-		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
-		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
-		@media (max-width: 640px) {
-			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
-			.nav-links { flex-wrap: wrap; justify-content: center; }
-		}
-
-		.page-container { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
-		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
-		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
-		.crumb-sep { margin: 0 0.4rem; }
-		.crumb-current { color: var(--text-main); font-weight: 600; }
-
-		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
-		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
-		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.5rem; }
-		h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 2rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
-		section:first-of-type h2 { margin-top: 1.5rem; }
-
-		.filter-bar { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 0.5rem; }
-		#post-search { flex: 1 1 220px; padding: 0.6rem 0.9rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.9rem; font-family: inherit; }
-		.category-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-		.chip { border: 1px solid var(--border-color); background: white; color: var(--text-muted); padding: 0.4rem 0.9rem; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; cursor: pointer; font-family: inherit; }
-		.chip.active, .chip:hover { border-color: var(--primary); color: var(--primary); }
-
-		.featured-card { display: block; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; border-radius: 12px; padding: 1.75rem 2rem; text-decoration: none; }
-		.featured-card h3 { color: white; font-size: 1.4rem; margin: 0.5rem 0; }
-		.featured-card p { color: #cbd5e1; margin: 0 0 0.75rem; }
-		.featured-category { display: inline-block; background: rgba(37,99,235,0.25); color: #93c5fd; padding: 0.2rem 0.7rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
-
-		.post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
-		.post-card { display: block; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem 1.4rem; text-decoration: none; color: var(--text-main); transition: border-color 0.15s ease; }
-		.post-card:hover { border-color: var(--primary); }
-		.post-card h3 { font-size: 1.05rem; font-weight: 800; margin: 0.5rem 0 0.5rem; color: var(--text-main); }
-		.post-card p { font-size: 0.85rem; color: #334155; margin: 0 0 0.5rem; }
-		.post-category { display: inline-block; background: #e2e8f0; color: #334155; padding: 0.15rem 0.6rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
-		.card-meta { font-size: 0.78rem; color: var(--text-muted); }
-		.no-results { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1.5rem 0; }
-
-		p { margin: 0 0 0.75rem; }
-		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
-		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
-
-		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
-		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
-		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
+		#post-search { flex: 1 1 220px; padding: 0.6rem 0.9rem; border: 1px solid var(--border-color); border-radius: 2px; font-size: 0.9rem; font-family: inherit; }.no-results { color: var(--text-muted); font-size: 0.9rem; text-align: center; padding: 1.5rem 0; }
 	</style>
 </body>
 </html>

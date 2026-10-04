@@ -1,0 +1,44 @@
+---
+import EvidenceState from './EvidenceState.astro';
+
+interface Step { number: string; title: string; detail: string; href: string; state: "verified" | "conditional" | "check" | "missing"; label: string; }
+interface Props { city: string; authority: string; utility: string; authorityVerified: boolean; documentsVerified: boolean; documentsConditional: boolean; inspectionVerified: boolean; utilityVerified: boolean; interconnectionVerified: boolean; }
+const { city, authority, utility, authorityVerified, documentsVerified, documentsConditional, inspectionVerified, utilityVerified, interconnectionVerified } = Astro.props;
+const steps: Step[] = [
+  { number: '01', title: 'Permit authority', detail: authority, href: '#permit-authority', state: authorityVerified ? 'verified' : 'check', label: authorityVerified ? 'Authority sourced' : 'Confirm authority' },
+  { number: '02', title: 'Documents', detail: documentsVerified ? (documentsConditional ? 'Checklist includes conditional items' : 'Document checklist on file') : 'No complete checklist on file', href: '#required-documents', state: documentsVerified ? (documentsConditional ? 'conditional' : 'verified') : 'missing', label: documentsVerified ? (documentsConditional ? 'Conditions apply' : 'Checklist sourced') : 'Not verified' },
+  { number: '03', title: 'Inspection', detail: inspectionVerified ? `Inspection guidance for ${city}` : 'Current inspection sequence needs confirmation', href: '#inspection-steps', state: inspectionVerified ? 'verified' : 'missing', label: inspectionVerified ? 'Steps sourced' : 'Not verified' },
+  { number: '04', title: 'Utility & PTO', detail: utilityVerified ? utility : 'Confirm utility for the project address', href: '#utility-supplier', state: utilityVerified && interconnectionVerified ? 'verified' : utilityVerified ? 'conditional' : 'check', label: utilityVerified && interconnectionVerified ? 'Utility path sourced' : utilityVerified ? 'Utility known; check path' : 'Address check needed' },
+];
+---
+
+<section class="gp-local-path" aria-labelledby="local-path-title">
+  <div class="gp-local-path-head"><div><p class="gp-kicker">Research coverage</p><h2 id="local-path-title">Your permit path,<br/>at a glance.</h2></div><p>This shows what GridPermit has verified for {city}. It does not show the status of a specific project.</p></div>
+  <ol>
+    {steps.map(step => <li>
+      <a href={step.href}>
+        <span class="gp-local-path-number">{step.number}</span>
+        <span class="gp-local-path-main"><strong>{step.title}</strong><small>{step.detail}</small></span>
+        <EvidenceState state={step.state} label={step.label} />
+        <span class="gp-local-path-arrow" aria-hidden="true">↓</span>
+      </a>
+    </li>)}
+  </ol>
+</section>
+
+<style>
+  .gp-local-path { margin: 46px 0 72px; padding: 38px; border: 1px solid var(--gp-line); background: var(--gp-surface); }
+  .gp-local-path-head { display: grid; grid-template-columns: 1.3fr 1fr; gap: 42px; align-items: end; margin-bottom: 34px; }
+  .gp-local-path-head h2 { margin: 12px 0 0; font-size: clamp(32px,4vw,50px); font-weight: 300; line-height: 1.08; }
+  .gp-local-path-head > p { max-width: 400px; color: var(--gp-muted); font-size: 13px; }
+  .gp-local-path ol { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--gp-line); }
+  .gp-local-path li { margin: 0; border-top: 1px solid var(--gp-line); }
+  .gp-local-path a { display: grid; grid-template-columns: 42px minmax(0,1fr) minmax(135px,auto) 20px; gap: 18px; align-items: center; padding: 20px 0; color: inherit; text-decoration: none; }
+  .gp-local-path-number { color: var(--gp-accent); font: 10px/1.5 var(--gp-mono); }
+  .gp-local-path-main { display: grid; gap: 5px; }
+  .gp-local-path-main strong { font-size: 18px; font-weight: 450; }
+  .gp-local-path-main small { color: var(--gp-muted); font-size: 12px; }
+  .gp-local-path-arrow { color: var(--gp-muted); transition: transform .2s ease, color .2s ease; }
+  .gp-local-path a:hover .gp-local-path-arrow { color: var(--gp-accent); transform: translateY(4px); }
+  @media(max-width:700px) { .gp-local-path { margin: 34px 0 54px; padding: 24px 18px; } .gp-local-path-head { grid-template-columns: 1fr; gap: 16px; } .gp-local-path a { grid-template-columns: 28px minmax(0,1fr) 16px; gap: 12px; } .gp-local-path a :global(.gp-evidence-state) { grid-column: 2; } .gp-local-path-arrow { grid-column: 3; grid-row: 1; } }
+</style>
