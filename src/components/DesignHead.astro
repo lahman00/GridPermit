@@ -1,12 +1,12 @@
 ---
 import '../styles/global.css';
 ---
-<meta name="color-scheme" content="dark light" />
-<meta name="theme-color" content="#050505" />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#f7f6f2" />
 <script is:inline>
   (() => {
-    let theme = 'dark';
-    try { if (localStorage.getItem('gridpermit-appearance') === 'light') theme = 'light'; } catch {}
+    let theme = 'light';
+    try { if (localStorage.getItem('gridpermit-appearance') === 'dark') theme = 'dark'; } catch {}
     document.documentElement.dataset.theme = theme;
     document.documentElement.dataset.gridpermitDesign = 'architectural-20261004';
   })();

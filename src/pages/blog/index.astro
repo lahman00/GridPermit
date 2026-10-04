@@ -54,7 +54,7 @@ const blogSchema = {
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 	<Analytics />
 	<DesignHead />
@@ -115,12 +115,14 @@ const blogSchema = {
 			<section aria-labelledby="latest-heading">
 				<h2 id="latest-heading">Latest Guides</h2>
 				<div class="post-grid" id="post-grid">
-					{latest.map((post) => (
+					{latest.map((post, index) => (
 						<a href={post.url} class="post-card" data-category={post.category} data-search-text={`${post.title} ${post.description}`.toLowerCase()}>
+							<span class="post-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
 							<span class="post-category">{post.category}</span>
 							<h3>{post.title}</h3>
 							<p>{post.description}</p>
 							<span class="card-meta">{post.displayDate}</span>
+							<span class="post-arrow" aria-hidden="true">↗</span>
 						</a>
 					))}
 				</div>

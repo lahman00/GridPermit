@@ -105,7 +105,7 @@ test('locality summary uses the recorded authority and independently guards util
  assert.doesNotMatch(layout,/Your solar permit\s*starts with the City|Likely eligible|2–4 weeks/);
 });
 
-test('checklist is a local planning aid with source conditions, not a permit-readiness score',()=>{
+test('checklist is a local planning aid with source conditions and boolean-only device persistence, not a permit-readiness score',()=>{
  assert.match(layout,/type="checkbox" data-checklist-item/);
  assert.match(layout,/\{doc\.name\}/);
  assert.match(layout,/\{doc\.required_when\}/);
@@ -114,7 +114,9 @@ test('checklist is a local planning aid with source conditions, not a permit-rea
  assert.ok(script);
  assert.match(script,/navigator\.clipboard\.writeText/);
  assert.match(script,/canonical/);
- assert.doesNotMatch(script,/fetch\(|XMLHttpRequest|sendBeacon|localStorage|sessionStorage/);
+ assert.match(script,/gridpermit:checklist:\$\{window\.location\.pathname\}/);
+ assert.match(script,/JSON\.stringify\(checks\.map\(item => item\.checked\)\)/);
+ assert.doesNotMatch(script,/fetch\(|XMLHttpRequest|sendBeacon|sessionStorage/);
 });
 
 test('sources, section anchors and native print disclosure remain available',()=>{
@@ -209,9 +211,9 @@ test('quick-search arrow navigation excludes links inside any hidden container',
 });
 
 
-test('appearance is available without JavaScript and commercial text inherits accessible theme tokens',()=>{
+test('light appearance is available without JavaScript and commercial text inherits accessible theme tokens',()=>{
  const documents=[...astroFiles(path.join(ROOT,'src/pages')),...astroFiles(path.join(ROOT,'src/layouts'))].filter(file=>readFileSync(file,'utf8').includes('<html'));
- for(const file of documents) assert.match(readFileSync(file,'utf8'),/<html lang="en" data-theme="dark">/,file);
+ for(const file of documents) assert.match(readFileSync(file,'utf8'),/<html lang="en" data-theme="light">/,file);
  assert.match(css,/html:root\[data-theme\] \.compare-solar-cta h2/);
  assert.match(css,/html:root\[data-theme\] \.compare-solar-cta p/);
  assert.match(css,/html:root\[data-theme\] \.installer-cta-box p/);

@@ -31,9 +31,12 @@ import { stateGuidesIndexUrl } from "../lib/locality-guide";
 import { stateMeta } from "../lib/state-meta";
 import { hasVerifiedUnambiguousUtility } from "../lib/utility-split-guard";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
+import ReadingProgress from "../components/ReadingProgress.astro";
 import Analytics from "../components/Analytics.astro";
 import InstallerCTA from "../components/InstallerCTA.astro";
 import PermitPathwayAnswer from "../components/PermitPathwayAnswer.astro";
+import EvidenceState from "../components/EvidenceState.astro";
+import LocalityPermitPath from "../components/LocalityPermitPath.astro";
 import { buildPermitPathwayAnswer } from "../lib/permit-pathway-answer";
 
 interface Props {
@@ -58,6 +61,12 @@ const permitAuthorityLabel = resolvePermitAuthorityLabel(record);
 const sourceCount = record.sources.length;
 const utilityIsUnambiguous = hasVerifiedUnambiguousUtility(record);
 const recordedPathway = record.eligibility_constraints?.value?.program_or_pathway ?? NOT_VERIFIED;
+const hasSourcedValue = (value: unknown, sourceIds?: string[] | null) => Boolean(value) && Boolean(sourceIds?.length);
+const authorityVerified = hasSourcedValue(record.permit_authority.value, record.permit_authority.source_ids);
+const documentsVerified = Boolean(record.required_documents.value?.length) && Boolean(record.required_documents.source_ids?.length);
+const documentsConditional = Boolean(record.required_documents.value?.some(document => Boolean(document.required_when)));
+const inspectionVerified = Boolean(record.inspection_steps.value?.length) && Boolean(record.inspection_steps.source_ids?.length);
+const interconnectionVerified = hasSourcedValue(record.interconnection_url.value, record.interconnection_url.source_ids);
 
 const firstLeadTimeline = record.timeline_days?.value ?? null;
 const firstLeadLocalFact = isFirstLeadSprintPage
@@ -170,7 +179,7 @@ const tocItems = [
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 	<Analytics />
 	<DesignHead />
@@ -199,7 +208,7 @@ const tocItems = [
 </head>
 <body data-track-view="locality_guide_viewed">
 	<a href="#main-content" class="skip-link">Skip to main content</a>
-	<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
+	<ReadingProgress />
 
 	<Header><Fragment slot="action">{isFirstLeadSprintPage
 				? <a href="#installer-cta" class="btn-cta-nav">Compare Solar Quote</a>
@@ -228,8 +237,8 @@ const tocItems = [
                 <p class="gp-locality-lead">Your local requirements. The official sources. A clearer next step.</p>
               </div>
               <dl class="gp-facts" aria-label="Local permit summary">
-                <div><dt>Permit authority</dt><dd><a href="#permit-authority">{permitAuthorityLabel}</a></dd></div>
-                <div><dt>Electric utility</dt><dd><a href="#utility-supplier">{utilityIsUnambiguous ? (record.utility.value ?? NOT_VERIFIED) : 'Confirm utility for your address'}</a>{!utilityIsUnambiguous && <small>This record is not an unambiguous city-wide utility determination.</small>}</dd></div>
+                <div><dt>Permit authority</dt><dd><a href="#permit-authority">{permitAuthorityLabel}</a><EvidenceState state={authorityVerified ? "verified" : "check"} label={authorityVerified ? "Source linked" : "Confirm source"} /></dd></div>
+                <div><dt>Electric utility</dt><dd><a href="#utility-supplier">{utilityIsUnambiguous ? (record.utility.value ?? NOT_VERIFIED) : 'Confirm utility for your address'}</a><EvidenceState state={utilityIsUnambiguous ? "verified" : "check"} label={utilityIsUnambiguous ? "Source linked" : "Address check"} />{!utilityIsUnambiguous && <small>This record is not an unambiguous city-wide utility determination.</small>}</dd></div>
                 <div><dt>Local pathway</dt><dd><a href="#eligibility">{recordedPathway}</a>{recordedPathway !== NOT_VERIFIED && <small>Project-specific eligibility conditions apply.</small>}</dd></div>
                 <div><dt>Review time</dt><dd><a href="#overview">{timeline?.label ?? NOT_VERIFIED}</a>{timeline?.standardPathCaveat && <small>{timeline.standardPathCaveat}</small>}{hasTimeline && <small>See source scope and conditions below.</small>}</dd></div>
               </dl>
@@ -246,8 +255,11 @@ const tocItems = [
 			</div>
 
 			<div class="page-toolbar">
-				<span class="badge badge-verified">✓ Last verified {record.last_verified}</span>
-				<span class="badge badge-sources">{sourceCount} official source{sourceCount === 1 ? "" : "s"}</span>
+				<div class="gp-source-health" aria-label={`Source health: verified ${record.last_verified}, ${sourceCount} official sources`}>
+					<span class="gp-source-health-label"><i aria-hidden="true"></i>Source health</span>
+					<span class="badge badge-date">Last verified {record.last_verified}</span>
+					<span class="badge badge-sources">{sourceCount} official source{sourceCount === 1 ? "" : "s"}</span>
+				</div>
 				<button type="button" class="btn-toolbar" id="copy-link-btn">Copy Link</button>
 				<button type="button" class="btn-toolbar" id="print-btn">Print Checklist</button>
 			</div>
@@ -272,6 +284,18 @@ const tocItems = [
 			{!isFirstLeadSprintPage && (
 				<p class="first-lead-jump" data-approved-quote-jump hidden><a href="#installer-cta">Planning a new solar project? See the homeowner quote option →</a></p>
 			)}
+
+			<LocalityPermitPath
+				city={record.city.value}
+				authority={permitAuthorityLabel}
+				utility={record.utility.value ?? NOT_VERIFIED}
+				authorityVerified={authorityVerified}
+				documentsVerified={documentsVerified}
+				documentsConditional={documentsConditional}
+				inspectionVerified={inspectionVerified}
+				utilityVerified={utilityIsUnambiguous}
+				interconnectionVerified={interconnectionVerified}
+			/>
 
 			<!-- ===== Overview ===== -->
 			<section id="overview">
@@ -326,8 +350,9 @@ const tocItems = [
                               <li><label><input type="checkbox" data-checklist-item /><span><strong>{doc.name}</strong>{doc.required_when && <span class="doc-condition">Required when: {doc.required_when}</span>}</span></label></li>
                             ))}
                         </ul>
-                        <div class="gp-checklist-tools"><output id="checklist-progress" aria-live="polite">0 of {record.required_documents.value.length} marked</output><button type="button" class="btn-toolbar" id="copy-checklist-btn">Copy checklist</button><span class="fact-notes">For your own planning, not confirmation of permit readiness.</span></div>
+                        <div class="gp-checklist-tools"><output id="checklist-progress" aria-live="polite">0 of {record.required_documents.value.length} marked</output><button type="button" class="btn-toolbar" id="copy-checklist-btn">Copy checklist + sources</button><button type="button" class="btn-toolbar" id="clear-checklist-btn" hidden>Clear marks</button><span class="fact-notes" id="checklist-storage-status">Saved only on this device; not confirmation of permit readiness.</span></div>
                         <p class="sr-only" id="checklist-copy-status" role="status"></p>
+						<script is:inline type="application/json" id="checklist-source-data" set:html={JSON.stringify(record.sources.map(source => ({ title: source.title, url: source.url }))).replace(/</g, "\\u003c")} />
 						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.required_documents.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.required_documents.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
@@ -592,17 +617,6 @@ const tocItems = [
 	<Footer />
 
 	<script>
-		// Reading progress bar — pure scroll-position math, no library.
-		const progressBar = document.getElementById("reading-progress-bar");
-		function updateReadingProgress() {
-			const scrollTop = window.scrollY;
-			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-			const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-			if (progressBar) progressBar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
-		}
-		window.addEventListener("scroll", updateReadingProgress, { passive: true });
-		updateReadingProgress();
-
 		// Copy Link — Clipboard API, no external service.
 		const copyBtn = document.getElementById("copy-link-btn");
 		copyBtn?.addEventListener("click", async () => {
@@ -654,14 +668,38 @@ const tocItems = [
 <script>
   const checks = Array.from(document.querySelectorAll<HTMLInputElement>('[data-checklist-item]'));
   const progress = document.getElementById('checklist-progress');
-  const updateProgress = () => { if (progress) progress.textContent = `${checks.filter(input => input.checked).length} of ${checks.length} marked`; };
-  checks.forEach(input => input.addEventListener('change', updateProgress));
+  const clearChecklist = document.getElementById('clear-checklist-btn') as HTMLButtonElement | null;
+  const storageStatus = document.getElementById('checklist-storage-status');
+  const checklistStorageKey = `gridpermit:checklist:${window.location.pathname}`;
+  const updateProgress = () => {
+    const marked = checks.filter(input => input.checked).length;
+    if (progress) progress.textContent = `${marked} of ${checks.length} marked`;
+    if (clearChecklist) clearChecklist.hidden = marked === 0;
+  };
+  try {
+    const saved = JSON.parse(localStorage.getItem(checklistStorageKey) ?? '[]');
+    if (Array.isArray(saved)) checks.forEach((input, index) => { input.checked = saved[index] === true; });
+  } catch {}
+  updateProgress();
+  checks.forEach(input => input.addEventListener('change', () => {
+    updateProgress();
+    try { localStorage.setItem(checklistStorageKey, JSON.stringify(checks.map(item => item.checked))); if (storageStatus) storageStatus.textContent = 'Progress saved only on this device; not confirmation of permit readiness.'; } catch { if (storageStatus) storageStatus.textContent = 'Progress could not be saved in this browser.'; }
+  }));
+  clearChecklist?.addEventListener('click', () => {
+    checks.forEach(input => { input.checked = false; });
+    try { localStorage.removeItem(checklistStorageKey); } catch {}
+    updateProgress();
+    if (storageStatus) storageStatus.textContent = 'Local checklist marks cleared.';
+  });
   document.getElementById('copy-checklist-btn')?.addEventListener('click', async () => {
     const status = document.getElementById('checklist-copy-status');
     const heading = document.querySelector('h1')?.textContent ?? 'Solar permit checklist';
     const lines = checks.map(input => `${input.checked ? '[x]' : '[ ]'} ${input.closest('label')?.textContent?.replace(/\s+/g, ' ').trim() ?? ''}`);
     const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href ?? window.location.href;
-    try { await navigator.clipboard.writeText([heading, ...lines, '', 'Confirm current requirements with the local authority.', canonical].join('\n')); if (status) status.textContent = 'Checklist copied.'; }
+    let sources: Array<{title:string;url:string}> = [];
+    try { sources = JSON.parse(document.getElementById('checklist-source-data')?.textContent ?? '[]'); } catch {}
+    const sourceLines = sources.map((source, index) => `${index + 1}. ${source.title}: ${source.url}`);
+    try { await navigator.clipboard.writeText([heading, ...lines, '', 'Official sources', ...sourceLines, '', 'Confirm current requirements with the local authority.', canonical].join('\n')); if (status) status.textContent = 'Checklist and sources copied.'; }
     catch { if (status) { status.className = 'fact-notes'; status.textContent = 'Copy is unavailable in this browser. Use Print Checklist instead.'; } }
   });
   // Print all source and requirement details; restore the reader's expanded state afterwards.

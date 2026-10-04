@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import DesignHead from "../components/DesignHead.astro";
 import Analytics from "../components/Analytics.astro";
+import ProjectNavigator from "../components/ProjectNavigator.astro";
 import { SITE_ORIGIN } from "../lib/locality-guide";
 import { getPartner, getCplState, getCplDisclosureText } from "../lib/partners";
 
@@ -35,7 +36,7 @@ const websiteSchema = {
 // The redesign deliberately avoids frozen coverage totals. Discovery pages derive their counts from the canonical records.
 ---
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 	<Analytics />
 	<DesignHead />
@@ -58,7 +59,8 @@ const websiteSchema = {
 	<meta name="twitter:title" content="GridPermit - Solar Permit Guides for U.S. Cities (All 50 States)" />
 	<meta name="twitter:description" content="Search verified, source-linked solar permit guides for U.S. cities. Research on file for all 50 states — deepest coverage in California." />
 	<meta name="twitter:image" content="https://mygridpermit.com/brand/gridpermit-banner.png" />
-	<link rel="icon" type="image/png" href="/brand/gridpermit-favicon.png" />
+	<link rel="icon" type="image/svg+xml" href="/brand/gridpermit-mark.svg" />
+	<link rel="icon" type="image/png" href="/brand/gridpermit-favicon.png" sizes="64x64" />
 
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
@@ -71,12 +73,35 @@ const websiteSchema = {
 
 	<main class="gp-home" id="main-content" tabindex="-1">
       <section class="gp-home-hero gp-container" aria-labelledby="home-heading">
-        <p class="gp-kicker"><span class="gp-accent">Local knowledge</span> / Solar permitting</p>
-        <h1 id="home-heading">Solar permitting,<br/><span>without the guessing.</span></h1>
-        <p class="gp-home-lead">Local permit requirements. Utility approvals.<br/>The official sources behind your next step.</p>
-        <QuickSearch />
+        <div class="gp-hero-stage">
+          <div class="gp-hero-copy">
+            <p class="gp-kicker"><span class="gp-accent">Local knowledge</span> / Solar permitting</p>
+            <h1 id="home-heading">Solar permitting,<br/><span>without the guessing.</span></h1>
+            <p class="gp-home-lead">Local permit requirements. Utility approvals.<br/>The official sources behind your next step.</p>
+            <QuickSearch />
+          </div>
+          <div class="gp-route-map" aria-hidden="true">
+            <div class="gp-route-map-head"><span>Project route</span><span>Source linked</span></div>
+            <svg viewBox="0 0 400 390" role="presentation">
+              <g class="gp-route-grid">
+                <path d="M40 48H360M40 133H360M40 218H360M40 303H360" />
+                <path d="M80 24V344M200 24V344M320 24V344" />
+              </g>
+              <path class="gp-route-line-shadow" d="M70 286C105 286 118 231 157 231S203 150 246 150s49-70 91-70" />
+              <path class="gp-route-line" d="M70 286C105 286 118 231 157 231S203 150 246 150s49-70 91-70" />
+              <g class="gp-route-node gp-route-node--one" transform="translate(70 286)"><circle r="15"/><circle r="4"/></g>
+              <g class="gp-route-node gp-route-node--two" transform="translate(200 178)"><circle r="15"/><circle r="4"/></g>
+              <g class="gp-route-node gp-route-node--three" transform="translate(337 80)"><circle r="19"/><path d="m-7 0 5 5L8-7" /></g>
+            </svg>
+            <div class="gp-route-label gp-route-label--permit"><span>01</span><strong>Permit</strong><small>Local authority</small></div>
+            <div class="gp-route-label gp-route-label--inspect"><span>02</span><strong>Inspection</strong><small>Field approval</small></div>
+            <div class="gp-route-label gp-route-label--pto"><span>03</span><strong>PTO</strong><small>Utility approval</small></div>
+            <div class="gp-route-readout"><span><i></i> Verified facts</span><span>No contact info</span></div>
+          </div>
+        </div>
         <div class="gp-home-hero-bottom"><span>Find. Understand. Act.</span><a href="#know-your-path" aria-label="Learn about the two approval paths">Scroll to explore <span aria-hidden="true">↓</span></a></div>
       </section>
+      <ProjectNavigator />
       <section class="gp-container gp-home-section gp-home-path" id="know-your-path">
         <div><p class="gp-kicker">01 / Know your path</p><h2>City permit.<br/>Utility approval.<br/><span class="gp-muted-heading">Not the same thing.</span></h2></div>
         <div class="gp-home-track-list">
@@ -299,10 +324,37 @@ const websiteSchema = {
 <style>
  .gp-home { padding: 0; width: 100%; max-width: none; margin: 0; }
  .gp-home-hero { padding-top: clamp(64px, 8vw, 116px); padding-bottom: 28px; min-height: min(790px, calc(100svh - 80px)); }
- .gp-home-hero > .gp-kicker { margin-bottom: 38px; }
+ .gp-hero-stage { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(310px, .7fr); gap: clamp(52px, 7vw, 112px); align-items: center; }
+ .gp-hero-copy > .gp-kicker { margin-bottom: 38px; }
  .gp-home-hero h1 { font-size: clamp(47px, 6.5vw, 88px); font-weight: 300; line-height: 1.06; letter-spacing: -.045em; max-width: 1100px; }
  .gp-home-hero h1 > span { color: var(--gp-accent); }
  .gp-home-lead { color: var(--gp-muted); font-size: 18px; line-height: 1.6; margin: 30px 0 0; }
+ .gp-route-map { position: relative; min-height: 390px; border: 1px solid var(--gp-line); overflow: hidden; background: var(--gp-surface); }
+ .gp-route-map-head,.gp-route-readout { position: absolute; z-index: 2; left: 18px; right: 18px; display: flex; justify-content: space-between; gap: 18px; color: var(--gp-muted); font: 9px/1.4 var(--gp-mono); letter-spacing: .08em; text-transform: uppercase; }
+ .gp-route-map-head { top: 16px; }
+ .gp-route-map svg { position: absolute; inset: 28px 0 34px; width: 100%; height: calc(100% - 62px); }
+ .gp-route-grid path { fill: none; stroke: var(--gp-line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+ .gp-route-line-shadow { fill: none; stroke: var(--gp-bg); stroke-width: 12; }
+ .gp-route-line { fill: none; stroke: var(--gp-accent); stroke-width: 3; stroke-linecap: square; stroke-dasharray: 410; stroke-dashoffset: 410; animation: gp-route-draw 1.8s .35s cubic-bezier(.22,.72,.25,1) forwards; }
+ .gp-route-node > circle:first-child { fill: var(--gp-bg); stroke: var(--gp-accent); stroke-width: 2; }
+ .gp-route-node > circle:nth-child(2) { fill: var(--gp-accent); }
+ .gp-route-node--two { animation: gp-node-arrive .55s 1.15s both; }
+ .gp-route-node--three { animation: gp-node-arrive .55s 1.9s both; }
+ .gp-route-node--three circle { fill: var(--gp-accent) !important; }
+ .gp-route-node--three path { fill: none; stroke: var(--gp-accent-ink); stroke-width: 3; stroke-linecap: square; stroke-linejoin: miter; }
+ .gp-route-label { position: absolute; z-index: 2; display: grid; grid-template-columns: 24px auto; column-gap: 8px; padding: 5px 7px; color: var(--gp-ink); background: var(--gp-surface); border-left: 1px solid var(--gp-accent); }
+ .gp-route-label > span { grid-row: 1 / 3; color: var(--gp-accent); font: 9px/1.5 var(--gp-mono); }
+ .gp-route-label strong { font-size: 13px; font-weight: 500; line-height: 1.25; }
+ .gp-route-label small { color: var(--gp-muted); font: 9px/1.5 var(--gp-mono); text-transform: uppercase; letter-spacing: .04em; }
+ .gp-route-label--permit { left: 25%; top: 72%; }
+ .gp-route-label--inspect { left: 55%; top: 49%; }
+ .gp-route-label--pto { right: 24%; top: 11%; }
+ .gp-route-readout { bottom: 14px; padding-top: 12px; border-top: 1px solid var(--gp-line); }
+ .gp-route-readout span:first-child { color: var(--gp-ink); }
+ .gp-route-readout i { display: inline-block; width: 6px; height: 6px; margin-right: 6px; background: var(--gp-accent); animation: gp-live-pulse 2.2s ease-in-out infinite; }
+ @keyframes gp-route-draw { to { stroke-dashoffset: 0; } }
+ @keyframes gp-node-arrive { from { opacity: 0; } to { opacity: 1; } }
+ @keyframes gp-live-pulse { 50% { opacity: .3; } }
  .gp-home-hero-bottom { display: flex; justify-content: space-between; margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--gp-line); color: var(--gp-muted); font: 10px/1.5 var(--gp-mono); letter-spacing: .07em; text-transform: uppercase; }
  .gp-home-hero-bottom a { text-decoration: none; display: flex; gap: 24px; }
  .gp-home-section { padding-block: 106px; border-bottom: 1px solid var(--gp-line); }
@@ -316,6 +368,8 @@ const websiteSchema = {
  .gp-explore-rows a { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 24px 0; border-top: 1px solid var(--gp-line); text-decoration: none; font-size: 30px; font-weight: 300; }
  .gp-explore-rows a:last-child { border-bottom: 1px solid var(--gp-line); }
  .gp-explore-rows small { display: block; font: 10px/1.5 var(--gp-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--gp-muted); margin-bottom: 14px; }
+ .gp-explore-rows a > span:last-child { transition: transform .25s ease, color .2s ease; }
+ .gp-explore-rows a:hover > span:last-child { color: var(--gp-accent); transform: translate(4px,-4px); }
  .gp-statement { background: #ff4f2b; color: #050505; padding-block: 84px; }
  .gp-statement h2 { font-size: clamp(42px,6vw,80px); font-weight: 300; color: #050505; letter-spacing: -.045em; line-height: 1.05; margin: 20px 0 36px; }
  .gp-statement .gp-kicker { color: #050505; }
@@ -343,18 +397,29 @@ const websiteSchema = {
  .results-metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px 0; }
  .results-table-wrap { overflow-x: auto; }
  .lead-action-box p { color: var(--gp-muted); font-size: 14px; }
+ @media (max-width: 1020px) { .gp-hero-stage { grid-template-columns: 1fr; } .gp-route-map { width: min(100%, 560px); min-height: 330px; } }
  @media (max-width: 900px) { .gp-home-path,.gp-home-discover { gap: 50px; } }
  @media (max-width: 760px) {
   .gp-home-hero { min-height: auto; padding-top: 62px; }
   .gp-home-hero h1 { font-size: clamp(40px,8.5vw,60px); }
   .gp-home-lead { font-size: 16px; }
-  .gp-home-hero > .gp-kicker { font-size: 10px; margin-bottom: 30px; }
+  .gp-hero-copy > .gp-kicker { font-size: 10px; margin-bottom: 30px; }
+  .gp-hero-stage { gap: 46px; }
+  .gp-route-map { min-height: 300px; }
+  .gp-route-label { grid-template-columns: 20px auto; padding: 4px 5px; }
+  .gp-route-label--permit { left: 24%; top: 71%; }
+  .gp-route-label--inspect { left: 53%; top: 48%; }
+  .gp-route-label--pto { right: 19%; top: 10%; }
   .gp-home-hero-bottom { margin-top: 58px; font-size: 8px; gap: 20px; }
   .gp-home-section { padding-block: 64px; }
   .gp-home-path,.gp-home-discover,.gp-trust-editorial { grid-template-columns: 1fr; gap: 32px; }
   .gp-statement { padding-block: 60px; }
   .gp-lab > summary { flex-wrap: wrap; font-size: 14px; }
   .gp-lab > summary .gp-kicker { flex-basis: 100%; }
+ }
+ @media (prefers-reduced-motion: reduce) {
+  .gp-route-line { animation: none; stroke-dashoffset: 0; }
+  .gp-route-node--two,.gp-route-node--three,.gp-route-readout i { animation: none; }
  }
 </style>
 <script>

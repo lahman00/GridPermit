@@ -1,0 +1,68 @@
+<section class="gp-project-nav" aria-labelledby="project-nav-title">
+  <div class="gp-project-nav-copy">
+    <p class="gp-kicker">Choose your next step</p>
+    <h2 id="project-nav-title">Where are you<br/>in the process?</h2>
+    <p>Pick the point that matches your project. We will point you to the facts that matter now.</p>
+  </div>
+  <div class="gp-project-nav-tool">
+    <div class="gp-stage-tabs" role="tablist" aria-label="Project stage">
+      <button type="button" role="tab" id="stage-tab-research" aria-controls="stage-panel-research" aria-selected="true" data-stage="research"><span>01</span>Researching</button>
+      <button type="button" role="tab" id="stage-tab-docs" aria-controls="stage-panel-docs" aria-selected="false" data-stage="docs" tabindex="-1"><span>02</span>Preparing</button>
+      <button type="button" role="tab" id="stage-tab-inspection" aria-controls="stage-panel-inspection" aria-selected="false" data-stage="inspection" tabindex="-1"><span>03</span>Inspection</button>
+      <button type="button" role="tab" id="stage-tab-pto" aria-controls="stage-panel-pto" aria-selected="false" data-stage="pto" tabindex="-1"><span>04</span>PTO</button>
+    </div>
+    <div class="gp-stage-panel" role="tabpanel" id="stage-panel-research" aria-labelledby="stage-tab-research" data-stage-panel="research">
+      <span class="gp-stage-mark" aria-hidden="true">⌕</span><div><p class="gp-kicker">Start with location</p><h3>Find the local authority and utility.</h3><p>Search published city, county and utility guidance before building a checklist.</p><a href="/search/" data-command-open>Find your local guide <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="gp-stage-panel" role="tabpanel" id="stage-panel-docs" aria-labelledby="stage-tab-docs" data-stage-panel="docs" hidden>
+      <span class="gp-stage-mark" aria-hidden="true">▤</span><div><p class="gp-kicker">Build the package</p><h3>Check documents, eligibility and fees.</h3><p>Use a locality guide to separate confirmed requirements from items that still need an official check.</p><a href="/permits/">Browse permit guides <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="gp-stage-panel" role="tabpanel" id="stage-panel-inspection" aria-labelledby="stage-tab-inspection" data-stage-panel="inspection" hidden>
+      <span class="gp-stage-mark" aria-hidden="true">✓</span><div><p class="gp-kicker">After installation</p><h3>Review the recorded inspection sequence.</h3><p>See what the official sources say, then confirm the current booking and correction process with the authority.</p><a href="/search/?q=inspection">Find inspection guidance <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="gp-stage-panel" role="tabpanel" id="stage-panel-pto" aria-labelledby="stage-tab-pto" data-stage-panel="pto" hidden>
+      <span class="gp-stage-mark" aria-hidden="true">↗</span><div><p class="gp-kicker">Utility track</p><h3>Permit approval is not permission to operate.</h3><p>Use the utility path to find interconnection and PTO guidance for your project.</p><a href="/permit-path/">Understand permit vs. PTO <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const projectNav = document.querySelector<HTMLElement>('.gp-project-nav');
+  const tabs = Array.from(projectNav?.querySelectorAll<HTMLButtonElement>('[role="tab"]') ?? []);
+  const panels = Array.from(projectNav?.querySelectorAll<HTMLElement>('[role="tabpanel"]') ?? []);
+  const activate = (tab: HTMLButtonElement) => {
+    const stage = tab.dataset.stage;
+    for (const item of tabs) { const selected = item === tab; item.setAttribute('aria-selected', String(selected)); item.tabIndex = selected ? 0 : -1; }
+    for (const panel of panels) panel.hidden = panel.dataset.stagePanel !== stage;
+  };
+  for (const [index, tab] of tabs.entries()) {
+    tab.addEventListener('click', () => activate(tab));
+    tab.addEventListener('keydown', event => {
+      if (!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)) return;
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+      const target = tabs[next]; if (target) { activate(target); target.focus(); }
+    });
+  }
+</script>
+
+<style>
+  .gp-project-nav { display: grid; grid-template-columns: .78fr 1.5fr; gap: clamp(48px,8vw,130px); padding-block: 106px; border-bottom: 1px solid var(--gp-line); }
+  .gp-project-nav-copy h2 { font-size: clamp(38px,4.6vw,62px); line-height: 1.07; letter-spacing: -.045em; }
+  .gp-project-nav-copy > p:last-child { max-width: 380px; color: var(--gp-muted); }
+  .gp-stage-tabs { display: grid; grid-template-columns: repeat(4,1fr); border-block: 1px solid var(--gp-line); }
+  .gp-stage-tabs button { min-width: 0; padding: 17px 10px; color: var(--gp-muted); background: transparent; border: 0; border-right: 1px solid var(--gp-line); font: 11px/1.4 var(--gp-mono); text-align: left; text-transform: uppercase; transition: color .2s ease, background .2s ease; }
+  .gp-stage-tabs button:last-child { border-right: 0; }
+  .gp-stage-tabs button span { display: block; margin-bottom: 9px; color: var(--gp-accent); font-size: 9px; }
+  .gp-stage-tabs button[aria-selected="true"] { color: var(--gp-accent-ink); background: var(--gp-accent); }
+  .gp-stage-tabs button[aria-selected="true"] span { color: var(--gp-accent-ink); }
+  .gp-stage-panel { display: grid; grid-template-columns: 90px minmax(0,1fr); gap: 34px; min-height: 285px; padding: 42px 0 10px; }
+  .gp-stage-panel[hidden] { display: none; }
+  .gp-stage-mark { display: grid; place-items: center; width: 72px; height: 72px; border: 1px solid var(--gp-accent); color: var(--gp-accent); font: 32px/1 var(--gp-mono); }
+  .gp-stage-panel .gp-kicker { color: var(--gp-accent); }
+  .gp-stage-panel h3 { max-width: 580px; margin: 14px 0 16px; font-size: clamp(28px,3vw,40px); font-weight: 300; line-height: 1.18; }
+  .gp-stage-panel p:not(.gp-kicker) { max-width: 570px; color: var(--gp-muted); }
+  .gp-stage-panel a { display: inline-flex; gap: 36px; margin-top: 18px; padding: 10px 0; border-bottom: 1px solid var(--gp-line); text-decoration: none; }
+  @media(max-width:900px) { .gp-project-nav { grid-template-columns: 1fr; gap: 38px; padding-block: 70px; } }
+  @media(max-width:620px) { .gp-stage-tabs { grid-template-columns: 1fr 1fr; } .gp-stage-tabs button:nth-child(2) { border-right: 0; } .gp-stage-tabs button:nth-child(-n+2) { border-bottom: 1px solid var(--gp-line); } .gp-stage-panel { grid-template-columns: 54px minmax(0,1fr); gap: 20px; min-height: 320px; padding-top: 34px; } .gp-stage-mark { width: 48px; height: 48px; font-size: 22px; } }
+</style>

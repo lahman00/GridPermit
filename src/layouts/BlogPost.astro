@@ -6,13 +6,15 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
+import PermitFlow from '../components/PermitFlow.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, decisionStage } = Astro.props;
 ---
 
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 	<head>
 		<BaseHead title={title} description={description} />
 
@@ -20,6 +22,7 @@ const { title, description, pubDate, updatedDate, heroImage, decisionStage } = A
 
 	<body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
+		<ReadingProgress />
 		<Header />
 		<main class="gp-container" id="main-content" tabindex="-1">
 			<article class="gp-article">
@@ -28,8 +31,8 @@ const { title, description, pubDate, updatedDate, heroImage, decisionStage } = A
 				</div>
 				<div class="prose">
 					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
+						<div class="date gp-article-meta">
+							<span><FormattedDate date={pubDate} /></span>
 							{
 								updatedDate && (
 									<div class="last-updated-on">
@@ -37,10 +40,13 @@ const { title, description, pubDate, updatedDate, heroImage, decisionStage } = A
 									</div>
 								)
 							}
+							<button type="button" class="gp-copy-link" data-copy-article-link>Copy link</button>
+							<span class="sr-only" role="status" data-copy-article-status></span>
 						</div>
 						<h1>{title}</h1>
 						<hr />
 					</div>
+					{decisionStage && <PermitFlow />}
 					<slot />
 				<ContextualPartnerSlot />
 					{
@@ -61,6 +67,19 @@ const { title, description, pubDate, updatedDate, heroImage, decisionStage } = A
  document.querySelectorAll<HTMLTableElement>('.gp-article table').forEach(table => {
    table.tabIndex = 0;
    if (!table.hasAttribute('aria-label') && !table.caption) table.setAttribute('aria-label', 'Guide comparison table. Scroll horizontally for additional columns.');
+ });
+ const copyArticleLink = document.querySelector<HTMLButtonElement>('[data-copy-article-link]');
+ const copyArticleStatus = document.querySelector<HTMLElement>('[data-copy-article-status]');
+ copyArticleLink?.addEventListener('click', async () => {
+   try {
+     await navigator.clipboard.writeText(window.location.href);
+     copyArticleLink.textContent = 'Copied';
+     if (copyArticleStatus) copyArticleStatus.textContent = 'Article link copied';
+     window.setTimeout(() => { copyArticleLink.textContent = 'Copy link'; }, 1600);
+   } catch {
+     copyArticleLink.textContent = 'Copy unavailable';
+     if (copyArticleStatus) copyArticleStatus.textContent = 'Copy unavailable. Use the browser address bar.';
+   }
  });
 </script>
 </body>

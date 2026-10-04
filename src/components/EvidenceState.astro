@@ -1,0 +1,39 @@
+---
+interface Props {
+  state: "verified" | "conditional" | "check" | "missing";
+  label?: string;
+}
+
+const { state, label } = Astro.props;
+const defaults = {
+  verified: "Verified",
+  conditional: "Conditional",
+  check: "Check source",
+  missing: "Not verified",
+};
+---
+
+<span class={`gp-evidence-state gp-evidence-state--${state}`}>
+  <i aria-hidden="true"></i>{label ?? defaults[state]}
+</span>
+
+<style>
+  .gp-evidence-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    color: var(--gp-muted);
+    font: 9px/1.5 var(--gp-mono);
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+  .gp-evidence-state i { width: 7px; height: 7px; border: 1px solid currentColor; background: transparent; }
+  .gp-evidence-state--verified { color: #62b982; }
+  .gp-evidence-state--verified i { background: currentColor; box-shadow: 0 0 0 4px color-mix(in srgb, #62b982 12%, transparent); }
+  .gp-evidence-state--conditional { color: #e6a34a; }
+  .gp-evidence-state--conditional i { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
+  .gp-evidence-state--check { color: var(--gp-accent); }
+  .gp-evidence-state--check i { transform: rotate(45deg); }
+  .gp-evidence-state--missing i { border-style: dashed; }
+</style>
