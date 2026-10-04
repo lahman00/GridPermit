@@ -1,4 +1,8 @@
 ---
+import DirectoryFilter from "../../../components/DirectoryFilter.astro";
+import Footer from "../../../components/Footer.astro";
+import Header from "../../../components/Header.astro";
+import DesignHead from "../../../components/DesignHead.astro";
 // Utility hub pages — generated only for utilities with enough READY
 // cities to offer genuine navigation and context value (see
 // MIN_READY_CITIES_FOR_UTILITY_HUB in src/lib/utility-hub.ts). Never
@@ -66,9 +70,10 @@ const collectionSchema = {
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 	<Analytics />
+	<DesignHead />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>
@@ -76,10 +81,6 @@ const collectionSchema = {
 	<link rel="canonical" href={CANONICAL_URL} />
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
-	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={CANONICAL_URL} />
@@ -94,26 +95,9 @@ const collectionSchema = {
 </head>
 <body>
 	<a href="#main-content" class="skip-link">Skip to main content</a>
-	<div class="top-banner">
-		Independent Educational Guide: California residential solar and battery estimates. Illustrative only, not utility-specific.
-	</div>
 
-	<nav class="navbar">
-		<div class="nav-container">
-			<a href="/" class="brand-logo" aria-label="GridPermit Home">
-				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
-			</a>
-			<div class="nav-links">
-				<a href="/#calculator">ROI Calculator</a>
-				<a href="/how-it-works/">How It Works</a>
-				<a href="/california/solar-permit-guides/">California Guides</a>
-				<a href="/blog/">Blog</a>
-				<a href="/methodology/">Methodology</a>
-			</div>
-			<a href="/search/" class="nav-search-link" aria-label="Search">🔍</a>
-			<a href="/#calculator" class="btn-cta-nav">Estimate Savings</a>
-		</div>
-	</nav>
+
+	<Header />
 
 	<div class="page-container">
 		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -130,6 +114,7 @@ const collectionSchema = {
 		<main class="content-card" id="main-content" tabindex="-1">
 			<h1>{hub.utilityShort} Solar Permit Cities</h1>
 			<p class="subtitle">{hub.cities.length} verified cities across {hub.counties.length} {hub.counties.length === 1 ? "county" : "counties"}</p>
+<DirectoryFilter />
 
 			<div class="disclaimer-box">
 				<strong>Informational only.</strong> This page summarizes verified per-city facts already published on each city's own guide. {hub.utilityShort} is the interconnection and distribution utility for the cities listed. The city's own building department, not {hub.utilityShort}, issues the construction/electrical permit. Not legal, engineering, or permit advice.
@@ -147,7 +132,7 @@ const collectionSchema = {
 				<h2>Verified {hub.utilityShort} cities</h2>
 				<div class="guide-grid">
 					{hub.cities.map((c) => (
-						<a href={c.guideUrl} class="guide-card" data-track-click="permit_guide_clicked">
+						<a href={c.guideUrl} class="guide-card" data-filter-text={[c.county, hub.utilityShort].filter(Boolean).join(" ")} data-track-click="permit_guide_clicked">
 							<h2>{c.city}</h2>
 							{c.county && <p class="card-field"><strong>County:</strong> {c.county}</p>}
 							<span class="card-link">View full guide →</span>
@@ -163,69 +148,10 @@ const collectionSchema = {
 		</main>
 	</div>
 
-	<footer class="footer">
-		<div class="footer-container">
-			<p>© 2026 GridPermit. All rights reserved.</p>
-			<p class="affiliate-disclosure">
-				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
-			</p>
-			<div class="footer-links">
-				<a href="/about/">About Us</a> | <a href="/how-it-works/">How It Works</a> | <a href="/california/solar-permit-guides/">California Guides</a> | <a href="/pro/">GridPermit Pro</a> | <a href="/blog/">Blog</a> | <a href="/methodology/">Methodology</a> | <a href="/contact/">Contact</a> | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a>
-			</div>
-		</div>
-	</footer>
+	<Footer />
 
 	<style>
-		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
-		.skip-link { position: absolute; top: -3rem; left: 0; background: var(--primary); color: white; padding: 0.75rem 1.25rem; z-index: 1000; text-decoration: none; font-weight: 700; border-radius: 0 0 8px 0; transition: top 0.15s ease; }
-		.skip-link:focus { top: 0; }
-		* { box-sizing: border-box; }
-		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
-		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
-		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
-		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-		.brand-logo { text-decoration: none; }
-		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
-		.logo-bold { font-weight: 800; }
-		.nav-links { display: flex; gap: 1.25rem; }
-		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
-		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
-		@media (max-width: 640px) {
-			.nav-container { flex-wrap: wrap; row-gap: 0.6rem; }
-			.nav-links { flex-wrap: wrap; justify-content: center; }
-		}
-
-		.page-container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem 4rem; }
-		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
-		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
-		.crumb-sep { margin: 0 0.4rem; }
-		.crumb-current { color: var(--text-main); font-weight: 600; }
-
-		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; }
-		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
-		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
-		h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 2rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
-		section:first-of-type h2 { border-top: none; padding-top: 0; margin-top: 1.5rem; }
-		p { margin: 0 0 0.75rem; }
-
-		.disclaimer-box { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.5rem; }
-
-		.guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
-		.guide-card { display: block; background: #f8fafc; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem 1.4rem; text-decoration: none; color: var(--text-main); transition: border-color 0.15s ease; }
-		.guide-card:hover { border-color: var(--primary); }
-		.guide-card h2 { font-size: 1.15rem; font-weight: 800; margin: 0 0 0.6rem; color: var(--text-main); border: none; padding: 0; }
-		.card-field { font-size: 0.85rem; color: #334155; margin-bottom: 0.35rem; }
-		.card-field strong { color: var(--text-main); }
-		.card-link { display: inline-block; margin-top: 0.5rem; font-size: 0.85rem; font-weight: 700; color: var(--primary); }
-
-		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
-		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
-
-		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
-		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
-		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
+		.disclaimer-box { background: var(--gp-surface); border: 1px solid var(--gp-line); color: var(--gp-muted); border-radius: 2px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.5rem; }.card-field strong { color: var(--text-main); }
 	</style>
 </body>
 </html>

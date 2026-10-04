@@ -12,65 +12,17 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage, decisionStage } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-theme="dark">
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-			.decision-cta {
-				margin: 2.5rem 0 0;
-				padding: 1.25rem 1.35rem;
-				border: 1px solid #bfdbfe;
-				border-radius: 12px;
-				background: #eff6ff;
-			}
-			.decision-cta strong { display: block; color: #0f172a; margin-bottom: .35rem; }
-			.decision-cta p { margin: 0 0 .8rem; color: #475569; }
-			.decision-cta a { display: inline-block; font-weight: 700; color: #1d4ed8; text-decoration: none; }
-			.decision-cta small { display: block; color: #64748b; margin-top: .7rem; }
-		</style>
+
 	</head>
 
 	<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 		<Header />
-		<main>
-			<article>
+		<main class="gp-container" id="main-content" tabindex="-1">
+			<article class="gp-article">
 				<div class="hero-image">
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 				</div>
@@ -105,5 +57,11 @@ const { title, description, pubDate, updatedDate, heroImage, decisionStage } = A
 			</article>
 		</main>
 		<Footer />
-	</body>
+	<script>
+ document.querySelectorAll<HTMLTableElement>('.gp-article table').forEach(table => {
+   table.tabIndex = 0;
+   if (!table.hasAttribute('aria-label') && !table.caption) table.setAttribute('aria-label', 'Guide comparison table. Scroll horizontally for additional columns.');
+ });
+</script>
+</body>
 </html>

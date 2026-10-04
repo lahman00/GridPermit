@@ -1,4 +1,7 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import DesignHead from "../components/DesignHead.astro";
 // GridPermit Pro — an interest-validation page, not a real product. Per
 // docs/MONETIZATION_STRATEGY.md Section 4 & 7: this page exists to measure
 // whether installers/permit specialists would pay for a deeper tool, before
@@ -16,9 +19,10 @@ const webPageSchema = {
 };
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 	<Analytics />
+	<DesignHead />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>GridPermit Pro (Coming Soon) - GridPermit</title>
@@ -33,35 +37,15 @@ const webPageSchema = {
 	<meta name="twitter:description" content="A faster way for solar installers and permit specialists to get AHJ requirements, documents, and fees for every city they work in. Tell us if you'd use it." />
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
-	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-	<style>
-		body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 2rem 1rem; }
-		.container { max-width: 720px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }
-		.badge-pill { display: inline-block; background: #eff6ff; color: #2563eb; font-weight: 700; font-size: 0.78rem; padding: 0.3rem 0.75rem; border-radius: 999px; margin-bottom: 1rem; }
-		h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem; color: #0f172a; }
-		h2 { font-size: 1.15rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.6rem; color: #2563eb; }
-		p { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
-		ul { margin: 0 0 1rem 1.25rem; color: #475569; font-size: 0.95rem; }
-		li { margin-bottom: 0.4rem; }
-		.back-link { display: inline-block; margin-bottom: 1.5rem; color: #2563eb; font-weight: 600; text-decoration: none; }
-		.cross-links { font-size: 0.85rem; color: #64748b; margin-top: 1.5rem; }
-		.cross-links a { color: #2563eb; text-decoration: none; }
-		.price-box { background: #0f172a; color: white; border-radius: 10px; padding: 1.5rem; text-align: center; margin: 2rem 0; }
-		.price-box .price { font-size: 2rem; font-weight: 800; }
-		.price-box .price span { font-size: 1rem; font-weight: 500; color: #cbd5e1; }
-		.price-box p { color: #cbd5e1; font-size: 0.85rem; margin: 0.5rem 0 1.25rem 0; }
-		.pro-cta-btn { display: inline-block; background: #10b981; color: white; border: none; padding: 0.9rem 1.75rem; border-radius: 6px; font-weight: 800; font-size: 0.95rem; text-decoration: none; transition: background 0.2s ease; }
-		.pro-cta-btn:hover { background: #059669; }
-		.hypothesis-note { font-size: 0.78rem; color: #94a3b8; margin-top: 1rem !important; line-height: 1.4; }
-		.disclaimer-box { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.85rem; margin: 1.5rem 0; }
+	<style>.badge-pill { display: inline-block; background: var(--gp-surface); color: var(--gp-accent); font-weight: 700; font-size: 0.78rem; padding: 0.3rem 0.75rem; border-radius: 2px; margin-bottom: 1rem; }ul { margin: 0 0 1rem 1.25rem; color: var(--gp-muted); font-size: 0.95rem; }li { margin-bottom: 0.4rem; }.back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--gp-accent); font-weight: 600; text-decoration: none; }.cross-links { font-size: 0.85rem; color: var(--gp-muted); margin-top: 1.5rem; }.cross-links a { color: var(--gp-accent); text-decoration: none; }.price-box { background: var(--gp-surface); color: var(--gp-ink); border-radius: 2px; padding: 1.5rem; text-align: center; margin: 2rem 0; }.price-box .price { font-size: 2rem; font-weight: 800; }.price-box .price span { font-size: 1rem; font-weight: 500; color: var(--gp-muted); }.price-box p { color: var(--gp-muted); font-size: 0.85rem; margin: 0.5rem 0 1.25rem 0; }.pro-cta-btn { display: inline-block; background: var(--gp-accent); color: var(--gp-ink); border: none; padding: 0.9rem 1.75rem; border-radius: 2px; font-weight: 800; font-size: 0.95rem; text-decoration: none; transition: background 0.2s ease; }.pro-cta-btn:hover { background: var(--gp-accent); }.hypothesis-note { font-size: 0.78rem; color: var(--gp-muted); margin-top: 1rem !important; line-height: 1.4; }.disclaimer-box { background: var(--gp-surface); border: 1px solid var(--gp-line); color: var(--gp-muted); border-radius: 2px; padding: 0.9rem 1.1rem; font-size: 0.85rem; margin: 1.5rem 0; }
 	</style>
 </head>
 <body>
-	<main class="container">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<Header />
+	<main class="gp-reading-page" id="main-content" tabindex="-1">
 		<a href="/" class="back-link">← Back to GridPermit</a>
 		<div class="badge-pill">Coming Soon: Not Yet Available</div>
 		<h1>GridPermit Pro</h1>
@@ -88,9 +72,10 @@ const webPageSchema = {
 		</div>
 
 		<h2>Why we're asking first</h2>
-		<p>GridPermit already publishes free, verified permit guides for cities in every U.S. state. Before building accounts, billing, or a dashboard, we want real signal that installers and permit specialists would actually pay for a deeper version, not just build it and hope. See our <a href="/methodology/" style="color:#2563eb;">Methodology</a> for how the underlying data is verified today.</p>
+		<p>GridPermit already publishes free, verified permit guides for cities in every U.S. state. Before building accounts, billing, or a dashboard, we want real signal that installers and permit specialists would actually pay for a deeper version, not just build it and hope. See our <a href="/methodology/" style="color: var(--gp-accent);">Methodology</a> for how the underlying data is verified today.</p>
 
 		<p class="cross-links"><a href="/">Home</a> · <a href="/search/">Browse all guides</a> · <a href="/how-it-works/">How It Works</a> · <a href="/contact/">Contact</a></p>
 	</main>
+<Footer />
 </body>
 </html>

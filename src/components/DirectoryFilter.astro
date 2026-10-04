@@ -1,0 +1,49 @@
+<div class="gp-directory-filter" data-directory-filter>
+  <label for="directory-filter-input" class="gp-kicker">Filter this directory</label>
+  <div class="gp-directory-filter-row">
+    <input id="directory-filter-input" type="search" placeholder="City, county or utility" autocomplete="off" aria-describedby="directory-filter-count" />
+    <button class="gp-button-quiet" type="button" data-directory-clear hidden>Clear</button>
+  </div>
+  <output id="directory-filter-count" aria-live="polite"></output>
+  <p data-directory-empty hidden>No matching entries in this directory. Try a broader term, or <a href="/search/">search the whole site</a>.</p>
+  <noscript><p>Use the directory links below. Instant filtering requires JavaScript.</p></noscript>
+</div>
+<script>
+  const root = document.querySelector<HTMLElement>('[data-directory-filter]');
+  const input = root?.querySelector<HTMLInputElement>('input');
+  const clear = root?.querySelector<HTMLButtonElement>('[data-directory-clear]');
+  const output = root?.querySelector<HTMLOutputElement>('output');
+  const empty = root?.querySelector<HTMLElement>('[data-directory-empty]');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.guide-card,.state-card'));
+  const index = cards.map(card => ({card,text:[card.textContent ?? '', card.dataset.filterText ?? ''].join(' ').toLowerCase()}));
+  function filter() {
+    const query = input?.value.trim().toLowerCase() ?? '';
+    let visible = 0;
+    for (const {card,text} of index) { card.hidden = query !== '' && !text.includes(query); if (!card.hidden) visible++; }
+    document.querySelectorAll<HTMLElement>('.letter-heading').forEach(heading => {
+      const grid = heading.nextElementSibling;
+      if (grid?.classList.contains('guide-grid')) {
+        const noEntries = !grid.querySelector('.guide-card:not([hidden])');
+        heading.hidden = noEntries;
+        const section = heading.parentElement;
+        if (section?.tagName === 'SECTION' && section.querySelector('.guide-grid') === grid) section.hidden = noEntries;
+      }
+    });
+    if (clear) clear.hidden = !query;
+    if (output) output.textContent = `${visible} of ${cards.length} entries shown`;
+    if (empty) empty.hidden = visible !== 0;
+  }
+  if (input && cards.length) {
+    input.addEventListener('input', filter);
+    clear?.addEventListener('click', () => { input.value = ''; filter(); input.focus(); });
+    filter();
+  } else if (root) root.hidden = true;
+</script>
+<style>
+  .gp-directory-filter { margin: 36px 0 48px; max-width: 780px; }
+  .gp-directory-filter .gp-kicker { margin-bottom: 12px; }
+  .gp-directory-filter-row { display: flex; gap: 12px; }
+  .gp-directory-filter input { flex: 1; width: 100%; min-height: 54px; }
+  .gp-directory-filter output { display: block; font: 10px/1.6 var(--gp-mono); color: var(--gp-muted); margin-top: 14px; }
+  .gp-directory-filter p { font-size: 14px; color: var(--gp-muted); margin-top: 24px; }
+</style>

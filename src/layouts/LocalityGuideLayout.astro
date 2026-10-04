@@ -1,4 +1,7 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import DesignHead from "../components/DesignHead.astro";
 // Reusable shell for locality guide pages. A page using this layout should
 // only import its locality JSON record and pass it here along with the
 // route's own path — every other section, schema block, and trust rule is
@@ -26,6 +29,7 @@ import { buildUtilityHubs, utilitySlug } from "../lib/utility-hub";
 import { getAllBlogPosts, relatedPostsForUtility } from "../lib/blog-posts";
 import { stateGuidesIndexUrl } from "../lib/locality-guide";
 import { stateMeta } from "../lib/state-meta";
+import { hasVerifiedUnambiguousUtility } from "../lib/utility-split-guard";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
 import Analytics from "../components/Analytics.astro";
 import InstallerCTA from "../components/InstallerCTA.astro";
@@ -52,6 +56,8 @@ const isFirstLeadSprintPage = FIRST_LEAD_SPRINT_PATHS.has(pagePath);
 const { canonicalUrl, title, description, utilityShortName: utilityShort } = buildPageMeta(record, pagePath);
 const permitAuthorityLabel = resolvePermitAuthorityLabel(record);
 const sourceCount = record.sources.length;
+const utilityIsUnambiguous = hasVerifiedUnambiguousUtility(record);
+const recordedPathway = record.eligibility_constraints?.value?.program_or_pathway ?? NOT_VERIFIED;
 
 const firstLeadTimeline = record.timeline_days?.value ?? null;
 const firstLeadLocalFact = isFirstLeadSprintPage
@@ -164,18 +170,15 @@ const tocItems = [
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 	<Analytics />
+	<DesignHead />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="canonical" href={canonicalUrl} />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
-	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
@@ -198,30 +201,11 @@ const tocItems = [
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 	<div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" id="reading-progress-bar"></div></div>
 
-	<div class="top-banner">
-		Independent Educational Guide: {currentStateMeta.name} residential solar permit facts, sourced, dated, and confidence-scored. Not legal, engineering, or permit advice.
-	</div>
-
-	<nav class="navbar">
-		<div class="nav-container">
-			<a href="/" class="brand-logo" aria-label="GridPermit Home">
-				<span class="logo-text">Grid<span class="logo-bold">Permit</span></span>
-			</a>
-			<div class="nav-links">
-				<a href="/permits/">Browse States</a>
-				<a href="/how-it-works/">How It Works</a>
-				<a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} Guides</a>
-				<a href="/blog/">Blog</a>
-				<a href="/methodology/">Methodology</a>
-			</div>
-			<a href="/search/" class="nav-search-link" aria-label="Search">🔍</a>
-			{isFirstLeadSprintPage
+	<Header><Fragment slot="action">{isFirstLeadSprintPage
 				? <a href="#installer-cta" class="btn-cta-nav">Compare Solar Quote</a>
 				: record.state === "CA"
 					? <a href="/#calculator" class="btn-cta-nav" data-contextual-revenue-nav>Estimate Savings</a>
-					: <a href="#installer-cta" class="btn-cta-nav">Find an Installer</a>}
-		</div>
-	</nav>
+					: <a href="#installer-cta" class="btn-cta-nav">Find an Installer</a>}</Fragment></Header>
 
 	<div class="page-container">
 		<nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -237,8 +221,21 @@ const tocItems = [
 
 		<div class="layout-grid">
 		<main class="content-card" id="main-content" tabindex="-1">
-			<h1>{record.city.value} Solar Permit Guide</h1>
-			<p class="subtitle">{utilityHubUrl ? <a href={utilityHubUrl}>{record.utility.value}</a> : record.utility.value} territory{record.county.value && <> · {countyHubUrl ? <a href={countyHubUrl}>{record.county.value}</a> : record.county.value}</>}</p>
+			<div class="gp-locality-head">
+              <div class="gp-locality-intro">
+                <p class="gp-kicker">{currentStateMeta.name} / Local permit guide</p>
+                <h1>{record.city.value} <span>Solar Permit Guide</span></h1>
+                <p class="gp-locality-lead">Your local requirements. The official sources. A clearer next step.</p>
+              </div>
+              <dl class="gp-facts" aria-label="Local permit summary">
+                <div><dt>Permit authority</dt><dd><a href="#permit-authority">{permitAuthorityLabel}</a></dd></div>
+                <div><dt>Electric utility</dt><dd><a href="#utility-supplier">{utilityIsUnambiguous ? (record.utility.value ?? NOT_VERIFIED) : 'Confirm utility for your address'}</a>{!utilityIsUnambiguous && <small>This record is not an unambiguous city-wide utility determination.</small>}</dd></div>
+                <div><dt>Local pathway</dt><dd><a href="#eligibility">{recordedPathway}</a>{recordedPathway !== NOT_VERIFIED && <small>Project-specific eligibility conditions apply.</small>}</dd></div>
+                <div><dt>Review time</dt><dd><a href="#overview">{timeline?.label ?? NOT_VERIFIED}</a>{timeline?.standardPathCaveat && <small>{timeline.standardPathCaveat}</small>}{hasTimeline && <small>See source scope and conditions below.</small>}</dd></div>
+              </dl>
+              <a href="#overview" class="gp-button gp-locality-actions">See your permit path <span aria-hidden="true">↓</span></a>
+            </div>
+            <p class="subtitle gp-locality-context">{record.county.value && <>{countyHubUrl ? <a href={countyHubUrl}>{record.county.value}</a> : record.county.value} · </>}{utilityHubUrl && <a href={utilityHubUrl}>Explore related utility guides</a>}</p>
 
 			<!-- Screen-hidden, print-only: a checklist masthead so a printed
 			     page is identifiable and dated on its own, without the nav/
@@ -255,6 +252,16 @@ const tocItems = [
 				<button type="button" class="btn-toolbar" id="print-btn">Print Checklist</button>
 			</div>
 
+<details class="toc-index"><summary>Jump to a section</summary>
+			<nav class="toc-card" aria-label="Table of contents">
+				<p class="toc-heading">On This Page</p>
+				<ul class="toc-list">
+					{tocItems.map((item) => (
+						<li><a href={`#${item.id}`}>{item.label}</a></li>
+					))}
+				</ul>
+			</nav>
+		</details>
 			<div class="disclaimer-box">
 				<strong>Informational only.</strong> This page is not legal, engineering, or permit advice. Every fact below links to the official source it came from and shows how confident we are in it. Verify current requirements with {permitAuthorityLabel} and {utilityShort} before making a decision.
 			</div>
@@ -268,10 +275,16 @@ const tocItems = [
 
 			<!-- ===== Overview ===== -->
 			<section id="overview">
-				<h2>Overview</h2>
-				<p>
+				<p class="gp-kicker">01 / Know your path</p>
+                <h2>Two approvals.<br/>One project.</h2>
+                <div class="gp-paths">
+                  <div class="gp-path"><span class="gp-kicker">Local authority</span><h3>Permit &amp; inspection</h3><p>{permitAuthorityLabel}</p><a class="gp-text-link" href="#permit-authority">Local requirements <span aria-hidden="true">↗</span></a></div>
+                  <div class="gp-path"><span class="gp-kicker">Electric utility</span><h3>Interconnection &amp; PTO</h3><p>{record.utility.value ?? NOT_VERIFIED}</p><a class="gp-text-link" href="#utility-supplier">Utility requirements <span aria-hidden="true">↗</span></a></div>
+                </div>
+                <p class="fact-notes">A local permit and utility permission to operate are different approvals. Check the local sequence and requirements below.</p>
+				<details class="gp-source-evidence"><summary>How to read this guide</summary><p>
 					GridPermit collects {currentStateMeta.name} residential solar and permitting facts directly from official sources (city, county, and state government sites, utilities, and public utilities commissions) and shows only what we can verify, with a confidence score and a link to where it came from. Nothing here is estimated or inferred beyond what's stated below. See <a href="/methodology/">our methodology</a> for the rules this page follows.
-				</p>
+				</p></details>
 
 				{hasTimeline && timeline && td && (
 					<div class="fact-callout">
@@ -279,8 +292,7 @@ const tocItems = [
 						<p class="fact-value">{timeline.label}</p>
 						{timeline.standardPathCaveat && <p class="fact-status">{timeline.standardPathCaveat}</p>}
 						{td.notes && <p class="fact-notes">{td.notes}</p>}
-						<ConfidenceBadge confidence={record.timeline_days.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.timeline_days.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.timeline_days.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.timeline_days.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					</div>
 				)}
 
@@ -296,14 +308,29 @@ const tocItems = [
 										<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 									</div>
 								))}
-								<ConfidenceBadge confidence={record.battery_programs.confidence} />
-								<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+								<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.battery_programs.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 							</>
 						) : (
 							<p class="fact-value muted">No battery/storage incentive program is on record for this locality.</p>
 						)}
 					</div>
 				)}
+			</section>
+
+			<section id="required-documents">
+				<p class="gp-kicker">02 / Prepare your application</p><h2>What you need.</h2>
+				{record.required_documents.value ? (
+					<>
+						<ul class="fact-list gp-checklist">
+                            {record.required_documents.value.map((doc) => (
+                              <li><label><input type="checkbox" data-checklist-item /><span><strong>{doc.name}</strong>{doc.required_when && <span class="doc-condition">Required when: {doc.required_when}</span>}</span></label></li>
+                            ))}
+                        </ul>
+                        <div class="gp-checklist-tools"><output id="checklist-progress" aria-live="polite">0 of {record.required_documents.value.length} marked</output><button type="button" class="btn-toolbar" id="copy-checklist-btn">Copy checklist</button><span class="fact-notes">For your own planning, not confirmation of permit readiness.</span></div>
+                        <p class="sr-only" id="checklist-copy-status" role="status"></p>
+						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.required_documents.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.required_documents.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
+					</>
+				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
 
 			{permitPathway && <PermitPathwayAnswer answer={permitPathway} />}
@@ -315,12 +342,12 @@ const tocItems = [
 					<p>
 						A new project in {record.city.value} still has two approval tracks: permit review with {permitAuthorityLabel} and utility interconnection/PTO with {utilityShort}. GridPermit explains the approval path; CompareSolarPrices handles the quote request.
 					</p>
-					{firstLeadLocalFact && <p class="first-lead-local-fact">{firstLeadLocalFact}</p>}
+					<details class="gp-source-evidence"><summary>How a quote fits the approval process</summary>{firstLeadLocalFact && <p class="first-lead-local-fact">{firstLeadLocalFact}</p>}
 					<ol class="first-lead-process">
 						<li><strong>Compare the project:</strong> request a homeowner quote and confirm the system scope.</li>
 						<li><strong>Permit path:</strong> the project still needs review or issuance through {permitAuthorityLabel}.</li>
 						<li><strong>Utility path:</strong> interconnection and PTO remain separate from the city permit process.</li>
-					</ol>
+					</ol></details>
 					<ul class="first-lead-fit">
 						<li><strong>Best fit:</strong> you own the home and do not already have solar.</li>
 						<li><strong>Not the right quote path:</strong> renters or properties that already have solar. You can still use this page for permit and utility facts.</li>
@@ -342,8 +369,7 @@ const tocItems = [
 							<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 						</div>
 					))}
-					<ConfidenceBadge confidence={record.battery_programs.confidence} />
-					<p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+					<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.battery_programs.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.battery_programs.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 				</section>
 			)}
 
@@ -366,15 +392,14 @@ const tocItems = [
 								</li>
 							))}
 						</ul>
-						<ConfidenceBadge confidence={record.permit_fees.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.permit_fees.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.permit_fees.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.permit_fees.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
 
 			<!-- ===== Rebates ===== -->
 			<section id="rebates">
-				<h2>Rebates</h2>
+				<h2 class="sr-only">Rebates on record</h2><details class="gp-section-details"><summary>Rebates on record</summary>
 				{rebatePrograms.length > 0 ? (
 					<>
 						{rebatePrograms.map((p) => (
@@ -384,11 +409,10 @@ const tocItems = [
 								<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 							</div>
 						))}
-						<ConfidenceBadge confidence={record.rebates.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.rebates.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.rebates.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.rebates.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
-			</section>
+			</details></section>
 
 			<!-- ===== Utility and generation supplier ===== -->
 			<section id="utility-supplier">
@@ -396,8 +420,8 @@ const tocItems = [
 				<div class="fact-block">
 					<h3>Utility</h3>
 					<p class="fact-value">{record.utility.value ?? NOT_VERIFIED}</p>
-					<ConfidenceBadge confidence={record.utility.confidence} />
-					<p class="fact-meta">Source(s): {sourcesFor(record.utility.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+{record.utility.notes && <p class="fact-notes">{record.utility.notes}</p>}
+					<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.utility.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.utility.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 				</div>
 
 				<div class="fact-block">
@@ -406,8 +430,7 @@ const tocItems = [
 						<>
 							<p class="fact-value">{generationSupplier.name} ({generationSupplier.type === "cca" ? "Community Choice Aggregator" : generationSupplier.type})</p>
 							{generationSupplier.notes && <p class="fact-notes">{generationSupplier.notes}</p>}
-							<ConfidenceBadge confidence={record.generation_supplier.confidence} />
-							<p class="fact-meta">Source(s): {sourcesFor(record.generation_supplier.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+							<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.generation_supplier.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.generation_supplier.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 						</>
 					) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 				</div>
@@ -430,8 +453,7 @@ const tocItems = [
 				<div class="fact-block">
 					<p class="fact-value">{record.permit_authority.value ?? NOT_VERIFIED}</p>
 					{record.permit_authority.notes && <p class="fact-notes">{record.permit_authority.notes}</p>}
-					<ConfidenceBadge confidence={record.permit_authority.confidence} />
-					<p class="fact-meta">Source(s): {sourcesFor(record.permit_authority.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+					<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.permit_authority.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.permit_authority.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					{record.permit_url.value && (
 						<p class="fact-meta">Permit page: <a href={record.permit_url.value} target="_blank" rel="noopener">{record.permit_url.value}</a></p>
 					)}
@@ -439,23 +461,7 @@ const tocItems = [
 			</section>
 
 			<!-- ===== Required documents ===== -->
-			<section id="required-documents">
-				<h2>Required documents</h2>
-				{record.required_documents.value ? (
-					<>
-						<ul class="fact-list">
-							{record.required_documents.value.map((doc) => (
-								<li>
-									<strong>{doc.name}</strong>
-									{doc.required_when && <span class="doc-condition"> (required when: {doc.required_when})</span>}
-								</li>
-							))}
-						</ul>
-						<ConfidenceBadge confidence={record.required_documents.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.required_documents.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
-					</>
-				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
-			</section>
+
 
 			<!-- ===== Inspection steps ===== -->
 			<section id="inspection-steps">
@@ -466,8 +472,7 @@ const tocItems = [
 							{record.inspection_steps.value.map((step) => <li>{step}</li>)}
 						</ul>
 						{record.inspection_steps.notes && <p class="fact-notes">{record.inspection_steps.notes}</p>}
-						<ConfidenceBadge confidence={record.inspection_steps.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.inspection_steps.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.inspection_steps.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.inspection_steps.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
@@ -491,15 +496,14 @@ const tocItems = [
 								</li>
 							)}
 						</ul>
-						<ConfidenceBadge confidence={record.eligibility_constraints.confidence} />
-						<p class="fact-meta">Source(s): {sourcesFor(record.eligibility_constraints.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p>
+						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.eligibility_constraints.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.eligibility_constraints.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
 
 			<!-- ===== Official contacts ===== -->
 			<section id="official-contacts">
-				<h2>Official contacts</h2>
+				<h2 class="sr-only">Official contacts</h2><details class="gp-section-details"><summary>Official contacts</summary>
 				{record.official_contacts.value ? (
 					<>
 						<ul class="fact-list">
@@ -515,7 +519,7 @@ const tocItems = [
 						<ConfidenceBadge confidence={record.official_contacts.confidence} />
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
-			</section>
+			</details></section>
 
 			<!-- ===== Installer CTA ===== -->
 			{!isFirstLeadSprintPage && (
@@ -526,7 +530,7 @@ const tocItems = [
 
 			<!-- ===== Sources ===== -->
 			<section id="sources">
-				<h2>Sources</h2>
+				<h2 class="sr-only">Official sources</h2><details class="gp-section-details"><summary>Official sources</summary>
 				<ul class="fact-list sources-list">
 					{record.sources.map((s) => (
 						<li>
@@ -534,7 +538,7 @@ const tocItems = [
 						</li>
 					))}
 				</ul>
-			</section>
+			</details></section>
 
 			<!-- ===== FAQ ===== -->
 			{faqs.length > 0 && (
@@ -552,7 +556,7 @@ const tocItems = [
 			<!-- ===== Related same-state guides ===== -->
 			{relatedLocalities.length > 0 && (
 				<section id="other-guides">
-					<h2>Related {currentStateMeta.name} cities</h2>
+					<h2 class="sr-only">Related cities</h2><details class="gp-section-details"><summary>Related cities</summary>
 					<p>
 						Other verified cities related to {record.city.value}. See all cities on the <a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} solar permit guide index</a>.
 					</p>
@@ -561,19 +565,19 @@ const tocItems = [
 							<li><a href={g.guideUrl}>{g.city}</a>, {g.utility} <span class="related-reason">({relationLabel(g.relation)})</span></li>
 						))}
 					</ul>
-				</section>
+				</details></section>
 			)}
 
 			<!-- ===== Related articles ===== -->
 			{relatedArticles.length > 0 && (
 				<section id="related-articles">
-					<h2>Related Articles</h2>
+					<h2 class="sr-only">Related solar guides</h2><details class="gp-section-details"><summary>Related solar guides</summary>
 					<ul class="fact-list related-articles-list">
 						{relatedArticles.map((a) => (
 							<li><a href={a.url}>{a.title}</a></li>
 						))}
 					</ul>
-				</section>
+				</details></section>
 			)}
 
 			<div class="footer-disclaimer">
@@ -581,199 +585,11 @@ const tocItems = [
 				<p><a href={stateGuidesIndexUrl(record.state)}>All {currentStateMeta.name} Guides</a> · <a href="/methodology/">Methodology</a> · <a href="/how-it-works/">How It Works</a> · <a href="/">Back to GridPermit</a></p>
 			</div>
 		</main>
-		<aside class="toc-sidebar">
-			<nav class="toc-card" aria-label="Table of contents">
-				<p class="toc-heading">On This Page</p>
-				<ul class="toc-list">
-					{tocItems.map((item) => (
-						<li><a href={`#${item.id}`}>{item.label}</a></li>
-					))}
-				</ul>
-			</nav>
-		</aside>
+
 		</div>
 	</div>
 
-	<footer class="footer">
-		<div class="footer-container">
-			<p>© 2026 GridPermit. All rights reserved.</p>
-			<p class="affiliate-disclosure">
-				GridPermit is an independent educational resource and referral website. Estimates are provided for informational purposes only and are not engineering, financial, tax, or installation advice. GridPermit is not a solar installer, contractor, engineering firm, public utility, or government agency.
-			</p>
-			<div class="footer-links">
-				<a href="/about/">About Us</a> | <a href="/how-it-works/">How It Works</a> | <a href={stateGuidesIndexUrl(record.state)}>{currentStateMeta.name} Guides</a> | <a href="/pro/">GridPermit Pro</a> | <a href="/blog/">Blog</a> | <a href="/methodology/">Methodology</a> | <a href="/contact/">Contact</a> | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Service</a>
-			</div>
-		</div>
-	</footer>
-
-	<style>
-		:root { --primary: #2563eb; --bg-dark: #0f172a; --bg-slate: #f8fafc; --text-main: #0f172a; --text-muted: #64748b; --border-color: #e2e8f0; --radius: 16px; }
-		.skip-link { position: absolute; top: -3rem; left: 0; background: var(--primary); color: white; padding: 0.75rem 1.25rem; z-index: 1000; text-decoration: none; font-weight: 700; border-radius: 0 0 8px 0; transition: top 0.15s ease; }
-		.skip-link:focus { top: 0; }
-		* { box-sizing: border-box; }
-		body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--bg-slate); color: var(--text-main); line-height: 1.6; margin: 0; }
-		.top-banner { background: #1e293b; color: #cbd5e1; text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; font-weight: 500; }
-		.navbar { background: white; border-bottom: 1px solid var(--border-color); padding: 0.85rem 2rem; position: sticky; top: 0; z-index: 100; }
-		.nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-		.brand-logo { text-decoration: none; }
-		.logo-text { font-size: 1.75rem; font-weight: 400; color: #0f172a; }
-		.logo-bold { font-weight: 800; }
-		.nav-links { display: flex; gap: 1.25rem; }
-		.nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; }
-		.btn-cta-nav { background: var(--primary); color: white; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-		.nav-search-link { text-decoration: none; font-size: 1.05rem; padding: 0.3rem; margin-right: 0.25rem; }
-		@media (max-width: 900px) {
-			.nav-links { display: none; }
-		}
-
-		.page-container { max-width: 840px; margin: 0 auto; padding: 2rem 1rem 4rem; }
-		.breadcrumb-nav { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
-		.breadcrumb-nav a { color: var(--primary); text-decoration: none; }
-		.crumb-sep { margin: 0 0.4rem; }
-		.crumb-current { color: var(--text-main); font-weight: 600; }
-
-		.content-card { background: white; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2.25rem; min-width: 0; }
-		h1 { font-size: 2rem; font-weight: 800; margin: 0 0 0.35rem; }
-		.subtitle { color: var(--text-muted); font-size: 0.95rem; margin: 0 0 1.25rem; }
-		h2 { font-size: 1.25rem; font-weight: 700; color: var(--primary); margin: 2rem 0 0.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-color); }
-		section:first-of-type h2 { border-top: none; padding-top: 0; margin-top: 1.5rem; }
-		h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.35rem; }
-		p { margin: 0 0 0.75rem; }
-
-		.disclaimer-box { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; border-radius: 8px; padding: 0.9rem 1.1rem; font-size: 0.88rem; margin-bottom: 1.5rem; }
-
-		.fact-callout { background: #f8fafc; border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
-		.fact-callout-caution { background: #fffbeb; border-color: #fde68a; }
-		.fact-block { margin-bottom: 1.5rem; }
-		.program-item { margin-bottom: 0.75rem; }
-		.fact-value { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.3rem; overflow-wrap: anywhere; }
-		.fact-value.muted { color: var(--text-muted); font-weight: 600; font-style: italic; }
-		.fact-notes { font-size: 0.88rem; color: #334155; margin-bottom: 0.4rem; }
-		.fact-status { font-size: 0.85rem; color: #92400e; margin-bottom: 0.4rem; }
-		.fact-meta { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.2rem; overflow-wrap: anywhere; }
-		.fact-meta a { color: var(--primary); text-decoration: none; }
-
-		.fact-list { padding-left: 1.3rem; margin: 0 0 0.5rem; font-size: 0.92rem; }
-		.fact-list li { margin-bottom: 0.45rem; }
-		.fact-sublist { padding-left: 1.2rem; margin-top: 0.3rem; }
-		.doc-condition { color: var(--text-muted); font-size: 0.88rem; }
-		.sources-list a { color: var(--primary); }
-		.related-articles-list a { color: var(--primary); }
-		.related-reason { color: var(--text-muted); font-size: 0.85rem; }
-
-		.faq-item { border: 1px solid var(--border-color); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 0.6rem; }
-		.faq-item summary { cursor: pointer; font-weight: 700; font-size: 0.95rem; }
-		.faq-item p { margin: 0.6rem 0 0; font-size: 0.9rem; color: #334155; }
-
-		.footer-disclaimer { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.8rem; color: var(--text-muted); }
-		.footer-disclaimer a { color: var(--primary); text-decoration: none; }
-
-		.footer { background: var(--bg-dark); color: white; padding: 2.5rem 1.5rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
-		.affiliate-disclosure { font-size: 0.75rem; color: #64748b; max-width: 800px; margin: 0.75rem auto; line-height: 1.4; }
-		.footer-links { margin-top: 0.75rem; font-size: 0.85rem; }
-		.footer-links a { color: #94a3b8; text-decoration: none; margin: 0 0.5rem; }
-
-		/* ===== Reading progress ===== */
-		.reading-progress-track { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: transparent; z-index: 200; }
-		.reading-progress-bar { height: 100%; width: 0%; background: var(--primary); }
-
-		/* ===== TOC sidebar / sticky layout ===== */
-		.layout-grid { display: grid; grid-template-columns: 1fr 230px; gap: 2rem; align-items: start; }
-		.toc-sidebar { position: sticky; top: 5rem; }
-		.toc-card { background: white; border: 1px solid var(--border-color); border-radius: 12px; padding: 1.1rem 1.25rem; }
-		.toc-heading { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin: 0 0 0.6rem; }
-		.toc-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
-		.toc-list a { font-size: 0.83rem; color: var(--text-muted); text-decoration: none; }
-		.toc-list a:hover { color: var(--primary); }
-		@media (max-width: 900px) {
-			.layout-grid { grid-template-columns: 1fr; }
-			.toc-sidebar { display: none; }
-		}
-
-		/* ===== Page toolbar: badges, copy link, print ===== */
-		.page-toolbar { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 1.25rem; }
-		.badge { display: inline-flex; align-items: center; font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 9999px; }
-		.badge-verified { background: #dcfce7; color: #166534; }
-		.badge-sources { background: #e0e7ff; color: #3730a3; }
-		.btn-toolbar { background: white; border: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 9999px; cursor: pointer; font-family: inherit; }
-		.btn-toolbar:hover { border-color: var(--primary); color: var(--primary); }
-
-		/* ===== Print ===== */
-		/* A purpose-built checklist view, not just "hide the chrome and print
-		   the article." Required documents get a checkbox before each item
-		   and inspection steps get numbered — the two sections a homeowner
-		   or contractor is most likely to want as a scannable, actionable
-		   printout rather than prose. Sections that are informational rather
-		   than actionable (Overview, FAQ, Related cities/articles) are
-		   hidden in print so the checklist stays short enough to actually
-		   use — nothing is removed from the on-screen page, only from what
-		   prints. See docs/PERMIT_CHECKLIST.md for why this was built this
-		   way instead of a separate page/route. */
-		@media print {
-			.reading-progress-track, .navbar, .top-banner, .toc-sidebar, .page-toolbar, .footer, .breadcrumb-nav,
-			#overview, #faq, #related-localities, #related-articles { display: none !important; }
-			.layout-grid { display: block; }
-			.content-card { border: none; padding: 0; }
-			a { color: black !important; text-decoration: underline; }
-			a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.75em; color: #555; }
-
-			.print-checklist-header { display: block !important; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid black; }
-			.print-checklist-header .print-title { font-size: 1.3rem; font-weight: 800; }
-			.print-checklist-header .print-meta { font-size: 0.8rem; color: #333; }
-
-			#required-documents ul.fact-list li, #inspection-steps ul.fact-list li { list-style: none; margin-bottom: 0.5rem; }
-			#required-documents ul.fact-list { padding-left: 0; }
-			#required-documents ul.fact-list li::before { content: "☐  "; font-size: 1.1em; }
-			#inspection-steps ul.fact-list { padding-left: 0; counter-reset: step; }
-			#inspection-steps ul.fact-list li { counter-increment: step; }
-			#inspection-steps ul.fact-list li::before { content: counter(step) ".  "; font-weight: 700; }
-		}
-		.first-lead-jump {
-			margin: 0 0 1.25rem;
-			font-size: 0.92rem;
-		}
-		.first-lead-jump a {
-			color: #0f766e;
-			font-weight: 700;
-			text-decoration: none;
-		}
-		.first-lead-jump a:hover { text-decoration: underline; }
-		.first-lead-post-incentive { margin-top: -0.5rem; margin-bottom: 1.75rem; }
-		.first-lead-panel {
-			margin: 1.75rem 0 2rem;
-			padding: 1.25rem;
-			border: 2px solid #0f766e;
-			border-radius: 12px;
-			background: #f0fdfa;
-		}
-		.first-lead-panel > h2 { margin-top: 0.2rem; }
-		.first-lead-kicker {
-			margin: 0;
-			font-size: 0.76rem;
-			font-weight: 800;
-			letter-spacing: 0.05em;
-			text-transform: uppercase;
-			color: #0f766e;
-		}
-		.first-lead-local-fact {
-			background: white;
-			border-left: 4px solid #0f766e;
-			padding: 0.7rem 0.85rem;
-			font-size: 0.88rem;
-		}
-		.first-lead-process { margin: 0.8rem 0 0.8rem 1.2rem; }
-		.first-lead-process li { margin-bottom: 0.45rem; }
-		.first-lead-fit { margin: 0.75rem 0 0.25rem 1.2rem; }
-		.first-lead-fit li { margin-bottom: 0.4rem; }
-		.first-lead-note { font-size: 0.78rem; color: #475569; margin-top: -0.75rem; }
-
-		.print-checklist-header { display: none; }
-	
-	@media (max-width: 600px) {
-		.first-lead-panel { padding: 1rem; }
-		.first-lead-panel :global(.compare-solar-cta) { margin: 1rem 0 0; }
-	}
-</style>
+	<Footer />
 
 	<script>
 		// Reading progress bar — pure scroll-position math, no library.
@@ -798,8 +614,7 @@ const tocItems = [
 					copyBtn.textContent = original;
 				}, 1500);
 			} catch {
-				// Clipboard API unavailable (e.g. insecure context) — no-op rather
-				// than throwing in front of the user.
+				copyBtn.textContent = "Copy unavailable — copy the address bar";
 			}
 		});
 
@@ -827,14 +642,39 @@ const tocItems = [
 	if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", showApprovedQuoteShortcut, { once: true });
 	else showApprovedQuoteShortcut();
 </script>
+
+
 <style>
-	/* The navbar is position: sticky (about 73px tall on desktop, up to 116px when
-	   it wraps on narrow phones). Every anchor target on the page, including the
-	   table-of-contents sections and the CTA, must clear it. 8rem leaves a margin
-	   above the tallest measured nav height. */
-	main section[id], #installer-cta { scroll-margin-top: 8rem; }
-	.content-card { min-width: 0; overflow-wrap: anywhere; }
+ main section[id], #installer-cta { scroll-margin-top: 8rem; }
+ .content-card { min-width: 0; overflow-wrap: anywhere; }
+ .gp-locality-context { font-size: 12px; margin: 0 0 22px; }
+ @media print { #overview, #faq { display: none; } }
 </style>
+
+<script>
+  const checks = Array.from(document.querySelectorAll<HTMLInputElement>('[data-checklist-item]'));
+  const progress = document.getElementById('checklist-progress');
+  const updateProgress = () => { if (progress) progress.textContent = `${checks.filter(input => input.checked).length} of ${checks.length} marked`; };
+  checks.forEach(input => input.addEventListener('change', updateProgress));
+  document.getElementById('copy-checklist-btn')?.addEventListener('click', async () => {
+    const status = document.getElementById('checklist-copy-status');
+    const heading = document.querySelector('h1')?.textContent ?? 'Solar permit checklist';
+    const lines = checks.map(input => `${input.checked ? '[x]' : '[ ]'} ${input.closest('label')?.textContent?.replace(/\s+/g, ' ').trim() ?? ''}`);
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href ?? window.location.href;
+    try { await navigator.clipboard.writeText([heading, ...lines, '', 'Confirm current requirements with the local authority.', canonical].join('\n')); if (status) status.textContent = 'Checklist copied.'; }
+    catch { if (status) { status.className = 'fact-notes'; status.textContent = 'Copy is unavailable in this browser. Use Print Checklist instead.'; } }
+  });
+  // Print all source and requirement details; restore the reader's expanded state afterwards.
+  let openedForPrint: HTMLDetailsElement[] = [];
+  window.addEventListener('beforeprint', () => { openedForPrint = Array.from(document.querySelectorAll<HTMLDetailsElement>('main details:not([open])')); openedForPrint.forEach(detail => detail.open = true); });
+  window.addEventListener('afterprint', () => { openedForPrint.forEach(detail => detail.open = false); openedForPrint = []; });
+  const revealHash = () => {
+    let id: string; try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { return; }
+    const target = document.getElementById(id);
+    target?.querySelector<HTMLDetailsElement>(':scope > .gp-section-details')?.setAttribute('open', '');
+  };
+  window.addEventListener('hashchange', revealHash); revealHash();
+</script>
 
 </body>
 </html>

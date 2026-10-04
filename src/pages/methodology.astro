@@ -1,4 +1,7 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import DesignHead from "../components/DesignHead.astro";
 import Analytics from "../components/Analytics.astro";
 
 const webPageSchema = {
@@ -10,9 +13,10 @@ const webPageSchema = {
 };
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 	<Analytics />
+	<DesignHead />
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Methodology - GridPermit</title>
@@ -27,25 +31,15 @@ const webPageSchema = {
 	<meta name="twitter:description" content="How GridPermit verifies solar permit guide facts nationwide, and what our California-only savings calculator does and doesn't calculate." />
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
 	<link rel="sitemap" href="/sitemap-index.xml" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" class="async-font-css">
-	<noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-	<style>
-		body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #0f172a; line-height: 1.6; padding: 2rem 1rem; }
-		.container { max-width: 800px; margin: 0 auto; background: white; padding: 2.5rem; border-radius: 12px; border: 1px solid #e2e8f0; }
-		h1 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; color: #0f172a; }
-		h2 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #2563eb; }
-		p, li { font-size: 0.95rem; color: #475569; margin-bottom: 1rem; }
-		ul { padding-left: 1.2rem; }
-		.back-link { display: inline-block; margin-bottom: 1.5rem; color: #2563eb; font-weight: 600; text-decoration: none; }
-		.cross-links { font-size: 0.85rem; color: #64748b; margin-bottom: 1.5rem; }
-		.cross-links a { color: #2563eb; text-decoration: none; }
+	<style>li { font-size: 0.95rem; color: var(--gp-muted); margin-bottom: 1rem; }ul { padding-left: 1.2rem; }.back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--gp-accent); font-weight: 600; text-decoration: none; }.cross-links { font-size: 0.85rem; color: var(--gp-muted); margin-bottom: 1.5rem; }.cross-links a { color: var(--gp-accent); text-decoration: none; }
 	</style>
 </head>
 <body>
-	<main class="container">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<Header />
+	<main class="gp-reading-page" id="main-content" tabindex="-1">
 		<a href="/" class="back-link">← Back to Home</a>
 		<p class="cross-links"><a href="/blog/">Blog</a> · <a href="/california/solar-permit-guides/">California Guides</a> · <a href="/about/">About</a> · <a href="/contact/">Contact</a></p>
 		<h1>GridPermit Methodology</h1>
@@ -80,5 +74,6 @@ const webPageSchema = {
 		<p>When two official sources disagree on a fact (for example, a city's own page states one fee and a county-hosted mirror of the same ordinance states another), we cite the more direct, more current source (normally the city or utility's own official site over a secondary mirror) and note the discrepancy in the fact's notes rather than silently picking one. If neither source can be confirmed current, we leave the field unverified rather than guess.</p>
 		<p><strong>GridPermit is not the city, the utility, the CCA, or any government agency.</strong> We independently compile and link to their own public information. If you find a fact on a guide page that's inaccurate, out of date, or contradicts the source it cites, please <a href="/contact/">contact us</a> with the city name and the specific fact; we review corrections against the cited source (or a newer official source, if the old one has moved or changed) and update or remove the fact rather than leave a known error live.</p>
 	</main>
+<Footer />
 </body>
 </html>
