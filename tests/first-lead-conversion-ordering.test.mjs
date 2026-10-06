@@ -3,21 +3,22 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
 const layout = readFileSync(new URL("../src/layouts/LocalityGuideLayout.astro", import.meta.url), "utf8");
+const qualification = readFileSync(new URL("../src/lib/commercial/qualification.ts", import.meta.url), "utf8");
 
-test("first-lead routes expose an in-body and TOC jump to the quote panel", () => {
+test("first-lead routes keep in-body and TOC jumps to the quote slot", () => {
 	assert.match(layout, /Planning a new solar project\? Jump to the homeowner quote path/);
 	assert.match(layout, /isFirstLeadSprintPage \? \[\{ id: "installer-cta", label: "Compare Solar Quote" \}\]/);
 });
 
-test("first-lead panel states both positive and negative fit", () => {
-	assert.match(layout, /Best fit:<\/strong> you own the home and do not already have solar/);
-	assert.match(layout, /Not the right quote path:<\/strong> renters or properties that already have solar/);
+test("first-lead routes reuse the compact paid slot with strict homeowner qualification", () => {
+	assert.match(layout, /requireFirstLeadQualification=\{isFirstLeadSprintPage\}/);
+	assert.match(qualification, /I own this home and this property does not already have solar\./);
+	assert.doesNotMatch(layout, /class="first-lead-panel"|class="first-lead-fit"|class="first-lead-process"/);
 });
 
-test("battery incentive callout is moved after the first-lead panel for cohort routes", () => {
-	assert.match(layout, /!isFirstLeadSprintPage && \(/);
-	const panel = layout.indexOf('id="installer-cta"');
+test("first-lead battery incentive content remains after the early quote slot", () => {
+	const paid = layout.indexOf('mode="commercial-only"');
 	const post = layout.indexOf('id="battery-incentive"');
-	assert.ok(panel >= 0 && post > panel, "battery-incentive section must render after installer-cta for cohort routes");
+	assert.ok(paid >= 0 && post > paid, "battery-incentive section must remain after the early quote slot");
 	assert.match(layout, /isFirstLeadSprintPage && batteryPrograms\.length > 0/);
 });

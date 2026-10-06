@@ -68,13 +68,6 @@ const documentsConditional = Boolean(record.required_documents.value?.some(docum
 const inspectionVerified = Boolean(record.inspection_steps.value?.length) && Boolean(record.inspection_steps.source_ids?.length);
 const interconnectionVerified = hasSourcedValue(record.interconnection_url.value, record.interconnection_url.source_ids);
 
-const firstLeadTimeline = record.timeline_days?.value ?? null;
-const firstLeadLocalFact = isFirstLeadSprintPage
-	? firstLeadTimeline?.min_days === 0 && firstLeadTimeline?.max_days === 0
-		? "Local fact: for SolarAPP+-eligible projects, GridPermit's verified city source says permit issuance can be immediate after fee payment."
-		: "Local fact: GridPermit's source-backed record identifies " + permitAuthorityLabel + " as the permit authority for " + record.city.value + "."
-	: null;
-
 // "Other verified California guides" cross-links (never linking to this
 // page itself) — driven by the same READY-only entry list the locality
 // index page uses, so the two can never disagree on which cities qualify.
@@ -297,6 +290,15 @@ const tocItems = [
 				interconnectionVerified={interconnectionVerified}
 			/>
 
+			<InstallerCTA
+				city={record.city.value}
+				requireFirstLeadQualification={isFirstLeadSprintPage}
+				recordId={record.record_id}
+				utility={record.utility}
+				mode="commercial-only"
+				anchorId="installer-cta"
+			/>
+
 			<!-- ===== Overview ===== -->
 			<section id="overview">
 				<p class="gp-kicker">01 / Know your path</p>
@@ -360,29 +362,6 @@ const tocItems = [
 
 			{permitPathway && <PermitPathwayAnswer answer={permitPathway} />}
 
-			{isFirstLeadSprintPage && (
-				<section id="installer-cta" class="first-lead-panel" data-lead-sprint="first_lead_v1">
-					<p class="first-lead-kicker">Homeowner quote path</p>
-					<h2>Ready to compare a new solar quote in {record.city.value}?</h2>
-					<p>
-						A new project in {record.city.value} still has two approval tracks: permit review with {permitAuthorityLabel} and utility interconnection/PTO with {utilityShort}. GridPermit explains the approval path; CompareSolarPrices handles the quote request.
-					</p>
-					<details class="gp-source-evidence"><summary>How a quote fits the approval process</summary>{firstLeadLocalFact && <p class="first-lead-local-fact">{firstLeadLocalFact}</p>}
-					<ol class="first-lead-process">
-						<li><strong>Compare the project:</strong> request a homeowner quote and confirm the system scope.</li>
-						<li><strong>Permit path:</strong> the project still needs review or issuance through {permitAuthorityLabel}.</li>
-						<li><strong>Utility path:</strong> interconnection and PTO remain separate from the city permit process.</li>
-					</ol></details>
-					<ul class="first-lead-fit">
-						<li><strong>Best fit:</strong> you own the home and do not already have solar.</li>
-						<li><strong>Not the right quote path:</strong> renters or properties that already have solar. You can still use this page for permit and utility facts.</li>
-						<li><strong>Utility bill:</strong> helpful for an accurate quote, but not required before you click. CompareSolarPrices may collect it on the form or during follow-up.</li>
-						<li><strong>Privacy boundary:</strong> contact details are entered on CompareSolarPrices, not GridPermit.</li>
-					</ul>
-					<InstallerCTA city={record.city.value} requireFirstLeadQualification={true} recordId={record.record_id} utility={record.utility} />
-					<p class="first-lead-note">GridPermit sends only a random non-PII referral code in the outbound link so a genuine quote request can be reconciled back to the click.</p>
-				</section>
-			)}
 
 			{isFirstLeadSprintPage && batteryPrograms.length > 0 && (
 				<section id="battery-incentive" class="fact-callout fact-callout-caution first-lead-post-incentive">
@@ -546,12 +525,8 @@ const tocItems = [
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</details></section>
 
-			<!-- ===== Installer CTA ===== -->
-			{!isFirstLeadSprintPage && (
-				<div id="installer-cta">
-					<InstallerCTA city={record.city.value} recordId={record.record_id} utility={record.utility} />
-				</div>
-			)}
+			<!-- ===== Unpaid installer resource (paid routes render earlier) ===== -->
+			<InstallerCTA city={record.city.value} recordId={record.record_id} utility={record.utility} mode="resource-only" anchorId="installer-cta" />
 
 			<!-- ===== Sources ===== -->
 			<section id="sources">

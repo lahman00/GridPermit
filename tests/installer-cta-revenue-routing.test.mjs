@@ -31,7 +31,11 @@ test("the paid route is launch-ready while EnergySage remains the explicit fallb
 });
 
 test("the component never renders both solar CTAs at once", () => {
-	assert.match(source, /\{useCompareSolar \? \([\s\S]*CompareSolarPricesCTA[\s\S]*\) : GenericCTA && selection \?[\s\S]*\) : allowUnpaidResource && \([\s\S]*installer-cta-box/);
+	assert.match(source, /const renderCommercial=Boolean\(selection\)&&mode!=="resource-only"/);
+	assert.match(source, /const renderResource=Boolean\(!selection&&allowUnpaidResource\)&&mode!=="commercial-only"/);
+	assert.match(source, /renderCommercial && useCompareSolar \?/);
+	assert.match(source, /: renderResource \? \(/);
+	assert.equal((source.match(/CompareSolarPricesCTA state="CA"/g) ?? []).length, 1);
 });
 
 test("no CompareSolarPrices referral URL or CID is duplicated in the wrapper", () => {
