@@ -24,9 +24,16 @@ test("every table-of-contents anchor target clears the sticky navbar", () => {
 	assert.ok(toc.length >= 10, `expected the layout's ToC ids, got ${toc.join(",")}`);
 	// The ToC targets are all <section id=...> elements inside <main>, except the CTA which can also be a <div>.
 	const pathwayComponent = read("src/components/PermitPathwayAnswer.astro");
+	const installerCta = read("src/components/InstallerCTA.astro");
 	for (const id of toc) {
-		const source = id === "permit-pathway" ? pathwayComponent : layout;
-		assert.ok(new RegExp(`<(section|div) id="${id}"`).test(source), `ToC id ${id} has no matching element`);
+		if (id === "permit-pathway") {
+			assert.ok(new RegExp(`<(section|div) id="${id}"`).test(pathwayComponent), `ToC id ${id} has no matching element`);
+		} else if (id === "installer-cta") {
+			assert.match(layout, /anchorId="installer-cta"/);
+			assert.match(installerCta, /id=\{anchorId\}/);
+		} else {
+			assert.ok(new RegExp(`<(section|div) id="${id}"`).test(layout), `ToC id ${id} has no matching element`);
+		}
 	}
 	assert.ok(scrollMarginPx(layout, "main section[id]") >= TALLEST_MEASURED_NAV_PX + 8);
 	assert.ok(scrollMarginPx(layout, "#installer-cta") >= TALLEST_MEASURED_NAV_PX + 8);

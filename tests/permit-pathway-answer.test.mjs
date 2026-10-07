@@ -193,14 +193,15 @@ test("handoffs are existing internal articles, not commercial links", () => {
 	}
 });
 
-test("component is presentation-only and the layout renders it outside every commercial slot", () => {
+test("component is presentation-only and routing stays outside the permit-path answer", () => {
 	assert.doesNotMatch(component, /InstallerCTA|CompareSolar|PartnerCTA|<form|<input|<textarea|data-compare|fetch\(|sendBeacon/);
 	const call = layout.indexOf("<PermitPathwayAnswer");
 	assert.ok(call > 0);
 	assert.ok(call > layout.indexOf('<section id="overview">'));
-	assert.ok(call < layout.indexOf('<section id="installer-cta"'));
-	assert.ok(call < layout.indexOf('<div id="installer-cta">'));
-	// Routing gate inputs in the layout are untouched by this feature.
-	assert.match(layout, /<InstallerCTA city=\{record\.city\.value\} recordId=\{record\.record_id\} utility=\{record\.utility\} \/>/);
+	// The approved commercial slot is deliberately promoted ahead of long-form details,
+	// while the permit-path answer remains presentation-only and owns no partner logic.
+	assert.ok(layout.indexOf('mode="commercial-only"') < layout.indexOf('<section id="overview">'));
+	assert.ok(layout.indexOf('mode="resource-only" anchorId="installer-cta"') > call);
+	assert.match(layout, /<InstallerCTA[\s\S]*requireFirstLeadQualification=\{isFirstLeadSprintPage\}[\s\S]*mode="commercial-only"[\s\S]*anchorId="installer-cta"[\s\S]*\/>/);
 	assert.match(layout, /FIRST_LEAD_SPRINT_PATHS = new Set\(\[\s*"\/california\/escondido\/solar-permit-guide\/",\s*"\/california\/hemet\/solar-permit-guide\/",\s*"\/california\/pomona\/solar-permit-guide\/",\s*\]\)/);
 });
