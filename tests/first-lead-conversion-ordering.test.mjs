@@ -3,16 +3,17 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
 const layout = readFileSync(new URL("../src/layouts/LocalityGuideLayout.astro", import.meta.url), "utf8");
-const qualification = readFileSync(new URL("../src/lib/commercial/qualification.ts", import.meta.url), "utf8");
+const compareSolar = readFileSync(new URL("../src/components/CompareSolarPricesCTA.astro", import.meta.url), "utf8");
 
 test("first-lead routes keep in-body and TOC jumps to the quote slot", () => {
 	assert.match(layout, /Planning a new solar project\? Jump to the homeowner quote path/);
 	assert.match(layout, /isFirstLeadSprintPage \? \[\{ id: "installer-cta", label: "Compare Solar Quote" \}\]/);
 });
 
-test("first-lead routes reuse the compact paid slot with strict homeowner qualification", () => {
+test("first-lead routes reuse the compact paid slot without weakening the no-existing-solar qualification", () => {
 	assert.match(layout, /requireFirstLeadQualification=\{isFirstLeadSprintPage\}/);
-	assert.match(qualification, /I own this home and this property does not already have solar\./);
+	assert.match(compareSolar, /const effectiveQualificationLabel = requireFirstLeadQualification[\s\S]*I own this home and this property does not already have solar\./);
+	assert.match(compareSolar, /<span>\{effectiveQualificationLabel\}<\/span>/);
 	assert.doesNotMatch(layout, /class="first-lead-panel"|class="first-lead-fit"|class="first-lead-process"/);
 });
 
