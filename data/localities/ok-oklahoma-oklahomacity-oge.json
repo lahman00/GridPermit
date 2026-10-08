@@ -141,10 +141,19 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No specific dollar figure for the City's building/electrical permit fee, nor for OG&E's Interconnection or Net Metering application fees, was stated in either primary source fetched this session (OG&E's own FAQ describes the application process in detail but does not publish a fee amount for it) — left null rather than using unverified figures that appeared only in third-party aggregator search results."
+    "value": [
+      {
+        "name": "Photovoltaic installation (solar) electrical fee",
+        "amount_usd": 120,
+        "unit": "permit fee",
+        "notes": "The City fee schedule lists photovoltaic installations (solar) at $120 effective July 1, 2026 under §60-18-26(h). Other project-specific fees may apply."
+      }
+    ],
+    "confidence": 0.98,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "Solar-specific electrical fee from the current City Development Services fee schedule."
   },
   "rebates": {
     "value": null,
@@ -175,7 +184,7 @@
       "S2"
     ]
   },
-  "last_verified": "2026-08-14",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -192,6 +201,14 @@
       "publisher": "Oklahoma Gas and Electric Company (OG&E)",
       "type": "utility",
       "accessed_date": "2026-10-02"
+    },
+    {
+      "id": "S3",
+      "title": "Development Services Fee Schedule — effective July 1, 2026",
+      "url": "https://www.okc.gov/Infrastructure-Development/Development-Planning/Development-Center/Dev-Fees",
+      "publisher": "City of Oklahoma City",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

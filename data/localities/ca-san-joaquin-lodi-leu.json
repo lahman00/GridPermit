@@ -104,10 +104,15 @@
     ]
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No City building-permit review timeline is stated in the source reviewed. The durations on the City's Steps for Going Solar page are Lodi Electric Utility stages and are recorded under the interconnection field, not as a permit timeline."
+    "value": {
+      "min_days": 0,
+      "max_days": 3,
+      "notes": "For homeowners, the City procedure says Building reviews plans within 72 business hours after Lodi Electric Utility approval and receipt of a complete solar application. Licensed contractors may use SolarAPP+ for real-time rooftop solar permitting when eligible."
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -168,7 +173,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -177,6 +182,14 @@
       "publisher": "City of Lodi",
       "type": "government",
       "accessed_date": "2026-10-02"
+    },
+    {
+      "id": "S2",
+      "title": "Minor Residential Rooftop Photovoltaic Permit Procedure — January 2026",
+      "url": "https://www.lodi.gov/DocumentCenter/View/9984/Residential---Photovoltaic-Permit-Procedure-PDF",
+      "publisher": "City of Lodi",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

@@ -103,10 +103,15 @@
     "notes": "Not detailed on the City's own page fetched this session."
   },
   "timeline_days": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No City of Ann Arbor permit review time is stated in the sources reviewed. DTE's interconnection process duration is the utility's, and is recorded under the interconnection field, not as a permit timeline."
+    "value": {
+      "min_days": 3,
+      "max_days": 5,
+      "notes": "The City checklist lists a typical 3–5 business-day review for expedited residential solar permits. Non-expedited residential and commercial permits are listed at 5–10 business days; the City notes these are typical, not guaranteed."
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -174,7 +179,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-14",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -207,6 +212,14 @@
       "publisher": "DTE Energy",
       "type": "utility",
       "accessed_date": "2026-10-04"
+    },
+    {
+      "id": "S5",
+      "title": "Solar PV Permitting Checklist — Ann Arbor",
+      "url": "https://www.a2gov.org/media/xten3hec/p-1_permitting-checklist_ann-arbor_v4.pdf",
+      "publisher": "City of Ann Arbor",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

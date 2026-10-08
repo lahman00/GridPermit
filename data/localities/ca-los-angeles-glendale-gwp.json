@@ -163,10 +163,20 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The City's guide states Building and Safety 'contacts the solar contractor for payment of fees, issuance of permit, etc.' but does not itself state a dollar amount."
+    "value": [
+      {
+        "name": "Solar Photovoltaic permit and plan-review fees",
+        "amount_usd": null,
+        "unit": "project-specific",
+        "notes": "The City solar process requires payment of applicable Building & Safety permit/plan-review fees. The exact amount depends on project scope and the current Citywide Fee Schedule, so no single dollar figure is represented as universal."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The existence of City permit/plan-review fees is verified; the amount is project-specific rather than a single solar flat fee."
   },
   "rebates": {
     "value": null,
@@ -195,7 +205,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-11",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -204,6 +214,14 @@
       "publisher": "City of Glendale / Glendale Water and Power",
       "type": "government",
       "accessed_date": "2026-10-02"
+    },
+    {
+      "id": "S2",
+      "title": "Citywide Fee Schedule",
+      "url": "https://www.glendaleca.gov/government/departments/finance/revenue/citywide-fee-schedule",
+      "publisher": "City of Glendale",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }
