@@ -1,4 +1,4 @@
-<section class="gp-project-nav" aria-labelledby="project-nav-title">
+<section class="gp-project-nav gp-container" aria-labelledby="project-nav-title">
   <div class="gp-project-nav-copy">
     <p class="gp-kicker">Choose your next step</p>
     <h2 id="project-nav-title">Where are you<br/>in the process?</h2>
@@ -47,9 +47,11 @@
 </script>
 
 <style>
-  .gp-project-nav { display: grid; grid-template-columns: .78fr 1.5fr; gap: clamp(48px,8vw,130px); padding-block: 106px; border-bottom: 1px solid var(--gp-line); }
+  .gp-project-nav { display: block; padding-block: 72px; border-bottom: 1px solid var(--gp-line); }
+  .gp-project-nav-copy { max-width: 760px; margin-bottom: 44px; }
   .gp-project-nav-copy h2 { font-size: clamp(38px,4.6vw,62px); line-height: 1.07; letter-spacing: -.045em; }
-  .gp-project-nav-copy > p:last-child { max-width: 380px; color: var(--gp-muted); }
+  .gp-project-nav-copy > p:last-child { max-width: 560px; color: var(--gp-muted); }
+  .gp-project-nav-tool { width: 100%; }
   .gp-stage-tabs { display: grid; grid-template-columns: repeat(4,1fr); border-block: 1px solid var(--gp-line); }
   .gp-stage-tabs button { min-width: 0; padding: 17px 10px; color: var(--gp-muted); background: transparent; border: 0; border-right: 1px solid var(--gp-line); font: 11px/1.4 var(--gp-mono); text-align: left; text-transform: uppercase; transition: color .2s ease, background .2s ease; }
   .gp-stage-tabs button:last-child { border-right: 0; }
@@ -63,6 +65,6 @@
   .gp-stage-panel h3 { max-width: 580px; margin: 14px 0 16px; font-size: clamp(28px,3vw,40px); font-weight: 300; line-height: 1.18; }
   .gp-stage-panel p:not(.gp-kicker) { max-width: 570px; color: var(--gp-muted); }
   .gp-stage-panel a { display: inline-flex; gap: 36px; margin-top: 18px; padding: 10px 0; border-bottom: 1px solid var(--gp-line); text-decoration: none; }
-  @media(max-width:900px) { .gp-project-nav { grid-template-columns: 1fr; gap: 38px; padding-block: 70px; } }
+  @media(max-width:900px) { .gp-project-nav { padding-block: 70px; } .gp-project-nav-copy { margin-bottom: 38px; } }
   @media(max-width:620px) { .gp-stage-tabs { grid-template-columns: 1fr 1fr; } .gp-stage-tabs button:nth-child(2) { border-right: 0; } .gp-stage-tabs button:nth-child(-n+2) { border-bottom: 1px solid var(--gp-line); } .gp-stage-panel { grid-template-columns: 54px minmax(0,1fr); gap: 20px; min-height: 320px; padding-top: 34px; } .gp-stage-mark { width: 48px; height: 48px; font-size: 22px; } }
 </style>
