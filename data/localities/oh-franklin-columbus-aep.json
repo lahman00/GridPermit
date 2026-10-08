@@ -67,32 +67,35 @@
   "required_documents": {
     "value": [
       {
-        "name": "Building/electrical permit application specifying 'install rooftop solar panels' in the project work description",
+        "name": "Building Permit Application identifying “install rooftop solar panels” in the work description",
         "required_when": "always",
         "source_ids": [
-          "S1"
+          "S3",
+          "S4"
         ]
       },
       {
-        "name": "Name of a third-party inspector from the City's registered Photovoltaic Inspectors list (Special Inspection Testing Agencies and Inspectors, in the BZS Document Library)",
+        "name": "Architect- or engineer-stamped drawings demonstrating the roof can support the solar array",
         "required_when": "always",
         "source_ids": [
-          "S1"
+          "S3"
         ]
       },
       {
-        "name": "Plans sealed by a design professional registered in the State of Ohio",
+        "name": "Name of a City-registered photovoltaic special inspector",
         "required_when": "always",
         "source_ids": [
-          "S1"
+          "S3",
+          "S4"
         ]
       }
     ],
-    "confidence": 0.55,
+    "confidence": 0.98,
     "source_ids": [
-      "S1"
+      "S3",
+      "S4"
     ],
-    "notes": "Recorded from consistent search-result summaries of the City's own 'Rooftop Photovoltaic System Application Process' document, which could not be directly fetched this session (see permit_url notes) — confidence is correspondingly lower than for directly-fetched sources used elsewhere this session."
+    "notes": "The City’s current rooftop-solar FAQ and official application-process document directly state these plan-review requirements."
   },
   "inspection_steps": {
     "value": null,
@@ -151,7 +154,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -168,6 +171,22 @@
       "publisher": "AEP Ohio (Ohio Power Company)",
       "type": "utility",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S3",
+      "title": "BZS Frequently Asked Questions — Rooftop Solar Panels",
+      "url": "https://www.columbus.gov/Business-Development/Building-Zoning-Services/Frequently-Asked-Questions",
+      "publisher": "City of Columbus",
+      "type": "government",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "id": "S4",
+      "title": "Rooftop Photovoltaic System Application Process",
+      "url": "https://www.columbus.gov/files/sharedassets/city/v/1/building-and-zoning/document-library/rooftop-solar-installations.pdf",
+      "publisher": "City of Columbus",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

@@ -84,18 +84,33 @@
   "required_documents": {
     "value": [
       {
-        "name": "Standardized residential rooftop PV submittal (Residential Rooftop Photovoltaic Guide)",
-        "required_when": "always",
+        "name": "Completed Residential Rooftop Photovoltaic Guide / checklist",
+        "required_when": "for residential rooftop PV submittals",
         "source_ids": [
-          "S1"
+          "S5"
+        ]
+      },
+      {
+        "name": "PV plans showing array layout, access pathways, roof attachment and system information",
+        "required_when": "for residential rooftop PV submittals",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Signed completed checklist submitted with the application",
+        "required_when": "always for the City rooftop PV guide",
+        "source_ids": [
+          "S5"
         ]
       }
     ],
-    "confidence": 0.6,
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
+      "S1",
+      "S5"
     ],
-    "notes": "The city's dedicated PDF guide could not be read as text this session (returned corrupted/binary content), so its itemized checklist was not independently confirmed."
+    "notes": "The City’s current Building & Safety page links its Residential Rooftop Photovoltaic Guide, which contains the project checklist and requires the completed checklist to be submitted with the application."
   },
   "inspection_steps": {
     "value": [
@@ -154,7 +169,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -203,6 +218,14 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "S5",
+      "title": "Residential Rooftop Photovoltaic Guide",
+      "url": "https://cityofwillits.org/DocumentCenter/View/1591/Residential-Rooftop-Photovoltaic-Guide-PDFpdf",
+      "publisher": "City of Willits",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

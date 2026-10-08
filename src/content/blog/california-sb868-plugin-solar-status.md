@@ -1,21 +1,23 @@
 ---
-title: "California Plug-In Solar: Is SB 868 Law Yet?"
-description: "Current 2026 status of California SB 868 and what the proposed 1,200 W plug-in solar interconnection exemption would and would not mean today."
+title: "California Plug-In Solar: SB 868 Is Law — Effective Jan. 1, 2027"
+description: "SB 868 was signed and chaptered on September 30, 2026. Here is what California’s plug-in solar law changes, and what still applies before January 1, 2027."
 pubDate: "2026-09-09"
+updatedDate: "2026-10-08"
 decisionStage: true
 ---
 
-If you are asking whether **plug-in / balcony solar is already legal to connect in California under SB 868**, the answer as of **September 9, 2026** is:
+California **SB 868 is now law**, but its plug-in solar exemption is **not yet effective today**.
 
-**No — SB 868 has passed the Legislature, but it has not yet become law.**
+Governor Gavin Newsom approved SB 868 on **September 30, 2026**, and the Secretary of State chaptered it the same day as **Chapter 985, Statutes of 2026**. Because the measure is a non-urgency statute, it takes effect **January 1, 2027**.
 
-California's live Legislative Information status page currently shows SB 868 as **Enrolled**, with the bill presented to the Governor on **August 31, 2026 at 6 p.m.** There is no chaptered or vetoed date yet. See [California Legislative Information — SB 868 status](https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260SB868).
+Until then, a homeowner or renter should continue to follow the current local electrical/permit rules and the serving utility's current interconnection rules for the actual project.
 
-That means a homeowner or renter should **not treat the proposed SB 868 exemption as available today**. Until the bill is enacted and effective, the current permit/interconnection rules for the actual project and utility still control.
+Official status: [California Legislative Information — SB 868](https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260SB868).
+Chaptered text: [California Legislative Information — SB 868 bill text](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB868).
 
-## What the enrolled bill would cover
+## What the law covers
 
-The enrolled August 28, 2026 bill text defines a qualifying **portable solar generation device** using several conditions. Among them:
+SB 868 creates a statutory category for a qualifying **portable solar generation device**. The chaptered text includes several conditions, including:
 
 - maximum aggregated AC output of **1,200 watts per dwelling**;
 - connection and disconnection through a building electrical-system **receptacle**;
@@ -24,53 +26,47 @@ The enrolled August 28, 2026 bill text defines a qualifying **portable solar gen
 - certification as a plug-in photovoltaic system by **Underwriters Laboratories or an equivalent nationally recognized testing laboratory**; and
 - a separately certified feature that isolates the device to prevent grid backfeed during an outage.
 
-See [California Legislative Information — SB 868 bill text](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB868).
+A product marketed as “balcony solar” or “plug-in solar” does not qualify merely because it plugs into an outlet. The enacted definition and certification requirements still matter.
 
-## What the proposed interconnection exemption would do
+## What changes on January 1, 2027
 
-Under the enrolled text, a device that meets the statutory definition would, **until January 1, 2030**, be exempt from state/commission/utility interconnection requirements including an interconnection agreement.
+For a device that meets the statutory definition, SB 868 creates an exemption from specified utility interconnection requirements. The law also limits the utility from requiring prior interconnection approval, an interconnection-related fee, or extra controls beyond those integrated into the qualifying device.
 
-The enrolled text would also prevent the utility from requiring prior utility approval, an interconnection-related fee, or additional controls beyond those integrated into the qualifying device. A utility could require a **simple online registration** with information such as address, make, model and device size, but the registration would not itself be an approval process.
+A utility may require a **simple online registration** with information such as the service address, make, model and device size. The registration is not the same as an approval process.
 
-Again: those are provisions of an **enrolled bill**, not a rule available to rely on today.
+The statute's interconnection exemption is temporary and is written to run **until January 1, 2030**, unless later law changes it.
 
 ## Does SB 868 automatically cover a battery?
 
-The enrolled statutory definition is specifically for a **photovoltaic energy generation device** meeting the listed plug-in requirements. The text does not create a separate battery-storage definition or a general battery interconnection exemption.
+No broad battery-storage exemption should be inferred from SB 868. The statutory definition is for a qualifying **photovoltaic energy generation device**. It does not create a general battery-storage interconnection exemption.
 
-So if a proposed product includes or connects to battery storage, do not assume the complete PV + battery configuration receives the same exemption merely because the PV portion is small and plug-in.
-
-The exact product configuration, certifications and any separate storage/electrical requirements still need to be checked against the final enacted law, applicable code and local/utility rules when the product is actually available.
+If a product includes or connects to battery storage, check the complete product configuration, certifications, electrical work and any separate local or utility requirements rather than assuming the entire PV-plus-storage system is exempt.
 
 ## What about balcony, yard or roof placement?
 
-SB 868's utility-interconnection concept should not be confused with every possible **building, structural, fire, landlord, HOA or local installation requirement**.
+The utility-interconnection exemption does not erase every possible **building, structural, fire, landlord, HOA or property requirement**.
 
-A device may be small and plug-in while its physical mounting, attachment or location raises separate questions. Before buying equipment, ask:
+Before installing a device, check:
 
-- Is this truly a qualifying portable plug-in device, or a conventional permanently installed PV system?
-- Is it balcony-mounted, freestanding/yard-based, or roof-mounted?
-- Is any permanent attachment or structural work involved?
-- Does the product include battery storage?
-- Which utility serves the address?
-- What local building/fire/property rules apply to the actual placement?
+- whether the exact product meets the enacted portable-solar definition;
+- whether it is balcony-mounted, freestanding or attached to a structure;
+- whether any permanent structural or electrical work is involved;
+- whether battery storage is included;
+- which utility serves the address; and
+- whether separate local building, fire or property rules apply to the placement.
 
-## What should a California buyer do today?
+## What should a California buyer do now?
 
-1. **Do not assume SB 868 is already effective.** It is awaiting gubernatorial action as of September 9, 2026.
-2. **Do not buy a product solely because it is marketed as “balcony solar” or “plug-in solar.”** The enrolled bill uses specific output, connection, electrical-code and certification requirements.
-3. **Do not assume a battery is automatically covered.** The enrolled definition is focused on the qualifying PV device.
-4. **Check the current utility and local path** before connecting anything today.
-5. If SB 868 becomes law, re-check the final chaptered text and effective date before relying on the exemption.
+1. **Do not treat the SB 868 exemption as effective before January 1, 2027.**
+2. **Do not rely only on product marketing.** Confirm the output, connection method and required safety certifications against the enacted law.
+3. **Do not assume battery storage is automatically covered.**
+4. **Until the effective date, follow the current local and utility path for the actual project.**
+5. For an installation planned on or after January 1, 2027, re-check the chaptered law, current electrical code and any implementing utility/local instructions before connecting the device.
 
 ## GridPermit decision rule
 
-For a current California project, the correct question is not simply:
+The useful question is now:
 
-**“Is balcony solar legal?”**
+**“Is the installation on or after January 1, 2027, does this exact device meet SB 868's enacted definition, and are there separate local installation or storage requirements?”**
 
-It is:
-
-**“Has SB 868 become effective, does this exact device meet the enacted statutory definition, and are there separate local installation or storage requirements for this project?”**
-
-*GridPermit is an educational permitting/interconnection guide, not the State of California, a utility or an AHJ. Legislative status can change quickly. This page reflects the live California Legislative Information status and enrolled bill text checked September 9, 2026. Re-check the official status page before relying on it.*
+*GridPermit is an educational permitting/interconnection guide, not the State of California, a utility or an AHJ. This page was re-checked October 8, 2026 after SB 868 was signed and chaptered. Re-check the official status and chaptered text before relying on it for a real installation.*

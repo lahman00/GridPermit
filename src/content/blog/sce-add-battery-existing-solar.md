@@ -1,6 +1,6 @@
 ---
-title: "Adding a Battery to Existing SCE Solar: Permit, Interconnection and PTO Questions"
-description: "What Southern California Edison customers should verify before adding battery storage to an existing solar system, including city permits, SCE interconnection changes and PTO."
+title: "Add a Battery to Existing SCE Solar: What to Check"
+description: "What SCE customers should verify before adding battery storage to existing solar, including local permits, interconnection changes and PTO."
 pubDate: "2026-09-09"
 decisionStage: true
 ---

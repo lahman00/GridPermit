@@ -69,15 +69,17 @@
         "name": "Checklist for Expedited Residential Photovoltaic Systems (via Forms & Applications)",
         "required_when": "conditional",
         "source_ids": [
-          "S1"
+          "S5",
+          "S6"
         ]
       }
     ],
-    "confidence": 0.6,
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
+      "S5",
+      "S6"
     ],
-    "notes": "Derived from search-engine synthesis of the city's Forms & Applications page; the specific checklist document itself returned HTTP 404 on direct fetch this session."
+    "notes": "The City’s current Forms & Applications page links the Checklist for Expedited Residential Photovoltaic Systems."
   },
   "inspection_steps": {
     "value": [
@@ -114,9 +116,9 @@
         "MID also allows solar systems sized up to 115% of a customer's demonstrated load (for customers with 12+ months of service history)"
       ]
     },
-    "confidence": 0.75,
+    "confidence": 0.95,
     "source_ids": [
-      "S1",
+      "S6",
       "S2"
     ]
   },
@@ -126,10 +128,10 @@
         "name": "Electrical Photovoltaic - Residential",
         "amount_usd": 333,
         "unit": "flat fee (per permit)",
-        "notes": "Per the City's own Building Safety Division Development User Fees, Fiscal Year 25-26."
+        "notes": "The City’s current Building Safety Fees page lists Electrical Photovoltaic — Residential at $333 per permit for July 1, 2026 through June 30, 2027."
       }
     ],
-    "confidence": 0.9,
+    "confidence": 0.95,
     "source_ids": [
       "S4"
     ]
@@ -163,7 +165,7 @@
       "S2"
     ]
   },
-  "last_verified": "2026-08-05",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -191,11 +193,27 @@
     },
     {
       "id": "S4",
-      "title": "Building Safety Division Development User Fees, Fiscal Year 25-26",
-      "url": "https://permits.modestogov.com/DocumentCenter/View/19115/Building-Safety-Division-Development-User-Fees-Fiscal-Year-25-26-PDF",
+      "title": "Building Safety Fees — Effective July 1, 2026 to June 30, 2027",
+      "url": "https://www.modestogov.com/3308/Building-Safety-Fees",
       "publisher": "City of Modesto",
       "type": "government",
-      "accessed_date": "2026-08-10"
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "id": "S5",
+      "title": "Forms & Applications",
+      "url": "https://permits.modestogov.com/762/Forms-Applications",
+      "publisher": "City of Modesto",
+      "type": "government",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "id": "S6",
+      "title": "Eligibility Checklist for Expedited Solar Permitting",
+      "url": "https://www.modestogov.com/FormCenter/Building-Safety-and-Neighborhood-Preserv-26/Eligibility-Checklist-for-Expedited-Sola-420",
+      "publisher": "City of Modesto",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

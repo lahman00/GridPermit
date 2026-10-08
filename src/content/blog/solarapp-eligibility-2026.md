@@ -1,6 +1,6 @@
 ---
-title: "Can This Project Use SolarAPP+? Battery, MPU, Existing PV and Ground-Mount Rules"
-description: "A 2026 SolarAPP+ eligibility decision guide for projects with storage, main panel upgrades, existing solar, homeowner installation or ground-mounted PV."
+title: "SolarAPP+ Eligibility: Battery, MPU, Existing PV & Ground Mount"
+description: "A 2026 SolarAPP+ eligibility guide for storage, main-panel upgrades, existing solar, homeowner installation and ground-mounted PV."
 pubDate: "2026-09-09"
 decisionStage: true
 ---

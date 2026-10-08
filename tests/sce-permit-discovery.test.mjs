@@ -11,8 +11,8 @@ test('existing SCE retrofit article has a scope-honest local permit-directory ha
  assert.ok(content.indexOf('SCE city-guide directory')<content.indexOf('## What if the equipment or output changes?'));
  assert.doesNotMatch(content,/\/go\/|ref=GridPermit|cid=/);
 });
-test('editorial discovery does not alter the article title, description, date or decision-stage flag',()=>{
- assert.match(content,/title: "Adding a Battery to Existing SCE Solar: Permit, Interconnection and PTO Questions"/);
+test('editorial discovery keeps the article metadata intentional and SEO-safe',()=>{
+ assert.match(content,/title: "Add a Battery to Existing SCE Solar: What to Check"/);
  assert.match(content,/pubDate: "2026-09-09"/);assert.match(content,/decisionStage: true/);
- assert.match(content,/description: "What Southern California Edison customers should verify before adding battery storage/);
+ assert.match(content,/description: "What SCE customers should verify before adding battery storage to existing solar/);
 });

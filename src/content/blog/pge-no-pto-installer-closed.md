@@ -1,6 +1,6 @@
 ---
-title: "PG&E Solar Installed but No PTO: What to Verify if the Installer Is Gone"
-description: "A decision checklist for PG&E customers who discover a completed solar project never received Permission to Operate, especially when the original installer is unavailable."
+title: "PG&E Solar Installed but No PTO: What to Check | GridPermit"
+description: "A checklist for PG&E customers with installed solar but no Permission to Operate, including what to verify when the original installer is unavailable."
 pubDate: "2026-09-09"
 decisionStage: true
 ---

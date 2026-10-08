@@ -84,7 +84,8 @@
         "name": "SolarAPP+ approval certificate and approved plans",
         "required_when": "always",
         "source_ids": [
-          "S1"
+          "S1",
+          "S4"
         ]
       },
       {
@@ -109,20 +110,22 @@
         ]
       }
     ],
-    "confidence": 0.55,
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
+      "S1",
+      "S4"
     ],
-    "notes": "Derived from search-engine summaries; the underlying page could not be independently re-fetched this session."
+    "notes": "The City’s current Building Division lists the Solar Photovoltaic Workbook, System Requirements Checklist and Roof Access Letter; the SolarAPP+ page also requires the approval certificate and approved plans for the City e-permit step."
   },
   "inspection_steps": {
     "value": [
       "After entering permit information and uploading the SolarAPP+ approval certificate and payment through the city's e-permit system, an e-permit number is issued which is used to schedule inspection"
     ],
-    "confidence": 0.5,
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
-    ]
+      "S4"
+    ],
+    "notes": "The City’s current SolarAPP+ page says the e-permit number is used to schedule inspection and publishes the current inspection-request process."
   },
   "timeline_days": {
     "value": null,
@@ -140,9 +143,9 @@
       "program_or_pathway": "SolarAPP+ automated residential solar and energy storage permitting",
       "other_conditions": []
     },
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": [
-      "S1"
+      "S4"
     ]
   },
   "permit_fees": {
@@ -171,15 +174,15 @@
     ],
     "notes": "An email address for the Building Official appeared in search-engine results but was rendered as a redacted placeholder, so it was not included here."
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
-      "title": "Building Division (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "title": "Building Division",
       "url": "https://www.dinuba.org/building-division",
       "publisher": "City of Dinuba",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-10-08"
     },
     {
       "id": "S2",
@@ -212,6 +215,14 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "S4",
+      "title": "Solar APP+ Permitting",
+      "url": "https://www.dinuba.org/building-division/solar-app",
+      "publisher": "City of Dinuba",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

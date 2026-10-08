@@ -86,25 +86,32 @@
   "required_documents": {
     "value": [
       {
-        "name": "Active City of Hermosa Beach Business License (contractor)",
-        "required_when": "always",
+        "name": "Active City of Hermosa Beach Business License for the contractor",
+        "required_when": "always for SolarAPP+ contractor submissions",
         "source_ids": [
           "S3"
         ]
       },
       {
-        "name": "For PV systems including Energy Storage System equipment: approved plans or expedited checklist from LA County Fire",
-        "required_when": "conditional",
+        "name": "SolarAPP+ approved plans and inspection checklist",
+        "required_when": "always for eligible SolarAPP+ projects",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "LA County Fire approved plans or expedited ESS/PV checklists",
+        "required_when": "when the PV system includes energy storage equipment",
         "source_ids": [
           "S3"
         ]
       }
     ],
-    "confidence": 0.6,
+    "confidence": 0.98,
     "source_ids": [
       "S3"
     ],
-    "notes": "Based on search-engine synthesis of the city's own page content, since the page itself could not be directly fetched this session (HTTP 403); recorded with reduced confidence accordingly."
+    "notes": "The City’s current SolarAPP+ page directly lists these permit and ESS upload requirements."
   },
   "inspection_steps": {
     "value": [
@@ -172,7 +179,7 @@
       "S6"
     ]
   },
-  "last_verified": "2026-08-06",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -192,11 +199,11 @@
     },
     {
       "id": "S3",
-      "title": "SolarApp+ for Solar Installers",
+      "title": "SolarAPP+ for Solar Installers",
       "url": "https://www.hermosabeach.gov/our-government/city-departments/community-development/solarapp-for-solar-installers",
       "publisher": "City of Hermosa Beach",
       "type": "government",
-      "accessed_date": "2026-08-06"
+      "accessed_date": "2026-10-08"
     },
     {
       "id": "S4",

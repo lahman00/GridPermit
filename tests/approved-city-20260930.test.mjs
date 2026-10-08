@@ -31,7 +31,14 @@ test('Aaron-confirmed September 30 seven-city batch now passes commercial geogra
   assert.equal(u.searchParams.get('ref'),'GridPermit');assert.equal(u.searchParams.get('cid'),'b'.repeat(24));assert.equal(u.hash,'#quote');
  }
 });
-test('Long Beach old fees cannot be presented without their explicit September 30 cutoff',()=>{
- const f=read('data/localities/ca-los-angeles-long-beach-sce.json').permit_fees;assert.match(f.notes,/must NOT be treated as current.*2026-10-01/);
- for(const row of f.value){assert.match(row.name,/through 2026-09-30/);assert.match(row.notes,/Not verified.*2026-10-01/);}
+test('Long Beach does not present the expired FY2026 PV fee as a current October 2026 fee',()=>{
+ const r=read('data/localities/ca-los-angeles-long-beach-sce.json');const f=r.permit_fees;
+ assert.equal(f.value,null);
+ assert.equal(f.confidence,0);
+ assert.deepEqual(f.source_ids,[]);
+ assert.match(f.notes,/fees took effect October 1, 2026/i);
+ assert.match(f.notes,/prior residential rooftop photovoltaic amounts.*removed.*until.*independently verified/i);
+ assert.equal(r.generation_supplier.value.name,'Southern California Edison (SCE)');
+ assert.ok(r.generation_supplier.source_ids.includes('CITY_COMMUNITY_SOLAR'));
+ assert.doesNotMatch(JSON.stringify(r),/Residential rooftop PV, 0–10 kW bracket|Residential rooftop PV, greater than 10–15 kW bracket/);
 });

@@ -38,7 +38,7 @@ const records = Object.values(localityModules)
   .sort((a, b) => `${a.state}-${a.city}`.localeCompare(`${b.state}-${b.city}`));
 
 const title = "Solar Permit Path Checker | GridPermit";
-const description = "Check the verified permit authority, utility interconnection path, known SolarAPP+ pathway, required documents, fees and timeline for a GridPermit locality record.";
+const description = "Check a researched locality’s permit authority, utility path, SolarAPP+ status, required documents, fees and verified timeline facts.";
 const canonical = `${SITE_ORIGIN}/permit-path/`;
 ---
 <!DOCTYPE html>
@@ -52,6 +52,7 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
   <meta name="robots" content="index,follow" />
+  <meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonical} />
   <meta property="og:title" content={title} />

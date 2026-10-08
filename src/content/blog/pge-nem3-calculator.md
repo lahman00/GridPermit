@@ -1,6 +1,6 @@
 ---
 title: "PG&E Solar Billing Plan and Battery Storage: 2026 Guide"
-description: "How PG&E's Solar Billing Plan values imports and exports, why battery dispatch matters, and how to evaluate a 2026 project without unsupported payback assumptions."
+description: "How PG&E’s Solar Billing Plan values imports and exports, why battery dispatch matters, and how to evaluate a 2026 project without assuming payback."
 pubDate: "2026-07-27"
 updatedDate: "2026-08-26"
 ---

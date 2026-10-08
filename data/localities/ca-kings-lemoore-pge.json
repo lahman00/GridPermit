@@ -6,7 +6,7 @@
     "value": "Pacific Gas & Electric (PG&E)",
     "confidence": 0.85,
     "source_ids": [
-      "S1"
+      "S2"
     ],
     "notes": "Lemoore is a well-documented Kings County city within PG&E's core Northern California service territory."
   },
@@ -31,18 +31,21 @@
     ]
   },
   "permit_authority": {
-    "value": "City of Lemoore Development Services, Building Inspections",
-    "confidence": 0.75,
+    "value": "City of Lemoore Building Division",
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
-    ]
+      "S1",
+      "S6"
+    ],
+    "notes": "The current City departments page and staff directory identify the Building Division and Building Official/inspection staff."
   },
   "permit_url": {
-    "value": "https://lemoore.com/communitydevelopment/building-inspections/",
-    "confidence": 0.75,
+    "value": "https://www.lemoore.gov/163/Departments",
+    "confidence": 0.9,
     "source_ids": [
       "S1"
-    ]
+    ],
+    "notes": "The current City departments page identifies the Building Division and online permit/inspection services. Use the City’s current Building Division links for the live permit portal."
   },
   "interconnection_url": {
     "value": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
@@ -128,24 +131,16 @@
         "Reviewed under the 2022 California Building, Plumbing, Mechanical and National Electrical Code"
       ]
     },
-    "confidence": 0.55,
+    "confidence": 0.9,
     "source_ids": [
-      "S1"
+      "S5"
     ]
   },
   "permit_fees": {
-    "value": [
-      {
-        "name": "Residential solar installation permit fee (systems 13kW or less)",
-        "amount_usd": 574.94,
-        "unit": "flat fee",
-        "notes": "Per the City of Lemoore's Master User Fee Schedule (Resolution 2025-18)."
-      }
-    ],
-    "confidence": 0.7,
-    "source_ids": [
-      "S3"
-    ]
+    "value": null,
+    "confidence": 0.0,
+    "source_ids": [],
+    "notes": "A previously stored residential solar fee was tied to a City document URL that is no longer live. No replacement current official fee document was verified in this review, so the exact solar permit fee is not shown."
   },
   "rebates": {
     "value": null,
@@ -155,27 +150,27 @@
   "official_contacts": {
     "value": [
       {
-        "name": null,
-        "role": "City of Lemoore Development Services",
-        "phone": "559-924-6730",
-        "email": "permits@lemoore.com",
-        "url": "https://lemoore.com/communitydevelopment/building-inspections/"
+        "name": "Ray Greenlee",
+        "role": "City of Lemoore Building Official",
+        "phone": "559-924-6744 ext. 710",
+        "email": null,
+        "url": "https://www.lemoore.gov/m/directory"
       }
     ],
-    "confidence": 0.75,
+    "confidence": 0.95,
     "source_ids": [
-      "S1"
+      "S6"
     ]
   },
-  "last_verified": "2026-08-10",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
-      "title": "Building Inspections",
-      "url": "https://lemoore.com/communitydevelopment/building-inspections/",
+      "title": "Departments — Building Division",
+      "url": "https://www.lemoore.gov/163/Departments",
       "publisher": "City of Lemoore",
       "type": "government",
-      "accessed_date": "2026-08-10"
+      "accessed_date": "2026-10-08"
     },
     {
       "id": "S2",
@@ -183,14 +178,6 @@
       "url": "https://www.pge.com/en/save-energy-and-money/rebates-and-incentives/nem.html",
       "publisher": "Pacific Gas & Electric",
       "type": "utility",
-      "accessed_date": "2026-08-09"
-    },
-    {
-      "id": "S3",
-      "title": "Resolution No. 2025-18: Master User Fee Schedule",
-      "url": "https://lemoore.com/wp-content/uploads/2025/07/Master-User-Fee-Published.pdf",
-      "publisher": "City of Lemoore",
-      "type": "government",
       "accessed_date": "2026-08-09"
     },
     {
@@ -224,6 +211,14 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "S6",
+      "title": "Staff Directory — Building Division",
+      "url": "https://www.lemoore.gov/m/directory",
+      "publisher": "City of Lemoore",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }
