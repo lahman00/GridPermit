@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "coordinator": {
+    "id": "operations_coordinator",
+    "definition": "agents/operations-coordinator.md",
+    "entrypoint": "scripts/gridpermit-operations.mjs",
+    "state": "data/operations/state.json"
+  },
+  "agents": [
+    {
+      "id": "revenue_hunter",
+      "definition": "agents/revenue-hunter.md",
+      "skill": "skills/gridpermit-revenue-intelligence/SKILL.md",
+      "implementation": "scripts/lib/operations-system.mjs#buildRevenueLedger"
+    },
+    {
+      "id": "seo_growth_analyst",
+      "definition": "agents/seo-growth-analyst.md",
+      "skill": "skills/gridpermit-seo-growth/SKILL.md",
+      "implementation": "scripts/lib/operations-system.mjs#analyzeSeo"
+    },
+    {
+      "id": "permit_truth_guardian",
+      "definition": "agents/permit-truth-guardian.md",
+      "skill": "skills/gridpermit-source-verification/SKILL.md",
+      "implementation": "scripts/lib/operations-system.mjs#sourceTruth"
+    },
+    {
+      "id": "partner_manager",
+      "definition": "agents/partner-manager.md",
+      "skill": "skills/gridpermit-partner-operations/SKILL.md",
+      "implementation": "scripts/lib/operations-system.mjs#partnerStatus"
+    },
+    {
+      "id": "release_guardian",
+      "definition": "agents/release-guardian.md",
+      "skill": "skills/gridpermit-release-safety/SKILL.md",
+      "implementation": "scripts/lib/operations-system.mjs#releaseStatus"
+    }
+  ]
+}

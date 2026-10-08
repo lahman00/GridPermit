@@ -1,12 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {buildRevenueLedger,analyzeSeo,partnerStatus,releaseStatus,hebrewReport} from '../scripts/lib/operations-system.mjs';
+import {buildRevenueLedger,analyzeSeo,partnerStatus,releaseStatus,hebrewReport,validateOperationsRegistry} from '../scripts/lib/operations-system.mjs';
 import {writeOperationsRun} from '../scripts/lib/operations-output.mjs';
 import {mkdtemp,access,rm} from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 const now='2026-10-09T10:00:00.000Z',cid='0123456789abcdef01234567';
 const outbound={stage:'OUTBOUND_RECORDED',rows:[{stage:'OUTBOUND_RECORDED',cid,partner_id:'compare-solar-prices',page_path:'/california/test/solar-permit-guide/',city:'Test',intent:'NEW_SOLAR',cta_id:'quote',timestamp:'2026-10-08T10:00:00.000Z'}]};
+const projectRoot=path.resolve(import.meta.dirname,'..');
+test('operations registry connects all five agents to real definitions and skills',async()=>{const r=await validateOperationsRegistry(projectRoot,path.join(projectRoot,'data/operations/registry.json'));assert.equal(r.coordinator,'operations_coordinator');assert.equal(r.agents.length,5);assert.equal(r.validated_files,13);});
 test('missing reports remain unknown rather than zero',()=>{const r=buildRevenueLedger();assert.equal(r.stage_counts.OUTBOUND_RECORDED,null);assert.equal(r.stage_counts.QUALIFIED_LEAD,null);assert.equal(r.paid_revenue_cents,null);});
 test('duplicate outbound CIDs are suppressed',()=>{const r=buildRevenueLedger({outbound:{...outbound,rows:[...outbound.rows,...outbound.rows]}});assert.equal(r.rows.length,1);});
 test('missing and unknown CIDs cannot create partner outcomes',()=>{const partner={authenticity:'OPERATOR_VERIFIED',verified_at:now,events:[{stage:'QUALIFIED_LEAD',cid:'abcdefabcdefabcdefabcdef',partner_id:'compare-solar-prices',timestamp:now,evidence_ref:'partner:report'}]};const r=buildRevenueLedger({outbound,partner});assert.equal(r.stage_counts.QUALIFIED_LEAD,0);assert.equal(r.rejected[0].reason,'CID_NOT_IN_RETAINED_OUTBOUND');});

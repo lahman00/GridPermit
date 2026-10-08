@@ -5,6 +5,8 @@ This is a thin evidence and coordination layer over the existing telemetry, part
 ## Components
 
 - `data/operations/state.json` is the versioned operating contract and safety budget.
+- `data/operations/registry.json` is the canonical map from each operational agent to its definition, skill and deterministic implementation.
+- `agents/*.md` defines the coordinator and the five bounded operational roles.
 - `scripts/gridpermit-operations.mjs` runs five bounded checks and writes one immutable run directory.
 - `scripts/lib/operations-system.mjs` validates evidence and preserves funnel-stage distinctions.
 - `skills/gridpermit-*/SKILL.md` defines the five operator interfaces.
@@ -29,6 +31,16 @@ npm run operations -- \
 ```
 
 The output directory must not already exist. This prevents accidental overwrite and makes runs reproducible. Private inputs are never copied into the repository; only validated, no-PII ledger fields are written.
+
+## Make the repository skills available to Codex
+
+The repository remains the source of truth. Install stable local links into the Codex skill directory with:
+
+```bash
+npm run operations:install-skills
+```
+
+The installer never replaces a real directory or a link owned by another source.
 
 ## Existing infrastructure reused
 

@@ -11,6 +11,7 @@ const MONEY = new Set(['COMMISSION_APPROVED','COMMISSION_PAYABLE','COMMISSION_PA
 const CID = /^[a-f0-9]{24}$/i;
 const PII = /(^|_)(name|email|phone|address|street|zip|postal|ip|account|ssn|tin)(_|$)/i;
 const STATUS = new Set(['VERIFIED','NEEDS ATTENTION','BLOCKED','UNKNOWN','NOT APPLICABLE']);
+const EXPECTED_AGENTS = new Set(['revenue_hunter','seo_growth_analyst','permit_truth_guardian','partner_manager','release_guardian']);
 
 export function evidenceStatus(value){
   if(!STATUS.has(value)) throw new Error(`Invalid evidence status: ${value}`);
@@ -25,6 +26,7 @@ export function assertNoPii(value, label='input'){
 }
 function iso(value){return typeof value==='string' && Number.isFinite(Date.parse(value));}
 async function readJson(file){return JSON.parse(await readFile(file,'utf8'));}
+async function exists(file){try{await readFile(file);return true;}catch(error){if(error.code==='ENOENT')return false;throw error;}}
 function uniq(rows,key){const seen=new Set();return rows.filter(row=>{const k=key(row);if(seen.has(k))return false;seen.add(k);return true;});}
 
 export function buildRevenueLedger({outbound=null, partner=null, now=new Date().toISOString()}={}){
@@ -109,9 +111,23 @@ export function releaseStatus(evidence=null){
   return {status:missing.length?'NEEDS ATTENTION':'VERIFIED',deployment_allowed:missing.length===0&&evidence.production_approval===true,missing_or_failed:missing,rollback_target:evidence.rollback_target??null};
 }
 
-export async function runOperations({root,state,outbound,partner,gsc,ga4,releaseEvidence,now=new Date().toISOString()}={}){
+export async function validateOperationsRegistry(root, registryFile){
+  const registry=await readJson(registryFile);
+  if(registry.schema_version!==1||!registry.coordinator||!Array.isArray(registry.agents)) throw new Error('Invalid operations registry');
+  const ids=registry.agents.map(agent=>agent.id);
+  if(ids.length!==EXPECTED_AGENTS.size||new Set(ids).size!==ids.length||ids.some(id=>!EXPECTED_AGENTS.has(id))) throw new Error('Operations registry must define each expected agent exactly once');
+  const referenced=[registry.coordinator.definition,registry.coordinator.entrypoint,registry.coordinator.state,...registry.agents.flatMap(agent=>[agent.definition,agent.skill])];
+  const missing=[];
+  for(const relative of referenced) if(typeof relative!=='string'||relative.includes('..')||!await exists(path.join(root,relative))) missing.push(relative);
+  if(missing.length) throw new Error(`Operations registry references missing files: ${missing.join(', ')}`);
+  return {schema_version:registry.schema_version,coordinator:registry.coordinator.id,agents:ids,validated_files:referenced.length};
+}
+
+export async function runOperations({root,state,registry=path.join(root,'data/operations/registry.json'),outbound,partner,gsc,ga4,releaseEvidence,now=new Date().toISOString()}={}){
   const started=Date.now(), config=await readJson(state), tasks=[];
   if(config.limits.max_external_requests!==0||config.limits.allow_production_changes) throw new Error('Unsafe operations state');
+  const registryStatus=await validateOperationsRegistry(root,registry);
+  if(config.agent_registry!=='data/operations/registry.json'||config.agents.some(id=>!registryStatus.agents.includes(id))) throw new Error('Operations state and registry are not aligned');
   const load=async(file)=>file?readJson(file):null;
   const [outboundDoc,partnerDoc,gscDoc,ga4Doc,releaseDoc]=await Promise.all([load(outbound),load(partner),load(gsc),load(ga4),load(releaseEvidence)]);
   const revenue=buildRevenueLedger({outbound:outboundDoc,partner:partnerDoc,now});tasks.push({agent:'revenue_hunter',status:'done',evidence_rows:revenue.rows.length});
@@ -122,7 +138,7 @@ export async function runOperations({root,state,outbound,partner,gsc,ga4,release
   const release=releaseStatus(releaseDoc);tasks.push({agent:'release_guardian',status:'done',result:release.status});
   if(tasks.length>config.limits.max_tasks_per_run) throw new Error('Task limit exceeded');
   if(new Set(tasks.map(t=>t.agent)).size!==tasks.length) throw new Error('Duplicate task execution detected');
-  return {schema_version:1,generated_at:now,duration_ms:Date.now()-started,objective:config.objective,safety:{production_changed:false,external_messages_sent:0,paid_services_used:0},tasks,revenue,partners,seo,truth,release};
+  return {schema_version:1,generated_at:now,duration_ms:Date.now()-started,objective:config.objective,registry:registryStatus,safety:{production_changed:false,external_messages_sent:0,paid_services_used:0},tasks,revenue,partners,seo,truth,release};
 }
 
 export function hebrewReport(run){
