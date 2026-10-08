@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-10-09T01:30:00.000Z",
+  "tasks": [
+    {
+      "agent": "revenue_hunter",
+      "status": "done",
+      "evidence_rows": 7
+    },
+    {
+      "agent": "partner_manager",
+      "status": "done",
+      "partners": 10
+    },
+    {
+      "agent": "seo_growth_analyst",
+      "status": "done",
+      "result": "BLOCKED"
+    },
+    {
+      "agent": "permit_truth_guardian",
+      "status": "done",
+      "findings": 0
+    },
+    {
+      "agent": "release_guardian",
+      "status": "done",
+      "result": "VERIFIED"
+    }
+  ],
+  "revenue_rows": [
+    {
+      "stage": "OUTBOUND_RECORDED",
+      "cid": "0123456789abcdef01234567",
+      "partner_id": "compare-solar-prices",
+      "page_path": "/california/fixture/solar-permit-guide/",
+      "city": "Fixture",
+      "intent": "NEW_SOLAR",
+      "cta_id": "fixture_quote",
+      "timestamp": "2026-10-08T10:00:00.000Z",
+      "evidence_ref": "first-party:netlify-blobs"
+    },
+    {
+      "stage": "PARTNER_REPORTED_REFERRAL",
+      "cid": "0123456789abcdef01234567",
+      "partner_id": "compare-solar-prices",
+      "timestamp": "2026-10-08T10:05:00.000Z",
+      "evidence_ref": "fixture:referral",
+      "source_verified_at": "2026-10-09T01:00:00.000Z"
+    },
+    {
+      "stage": "QUALIFIED_LEAD",
+      "cid": "0123456789abcdef01234567",
+      "partner_id": "compare-solar-prices",
+      "timestamp": "2026-10-08T11:00:00.000Z",
+      "evidence_ref": "fixture:qualified",
+      "source_verified_at": "2026-10-09T01:00:00.000Z"
+    },
+    {
+      "stage": "FUNDED_INSTALL",
+      "cid": "0123456789abcdef01234567",
+      "partner_id": "compare-solar-prices",
+      "timestamp": "2026-10-08T12:00:00.000Z",
+      "evidence_ref": "fixture:funded",
+      "source_verified_at": "2026-10-09T01:00:00.000Z"
+    },
+    {
+      "stage": "COMMISSION_APPROVED",
+      "cid": "0123456789abcdef01234567",
+      "partner_id": "compare-solar-prices",
+      "timestamp": "2026-10-08T13:00:00.000Z",
+      "evidence_ref": "fixture:approved",
+      "amount_cents": 2500,
+      "currency": "USD",
+      "source_verified_at": "2026-10-09T01:00:00.000Z"
+    },
+    {
+      "stage": "COMMISSION_PAYABLE",
+      "cid": "0123456789abcdef01234567",
+      "partner_id": "compare-solar-prices",
+      "timestamp": "2026-10-08T14:00:00.000Z",
+      "evidence_ref": "fixture:payable",
+      "amount_cents": 2500,
+      "currency": "USD",
+      "source_verified_at": "2026-10-09T01:00:00.000Z"
+    },
+    {
+      "stage": "COMMISSION_PAID",
+      "cid": "0123456789abcdef01234567",
+      "partner_id": "compare-solar-prices",
+      "timestamp": "2026-10-08T15:00:00.000Z",
+      "evidence_ref": "fixture:paid",
+      "amount_cents": 2500,
+      "currency": "USD",
+      "payment_evidence_ref": "fixture:payment",
+      "source_verified_at": "2026-10-09T01:00:00.000Z"
+    }
+  ],
+  "rejected_evidence": []
+}

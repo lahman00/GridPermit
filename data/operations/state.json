@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "project": "GridPermit",
+  "objective": "FIRST_EXPLAINABLE_DOLLAR",
+  "canonical_repository": "https://github.com/lahman00/GridPermit",
+  "canonical_branch": "main",
+  "production_url": "https://mygridpermit.com",
+  "verified_production_commit": "d3cfd1657e231f58645a6e3123448aa4f321f0b8",
+  "california_only": true,
+  "agents": [
+    "revenue_hunter",
+    "seo_growth_analyst",
+    "permit_truth_guardian",
+    "partner_manager",
+    "release_guardian"
+  ],
+  "limits": {
+    "max_tasks_per_run": 5,
+    "max_runtime_seconds": 300,
+    "max_retries_per_integration": 1,
+    "max_external_requests": 0,
+    "allow_paid_services": false,
+    "allow_external_messages": false,
+    "allow_production_changes": false
+  },
+  "data_sources": {
+    "outbound_export": {"required_for": "OUTBOUND_RECORDED", "availability": "RUNTIME_INPUT"},
+    "partner_report": {"required_for": "PARTNER_REPORTED_REFERRAL_AND_LATER", "availability": "RUNTIME_INPUT"},
+    "gsc": {"availability": "RUNTIME_INPUT"},
+    "ga4": {"availability": "RUNTIME_INPUT"},
+    "official_sources": {"availability": "EXISTING_REPOSITORY_REPORTS"}
+  },
+  "last_verified": "2026-10-09T00:00:00.000Z",
+  "next_highest_priority_action": "Obtain a fresh private outbound export and an authentic privacy-safe CompareSolarPrices CID report, then reconcile them."
+}

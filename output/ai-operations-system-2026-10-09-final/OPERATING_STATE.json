@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-09T01:20:00.000Z",
+  "duration_ms": 80,
+  "objective": "FIRST_EXPLAINABLE_DOLLAR",
+  "safety": {
+    "production_changed": false,
+    "external_messages_sent": 0,
+    "paid_services_used": 0
+  },
+  "tasks": [
+    {
+      "agent": "revenue_hunter",
+      "status": "done",
+      "evidence_rows": 0
+    },
+    {
+      "agent": "partner_manager",
+      "status": "done",
+      "partners": 10
+    },
+    {
+      "agent": "seo_growth_analyst",
+      "status": "done",
+      "result": "BLOCKED"
+    },
+    {
+      "agent": "permit_truth_guardian",
+      "status": "done",
+      "findings": 0
+    },
+    {
+      "agent": "release_guardian",
+      "status": "done",
+      "result": "VERIFIED"
+    }
+  ],
+  "revenue": {
+    "generated_at": "2026-10-09T01:20:00.000Z",
+    "rows": [],
+    "rejected": [],
+    "stage_counts": {
+      "CTA_RENDERED": null,
+      "CTA_EXPOSED": null,
+      "CTA_CLICKED": null,
+      "OUTBOUND_RECORDED": null,
+      "PARTNER_REPORTED_REFERRAL": null,
+      "QUALIFIED_LEAD": null,
+      "FUNDED_INSTALL": null,
+      "COMMISSION_APPROVED": null,
+      "COMMISSION_PAYABLE": null,
+      "COMMISSION_PAID": null
+    },
+    "paid_revenue_cents": null,
+    "truth": "LATER_STAGES_UNKNOWN_NO_AUTHENTIC_PARTNER_REPORT"
+  },
+  "partners": [
+    {
+      "partner_id": "compare-solar-prices",
+      "status": "ACTIVE",
+      "commercial_status": "VERIFIED",
+      "activation_ready": true,
+      "blockers": [],
+      "last_verified": "2026-09-30",
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "energyaid",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "energysage",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "greenlancer",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "modernize",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "norcal-solar-repair",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "oc-solar",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "permitdesign",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "profitise",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    },
+    {
+      "partner_id": "solar-com",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": "2026-10-01",
+      "checked_at": "2026-10-09T01:20:00.000Z"
+    }
+  ],
+  "seo": {
+    "status": "BLOCKED",
+    "reason": "GSC_INPUT_UNAVAILABLE",
+    "rows": [],
+    "backlog": [
+      {
+        "rank": 1,
+        "status": "BLOCKED",
+        "action": "Restore authorized Search Console access and export page/query data; do not infer traffic."
+      }
+    ]
+  },
+  "truth": {
+    "status": "VERIFIED",
+    "scope": "CALIFORNIA_ONLY",
+    "records_checked": 334,
+    "stale_or_undated": 0,
+    "findings": []
+  },
+  "release": {
+    "status": "VERIFIED",
+    "deployment_allowed": false,
+    "missing_or_failed": [],
+    "rollback_target": "d3cfd1657e231f58645a6e3123448aa4f321f0b8"
+  }
+}

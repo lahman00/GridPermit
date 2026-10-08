@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-09T01:30:00.000Z",
+  "duration_ms": 109,
+  "objective": "FIRST_EXPLAINABLE_DOLLAR",
+  "safety": {
+    "production_changed": false,
+    "external_messages_sent": 0,
+    "paid_services_used": 0
+  },
+  "tasks": [
+    {
+      "agent": "revenue_hunter",
+      "status": "done",
+      "evidence_rows": 7
+    },
+    {
+      "agent": "partner_manager",
+      "status": "done",
+      "partners": 10
+    },
+    {
+      "agent": "seo_growth_analyst",
+      "status": "done",
+      "result": "BLOCKED"
+    },
+    {
+      "agent": "permit_truth_guardian",
+      "status": "done",
+      "findings": 0
+    },
+    {
+      "agent": "release_guardian",
+      "status": "done",
+      "result": "VERIFIED"
+    }
+  ],
+  "revenue": {
+    "generated_at": "2026-10-09T01:30:00.000Z",
+    "rows": [
+      {
+        "stage": "OUTBOUND_RECORDED",
+        "cid": "0123456789abcdef01234567",
+        "partner_id": "compare-solar-prices",
+        "page_path": "/california/fixture/solar-permit-guide/",
+        "city": "Fixture",
+        "intent": "NEW_SOLAR",
+        "cta_id": "fixture_quote",
+        "timestamp": "2026-10-08T10:00:00.000Z",
+        "evidence_ref": "first-party:netlify-blobs"
+      },
+      {
+        "stage": "PARTNER_REPORTED_REFERRAL",
+        "cid": "0123456789abcdef01234567",
+        "partner_id": "compare-solar-prices",
+        "timestamp": "2026-10-08T10:05:00.000Z",
+        "evidence_ref": "fixture:referral",
+        "source_verified_at": "2026-10-09T01:00:00.000Z"
+      },
+      {
+        "stage": "QUALIFIED_LEAD",
+        "cid": "0123456789abcdef01234567",
+        "partner_id": "compare-solar-prices",
+        "timestamp": "2026-10-08T11:00:00.000Z",
+        "evidence_ref": "fixture:qualified",
+        "source_verified_at": "2026-10-09T01:00:00.000Z"
+      },
+      {
+        "stage": "FUNDED_INSTALL",
+        "cid": "0123456789abcdef01234567",
+        "partner_id": "compare-solar-prices",
+        "timestamp": "2026-10-08T12:00:00.000Z",
+        "evidence_ref": "fixture:funded",
+        "source_verified_at": "2026-10-09T01:00:00.000Z"
+      },
+      {
+        "stage": "COMMISSION_APPROVED",
+        "cid": "0123456789abcdef01234567",
+        "partner_id": "compare-solar-prices",
+        "timestamp": "2026-10-08T13:00:00.000Z",
+        "evidence_ref": "fixture:approved",
+        "amount_cents": 2500,
+        "currency": "USD",
+        "source_verified_at": "2026-10-09T01:00:00.000Z"
+      },
+      {
+        "stage": "COMMISSION_PAYABLE",
+        "cid": "0123456789abcdef01234567",
+        "partner_id": "compare-solar-prices",
+        "timestamp": "2026-10-08T14:00:00.000Z",
+        "evidence_ref": "fixture:payable",
+        "amount_cents": 2500,
+        "currency": "USD",
+        "source_verified_at": "2026-10-09T01:00:00.000Z"
+      },
+      {
+        "stage": "COMMISSION_PAID",
+        "cid": "0123456789abcdef01234567",
+        "partner_id": "compare-solar-prices",
+        "timestamp": "2026-10-08T15:00:00.000Z",
+        "evidence_ref": "fixture:paid",
+        "amount_cents": 2500,
+        "currency": "USD",
+        "payment_evidence_ref": "fixture:payment",
+        "source_verified_at": "2026-10-09T01:00:00.000Z"
+      }
+    ],
+    "rejected": [],
+    "stage_counts": {
+      "CTA_RENDERED": null,
+      "CTA_EXPOSED": null,
+      "CTA_CLICKED": null,
+      "OUTBOUND_RECORDED": 1,
+      "PARTNER_REPORTED_REFERRAL": 1,
+      "QUALIFIED_LEAD": 1,
+      "FUNDED_INSTALL": 1,
+      "COMMISSION_APPROVED": 1,
+      "COMMISSION_PAYABLE": 1,
+      "COMMISSION_PAID": 1
+    },
+    "paid_revenue_cents": 2500,
+    "truth": "SYNTHETIC_TEST_ONLY"
+  },
+  "partners": [
+    {
+      "partner_id": "compare-solar-prices",
+      "status": "ACTIVE",
+      "commercial_status": "VERIFIED",
+      "activation_ready": true,
+      "blockers": [],
+      "last_verified": "2026-09-30",
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "energyaid",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "energysage",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "greenlancer",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "modernize",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "norcal-solar-repair",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "oc-solar",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "permitdesign",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "profitise",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": null,
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    },
+    {
+      "partner_id": "solar-com",
+      "status": "SHADOW",
+      "commercial_status": "UNVERIFIED",
+      "activation_ready": false,
+      "blockers": [
+        "APPROVAL_EVIDENCE",
+        "DESTINATION",
+        "TRACKING"
+      ],
+      "last_verified": "2026-10-01",
+      "checked_at": "2026-10-09T01:30:00.000Z"
+    }
+  ],
+  "seo": {
+    "status": "BLOCKED",
+    "reason": "GSC_INPUT_UNAVAILABLE",
+    "rows": [],
+    "backlog": [
+      {
+        "rank": 1,
+        "status": "BLOCKED",
+        "action": "Restore authorized Search Console access and export page/query data; do not infer traffic."
+      }
+    ]
+  },
+  "truth": {
+    "status": "VERIFIED",
+    "scope": "CALIFORNIA_ONLY",
+    "records_checked": 334,
+    "stale_or_undated": 0,
+    "findings": []
+  },
+  "release": {
+    "status": "VERIFIED",
+    "deployment_allowed": false,
+    "missing_or_failed": [],
+    "rollback_target": "d3cfd1657e231f58645a6e3123448aa4f321f0b8"
+  }
+}
