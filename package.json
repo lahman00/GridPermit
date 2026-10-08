@@ -35,6 +35,8 @@
     "route-debug": "node --experimental-strip-types scripts/route-debug.mjs",
     "outbound-export": "node scripts/outbound-export.mjs",
     "live-revenue-ops": "node scripts/live-revenue-ops.mjs",
+    "operations": "node scripts/gridpermit-operations.mjs",
+    "operations:install-skills": "node scripts/install-gridpermit-skills.mjs",
     "release-preservation-check": "node scripts/release-preservation-check.mjs"
   },
   "dependencies": {
@@ -42,8 +44,8 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@netlify/blobs": "11.1.1",
-    "astro": "^7.1.4",
-    "sharp": "^0.35.0"
+    "astro": "^7.2.8",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
