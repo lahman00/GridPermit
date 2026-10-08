@@ -15,7 +15,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const REPO_ROOT = path.resolve(new URL(".", import.meta.url).pathname, "..");
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_DIR = path.join(REPO_ROOT, "output", "rendered");
 
 // NOT_VERIFIED and confidenceLabel() below are deliberate, separate copies of

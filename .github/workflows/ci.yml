@@ -1,5 +1,12 @@
 name: CI
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches: [main]
@@ -9,6 +16,17 @@ on:
 jobs:
   quality-gates:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      typecheck: ${{ steps.typecheck.outcome }}
+      tests: ${{ steps.tests.outcome }}
+      build: ${{ steps.build.outcome }}
+      seo: ${{ steps.seo.outcome }}
+      partner: ${{ steps.partner.outcome }}
+      security: ${{ steps.security.outcome }}
+      routes: ${{ steps.evidence.outputs.routes }}
+      digest: ${{ steps.evidence.outputs.digest }}
     steps:
       - uses: actions/checkout@v4
 
@@ -21,13 +39,88 @@ jobs:
         run: npm ci
 
       - name: Typecheck (astro check)
+        id: typecheck
         run: npx astro check
 
       - name: Unit & integration tests
+        id: tests
         run: npm test
 
       - name: Production build
+        id: build
         run: npm run build
 
       - name: SEO & structured-data invariants (site-inventory --check)
+        id: seo
         run: npm run seo-check
+
+      - name: Partner health and commercial route preservation
+        id: partner
+        run: npm run partner-health -- --out "${{ runner.temp }}/partner-health"
+
+      - name: Dependency security audit
+        id: security
+        run: npm audit --audit-level=high
+
+      - name: Capture Release Guardian evidence
+        if: always()
+        id: evidence
+        shell: bash
+        run: |
+          routes="UNKNOWN"
+          digest="UNKNOWN"
+          if [[ -f netlify/generated/outbound-routes.json ]]; then
+            routes=$(node -e 'console.log(require(process.argv[1]).length)' "$PWD/netlify/generated/outbound-routes.json")
+            digest=$(shasum -a 256 netlify/generated/outbound-routes.json | cut -d' ' -f1)
+          fi
+          echo "routes=$routes" >> "$GITHUB_OUTPUT"
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+
+  release-guardian-comment:
+    if: always() && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    needs: quality-gates
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Publish Release Guardian result on the pull request
+        uses: actions/github-script@v7
+        env:
+          TYPECHECK: ${{ needs.quality-gates.outputs.typecheck }}
+          TESTS: ${{ needs.quality-gates.outputs.tests }}
+          BUILD: ${{ needs.quality-gates.outputs.build }}
+          SEO: ${{ needs.quality-gates.outputs.seo }}
+          PARTNER: ${{ needs.quality-gates.outputs.partner }}
+          SECURITY: ${{ needs.quality-gates.outputs.security }}
+          ROUTES: ${{ needs.quality-gates.outputs.routes }}
+          MANIFEST_DIGEST: ${{ needs.quality-gates.outputs.digest }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          script: |
+            const marker = '<!-- gridpermit-release-guardian -->';
+            const rows = [
+              ['Typecheck', process.env.TYPECHECK],
+              ['Tests', process.env.TESTS],
+              ['Build + release preservation', process.env.BUILD],
+              ['SEO invariants', process.env.SEO],
+              ['Partner health', process.env.PARTNER],
+              ['Dependency security', process.env.SECURITY],
+            ];
+            const ok = rows.every(([, value]) => value === 'success');
+            const body = [
+              marker,
+              '## Release Guardian: ' + (ok ? 'PASS' : 'NEEDS ATTENTION'),
+              '',
+              'Head: ' + process.env.HEAD_SHA,
+              '',
+              ...rows.map(([name, value]) => '- ' + name + ': **' + value + '**'),
+              '- Approved outbound routes: **' + process.env.ROUTES + '**',
+              '- Outbound manifest SHA-256: ' + process.env.MANIFEST_DIGEST,
+              '',
+              'No merge or deployment was performed by this workflow.',
+            ].join('\n');
+            const {data: comments} = await github.rest.issues.listComments({...context.repo, issue_number: context.issue.number, per_page: 100});
+            const prior = comments.find(comment => comment.user.type === 'Bot' && comment.body.includes(marker));
+            if (prior) await github.rest.issues.updateComment({...context.repo, comment_id: prior.id, body});
+            else await github.rest.issues.createComment({...context.repo, issue_number: context.issue.number, body});

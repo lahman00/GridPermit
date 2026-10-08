@@ -1,0 +1,176 @@
+name: GridPermit Autopilot
+
+on:
+  schedule:
+    - cron: "17 10 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Run daily checks or the daily checks plus weekly owner review
+        required: true
+        default: daily
+        type: choice
+        options:
+          - daily
+          - weekly
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gridpermit-autopilot
+  cancel-in-progress: false
+
+jobs:
+  operate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      AUTOPILOT_ROOT: ${{ runner.temp }}/gridpermit-autopilot
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.19.0"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Choose bounded run mode
+        id: mode
+        shell: bash
+        env:
+          REQUESTED_MODE: ${{ inputs.mode }}
+        run: |
+          mode="${REQUESTED_MODE:-}"
+          if [[ -z "$mode" ]]; then
+            if [[ "$(date -u +%u)" == "1" ]]; then mode="weekly"; else mode="daily"; fi
+          fi
+          if [[ "$mode" != "daily" && "$mode" != "weekly" ]]; then exit 2; fi
+          echo "value=$mode" >> "$GITHUB_OUTPUT"
+
+      - name: Restore non-sensitive deduplication state
+        id: state-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: .autopilot-cache
+          key: gridpermit-autopilot-state-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            gridpermit-autopilot-state-
+
+      - name: Build canonical source
+        run: npm run build
+
+      - name: Probe production and telemetry without creating traffic
+        run: |
+          mkdir -p "$AUTOPILOT_ROOT"
+          node scripts/autopilot-probe.mjs \
+            --out "$AUTOPILOT_ROOT/probe.json" \
+            --expected-commit "$GITHUB_SHA"
+
+      - name: Audit live commercial routes and approved destination
+        run: |
+          node --experimental-strip-types scripts/partner-health.mjs \
+            --live \
+            --probe-destinations \
+            --out "$AUTOPILOT_ROOT/partner-health"
+
+      - name: Export private first-party outbound evidence when authorized
+        id: outbound
+        shell: bash
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          status="BLOCKED"
+          if [[ -n "$NETLIFY_AUTH_TOKEN" ]]; then
+            if node scripts/outbound-export.mjs --out "$AUTOPILOT_ROOT/outbound.json"; then
+              status="VERIFIED"
+            else
+              status="NEEDS ATTENTION"
+            fi
+          fi
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - name: Record integration availability without secrets
+        id: sources
+        shell: bash
+        env:
+          OUTBOUND_STATUS: ${{ steps.outbound.outputs.status }}
+          NOTIFICATION_CONFIGURED: ${{ secrets.GRIDPERMIT_ALERT_WEBHOOK_URL != '' }}
+        run: |
+          node -e 'const fs=require("fs");const out={outbound:process.env.OUTBOUND_STATUS,partner_report:"BLOCKED",gsc:"BLOCKED",ga4:"BLOCKED",notifications:process.env.NOTIFICATION_CONFIGURED==="true"?"VERIFIED":"BLOCKED"};fs.writeFileSync(process.env.AUTOPILOT_ROOT+"/sources.json",JSON.stringify(out,null,2)+"\n")'
+          echo "notification_configured=$NOTIFICATION_CONFIGURED" >> "$GITHUB_OUTPUT"
+
+      - name: Run the existing five-agent coordinator
+        shell: bash
+        run: |
+          args=(--out "$AUTOPILOT_ROOT/operations")
+          if [[ -f "$AUTOPILOT_ROOT/outbound.json" ]]; then args+=(--outbound "$AUTOPILOT_ROOT/outbound.json"); fi
+          npm run operations -- "${args[@]}"
+
+      - name: Build daily and weekly reports with alert deduplication
+        id: autopilot
+        shell: bash
+        env:
+          MODE: ${{ steps.mode.outputs.value }}
+        run: |
+          args=(
+            --mode "$MODE"
+            --out "$AUTOPILOT_ROOT/result"
+            --operations "$AUTOPILOT_ROOT/operations/OPERATING_STATE.json"
+            --partner-health "$AUTOPILOT_ROOT/partner-health/PARTNER_HEALTH.json"
+            --probe "$AUTOPILOT_ROOT/probe.json"
+            --sources "$AUTOPILOT_ROOT/sources.json"
+            --expected-commit "$GITHUB_SHA"
+          )
+          if [[ -f .autopilot-cache/state.json ]]; then args+=(--state .autopilot-cache/state.json); fi
+          result=$(node scripts/gridpermit-autopilot.mjs "${args[@]}")
+          printf '%s\n' "$result"
+          mkdir -p .autopilot-cache
+          cp "$AUTOPILOT_ROOT/result/AUTOPILOT_STATE.json" .autopilot-cache/state.json
+          node -e 'const fs=require("fs"),x=JSON.parse(process.argv[1]);fs.appendFileSync(process.env.GITHUB_OUTPUT,"critical="+x.critical_alerts+"\nalerts="+x.new_alerts+"\n")' "$result"
+
+      - name: Publish public-safe job summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f "$AUTOPILOT_ROOT/result/AUTOPILOT_PUBLIC_STATUS.json" ]]; then
+            node -e 'const fs=require("fs"),x=JSON.parse(fs.readFileSync(process.argv[1]));const lines=["## GridPermit Autopilot","Mode: **"+x.mode+"**","Production: **"+x.statuses.production+"**","Commercial routes: **"+x.statuses.commercial_routes+"**","Telemetry: **"+x.statuses.telemetry+"**","New public-safe alerts: **"+x.alerts.length+"**"];fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,lines.join("\n")+"\n")' "$AUTOPILOT_ROOT/result/AUTOPILOT_PUBLIC_STATUS.json"
+          fi
+
+      - name: Deliver private alert or weekly report when configured
+        if: steps.autopilot.outputs.alerts != '0' || steps.mode.outputs.value == 'weekly'
+        env:
+          GRIDPERMIT_NOTIFICATION_KIND: ${{ steps.mode.outputs.value }}
+          GRIDPERMIT_ALERT_WEBHOOK_URL: ${{ secrets.GRIDPERMIT_ALERT_WEBHOOK_URL }}
+          GRIDPERMIT_ALERT_WEBHOOK_BEARER: ${{ secrets.GRIDPERMIT_ALERT_WEBHOOK_BEARER }}
+        run: |
+          if [[ -n "$GRIDPERMIT_ALERT_WEBHOOK_URL" ]]; then
+            report="$AUTOPILOT_ROOT/result/DAILY_OPERATIONS_REPORT_HE.md"
+            if [[ "${{ steps.mode.outputs.value }}" == "weekly" ]]; then report="$AUTOPILOT_ROOT/result/WEEKLY_OWNER_REPORT_HE.md"; fi
+            node scripts/autopilot-notify.mjs --alerts "$AUTOPILOT_ROOT/result/ALERT_NOTIFICATION.json" --report "$report"
+          fi
+
+      - name: Save non-sensitive deduplication state
+        if: always() && hashFiles('.autopilot-cache/state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .autopilot-cache
+          key: gridpermit-autopilot-state-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Upload public-safe status only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: autopilot-public-status-${{ github.run_id }}
+          path: ${{ env.AUTOPILOT_ROOT }}/result/AUTOPILOT_PUBLIC_STATUS.json
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Escalate a new critical alert through GitHub workflow notifications
+        if: steps.autopilot.outputs.critical != '0' && steps.sources.outputs.notification_configured != 'true'
+        run: |
+          echo "::error::GridPermit Autopilot found a new critical event. See the public-safe job summary; private evidence was not uploaded."
+          exit 1
