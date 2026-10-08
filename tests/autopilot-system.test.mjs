@@ -73,6 +73,7 @@ test('autopilot workflows are bounded, persistent and never merge or deploy',asy
   assert.match(workflow,/actions\/cache\/restore@v4/);
   assert.match(workflow,/actions\/cache\/save@v4/);
   assert.match(workflow,/NETLIFY_AUTH_TOKEN/);
+  assert.doesNotMatch(workflow,/\$\{\{\s*runner\.temp\s*\}\}/);
   assert.doesNotMatch(workflow,/^\s+actions:\s+write$/m);
   assert.doesNotMatch(workflow,/gh pr merge|netlify deploy|curl.+\/go\//i);
   const ci=await readFile(path.join(root,'.github/workflows/ci.yml'),'utf8');

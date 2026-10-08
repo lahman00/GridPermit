@@ -25,10 +25,12 @@ jobs:
   operate:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      AUTOPILOT_ROOT: ${{ runner.temp }}/gridpermit-autopilot
     steps:
       - uses: actions/checkout@v4
+
+      - name: Initialize private runtime path
+        shell: bash
+        run: echo "AUTOPILOT_ROOT=$RUNNER_TEMP/gridpermit-autopilot" >> "$GITHUB_ENV"
 
       - uses: actions/setup-node@v4
         with:
