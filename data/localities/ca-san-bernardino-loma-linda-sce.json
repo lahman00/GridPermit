@@ -184,10 +184,25 @@
     "notes": "No solar-specific permit review timeline was found. The City's Building and Safety FAQ gives only a general range for more complex projects of any kind (15 to 30 working days), which is not shown as a solar permit timeline."
   },
   "eligibility_constraints": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "No solar-specific eligibility page was located this session; the general permit FAQ does not address solar system size or eligibility limits."
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City of Loma Linda Residential Solar Minimum Requirements",
+      "other_conditions": [
+        "Roof-load calculations are required when the added load exceeds 6.5 lb per square foot.",
+        "The roof plan must show 3-foot setbacks required by the California Fire Code.",
+        "A Fire final inspection is required before the Building final inspection."
+      ]
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "S7"
+    ],
+    "notes": "Directly verified from the City of Loma Linda Minimum Requirements for Residential Solar."
   },
   "permit_fees": {
     "value": [
@@ -238,7 +253,7 @@
       "S5"
     ]
   },
-  "last_verified": "2026-10-02",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",

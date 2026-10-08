@@ -142,10 +142,37 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "The City's own page states fees are 'determined by Salt Lake City' and points to a fee calculator at www.slcpermits.com rather than stating a specific dollar figure — left null rather than estimated."
+    "value": [
+      {
+        "name": "Solar panel permit — 0–5 kW",
+        "amount_usd": 264,
+        "unit": "permit fee",
+        "notes": "Current FY2027 Salt Lake City Consolidated Fee Schedule."
+      },
+      {
+        "name": "Solar panel permit — 6–10 kW",
+        "amount_usd": 463,
+        "unit": "permit fee",
+        "notes": "Current FY2027 Salt Lake City Consolidated Fee Schedule."
+      },
+      {
+        "name": "Solar panel permit — 11–50 kW",
+        "amount_usd": 529,
+        "unit": "permit fee",
+        "notes": "Current FY2027 Salt Lake City Consolidated Fee Schedule."
+      },
+      {
+        "name": "Solar panel permit — 51–100 kW",
+        "amount_usd": 1190,
+        "unit": "permit fee",
+        "notes": "Current FY2027 Salt Lake City Consolidated Fee Schedule."
+      }
+    ],
+    "confidence": 0.98,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Current City solar-panel permit fees are published by system-size bracket in the FY2027 Consolidated Fee Schedule."
   },
   "rebates": {
     "value": null,
@@ -168,7 +195,7 @@
       "S2"
     ]
   },
-  "last_verified": "2026-08-13",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -193,6 +220,14 @@
       "publisher": "Utah Department of Commerce, Office of Consumer Services",
       "type": "government",
       "accessed_date": "2026-08-13"
+    },
+    {
+      "id": "S4",
+      "title": "FY2027 Consolidated Fee Schedule",
+      "url": "https://tools.slc.gov/feeschedule/",
+      "publisher": "Salt Lake City",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

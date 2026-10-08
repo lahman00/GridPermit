@@ -140,10 +140,19 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Checked the City's own NEM Program Tariff PDF, Customer-Generator Interconnection Policy PDF, and Electric Rates PDF this session; all three confirm a one-time interconnection application service fee exists but none states its dollar amount (each says the fee 'may be updated by the City from time to time' without listing a current figure). The Electric Rates PDF's Distributed Generation Rate and Net Surplus Compensation Rate are ongoing per-kWh billing rates, not a permit/application fee, so not used here."
+    "value": [
+      {
+        "name": "Development Services building-permit review fees",
+        "amount_usd": null,
+        "unit": "project-specific / current City fee schedule",
+        "notes": "The City solar process states that the contractor must submit the building-permit application with applicable review fees. The solar page does not publish the current dollar amount, so no amount is guessed here."
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "A City building-permit review fee is confirmed to apply; the current solar-specific dollar amount is not published on the City solar page."
   },
   "rebates": {
     "value": null,
@@ -166,7 +175,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",

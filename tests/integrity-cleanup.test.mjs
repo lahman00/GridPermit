@@ -57,20 +57,18 @@ test("Loma Linda uses the current solar-specific fee and requirements, while kee
 	assert.doesNotMatch(solarData, /39\.5|15 to 30 working days/i);
 });
 
-test("Banning uses Building & Safety as the permit authority and keeps BEU program charges out of permit fees", () => {
+test("Banning uses Building & Safety as the permit authority and keeps utility charges separate from current City solar permit fees", () => {
 	const b = byId("ca-riverside-banning-beu");
 	assert.equal(b.permit_authority.value, "City of Banning Building & Safety Division");
 	assert.match(b.permit_url.value, /\/944\/Solar-Permits$/);
 	assert.match(b.eligibility_constraints.value.program_or_pathway, /Banning Electric.*Symbium.*Building & Safety/s);
-	assert.equal(b.permit_fees.value, null);
-	assert.match(b.permit_fees.notes ?? "", /utility\/interconnection program/i);
+	const fees = new Map((b.permit_fees.value ?? []).map((fee) => [fee.name, fee.amount_usd]));
+	assert.equal(fees.get("Residential rooftop solar — up to 10 kW"), 423);
+	assert.equal(fees.get("Residential rooftop solar — more than 10 kW"), 595);
+	assert.match(b.sources.find((source) => source.id === b.permit_fees.source_ids[0])?.url ?? "", /DocumentCenter\/View\/14029/);
 	assert.match(b.interconnection_url.notes ?? "", /\$500 utility-program contribution/i);
 	assert.match(b.interconnection_url.notes ?? "", /\$245 production meter/i);
 	assert.match(b.interconnection_url.notes ?? "", /\$255 utility application\/plan-check\/inspection review/i);
-	const s4 = b.sources.find((s) => s.id === "S4");
-	const s5 = b.sources.find((s) => s.id === "S5");
-	assert.match(s4?.url ?? "", /\/944\/Solar-Permits$/);
-	assert.match(s5?.url ?? "", /\/71\/Building-Safety$/);
 });
 
 // ---------------------------------------------------------------- Lane B
@@ -83,12 +81,10 @@ const UTILITY_STAGE_NOTE =
 // Records reviewed in this cleanup whose timeline_days was a utility stage and has been removed.
 const FIXED_UTILITY_STAGE = {
 	"ca-riverside-banning-beu": [/application review can take up to 45 days/i, /plan check up to a further 45 days/i, /utility stages/i],
-	"ca-san-joaquin-lodi-leu": [/pre-approval review[^.]*up to two weeks/i, /ten business days/],
 	"ca-shasta-shasta-lake-slmu": [/Electric Department 30 days[^.]*initial review/i, /separate building permit application/],
 	"ok-oklahoma-oklahomacity-oge": [/Net Metering application review process is 30 business days/i, /up to seven business days/],
 	"wv-kanawha-charleston-appalachianpower": [/within 10 business days/, /further 10 business days/, /Those are utility steps, not a City permit review time/],
 	"de-new-castle-new-castle-county-delmarva": [/approximately 77 business days/, /utility's full process[^.]*not a County permit review time/],
-	"mi-washtenaw-annarbor-dte": [/approximately six weeks/, /within 10 business days/, /not a City of Ann Arbor permit review time/],
 };
 
 // Known, reported, not-yet-fixed records with the same defect. The set must match exactly: a new
@@ -113,6 +109,25 @@ test("utility-stage durations were removed from timeline_days and kept, labelled
 		assert.equal(formatTimeline(r.timeline_days.value).label, "Not yet verified.", id);
 		for (const p of patterns) assert.match(r.interconnection_url.notes, p, `${id}: ${p}`);
 	}
+});
+
+
+test("Lodi and Ann Arbor use current AHJ permit timelines while their utility-stage timing remains interconnection context", () => {
+	const lodi = byId("ca-san-joaquin-lodi-leu");
+	assert.deepEqual([lodi.timeline_days.value.min_days, lodi.timeline_days.value.max_days], [0, 3]);
+	assert.match(lodi.timeline_days.value.notes, /72 business hours/i);
+	assert.doesNotMatch(lodi.timeline_days.value.notes, UTILITY_STAGE_NOTE);
+	assert.match(lodi.interconnection_url.notes, /pre-approval review[^.]*up to two weeks/i);
+	assert.match(lodi.interconnection_url.notes, /ten business days/i);
+	assert.match(lodi.sources.find((source) => lodi.timeline_days.source_ids.includes(source.id))?.url ?? "", /DocumentCenter\/View\/9984/);
+
+	const annArbor = byId("mi-washtenaw-annarbor-dte");
+	assert.deepEqual([annArbor.timeline_days.value.min_days, annArbor.timeline_days.value.max_days], [3, 5]);
+	assert.match(annArbor.timeline_days.value.notes, /expedited residential solar permits/i);
+	assert.doesNotMatch(annArbor.timeline_days.value.notes, UTILITY_STAGE_NOTE);
+	assert.match(annArbor.interconnection_url.notes, /approximately six weeks/i);
+	assert.match(annArbor.interconnection_url.notes, /within 10 business days/i);
+	assert.match(annArbor.sources.find((source) => annArbor.timeline_days.source_ids.includes(source.id))?.url ?? "", /permitting-checklist_ann-arbor/i);
 });
 
 test("Salt Lake City does not publish a search-derived 4-8 week estimate as a permit timeline", () => {

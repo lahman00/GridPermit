@@ -114,7 +114,7 @@
     "value": null,
     "confidence": 0,
     "source_ids": [],
-    "notes": "No City building-permit review timeline is stated in the sources reviewed. The 45 + 45 days in the City's Program Guidelines are Electric Utility stages and are recorded under the interconnection field, not as a permit timeline."
+    "notes": "No City building-permit end-to-end review timeline is published in the sources reviewed. The automated Symbium review is a plan-review step, not a complete permit-issuance timeline. Utility-stage durations remain recorded under the interconnection field."
   },
   "eligibility_constraints": {
     "value": {
@@ -140,10 +140,25 @@
     "notes": "Current permit path refreshed from the City's Solar Permits page; utility sizing/meter conditions remain from the BEU program guidelines."
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "City Building & Safety solar permit fees were not verified in the sources reviewed. BEU's $500 contribution in aid of construction and additional utility review charges belong to the utility/interconnection program and are kept under interconnection context rather than displayed as City permit fees."
+    "value": [
+      {
+        "name": "Residential rooftop solar — up to 10 kW",
+        "amount_usd": 423,
+        "unit": "permit fee",
+        "notes": "Current City Building Permits Fee Schedule."
+      },
+      {
+        "name": "Residential rooftop solar — more than 10 kW",
+        "amount_usd": 595,
+        "unit": "permit fee",
+        "notes": "Current City Building Permits Fee Schedule."
+      }
+    ],
+    "confidence": 0.98,
+    "source_ids": [
+      "S6"
+    ],
+    "notes": "Solar-specific residential rooftop permit fees from the City of Banning Building Permits Fee Schedule linked from the current Building & Safety handouts page."
   },
   "rebates": {
     "value": null,
@@ -165,7 +180,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-10-03",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -206,6 +221,14 @@
       "publisher": "City of Banning",
       "type": "government",
       "accessed_date": "2026-10-03"
+    },
+    {
+      "id": "S6",
+      "title": "Building Permits Fee Schedule",
+      "url": "https://www.banningca.gov/DocumentCenter/View/14029/Banning-UF-Website-Version",
+      "publisher": "City of Banning",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

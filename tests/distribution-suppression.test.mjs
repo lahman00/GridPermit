@@ -64,25 +64,13 @@ test("the report reconciles every locality into a published or suppressed partit
 	assert.equal(pack.summary.recorded_ready_count, 351);
 	assert.equal(pack.summary.recorded_limited_count, 61);
 	assert.equal(pack.summary.recorded_not_ready_count, 2);
-	// ca-los-angeles-glendale-gwp moved from READY (80%) to LIMITED (73.3%, 11 of 12
-	// fields) once its only "timeline" - GWP's 3-5 business day initial
-	// interconnection review - stopped being presented as a permit timeline. The
-	// page stays published; its recorded evaluation is now stale and the drift is
-	// kept visible here rather than hidden by a mislabeled number.
-	// The integrity cleanup removed four more false or generic figures, so these records
-	// also moved from READY (80%) to LIMITED on recomputation and stay published:
-	// ca-san-bernardino-loma-linda-sce (73.3%, generic 15-30 day timeline removed;
-	// current solar-specific fee restored from the City's fee schedule) and ca-san-joaquin-lodi-leu, ca-shasta-shasta-lake-slmu and
-	// ok-oklahoma-oklahomacity-oge (73.3%, utility-stage durations removed from
-	// timeline_days). ca-riverside-banning-beu also recomputes LIMITED after
-	// utility-program charges were removed from the City permit-fee field.
-	// Removing the last three utility-stage "permit timelines" moved
-	// de-new-castle-new-castle-county-delmarva and mi-washtenaw-annarbor-dte from READY (80%)
-	// to LIMITED (73.3%) on recomputation; wv-kanawha-charleston-appalachianpower stays READY
-	// (86.7% -> 80%). Salt Lake City also recomputes from READY (80%) to LIMITED
-	// (73.3%) after removing its search-derived 28-56 day permit timeline. All of them stay published.
-	assert.equal(pack.summary.recomputed_ready_count, 341);
-	assert.equal(pack.summary.recomputed_limited_count, 71);
+	// The 2026-10-08 READY refresh added one current, primary-source-backed field
+	// to each of nine previously stale published records (Glendale, Banning,
+	// Loma Linda, Lodi, Shasta Lake, New Castle County, Ann Arbor, Oklahoma City
+	// and Salt Lake City). All nine now recompute at 80% / READY without changing
+	// their published route state.
+	assert.equal(pack.summary.recomputed_ready_count, 350);
+	assert.equal(pack.summary.recomputed_limited_count, 62);
 	assert.equal(pack.summary.recomputed_not_ready_count, 2);
 	// ca-riverside-corona-multi graduated into this disagreement set once its
 	// utility field was properly sourced (was null/genuinely-ambiguous; now a
@@ -91,16 +79,16 @@ test("the report reconciles every locality into a published or suppressed partit
 	// src/lib/utility-split-guard.ts, which checks the -multi record_id
 	// independent of the value) - its recorded batch evaluation (LIMITED,
 	// 73.3%) hasn't caught up to its recomputed state (READY, 80%) yet.
-	assert.equal(pack.summary.readiness_disagreement_count, 12);
-	assert.equal(pack.summary.published_readiness_disagreement_count, 11);
+	assert.equal(pack.summary.readiness_disagreement_count, 3);
+	assert.equal(pack.summary.published_readiness_disagreement_count, 2);
 	// Baldwin Park's completeness also changed (eligibility now sourced to its municipal code).
 	// The 2026-10-08 full-content audit adds two published-but-still-READY
 	// evaluation drifts: Lemoore recomputes 86.7% -> 80% after an exact solar
 	// fee tied to a dead City document was removed, while Petaluma recomputes
 	// 80% -> 86.7% after current City SolarAPP+ evidence restored documents and
 	// same-day eligibility-path timing. Neither changes readiness.
-	assert.equal(pack.summary.evaluation_stale_count, 45);
-	assert.equal(pack.summary.published_evaluation_stale_count, 40);
+	assert.equal(pack.summary.evaluation_stale_count, 36);
+	assert.equal(pack.summary.published_evaluation_stale_count, 31);
 	assert.equal(pack.summary.suppressed_evaluation_stale_count, 5);
 });
 
@@ -215,17 +203,8 @@ test("the current suppressed inventory is completeness-only, while published rea
 	assert.deepEqual(
 		pack.records.filter((row) => row.readiness_disagreement).map((row) => row.record_id),
 		[
-			"ca-los-angeles-glendale-gwp",
-			"ca-riverside-banning-beu",
 			"ca-riverside-corona-multi",
-			"ca-san-bernardino-loma-linda-sce",
-			"ca-san-joaquin-lodi-leu",
-			"ca-shasta-shasta-lake-slmu",
-			"de-new-castle-new-castle-county-delmarva",
 			"me-cumberland-southportland-cmp",
-			"mi-washtenaw-annarbor-dte",
-			"ok-oklahoma-oklahomacity-oge",
-			"ut-saltlake-saltlakecity-rmp",
 			"vt-statewide-vermont-gmp",
 		],
 	);
