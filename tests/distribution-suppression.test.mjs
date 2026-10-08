@@ -94,8 +94,13 @@ test("the report reconciles every locality into a published or suppressed partit
 	assert.equal(pack.summary.readiness_disagreement_count, 12);
 	assert.equal(pack.summary.published_readiness_disagreement_count, 11);
 	// Baldwin Park's completeness also changed (eligibility now sourced to its municipal code).
-	assert.equal(pack.summary.evaluation_stale_count, 43);
-	assert.equal(pack.summary.published_evaluation_stale_count, 38);
+	// The 2026-10-08 full-content audit adds two published-but-still-READY
+	// evaluation drifts: Lemoore recomputes 86.7% -> 80% after an exact solar
+	// fee tied to a dead City document was removed, while Petaluma recomputes
+	// 80% -> 86.7% after current City SolarAPP+ evidence restored documents and
+	// same-day eligibility-path timing. Neither changes readiness.
+	assert.equal(pack.summary.evaluation_stale_count, 45);
+	assert.equal(pack.summary.published_evaluation_stale_count, 40);
 	assert.equal(pack.summary.suppressed_evaluation_stale_count, 5);
 });
 

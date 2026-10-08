@@ -13,6 +13,7 @@ import {
 	buildSourceResolver,
 	getDisplayablePrograms,
 	formatTimeline,
+	publicResearchNote,
 	buildPageMeta,
 	buildBreadcrumbItems,
 	buildBreadcrumbSchema,
@@ -317,7 +318,7 @@ const tocItems = [
 						<h3>Permit timeline</h3>
 						<p class="fact-value">{timeline.label}</p>
 						{timeline.standardPathCaveat && <p class="fact-status">{timeline.standardPathCaveat}</p>}
-						{td.notes && <p class="fact-notes">{td.notes}</p>}
+						{publicResearchNote(td.notes) && <p class="fact-notes">{publicResearchNote(td.notes)}</p>}
 						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.timeline_days.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.timeline_days.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					</div>
 				)}
@@ -330,7 +331,7 @@ const tocItems = [
 								{batteryPrograms.map((p) => (
 									<div class="program-item">
 										<p class="fact-value">{p.name}</p>
-										<p class="fact-notes">{p.description}</p>
+										<p class="fact-notes">{publicResearchNote(p.description) ?? p.description}</p>
 										<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 									</div>
 								))}
@@ -369,7 +370,7 @@ const tocItems = [
 					{batteryPrograms.map((p) => (
 						<div class="program-item">
 							<p class="fact-value">{p.name}</p>
-							<p class="fact-notes">{p.description}</p>
+							<p class="fact-notes">{publicResearchNote(p.description) ?? p.description}</p>
 							<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 						</div>
 					))}
@@ -380,7 +381,7 @@ const tocItems = [
 			<!-- ===== Permit fees ===== -->
 			<section id="permit-fees">
 				<h2>Permit fees</h2>
-				{record.permit_fees.notes && <p class="fact-notes" data-permit-fee-context>{record.permit_fees.notes}</p>}
+				{publicResearchNote(record.permit_fees.notes) && <p class="fact-notes" data-permit-fee-context>{publicResearchNote(record.permit_fees.notes)}</p>}
 				{record.permit_fees.value ? (
 					<>
 						<ul class="fact-list">
@@ -392,7 +393,7 @@ const tocItems = [
 									) : (
 										<span class="doc-condition">: amount not verified{fee.unit && ` (${fee.unit})`}</span>
 									)}
-									{fee.notes && <p class="fact-notes">{fee.notes}</p>}
+									{publicResearchNote(fee.notes) && <p class="fact-notes">{publicResearchNote(fee.notes)}</p>}
 								</li>
 							))}
 						</ul>
@@ -409,7 +410,7 @@ const tocItems = [
 						{rebatePrograms.map((p) => (
 							<div class="program-item">
 								<p class="fact-value">{p.name}</p>
-								<p class="fact-notes">{p.description}</p>
+								<p class="fact-notes">{publicResearchNote(p.description) ?? p.description}</p>
 								<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 							</div>
 						))}
@@ -424,7 +425,7 @@ const tocItems = [
 				<div class="fact-block">
 					<h3>Utility</h3>
 					<p class="fact-value">{record.utility.value ?? NOT_VERIFIED}</p>
-{record.utility.notes && <p class="fact-notes">{record.utility.notes}</p>}
+{publicResearchNote(record.utility.notes) && <p class="fact-notes">{publicResearchNote(record.utility.notes)}</p>}
 					<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.utility.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.utility.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 				</div>
 
@@ -433,7 +434,7 @@ const tocItems = [
 					{hasGenerationSupplier && generationSupplier ? (
 						<>
 							<p class="fact-value">{generationSupplier.name} ({generationSupplier.type === "cca" ? "Community Choice Aggregator" : generationSupplier.type})</p>
-							{generationSupplier.notes && <p class="fact-notes">{generationSupplier.notes}</p>}
+							{publicResearchNote(generationSupplier.notes) && <p class="fact-notes">{publicResearchNote(generationSupplier.notes)}</p>}
 							<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.generation_supplier.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.generation_supplier.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 						</>
 					) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
@@ -444,7 +445,7 @@ const tocItems = [
 					{record.interconnection_url.value ? (
 						<>
 							<p class="fact-value"><a href={record.interconnection_url.value} target="_blank" rel="noopener">{record.interconnection_url.value}</a></p>
-							{record.interconnection_url.notes && <p class="fact-notes">{record.interconnection_url.notes}</p>}
+							{publicResearchNote(record.interconnection_url.notes) && <p class="fact-notes">{publicResearchNote(record.interconnection_url.notes)}</p>}
 							<ConfidenceBadge confidence={record.interconnection_url.confidence} />
 						</>
 					) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
@@ -456,7 +457,7 @@ const tocItems = [
 				<h2>Permit authority</h2>
 				<div class="fact-block">
 					<p class="fact-value">{record.permit_authority.value ?? NOT_VERIFIED}</p>
-					{record.permit_authority.notes && <p class="fact-notes">{record.permit_authority.notes}</p>}
+					{publicResearchNote(record.permit_authority.notes) && <p class="fact-notes">{publicResearchNote(record.permit_authority.notes)}</p>}
 					<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.permit_authority.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.permit_authority.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					{record.permit_url.value && (
 						<p class="fact-meta">Permit page: <a href={record.permit_url.value} target="_blank" rel="noopener">{record.permit_url.value}</a></p>
@@ -475,7 +476,7 @@ const tocItems = [
 						<ul class="fact-list">
 							{record.inspection_steps.value.map((step) => <li>{step}</li>)}
 						</ul>
-						{record.inspection_steps.notes && <p class="fact-notes">{record.inspection_steps.notes}</p>}
+						{publicResearchNote(record.inspection_steps.notes) && <p class="fact-notes">{publicResearchNote(record.inspection_steps.notes)}</p>}
 						<details class="gp-source-evidence"><summary>Sources &amp; confidence</summary><ConfidenceBadge confidence={record.inspection_steps.confidence} /><p class="fact-meta">Source(s): {sourcesFor(record.inspection_steps.source_ids).map((s, i) => <>{i > 0 && ", "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p></details>
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
@@ -495,7 +496,7 @@ const tocItems = [
 							{record.eligibility_constraints.value.other_conditions.length > 0 && (
 								<li><strong>Other conditions:</strong>
 									<ul class="fact-sublist">
-										{record.eligibility_constraints.value.other_conditions.map((c) => <li>{c}</li>)}
+										{record.eligibility_constraints.value.other_conditions.map((c) => <li>{publicResearchNote(c) ?? c}</li>)}
 									</ul>
 								</li>
 							)}

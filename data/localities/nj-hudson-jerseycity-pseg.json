@@ -71,23 +71,26 @@
   },
   "inspection_steps": {
     "value": [
-      "The installed system must be inspected and approved by a representative of the local permitting agency (building and/or electrical subcode official)",
-      "The system must separately be inspected and approved by PSE&G under the interconnection agreement before Permission to Operate is granted"
+      "Log in to the Jersey City permit portal and open Dashboard → View My Permits.",
+      "Open the issued permit, select the Inspections tab, choose the applicable inspection category, and request the inspection.",
+      "City inspections are conducted between 7 a.m. and 3 p.m.; contact the assigned inspector if a specific timeframe is needed."
     ],
-    "confidence": 0.55,
+    "confidence": 0.98,
     "source_ids": [
-      "S3"
+      "S6"
     ],
-    "notes": "This describes the general New Jersey statewide process (local UCC inspection plus separate utility interconnection inspection), not a Jersey-City-specific itemized sequence, which was not independently confirmed this session."
+    "notes": "The City’s current Inspections & Certificates page directly publishes this scheduling workflow."
   },
   "timeline_days": {
     "value": {
       "min_days": 0,
       "max_days": 20,
-      "notes": "The City's own Application & Review Process page states 'Please allow 20 business days for all applications to be reviewed' and separately that 'Plan review can take up to 20 business days'; a resubmitted/revised plan gets a notice of release within 7 business days. This is a general construction-permit review window covering all permit types (building, electrical, plumbing, fire, elevator), not a solar-PV-specific timeline — actual issuance time for a specific solar application was not independently confirmed."
+      "notes": "The City's Application & Review Process page says plan review can take up to 20 business days for permit applications generally, with revised plans receiving a notice of release within 7 business days. This is a general construction-permit review window, not a solar-specific promise."
     },
     "confidence": 0.7,
-    "source_ids": ["S5"]
+    "source_ids": [
+      "S5"
+    ]
   },
   "eligibility_constraints": {
     "value": {
@@ -143,7 +146,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-14",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -184,6 +187,14 @@
       "publisher": "City of Jersey City, Division of the Construction Code Official",
       "type": "government",
       "accessed_date": "2026-08-14"
+    },
+    {
+      "id": "S6",
+      "title": "Inspections & Certificates",
+      "url": "https://www.jerseycitynj.gov/cityhall/HousingAndDevelopment/constructioncode/inspections___certificates",
+      "publisher": "City of Jersey City",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

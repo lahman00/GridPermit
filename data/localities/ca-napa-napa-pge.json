@@ -58,9 +58,28 @@
     "notes": "PG&E's own utility-wide Net Energy Metering (NEM) program page."
   },
   "battery_programs": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": "California SGIP - current category and budget check required",
+        "administrator": "Applicable SGIP Program Administrator",
+        "description": "New applications and waitlist applications for ratepayer-funded SGIP budgets closed on December 30, 2025. New AB 209 applications have a June 30, 2028 deadline. The 2026 SGIP rate table publishes $3.10/W for solar and $1.10/Wh for storage in applicable Residential Solar and Storage Equity categories. Household eligibility and live budget availability vary by category and program administrator; check the official Program Metrics tracker before relying on an incentive.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3.1,
+        "eligibility": "Eligibility varies by 2026 SGIP budget category, program administrator, property, income/pathway, project rules, and live funding availability.",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S4",
+      "SGIP_HANDBOOK_2026",
+      "SGIP_METRICS_2026"
+    ],
+    "notes": "SGIP program data refreshed on 2026-08-26 from the official 2026 Handbook and live Program Metrics. Earlier locality records contained 2025 opening/availability language. This record does not assert household eligibility, reservation availability, or a guaranteed incentive; current category and program-administrator status must be checked before reliance."
   },
   "required_documents": {
     "value": [
@@ -122,15 +141,10 @@
     ]
   },
   "timeline_days": {
-    "value": {
-      "min_days": 3,
-      "max_days": 3,
-      "notes": "Search-engine synthesis indicates typical approval time is 3 business days, with more complex projects requiring structural review or variances taking longer; not independently confirmed via direct fetch of the Solar PV page's own timeline statement."
-    },
-    "confidence": 0.55,
-    "source_ids": [
-      "S1"
-    ]
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's current Solar PV page says residential solar and battery-backup permits are available over the counter, but it does not publish a 3-business-day review promise. The previous search-derived 3-day value was removed."
   },
   "eligibility_constraints": {
     "value": {
@@ -178,7 +192,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -203,6 +217,30 @@
       "publisher": "MCE (Marin Clean Energy)",
       "type": "other_official",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "S4",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "id": "SGIP_HANDBOOK_2026",
+      "title": "2026 Self-Generation Incentive Program Handbook",
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "SGIP_METRICS_2026",
+      "title": "SGIP Program Metrics and Incentive Step Tracker",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-26"
     }
   ]
 }

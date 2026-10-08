@@ -1,5 +1,5 @@
 ---
-title: "Tesla Powerwall 3 vs. Enphase IQ Battery 5P: 2026 Specs and Design Guide"
+title: "Powerwall 3 vs Enphase IQ Battery 5P: 2026 Guide"
 description: "A sourced comparison of Powerwall 3 and IQ Battery 5P capacity, power, architecture, warranty, and the project details that determine installed value."
 pubDate: "2026-07-27"
 updatedDate: "2026-10-02"

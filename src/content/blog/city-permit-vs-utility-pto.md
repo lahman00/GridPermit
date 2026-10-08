@@ -1,6 +1,6 @@
 ---
-title: "City Solar Permit vs Utility Interconnection and PTO: Why One Approval Is Not the Other"
-description: "A clear decision guide to the separate city/AHJ permit, local inspection, utility interconnection, utility field inspection and Permission to Operate milestones."
+title: "Solar Permit vs Utility Interconnection & PTO | GridPermit"
+description: "Understand the separate city permit, inspection, utility interconnection and Permission to Operate milestones for a solar project."
 pubDate: "2026-09-09"
 decisionStage: true
 ---

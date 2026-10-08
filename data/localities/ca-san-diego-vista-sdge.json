@@ -84,10 +84,48 @@
     "notes": "SGIP program data refreshed on 2026-08-26 from the official 2026 Handbook and live Program Metrics. Earlier locality records contained 2025 opening/availability language. This record does not assert household eligibility, reservation availability, or a guaranteed incentive; current category and program-administrator status must be checked before reliance."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "vista.gov returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements."
+    "value": [
+      {
+        "name": "Completed Standard Electrical Plan",
+        "required_when": "for residential PV projects under the streamlined requirements",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "One-line electrical diagram with service/disconnect, grounding, conductors, conduit and system configuration",
+        "required_when": "always for the streamlined residential PV submittal",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Equipment cut sheets for inverters, modules, disconnects and combiners",
+        "required_when": "always for the streamlined residential PV submittal",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Site diagram showing panel layout, north arrow, lot dimensions, shading elements and distances to property lines/structures",
+        "required_when": "always for the streamlined residential PV submittal",
+        "source_ids": [
+          "S5"
+        ]
+      },
+      {
+        "name": "Roof framing and racking/attachment information",
+        "required_when": "for roof-mounted systems",
+        "source_ids": [
+          "S5"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S5"
+    ],
+    "notes": "The City’s current Residential Photovoltaic Requirements bulletin directly lists the plan-review submittal information for streamlined residential PV projects."
   },
   "inspection_steps": {
     "value": [
@@ -99,15 +137,10 @@
     ]
   },
   "timeline_days": {
-    "value": {
-      "min_days": 0,
-      "max_days": 0,
-      "notes": "Search-engine synthesis of the city's own page indicates SolarApp+ permits are issued the same day once the online application and fees are complete; not independently confirmed via direct fetch this session."
-    },
-    "confidence": 0.55,
-    "source_ids": [
-      "S1"
-    ]
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The current official material confirms the City's permitting system but does not provide a primary-source solar review-time day count. The previous same-day estimate was removed because it had only been supported by search-derived text."
   },
   "eligibility_constraints": {
     "value": {
@@ -153,7 +186,7 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-08",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
@@ -202,6 +235,14 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "S5",
+      "title": "Residential Photovoltaic Requirements",
+      "url": "https://www.vista.gov/home/showpublisheddocument/13495/638851488914500000",
+      "publisher": "City of Vista",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

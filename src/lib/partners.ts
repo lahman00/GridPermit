@@ -1213,7 +1213,7 @@ export function getCplDisclosureText(state: CplState, partnerName: string): stri
 			return "This link is tracked; whether it results in compensation to GridPermit has not yet been confirmed.";
 		case "UNTRACKED_RELATIONSHIP":
 		default:
-			return `GridPermit has a partner relationship with ${partnerName}; this link is not currently tracked, and whether the partnership results in compensation to GridPermit has not yet been confirmed.`;
+			return `GridPermit links to ${partnerName} as an independent third-party resource. This link is not currently tracked for compensation.`;
 	}
 }
 

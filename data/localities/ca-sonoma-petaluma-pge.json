@@ -77,38 +77,67 @@
     ],
     "confidence": 0.9,
     "source_ids": [
-      "S4",
+      "S6",
       "SGIP_HANDBOOK_2026",
       "SGIP_METRICS_2026"
     ],
     "notes": "SGIP program data refreshed on 2026-08-26 from the official 2026 Handbook and live Program Metrics. Earlier locality records contained 2025 opening/availability language. This record does not assert household eligibility, reservation availability, or a guaranteed incentive; current category and program-administrator status must be checked before reliance."
   },
   "required_documents": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "cityofpetaluma.org returned HTTP 403 to automated fetch on every attempt this session, blocking access to specific submittal requirements."
+    "value": [
+      {
+        "name": "SolarAPP+ approval ID",
+        "required_when": "for the streamlined SolarAPP+ pathway",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "SolarAPP+ approval documents and approved plan sets",
+        "required_when": "for the streamlined SolarAPP+ pathway",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Contractor Disclosures Form",
+        "required_when": "for the City permit submission after SolarAPP+ approval",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Other supporting documents requested by the City portal for the project scope",
+        "required_when": "as applicable",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S8"
+    ],
+    "notes": "The City’s current SolarAPP+ page directly lists the approval ID, SolarAPP+ documents, plan sets and Contractor Disclosures Form for the City permit step."
   },
   "inspection_steps": {
     "value": [
-      "Request an inspection via the Permits & Planning Hub, by email at building@cityofpetaluma.org, or by phone (707-778-4479); scheduling occurs within 24 hours during regular business hours",
-      "Inspections are performed Monday-Thursday only; the next-day cutoff is 2:00 p.m. (a Friday inspection can be requested by phone for a minimum $514 fee)",
-      "Check the daily inspection schedule for the estimated 2-hour arrival window based on inspection order number",
-      "Keep the inspection card posted at the job site until the project passes final inspection"
+      "Request the building inspection before 2:00 p.m. for an inspection on the following day."
     ],
-    "confidence": 0.7,
+    "confidence": 0.85,
     "source_ids": [
-      "S5"
+      "S7"
     ],
-    "notes": "This is the City's general Building Inspections process (the same page covers all building permit types, including solar); the City's page does not describe a separate, solar-specific inspection sequence."
+    "notes": "This is the City Building Department’s current general inspection scheduling rule; the page does not publish a separate solar-only inspection sequence."
   },
   "timeline_days": {
     "value": {
       "min_days": 0,
       "max_days": 0,
-      "notes": "Search-engine synthesis of the city's own page indicates SolarAPP+ applications can receive a permit the same day; not independently confirmed via direct fetch this session."
+      "notes": "The City’s current SolarAPP+ page states that, with SolarAPP+ approval, an eligible applicant can apply for and receive the solar permit the same day. This applies to the City’s streamlined SolarAPP+ pathway, not every solar project."
     },
-    "confidence": 0.55,
+    "confidence": 0.95,
     "source_ids": [
       "S1"
     ]
@@ -157,15 +186,15 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
-      "title": "SolarApp+ Solar Permit",
+      "title": "SolarAPP+ Solar Permit",
       "url": "https://cityofpetaluma.org/solar-permit/",
       "publisher": "City of Petaluma",
       "type": "government",
-      "accessed_date": "2026-08-08"
+      "accessed_date": "2026-10-08"
     },
     {
       "id": "S2",
@@ -184,22 +213,6 @@
       "accessed_date": "2026-08-08"
     },
     {
-      "id": "S4",
-      "title": "About",
-      "url": "https://www.selfgenca.com/home/about/",
-      "publisher": "Self-Generation Incentive Program (SGIP)",
-      "type": "cpuc",
-      "accessed_date": "2026-08-09"
-    },
-    {
-      "id": "S5",
-      "title": "Building Inspections",
-      "url": "https://cityofpetaluma.org/building-inspections/",
-      "publisher": "City of Petaluma",
-      "type": "government",
-      "accessed_date": "2026-08-09"
-    },
-    {
       "id": "SGIP_HANDBOOK_2026",
       "title": "2026 Self-Generation Incentive Program Handbook",
       "url": "https://www.selfgenca.com/documents/handbook/2026",
@@ -214,6 +227,30 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "S6",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/industries-and-topics/electrical-energy/demand-side-management/self-generation-incentive-program",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "id": "S7",
+      "title": "Building Department — Inspections",
+      "url": "https://cityofpetaluma.org/departments/building",
+      "publisher": "City of Petaluma",
+      "type": "government",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "id": "S8",
+      "title": "SolarAPP+ Solar Permit FAQs",
+      "url": "https://cityofpetaluma.org/solarapp-solar-permit-faqs/",
+      "publisher": "City of Petaluma",
+      "type": "government",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

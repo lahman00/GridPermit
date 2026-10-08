@@ -39,10 +39,12 @@ test("today's EnergySage relationship classifies as UNTRACKED_RELATIONSHIP", () 
 	assert.equal(getCplState(energysage), "UNTRACKED_RELATIONSHIP", "trackingEnabled is false today, so the CPL state machine must classify it as untracked, not a stronger state");
 });
 
-test("getCplDisclosureText never asserts compensation is happening for an untracked relationship", () => {
+test("getCplDisclosureText never asserts a paid or verified partner relationship for an untracked resource", () => {
 	const text = getCplDisclosureText("UNTRACKED_RELATIONSHIP", "EnergySage");
-	assert.ok(/has not yet been confirmed/.test(text), "must state compensation has not yet been confirmed");
+	assert.match(text, /independent third-party resource/i);
+	assert.match(text, /not currently tracked for compensation/i);
 	assert.ok(!/\bearns?\s+(a\s+)?(commission|compensation)\b/i.test(text), "must not claim compensation is actively being earned");
+	assert.ok(!/approved partnership|partner relationship/i.test(text), "must not imply an approved or verified relationship in the untracked state");
 });
 
 test("getCplDisclosureText for ACTIVE_CPL states a real commission claim only for that state", () => {

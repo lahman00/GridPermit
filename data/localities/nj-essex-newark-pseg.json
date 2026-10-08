@@ -68,48 +68,61 @@
       {
         "name": "Completed Construction Permit Application (via the City's FastTrackGov portal)",
         "required_when": "always",
-        "source_ids": ["S5"]
+        "source_ids": [
+          "S5"
+        ]
       },
       {
         "name": "Electrical Technical Sheet",
         "required_when": "electrical work is involved (applies to grid-tied solar PV)",
-        "source_ids": ["S5"]
+        "source_ids": [
+          "S5"
+        ]
       },
       {
         "name": "Two sets of signed and sealed architectural drawings",
         "required_when": "new construction or structural work (e.g. roof-mount racking)",
-        "source_ids": ["S5"]
+        "source_ids": [
+          "S5"
+        ]
       },
       {
         "name": "State Electrical Business License (for the installing electrical contractor)",
         "required_when": "always, for the electrical subcode portion",
-        "source_ids": ["S5"]
+        "source_ids": [
+          "S5"
+        ]
       },
       {
         "name": "Zoning Approval",
         "required_when": "always",
-        "source_ids": ["S5"]
+        "source_ids": [
+          "S5"
+        ]
       },
       {
         "name": "Utility Dig notification",
         "required_when": "if excavation/trenching is involved",
-        "source_ids": ["S5"]
+        "source_ids": [
+          "S5"
+        ]
       }
     ],
     "confidence": 0.7,
-    "source_ids": ["S5"],
+    "source_ids": [
+      "S5"
+    ],
     "notes": "Newark's own 'Construction Check List 2026' (Building Department Contractor Permit Submission Guide) is a general construction-permit checklist covering all trades, not a solar-PV-specific list — items shown here are the general-checklist entries most applicable to a grid-tied residential solar PV installation (electrical work, possible roof-structure drawings, contractor licensing, zoning). Trade-specific items not applicable to solar (plumbing, fire sprinkler, elevator technical sheets) are omitted. Confirm the exact applicable subset with the Newark UCC office (973-733-3957) before relying on this as a complete solar-specific list."
   },
   "inspection_steps": {
     "value": [
-      "The installed system must be inspected and approved by a representative of the local permitting agency (building and/or electrical subcode official)",
-      "The system must separately be inspected and approved by PSE&G under the interconnection agreement before Permission to Operate is granted"
+      "Complete the required construction-code inspections through the City of Newark Building Division / Office of Uniform Construction Code after permit issuance."
     ],
-    "confidence": 0.6,
+    "confidence": 0.9,
     "source_ids": [
-      "S2"
+      "S1"
     ],
-    "notes": "This describes the general New Jersey statewide process (local UCC inspection plus separate utility interconnection inspection), not a Newark-specific itemized inspection sequence, which was not independently confirmed this session."
+    "notes": "The City identifies its Building Division/UCC as responsible for building permits and inspection services. A separate Newark solar-specific field-inspection sequence is not published on the current City page."
   },
   "timeline_days": {
     "value": null,
@@ -171,15 +184,15 @@
       "S1"
     ]
   },
-  "last_verified": "2026-08-14",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
-      "title": "Building Division - Office of Uniform Construction Code (UCC)",
+      "title": "Building Division — Office of Uniform Construction Code (UCC)",
       "url": "https://www.newarknj.gov/543/Building-Division---Office-of-Uniform-Co",
-      "publisher": "City of Newark, Engineering Department",
+      "publisher": "City of Newark",
       "type": "government",
-      "accessed_date": "2026-08-13"
+      "accessed_date": "2026-10-08"
     },
     {
       "id": "S2",

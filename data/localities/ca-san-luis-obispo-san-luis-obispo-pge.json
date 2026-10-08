@@ -101,9 +101,9 @@
     "value": {
       "min_days": 0,
       "max_days": 0,
-      "notes": "Per search-engine summaries, the permit auto-issues within about a minute of paying fees online after SolarAPP+ approval."
+      "notes": "The City's current Solar Information page says that after SolarAPP+ approval, City submission and payment of permit fees, the permit is auto-issued within about a minute."
     },
-    "confidence": 0.4,
+    "confidence": 0.9,
     "source_ids": [
       "S1"
     ]
@@ -129,22 +129,29 @@
   "permit_fees": {
     "value": [
       {
-        "name": "Solar Permit (city fee)",
-        "amount_usd": 190,
-        "unit": "flat fee (approximate)",
-        "notes": "Cited as one of the lowest solar permit fees in the area, per search-engine summary; not independently confirmed against a fee schedule this session."
+        "name": "City solar permit fee",
+        "amount_usd": null,
+        "unit": "City permit invoice",
+        "notes": "The City issues a separate permit-fee invoice after the SolarAPP+ permit application is submitted. The exact current City permit amount is not stated on the Solar Information page."
       },
       {
-        "name": "SolarAPP+ processing fee",
-        "amount_usd": 25,
-        "unit": "flat fee, paid to SolarAPP+ (not the city)",
-        "notes": null
+        "name": "SolarAPP+ processing fee — solar",
+        "amount_usd": 35,
+        "unit": "per SolarAPP+ application",
+        "notes": "Paid to SolarAPP+ during automated review; separate from the City permit invoice."
+      },
+      {
+        "name": "SolarAPP+ processing fee — solar plus storage",
+        "amount_usd": 60,
+        "unit": "per SolarAPP+ application",
+        "notes": "Paid to SolarAPP+ during automated review; separate from the City permit invoice."
       }
     ],
-    "confidence": 0.4,
+    "confidence": 0.95,
     "source_ids": [
       "S1"
-    ]
+    ],
+    "notes": "Current fees shown here separate the SolarAPP+ platform charge from the City permit invoice."
   },
   "rebates": {
     "value": null,
@@ -156,15 +163,15 @@
     "confidence": 0,
     "source_ids": []
   },
-  "last_verified": "2026-08-09",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "S1",
-      "title": "Solar Information (page inaccessible to automated fetch — HTTP 403; detail drawn from search-engine summaries)",
+      "title": "Solar Information",
       "url": "https://www.slocity.org/government/department-directory/community-development/building-safety/permit-forms-and-applications/solar-documents",
       "publisher": "City of San Luis Obispo",
       "type": "government",
-      "accessed_date": "2026-08-09"
+      "accessed_date": "2026-10-08"
     },
     {
       "id": "S2",

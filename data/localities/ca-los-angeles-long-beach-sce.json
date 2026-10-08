@@ -12,10 +12,16 @@
     "notes": "IB-023 identifies SCE as the city's electric utility and requires separate SCE interconnection approval."
   },
   "generation_supplier": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Default generation supplier was not established by the reviewed city and utility sources; no CCA is inferred from neighboring communities."
+    "value": {
+      "name": "Southern California Edison (SCE)",
+      "type": "utility",
+      "notes": "The City’s current Community Solar page identifies Southern California Edison as the electricity utility carrying out the program. Clean Power Alliance’s current 38-community service map does not list Long Beach, so no CPA generation service is inferred for this record."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "CITY_COMMUNITY_SOLAR",
+      "CPA_SERVICE_2026"
+    ]
   },
   "city": {
     "value": "Long Beach",
@@ -59,12 +65,12 @@
     "value": [
       {
         "name": "California SGIP - current category and budget check required",
-        "administrator": "Southern California Edison",
-        "description": "Ratepayer budgets are closed to new applicants; RSSE funds are exhausted and waitlisted.",
-        "value_usd_per_kwh": null,
+        "administrator": "Applicable SGIP Program Administrator",
+        "description": "New applications and waitlist applications for ratepayer-funded SGIP budgets closed on December 30, 2025. New AB 209 applications have a June 30, 2028 deadline. The 2026 SGIP rate table publishes $3.10/W for solar and $1.10/Wh for storage in applicable Residential Solar and Storage Equity categories. Household eligibility and live budget availability vary by category and program administrator; check the official Program Metrics tracker before relying on an incentive.",
+        "value_usd_per_kwh": 1100,
         "value_usd_flat": null,
-        "value_usd_per_watt": null,
-        "eligibility": "Category and program-administrator rules apply; consult the live budget tracker.",
+        "value_usd_per_watt": 3.1,
+        "eligibility": "Eligibility varies by 2026 SGIP budget category, program administrator, property, income/pathway, project rules, and live funding availability.",
         "url": "https://www.selfgenca.com/home/program_metrics/",
         "effective_from": null,
         "expires_on": null,
@@ -77,7 +83,7 @@
       "SGIP_HANDBOOK_2026",
       "SGIP_METRICS_2026"
     ],
-    "notes": "SCE's closure/waitlist notice and the joint utility administrators' handbook and tracker were checked live. The schema has no closed/waitlisted status; no active award or amount is asserted."
+    "notes": "SGIP program data refreshed on 2026-08-26 from the official 2026 Handbook and live Program Metrics. Earlier locality records contained 2025 opening/availability language. This record does not assert household eligibility, reservation availability, or a guaranteed incentive; current category and program-administrator status must be checked before reliance."
   },
   "required_documents": {
     "value": [
@@ -166,26 +172,10 @@
     "notes": "This residential record summarizes the city bulletin's scope; see required_documents for conditional historic-property requirements."
   },
   "permit_fees": {
-    "value": [
-      {
-        "name": "Schedule through 2026-09-30: Residential rooftop PV, published 0–10 kW bracket",
-        "amount_usd": 219,
-        "unit": "electrical permit fee component",
-        "notes": "Published electrical schedule effective 2025-10-01; not an all-in project total. Not verified for applications on or after 2026-10-01."
-      },
-      {
-        "name": "Schedule through 2026-09-30: Residential rooftop PV, published 10–15 kW bracket",
-        "amount_usd": 450,
-        "unit": "electrical permit fee component",
-        "notes": "The printed brackets overlap at 10 kW; verify that boundary with the city. Not verified for applications on or after 2026-10-01."
-      }
-    ],
-    "confidence": 0.9,
-    "source_ids": [
-      "CITY_ELECTRICAL_FEES",
-      "CITY_FEE_NOTICE"
-    ],
-    "notes": "Historical fee schedule effective 2025-10-01, verified on 2026-09-30. The city announces replacement fees effective 2026-10-01. The amounts below must NOT be treated as current for applications on or after 2026-10-01; check the linked city fee schedule before applying. Processing fees and surcharges may apply, and no all-in total is asserted."
+    "value": null,
+    "confidence": 0.0,
+    "source_ids": [],
+    "notes": "The City states that revised Community Development fees took effect October 1, 2026. The prior residential rooftop photovoltaic amounts were therefore removed from the current guide until the applicable FY 2027 solar fee can be independently verified from the current City schedule."
   },
   "rebates": {
     "value": null,
@@ -208,7 +198,7 @@
       "CITY_SOLAR"
     ]
   },
-  "last_verified": "2026-09-30",
+  "last_verified": "2026-10-08",
   "sources": [
     {
       "id": "SCE_SERVICE",
@@ -251,36 +241,36 @@
       "accessed_date": "2026-09-30"
     },
     {
-      "id": "CITY_ELECTRICAL_FEES",
-      "title": "Electrical Permit & Plan Check Fees",
-      "url": "https://www.longbeach.gov/globalassets/lbcd/media-library/documents/building--safety/fee-schedules/electrical-permit--plan-check-fees",
-      "publisher": "City of Long Beach",
-      "type": "government",
-      "accessed_date": "2026-09-30"
-    },
-    {
-      "id": "CITY_FEE_NOTICE",
-      "title": "Community Development Fee Schedules — upcoming fee adjustment",
-      "url": "https://www.longbeach.gov/lbcd/fee-schedules/",
-      "publisher": "City of Long Beach",
-      "type": "government",
-      "accessed_date": "2026-09-30"
-    },
-    {
       "id": "SGIP_HANDBOOK_2026",
       "title": "2026 Self-Generation Incentive Program Handbook",
       "url": "https://www.selfgenca.com/documents/handbook/2026",
-      "publisher": "SGIP Program Administrators, including Southern California Edison",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
-      "accessed_date": "2026-09-30"
+      "accessed_date": "2026-08-26"
     },
     {
       "id": "SGIP_METRICS_2026",
-      "title": "SGIP Program Metrics and Incentive Step Tracker — SCE budgets",
+      "title": "SGIP Program Metrics and Incentive Step Tracker",
       "url": "https://www.selfgenca.com/home/program_metrics/",
-      "publisher": "SGIP Program Administrators, including Southern California Edison",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
-      "accessed_date": "2026-09-30"
+      "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "CITY_COMMUNITY_SOLAR",
+      "title": "Community Solar",
+      "url": "https://www.longbeach.gov/sustainability/about-us/about-climate-action/community-solar/",
+      "publisher": "City of Long Beach",
+      "type": "government",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "id": "CPA_SERVICE_2026",
+      "title": "Clean Power Alliance 2025 Impact Report — 38 Served Communities",
+      "url": "https://files.cleanpoweralliance.org/uploads/2026/02/2025-Impact-Report_Final-3_Digital.pdf",
+      "publisher": "Clean Power Alliance",
+      "type": "other_official",
+      "accessed_date": "2026-10-08"
     }
   ]
 }

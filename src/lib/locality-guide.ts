@@ -189,6 +189,25 @@ export interface TimelineDisplay {
 // max_days themselves null (e.g. Santa Ana: the source describes review
 // speed qualitatively but states no day range) — that must render
 // NOT_VERIFIED, never the literal string "null–null days".
+const INTERNAL_RESEARCH_LANGUAGE = /(?:this session|automated (?:fetch|retrieval|access)|direct(?:ly)? (?:fetch|fetched|rendered)|search[- ]engine|search[- ]result|indexed snippet|snippet text|browser access|text-extraction proxy|ECONNREFUSED|DNS(?:-level)? failure|HTTP\s+(?:403|404|5\d\d)|pilot record|run(?:'s)? input parameter|marathon)/i;
+
+/**
+ * Record notes keep the full research audit trail, including fetch failures and
+ * search-discovery details. Public pages should preserve useful factual caveats
+ * without exposing those internal workflow diagnostics to homeowners.
+ */
+export function publicResearchNote(note: string | null | undefined): string | null {
+	if (!note) return null;
+	if (!INTERNAL_RESEARCH_LANGUAGE.test(note)) return note.trim();
+	const sentences = note
+		.split(/(?<=[.!?])\s+/)
+		.map((part) => part.trim())
+		.filter(Boolean);
+	const kept = sentences.filter((part) => !INTERNAL_RESEARCH_LANGUAGE.test(part));
+	const caveat = "Some supporting official material could not be independently confirmed from the full source in GridPermit's latest review. Verify the current requirement with the authority before relying on it.";
+	return [...kept, caveat].join(" ").trim();
+}
+
 export function formatTimeline(td: TimelineValue): TimelineDisplay {
 	const min = td?.min_days;
 	const max = td?.max_days;
@@ -406,7 +425,7 @@ export function buildFaqs(record: LocalityRecord): FaqEntry[] {
 		const td = timelineValue;
 		const timeline = formatTimeline(td);
 		const baseAnswer =
-			td.notes ??
+			publicResearchNote(td.notes) ??
 			(timeline.label === NOT_VERIFIED ? NOT_VERIFIED : `${timeline.label}.`);
 		faqs.push({
 			q: timeline.isSameDaySolarAppOnly
