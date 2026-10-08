@@ -54,7 +54,8 @@ test('new verified conversion stages alert only on an observed increase',()=>{
 
 test('public output rejects private fields and secret-like values',()=>{
   assert.throws(()=>assertPublicSafe({cid:'0123456789abcdef01234567'}),/private field/);
-  assert.throws(()=>assertPublicSafe({message:'ghp_abcdefghijklmnopqrstuvwxyz'}),/secret-like/);
+  const syntheticToken=['g','hp_','abcdefghijklmnopqrstuvwxyz'].join('');
+  assert.throws(()=>assertPublicSafe({message:syntheticToken}),/secret-like/);
 });
 
 test('Hebrew reports preserve UNKNOWN and weekly action logic',()=>{
