@@ -51,7 +51,7 @@ The installer never replaces a real directory or a link owned by another source.
 
 ## Scheduling
 
-No schedule is enabled. Fresh outbound export requires private Netlify authorization; GSC/GA4 access must be restored and verified; partner reports require operator authenticity review. Enabling a scheduled workflow before those boundaries are resolved would create noisy UNKNOWN reports or place secrets into an unverified path.
+The reviewed Autopilot candidate is documented in `docs/AUTOPILOT_OPERATIONS.md`. It uses one daily GitHub Actions schedule, with Monday adding the weekly owner review. The schedule remains inactive until its pull request is explicitly merged. Fresh outbound export requires private Netlify authorization; GSC/GA4 access and partner-report import remain blocked until secure unattended credentials exist.
 
 ## Evidence schemas
 

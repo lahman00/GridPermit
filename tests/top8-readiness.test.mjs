@@ -2,11 +2,12 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {partnerConfigErrors,partnerCities,debugPartnerRoutes} from '../src/lib/commercial/partner-platform.ts';
 import {loadPlatformRegistry} from '../scripts/lib/partner-config-io.mjs';
 import {partnerEvidenceHold} from '../src/lib/commercial/partner-evidence-holds.ts';
 
-const ROOT=new URL('..',import.meta.url).pathname;
+const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const IDS=['energysage','modernize','profitise','energyaid','oc-solar','norcal-solar-repair','greenlancer','permitdesign'];
 const load=async id=>JSON.parse(await readFile(path.join(ROOT,'data/commercial/partners',id+'.json'),'utf8'));
 
