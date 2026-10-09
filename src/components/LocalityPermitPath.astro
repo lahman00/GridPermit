@@ -1,9 +1,10 @@
 ---
 import EvidenceState from './EvidenceState.astro';
+import type { QuickAnswerPilot } from '../lib/quick-answer-pilots';
 
 interface Step { number: string; title: string; detail: string; href: string; state: "verified" | "conditional" | "check" | "missing"; label: string; }
-interface Props { city: string; authority: string; utility: string; authorityVerified: boolean; documentsVerified: boolean; documentsConditional: boolean; inspectionVerified: boolean; utilityVerified: boolean; interconnectionVerified: boolean; }
-const { city, authority, utility, authorityVerified, documentsVerified, documentsConditional, inspectionVerified, utilityVerified, interconnectionVerified } = Astro.props;
+interface Props { city: string; authority: string; utility: string; authorityVerified: boolean; documentsVerified: boolean; documentsConditional: boolean; inspectionVerified: boolean; utilityVerified: boolean; interconnectionVerified: boolean; quickAnswerPilot?: QuickAnswerPilot | null; }
+const { city, authority, utility, authorityVerified, documentsVerified, documentsConditional, inspectionVerified, utilityVerified, interconnectionVerified, quickAnswerPilot = null } = Astro.props;
 const steps: Step[] = [
   { number: '01', title: 'Permit authority', detail: authority, href: '#permit-authority', state: authorityVerified ? 'verified' : 'check', label: authorityVerified ? 'Authority sourced' : 'Confirm authority' },
   { number: '02', title: 'Documents', detail: documentsVerified ? (documentsConditional ? 'Checklist includes conditional items' : 'Document checklist on file') : 'No complete checklist on file', href: '#required-documents', state: documentsVerified ? (documentsConditional ? 'conditional' : 'verified') : 'missing', label: documentsVerified ? (documentsConditional ? 'Conditions apply' : 'Checklist sourced') : 'Not verified' },
@@ -14,6 +15,28 @@ const steps: Step[] = [
 
 <section class="gp-local-path" aria-labelledby="local-path-title">
   <div class="gp-local-path-head"><div><p class="gp-kicker">Research coverage</p><h2 id="local-path-title">Your permit path,<br/>at a glance.</h2></div><p>This shows what GridPermit has verified for {city}. It does not show the status of a specific project.</p></div>
+  {quickAnswerPilot && <div
+    class="gp-quick-answer"
+    data-quick-answer-pilot={quickAnswerPilot.id}
+    data-city-slug={quickAnswerPilot.citySlug}
+    data-page-path={quickAnswerPilot.pagePath}
+    aria-labelledby="quick-answer-title"
+  >
+    <p class="gp-kicker">Quick answer pilot</p>
+    <h3 id="quick-answer-title">{quickAnswerPilot.title}</h3>
+    <p>{quickAnswerPilot.intro}</p>
+    <div class="gp-quick-answer-options">
+      {quickAnswerPilot.options.map(option => <details name={quickAnswerPilot.id} data-quick-answer-option={option.id}>
+        <summary>{option.label}<span aria-hidden="true">+</span></summary>
+        <div class="gp-quick-answer-result">
+          <strong>{option.answer}</strong>
+          <p>{option.detail}</p>
+          <a href={option.href}>{option.linkLabel} <span aria-hidden="true">↓</span></a>
+        </div>
+      </details>)}
+    </div>
+    <p class="gp-quick-answer-privacy">No personal information is requested or stored. Selecting an option is an anonymous guide interaction, not a lead or referral.</p>
+  </div>}
   <ol>
     {steps.map(step => <li>
       <a href={step.href}>
@@ -33,12 +56,64 @@ const steps: Step[] = [
   .gp-local-path-head > p { max-width: 400px; color: var(--gp-muted); font-size: 13px; }
   .gp-local-path ol { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--gp-line); }
   .gp-local-path li { margin: 0; border-top: 1px solid var(--gp-line); }
-  .gp-local-path a { display: grid; grid-template-columns: 42px minmax(0,1fr) minmax(135px,auto) 20px; gap: 18px; align-items: center; padding: 20px 0; color: inherit; text-decoration: none; }
+  .gp-local-path ol > li > a { display: grid; grid-template-columns: 42px minmax(0,1fr) minmax(135px,auto) 20px; gap: 18px; align-items: center; padding: 20px 0; color: inherit; text-decoration: none; }
   .gp-local-path-number { color: var(--gp-accent); font: 10px/1.5 var(--gp-mono); }
   .gp-local-path-main { display: grid; gap: 5px; }
   .gp-local-path-main strong { font-size: 18px; font-weight: 450; }
   .gp-local-path-main small { color: var(--gp-muted); font-size: 12px; }
   .gp-local-path-arrow { color: var(--gp-muted); transition: transform .2s ease, color .2s ease; }
-  .gp-local-path a:hover .gp-local-path-arrow { color: var(--gp-accent); transform: translateY(4px); }
-  @media(max-width:700px) { .gp-local-path { margin: 34px 0 54px; padding: 24px 18px; } .gp-local-path-head { grid-template-columns: 1fr; gap: 16px; } .gp-local-path a { grid-template-columns: 28px minmax(0,1fr) 16px; gap: 12px; } .gp-local-path a :global(.gp-evidence-state) { grid-column: 2; } .gp-local-path-arrow { grid-column: 3; grid-row: 1; } }
+  .gp-local-path ol > li > a:hover .gp-local-path-arrow { color: var(--gp-accent); transform: translateY(4px); }
+  .gp-quick-answer { margin: 0 0 34px; padding: 26px; border: 1px solid var(--gp-line); background: var(--gp-bg); }
+  .gp-quick-answer > .gp-kicker { margin: 0 0 10px; color: var(--gp-accent); }
+  .gp-quick-answer > h3 { margin: 0 0 10px; font-size: clamp(24px,3vw,34px); font-weight: 350; }
+  .gp-quick-answer > p { max-width: 680px; color: var(--gp-muted); font-size: 13px; }
+  .gp-quick-answer-options { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-top: 22px; }
+  .gp-quick-answer-options details { min-width: 0; border: 1px solid var(--gp-line); background: var(--gp-surface); }
+  .gp-quick-answer-options summary { display: flex; justify-content: space-between; gap: 12px; align-items: center; min-height: 52px; padding: 14px; cursor: pointer; font-size: 14px; font-weight: 500; }
+  .gp-quick-answer-options summary::marker { content: ''; }
+  .gp-quick-answer-options details[open] summary { color: var(--gp-accent); border-bottom: 1px solid var(--gp-line); }
+  .gp-quick-answer-options details[open] summary span { transform: rotate(45deg); }
+  .gp-quick-answer-options summary span { transition: transform .2s ease; }
+  .gp-quick-answer-result { padding: 16px 14px 18px; }
+  .gp-quick-answer-result strong { display: block; font-size: 15px; line-height: 1.45; }
+  .gp-quick-answer-result p { color: var(--gp-muted); font-size: 12px; line-height: 1.65; }
+  .gp-quick-answer-result a { display: inline; color: var(--gp-accent); font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+  .gp-quick-answer-privacy { margin: 18px 0 0; font-size: 11px !important; }
+  @media(max-width:700px) { .gp-local-path { margin: 34px 0 54px; padding: 24px 18px; } .gp-local-path-head { grid-template-columns: 1fr; gap: 16px; } .gp-local-path ol > li > a { grid-template-columns: 28px minmax(0,1fr) 16px; gap: 12px; } .gp-local-path ol > li > a :global(.gp-evidence-state) { grid-column: 2; } .gp-local-path-arrow { grid-column: 3; grid-row: 1; } }
+  @media(max-width:700px) { .gp-quick-answer { padding: 20px 16px; } .gp-quick-answer-options { grid-template-columns: 1fr; } }
 </style>
+
+<script>
+  import { trackEvent } from '../lib/analytics-events';
+
+  const root = document.querySelector<HTMLElement>('[data-quick-answer-pilot]');
+  if (root) {
+    const safeParams = {
+      pilot_id: root.dataset.quickAnswerPilot ?? 'unknown',
+      city_slug: root.dataset.citySlug ?? 'unknown',
+      page_path: root.dataset.pagePath ?? window.location.pathname,
+    };
+    const viewGuard = '__gridpermitQuickAnswerViewed';
+    const interactionWindow = window as typeof window & Record<string, boolean>;
+    if (typeof IntersectionObserver === 'function' && !interactionWindow[viewGuard]) {
+      const observer = new IntersectionObserver(entries => {
+        if (interactionWindow[viewGuard]) return;
+        if (!entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= 0.25)) return;
+        interactionWindow[viewGuard] = true;
+        trackEvent('quick_answer_viewed', safeParams);
+        observer.disconnect();
+      }, { threshold: [0.25] });
+      observer.observe(root);
+    }
+
+    const selected = new Set<string>();
+    root.querySelectorAll<HTMLDetailsElement>('[data-quick-answer-option]').forEach(detail => {
+      detail.addEventListener('toggle', () => {
+        const projectIntent = detail.dataset.quickAnswerOption ?? '';
+        if (!detail.open || !projectIntent || selected.has(projectIntent)) return;
+        selected.add(projectIntent);
+        trackEvent('quick_answer_intent_selected', { ...safeParams, project_intent: projectIntent });
+      });
+    });
+  }
+</script>

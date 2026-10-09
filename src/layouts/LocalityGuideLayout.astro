@@ -32,6 +32,7 @@ import { stateGuidesIndexUrl } from "../lib/locality-guide";
 import { stateMeta } from "../lib/state-meta";
 import { hasVerifiedUnambiguousUtility } from "../lib/utility-split-guard";
 import { getCommercialSeoProfile } from "../lib/commercial-seo-profiles";
+import { getQuickAnswerPilot } from "../lib/quick-answer-pilots";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
 import ReadingProgress from "../components/ReadingProgress.astro";
 import Analytics from "../components/Analytics.astro";
@@ -60,6 +61,7 @@ const isFirstLeadSprintPage = FIRST_LEAD_SPRINT_PATHS.has(pagePath);
 
 const baselineMeta = buildPageMeta(record, pagePath);
 const commercialSeoProfile = getCommercialSeoProfile(record.record_id);
+const quickAnswerPilot = getQuickAnswerPilot(record.record_id);
 const { canonicalUrl, utilityShortName: utilityShort } = baselineMeta;
 const title = commercialSeoProfile?.title ?? baselineMeta.title;
 const description = commercialSeoProfile?.description ?? baselineMeta.description;
@@ -295,6 +297,7 @@ const tocItems = [
 				inspectionVerified={inspectionVerified}
 				utilityVerified={utilityIsUnambiguous}
 				interconnectionVerified={interconnectionVerified}
+				quickAnswerPilot={quickAnswerPilot}
 			/>
 
 			<InstallerCTA

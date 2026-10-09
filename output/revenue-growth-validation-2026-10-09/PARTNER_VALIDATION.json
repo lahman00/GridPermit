@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "RECOMMENDED_NOT_ACTIVATED",
+  "pipeline_audited_before_research": true,
+  "shortlist_count": 3,
+  "shortlist": [
+    {
+      "partner_id": "allpowers",
+      "name": "ALLPOWERS",
+      "fit": "Battery, home-backup, portable-power and solar editorial content",
+      "territory": "U.S. store ships within the contiguous United States, covering existing California markets",
+      "eligibility": "Official program accepts publishers, review sites and home-energy content; direct confirmation accepted an international publisher with primarily U.S. organic traffic",
+      "payout": "Official current public page states 5%+ base with tiers up to 10%; direct confirmation recorded 5% U.S.",
+      "attribution": "30-day cookie; established affiliate-network click/order/commission reporting",
+      "application_path": "CJ advertiser 7797916; current authenticated live advertiser terms must be reviewed before Apply",
+      "status": "owner_action_required"
+    },
+    {
+      "partner_id": "renogy",
+      "name": "Renogy",
+      "fit": "Residential solar and battery editorial content",
+      "territory": "U.S.",
+      "eligibility": "Directly confirmed GridPermit fit and U.S.-focused organic/editorial traffic",
+      "payout": "6% direct-confirmed",
+      "attribution": "27 days direct-confirmed; Impact",
+      "application_path": "Existing official Impact invitation",
+      "status": "owner_action_required"
+    },
+    {
+      "partner_id": "bougerv",
+      "name": "BougeRV",
+      "fit": "Solar, battery and home-energy editorial content",
+      "territory": "U.S.",
+      "eligibility": "Directly confirmed independent publishers and contextual organic/editorial traffic",
+      "payout": "7% direct-confirmed",
+      "attribution": "Impact; cookie duration remains unknown",
+      "application_path": "Existing official Impact application link",
+      "status": "owner_action_required"
+    }
+  ],
+  "recommendation": {
+    "partner_id": "allpowers",
+    "reason": "It has the shortest verified path to an attributable battery/home-backup commission: the existing CJ publisher account, exact advertiser ID, direct publisher-fit confirmation, owner authorization for the application after live-terms review, and explicit network reporting.",
+    "placement_boundary": "Battery/home-backup editorial or hardware-affiliate placements only. It must not replace or sit beside the existing CompareSolarPrices paid locality CTA.",
+    "conflict_with_compare_solar_prices": false,
+    "activation_allowed_now": false
+  },
+  "evidence": [
+    {"type": "official", "url": "https://iallpowers.com/pages/affiliate-program", "supports": "eligibility, payout range, 30-day cookie, network tracking and application paths"},
+    {"type": "official", "url": "https://iallpowers.com/pages/affiliate-terms", "supports": "approval requirement and attributable special-link mechanism"},
+    {"type": "official", "url": "https://iallpowers.com/pages/shipping-policy", "supports": "U.S. shipping territory"},
+    {"type": "direct_record", "url": "https://github.com/lahman00/GridPermit/issues/7", "supports": "5%/30-day direct confirmation, CJ advertiser ID 7797916, manual approval path and owner authorization"}
+  ],
+  "unresolved_before_application_or_activation": [
+    "Review and capture the live CJ advertiser-specific commission, attribution, allowed traffic, prohibited methods, reversals/returns, disclosure and payment/tax terms.",
+    "Resolve any discrepancy between direct-confirmed 5% and the current public 5%-to-10% tier language using the binding CJ terms.",
+    "Confirm CJ submission and advertiser approval.",
+    "Obtain a real attributable tracking/deep link.",
+    "Define an eligible battery/home-backup placement and disclosure; keep launchEnabled false until deliberate approval."
+  ]
+}
