@@ -6,7 +6,7 @@
   "canonical_branch": "main",
   "agent_registry": "data/operations/registry.json",
   "production_url": "https://mygridpermit.com",
-  "verified_production_commit": "16026cb0b8e656cb18e1dcb4771eb023af3b0993",
+  "verified_production_commit": "3ba3934237687c22a58bdb30c7f0e4f0944f1ace",
   "california_only": true,
   "agents": [
     "revenue_hunter",
@@ -32,13 +32,13 @@
     "official_sources": {"availability": "EXISTING_REPOSITORY_REPORTS"}
   },
   "automation": {
-    "status": "PENDING_OWNER_APPROVAL",
+    "status": "ACTIVE",
     "workflow": ".github/workflows/autopilot.yml",
     "daily_cron_utc": "17 10 * * *",
     "weekly_review_day_utc": "MONDAY",
     "notification_channel": "BLOCKED_UNTIL_PRIVATE_WEBHOOK_IS_CONFIGURED",
     "persistent_state": "GITHUB_ACTIONS_CACHE_NON_SENSITIVE_ONLY"
   },
-  "last_verified": "2026-10-09T00:00:00.000Z",
-  "next_highest_priority_action": "Obtain a fresh private outbound export and an authentic privacy-safe CompareSolarPrices CID report, then reconcile them."
+  "last_verified": "2026-10-09T18:24:17.000Z",
+  "next_highest_priority_action": "Obtain an authentic privacy-safe CompareSolarPrices CID report and reconcile it with the verified private outbound export; add authorized GA4 reporting access to verify Quick Answer ingestion without generating test traffic."
 }

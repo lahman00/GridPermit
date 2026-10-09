@@ -507,7 +507,7 @@ export const PARTNERS: Partner[] = [
 	{
 		id: "allpowers",
 		name: "ALLPOWERS",
-		status: "owner_action_required",
+		status: "pending_approval",
 		vertical: "battery",
 		channel: "hardware_affiliate",
 		destination: "",
@@ -522,8 +522,8 @@ export const PARTNERS: Partner[] = [
 		geo: "US",
 		trafficSources: ORGANIC_ONLY,
 		eligiblePageTypes: BATTERY_PAGES,
-		lastVerified: "2026-08-26",
-		notes: "ALLPOWERS directly confirmed international publishers with primarily U.S. organic traffic are eligible and current U.S. terms are 5% with 30-day attribution. The program is being transitioned to third-party networks including CJ, Awin and AvantLink. CJ advertiser ID 7797916 was provided directly, and Bei Li confirmed she is the person handling the manual approval. Next gate is review and submission of the live CJ advertiser application; after submission, reply to Bei so she can match and process it. See issue #7.",
+		lastVerified: "2026-10-09",
+		notes: "ALLPOWERS directly confirmed international publishers with primarily U.S. organic traffic are eligible and current U.S. terms are 5% with 30-day attribution. The CJ application for advertiser 7797916 was submitted on 2026-10-09 and CJ showed Pending Application. No approval or tracking destination exists yet. Keep tracking, placement and launch disabled until formal approval and a valid tracking asset arrive. See issue #7.",
 	},
 	{
 		id: "goal-zero",

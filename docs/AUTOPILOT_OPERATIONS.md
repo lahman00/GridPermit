@@ -2,7 +2,7 @@
 
 ## Activation boundary
 
-The workflow in `.github/workflows/autopilot.yml` is not active while it exists only on a pull-request branch. Merging the pull request into `main` activates one daily schedule. The workflow never merges, deploys, changes partner routing, sends partner email, spends money, or creates referral traffic.
+The workflow in `.github/workflows/autopilot.yml` is active on `main` as of 2026-10-09 and runs one daily schedule. The workflow never merges, deploys, changes partner routing, sends partner email, spends money, or creates referral traffic.
 
 ## Schedule
 
