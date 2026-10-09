@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "selection_status": "VERIFIED",
+  "selection_rule": "Highest-impression zero-click California locality pages in the final-state evidence window that also retain an ACTIVE CompareSolarPrices homeowner/new-solar route and have a fixable snippet or intent-clarity defect.",
+  "evidence_receipt": "PRIVATE_EVIDENCE_RECEIPT.json",
+  "pages": [
+    {
+      "rank": 1,
+      "path": "/california/chula-vista/solar-permit-guide/",
+      "record_id": "ca-san-diego-chula-vista-sdge",
+      "search_signal": "highest zero-click active-route page in the selected evidence window",
+      "commercial_signal": "ACTIVE CompareSolarPrices NEW_SOLAR route",
+      "fixable_issue": "generic snippet claimed fees although no fee amount is verified; generic hero did not distinguish City permit from SDG&E PTO"
+    },
+    {
+      "rank": 2,
+      "path": "/california/pomona/solar-permit-guide/",
+      "record_id": "ca-los-angeles-pomona-sce",
+      "search_signal": "second-highest zero-click active-route page in the selected evidence window",
+      "commercial_signal": "ACTIVE CompareSolarPrices NEW_SOLAR route",
+      "fixable_issue": "generic snippet claimed fees although no fee amount is verified; SolarAPP+/Energov eligibility was absent from the snippet"
+    },
+    {
+      "rank": 3,
+      "path": "/california/menifee/solar-permit-guide/",
+      "record_id": "ca-riverside-menifee-sce",
+      "search_signal": "third-highest zero-click active-route page in the selected evidence window",
+      "commercial_signal": "ACTIVE CompareSolarPrices NEW_SOLAR route",
+      "fixable_issue": "generic snippet claimed fees although no fee amount is verified; verified review target and Permit Portal path were absent"
+    },
+    {
+      "rank": 4,
+      "path": "/california/chino-hills/solar-permit-guide/",
+      "record_id": "ca-san-bernardino-chino-hills-sce",
+      "search_signal": "fourth-highest zero-click active-route page in the selected evidence window",
+      "commercial_signal": "ACTIVE CompareSolarPrices NEW_SOLAR route",
+      "fixable_issue": "generic snippet omitted the separately required fire approval and the record's sourced City fee information"
+    },
+    {
+      "rank": 5,
+      "path": "/california/fullerton/solar-permit-guide/",
+      "record_id": "ca-orange-fullerton-sce",
+      "search_signal": "fifth-highest zero-click active-route page in the selected evidence window",
+      "commercial_signal": "ACTIVE CompareSolarPrices NEW_SOLAR route",
+      "fixable_issue": "generic snippet claimed fees although no City fee amount is verified; current SolarAPP+/EasyDev path and review timing were absent"
+    }
+  ],
+  "excluded_example": {
+    "path": "/california/pasadena/solar-permit-guide/",
+    "reason": "received verified clicks in the same window and therefore was not part of the zero-click priority cohort"
+  }
+}

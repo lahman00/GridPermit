@@ -31,6 +31,7 @@ import { getAllBlogPosts, relatedPostsForUtility } from "../lib/blog-posts";
 import { stateGuidesIndexUrl } from "../lib/locality-guide";
 import { stateMeta } from "../lib/state-meta";
 import { hasVerifiedUnambiguousUtility } from "../lib/utility-split-guard";
+import { getCommercialSeoProfile } from "../lib/commercial-seo-profiles";
 import ConfidenceBadge from "../components/ConfidenceBadge.astro";
 import ReadingProgress from "../components/ReadingProgress.astro";
 import Analytics from "../components/Analytics.astro";
@@ -57,7 +58,12 @@ const FIRST_LEAD_SPRINT_PATHS = new Set([
 ]);
 const isFirstLeadSprintPage = FIRST_LEAD_SPRINT_PATHS.has(pagePath);
 
-const { canonicalUrl, title, description, utilityShortName: utilityShort } = buildPageMeta(record, pagePath);
+const baselineMeta = buildPageMeta(record, pagePath);
+const commercialSeoProfile = getCommercialSeoProfile(record.record_id);
+const { canonicalUrl, utilityShortName: utilityShort } = baselineMeta;
+const title = commercialSeoProfile?.title ?? baselineMeta.title;
+const description = commercialSeoProfile?.description ?? baselineMeta.description;
+const localityLead = commercialSeoProfile?.lead ?? "Your local requirements. The official sources. A clearer next step.";
 const permitAuthorityLabel = resolvePermitAuthorityLabel(record);
 const sourceCount = record.sources.length;
 const utilityIsUnambiguous = hasVerifiedUnambiguousUtility(record);
@@ -228,7 +234,7 @@ const tocItems = [
               <div class="gp-locality-intro">
                 <p class="gp-kicker">{currentStateMeta.name} / Local permit guide</p>
                 <h1>{record.city.value} <span>Solar Permit Guide</span></h1>
-                <p class="gp-locality-lead">Your local requirements. The official sources. A clearer next step.</p>
+                <p class="gp-locality-lead">{localityLead}</p>
               </div>
               <dl class="gp-facts" aria-label="Local permit summary">
                 <div><dt>Permit authority</dt><dd><a href="#permit-authority">{permitAuthorityLabel}</a><EvidenceState state={authorityVerified ? "verified" : "check"} label={authorityVerified ? "Source linked" : "Confirm source"} /></dd></div>
