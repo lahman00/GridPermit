@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "method": "Local Astro dev server plus Codex in-app browser DOM and screenshot inspection",
+  "desktop": {
+    "viewport": "default 1280x720-class viewport",
+    "page": "/california/chula-vista/solar-permit-guide/",
+    "horizontal_overflow": false,
+    "hierarchy": "one H1; permit-path and quote sections remain in logical order",
+    "result": "PASS"
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "pages_checked": [
+      "/california/chula-vista/solar-permit-guide/",
+      "/california/pomona/solar-permit-guide/",
+      "/california/menifee/solar-permit-guide/",
+      "/california/chino-hills/solar-permit-guide/",
+      "/california/fullerton/solar-permit-guide/"
+    ],
+    "horizontal_overflow": false,
+    "paid_cta_per_page": 1,
+    "disclosure_present": true,
+    "qualification_control_present": true,
+    "result": "PASS"
+  },
+  "accessibility_contract": {
+    "skip_link": true,
+    "single_h1": true,
+    "semantic_heading_order_preserved": true,
+    "cta_has_accessible_section_label": true,
+    "qualification_checkbox_has_label": true,
+    "disabled_until_qualified": true,
+    "keyboard_and_focus_regressions": "covered by existing shared UI tests",
+    "result": "PASS"
+  }
+}
