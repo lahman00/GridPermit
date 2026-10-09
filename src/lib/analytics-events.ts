@@ -22,6 +22,8 @@ export const ANALYTICS_EVENTS = [
 	"cpl_cta_viewed",
 	"cpl_cta_exposed",
 	"cpl_cta_clicked",
+	"quick_answer_viewed",
+	"quick_answer_intent_selected",
 	"pay_per_call_cta_viewed",
 	"pay_per_call_clicked",
 ] as const;

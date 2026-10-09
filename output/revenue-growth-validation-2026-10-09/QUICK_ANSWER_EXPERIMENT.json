@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "BUILT_FOR_REVIEW",
+  "pilot_id": "pomona-permit-intent-v1",
+  "page": "/california/pomona/solar-permit-guide/",
+  "component_reused": "src/components/LocalityPermitPath.astro",
+  "implementation": {
+    "choices": ["new_rooftop_solar", "solar_plus_storage", "not_sure"],
+    "facts": [
+      "Pomona SolarAPP+ and Energov path for eligible licensed-contractor projects on a permitted main dwelling rooftop",
+      "38.4 kW AC maximum for the sourced streamlined scope",
+      "LA County Fire Department requirements for battery projects",
+      "City permit/inspection and SCE interconnection/PTO are separate approvals"
+    ],
+    "personal_information_requested": false,
+    "full_guide_remains_accessible": true,
+    "additional_paid_cta": false,
+    "compare_solar_prices_flow_changed": false,
+    "geographic_or_eligibility_controls_changed": false
+  },
+  "measurement": {
+    "events": {
+      "quick_answer_viewed": "25% of the pilot enters the viewport",
+      "quick_answer_intent_selected": "A finite project-intent panel is opened once per intent per page load"
+    },
+    "allowed_parameters": ["pilot_id", "city_slug", "page_path", "project_intent"],
+    "pii": false,
+    "lead_or_revenue_classification": false,
+    "outbound_referral_events_remain_separate": true
+  },
+  "evaluation": {
+    "method": "single-page limited directional pilot",
+    "minimum_observation_period_days": 28,
+    "minimum_quick_answer_views": 25,
+    "primary_rate": "unique intent selections / quick_answer_viewed",
+    "secondary_observations": [
+      "commercial CTA exposure rate",
+      "commercial CTA click rate",
+      "first-party OUTBOUND_RECORDED count"
+    ],
+    "success_criterion": "At least 20% of measured pilot viewers select a project intent after the minimum period and view threshold, with no regression in route integrity, eligibility, disclosure, accessibility, or page stability.",
+    "interpretation_limit": "No statistical significance claim and no interaction event may be reported as a lead, referral, or revenue."
+  },
+  "control_scope": "All other locality pages, including Chula Vista, remain unchanged and contain no Quick Answer pilot."
+}
