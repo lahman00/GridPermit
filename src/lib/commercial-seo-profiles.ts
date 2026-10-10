@@ -5,7 +5,7 @@ export interface CommercialSeoProfile {
 }
 
 // Bounded page-level overrides selected from an authenticated, final-state
-// Search Console export on 2026-10-09. Raw search metrics stay in the private
+// Search Console exports on 2026-10-09 and 2026-10-11. Raw search metrics stay in the private
 // operator evidence store; this public source contains only reviewed copy.
 // Every factual phrase below is already supported by the corresponding
 // locality record and its official sources.
@@ -53,6 +53,33 @@ export const COMMERCIAL_SEO_PROFILES = new Map<string, CommercialSeoProfile>([
 			description:
 				"Check Fullerton's residential solar permit paths, SolarAPP+ and EasyDev steps, current review timing, one-inspection rule, and SCE PTO.",
 			lead: "Eligible contractors can use SolarAPP+ with EasyDev. SCE interconnection and PTO remain separate.",
+		},
+	],
+	[
+		"ca-los-angeles-cerritos-sce",
+		{
+			title: "Cerritos Solar Permit Paths & Planning Fee | GridPermit",
+			description:
+				"Compare Cerritos express and standard residential solar permit paths, the $360 City planning fee, LA County building review, inspections, and SCE PTO.",
+			lead: "Choose the express or standard City path first. LA County building review is additional, and SCE PTO remains separate.",
+		},
+	],
+	[
+		"ca-orange-laguna-beach-sce",
+		{
+			title: "Laguna Beach Solar Permit Timeline & Requirements | GridPermit",
+			description:
+				"Check Laguna Beach's small residential rooftop solar permit path, three-business-day decision rule, required plan, inspection, and separate SCE PTO.",
+			lead: "Eligible small residential rooftop systems follow the City's expedited path. SCE interconnection and PTO remain separate.",
+		},
+	],
+	[
+		"ca-san-bernardino-ontario-sce",
+		{
+			title: "Ontario Solar Permit Requirements & Instant Review | GridPermit",
+			description:
+				"Check Ontario's Symbium instant plan-review path for eligible residential rooftop solar, battery conditions, inspections, and separate SCE interconnection.",
+			lead: "Eligible residential rooftop projects can use Symbium for real-time plan review. SCE interconnection and PTO remain separate.",
 		},
 	],
 ]);
