@@ -51,7 +51,7 @@ The installer never replaces a real directory or a link owned by another source.
 
 ## Scheduling
 
-The reviewed Autopilot candidate is documented in `docs/AUTOPILOT_OPERATIONS.md`. It uses one daily GitHub Actions schedule, with Monday adding the weekly owner review. The schedule remains inactive until its pull request is explicitly merged. Fresh outbound export requires private Netlify authorization; GSC/GA4 access and partner-report import remain blocked until secure unattended credentials exist.
+The active Autopilot is documented in `docs/AUTOPILOT_OPERATIONS.md`. It uses one daily GitHub Actions schedule, with Monday adding the weekly owner review. It is active on `main` as of 2026-10-09. Fresh outbound export uses private Netlify authorization; GSC/GA4 access, partner-report import and private weekly-report delivery remain blocked until secure unattended credentials exist.
 
 ## Evidence schemas
 

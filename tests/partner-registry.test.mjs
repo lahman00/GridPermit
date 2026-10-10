@@ -61,6 +61,17 @@ test("CompareSolarPrices is the one current active partner and every other partn
 	}
 });
 
+test("ALLPOWERS remains fail-closed while its submitted CJ application is pending", () => {
+	const partner = getPartner("allpowers");
+	assert.ok(partner);
+	assert.equal(partner.status, "pending_approval");
+	assert.equal(partner.destination, "");
+	assert.equal(partner.trackingEnabled, false);
+	assert.equal(partner.placementEligible, false);
+	assert.equal(partner.launchEnabled, false);
+	assert.equal(isLaunchReady(partner), false);
+});
+
 test("isLaunchReady() fails closed: unapproved status never passes even with everything else set", () => {
 	const hypothetical = {
 		id: "hypothetical",

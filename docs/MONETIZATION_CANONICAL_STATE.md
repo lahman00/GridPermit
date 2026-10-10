@@ -58,7 +58,7 @@ The machine-readable partner mirror lives in `src/lib/partners.ts`. Current comm
 | **PX (Solar)** | Solar CPL | `AWAITING_RESPONSE` | Large marketplace with active Solar vertical; 'common publisher' PX-hosted-form model preferred over API lead-posting for GridPermit's low-PII preference. | Nonbinding inquiry sent 2026-08-26 to hello@px.com. Issue #25. |
 | **Renogy** | Hardware affiliate | `OWNER_ACTION_REQUIRED` | Direct-confirmed GridPermit fit, international publisher with U.S. audience accepted, organic/editorial accepted, 6% U.S. rate, 27-day attribution, no Renogy brand-term paid search. Official Impact application link received. | Owner reviews live Impact/network + advertiser terms and submits. Notify Yuna immediately after submission as she requested. Issue #6. |
 | **BougeRV** | Hardware affiliate | `OWNER_ACTION_REQUIRED` | Direct-confirmed independent content publishers and organic/editorial accepted, contextual solar/battery/home-energy links accepted, standard U.S. 7% commission. Official Impact application link received. | Owner reviews live Impact/network + advertiser terms and submits. Issue #6. |
-| **ALLPOWERS** | Hardware affiliate | `OWNER_ACTION_REQUIRED` | Direct-confirmed international publisher with primarily U.S. organic traffic eligible; current U.S. terms 5%, 30 days. ALLPOWERS is transitioning the affiliate program to third-party networks. CJ advertiser ID 7797916 was supplied directly, and Bei Li confirmed she handles the manual approval. | Review the live CJ advertiser terms, submit the application, then reply to Bei so she can match/process it. No tracking link exists yet. Issue #7. |
+| **ALLPOWERS** | Hardware affiliate | `PENDING_APPROVAL` | Direct-confirmed international publisher with primarily U.S. organic traffic eligible; current U.S. terms 5%, 30 days. The CJ application for advertiser 7797916 was submitted on 2026-10-09 and CJ showed Pending Application. | Wait for formal approval and a valid tracking destination. Tracking, placement and launch remain disabled. Issue #7. |
 | **Goal Zero** | Hardware affiliate | `OWNER_ACTION_REQUIRED` | Official direct program: up to 10%, 30-day cookie, Partnerize-managed, dedicated business application. Form includes Israel, U.S. customer reach and Content promotion. | Owner must review/accept binding Partnerize agreement and provide payment/tax fields. No tracking link yet. Issue #8. |
 | **BLUETTI** | Hardware affiliate | `AWAITING_RESPONSE` | Published up to 10%, 30 days; Impact route exists. | Wait for direct reply/approval route. |
 | **EcoFlow** | Hardware affiliate | `AWAITING_RESPONSE` | Impact route exists. U.S.-specific payout/cookie not yet directly confirmed; regional terms must not be imported. | Wait for U.S.-specific reply. |
@@ -108,7 +108,7 @@ The existing EnergySage fallback remains a plain, untracked destination and must
 1. **CompareSolarPrices** — production-active and externally verified on 2026-08-26 with one real outbound click and no form submission. Reconcile actual partner reporting and payouts as genuine traffic arrives.
 2. **EnergySage via CJ** — CJ network account is already activated; advertiser-level owner application is the remaining commercial gate.
 3. **DMM pay-per-call** — strong revenue potential but requires owner acceptance of the publisher application and then real campaign/tracking assets.
-4. **Renogy / BougeRV / ALLPOWERS / LiTime / Goal Zero** — strong battery/backup-power diversification; binding network/advertiser joins are the main remaining gates.
+4. **Renogy / BougeRV / LiTime / Goal Zero** — strong battery/backup-power diversification; binding network/advertiser joins are the main remaining gates. **ALLPOWERS** has been submitted and is waiting for CJ approval plus tracking.
 5. **Profitise / Modernize / Home Services Lead Group / EnergyPal / Solar.com / Lead Smart** — parallel solar diversification routes under qualification; do not accept heavier lead-gen agreements or submit tax documents until the economics and integration model justify it.
 
 ## Placement and attribution policy
@@ -130,7 +130,7 @@ These steps are intentionally not automated because they can create binding/tax/
 
 - CompareSolarPrices: W-8BEN remains a later tax-file follow-up requested by Aaron; it is not a launch blocker.
 - EnergySage: advertiser join in CJ after live-term review.
-- ALLPOWERS: advertiser join in CJ for advertiser ID 7797916 after live-term review; then notify Bei for manual matching/approval.
+- ALLPOWERS: CJ advertiser 7797916 application submitted 2026-10-09; wait for approval and tracking before any activation.
 - Renogy, BougeRV and LiTime: Impact applications after live-term review; after LiTime submission, send Elena the exact publisher/account name.
 - DMM: Publisher Application/agreement after owner review.
 - Goal Zero: Partnerize business application/agreement plus payment/tax setup after owner review.

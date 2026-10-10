@@ -12,10 +12,6 @@ An Impact.com publisher login already exists. These three battery-affiliate part
 13. **BougeRV** — 7% confirmed. Apply: https://app.impact.com/campaign-campaign-info-v2/BougeRV.brand
 14. **LiTime** — 5% base (8-10% at volume), 30-day cookie. Apply: https://app.impact.com/campaign-campaign-info-v2/LiTime-US.brand
 
-## NEW 2026-08-29 — ALLPOWERS via CJ
-
-15. ALLPOWERS confirmed (Bei Li, marketing@allpowers.com) they're moving affiliate management to CJ or GoAffPro and gave their CJ advertiser ID: **7797916**. Since the GridPermit CJ publisher account is already active, log into CJ and search/apply to advertiser 7797916 directly (same account already used for the EnergySage application review above).
-
 ## NEW 2026-08-29 — Digital Master Media (DMM) publisher agreement
 
 16. Abid Ali sent the actual sign-up/publisher-agreement link (digitalmastermedia.com/offers) and clarified the anti-fraud buffer logic (blocks non-US callers pretending to be US callers by accent — not an ethnicity/national-origin filter; confirmed no discriminatory targeting requested). The publisher application includes binding terms + signature — read the agreement and submit only if terms are acceptable. See `docs/MONETIZATION_CANONICAL_STATE.md` for the full thread summary.
