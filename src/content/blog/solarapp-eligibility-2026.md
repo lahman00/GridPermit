@@ -82,4 +82,8 @@ SolarAPP+'s DORA guide also makes clear that a DORA electrical permit remains a 
 
 Only after those facts are known can the answer be reduced to a reliable permit path.
 
+## California examples: automated review is local
+
+An automated path can differ from one city to the next. [Ontario uses Symbium for eligible residential rooftop solar](/california/ontario/solar-permit-guide/), while [Lakewood documents a SolarAPP+ path](/california/lakewood/solar-permit-guide/) and [Cypress has its own local permit requirements](/california/cypress/solar-permit-guide/). Check the city guide before treating platform eligibility as local permit eligibility.
+
 *SolarAPP+ eligibility and local adoption can change. The sources above are the current first-party pages reviewed on September 9, 2026. Confirm the live jurisdiction feature and current eligibility checklist before submitting.*

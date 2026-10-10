@@ -21,6 +21,10 @@ The utility handles interconnection to its grid under its own application, engin
 
 One authority's approval does not automatically substitute for the other's.
 
+## California examples in SCE territory
+
+The separation applies even when the local permit path is expedited. [Cerritos offers express and standard residential permit paths](/california/cerritos/solar-permit-guide/), [Laguna Beach publishes an expedited path for eligible small residential rooftop systems](/california/laguna-beach/solar-permit-guide/), and [Ontario uses real-time plan review for qualifying projects](/california/ontario/solar-permit-guide/). Each city decision is still separate from Southern California Edison's interconnection and PTO process.
+
 ## PG&E example
 
 PG&E states that the paperwork for PTO includes the **Interconnection Application**, a **single-line diagram**, and a **copy of the final building permit**. After PG&E approves the required documents, it handles the meter step and sends written PTO. See [PG&E: Getting Started with Solar](https://www.pge.com/en/clean-energy/solar/getting-started-with-solar.html).
