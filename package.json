@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node --experimental-strip-types scripts/partner-platform.mjs --refresh-build-health",
     "build": "astro build && node --experimental-strip-types scripts/build-outbound-manifest.mjs && node scripts/release-preservation-check.mjs",
     "preview": "astro preview",
     "astro": "astro",
