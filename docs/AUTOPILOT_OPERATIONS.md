@@ -14,6 +14,8 @@ The workflow in `.github/workflows/autopilot.yml` is active on `main` as of 2026
 
 ## Daily checks
 
+- Before consuming destination evidence, `npm run build` runs the existing partner-platform tool's `--refresh-build-health` mode. This covers Autopilot, CI and Netlify builds, not only the daily schedule. It atomically replaces the checkout's build input with actual HEAD observations; the 48-hour routing TTL is unchanged. Do not commit the generated timestamp as the repair.
+- Build refresh sends no query, CID, referral, cookie, form or JavaScript. Network-tracking destinations are refused, and redirects are not followed. A failed observation is written as unhealthy and stops the build; it never falls back to an old successful observation. Tracked destinations require a separately reviewed evidence path.
 - Production homepage and immutable release identity.
 - First-party telemetry health at `/telemetry/health`.
 - Every published route through the existing read-only partner-health audit.

@@ -10,6 +10,29 @@ import {isCompareSolarServedLocality} from '../src/lib/compare-solar-prices.ts';
 import {hasVerifiedUnambiguousUtility} from '../src/lib/utility-split-guard.ts';
 import {getLaunchReadyPartner} from '../src/lib/partners.ts';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+// Build input only: does not activate partners or alter their approved configuration.
+// Unlike --write-health, this runs in disposable CI/Netlify checkouts as well as worktrees.
+export async function refreshBuildHealth({root=ROOT,fetchImpl=globalThis.fetch}={}){
+ const file=path.join(root,'data/commercial/destination-health.json'),before=await readFile(file);
+ const registry=await loadPlatformRegistry(root),targets=new Map();
+ for(const p of registry.partners.filter(p=>p.status==='ACTIVE'&&['PRIMARY','BACKUP'].includes(p.placement))){
+  // Even a HEAD on an affiliate network can count as a click. Never probe it.
+  if(p.tracking.network_tracking_url||p.tracking.cj_tracking_url)throw new Error('BUILD_HEALTH_TRACKED_ENDPOINT_REQUIRES_SEPARATE_EVIDENCE');
+  for(const url of [p.destination,p.paths.solar,p.paths.battery,p.fallback_destination].filter(Boolean)){
+   if(new URL(url).search)throw new Error('BUILD_HEALTH_QUERY_ENDPOINT_REFUSED');
+   const hosts=targets.get(url);
+   targets.set(url,hosts?hosts.filter(host=>p.expected_hosts.includes(host)):p.expected_hosts);
+  }
+ }
+ const health=[];
+ for(const [url,expectedHosts] of targets){
+  // Do not follow redirects: a redirect can introduce tracking even without a query.
+  health.push(await checkCommercialDestination(url,{expectedHosts,fetchImpl,maxRedirects:0}));
+ }
+ await atomicConfigWrite(file,digest(before),health);
+ if(health.some(h=>!h.ok))throw new Error('BUILD_HEALTH_REFRESH_FAILED: '+health.filter(h=>!h.ok).map(h=>h.reason).join(','));
+ return {ok:true,destinations:health.length,mode:'UNTRACKED_HEAD_NO_REDIRECTS',build_input_written:true};
+}
 export async function platformReport({root=ROOT,out,now=new Date().toISOString(),gscFile,clicksFile,measurementFile,journey,intent,liveHealth=false,writeHealth=false}={}){
  if(!out)throw new Error('Explicit --out required');
  const registry=await loadPlatformRegistry(root),intentMap=validateIntentMap(JSON.parse(await readFile(path.join(root,'data/commercial/page-intents.json'))));
@@ -53,6 +76,11 @@ export async function platformReport({root=ROOT,out,now=new Date().toISOString()
  for(const [name,rows]of [['PARTNER_ROUTE_MATRIX.csv',partnerMatrix],['INTENT_ROUTE_MATRIX.csv',intentMatrix],['PAGE_ROUTE_MATRIX.csv',routing],['SEARCH_TO_PARTNER_MAP.csv',search]])await writeFile(path.join(out,name),commercialCsv(rows));
  return {pages:contexts.length,selected_pages:routing.filter(r=>r.selected_partner!=='NONE').length,partners:registry.partners.length,out};
 }
-async function main(){const a=process.argv.slice(2),input={},booleans=new Set(['--live-health','--write-health']),allowed=new Set(['--root','--out','--gsc','--clicks','--measurement','--journey','--intent','--now',...booleans]);for(let i=0;i<a.length;i++){if(!allowed.has(a[i]))throw new Error('Invalid option');if(booleans.has(a[i]))input[a[i]]=true;else{if(!a[i+1]||a[i+1].startsWith('--'))throw new Error('Missing argument');input[a[i]]=a[++i];}}console.log(JSON.stringify(await platformReport({root:input['--root'],out:input['--out'],gscFile:input['--gsc'],clicksFile:input['--clicks'],measurementFile:input['--measurement'],journey:input['--journey'],intent:input['--intent'],now:input['--now'],liveHealth:input['--live-health'],writeHealth:input['--write-health']}),null,2));}
+async function main(){const a=process.argv.slice(2),input={},booleans=new Set(['--live-health','--write-health','--refresh-build-health']),allowed=new Set(['--root','--out','--gsc','--clicks','--measurement','--journey','--intent','--now',...booleans]);for(let i=0;i<a.length;i++){if(!allowed.has(a[i]))throw new Error('Invalid option');if(booleans.has(a[i]))input[a[i]]=true;else{if(!a[i+1]||a[i+1].startsWith('--'))throw new Error('Missing argument');input[a[i]]=a[++i];}}
+ if(input['--refresh-build-health']){
+  if(Object.keys(input).some(k=>!['--root','--refresh-build-health'].includes(k)))throw new Error('Build health refresh accepts only --root; no clock override or cached evidence');
+  console.log(JSON.stringify(await refreshBuildHealth({root:input['--root']})));return;
+ }
+ console.log(JSON.stringify(await platformReport({root:input['--root'],out:input['--out'],gscFile:input['--gsc'],clicksFile:input['--clicks'],measurementFile:input['--measurement'],journey:input['--journey'],intent:input['--intent'],now:input['--now'],liveHealth:input['--live-health'],writeHealth:input['--write-health']}),null,2));}
 const isDirectRun=process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url);
 if(isDirectRun)main().catch(e=>{console.error(e.message);process.exitCode=1;});
