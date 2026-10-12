@@ -3,7 +3,7 @@ import { readFile, readdir, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { stateSlug } from "../src/lib/state-meta.ts";
-import { assessReadyCoreQuality, READY_CORE_FIELDS } from "./lib/ready-quality-policy.mjs";
+import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../src/lib/ready-quality.ts";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_RETAINED_GSC = path.join(ROOT, "output", "organic-growth-distribution-2026-10-11", "ORGANIC_GROWTH_OPPORTUNITIES.json");
@@ -150,7 +150,7 @@ export async function buildReadyQualityAudit({ gscDir = null } = {}) {
 			state: record.state,
 			route,
 			record_id: record.record_id,
-			verified_core_facts: quality.populatedCoreCount,
+			verified_core_facts: quality.verifiedCoreCount,
 			total_core_facts: READY_CORE_FIELDS.length,
 			missing_core_fields: quality.missingCoreFields.join("|"),
 			missing_core_count: quality.missingCoreCount,

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../scripts/lib/ready-quality-policy.mjs";
+import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../src/lib/ready-quality.ts";
 import { buildReadyQualityAudit } from "../scripts/build-ready-quality-audit.mjs";
 
 function record(overrides = {}) {
@@ -23,6 +23,15 @@ test("the audit gate fails more than one missing field without recommending imme
 	assert.equal(result.passesReadyQualityGate, false);
 	assert.equal(result.reviewForNoindex, false);
 	assert.equal(result.recommendedAction, "COMPLETE_CORE_FACTS_PRIORITY");
+});
+
+test("the visible verified count excludes populated facts with weak confidence or no source", () => {
+	const result = assessReadyCoreQuality(record({
+		timeline_days: { value: "verified", confidence: 0.3, source_ids: ["S1"] },
+		permit_fees: { value: "verified", confidence: 0.8, source_ids: [] },
+	}));
+	assert.equal(result.populatedCoreCount, 6);
+	assert.equal(result.verifiedCoreCount, 4);
 });
 
 test("only the severe review threshold recommends noindex review", () => {
