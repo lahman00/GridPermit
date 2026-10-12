@@ -137,7 +137,7 @@ test("mixed residential/commercial source notes render residential-only headline
 	const birmingham = JSON.parse(readFileSync(new URL("../data/localities/al-jefferson-birmingham-alabamapower.json", import.meta.url), "utf8"));
 	const sanPablo = JSON.parse(readFileSync(new URL("../data/localities/ca-contra-costa-san-pablo-pge.json", import.meta.url), "utf8"));
 	assert.equal(formatTimeline(birmingham.timeline_days.value).label, "Up to 3 days");
-	assert.equal(formatTimeline(sanPablo.timeline_days.value).label, "10 days");
+	assert.equal(formatTimeline(sanPablo.timeline_days.value).label, "Typically 10 days");
 	assert.match(birmingham.timeline_days.value.notes, /commercial projects/i);
 	assert.match(sanPablo.timeline_days.value.notes, /non-residential/i);
 });
