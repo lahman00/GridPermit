@@ -14,8 +14,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 import { REPO_ROOT, DIST_DIR } from "./site-inventory.mjs";
+import { buildSitemapPolicy } from "../src/lib/sitemap-policy.ts";
 
 const PRODUCTION_HOST = "https://mygridpermit.com";
+const sitemapPolicy = buildSitemapPolicy(REPO_ROOT);
 
 function section(name, ok, detail) {
 	const mark = ok ? "PASS" : "FAIL";
@@ -35,7 +37,7 @@ async function main() {
 	// structured-data/orphan/sitemap-drift/dead-link checks already live in
 	// scripts/site-inventory.mjs --check).
 	try {
-		execFileSync("node", ["scripts/site-inventory.mjs", "--check"], { cwd: REPO_ROOT, stdio: "pipe" });
+		execFileSync("node", ["--experimental-strip-types", "scripts/site-inventory.mjs", "--check"], { cwd: REPO_ROOT, stdio: "pipe" });
 		results.push(section("SEO hard-defect check (site-inventory --check)", true));
 	} catch (err) {
 		results.push(section("SEO hard-defect check (site-inventory --check)", false, "hard defects found — see `npm run seo-check`"));
@@ -109,7 +111,9 @@ async function main() {
 	const shouldBeIndexable = ledger.entries.filter((e) =>
 		["home", "locality-directory", "locality-guide", "state-hub", "california-hub"].includes(e.family),
 	);
-	const accidentallyNoindex = shouldBeIndexable.filter((e) => e.index_status === "noindex");
+	const accidentallyNoindex = shouldBeIndexable.filter(
+		(e) => e.index_status === "noindex" && !sitemapPolicy.emptyStatePaths.has(e.url),
+	);
 	results.push(
 		section(
 			"No accidental noindex on core discoverable pages",

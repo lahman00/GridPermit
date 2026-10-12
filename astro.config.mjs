@@ -3,11 +3,25 @@
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
+import { fileURLToPath } from 'node:url';
+import { buildSitemapPolicy, sitemapPathname } from './src/lib/sitemap-policy.ts';
+
+const repoRoot = fileURLToPath(new URL('.', import.meta.url));
+const sitemapPolicy = buildSitemapPolicy(repoRoot);
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://mygridpermit.com',
-	integrations: [mdx(), sitemap()],
+	integrations: [
+		mdx(),
+		sitemap({
+			filter: (page) => !sitemapPolicy.emptyStatePaths.has(sitemapPathname(page)),
+			serialize: (item) => {
+				const lastmod = sitemapPolicy.lastmodByPath.get(sitemapPathname(item.url));
+				return lastmod ? { ...item, lastmod } : item;
+			},
+		}),
+	],
 	fonts: [
 		{
 			provider: fontProviders.local(),

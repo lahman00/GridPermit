@@ -16,10 +16,12 @@
 import { readFile, readdir, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildSitemapPolicy } from "../src/lib/sitemap-policy.ts";
 
 export const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 export const DIST_DIR = path.join(REPO_ROOT, "dist");
 const OUT_PATH = path.join(REPO_ROOT, "output", "site-inventory.json");
+const sitemapPolicy = buildSitemapPolicy(REPO_ROOT);
 
 export async function walk(dir, files = []) {
 	const entries = await readdir(dir, { withFileTypes: true });
@@ -285,7 +287,7 @@ function buildDefectReport(pages, sitemapUrls, redirectMap) {
 		else if (p.canonical !== `https://mygridpermit.com${p.url}`) {
 			defects.non_self_referential_canonical.push({ url: p.url, canonical: p.canonical });
 		}
-		if (p.noindex) defects.accidental_noindex.push(p.url);
+		if (p.noindex && !sitemapPolicy.emptyStatePaths.has(p.url)) defects.accidental_noindex.push(p.url);
 		if (!p.ogTitle) defects.missing_og_title.push(p.url);
 		if (!p.twitterCard) defects.missing_twitter_card.push(p.url);
 		if (!p.googleSiteVerification) defects.missing_google_site_verification.push(p.url);

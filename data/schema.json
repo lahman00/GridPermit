@@ -88,8 +88,8 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
-                "min_days": { "type": ["integer", "null"], "minimum": 0 },
-                "max_days": { "type": ["integer", "null"], "minimum": 0 },
+                "min_days": { "type": ["integer", "null"], "minimum": 0, "description": "Lower bound for the residential permit-review headline only. Do not combine residential and commercial figures into one range." },
+                "max_days": { "type": ["integer", "null"], "minimum": 0, "description": "Upper bound for the residential permit-review headline only. Commercial or non-residential figures may remain in notes as clearly labelled context, but must not widen this bound." },
                 "notes": { "type": ["string", "null"] }
               },
               "required": ["min_days", "max_days", "notes"]

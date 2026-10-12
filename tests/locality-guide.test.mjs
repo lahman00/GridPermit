@@ -133,6 +133,15 @@ test("buildFaqs' timeline question does not claim expedited/SolarAPP+ eligibilit
 	assert.doesNotMatch(timelineFaq.q, /SolarAPP\+/);
 });
 
+test("mixed residential/commercial source notes render residential-only headline bounds", () => {
+	const birmingham = JSON.parse(readFileSync(new URL("../data/localities/al-jefferson-birmingham-alabamapower.json", import.meta.url), "utf8"));
+	const sanPablo = JSON.parse(readFileSync(new URL("../data/localities/ca-contra-costa-san-pablo-pge.json", import.meta.url), "utf8"));
+	assert.equal(formatTimeline(birmingham.timeline_days.value).label, "Up to 3 days");
+	assert.equal(formatTimeline(sanPablo.timeline_days.value).label, "10 days");
+	assert.match(birmingham.timeline_days.value.notes, /commercial projects/i);
+	assert.match(sanPablo.timeline_days.value.notes, /non-residential/i);
+});
+
 test("buildFaqs adds a documents entry only when required_documents is populated", () => {
 	const faqs = buildFaqs(
 		buildRecord({ required_documents: { value: [{ name: "Site plan" }, { name: "Roof plan" }] } }),
