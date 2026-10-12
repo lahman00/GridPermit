@@ -41,6 +41,7 @@ import PermitPathwayAnswer from "../components/PermitPathwayAnswer.astro";
 import EvidenceState from "../components/EvidenceState.astro";
 import LocalityPermitPath from "../components/LocalityPermitPath.astro";
 import { buildPermitPathwayAnswer } from "../lib/permit-pathway-answer";
+import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../lib/ready-quality";
 
 interface Props {
 	record: LocalityRecord;
@@ -76,6 +77,7 @@ const documentsVerified = Boolean(record.required_documents.value?.length) && Bo
 const documentsConditional = Boolean(record.required_documents.value?.some(document => Boolean(document.required_when)));
 const inspectionVerified = Boolean(record.inspection_steps.value?.length) && Boolean(record.inspection_steps.source_ids?.length);
 const interconnectionVerified = hasSourcedValue(record.interconnection_url.value, record.interconnection_url.source_ids);
+const coreQuality = assessReadyCoreQuality(record);
 
 // "Other verified California guides" cross-links (never linking to this
 // page itself) — driven by the same READY-only entry list the locality
@@ -257,10 +259,11 @@ const tocItems = [
 			</div>
 
 			<div class="page-toolbar">
-				<div class="gp-source-health" aria-label={`Source health: verified ${record.last_verified}, ${sourceCount} official sources`}>
+				<div class="gp-source-health" aria-label={`Source health: verified ${record.last_verified}, ${sourceCount} official sources, ${coreQuality.verifiedCoreCount} of ${READY_CORE_FIELDS.length} core facts verified`}>
 					<span class="gp-source-health-label"><i aria-hidden="true"></i>Source health</span>
 					<span class="badge badge-date">Last verified {record.last_verified}</span>
 					<span class="badge badge-sources">{sourceCount} official source{sourceCount === 1 ? "" : "s"}</span>
+					<span class="badge badge-completeness" title="Core facts: permit authority, utility, review time, permit fees, inspection steps, and required documents.">{coreQuality.verifiedCoreCount} of {READY_CORE_FIELDS.length} core facts verified</span>
 				</div>
 				<button type="button" class="btn-toolbar" id="copy-link-btn">Copy Link</button>
 				<button type="button" class="btn-toolbar" id="print-btn">Print Checklist</button>

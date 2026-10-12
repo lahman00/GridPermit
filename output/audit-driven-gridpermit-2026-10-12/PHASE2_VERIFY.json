@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-10-12",
+  "branch": "codex/gridpermit-audit-quality-20261012",
+  "production_changed": false,
+  "push_performed": false,
+  "deploy_performed": false,
+  "timeline_headlines": {
+    "birmingham": {
+      "rendered": "Up to 3 days",
+      "commercial_value_in_headline": false,
+      "official_context_retained_in_notes": true
+    },
+    "san_pablo": {
+      "rendered": "10 days",
+      "non_residential_value_in_headline": false,
+      "official_context_retained_in_notes": true
+    }
+  },
+  "empty_state_indexation": {
+    "routes": [
+      "/indiana/",
+      "/kansas/",
+      "/missouri/",
+      "/ohio/",
+      "/south-dakota/",
+      "/wyoming/"
+    ],
+    "robots": "noindex, follow",
+    "present_in_sitemap": false,
+    "policy_source": "current READY locality data"
+  },
+  "sitemap": {
+    "url_count": 456,
+    "routes_with_source_backed_lastmod": 413,
+    "routes_without_source_backed_date_omit_lastmod": true,
+    "samples": {
+      "/california/san-pablo/solar-permit-guide/": "2026-08-09T00:00:00.000Z",
+      "/alabama/birmingham/solar-permit-guide/": "2026-08-14T00:00:00.000Z",
+      "/blog/tesla-powerwall-3-vs-enphase-iq5p/": "2026-10-02T00:00:00.000Z"
+    }
+  },
+  "homepage": {
+    "coming_soon_table_rows_rendered": false,
+    "unsupported_savings_or_payback_numbers_added": false
+  },
+  "research_plan": {
+    "city_count": 14,
+    "official_sources_only": true,
+    "priority_method": "Official 2020 Census city population first; verified GridPermit GSC evidence is secondary.",
+    "first_city": "Los Angeles",
+    "irvine_position": 14,
+    "irvine_gsc_signal": "19 impressions / 0 clicks for 2026-09-11 through 2026-10-08",
+    "keyword_volume_status": "No audited keyword-volume export available; no search-volume estimate was invented.",
+    "population_source": "https://www.census.gov/content/dam/Census/newsroom/press-kits/2021/redistricting/places-population-2010-to-2020-csv.csv"
+  },
+  "verification": {
+    "tests": "901 total; 897 passed; 4 skipped; 0 failed",
+    "astro_check": "0 errors; 16 pre-existing hints",
+    "build": "passed; 463 pages",
+    "release_preservation": "passed; 86 approved placements; 21 required cities; 3 functions; unsafe utility routes blocked",
+    "seo_check": "passed; 462 pages; 456 sitemap URLs; 0 hard defects",
+    "search_readiness": "passed; no orphans, sitemap gaps, zero-inbound indexable pages, or accidental noindex"
+  },
+  "premerge_review": {
+    "san_pablo_source": {
+      "status": "confirmed",
+      "official_url": "https://www.sanpabloca.gov/DocumentCenter/View/5355/Photovoltaic",
+      "residential_first_and_subsequent_review_days": 10,
+      "non_residential_first_review_days_max": 15,
+      "rendered_headline_uses_residential_only": true
+    },
+    "empty_state_reversibility": {
+      "status": "passed",
+      "fixture": "synthetic Indiana READY locality",
+      "noindex_removed_when_first_guide_publishes": true,
+      "state_hub_returns_to_sitemap": true,
+      "state_lastmod_uses_locality_last_verified": "2026-10-12"
+    },
+    "lastmod_repeatability": {
+      "status": "passed",
+      "builds_compared": 2,
+      "sitemap_0_sha256": "a4b72a3da4b32dd17305b6c458c4b14a23da95f1fd9cdcef3b3cb820911bae75",
+      "sitemap_index_sha256": "8c1e3de9a68dcff696d0264ead39386b389ac07efc9418040445ef056c510ca5",
+      "identical_across_builds": true
+    },
+    "empty_state_internal_links": {
+      "status": "passed",
+      "routes_checked": [
+        "/indiana/",
+        "/kansas/",
+        "/missouri/",
+        "/ohio/",
+        "/south-dakota/",
+        "/wyoming/"
+      ],
+      "rendered_inbound_source_per_route": [
+        "/permits/"
+      ],
+      "navigation_links_present": false,
+      "other_state_hub_links_present": false,
+      "user_label": "Research in progress"
+    }
+  }
+}

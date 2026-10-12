@@ -26,6 +26,10 @@ test("robots.txt allows crawling the whole site (no blanket Disallow)", () => {
 	assert.ok(!/Disallow:\s*\/\s*$/im.test(robotsTxt), "found a blanket 'Disallow: /' — this would block the entire site from crawlers");
 });
 
+test("robots.txt keeps first-party outbound redirect endpoints out of crawler traffic", () => {
+	assert.match(robotsTxt, /^Disallow:\s*\/go\/\s*$/im);
+});
+
 test("robots.txt's Sitemap: line points to the site's real origin and the actual sitemap-index path @astrojs/sitemap generates", () => {
 	const siteMatch = astroConfig.match(/site:\s*['"]([^'"]+)['"]/);
 	assert.ok(siteMatch, "could not find `site:` in astro.config.mjs to compare against");

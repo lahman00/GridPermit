@@ -227,6 +227,11 @@ export function formatTimeline(td: TimelineValue): TimelineDisplay {
 	}
 	// Only label business days when the source notes explicitly and unambiguously say so.
 	const notes = td.notes ?? "";
+	// Preserve an official source's non-binding qualifier in the prominent label.
+	// A stated "typical" turnaround is evidence of an observed/target duration,
+	// not a guaranteed service level.
+	const isTypicalReview = /\btypical(?:ly)?\s+(?:plan\s+)?review\b|\breview[^.]{0,100}\b(?:described\s+as\s+)?typical(?:ly)?\b/i.test(notes);
+	const typicalPrefix = isTypicalReview ? "Typically " : "";
 	const business = /\bbusiness[\s-]+days?\b/i.test(notes) && !/\bcalendar[\s-]+days?\b/i.test(notes);
 	const unit = (n: number) => `${business ? "business " : ""}${n === 1 ? "day" : "days"}`;
 	if (!hasMin && hasMax) {
@@ -239,7 +244,7 @@ export function formatTimeline(td: TimelineValue): TimelineDisplay {
 	}
 	// Preserve established complete-range rendering; notes may describe other phases
 	// in business days, which does not justify reinterpreting the recorded range.
-	const label = min === max ? `${min} days` : `${min}–${max} days`;
+	const label = `${typicalPrefix}${min === max ? `${min} days` : `${min}–${max} days`}`;
 	return { isSameDaySolarAppOnly: false, label, standardPathCaveat: null };
 }
 
