@@ -1,10 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { buildSitemapPolicy } from "../src/lib/sitemap-policy.ts";
+import { buildSitemapPolicy, stateHubRobotsDirective } from "../src/lib/sitemap-policy.ts";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
 
@@ -30,8 +31,30 @@ test("locality and editorial lastmod values come from source dates", () => {
 
 test("state template noindexes only hubs with zero published guides", () => {
 	const source = readFileSync(path.join(REPO_ROOT, "src/pages/[state]/index.astro"), "utf8");
-	assert.match(source, /const hasPublishedGuides = entries\.length > 0/);
-	assert.match(source, /!hasPublishedGuides && <meta name="robots" content="noindex, follow"/);
+	assert.equal(stateHubRobotsDirective(0), "noindex, follow");
+	assert.equal(stateHubRobotsDirective(1), null);
+	assert.match(source, /stateHubRobotsDirective\(entries\.length\)/);
+	assert.match(source, /robotsDirective && <meta name="robots" content=\{robotsDirective\}/);
+});
+
+test("publishing Indiana's first READY guide reverses both sitemap exclusion and noindex policy", () => {
+	const root = mkdtempSync(path.join(tmpdir(), "gridpermit-indiana-reversal-"));
+	mkdirSync(path.join(root, "data/localities"), { recursive: true });
+	mkdirSync(path.join(root, "output"), { recursive: true });
+	mkdirSync(path.join(root, "src/content/blog"), { recursive: true });
+	writeFileSync(path.join(root, "data/localities/in-test-indianapolis-utility.json"), JSON.stringify({
+		record_id: "in-test-indianapolis-utility",
+		state: "IN",
+		city: { value: "Indianapolis" },
+		last_verified: "2026-10-12",
+	}));
+	writeFileSync(path.join(root, "output/fixture-evaluation.json"), JSON.stringify({
+		records: [{ record_id: "in-test-indianapolis-utility", readiness: "READY" }],
+	}));
+	const policy = buildSitemapPolicy(root);
+	assert.equal(policy.emptyStatePaths.has("/indiana/"), false);
+	assert.equal(policy.lastmodByPath.get("/indiana/"), "2026-10-12");
+	assert.equal(stateHubRobotsDirective(1), null);
 });
 
 test("homepage does not render empty Coming Soon comparison rows", () => {

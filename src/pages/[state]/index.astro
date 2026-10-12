@@ -23,6 +23,7 @@ import {
 	type LocalityRecord,
 } from "../../lib/locality-guide";
 import { STATE_META, SUPPORTED_STATE_CODES } from "../../lib/state-meta";
+import { stateHubRobotsDirective } from "../../lib/sitemap-policy";
 import Analytics from "../../components/Analytics.astro";
 
 export async function getStaticPaths() {
@@ -55,7 +56,8 @@ const lettersPresent = [...new Set(entries.map((e) => e.city[0]!.toUpperCase()))
 const PAGE_PATH = `/${stateInfo.slug}/`;
 const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
 const title = `${stateInfo.name} Solar Permit Guides by City | GridPermit`;
-const hasPublishedGuides = entries.length > 0;
+const robotsDirective = stateHubRobotsDirective(entries.length);
+const hasPublishedGuides = robotsDirective === null;
 const description = hasPublishedGuides
 	? `Source-linked, confidence-scored solar permitting guides by ${stateInfo.name} city: permit authority, required documents, fees, and eligibility.`
 	: `GridPermit has research in progress for ${stateInfo.name}, but no city guide has cleared the publication threshold yet.`;
@@ -94,7 +96,7 @@ const collectionSchema = {
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{title}</title>
 	<meta name="description" content={description} />
-	{!hasPublishedGuides && <meta name="robots" content="noindex, follow" />}
+	{robotsDirective && <meta name="robots" content={robotsDirective} />}
 	<link rel="canonical" href={CANONICAL_URL} />
 
 	<meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
