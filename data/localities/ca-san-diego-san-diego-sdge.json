@@ -91,30 +91,31 @@
     "value": [
       {
         "name": "Hazardous Materials Reporting Form (DS-165)",
-        "required_when": "non-residential or battery/ESS projects",
+        "required_when": "When a Building Permit is needed and/or batteries/ESS are part of a project other than single-family, duplex or townhouse; see IB-301 Application Package. This is not a blanket requirement for home batteries.",
         "source_ids": [
           "S3"
         ]
       },
       {
         "name": "San Diego Regional Hazardous Materials Questionnaire (HM-9171)",
-        "required_when": null,
+        "required_when": "when a Building Permit is required",
         "source_ids": [
           "S3"
         ]
       },
       {
         "name": "Stormwater Requirements Applicability Checklist (DS-560)",
-        "required_when": null,
+        "required_when": "when a Building Permit is required",
         "source_ids": [
           "S3"
         ]
       },
       {
         "name": "Owner-Builder Verification (DS-3042)",
-        "required_when": "if the owner performs the work",
+        "required_when": "before permit issuance when the owner performs the work or hires different contractors (IB-103)",
         "source_ids": [
-          "S3"
+          "S3",
+          "SD_IB103_2026"
         ]
       },
       {
@@ -126,53 +127,102 @@
       },
       {
         "name": "Site plan showing all PV panels, disconnects, inverters, batteries, and meter locations",
-        "required_when": null,
+        "required_when": "for the non-template PV plan submittal route, as applicable to the installation; qualifying residential sloped-roof projects may use the project-specific residential plan template",
         "source_ids": [
           "S3"
         ]
       },
       {
         "name": "Roof plan with slope, panel location, and weight calculations",
-        "required_when": null,
+        "required_when": "for the non-template PV plan submittal route, as applicable to the installation; qualifying residential sloped-roof projects may use the project-specific residential plan template",
         "source_ids": [
           "S3"
         ]
       },
       {
         "name": "Single-line diagram with voltage, kilowatt output, and conductor specifications",
-        "required_when": null,
+        "required_when": "for the non-template PV plan submittal route, as applicable to the installation; qualifying residential sloped-roof projects may use the project-specific residential plan template",
         "source_ids": [
           "S3"
         ]
       },
       {
         "name": "Manufacturer specifications for modules, racking, inverters, and batteries",
-        "required_when": null,
+        "required_when": "for the equipment included in the project, including when using the residential plan template",
         "source_ids": [
           "S3"
+        ]
+      },
+      {
+        "name": "Project-specific Residential PV plan template",
+        "required_when": "for the qualifying residential sloped-roof template route; customize the sheets, identify occupancy and include applicable equipment specifications",
+        "source_ids": [
+          "S2",
+          "S3"
+        ]
+      },
+      {
+        "name": "Signed plans and structural calculations, when required",
+        "required_when": "PV/ESS plans: responsible registered civil/electrical engineer or installing C-10, B or C-46 contractor; service-panel upgrade plans: electrical engineer or C-10; required structural calculations: architect, civil or structural engineer",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Circuit Card (DS-1779)",
+        "required_when": "at inspection for new electrical components in single-family/duplex projects unless the electrical plans, calculations and single-line diagram are already included in the approved plans; keep on site for rough inspection",
+        "source_ids": [
+          "SD_IB103_2026",
+          "SD_CIRCUIT_CARD_2026"
+        ]
+      },
+      {
+        "name": "Approved plans, inspection record card and manufacturer installation instructions",
+        "required_when": "available on site for inspection",
+        "source_ids": [
+          "SD_PV_INSPECTIONS"
+        ]
+      },
+      {
+        "name": "SDG&E approval letter for a separate utility disconnect",
+        "required_when": "available on site when a separate utility disconnect is required",
+        "source_ids": [
+          "SD_PV_INSPECTIONS"
+        ]
+      },
+      {
+        "name": "SDG&E service order and completed City Circuit Card",
+        "required_when": "available on site for a service upgrade",
+        "source_ids": [
+          "SD_PV_INSPECTIONS"
         ]
       }
     ],
     "confidence": 0.85,
     "source_ids": [
-      "S3"
-    ]
+      "S2",
+      "S3",
+      "SD_IB103_2026",
+      "SD_PV_INSPECTIONS",
+      "SD_CIRCUIT_CARD_2026"
+    ],
+    "notes": "Scoped review on 2026-10-12: application, plan-submittal and on-site inspection documents are distinct. IB-301 May 2026 and IB-103 May 2026 establish applicability; HM-9171 and DS-560 form downloads were unavailable, and the full plan template was not visually inspected. Those form versions are not newly verified."
   },
   "inspection_steps": {
     "value": [
-      "Electrical Underground inspection",
-      "Electrical Rough inspection",
-      "Electrical Final inspection",
-      "Structural-Foundation inspection (if applicable)",
-      "Structural-Rough inspection (if applicable)",
-      "Structural-Final inspection (if applicable)",
-      "After final inspection approval for all related City permits, the City notifies SDG&E; the system is not approved to energize until SDG&E gives its own approval"
+      "Schedule applicable inspections before concealing work; provide site access and a responsible person.",
+      "Ground-mounted installations: footing and underground raceway/conduit inspections where that work is included, followed by final inspection.",
+      "Roof-mounted installations: rough inspection for concealed wiring and applicable array bonding/grounding checks, followed by final inspection.",
+      "Structural foundation, rough and final inspections apply when required by the permitted structural scope.",
+      "Keep approved plans, the inspection record card and manufacturer instructions on site, with the conditional utility-disconnect or service-upgrade documents.",
+      "After final inspection approval for all related City permits, the City notifies SDG&E. City approval alone does not authorize energization; separate SDG&E approval is required."
     ],
     "confidence": 0.85,
     "source_ids": [
-      "S3"
+      "S3",
+      "SD_PV_INSPECTIONS"
     ],
-    "notes": "Quoted directly from IB-301: 'After receiving final inspection approval for all related City of San Diego Permits, San Diego Gas and Electric (SDG&E) will be notified. The system is not approved to energize until SDG&E approval is obtained.' This is a genuine two-authority sign-off (City then SDG&E), distinct from the single-authority processes in the PG&E/Ava-territory and PWP records."
+    "notes": "City inspection scope checked on 2026-10-12. The PV inspection guidelines remain linked by the City; no publication date was visible. Underground and structural inspections are conditional, not universal rooftop steps. Current SDG&E application requirements, charges and permission-to-operate timing remain Not yet verified; no cross-utility comparison is asserted."
   },
   "timeline_days": {
     "value": null,
@@ -192,18 +242,22 @@
       "thermal_capacity_kw_max": null,
       "program_or_pathway": "Self-issued residential solar PV permit, no plan review (Information Bulletin 301)",
       "other_conditions": [
+        "Self-issued eligibility is for qualifying rooftop single-family, duplex or townhouse installations designed using the residential PV plan template; these are pathway limits, not universal citywide limits.",
         "Energy storage systems up to 38.4 kWh total, with individual units not exceeding 20 kWh",
         "Panel upgrades permitted up to 320 amps under the same self-issued pathway",
-        "Fire plan review determination (IB-301 Section F) and structural review determination (IB-301 Section II.C.1) both required",
-        "Ground-mounted systems require a Building Permit if the support structure exceeds 5 feet above ground",
-        "No additional work requiring a separate building permit is allowed under the self-issued pathway"
+        "An EV charger integrated into the inverter may be included.",
+        "Neither fire plan review nor structural review may be required for the self-issued route; consult IB-301 Structural Review, Plans and Calculations and Fire Roof Access and Pathways for review triggers.",
+        "No additional work requiring a Combination Building Permit, such as structural modifications or a new structure, is eligible under the self-issued route.",
+        "Ground-mounted PV with supports higher than five feet requires a Building Permit or Combination Building Permit; it is outside this rooftop self-issued route.",
+        "Self-issued permitting is distinct from optional Express Plan Check; IB-301 excludes single-family, duplex and ADU projects from Express Plan Check."
       ]
     },
     "confidence": 0.9,
     "source_ids": [
       "S2",
       "S3"
-    ]
+    ],
+    "notes": "Pathway conditions checked on 2026-10-12 against the residential PV page (undated) and IB-301 (May 2026). No numeric total permit or utility approval duration is established."
   },
   "permit_fees": {
     "value": [
@@ -223,44 +277,46 @@
         "name": "Residential First System/Inverter Inspection (with plan review)",
         "amount_usd": 275.8,
         "unit": "flat",
-        "notes": null
+        "notes": "First system/inverter inspection component for single-family/duplex/townhouse projects requiring plan review; not the complete permit cost."
       },
       {
         "name": "Non-Residential/Multi-Family First 100 kW Plan Check",
         "amount_usd": 758,
         "unit": "per 100kW",
-        "notes": null
+        "notes": "Non-residential/multi-family PV and photovoltaic-shingle schedule; not the standard residential PV headline. Additional electrical infrastructure may incur another fee."
       },
       {
         "name": "Non-Residential/Multi-Family Each Additional 100 kW Plan Check",
         "amount_usd": 264,
         "unit": "per 100kW",
-        "notes": null
+        "notes": "Non-residential/multi-family PV and photovoltaic-shingle schedule; not the standard residential PV headline. Additional electrical infrastructure may incur another fee."
       },
       {
         "name": "Non-Residential/Multi-Family First 100 kW Inspection",
         "amount_usd": 290,
         "unit": "per 100kW",
-        "notes": null
+        "notes": "Non-residential/multi-family PV and photovoltaic-shingle schedule; not the standard residential PV headline. Additional electrical infrastructure may incur another fee."
       },
       {
         "name": "Non-Residential/Multi-Family Each Additional 100 kW Inspection",
         "amount_usd": 145,
         "unit": "per 100kW",
-        "notes": null
+        "notes": "Non-residential/multi-family PV and photovoltaic-shingle schedule; not the standard residential PV headline. Additional electrical infrastructure may incur another fee."
       },
       {
         "name": "Mapping Fee",
         "amount_usd": 12.16,
         "unit": "flat",
-        "notes": "Only if applicable, per IB-301."
+        "notes": "Applies when plans, drawings, maps or other geographical documents are used for project review; not an unconditional charge."
       }
     ],
     "confidence": 0.9,
     "source_ids": [
-      "S3"
+      "S3",
+      "SD_IB501_2026",
+      "SD_IB103_2026"
     ],
-    "notes": "An additional SDG&E interconnection application fee (reported elsewhere as $132 for systems ≤1MW) was found only via a search-engine summary, never a page I could directly render (sdge.com blocked every attempt this session) — deliberately excluded rather than reported as verified, consistent with this project's sourcing rules. Batteries/ESS review, structural, zoning, and historical reviews are billed at hourly rates per a separate Information Bulletin (501) not independently reviewed this session."
+    "notes": "Fee scope checked on 2026-10-12: IB-301 (May 2026) lists Electrical Permit components and includes service-panel upgrades up to 320 amps. Do not sum alternative residential and non-residential schedules or present these components as a complete project quote. ESS plan review/inspection is hourly; structural, zoning, brush/landscape and historical reviews may add hourly charges. Building/Combination Building Permits incur separate applicable fees under IB-501 (August 2026). IB-501 exempts no-plan-review projects from its General Plan Maintenance Fee; do not add general construction fees automatically. IB-103 (May 2026) routes PV fees to IB-301, so do not automatically add a standalone panel-upgrade fee. Online bank/processing charges may apply. SDG&E fees remain Not yet verified and are excluded."
   },
   "rebates": {
     "value": null,
@@ -307,7 +363,7 @@
       "url": "https://www.sandiego.gov/development-services/permits/solar-photovoltaic-permit",
       "publisher": "City of San Diego",
       "type": "government",
-      "accessed_date": "2026-08-01"
+      "accessed_date": "2026-10-12"
     },
     {
       "id": "S3",
@@ -315,7 +371,7 @@
       "url": "https://www.sandiego.gov/development-services/forms-publications/information-bulletins/301",
       "publisher": "City of San Diego",
       "type": "government",
-      "accessed_date": "2026-08-01"
+      "accessed_date": "2026-10-12"
     },
     {
       "id": "S4",
@@ -380,6 +436,38 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "SD_IB103_2026",
+      "title": "Information Bulletin 103 — May 2026",
+      "url": "https://www.sandiego.gov/development-services/forms-publications/information-bulletins/103",
+      "publisher": "City of San Diego",
+      "type": "government",
+      "accessed_date": "2026-10-12"
+    },
+    {
+      "id": "SD_IB501_2026",
+      "title": "Information Bulletin 501 — August 2026",
+      "url": "https://www.sandiego.gov/development-services/forms-publications/information-bulletins/501",
+      "publisher": "City of San Diego",
+      "type": "government",
+      "accessed_date": "2026-10-12"
+    },
+    {
+      "id": "SD_PV_INSPECTIONS",
+      "title": "PV Inspection Guidelines — publication date not shown",
+      "url": "https://www.sandiego.gov/sites/default/files/legacy/development-services/pdf/pvinspectionguidelines.pdf",
+      "publisher": "City of San Diego",
+      "type": "government",
+      "accessed_date": "2026-10-12"
+    },
+    {
+      "id": "SD_CIRCUIT_CARD_2026",
+      "title": "Circuit Card DS-1779 — August 2026",
+      "url": "https://www.sandiego.gov/sites/default/files/legacy/development-services/pdf/industry/forms/ds1779.pdf",
+      "publisher": "City of San Diego",
+      "type": "government",
+      "accessed_date": "2026-10-12"
     }
   ]
 }
