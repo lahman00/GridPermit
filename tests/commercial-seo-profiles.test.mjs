@@ -16,9 +16,11 @@ const EXPECTED = new Map([
 	["ca-los-angeles-cerritos-sce", "Cerritos"],
 	["ca-orange-laguna-beach-sce", "Laguna Beach"],
 	["ca-san-bernardino-ontario-sce", "Ontario"],
+	["ca-los-angeles-torrance-sce", "Torrance"],
+	["ca-los-angeles-lakewood-sce", "Lakewood"],
 ]);
 
-test("commercial SEO profiles stay bounded to the eight reviewed active routes", () => {
+test("commercial SEO profiles stay bounded to the ten reviewed active routes", () => {
 	assert.deepEqual([...COMMERCIAL_SEO_PROFILES.keys()].sort(), [...EXPECTED.keys()].sort());
 	for (const [recordId, city] of EXPECTED) {
 		assert.equal(isCompareSolarServedLocality("CA", city), true, `${city} must remain an approved CSP locality`);
@@ -68,4 +70,16 @@ test("new opportunity copy preserves the verified local distinction", () => {
 	const ontario = getCommercialSeoProfile("ca-san-bernardino-ontario-sce");
 	assert.match(ontario.description, /Symbium instant plan-review/);
 	assert.match(ontario.lead, /real-time plan review/);
+});
+
+test("held-candidate copy stays inside each City's published path", () => {
+	const torrance = getCommercialSeoProfile("ca-los-angeles-torrance-sce");
+	assert.match(torrance.description, /under 38\.4 kW AC/);
+	assert.match(torrance.lead, /automated permit path/);
+	assert.doesNotMatch(torrance.title + torrance.description + torrance.lead, /SolarAPP|instant|same.day/i);
+
+	const lakewood = getCommercialSeoProfile("ca-los-angeles-lakewood-sce");
+	assert.match(lakewood.description, /SolarAPP\+ instant permit path/);
+	assert.match(lakewood.lead, /Submittal Checklist/);
+	assert.doesNotMatch(lakewood.title + lakewood.description + lakewood.lead, /\d+\s*kW|\$\d/);
 });

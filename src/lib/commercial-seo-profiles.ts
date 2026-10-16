@@ -5,7 +5,9 @@ export interface CommercialSeoProfile {
 }
 
 // Bounded page-level overrides selected from an authenticated, final-state
-// Search Console exports on 2026-10-09 and 2026-10-11. Raw search metrics stay in the private
+// Search Console exports on 2026-10-09 and 2026-10-11 (Torrance and Lakewood
+// were held candidates from that review, added 2026-10-16 after their City
+// pages were rechecked). Raw search metrics stay in the private
 // operator evidence store; this public source contains only reviewed copy.
 // Every factual phrase below is already supported by the corresponding
 // locality record and its official sources.
@@ -80,6 +82,24 @@ export const COMMERCIAL_SEO_PROFILES = new Map<string, CommercialSeoProfile>([
 			description:
 				"Check Ontario's Symbium instant plan-review path for eligible residential rooftop solar, battery conditions, inspections, and separate SCE interconnection.",
 			lead: "Eligible residential rooftop projects can use Symbium for real-time plan review. SCE interconnection and PTO remain separate.",
+		},
+	],
+	[
+		"ca-los-angeles-torrance-sce",
+		{
+			title: "Torrance Solar Permit Requirements & Automated Path | GridPermit",
+			description:
+				"Check Torrance's automated residential solar permit path for new rooftop systems under 38.4 kW AC, required plans and data sheets, inspections, and SCE PTO.",
+			lead: "Eligible new rooftop systems under 38.4 kW AC can use the City's automated permit path. SCE interconnection and PTO remain separate.",
+		},
+	],
+	[
+		"ca-los-angeles-lakewood-sce",
+		{
+			title: "Lakewood Solar Permit Requirements & SolarAPP+ | GridPermit",
+			description:
+				"Check Lakewood's SolarAPP+ instant permit path for eligible residential rooftop solar, the Submittal Checklist route, inspection requests, and separate SCE PTO.",
+			lead: "Eligible contractor-led rooftop projects can use SolarAPP+ for instant permitting; others follow the City's Submittal Checklist. SCE PTO remains separate.",
 		},
 	],
 ]);
