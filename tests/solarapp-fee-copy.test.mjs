@@ -14,4 +14,7 @@ test("California SolarAPP+ guidance distinguishes free jurisdiction access from 
   assert.match(source, /help\.solar-app\.org\/article\/75-how-much-does-solarapp-cost-an-installer-to-use/);
   assert.doesNotMatch(source, /SolarAPP\+ \(Solar Automated Permit Processing\) is a free/);
   assert.doesNotMatch(source, /is a free online platform, developed with the National Renewable Energy Laboratory/);
+  // This FAQ answer is rendered in visible HTML and serialized into FAQPage JSON-LD.
+  // Reject accidental duplication of the city/project eligibility disclaimer.
+  assert.equal((source.match(/Not every city uses it, and not every project qualifies even where it's offered/g) || []).length, 1);
 });
