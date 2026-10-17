@@ -5,7 +5,7 @@ Written 2026-08-15 as part of an overnight product audit. Public-web research on
 ## 1. Automated/instant permitting platforms (the closest functional adjacency)
 
 ### SolarAPP+ (NREL / U.S. DOE)
-- EVIDENCE: Free to jurisdictions and installers, funded by the U.S. Department of Energy and built by NREL. As of early 2026, 450+ AHJs have adopted it. Jurisdictions using it can issue qualifying residential solar permits automatically, within hours.
+- EVIDENCE (fee clarification, 2026-10-17): SolarAPP+ is available at no cost to participating jurisdictions, while installers pay a per-project administrative fee and any separately assessed local permitting fees. The platform was developed with NREL and U.S. DOE support. Official fee guidance: https://help.solar-app.org/article/75-how-much-does-solarapp-cost-an-installer-to-use ; DOE overview: https://www.energy.gov/cmei/systems/articles/160-communities-now-automating-solar-permitting-solarapp. As of early 2026, 450+ AHJs have adopted it. Jurisdictions using it can issue qualifying residential solar permits automatically, within hours.
 - INFERENCE: This is not a competitor to GridPermit's informational content — it automates the *submission/approval* step for jurisdictions that opt in, which is downstream of "which utility, which documents, which fees" (GridPermit's actual content). It narrows the addressable pain only for the ~450 AHJs that have adopted it, out of an estimated 36,000+ AHJs nationwide (see Symbium/AHJ.wiki figures below) — the vast majority of U.S. jurisdictions still have no automated path.
 
 ### Symbium
