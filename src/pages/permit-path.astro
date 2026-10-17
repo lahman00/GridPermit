@@ -145,11 +145,27 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       return `${esc(range)}${timeline.notes ? `<div class="muted">${esc(timeline.notes)}</div>` : ""}`;
     }
 
+    // Only the flags auto-selected by project type are reset on a later type change.
+    // Explicit user checkbox choices remain untouched.
+    const autoSelected = new Set();
+    ["battery", "existing", "equipment"].forEach((id) => {
+      $(id)?.addEventListener("change", () => autoSelected.delete(id));
+    });
     $("project-type")?.addEventListener("change", (event) => {
+      for (const id of autoSelected) $(id).checked = false;
+      autoSelected.clear();
       const value = event.target.value;
-      if (value === "pv-storage" || value === "battery-only") $("battery").checked = true;
-      if (value === "battery-only" || value === "pv-expansion") $("existing").checked = true;
-      if (value === "revision") $("equipment").checked = true;
+      const implied = [
+        ...(["pv-storage", "battery-only"].includes(value) ? ["battery"] : []),
+        ...(["battery-only", "pv-expansion"].includes(value) ? ["existing"] : []),
+        ...(value === "revision" ? ["equipment"] : []),
+      ];
+      for (const id of implied) {
+        if (!$(id).checked) {
+          $(id).checked = true;
+          autoSelected.add(id);
+        }
+      }
     });
 
     $("check-path")?.addEventListener("click", () => {
@@ -160,14 +176,17 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       }
       const conditions = record.eligibility?.other_conditions || [];
       const program = record.eligibility?.program_or_pathway || "";
-      const solarApp = /solarapp/i.test(program);
+      const automatedPath = /solarapp|symbium|automated|instant/i.test(program);
       const blockers = [];
       const unknowns = [];
-      if (checked("ground") && hasText(conditions, /roof[- ]mounted|rooftop/i)) blockers.push("The recorded automated pathway is limited to rooftop/roof-mounted projects; the selected ground-mount/canopy scope appears outside that condition.");
+      const groundExcluded = hasText(conditions, /ground[- ]mount(?:ed)?[^.]*not allowed|no ground[- ]mount(?:ed)?/i);
+      const existingPvExcluded = hasText(conditions, /\bno existing (?:pv|solar|photovoltaic)(?:\s+or\s+ess)?\b/i);
+      if (checked("ground") && (groundExcluded || hasText(conditions, /roof[- ]mounted|rooftop/i))) blockers.push("The recorded automated pathway excludes the selected ground-mount/canopy scope; confirm the separate plan-review route with the AHJ.");
       if (checked("owner") && hasText(conditions, /licensed contractor/i)) blockers.push("The recorded pathway says licensed contractors are required; owner-builder/DIY eligibility is not established here.");
       if (checked("battery") && !hasText(conditions, /battery|storage|ess|bess/i) && !/battery|storage|ess|bess/i.test(program)) unknowns.push("Battery/storage eligibility is not established by this locality record.");
       if (checked("mpu") && !hasText(conditions, /main panel|mpu|service panel/i)) unknowns.push("Main-panel-upgrade treatment is not established by this locality record.");
-      if (checked("existing") && !hasText(conditions, /existing|expansion|addition/i)) unknowns.push("Treatment of existing PV or system expansion is not established by this locality record.");
+      if (checked("existing") && existingPvExcluded) blockers.push("The recorded automated pathway excludes a property with existing PV or ESS. Ask the AHJ about the standard review path.");
+      else if (checked("existing")) unknowns.push("Project-specific treatment of existing PV or system expansion is not established by this locality record.");
       if (checked("equipment")) unknowns.push("Equipment substitutions can affect approved plans and utility applications; this locality record does not establish whether this specific change needs a revision.");
       if (checked("unpermitted")) unknowns.push("The record does not establish how this AHJ treats existing unpermitted work. Resolve that with the AHJ before assuming the standard solar pathway applies.");
       const projectType = $("project-type")?.value || "new-pv";
@@ -176,12 +195,12 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       if (stage === "inspection") unknowns.push("Inspection failures require the exact correction text and the approved plan set/as-built conditions; this checker does not infer a cause from anecdotes.");
 
       let statusClass = "caution";
-      let statusText = "GridPermit has a verified local permit record, but no SolarAPP+ pathway is established in this record.";
-      if (solarApp && blockers.length === 0) {
-        statusClass = "good";
-        statusText = "This locality has a verified SolarAPP+ pathway for at least some projects. The selected project is not automatically confirmed eligible; use the recorded conditions and official checklist below.";
+      let statusText = "GridPermit has a verified local permit record, but an automated approval pathway is not established in this record.";
+      if (automatedPath && blockers.length === 0) {
+        if (unknowns.length === 0) statusClass = "good";
+        statusText = "This locality has a recorded automated or expedited path for some projects. The selected project is not automatically confirmed eligible; verify the conditions with the AHJ.";
       }
-      if (solarApp && blockers.length) statusText = "This locality uses SolarAPP+ for some projects, but the selected facts conflict with at least one recorded pathway condition. Use the AHJ's current instructions to determine the alternate review path.";
+      if (automatedPath && blockers.length) statusText = "This locality has a recorded automated or expedited path for some projects, but the selected facts conflict with at least one recorded pathway condition. Ask the AHJ about standard review.";
 
       const docs = Array.isArray(record.requiredDocuments) && record.requiredDocuments.length
         ? `<ul class="docs">${record.requiredDocuments.map((doc) => `<li>${esc(doc.name)}${doc.required_when ? ` <span class="muted">— ${esc(doc.required_when)}</span>` : ""}</li>`).join("")}</ul>`
