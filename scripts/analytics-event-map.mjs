@@ -32,6 +32,7 @@ const SEMANTICS = {
 	official_source_clicked: { meaning: "Homeowner clicked an outbound citation/source link", unique_per_session: false, user_action: true, revenue_stage: "ORGANIC_SESSION", partner_reportable: false },
 	blog_article_viewed: { meaning: "A blog post page rendered", unique_per_session: false, user_action: false, revenue_stage: "ORGANIC_SESSION", partner_reportable: false },
 	search_used: { meaning: "Homeowner used the site search box", unique_per_session: false, user_action: true, revenue_stage: "ORGANIC_SESSION", partner_reportable: false },
+	internal_resource_clicked: { meaning: "Homeowner clicked a contextual permit/PTO article or hub link added by the content-link engine", unique_per_session: false, user_action: true, revenue_stage: "ORGANIC_SESSION", partner_reportable: false },
 	permit_guide_clicked: { meaning: "Homeowner clicked into a locality guide from an index/hub page", unique_per_session: false, user_action: true, revenue_stage: "ORGANIC_SESSION", partner_reportable: false },
 	external_partner_clicked: { meaning: "Generic outbound partner link click (non-CompareSolarPrices)", unique_per_session: false, user_action: true, revenue_stage: "PARTNER_OUTBOUND", partner_reportable: false },
 	faq_expanded: { meaning: "Homeowner opened a FAQ <details> item", unique_per_session: false, user_action: true, revenue_stage: "ORGANIC_SESSION", partner_reportable: false },

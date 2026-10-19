@@ -214,6 +214,14 @@ main:not([class]) { width: min(900px, calc(100% - var(--gp-gutter) * 2)); margin
 .gp-path h3 { font-size: 26px; font-weight: 300; }
 .gp-path p { color: var(--gp-muted); font-size: 15px; }
 .gp-path .gp-kicker { margin-bottom: 16px; }
+.gp-resource-links { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 4px; }
+.gp-resource-links li { display: grid; gap: 2px; padding: 2px 0 8px; }
+.gp-resource-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; }
+.gp-resource-reason { color: var(--gp-muted); font-size: 13px; line-height: 1.5; }
+.gp-resource-backlinks { margin: 40px 0 0; padding-top: 24px; border-top: 1px solid var(--gp-line); }
+.gp-resource-backlinks h2 { font-size: 20px; margin: 0 0 8px; }
+.gp-resource-backlinks ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.gp-resource-backlinks a { display: inline-flex; align-items: center; min-height: 44px; }
 .first-lead-jump { font-size: 13px; margin: 20px 0; }
 .first-lead-jump a { text-decoration: none; border-bottom: 1px solid var(--gp-line); padding: 8px 0; display: inline-block; }
 .first-lead-panel { border: 1px solid var(--gp-line); padding: 32px; background: var(--gp-surface); border-radius: 2px; }

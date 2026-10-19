@@ -1,0 +1,22 @@
+---
+// Renders resolved content-engine links (src/lib/content-links.ts). The links
+// and their reason lines come from the registry-driven selector; this
+// component only formats them.
+import type { ResolvedLink } from "../lib/content-links.ts";
+
+interface Props {
+	links: ResolvedLink[];
+	label: string;
+}
+const { links, label } = Astro.props;
+---
+{links.length > 0 && (
+	<ul class="gp-resource-links" aria-label={label}>
+		{links.map((l) => (
+			<li>
+				<a href={l.href} data-track-click="internal_resource_clicked" data-resource-id={l.id}>{l.anchor}</a>
+				<span class="gp-resource-reason">{l.reason}</span>
+			</li>
+		))}
+	</ul>
+)}

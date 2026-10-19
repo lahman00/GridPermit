@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "description": "Declared, evidence-backed relationships between existing GridPermit guides/articles and the location or utility pages that should link to them. The engine in src/lib/content-links.ts is deterministic: it only links a resource when the page's own facts (state, utility, city, record flags) match the resource's declared scope, and it only renders on pages listed in rollout. Nothing here is inferred from geography or regulation beyond what each article's own title and text state.",
+  "resources": [
+    {
+      "id": "pto-pge-installed-no-pto",
+      "url": "/blog/pge-no-pto-installer-closed/",
+      "kind": "pto",
+      "relation": "utility",
+      "placement": "utility_card",
+      "scope": { "states": ["CA"], "utilities": ["PG&E"] },
+      "evidence": "Article is about PG&E permission to operate after installation; title and body name PG&E."
+    },
+    {
+      "id": "interconnection-pge-zero-export",
+      "url": "/blog/pge-zero-export-solar-battery-interconnection/",
+      "kind": "interconnection",
+      "relation": "utility",
+      "placement": "utility_card",
+      "scope": { "states": ["CA"], "utilities": ["PG&E"] },
+      "evidence": "Article is about PG&E interconnection paths for zero-export solar plus battery; title and body name PG&E."
+    },
+    {
+      "id": "interconnection-sce-add-battery",
+      "url": "/blog/sce-add-battery-existing-solar/",
+      "kind": "interconnection",
+      "relation": "utility",
+      "placement": "utility_card",
+      "scope": { "states": ["CA"], "utilities": ["SCE"] },
+      "evidence": "Article is about adding a battery to existing SCE solar; title and body name SCE."
+    },
+    {
+      "id": "general-city-permit-vs-utility-pto",
+      "url": "/blog/city-permit-vs-utility-pto/",
+      "kind": "permit_vs_pto",
+      "relation": "general",
+      "placement": "utility_card",
+      "scope": {},
+      "evidence": "Article explains that a city permit, final inspection and utility PTO are separate milestones; every locality guide records both a permit authority and a utility."
+    },
+    {
+      "id": "topic-solarapp-eligibility",
+      "url": "/blog/solarapp-eligibility-2026/",
+      "kind": "solarapp",
+      "relation": "record_topic",
+      "placement": "permit_card",
+      "scope": { "record_flag": "solarapp_pathway" },
+      "evidence": "Shown only when the locality record itself lists a SolarAPP+ pathway or SolarAPP+ documents."
+    },
+    {
+      "id": "city-long-beach-express-vs-plan-review",
+      "url": "/blog/long-beach-solar-ess-express-vs-plan-review/",
+      "kind": "city_permit",
+      "relation": "city",
+      "placement": "permit_card",
+      "scope": { "cities": [{ "state": "CA", "slug": "long-beach" }] },
+      "evidence": "Article is specifically about Long Beach permit review routes."
+    },
+    {
+      "id": "city-el-cerrito-plan-service",
+      "url": "/blog/el-cerrito-solar-permit-plan-service/",
+      "kind": "city_permit",
+      "relation": "city",
+      "placement": "permit_card",
+      "scope": { "cities": [{ "state": "CA", "slug": "el-cerrito" }] },
+      "evidence": "Article is specifically about El Cerrito solar permit plans."
+    }
+  ],
+  "rollout": {
+    "max_locality_pages": 12,
+    "locality_pages": [
+      "/california/san-mateo/solar-permit-guide/",
+      "/california/santa-cruz/solar-permit-guide/",
+      "/california/livermore/solar-permit-guide/",
+      "/california/mountain-view/solar-permit-guide/",
+      "/california/vallejo/solar-permit-guide/",
+      "/california/los-gatos/solar-permit-guide/",
+      "/california/visalia/solar-permit-guide/",
+      "/california/moorpark/solar-permit-guide/",
+      "/california/irvine/solar-permit-guide/",
+      "/california/ventura/solar-permit-guide/"
+    ],
+    "utility_hubs": ["/california/utility/pg-e/", "/california/utility/sce/"],
+    "articles": [
+      "/blog/pge-no-pto-installer-closed/",
+      "/blog/pge-zero-export-solar-battery-interconnection/",
+      "/blog/sce-add-battery-existing-solar/",
+      "/blog/city-permit-vs-utility-pto/"
+    ]
+  }
+}
