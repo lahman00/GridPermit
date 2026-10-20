@@ -26,6 +26,7 @@ export const ANALYTICS_EVENTS = [
 	"quick_answer_intent_selected",
 	"pay_per_call_cta_viewed",
 	"pay_per_call_clicked",
+	"internal_resource_clicked",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[number];

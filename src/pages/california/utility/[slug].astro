@@ -11,6 +11,10 @@ import DesignHead from "../../../components/DesignHead.astro";
 import { buildUtilityHubs, type UtilityEvaluationSummary } from "../../../lib/utility-hub";
 import { SITE_ORIGIN, buildBreadcrumbSchema, type LocalityRecord } from "../../../lib/locality-guide";
 import Analytics from "../../../components/Analytics.astro";
+import ContentLinkList from "../../../components/ContentLinkList.astro";
+import { selectHubResources } from "../../../lib/content-links";
+import { contentLinkRegistry } from "../../../lib/content-links-site";
+import { getAllBlogPosts } from "../../../lib/blog-posts";
 
 export async function getStaticPaths() {
 	const localityModules = import.meta.glob("../../../../data/localities/*.json", { eager: true }) as Record<
@@ -37,6 +41,13 @@ export async function getStaticPaths() {
 }
 
 const { hub } = Astro.props;
+// Registry-driven PTO/interconnection articles for this utility; empty unless
+// this hub is listed in data/content-links/registry.json's rollout.
+const hubLinks = selectHubResources(contentLinkRegistry, await getAllBlogPosts(), {
+	url: `/${hub.stateSlug}/utility/${hub.utilitySlug}/`,
+	state: hub.state,
+	utility: hub.utilityShort,
+});
 
 const PAGE_PATH = `/california/utility/${hub.utilitySlug}/`;
 const CANONICAL_URL = `${SITE_ORIGIN}${PAGE_PATH}`;
@@ -127,6 +138,13 @@ const collectionSchema = {
 					<p>{hub.utilityShort}'s own interconnection page (cited identically across every verified city below): <a href={hub.commonInterconnectionUrl} target="_blank" rel="noopener">{hub.commonInterconnectionUrl}</a></p>
 				)}
 			</section>
+
+			{hubLinks.length > 0 && (
+				<section id="pto-guides">
+					<h2>{hub.utilityShort} interconnection and PTO guides</h2>
+					<ContentLinkList links={hubLinks} label={`${hub.utilityShort} interconnection and PTO articles`} />
+				</section>
+			)}
 
 			<section id="cities">
 				<h2>Verified {hub.utilityShort} cities</h2>

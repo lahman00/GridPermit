@@ -41,6 +41,9 @@ import PermitPathwayAnswer from "../components/PermitPathwayAnswer.astro";
 import EvidenceState from "../components/EvidenceState.astro";
 import LocalityPermitPath from "../components/LocalityPermitPath.astro";
 import { buildPermitPathwayAnswer } from "../lib/permit-pathway-answer";
+import ContentLinkList from "../components/ContentLinkList.astro";
+import { selectLocalityResources } from "../lib/content-links";
+import { contentLinkRegistry, localityFacts } from "../lib/content-links-site";
 import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../lib/ready-quality";
 
 interface Props {
@@ -142,6 +145,18 @@ const utilityHubUrl = utilityHub ? `/${utilityHub.stateSlug}/utility/${utilityHu
 // same shared post list/category logic the blog index itself uses.
 const allBlogPosts = await getAllBlogPosts();
 const relatedArticles = relatedPostsForUtility(allBlogPosts, utilityShort, 3);
+
+// Registry-driven permit/PTO article links. Empty for every page not listed in
+// data/content-links/registry.json's rollout; never repeats an article this
+// page already links in its related-articles list or its permit-pathway block.
+const contentLinks = selectLocalityResources(
+	contentLinkRegistry,
+	allBlogPosts,
+	localityFacts(record, pagePath),
+	relatedArticles.map((a) => a.url),
+);
+const utilityCardLinks = contentLinks.filter((l) => l.placement === "utility_card");
+const permitCardLinks = contentLinks.filter((l) => l.placement === "permit_card");
 
 const sourcesFor = buildSourceResolver(record.sources);
 // Reviewed "who files the permit" answer; null for every locality not on the
@@ -317,8 +332,8 @@ const tocItems = [
 				<p class="gp-kicker">01 / Know your path</p>
                 <h2>Two approvals.<br/>One project.</h2>
                 <div class="gp-paths">
-                  <div class="gp-path"><span class="gp-kicker">Local authority</span><h3>Permit &amp; inspection</h3><p>{permitAuthorityLabel}</p><a class="gp-text-link" href="#permit-authority">Local requirements <span aria-hidden="true">↗</span></a></div>
-                  <div class="gp-path"><span class="gp-kicker">Electric utility</span><h3>Interconnection &amp; PTO</h3><p>{record.utility.value ?? NOT_VERIFIED}</p><a class="gp-text-link" href="#utility-supplier">Utility requirements <span aria-hidden="true">↗</span></a></div>
+                  <div class="gp-path"><span class="gp-kicker">Local authority</span><h3>Permit &amp; inspection</h3><p>{permitAuthorityLabel}</p><a class="gp-text-link" href="#permit-authority">Local requirements <span aria-hidden="true">↗</span></a><ContentLinkList links={permitCardLinks} label="Related permit articles" /></div>
+                  <div class="gp-path"><span class="gp-kicker">Electric utility</span><h3>Interconnection &amp; PTO</h3><p>{record.utility.value ?? NOT_VERIFIED}</p><a class="gp-text-link" href="#utility-supplier">Utility requirements <span aria-hidden="true">↗</span></a><ContentLinkList links={utilityCardLinks} label="Related interconnection and PTO articles" /></div>
                 </div>
                 <p class="fact-notes">A local permit and utility permission to operate are different approvals. Check the local sequence and requirements below.</p>
 				<details class="gp-source-evidence"><summary>How to read this guide</summary><p>
