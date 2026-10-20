@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "description": "Dated, evidenced re-checks of locality fields against their official source. A review can only clear a fee-date flag, only for 90 days, and only when it confirms the record is still current; a review that finds a change escalates the record instead. Reviews never edit a locality record.",
+  "reviews": [
+    {
+      "record_id": "co-denver-denver-xcel",
+      "field": "permit_fees",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewed_on": "2026-10-21",
+      "reviewer": "claude-code (agent), pending owner acknowledgement",
+      "evidence": {
+        "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Development-Fees",
+        "observed": "Solar panel or photovoltaic project (this only applies to the solar panel portion of the project when additional scope is part of the project): $50 flat fee, all projects.",
+        "document_revision": "ADMIN 125 and 138, revision date May 21, 2024, still the document linked from the City's Development Fees page and live at the cited admin_138.pdf",
+        "note": "The City's live fees page and the cited policy PDF were both read on 2026-10-21. The flag was raised only because the policy's own revision date is more than a year old."
+      },
+      "field_sha256": "a1b1868ec9e69d46da47dcc9b13f42838aba09d919c79052d6f5522d2c5b30d7"
+    }
+  ]
+}

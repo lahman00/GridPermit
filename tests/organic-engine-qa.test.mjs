@@ -2,7 +2,7 @@
 // baseline-vs-candidate comparison policy.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { compareSnapshots, extractPageFacts } from "../scripts/organic-engine-qa.mjs";
+import { compareBalancedRelated, compareSnapshots, extractPageFacts } from "../scripts/organic-engine-qa.mjs";
 
 const registry = {
 	resources: [{ url: "/blog/a/" }],
@@ -82,4 +82,42 @@ test("noindex link targets and sitemap omissions fail", () => {
 	const head2 = { ...snap({ [X]: page({ internal_links: ["/blog/a/"], bytes: 1100 }), "/blog/a/": page() }), sitemap: [X] };
 	const base2 = { ...base, sitemap: [X] };
 	assert.ok(compareSnapshots(base2, head2, registry).failures.some((f) => f.includes("missing from sitemap")));
+});
+
+const A = "/california/a/solar-permit-guide/";
+const B = "/california/b/solar-permit-guide/";
+const C = "/california/c/solar-permit-guide/";
+const OUT = "/california/z/solar-permit-guide/";
+const bal = { balanced_related: { pages: [A, B, C] }, rollout: { locality_pages: [C], utility_hubs: [], articles: [] }, resources: [] };
+const bsnap = (links) => snap(Object.fromEntries([[A, page({ internal_links: links.A ?? [B] })], [B, page({ internal_links: links.B ?? [A] })], [C, page({ internal_links: links.C ?? [A] })], [OUT, page({ internal_links: links.OUT ?? [] })]]));
+
+test("balanced related: swaps between listed guides pass", () => {
+	const r = compareBalancedRelated(bsnap({}), bsnap({ A: [C], B: [C] }), bal, { lockedPaths: [] });
+	assert.deepEqual(r.failures, []);
+	assert.equal(r.summary.pages_changed, 2);
+});
+
+test("balanced related: pages outside the list, locked pages, foreign targets and SEO fields fail", () => {
+	const base = bsnap({});
+	assert.ok(compareBalancedRelated(base, bsnap({ OUT: [A] }), bal).failures.some((f) => f.includes("not in balanced_related.pages")));
+	assert.ok(compareBalancedRelated(base, bsnap({ C: [B] }), bal, { lockedPaths: [C] }).failures.some((f) => f.includes("locked")));
+	assert.ok(compareBalancedRelated(base, bsnap({ A: [OUT] }), bal).failures.some((f) => f.includes("outside the listed counties")));
+	const seo = bsnap({ A: [C] });
+	seo.pages[A].canonical = ["https://x/"];
+	assert.ok(compareBalancedRelated(base, seo, bal).failures.some((f) => f.includes("canonical changed")));
+	assert.ok(compareBalancedRelated(base, base, bal).failures.some((f) => f.includes("dead config")));
+	assert.ok(compareBalancedRelated(base, { ...bsnap({ A: [C] }), sitemap: [] }, bal).failures.some((f) => f.includes("sitemap")));
+});
+
+test("balanced related: locked pages and controls must keep the same donors, and lists stay within the limit", () => {
+	const reg = { balanced_related: { pages: [A, B, C], control_pages: [OUT], limit: 1 }, rollout: { locality_pages: [C], utility_hubs: [], articles: [] }, resources: [] };
+	const base = bsnap({ A: [C], B: [C] });
+	// locked C gains a new donor (B -> C was already there, A -> C was already there): add a donor by changing OUT? OUT is outside scope, so change B to drop the link instead.
+	const lostDonor = bsnap({ A: [B], B: [C] });
+	assert.ok(compareBalancedRelated(base, lostDonor, reg, { lockedPaths: [C] }).failures.some((f) => f.includes("pages linking to it changed")));
+	const ok = bsnap({ A: [C], B: [C] });
+	ok.pages[A].bytes = 1010;
+	assert.ok(!compareBalancedRelated(base, ok, reg, { lockedPaths: [C] }).failures.some((f) => f.includes("pages linking to it changed")));
+	const tooMany = bsnap({ A: [B, C] });
+	assert.ok(compareBalancedRelated(base, tooMany, reg, { lockedPaths: [] }).failures.some((f) => f.includes("limit")));
 });

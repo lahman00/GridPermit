@@ -69,3 +69,47 @@ test("markdown says UNKNOWN when no export was supplied", () => {
 	assert.match(md, /every behavioural metric is UNKNOWN/);
 	assert.match(md, /hypothesis, not proof/);
 });
+
+import { GSC_MIN_GROUP_IMPRESSIONS, gscSliceComparison } from "../scripts/lib/organic-report.mjs";
+
+const gsc = (start, end, rows) => ({
+	meta: { window_start: start, window_end: end, sha256: "x".repeat(64) },
+	pages: rows.map(([path, clicks, impressions, position]) => ({ path, clicks, impressions, position })),
+});
+const S = ["/s1/", "/s2/"];
+const C = ["/c1/", "/c2/"];
+const rowsFor = (imp) => [["/s1/", 1, imp, 6], ["/s2/", 0, imp, 7], ["/c1/", 1, imp, 6], ["/c2/", 0, imp, 7]];
+
+test("search comparison needs equal, non-overlapping windows around the change date and enough impressions", () => {
+	const ok = gscSliceComparison({ before: gsc("2026-09-01", "2026-09-28", rowsFor(80)), after: gsc("2026-10-25", "2026-11-21", rowsFor(90)), slicePages: S, controlPages: C, changeDate: "2026-10-22" });
+	assert.equal(ok.verdict, "COMPARABLE_NOT_CAUSAL");
+	assert.equal(ok.groups.slice.before.impressions, 160);
+	assert.ok(GSC_MIN_GROUP_IMPRESSIONS <= 160);
+	const small = gscSliceComparison({ before: gsc("2026-09-01", "2026-09-28", rowsFor(10)), after: gsc("2026-10-25", "2026-11-21", rowsFor(10)), slicePages: S, controlPages: C, changeDate: "2026-10-22" });
+	assert.equal(small.verdict, "INSUFFICIENT_DATA");
+	const unequal = gscSliceComparison({ before: gsc("2026-09-01", "2026-09-20", rowsFor(80)), after: gsc("2026-10-25", "2026-11-21", rowsFor(80)), slicePages: S, controlPages: C, changeDate: "2026-10-22" });
+	assert.ok(unequal.reasons.some((r) => /same length/.test(r)));
+	const overlap = gscSliceComparison({ before: gsc("2026-10-01", "2026-10-28", rowsFor(80)), after: gsc("2026-10-25", "2026-11-21", rowsFor(80)), slicePages: S, controlPages: C, changeDate: "2026-10-22" });
+	assert.ok(overlap.reasons.some((r) => /overlap/.test(r)));
+	const early = gscSliceComparison({ before: gsc("2026-09-01", "2026-09-28", rowsFor(80)), after: gsc("2026-10-10", "2026-11-06", rowsFor(80)), slicePages: S, controlPages: C, changeDate: "2026-10-22" });
+	assert.ok(early.reasons.some((r) => /starts before the change date/.test(r)));
+	assert.ok(gscSliceComparison({ before: gsc("2026-09-01", "2026-09-28", rowsFor(80)), after: gsc("2026-10-25", "2026-11-21", rowsFor(80)), slicePages: S, controlPages: C }).reasons.some((r) => /change date/.test(r)));
+});
+
+test("pages without a Search Console row are UNKNOWN by count, never zero", () => {
+	const r = gscSliceComparison({ before: gsc("2026-09-01", "2026-09-28", [["/s1/", 1, 200, 6], ["/c1/", 1, 200, 6]]), after: gsc("2026-10-25", "2026-11-21", [["/s1/", 1, 200, 6], ["/c1/", 1, 200, 6]]), slicePages: S, controlPages: C, changeDate: "2026-10-22" });
+	assert.equal(r.groups.slice.before.pages_without_rows_unknown, 1);
+	assert.equal(r.groups.slice.before.pages_with_rows, 1);
+	assert.equal(r.verdict, "COMPARABLE_NOT_CAUSAL");
+	assert.match(r.note, /not proof of cause/);
+});
+
+test("search comparison: a group with no rows is UNKNOWN, an impossible change date is rejected", () => {
+	const none = gscSliceComparison({ before: gsc("2026-09-01", "2026-09-28", [["/c1/", 1, 200, 6]]), after: gsc("2026-10-25", "2026-11-21", [["/c1/", 1, 200, 6]]), slicePages: S, controlPages: C, changeDate: "2026-10-22" });
+	assert.equal(none.verdict, "INSUFFICIENT_DATA");
+	assert.equal(none.groups.slice.before.impressions, "UNKNOWN");
+	assert.equal(none.groups.slice.before.clicks, "UNKNOWN");
+	assert.equal(none.impressions_ratio_after_over_before.slice, "UNKNOWN");
+	assert.ok(none.reasons.some((r) => /no Search Console rows/.test(r)));
+	assert.ok(gscSliceComparison({ before: gsc("2026-09-01", "2026-09-28", rowsFor(80)), after: gsc("2026-10-25", "2026-11-21", rowsFor(80)), slicePages: S, controlPages: C, changeDate: "2026-02-30" }).reasons.some((r) => /change date/.test(r)));
+});

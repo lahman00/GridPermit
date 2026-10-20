@@ -141,3 +141,77 @@ export function renderReportMarkdown(report) {
 	L.push("## Reading this report", "", "Any difference is a hypothesis, not proof of cause: the slice and control pages differ, seasonality and search demand move independently, and page rows are a separate dimension that must not be summed to property totals.", "");
 	return L.join("\n");
 }
+
+// ---------------------------------------------------------------------------
+// Search-only slice-vs-control comparison for changes that can be judged from
+// Search Console alone (e.g. the balanced related-cities rollout).
+//
+// Pre-registered rules, fixed before any "after" data exists:
+//  - Two authenticated final exports with windows of equal length that do not
+//    overlap, the "before" window ending before the change date and the "after"
+//    window starting on or after it. Anything else is INSUFFICIENT_DATA.
+//  - At least GSC_MIN_GROUP_IMPRESSIONS impressions per group per window.
+//  - A page absent from an export has no impressions row: it is UNKNOWN, never
+//    zero, and is reported by count.
+//  - A comparable result is still not causal; seasonality, demand and the other
+//    changes on the site move both groups.
+export const GSC_MIN_GROUP_IMPRESSIONS = 100;
+
+const validDate = (s) => typeof s === "string" && /^\d{4}-\d{2}-\d{2}$/.test(s) && new Date(s).toISOString().slice(0, 10) === s;
+const daysInclusive = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86400000) + 1;
+
+function groupWindow(parsed, pages) {
+	const byPath = new Map(parsed.pages.map((p) => [p.path, p]));
+	let clicks = 0;
+	let impressions = 0;
+	let posWeight = 0;
+	let present = 0;
+	for (const path of pages) {
+		const r = byPath.get(path);
+		if (!r) continue;
+		present++;
+		clicks += r.clicks;
+		impressions += r.impressions;
+		posWeight += r.position * r.impressions;
+	}
+	// A group with no Search Console rows at all has no data, which is not zero.
+	return {
+		pages: pages.length,
+		pages_with_rows: present,
+		pages_without_rows_unknown: pages.length - present,
+		clicks: present ? clicks : UNKNOWN,
+		impressions: present ? impressions : UNKNOWN,
+		ctr: present && impressions > 0 ? clicks / impressions : UNKNOWN,
+		weighted_position: present && impressions > 0 ? Number((posWeight / impressions).toFixed(2)) : UNKNOWN,
+	};
+}
+
+export function gscSliceComparison({ before, after, slicePages, controlPages, changeDate }) {
+	const reasons = [];
+	const b = before.meta;
+	const a = after.meta;
+	if (!validDate(changeDate)) reasons.push("change date (a real YYYY-MM-DD date) is required");
+	if (daysInclusive(b.window_start, b.window_end) !== daysInclusive(a.window_start, a.window_end)) reasons.push("windows are not the same length");
+	if (b.window_end >= a.window_start) reasons.push("windows overlap or are out of order");
+	if (changeDate && b.window_end >= changeDate) reasons.push("the before window includes or follows the change date");
+	if (changeDate && a.window_start < changeDate) reasons.push("the after window starts before the change date");
+	const groups = {};
+	for (const [name, pages] of [["slice", slicePages], ["control", controlPages]]) {
+		groups[name] = { before: groupWindow(before, pages), after: groupWindow(after, pages) };
+		for (const when of ["before", "after"]) {
+			const imp = groups[name][when].impressions;
+			if (imp === UNKNOWN || imp < GSC_MIN_GROUP_IMPRESSIONS) reasons.push(`${name} ${when}: ${imp === UNKNOWN ? "no Search Console rows (UNKNOWN)" : `${imp} impressions`} (< ${GSC_MIN_GROUP_IMPRESSIONS} required)`);
+		}
+	}
+	const ok = reasons.length === 0;
+	const ratio = (g) => (typeof g.before.impressions === "number" && g.before.impressions > 0 && typeof g.after.impressions === "number" ? g.after.impressions / g.before.impressions : UNKNOWN);
+	return {
+		verdict: ok ? "COMPARABLE_NOT_CAUSAL" : "INSUFFICIENT_DATA",
+		reasons,
+		windows: { before: `${b.window_start}..${b.window_end}`, after: `${a.window_start}..${a.window_end}`, change_date: changeDate ?? UNKNOWN },
+		sources: { before_sha256: b.sha256, after_sha256: a.sha256 },
+		groups,
+		impressions_ratio_after_over_before: { slice: ratio(groups.slice), control: ratio(groups.control) },
+		note: "A difference is a hypothesis, not proof of cause: demand, seasonality and other site changes move both groups, and Search Console position is an impression-weighted average.",
+	};
+}
