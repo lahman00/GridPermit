@@ -8,7 +8,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 import PermitFlow from '../components/PermitFlow.astro';
-import { selectArticleBacklinks } from '../lib/content-links';
+import { rolloutHubFacts, selectArticleBacklinks } from '../lib/content-links';
 import { contentLinkRegistry, rolloutLocalityFacts } from '../lib/content-links-site';
 
 type Props = CollectionEntry<'blog'>['data'];
@@ -16,15 +16,12 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage, decisionStage } = Astro.props;
 
 // Back-links to the utility hubs and city guides that link to this article
-// (same registry, so both directions agree). Empty unless the article is in
+// (same registry, capped; see selectArticleBacklinks). Empty unless the article is in
 // data/content-links/registry.json's rollout.
 const backlinks = selectArticleBacklinks(
 	contentLinkRegistry,
 	Astro.url.pathname,
-	[
-		{ url: '/california/utility/pg-e/', state: 'CA', utility: 'PG&E', label: 'PG&E solar permit cities' },
-		{ url: '/california/utility/sce/', state: 'CA', utility: 'SCE', label: 'SCE solar permit cities' },
-	],
+	rolloutHubFacts(contentLinkRegistry),
 	rolloutLocalityFacts().map((f) => ({ ...f, label: `${f.label} solar permit guide` })),
 );
 ---

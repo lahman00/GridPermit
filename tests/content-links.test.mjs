@@ -9,6 +9,7 @@ import {
 	anchorFromTitle,
 	recordFlags,
 	scopeMatches,
+	rolloutHubFacts,
 	selectArticleBacklinks,
 	selectHubResources,
 	selectLocalityResources,
@@ -77,7 +78,18 @@ test("recordFlags only flags SolarAPP+ when the record text says so", () => {
 	assert.deepEqual(recordFlags({ pathway: "SolarAPP+ instant permit" }), ["solarapp_pathway"]);
 	assert.deepEqual(recordFlags({ documentNames: ["SolarAPP+ unique ID"] }), ["solarapp_pathway"]);
 	assert.deepEqual(recordFlags({ pathway: "Expedited Electronic Submittal" }), []);
+	assert.deepEqual(recordFlags({ documentNames: ["Handout (required for the non-SolarAPP+ pathway)"] }), []);
+	assert.deepEqual(recordFlags({ conditions: ["SolarAPP+ not adopted by the city"] }), []);
+	assert.deepEqual(recordFlags({ pathway: "SolarAPP+ per SB 379", documentNames: ["non-SolarAPP+ handout"] }), ["solarapp_pathway"]);
 	assert.deepEqual(recordFlags({}), []);
+});
+
+test("rollout hubs are derived from the registry and match the hub URLs", () => {
+	assert.deepEqual(rolloutHubFacts(registry), [
+		{ url: "/california/utility/pg-e/", state: "CA", utility: "PG&E", label: "PG&E solar permit cities" },
+		{ url: "/california/utility/sce/", state: "CA", utility: "SCE", label: "SCE solar permit cities" },
+	]);
+	assert.deepEqual(rolloutHubFacts({ ...registry, rollout: { ...registry.rollout, utility_hubs: ["/california/utility/unknown/", "/bad"] } }), []);
 });
 
 test("scope matching never crosses utility, state or city", () => {

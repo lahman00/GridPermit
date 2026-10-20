@@ -14,7 +14,7 @@ const { links, label } = Astro.props;
 	<ul class="gp-resource-links" aria-label={label}>
 		{links.map((l) => (
 			<li>
-				<a href={l.href} data-track-click="internal_resource_clicked" data-resource-id={l.id}>{l.anchor}</a>
+				<a href={l.href} data-track-click="internal_resource_clicked">{l.anchor}</a>
 				<span class="gp-resource-reason">{l.reason}</span>
 			</li>
 		))}

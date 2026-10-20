@@ -15,6 +15,8 @@
 //  - Fail closed: a resource whose article is missing is dropped, never
 //    rendered as a dead link.
 
+import { citySlug } from "./locality-guide.ts";
+
 export type ResourceRelation = "city" | "utility" | "record_topic" | "general";
 export type ResourcePlacement = "utility_card" | "permit_card";
 
@@ -88,7 +90,10 @@ export function recordFlags(input: {
 }): string[] {
 	const flags: string[] = [];
 	const hay = [input.pathway ?? "", ...(input.documentNames ?? []), ...(input.conditions ?? [])];
-	if (hay.some((s) => /solarapp/i.test(s))) flags.push("solarapp_pathway");
+	// A mention only counts when it is not negated ("non-SolarAPP+ pathway",
+	// "not adopted SolarAPP+"): the flag claims the record lists this pathway.
+	const negated = /\b(?:non[- ]|not\b|without\b|no\b)[^.;]{0,40}solarapp|solarapp\+?\s+(?:is |was |has |are )?(?:not|n't)\b/i;
+	if (hay.some((s) => /solarapp/i.test(s) && !negated.test(s))) flags.push("solarapp_pathway");
 	return flags;
 }
 
@@ -178,9 +183,36 @@ export function selectHubResources(
 ): ResolvedLink[] {
 	if (!isRolloutHub(registry, hub.url)) return [];
 	const facts: PageFacts = { url: hub.url, state: hub.state, utility: hub.utility, citySlug: null, flags: [] };
-	return selectResources(registry, posts, facts, {
-		limit: MAX_LINKS_PER_PAGE + 1,
-	}).filter((l) => l.relation === "utility" || l.relation === "general");
+	// citySlug is null and flags are empty, so only utility and general
+	// resources can match a hub.
+	return selectResources(registry, posts, facts, { limit: MAX_LINKS_PER_PAGE + 1 });
+}
+
+export interface HubFacts {
+	url: string;
+	state: string;
+	utility: string;
+	label: string;
+}
+
+// Rolled-out utility hubs, derived from the registry itself (hub URL slug +
+// the utility names resources declare), so adding a hub to the rollout needs no
+// layout edit. A hub whose slug matches no declared utility is skipped.
+export function rolloutHubFacts(registry: ContentLinkRegistry): HubFacts[] {
+	const out: HubFacts[] = [];
+	for (const url of registry.rollout.utility_hubs) {
+		const slug = url.match(/^\/[a-z-]+\/utility\/([a-z0-9-]+)\/$/)?.[1];
+		if (!slug) continue;
+		for (const r of registry.resources) {
+			const utility = (r.scope.utilities ?? []).find((u) => citySlug(u) === slug);
+			const state = r.scope.states?.[0];
+			if (utility && state) {
+				out.push({ url, state, utility, label: `${utility} solar permit cities` });
+				break;
+			}
+		}
+	}
+	return out;
 }
 
 export interface BacklinkTarget {
@@ -191,7 +223,9 @@ export interface BacklinkTarget {
 
 // Where an article is used: rolled-out hubs and locality guides whose own
 // facts satisfy the same scope that links the article from them. Derived from
-// the same registry, so the two directions can never disagree.
+// the same registry, so a back-link never points at a page that would not link
+// forward. Locality back-links are capped (alphabetical, MAX_BACKLINK_PAGES),
+// so this direction is a subset of the forward links, not a mirror.
 export function selectArticleBacklinks(
 	registry: ContentLinkRegistry,
 	articleUrl: string,
