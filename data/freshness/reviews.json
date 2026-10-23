@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "description": "Dated, evidenced re-checks of locality fields against their official source. A review can only clear a fee-date flag, only for 90 days, and only when it confirms the record is still current; a review that finds a change escalates the record instead. Reviews never edit a locality record.",
+  "reviews": [
+    {
+      "record_id": "co-denver-denver-xcel",
+      "field": "permit_fees",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewed_on": "2026-10-21",
+      "reviewer": "claude-code (agent), pending owner acknowledgement",
+      "evidence": {
+        "url": "https://denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Development-Fees",
+        "observed": "Solar panel or photovoltaic project (this only applies to the solar panel portion of the project when additional scope is part of the project): $50 flat fee, all projects.",
+        "document_revision": "ADMIN 125 and 138, revision date May 21, 2024, still the document linked from the City's Development Fees page and live at the cited admin_138.pdf",
+        "note": "The City's live fees page and the cited policy PDF were both read on 2026-10-21. The flag was raised only because the policy's own revision date is more than a year old."
+      },
+      "field_sha256": "a1b1868ec9e69d46da47dcc9b13f42838aba09d919c79052d6f5522d2c5b30d7"
+    },
+    {
+      "record_id": "ca-orange-mission-viejo-sce",
+      "field": "permit_fees",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "claude-code (agent), pending owner acknowledgement",
+      "evidence": {
+        "url": "https://www.missionviejo.gov/sites/default/files/building-fee-schedule-4-1-23.pdf",
+        "observed": "Master Fee Schedule, Building Fees, adopted fee effective 4/1/2023: Residential Solar Systems up to and including 15KW (AB 1414) $450.00 Each; per kW above 15kW $15.00 per KW.",
+        "document_revision": "Building Division Fee Schedule Effective April 1, 2023; still the only building fee schedule linked from the City's Building Services page on 2026-10-23",
+        "note": "Text extracted from the downloaded PDF on 2026-10-23; the two residential lines match the record. The flag was raised only because the schedule date is more than a year old. The City's Building Services page links no newer building fee schedule; the only other Master Fee Schedule found on missionviejo.gov is a 2019 workbook, so it is not a newer one. The City's separate energy-efficiency fee waiver was not reviewed."
+      },
+      "field_sha256": "ce8dc99ac4185c211ba379de05eb4c024dd9902ce76217f71ab0400b84bef94b"
+    },
+    {
+      "record_id": "nv-clark-las-vegas-nvenergy",
+      "field": "permit_fees",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "claude-code (agent), pending owner acknowledgement",
+      "evidence": {
+        "url": "https://files.lasvegasnevada.gov/building-safety/FeeTable-effective-7-2021.pdf",
+        "observed": "Table 3-D MPE FEES, Effective July 1, 2021: item 3 MPE Permit Issuance ON-LINE $55; item 49 Photovoltaic system (3 power apparatus, up to 10 kW) $102 plan check, $259 permit; item 50 each additional 10 kW $60 / $53.",
+        "document_revision": "Fee Service Information, Effective July 1, 2021. The 'Building & Fee Table' PDF (Building-Safety-Fee-Tables.pdf) that the City's Building & Safety Resources page lists under Fee Schedule is byte-identical to the cited file",
+        "note": "Both PDFs were downloaded and text-extracted on 2026-10-23. The City's 2024 industry notice changes only sewer connection and residential construction tax fees, not MPE or photovoltaic fees. The flag was raised only because the schedule's effective date is more than a year old."
+      },
+      "field_sha256": "0497901eb60a1114e3d40678ee1e846e49b28b142ef021331dff23538adf76e4"
+    },
+    {
+      "record_id": "ca-los-angeles-baldwin-park-sce",
+      "field": "permit_fees",
+      "outcome": "CONFIRMED_CURRENT",
+      "reviewed_on": "2026-10-23",
+      "reviewer": "claude-code (agent), pending owner acknowledgement",
+      "evidence": {
+        "url": "https://www.baldwinpark.com/DocumentCenter/View/3937/City-Wide-Fee-Schedule--FY-2025-26-Fee-ALL---Effective-102025",
+        "observed": "Exhibit A-1, Building Permit - Photovoltaic System, Residential (AB1414): $447 up to 15 kW, plus $15/kW for each additional kW. Fee schedule effective October 20, 2025.",
+        "document_revision": "City of Baldwin Park and Housing Authority Fee Schedule, FY 2025-26, effective October 20, 2025; the City's News Flash lists no newer City-Wide Fee Schedule on 2026-10-23",
+        "note": "Text extracted from the downloaded PDF on 2026-10-23; the residential and commercial lines match the record. The flag was raised because the fiscal year named in the record has ended and the schedule is over a year old. The City's Building & Safety page still links only an older FY 2020-21 fee document. A schedule for FY 2026-27 may be adopted later; none was posted when reviewed. The plan-review fee question already noted in the record is unchanged."
+      },
+      "field_sha256": "fb2b70dbbc894720fe1974e168feb8ca0c18a26426e34e162518ecec0059360d"
+    }
+  ]
+}

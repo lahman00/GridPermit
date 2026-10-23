@@ -21,7 +21,6 @@ import {
 	buildFaqSchema,
 	resolvePermitAuthorityLabel,
 	buildLocalityIndexEntries,
-	buildRelatedLocalities,
 	relationLabel,
 	type LocalityRecord,
 } from "../lib/locality-guide";
@@ -44,6 +43,7 @@ import { buildPermitPathwayAnswer } from "../lib/permit-pathway-answer";
 import ContentLinkList from "../components/ContentLinkList.astro";
 import { selectLocalityResources } from "../lib/content-links";
 import { contentLinkRegistry, localityFacts } from "../lib/content-links-site";
+import { observationLockedRecordIds, relatedForPage } from "../lib/related-balance";
 import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../lib/ready-quality";
 
 interface Props {
@@ -119,7 +119,14 @@ const currentEntry = {
 	stateName: currentStateMeta.name,
 	stateSlug: currentStateMeta.slug,
 };
-const relatedLocalities = buildRelatedLocalities(currentEntry, allReadyEntries, 6);
+// Balanced selection only for the counties listed in the content-link registry;
+// every other page gets exactly what buildRelatedLocalities returns.
+const relatedLocalities = relatedForPage(
+	currentEntry,
+	allReadyEntries,
+	contentLinkRegistry.balanced_related,
+	observationLockedRecordIds(allReadyEntries, contentLinkRegistry.rollout.locality_pages),
+);
 
 // County hub link — only when this city's county cleared the hub-page
 // value threshold (see MIN_READY_CITIES_FOR_HUB in src/lib/county-hub.ts).

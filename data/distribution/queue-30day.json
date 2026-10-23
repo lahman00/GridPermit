@@ -1,0 +1,775 @@
+{
+  "schema_version": 1,
+  "generated": "2026-10-23",
+  "window": "2026-10-26 to 2026-11-20 (four weeks, Monday start)",
+  "status": "PLAN ONLY. Nothing is posted, scheduled in a tool, liked, followed or sent. Every entry needs the owner's approval of its exact text and a fresh pipeline run on the day. The publishing gate (data/distribution/publishing-gate.json) is fully disabled and untouched.",
+  "rules": {
+    "max_posts_per_channel_per_week": 3,
+    "same_topic_other_channel_min_gap_days": 7,
+    "claim_check_age_max_days": 7,
+    "claim_evidence_age_max_days": 180,
+    "drafts_live_in": "data/distribution/candidates.json",
+    "validation": "node scripts/build-distribution-queue.mjs --snapshot <fresh dist snapshot> --out <dir> --today <posting day>",
+    "audience_note": "'developer agencies' is read as solar project developers and the agencies or software teams that build permitting and interconnection workflows for them; this reading is an assumption."
+  },
+  "weekly_counts": {
+    "1:linkedin": 2,
+    "1:x": 1,
+    "2:x": 2,
+    "2:linkedin": 1,
+    "3:linkedin": 2,
+    "3:x": 1,
+    "4:x": 1,
+    "4:linkedin": 3
+  },
+  "replies": "None drafted. LinkedIn and X threads cannot be read without a signed-in session, so data/distribution/discussions.json is untouched (empty).",
+  "entries": [
+    {
+      "id": "Q01",
+      "topic_key": "clark-county-bd-pp-206",
+      "channel": "linkedin",
+      "target_audience": "US installers",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "clark_county_bd_pp_206_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/nevada/las-vegas/solar-permit-guide/",
+        "url": "https://mygridpermit.com/nevada/las-vegas/solar-permit-guide/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=clark_county_bd_pp_206_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/nevada/las-vegas/solar-permit-guide/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "clark_county_bd_pp_206_202610",
+      "suggested": {
+        "week": 1,
+        "date": "2026-10-26",
+        "weekday": "Mon"
+      },
+      "evidence": [
+        {
+          "source": "Clark County Building Department, policy BD-PP-206",
+          "url": "https://www.clarkcountynv.gov/adobe/assets/urn:aaid:aem:4666c480-77e5-451b-8542-8358743548be/original/as/BD-PP-206-Solar-Photovoltaic-Requirements-FINAL-4.30.2026.pdf",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-04-30",
+          "supports": "Revised 04/30/2026; no electrical plan review for systems not exceeding 5 kW; engineer-designed plans at 25 kW DC or greater (new systems and additions); building official may waive full submittal and engineering for residential roof mounts meeting listed criteria (4 psf, parallel to roof, within 24 in., connection points max 48 in. on center).",
+          "caveat": "evidence_date 2026-04-30 is 176 days old on 2026-10-23; the pipeline's 180-day rule blocks these claims from 2026-10-28."
+        },
+        {
+          "source": "GridPermit Las Vegas guide (own page)",
+          "url": "https://mygridpermit.com/nevada/las-vegas/solar-permit-guide/",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-08-13",
+          "supports": "Permit authority is the City of Las Vegas Department of Building & Safety; a local permit and utility permission to operate are different approvals."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.19,
+          "with": "Q03",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "4016d47fbc7b90240c0d77cb8e1b5b358b02aa9fa5c031248aae1b7fbf6451d9",
+      "value_to_audience": "Gives installers working in Clark County the two electrical size thresholds and the structural waiver criteria from the county's current written policy in one read.",
+      "notes": "Must go out by 2026-10-27: from 2026-10-28 the pipeline blocks BD-PP-206 claims as older than 180 days unless a newer dated source is recorded. The policy covers Clark County Building Department permits; the linked guide is the City of Las Vegas, which the post says is a separate authority. GridPermit has no unincorporated Clark County guide."
+    },
+    {
+      "id": "Q02",
+      "topic_key": "honolulu-expedited-clean-energy",
+      "channel": "x",
+      "target_audience": "US installers",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "honolulu_expedited_clean_energy_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/hawaii/honolulu/solar-permit-guide/",
+        "url": "https://mygridpermit.com/hawaii/honolulu/solar-permit-guide/?utm_source=x&utm_medium=organic_social&utm_campaign=honolulu_expedited_clean_energy_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/hawaii/honolulu/solar-permit-guide/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "honolulu_expedited_clean_energy_202610",
+      "suggested": {
+        "week": 1,
+        "date": "2026-10-27",
+        "weekday": "Tue"
+      },
+      "evidence": [
+        {
+          "source": "City and County of Honolulu, Department of Planning and Permitting: clean energy expedited permit page",
+          "url": "https://www.honolulu.gov/dpp/permitting/building-permits-home/building-permit/clean-energy/",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "Eligible projects limited to 20KW systems; process applies to clean energy projects primarily at townhomes; eligible types solar PV, solar thermal or solar electric water heating, EV charging stations; four forms listed (checklist, filing instructions, affidavit, permit issuance notification). Page shows no update date (only a 2026 copyright). Page does not mention Hawaiian Electric."
+        },
+        {
+          "source": "GridPermit Honolulu guide (own page)",
+          "url": "https://mygridpermit.com/hawaii/honolulu/solar-permit-guide/",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-08-13",
+          "supports": "A local permit and utility permission to operate are different approvals (HECO listed as interconnection and PTO authority)."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.09,
+          "with": "Q06",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q05 (linkedin, 2026-11-04)"
+        ],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "8bb7fcfb4a12e24122aaa00858270848531ec41e76d0e22d1f1a8679b5bd8e97",
+      "value_to_audience": "States the 20 kW limit, the townhome focus and the eligible project types of Honolulu's expedited clean energy permit in one line.",
+      "notes": "The Honolulu guide labels its 20 kW limit as DC; the DPP page says only '20KW'. The post does not state a basis. Fix the guide label or confirm it before posting."
+    },
+    {
+      "id": "Q03",
+      "topic_key": "san-diego-self-issued-pv",
+      "channel": "linkedin",
+      "target_audience": "permitting professionals",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "san_diego_self_issued_pv_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/california/san-diego/solar-permit-guide/",
+        "url": "https://mygridpermit.com/california/san-diego/solar-permit-guide/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=san_diego_self_issued_pv_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/california/san-diego/solar-permit-guide/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "san_diego_self_issued_pv_202610",
+      "suggested": {
+        "week": 1,
+        "date": "2026-10-29",
+        "weekday": "Thu"
+      },
+      "evidence": [
+        {
+          "source": "City of San Diego Development Services Department: solar PV permit page",
+          "url": "https://www.sandiego.gov/development-services/permits/solar-photovoltaic-permit",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "Residential rooftop PV permit 'self-issued with no plan review' for single-family, duplex or townhouse roofs designed per the template in Information Bulletin (IB) 301; system 'does not exceed more than 38.4 kW AC maximum output'; submitted electronically; 'previous requirement for professional certification is no longer required'. Page shows no update date (only a 2002-2026 copyright). Page does not mention SDG&E."
+        },
+        {
+          "source": "GridPermit San Diego guide (own page)",
+          "url": "https://mygridpermit.com/california/san-diego/solar-permit-guide/",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-08-09",
+          "supports": "AC field 38.4 kW, DC field 'Not yet verified', Review time 'Not yet verified'; separate SDG&E interconnection and PTO authority."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.19,
+          "with": "Q01",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q06 (x, 2026-11-06)"
+        ],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "8b16f08e3c109c97ea6bcef6a4f72f16c51fce0eecc46a57529a5744b43cf11d",
+      "value_to_audience": "Spells out the conditions of San Diego's self-issued, no-plan-review rooftop path (IB 301 template, 38.4 kW AC) and keeps SDG&E as a separate step.",
+      "notes": "The destination guide shows a CompareSolarPrices paid-referral block lower on the page; the post itself has no commercial language."
+    },
+    {
+      "id": "Q04",
+      "topic_key": "kw-limit-ac-dc-basis",
+      "channel": "x",
+      "target_audience": "developer agencies",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "kw_limit_ac_dc_basis_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/partners/",
+        "url": "https://mygridpermit.com/partners/?utm_source=x&utm_medium=organic_social&utm_campaign=kw_limit_ac_dc_basis_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/partners/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "kw_limit_ac_dc_basis_202610",
+      "suggested": {
+        "week": 2,
+        "date": "2026-11-02",
+        "weekday": "Mon"
+      },
+      "evidence": [
+        {
+          "source": "City and County of Denver, Community Planning and Development: Solar Permits (single-family and duplex)",
+          "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Single-Family-and-Duplex-Projects/Solar-Permits",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "SolarAPP+ quick-permit criterion 'kW DC rating of less than 10'; systems rated 10 kW and above need a Colorado-licensed professional engineer's stamp on the one-line diagram and calculations; 'All systems require an electrical permit'; AC/DC basis of the 10 kW engineering threshold not stated. Page shows no update date (only a 2026 copyright)."
+        },
+        {
+          "source": "City of San Diego Development Services Department: solar PV permit page",
+          "url": "https://www.sandiego.gov/development-services/permits/solar-photovoltaic-permit",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "Residential rooftop PV permit 'self-issued with no plan review' for single-family, duplex or townhouse roofs designed per the template in Information Bulletin (IB) 301; system 'does not exceed more than 38.4 kW AC maximum output'; submitted electronically; 'previous requirement for professional certification is no longer required'. Page shows no update date (only a 2002-2026 copyright). Page does not mention SDG&E."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.2,
+          "with": "Q06",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q09 (linkedin, 2026-11-13)"
+        ],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "5e678dbca5d91ffd9c3a51277860419638ecf731ef897271f88c368233f8f057",
+      "value_to_audience": "Shows two official pages stating size limits on different bases (DC vs AC), a concrete data-modelling detail for teams building permit-rules software or workflows.",
+      "notes": "PRECONDITION: UPDATE 2026-10-23: the guide correction (no AC maximum, DC not stated) is committed on the integration branch but is NOT live; do not post until it is live. Before the correction, GridPermit's Denver guide showed 'Max system size (AC): 10 kW' and DC 'Not yet verified', which conflicts with Denver's page ('kW DC rating of less than 10'). Correct the guide before this post goes out. Destination is /partners/, which carries no Denver numbers."
+    },
+    {
+      "id": "Q05",
+      "topic_key": "honolulu-expedited-clean-energy",
+      "channel": "linkedin",
+      "target_audience": "permitting professionals",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "honolulu_expedited_clean_energy_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/hawaii/honolulu/solar-permit-guide/",
+        "url": "https://mygridpermit.com/hawaii/honolulu/solar-permit-guide/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=honolulu_expedited_clean_energy_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/hawaii/honolulu/solar-permit-guide/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "honolulu_expedited_clean_energy_202610",
+      "suggested": {
+        "week": 2,
+        "date": "2026-11-04",
+        "weekday": "Wed"
+      },
+      "evidence": [
+        {
+          "source": "City and County of Honolulu, Department of Planning and Permitting: clean energy expedited permit page",
+          "url": "https://www.honolulu.gov/dpp/permitting/building-permits-home/building-permit/clean-energy/",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "Eligible projects limited to 20KW systems; process applies to clean energy projects primarily at townhomes; eligible types solar PV, solar thermal or solar electric water heating, EV charging stations; four forms listed (checklist, filing instructions, affidavit, permit issuance notification). Page shows no update date (only a 2026 copyright). Page does not mention Hawaiian Electric."
+        },
+        {
+          "source": "GridPermit Honolulu guide (own page)",
+          "url": "https://mygridpermit.com/hawaii/honolulu/solar-permit-guide/",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-08-13",
+          "supports": "A local permit and utility permission to operate are different approvals (HECO listed as interconnection and PTO authority)."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.17,
+          "with": "Q03",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q02 (x, 2026-10-27)"
+        ],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "0ce51941c05aaa2bdf519e4c58ebc2c1e650316b7b7ce4a942b0dc8891fdb703",
+      "value_to_audience": "Lists the eligible project types and the four forms on Honolulu's expedited clean energy page, with the HECO step kept separate.",
+      "notes": "Same guide-label caveat as the X post (DC label vs unstated basis). Posted 8 days after the X version."
+    },
+    {
+      "id": "Q06",
+      "topic_key": "san-diego-self-issued-pv",
+      "channel": "x",
+      "target_audience": "US installers",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "san_diego_self_issued_pv_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/california/san-diego/solar-permit-guide/",
+        "url": "https://mygridpermit.com/california/san-diego/solar-permit-guide/?utm_source=x&utm_medium=organic_social&utm_campaign=san_diego_self_issued_pv_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/california/san-diego/solar-permit-guide/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "san_diego_self_issued_pv_202610",
+      "suggested": {
+        "week": 2,
+        "date": "2026-11-06",
+        "weekday": "Fri"
+      },
+      "evidence": [
+        {
+          "source": "City of San Diego Development Services Department: solar PV permit page",
+          "url": "https://www.sandiego.gov/development-services/permits/solar-photovoltaic-permit",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "Residential rooftop PV permit 'self-issued with no plan review' for single-family, duplex or townhouse roofs designed per the template in Information Bulletin (IB) 301; system 'does not exceed more than 38.4 kW AC maximum output'; submitted electronically; 'previous requirement for professional certification is no longer required'. Page shows no update date (only a 2002-2026 copyright). Page does not mention SDG&E."
+        },
+        {
+          "source": "GridPermit San Diego guide (own page)",
+          "url": "https://mygridpermit.com/california/san-diego/solar-permit-guide/",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-08-09",
+          "supports": "AC field 38.4 kW, DC field 'Not yet verified', Review time 'Not yet verified'; separate SDG&E interconnection and PTO authority."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.2,
+          "with": "Q04",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q03 (linkedin, 2026-10-29)"
+        ],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "c735f22d1b7479728219d29bcd20cc666792cb60f89403901a4fca0f4e859e17",
+      "value_to_audience": "One-line check on whether a San Diego rooftop job fits the self-issued path.",
+      "notes": "Posted 8 days after the LinkedIn version."
+    },
+    {
+      "id": "Q07",
+      "topic_key": "california-solarapp-fees",
+      "channel": "linkedin",
+      "target_audience": "US installers",
+      "format": "single post",
+      "status": "DRAFT_ONLY",
+      "candidate_id": "california_solarapp_fees_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/california/",
+        "url": "https://mygridpermit.com/california/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=california_solarapp_fees_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/california/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "california_solarapp_fees_202610",
+      "suggested": {
+        "week": 3,
+        "date": "2026-11-10",
+        "weekday": "Tue"
+      },
+      "evidence": [
+        {
+          "source": "SolarAPP+ Help Center: How much does SolarAPP+ cost an installer to use",
+          "url": "https://help.gosolarapp.org/article/75-how-much-does-solarapp-cost-an-installer-to-use",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-07-06",
+          "supports": "Installers pay a small administration fee; installers also pay any permitting fees established by the AHJ; page last updated July 6, 2026. Re-opened 2026-10-23 (the candidate's own date_checked is still 2026-10-17)."
+        },
+        {
+          "source": "U.S. Department of Energy: 160 communities now automating solar permitting with SolarAPP+",
+          "url": "https://www.energy.gov/cmei/systems/articles/160-communities-now-automating-solar-permitting-solarapp",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2023-12-20",
+          "supports": "'SolarAPP+ is available free to jurisdictions and is supported by administrative fees paid by installers.' Article dated 2023-12-20 (1,038 days old): the candidate records evidence_date null, so the pipeline only warns; recorded with its true date it would be blocked."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.11,
+          "with": "Q03",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q10 (x, 2026-11-17)"
+        ],
+        "pipeline_result_2026_10_23": "READY (warn only: undated DOE claim), but queue status is DRAFT_ONLY for the reasons in notes"
+      },
+      "text_sha256": "210556a6bb466207fe463cb14041b4c74a71d87ccb07e6e5110702642f3ad4f8",
+      "value_to_audience": "States who pays what for SolarAPP+ (installer administration fee, AHJ permit fees on top, no cost to participating jurisdictions).",
+      "notes": "Existing 2026-10-17 candidate, untouched and still unpublished. Not ready: (1) its date_checked is 2026-10-17, so the pipeline blocks it after 2026-10-24; (2) the DOE source for 'no cost to participating local governments' is dated 2023-12-20, over the 180-day limit once the true date is recorded; the SolarAPP+ site (gosolarapp.org, undated) also says there is no cost to local governments and could be the current source. Re-verify sources and refresh dates in the 7 days before posting. It does not duplicate the published 'solarapp-eligibility' topic (2026-10-10)."
+    },
+    {
+      "id": "Q08",
+      "topic_key": "not-yet-verified-fields",
+      "channel": "x",
+      "target_audience": "developer agencies",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "not_yet_verified_fields_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/methodology/",
+        "url": "https://mygridpermit.com/methodology/?utm_source=x&utm_medium=organic_social&utm_campaign=not_yet_verified_fields_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/methodology/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "not_yet_verified_fields_202610",
+      "suggested": {
+        "week": 3,
+        "date": "2026-11-12",
+        "weekday": "Thu"
+      },
+      "evidence": [
+        {
+          "source": "GridPermit Methodology (own page)",
+          "url": "https://mygridpermit.com/methodology/",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "'We do not fill a missing fact with an estimate, a typical value from a similar city, or an inference from a neighboring jurisdiction's rules'; every fact links to its source and shows a confidence score. Page shows no update date."
+        },
+        {
+          "source": "GridPermit San Diego guide (own page)",
+          "url": "https://mygridpermit.com/california/san-diego/solar-permit-guide/",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-08-09",
+          "supports": "AC field 38.4 kW, DC field 'Not yet verified', Review time 'Not yet verified'; separate SDG&E interconnection and PTO authority."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.1,
+          "with": "Q06",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q12 (linkedin, 2026-11-19)"
+        ],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "3b2b89a7040e5abbea782f679a5c950f81729392e8ce8103b989ba4afc57d585",
+      "value_to_audience": "Shows how unsourced fields are handled in a permit-data product (marked 'Not yet verified', never filled with a typical value).",
+      "notes": "Statement about GridPermit's own process, backed by its own pages; no customer, partner or result claim."
+    },
+    {
+      "id": "Q09",
+      "topic_key": "kw-limit-ac-dc-basis",
+      "channel": "linkedin",
+      "target_audience": "developer agencies",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "kw_limit_ac_dc_basis_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/partners/",
+        "url": "https://mygridpermit.com/partners/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=kw_limit_ac_dc_basis_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/partners/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "kw_limit_ac_dc_basis_202610",
+      "suggested": {
+        "week": 3,
+        "date": "2026-11-13",
+        "weekday": "Fri"
+      },
+      "evidence": [
+        {
+          "source": "City and County of Denver, Community Planning and Development: Solar Permits (single-family and duplex)",
+          "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Single-Family-and-Duplex-Projects/Solar-Permits",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "SolarAPP+ quick-permit criterion 'kW DC rating of less than 10'; systems rated 10 kW and above need a Colorado-licensed professional engineer's stamp on the one-line diagram and calculations; 'All systems require an electrical permit'; AC/DC basis of the 10 kW engineering threshold not stated. Page shows no update date (only a 2026 copyright)."
+        },
+        {
+          "source": "City of San Diego Development Services Department: solar PV permit page",
+          "url": "https://www.sandiego.gov/development-services/permits/solar-photovoltaic-permit",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "Residential rooftop PV permit 'self-issued with no plan review' for single-family, duplex or townhouse roofs designed per the template in Information Bulletin (IB) 301; system 'does not exceed more than 38.4 kW AC maximum output'; submitted electronically; 'previous requirement for professional certification is no longer required'. Page shows no update date (only a 2002-2026 copyright). Page does not mention SDG&E."
+        },
+        {
+          "source": "GridPermit San Diego guide (own page)",
+          "url": "https://mygridpermit.com/california/san-diego/solar-permit-guide/",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-08-09",
+          "supports": "AC field 38.4 kW, DC field 'Not yet verified', Review time 'Not yet verified'; separate SDG&E interconnection and PTO authority."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.19,
+          "with": "Q03",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q04 (x, 2026-11-02)"
+        ],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "2a2ad10a8ff6447e1e8fbcdca8a3193d5fdab871989201a2ff20684a748a1d3a",
+      "value_to_audience": "Longer version of the AC vs DC basis point, including that Denver does not state the basis of its 10 kW engineering threshold.",
+      "notes": "Same Denver guide precondition as the X version. Posted 11 days after it."
+    },
+    {
+      "id": "Q10",
+      "topic_key": "california-solarapp-fees",
+      "channel": "x",
+      "target_audience": "US installers",
+      "format": "single post",
+      "status": "DRAFT_ONLY",
+      "candidate_id": "california_solarapp_fees_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/california/",
+        "url": "https://mygridpermit.com/california/?utm_source=x&utm_medium=organic_social&utm_campaign=california_solarapp_fees_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/california/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "california_solarapp_fees_202610",
+      "suggested": {
+        "week": 4,
+        "date": "2026-11-17",
+        "weekday": "Tue"
+      },
+      "evidence": [
+        {
+          "source": "SolarAPP+ Help Center: How much does SolarAPP+ cost an installer to use",
+          "url": "https://help.gosolarapp.org/article/75-how-much-does-solarapp-cost-an-installer-to-use",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-07-06",
+          "supports": "Installers pay a small administration fee; installers also pay any permitting fees established by the AHJ; page last updated July 6, 2026. Re-opened 2026-10-23 (the candidate's own date_checked is still 2026-10-17)."
+        },
+        {
+          "source": "U.S. Department of Energy: 160 communities now automating solar permitting with SolarAPP+",
+          "url": "https://www.energy.gov/cmei/systems/articles/160-communities-now-automating-solar-permitting-solarapp",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2023-12-20",
+          "supports": "'SolarAPP+ is available free to jurisdictions and is supported by administrative fees paid by installers.' Article dated 2023-12-20 (1,038 days old): the candidate records evidence_date null, so the pipeline only warns; recorded with its true date it would be blocked."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.06,
+          "with": "Q06",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q07 (linkedin, 2026-11-10)"
+        ],
+        "pipeline_result_2026_10_23": "READY (warn only: undated DOE claim), but queue status is DRAFT_ONLY for the reasons in notes"
+      },
+      "text_sha256": "0643097706c08e352b8c647bfabd6e98cafbbee8705f2fe4dabf7cca7ccc694b",
+      "value_to_audience": "Short fee-clarity post for installers.",
+      "notes": "Same blockers as the LinkedIn entry. Posted 7 days after it."
+    },
+    {
+      "id": "Q11",
+      "topic_key": "denver-solarapp-quick-permit-10kw",
+      "channel": "linkedin",
+      "target_audience": "permitting professionals",
+      "format": "single post",
+      "status": "BLOCKED_NEEDS_SOURCE",
+      "candidate_id": null,
+      "draft_in_candidates_json": false,
+      "destination": {
+        "page_path": "/colorado/denver/solar-permit-guide/",
+        "url": "https://mygridpermit.com/colorado/denver/solar-permit-guide/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=denver_solarapp_quick_permit_202611",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/colorado/denver/solar-permit-guide/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "denver_solarapp_quick_permit_202611",
+      "suggested": {
+        "week": 4,
+        "date": "2026-11-18",
+        "weekday": "Wed"
+      },
+      "evidence": [
+        {
+          "source": "City and County of Denver, Community Planning and Development: Solar Permits (single-family and duplex)",
+          "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Community-Planning-and-Development/Plan-Review-Permits-and-Inspections/Single-Family-and-Duplex-Projects/Solar-Permits",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "SolarAPP+ quick-permit criterion 'kW DC rating of less than 10'; systems rated 10 kW and above need a Colorado-licensed professional engineer's stamp on the one-line diagram and calculations; 'All systems require an electrical permit'; AC/DC basis of the 10 kW engineering threshold not stated. Page shows no update date (only a 2026 copyright)."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": null,
+        "same_topic_on_other_channel": [],
+        "pipeline_result_2026_10_23": "not run (no draft)"
+      },
+      "text_sha256": null,
+      "value_to_audience": "Would explain Denver's SolarAPP+ quick-permit criterion (DC under 10 kW) and the engineer-stamp threshold at 10 kW and above.",
+      "notes": "BLOCKED: the destination guide contradicts the official page. The guide says 'Max system size (AC): 10 kW' and DC 'Not yet verified'; Denver's page says 'kW DC rating of less than 10' for the quick permit and gives no AC/DC basis for the 10 kW engineering threshold. No draft written until the guide is corrected or the owner confirms the basis with Denver."
+    },
+    {
+      "id": "Q12",
+      "topic_key": "not-yet-verified-fields",
+      "channel": "linkedin",
+      "target_audience": "developer agencies",
+      "format": "single post",
+      "status": "READY_FOR_HUMAN_REVIEW",
+      "candidate_id": "not_yet_verified_fields_202610",
+      "draft_in_candidates_json": true,
+      "destination": {
+        "page_path": "/methodology/",
+        "url": "https://mygridpermit.com/methodology/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=not_yet_verified_fields_202610",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/methodology/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "not_yet_verified_fields_202610",
+      "suggested": {
+        "week": 4,
+        "date": "2026-11-19",
+        "weekday": "Thu"
+      },
+      "evidence": [
+        {
+          "source": "GridPermit Methodology (own page)",
+          "url": "https://mygridpermit.com/methodology/",
+          "date_checked": "2026-10-23",
+          "evidence_date": null,
+          "supports": "'We do not fill a missing fact with an estimate, a typical value from a similar city, or an inference from a neighboring jurisdiction's rules'; every fact links to its source and shows a confidence score. Page shows no update date."
+        },
+        {
+          "source": "GridPermit San Diego guide (own page)",
+          "url": "https://mygridpermit.com/california/san-diego/solar-permit-guide/",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2026-08-09",
+          "supports": "AC field 38.4 kW, DC field 'Not yet verified', Review time 'Not yet verified'; separate SDG&E interconnection and PTO authority."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": {
+          "value": 0.09,
+          "with": "Q09",
+          "limit": 0.55
+        },
+        "same_topic_on_other_channel": [
+          "Q08 (x, 2026-11-12)"
+        ],
+        "pipeline_result_2026_10_23": "READY, no block issues"
+      },
+      "text_sha256": "c6de7acbe8b21cc1939bb2e62e301c138baf7eeca57d5de368642534e486234e",
+      "value_to_audience": "Same point as the X version with the confidence-score detail.",
+      "notes": "Posted 7 days after the X version."
+    },
+    {
+      "id": "Q13",
+      "topic_key": "nv-energy-application-and-no-energize",
+      "channel": "linkedin",
+      "target_audience": "US installers",
+      "format": "single post",
+      "status": "BLOCKED_NEEDS_SOURCE",
+      "candidate_id": null,
+      "draft_in_candidates_json": false,
+      "destination": {
+        "page_path": "/nevada/las-vegas/solar-permit-guide/",
+        "url": "https://mygridpermit.com/nevada/las-vegas/solar-permit-guide/?utm_source=linkedin&utm_medium=organic_social&utm_campaign=nv_energy_pto_sequence_202611",
+        "exists_check": {
+          "method": "curl https://mygridpermit.com/nevada/las-vegas/solar-permit-guide/",
+          "http_status": 200,
+          "also_in_local_build_sitemap": true,
+          "checked": "2026-10-23"
+        }
+      },
+      "utm_campaign": "nv_energy_pto_sequence_202611",
+      "suggested": {
+        "week": 4,
+        "date": "2026-11-20",
+        "weekday": "Fri"
+      },
+      "evidence": [
+        {
+          "source": "NV Energy Net Metering and Energy Storage Interconnection Handbook (PDF)",
+          "url": "https://www.nvenergy.com/publish/content/dam/nvenergy/brochures_arch/cleanenergy/handbooks/SolarGenerations-Handbook.pdf",
+          "date_checked": "2026-10-23",
+          "evidence_date": "2025-10-16",
+          "supports": "Applications go through PowerClerk and are incomplete until the application fee is paid (Southern Nevada $189, Northern Nevada $184); 'Systems may not be energized prior to successful final verification by NV Energy'; permission to operate follows utility inspection and meter set. Latest revision row in the handbook: 10/16/2025 (372 days old on 2026-10-23)."
+        }
+      ],
+      "duplicate_check": {
+        "topic_key_in_posted_ledger": false,
+        "ledger_entries_for_topic_and_channel": [],
+        "ledger_has_no_stored_text": "posted-topics.json stores topic and date only, so ledger duplication is checked at topic level; prior drafts in 01-Command-Center were read and none covers these topics",
+        "max_text_similarity_same_channel": null,
+        "same_topic_on_other_channel": [],
+        "pipeline_result_2026_10_23": "not run (no draft)"
+      },
+      "text_sha256": null,
+      "value_to_audience": "Would state the Southern Nevada NV Energy sequence: PowerClerk application, fee before the application proceeds, no energizing before NV Energy's final verification.",
+      "notes": "BLOCKED: the only source is the NV Energy handbook, whose latest revision row is 10/16/2025 (372 days old, over the 180-day evidence limit). The nvenergy.com/cleanenergy/solar page returned no usable content. Needs a current dated NV Energy page or an owner-accepted exception. Also, the destination guide describes the City of Las Vegas permit side and a 25 kW net-metering cap; confirm it does not contradict the final wording."
+    }
+  ]
+}

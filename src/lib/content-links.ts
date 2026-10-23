@@ -40,6 +40,14 @@ export interface ContentResource {
 export interface ContentLinkRegistry {
 	schema_version: number;
 	resources: ContentResource[];
+	balanced_related?: {
+		state: string;
+		counties: string[];
+		limit: number;
+		max_pages: number;
+		pages: string[];
+		control_pages?: string[];
+	};
 	rollout: {
 		max_locality_pages: number;
 		locality_pages: string[];
@@ -290,6 +298,15 @@ export function validateRegistry(registry: ContentLinkRegistry, knownPostUrls: s
 	}
 	for (const list of [rollout.locality_pages, rollout.utility_hubs, rollout.articles]) {
 		if (new Set(list).size !== list.length) problems.push({ id: "rollout", problem: "duplicate rollout entry" });
+	}
+	const br = registry.balanced_related;
+	if (br) {
+		if (br.pages.length > br.max_pages) problems.push({ id: "balanced_related", problem: "pages exceeds max_pages" });
+		if (new Set(br.pages).size !== br.pages.length) problems.push({ id: "balanced_related", problem: "duplicate page" });
+		if (!Number.isInteger(br.limit) || br.limit < 1 || br.limit > 6) problems.push({ id: "balanced_related", problem: "limit must be 1..6" });
+		if (br.counties.length === 0) problems.push({ id: "balanced_related", problem: "no counties" });
+		const control = br.control_pages ?? [];
+		if (control.some((c) => br.pages.includes(c))) problems.push({ id: "balanced_related", problem: "control page is also in scope" });
 	}
 	for (const a of rollout.articles) {
 		if (!urls.has(a)) problems.push({ id: "rollout", problem: `rollout article not found: ${a}` });

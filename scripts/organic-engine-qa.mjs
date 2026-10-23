@@ -190,7 +190,87 @@ export function compareSnapshots(base, head, registry, opts = {}) {
 	};
 }
 
-function main(argv) {
+// Policy check for the balanced related-cities change. Against a baseline build
+// of the commit it branches from, only pages listed in registry.balanced_related
+// may differ; on those pages the only allowed changes are swaps between listed
+// guides; locked pages must be byte-identical; and everything SEO-relevant
+// (title, canonical, robots, JSON-LD, partner links, sitemap) is unchanged on
+// every page.
+export function compareBalancedRelated(base, head, registry, opts = {}) {
+	const br = registry.balanced_related;
+	const failures = [];
+	const changed = [];
+	if (!br) return { failures: ["registry has no balanced_related block"], changed, summary: { failures: 1 } };
+	const scope = new Set(br.pages);
+	const locked = new Set(opts.lockedPaths ?? []);
+	const maxBytes = opts.maxByteDelta ?? 1500;
+	const bp = Object.keys(base.pages).sort();
+	const hp = Object.keys(head.pages).sort();
+	if (!arrEq(bp, hp)) failures.push("page set changed");
+	if (!arrEq(base.sitemap, head.sitemap)) failures.push("sitemap URL set changed");
+	if (base.robots_txt_hash !== head.robots_txt_hash) failures.push("robots.txt changed");
+	const sitemap = new Set(head.sitemap);
+	for (const path of bp) {
+		const b = base.pages[path];
+		const h = head.pages[path];
+		if (!h) continue;
+		for (const k of ["title", "canonical", "robots", "h1", "jsonld_hash", "external_links_hash", "track_click"]) {
+			if (!arrEq(b[k], h[k])) failures.push(`${path}: ${k} changed`);
+		}
+		const added = h.internal_links.filter((l) => !b.internal_links.includes(l));
+		const removed = b.internal_links.filter((l) => !h.internal_links.includes(l));
+		if (!added.length && !removed.length && b.bytes === h.bytes) continue;
+		changed.push({ path, added, removed, bytes_delta: h.bytes - b.bytes });
+		if (!scope.has(path)) {
+			failures.push(`${path}: changed but is not in balanced_related.pages`);
+			continue;
+		}
+		if (locked.has(path)) failures.push(`${path}: is locked (experiment or observation window) but changed`);
+		for (const l of [...added, ...removed]) if (!scope.has(l)) failures.push(`${path}: link ${l} is outside the listed counties' guides`);
+		if (Math.abs(h.bytes - b.bytes) > maxBytes) failures.push(`${path}: HTML changed by ${h.bytes - b.bytes} bytes (> ${maxBytes})`);
+		if (h.duplicate_ids.length) failures.push(`${path}: duplicate ids ${h.duplicate_ids.join(", ")}`);
+		for (const t of added) {
+			const tp = head.pages[t];
+			if (!tp) failures.push(`${path}: new link target is not a built page: ${t}`);
+			else if ((tp.robots ?? []).some((r) => /noindex/i.test(r ?? ""))) failures.push(`${path}: new link target is noindex: ${t}`);
+			else if (!sitemap.has(t)) failures.push(`${path}: new link target missing from sitemap: ${t}`);
+		}
+	}
+	// Pages under measurement (locked pages and the control group) must keep exactly
+	// the same set of pages linking to them, not only the same outbound links.
+	const inboundSet = (snap, target) => Object.keys(snap.pages).filter((p) => p !== target && snap.pages[p].internal_links.includes(target)).sort();
+	for (const target of new Set([...locked, ...(br.control_pages ?? [])])) {
+		if (!(target in base.pages) || !(target in head.pages)) continue;
+		if (!arrEq(inboundSet(base, target), inboundSet(head, target))) failures.push(`${target}: pages linking to it changed, but it is locked or a measurement control`);
+	}
+	// A listed page's related list stays within the configured limit.
+	for (const path of scope) {
+		const h = head.pages[path];
+		if (!h || locked.has(path)) continue;
+		const toScope = h.internal_links.filter((l) => scope.has(l) && l !== path).length;
+		if (toScope > (br.limit ?? 6)) failures.push(`${path}: links to ${toScope} listed guides (> limit ${br.limit ?? 6})`);
+	}
+	if (!changed.length) failures.push("no listed page changed: the balanced_related rollout is dead config");
+	return { failures, changed, summary: { pages: hp.length, pages_changed: changed.length, pages_unchanged: hp.length - changed.length, failures: failures.length } };
+}
+
+// The same lock set the layout uses (pilots, commercial profiles, reviewed pathways
+// and the PTO link pilot), resolved to guide URLs, so QA and the page can never disagree.
+async function lockedGuidePaths(registry) {
+	const { buildLocalityIndexEntries } = await import("../src/lib/locality-guide.ts");
+	const { observationLockedRecordIds } = await import("../src/lib/related-balance.ts");
+	const recordsById = new Map(readdirSync("data/localities").filter((f) => f.endsWith(".json")).map((f) => {
+		const r = JSON.parse(readFileSync(join("data/localities", f), "utf8"));
+		return [r.record_id, r];
+	}));
+	const evaluation = [];
+	for (const f of readdirSync("output").filter((f) => f.endsWith("-evaluation.json"))) evaluation.push(...(JSON.parse(readFileSync(join("output", f), "utf8")).records ?? []));
+	const entries = buildLocalityIndexEntries(evaluation, recordsById);
+	const locked = observationLockedRecordIds(entries, registry.rollout.locality_pages);
+	return entries.filter((e) => locked.has(e.recordId)).map((e) => e.guideUrl);
+}
+
+async function main(argv) {
 	const [cmd, ...rest] = argv;
 	if (cmd === "snapshot") {
 		const [dist, out] = rest;
@@ -213,8 +293,21 @@ function main(argv) {
 		console.log("organic-engine-qa: PASS");
 		return 0;
 	}
-	console.error("usage: organic-engine-qa.mjs snapshot|compare ...");
+	if (cmd === "compare-balanced") {
+		const [basePath, headPath] = rest;
+		const regIdx = rest.indexOf("--registry");
+		const registry = JSON.parse(readFileSync(regIdx >= 0 ? rest[regIdx + 1] : "data/content-links/registry.json", "utf8"));
+		const res = compareBalancedRelated(JSON.parse(readFileSync(basePath, "utf8")), JSON.parse(readFileSync(headPath, "utf8")), registry, { lockedPaths: await lockedGuidePaths(registry) });
+		console.log(JSON.stringify({ summary: res.summary, changed: res.changed }, null, 2));
+		if (res.failures.length) {
+			console.error("FAILURES:\n" + res.failures.map((f) => " - " + f).join("\n"));
+			return 1;
+		}
+		console.log("organic-engine-qa compare-balanced: PASS");
+		return 0;
+	}
+	console.error("usage: organic-engine-qa.mjs snapshot|compare|compare-balanced ...");
 	return 2;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) process.exit(main(process.argv.slice(2)));
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main(process.argv.slice(2)).then((code) => process.exit(code));
