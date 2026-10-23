@@ -13,7 +13,9 @@ import {
 } from "../scripts/lib/distribution-queue.mjs";
 import { contextFromSnapshot } from "../scripts/build-distribution-queue.mjs";
 
-const candidates = JSON.parse(readFileSync("data/distribution/candidates.json", "utf8")).candidates;
+const allCandidates = JSON.parse(readFileSync("data/distribution/candidates.json", "utf8")).candidates;
+// The behaviour tests below are written against one known candidate; the file may hold more.
+const candidates = allCandidates.filter((c) => c.id === "california_solarapp_fees_202610");
 const ledger = JSON.parse(readFileSync("data/distribution/posted-topics.json", "utf8")).entries;
 const snapshot = {
 	pages: { "/california/": { robots: [] }, "/noindex/": { robots: ["noindex, follow"] } },
@@ -118,4 +120,19 @@ test("lint blocks hype, commercial language, unsupported claims, long dashes and
 	assert.ok(codes("x #a #b #c").includes("too_many_hashtags"));
 	assert.ok(codes("x #a #b", "x").includes("too_many_hashtags"));
 	assert.deepEqual(codes("Plain factual sentence about permits."), []);
+});
+
+test("every checked-in candidate is well formed: unique ids and topics, drafts only for declared channels, claims mapped to the draft", () => {
+	assert.equal(candidates.length, 1, "the pinned candidate exists");
+	assert.equal(new Set(allCandidates.map((c) => c.id)).size, allCandidates.length);
+	assert.equal(new Set(allCandidates.map((c) => c.topic_key + "|" + (c.channels ?? []).join(","))).size, allCandidates.length);
+	for (const c of allCandidates) {
+		assert.deepEqual(Object.keys(c.drafts).sort(), [...c.channels].sort(), c.id);
+		for (const ch of c.channels) {
+			for (const claim of c.claims.filter((x) => !x.channels || x.channels.includes(ch))) {
+				assert.ok(c.drafts[ch].toLowerCase().includes(claim.draft_phrase.toLowerCase()), `${c.id}/${ch}: claim phrase not in draft`);
+				assert.match(claim.source.url, /^https:\/\//);
+			}
+		}
+	}
 });
