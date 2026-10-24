@@ -177,10 +177,35 @@
     "notes": "Checked 2026-10-12. The 10 kW AC unit is supported by the municipal streamlined-permit rule, not inferred by convention. The June 10, 2026 Express bulletin states a 10 kW total PV capacity limit and supplies additional pathway conditions. Do not merge these with the utility Type 1 size threshold."
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": [],
-    "notes": "Not yet verified: no project-specific LADBS permit amount was established. The official fee estimate system at https://08web15.lacity.org/Fee_est_dir/Edit_ced/Fee_start states that estimates can change and final fees are determined when an application is submitted. LADWP interconnection charges are separate and are not recorded as city permit fees."
+    "value": [
+      {
+        "name": "City of Los Angeles electrical permit issuing fee",
+        "amount_usd": 23,
+        "unit": "per electrical permit (LAMC 98.0415(c); building permits $27)",
+        "notes": "Per LAMC as published by American Legal Publishing, checked 2026-10-24. Amount dates from a 2011 amendment; LADBS fee pages were not accessible."
+      },
+      {
+        "name": "City of Los Angeles minimum electrical inspection fee",
+        "amount_usd": 90,
+        "unit": "per electrical installation, paid when equipment fees total less (LAMC 93.0220, 98.0412(a))",
+        "notes": "LAMC 98.0412 says the minimum includes the issuing fee; LAMC 93.0220 says it is in addition to the issuing fee. Not resolved."
+      },
+      {
+        "name": "City of Los Angeles solar voltaic equipment fees",
+        "amount_usd": null,
+        "unit": "$6 per module; $6 per combiner box; inverter by rating: up to 3 kW $8, over 3 to 5 kW $18, over 5 to 20 kW $27, over 20 to 50 kW $39, over 50 to 100 kW $71.50, over 100 kW $111 (LAMC 93.0218)",
+        "notes": "Code text, not a LADBS fee calculator result. Final fee is set when the application is submitted."
+      }
+    ],
+    "confidence": 0.5,
+    "source_ids": [
+      "LA_LAMC_98_0415",
+      "LA_LAMC_93_0220",
+      "LA_LAMC_98_0412",
+      "LA_LAMC_93_0218",
+      "LA_LAMC_93_0213"
+    ],
+    "notes": "Components from the Los Angeles Municipal Code (amlegal), checked 2026-10-24. LADBS pages and fee calculator were blocked, so current LADBS charges, any Express-permit flat fee, and any separate structural building permit fee are not verified. LADWP interconnection charges are separate and not recorded as city fees."
   },
   "rebates": {
     "value": null,
@@ -301,6 +326,46 @@
       "publisher": "City of Los Angeles Municipal Code (American Legal Publishing)",
       "type": "government",
       "accessed_date": "2026-10-12"
+    },
+    {
+      "id": "LA_LAMC_98_0415",
+      "title": "LAMC Sec. 98.0415, permit issuing fees",
+      "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-190078",
+      "publisher": "City of Los Angeles Municipal Code (American Legal Publishing)",
+      "type": "government",
+      "accessed_date": "2026-10-24"
+    },
+    {
+      "id": "LA_LAMC_93_0220",
+      "title": "LAMC Sec. 93.0220, minimum electrical fees",
+      "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-184285",
+      "publisher": "City of Los Angeles Municipal Code (American Legal Publishing)",
+      "type": "government",
+      "accessed_date": "2026-10-24"
+    },
+    {
+      "id": "LA_LAMC_98_0412",
+      "title": "LAMC Sec. 98.0412, minimum inspection fee",
+      "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-190052",
+      "publisher": "City of Los Angeles Municipal Code (American Legal Publishing)",
+      "type": "government",
+      "accessed_date": "2026-10-24"
+    },
+    {
+      "id": "LA_LAMC_93_0218",
+      "title": "LAMC Sec. 93.0218, fees for solar voltaic systems and equipment",
+      "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-184254",
+      "publisher": "City of Los Angeles Municipal Code (American Legal Publishing)",
+      "type": "government",
+      "accessed_date": "2026-10-24"
+    },
+    {
+      "id": "LA_LAMC_93_0213",
+      "title": "LAMC Sec. 93.0213, electrical permit fees",
+      "url": "https://codelibrary.amlegal.com/codes/los_angeles/latest/lamc/0-0-0-184136",
+      "publisher": "City of Los Angeles Municipal Code (American Legal Publishing)",
+      "type": "government",
+      "accessed_date": "2026-10-24"
     }
   ]
 }
