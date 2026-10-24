@@ -1,5 +1,6 @@
 # Installer interview script (15 to 20 minutes)
 
+Owner approval 2026-10-24: approved as documents for the pilot. Not started. Outreach, the payment method and the first contact each still need separate owner approval; the 14-day window starts at the first approved contact. Nothing is published or sent.
 Rules: ask about the past, not hypotheticals; do not pitch before the questions; do not promise features, results or approvals; record answers in the interviewee's words; ask for permission before taking notes. Do not collect customer data or ask for project documents.
 
 ## Opening

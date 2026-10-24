@@ -1,6 +1,7 @@
 # GridPermit Pro: paid pilot offer (hypothesis, not published)
 
-Status: DRAFT for owner review. Nothing here is live, nothing has been sent, and no price is committed. Pricing text below is a hypothesis to test in conversations.
+Owner approval 2026-10-24: approved as documents for the pilot. Not started. Outreach, the payment method and the first contact each still need separate owner approval; the 14-day window starts at the first approved contact. Nothing is published or sent.
+Status: APPROVED as a document by the owner on 2026-10-24 (pilot not started). Nothing here is live, nothing has been sent, and no price is committed. Pricing text below is a hypothesis to test in conversations.
 
 ## What exists today (verified 2026-10-24)
 - `/pro/` states that GridPermit Pro "does not exist yet", shows $29/mo as "a hypothesis, not a committed price", and has one "I'd use this, notify me" mailto button (event `pro_interest_clicked`). No accounts, no payments.

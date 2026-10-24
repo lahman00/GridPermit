@@ -1,5 +1,6 @@
 # Validation gate (14 days, no code)
 
+Owner approval 2026-10-24: approved as documents for the pilot. Not started. Outreach, the payment method and the first contact each still need separate owner approval; the 14-day window starts at the first approved contact. Nothing is published or sent.
 Fixed before any outreach so the result cannot be argued afterwards.
 
 - **Window:** 14 days from the first approved contact.

@@ -1,5 +1,6 @@
 # Building the installer list (public sources only)
 
+Owner approval 2026-10-24: approved as documents for the pilot. Not started. Outreach, the payment method and the first contact each still need separate owner approval; the 14-day window starts at the first approved contact. Nothing is published or sent.
 Purpose: a named list of California residential installers to invite to the pilot in `offer.md`. Building the list is research only. Do not contact anyone until the owner approves the list and the message.
 
 ## Sources allowed
