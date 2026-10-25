@@ -87,8 +87,11 @@ test("the report reconciles every locality into a published or suppressed partit
 	// fee tied to a dead City document was removed, while Petaluma recomputes
 	// 80% -> 86.7% after current City SolarAPP+ evidence restored documents and
 	// same-day eligibility-path timing. Neither changes readiness.
-	assert.equal(pack.summary.evaluation_stale_count, 36);
-	assert.equal(pack.summary.published_evaluation_stale_count, 31);
+	// 2026-10-24: San Jose gained its FY 2026-27 formula-only fee items, so its
+	// recomputed completeness moved above the recorded evaluation. San Francisco's
+	// fee schedule replacement left its recorded evaluation unchanged.
+	assert.equal(pack.summary.evaluation_stale_count, 37);
+	assert.equal(pack.summary.published_evaluation_stale_count, 32);
 	assert.equal(pack.summary.suppressed_evaluation_stale_count, 5);
 });
 

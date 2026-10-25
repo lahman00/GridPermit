@@ -177,9 +177,34 @@
     ]
   },
   "permit_fees": {
-    "value": null,
-    "confidence": 0,
-    "source_ids": []
+    "value": [
+      {
+        "name": "City permit issuance fee (online permits)",
+        "amount_usd": null,
+        "unit": "$211 per hour of processing time, or the scheduled amount if greater; minimum for permits issued through the Online Permits service is 50% of the specified processing fee",
+        "notes": "FY 2026-27 Building Division Fee Schedule, effective August 10, 2026. The schedule has no solar-specific issuance amount for single-family homes; SJPermits.org shows the actual fee when you apply."
+      },
+      {
+        "name": "City electrical permit (inspection) fee",
+        "amount_usd": null,
+        "unit": "greater of $315 per hour of required inspection time or the itemized amount; Photovoltaic System (Single Family) is listed with a 60-minute minimum and 50 minutes per unit",
+        "notes": "Charged in addition to the permit issuance fee, per the fee schedule. A separate structural building permit fee for PV is not itemized in the residential tables and was not determined."
+      },
+      {
+        "name": "City plan review (Standard Plan Review only)",
+        "amount_usd": null,
+        "unit": "$325 per hour or the scheduled amount if greater",
+        "notes": "Applies to projects that do not qualify for the online SJPermits path. Credit card payments carry a 2.66% third-party fee."
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "SJ_FEE_SCHEDULE_FY2026_27",
+      "SJ_BUILDING_FEES_PAGE",
+      "S3",
+      "SJ_ONLINE_PERMITS_PAGE"
+    ],
+    "notes": "Checked on the City's own pages 2026-10-24. No flat solar permit fee is published; the City says SJPermits.org presents the fee at application. PG&E interconnection fees are separate and not recorded here."
   },
   "rebates": {
     "value": null,
@@ -298,6 +323,30 @@
       "publisher": "Self-Generation Incentive Program Program Administrators",
       "type": "program_administrator",
       "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "SJ_FEE_SCHEDULE_FY2026_27",
+      "title": "Building and Structure Permits Fee Schedule, FY 2026-27 (effective August 10, 2026)",
+      "url": "https://www.sanjoseca.gov/home/showpublisheddocument/26047/639219591833200000",
+      "publisher": "City of San Jose Building Division",
+      "type": "government",
+      "accessed_date": "2026-10-24"
+    },
+    {
+      "id": "SJ_BUILDING_FEES_PAGE",
+      "title": "Building Permit Fees",
+      "url": "https://www.sanjoseca.gov/your-government/departments-offices/planning-building-code-enforcement/building-division/building-permit-fees",
+      "publisher": "City of San Jose",
+      "type": "government",
+      "accessed_date": "2026-10-24"
+    },
+    {
+      "id": "SJ_ONLINE_PERMITS_PAGE",
+      "title": "Building Online Permits at SJPermits.org",
+      "url": "https://www.sanjoseca.gov/business/development-services-permit-center/online-permits-at-sjpermits-org/building-online-permits",
+      "publisher": "City of San Jose",
+      "type": "government",
+      "accessed_date": "2026-10-24"
     }
   ]
 }

@@ -134,16 +134,24 @@
   "permit_fees": {
     "value": [
       {
-        "name": "Residential solar permit fee cap (systems up to 15kW, under AB 1132)",
-        "amount_usd": 450,
-        "unit": "flat",
-        "notes": "AB 1132 caps residential solar permit fees at $450 for systems up to 15kW, effective through 2034."
+        "name": "Electrical permit, Solar Photovoltaic Systems: 10 kW rating or less (DBI Table 1A-E)",
+        "amount_usd": 320,
+        "unit": "flat, for systems rated 10 kW or less",
+        "notes": "Rate adopted by Ordinance 112-26 (passed 2026-06-09), replacing $283. Electrical permit issuance and inspection component only; not a complete project cost. Verify the current DBI schedule before relying on it."
+      },
+      {
+        "name": "Electrical permit, Solar Photovoltaic Systems: each additional 10 kW rating (DBI Table 1A-E)",
+        "amount_usd": 259,
+        "unit": "per additional 10 kW",
+        "notes": "Rate adopted by Ordinance 112-26, replacing $238."
       }
     ],
-    "confidence": 0.7,
+    "confidence": 0.8,
     "source_ids": [
-      "S1"
-    ]
+      "SF_ORD_112_26",
+      "SF_BIC_FEE_2026_04"
+    ],
+    "notes": "Amounts are from the Board of Supervisors ordinance text. State law (AB 1132) may cap residential solar permit fees; the cap amount and scope were not verified. Fire Department inspection, SolarAPP+, plan-check, building-permit and utility fees are not verified and are excluded."
   },
   "rebates": {
     "value": null,
@@ -198,6 +206,22 @@
       "publisher": "CleanPowerSF (San Francisco Public Utilities Commission)",
       "type": "other_official",
       "accessed_date": "2026-08-08"
+    },
+    {
+      "id": "SF_ORD_112_26",
+      "title": "Ordinance No. 112-26, Building Permit Fees Adjustment (Table 1A-E, Solar Photovoltaic Systems)",
+      "url": "https://media.api.sf.gov/documents/o0112-26.pdf",
+      "publisher": "City and County of San Francisco Board of Supervisors",
+      "type": "government",
+      "accessed_date": "2026-10-24"
+    },
+    {
+      "id": "SF_BIC_FEE_2026_04",
+      "title": "Building Inspection Commission, Fee Ordinance (April 15, 2026)",
+      "url": "https://media.api.sf.gov/documents/BIC_Meeting_04-15-26_Item_5_1.pdf",
+      "publisher": "San Francisco Department of Building Inspection",
+      "type": "government",
+      "accessed_date": "2026-10-24"
     }
   ]
 }
