@@ -1,6 +1,6 @@
 # SaaS phase 0: assessment of three AI strategy briefs and what was done
 
-Date: 2026-10-24. Branch: `claude/saas-phase0-20261024` (local, based on production `26640c6`). Nothing pushed, deployed, published or sent. No partner, price, route or tracking file changed.
+Date: 2026-10-24. Written on branch `claude/saas-phase0-20261024` against production `26640c6`. This is a point-in-time receipt: the statements about open PRs below describe 2026-10-24 morning (PR #143 has since been merged, as have the San Francisco and San Jose fee updates in #146; Los Angeles values are held on a separate branch). Nothing was published or sent, and no partner, price, route or tracking file changed in this branch.
 
 ## 1. What the three briefs asked for
 - **Brief A (phase 0 toward SaaS):** read and summarize, verify event firing, produce a money-path table and a config change to make more pages use the paid partner, a title/description CTR test, research of missing core facts in priority cities, a paid-pilot demand test for GridPermit Pro (documents only), and one monetized next step for the Permit Path checker.
