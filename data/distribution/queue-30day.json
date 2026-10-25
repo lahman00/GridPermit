@@ -40,7 +40,7 @@
           "method": "curl https://mygridpermit.com/nevada/las-vegas/solar-permit-guide/",
           "http_status": 200,
           "also_in_local_build_sitemap": true,
-          "checked": "2026-10-23"
+          "checked": "2026-10-24"
         }
       },
       "utm_campaign": "clark_county_bd_pp_206_202610",
@@ -53,7 +53,7 @@
         {
           "source": "Clark County Building Department, policy BD-PP-206",
           "url": "https://www.clarkcountynv.gov/adobe/assets/urn:aaid:aem:4666c480-77e5-451b-8542-8358743548be/original/as/BD-PP-206-Solar-Photovoltaic-Requirements-FINAL-4.30.2026.pdf",
-          "date_checked": "2026-10-23",
+          "date_checked": "2026-10-24",
           "evidence_date": "2026-04-30",
           "supports": "Revised 04/30/2026; no electrical plan review for systems not exceeding 5 kW; engineer-designed plans at 25 kW DC or greater (new systems and additions); building official may waive full submittal and engineering for residential roof mounts meeting listed criteria (4 psf, parallel to roof, within 24 in., connection points max 48 in. on center).",
           "caveat": "evidence_date 2026-04-30 is 176 days old on 2026-10-23; the pipeline's 180-day rule blocks these claims from 2026-10-28."
@@ -61,7 +61,7 @@
         {
           "source": "GridPermit Las Vegas guide (own page)",
           "url": "https://mygridpermit.com/nevada/las-vegas/solar-permit-guide/",
-          "date_checked": "2026-10-23",
+          "date_checked": "2026-10-24",
           "evidence_date": "2026-08-13",
           "supports": "Permit authority is the City of Las Vegas Department of Building & Safety; a local permit and utility permission to operate are different approvals."
         }
@@ -80,7 +80,7 @@
       },
       "text_sha256": "4016d47fbc7b90240c0d77cb8e1b5b358b02aa9fa5c031248aae1b7fbf6451d9",
       "value_to_audience": "Gives installers working in Clark County the two electrical size thresholds and the structural waiver criteria from the county's current written policy in one read.",
-      "notes": "Must go out by 2026-10-27: from 2026-10-28 the pipeline blocks BD-PP-206 claims as older than 180 days unless a newer dated source is recorded. The policy covers Clark County Building Department permits; the linked guide is the City of Las Vegas, which the post says is a separate authority. GridPermit has no unincorporated Clark County guide."
+      "notes": "Must go out by 2026-10-27: from 2026-10-28 the pipeline blocks BD-PP-206 claims as older than 180 days unless a newer dated source is recorded. The policy covers Clark County Building Department permits; the linked guide is the City of Las Vegas, which the post says is a separate authority. GridPermit has no unincorporated Clark County guide. REFRESH 2026-10-24: BD-PP-206 PDF re-read (revised 04/30/2026; no electrical plan review up to 5 kW; engineer-designed plans at 25 kW DC or greater; 4 psf; 48 in connection spacing) and the Las Vegas guide returned 200. The source evidence date (2026-04-30) reaches the 180-day limit on 2026-10-27, so this post must go out by 2026-10-27 or be re-sourced."
     },
     {
       "id": "Q02",
@@ -257,7 +257,7 @@
       },
       "text_sha256": "5e678dbca5d91ffd9c3a51277860419638ecf731ef897271f88c368233f8f057",
       "value_to_audience": "Shows two official pages stating size limits on different bases (DC vs AC), a concrete data-modelling detail for teams building permit-rules software or workflows.",
-      "notes": "PRECONDITION: UPDATE 2026-10-23: the guide correction (no AC maximum, DC not stated) is committed on the integration branch but is NOT live; do not post until it is live. Before the correction, GridPermit's Denver guide showed 'Max system size (AC): 10 kW' and DC 'Not yet verified', which conflicts with Denver's page ('kW DC rating of less than 10'). Correct the guide before this post goes out. Destination is /partners/, which carries no Denver numbers."
+      "notes": "PRECONDITION: UPDATE 2026-10-23: the guide correction (no AC maximum, DC not stated) is committed on the integration branch but is NOT live; do not post until it is live. Before the correction, GridPermit's Denver guide showed 'Max system size (AC): 10 kW' and DC 'Not yet verified', which conflicts with Denver's page ('kW DC rating of less than 10'). Correct the guide before this post goes out. Destination is /partners/, which carries no Denver numbers. RECHECK 2026-10-24: precondition met. Production 26640c6 serves the corrected Denver guide (Max system size AC and DC both read \"Not yet verified\"). Destination remains /partners/."
     },
     {
       "id": "Q05",
@@ -559,7 +559,7 @@
       },
       "text_sha256": "2a2ad10a8ff6447e1e8fbcdca8a3193d5fdab871989201a2ff20684a748a1d3a",
       "value_to_audience": "Longer version of the AC vs DC basis point, including that Denver does not state the basis of its 10 kW engineering threshold.",
-      "notes": "Same Denver guide precondition as the X version. Posted 11 days after it."
+      "notes": "Same Denver guide precondition as the X version. Posted 11 days after it. RECHECK 2026-10-24: precondition met. Production 26640c6 serves the corrected Denver guide (Max system size AC and DC both read \"Not yet verified\"). Destination remains /partners/."
     },
     {
       "id": "Q10",
@@ -664,7 +664,7 @@
       },
       "text_sha256": null,
       "value_to_audience": "Would explain Denver's SolarAPP+ quick-permit criterion (DC under 10 kW) and the engineer-stamp threshold at 10 kW and above.",
-      "notes": "BLOCKED: the destination guide contradicts the official page. The guide says 'Max system size (AC): 10 kW' and DC 'Not yet verified'; Denver's page says 'kW DC rating of less than 10' for the quick permit and gives no AC/DC basis for the 10 kW engineering threshold. No draft written until the guide is corrected or the owner confirms the basis with Denver."
+      "notes": "BLOCKED: the destination guide contradicts the official page. The guide says 'Max system size (AC): 10 kW' and DC 'Not yet verified'; Denver's page says 'kW DC rating of less than 10' for the quick permit and gives no AC/DC basis for the 10 kW engineering threshold. No draft written until the guide is corrected or the owner confirms the basis with Denver. RECHECK 2026-10-24: the contradiction is gone in production (guide now shows AC and DC as not yet verified), so the original blocker no longer applies. A draft still has to be written from the Denver page wording, and the 10 kW basis stays unknown, so keep it BLOCKED_NEEDS_SOURCE until a draft is reviewed."
     },
     {
       "id": "Q12",
