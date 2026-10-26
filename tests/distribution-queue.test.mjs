@@ -92,6 +92,14 @@ test("wrong or extra URLs in a draft block", () => {
 	assert.ok(buildQueue(d, ctx()).items.find((i) => i.channel === "linkedin").issues.some((i) => i.code === "draft_missing_exact_utm_url"));
 });
 
+test("the October 26 San Diego company post prevents duplicate LinkedIn drafts", () => {
+	const c = clone(candidates);
+	c[0].topic_key = "san-diego-self-issued-pv";
+	const q = buildQueue(c, ctx());
+	const linkedin = q.items.find((i) => i.channel === "linkedin");
+	assert.ok(linkedin.issues.some((i) => i.code === "duplicate_topic_in_ledger"));
+});
+
 test("a topic already published or saved as an unpublished draft on that channel is blocked", () => {
 	const c = clone(candidates);
 	c[0].topic_key = "permit-path";

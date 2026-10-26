@@ -71,10 +71,11 @@ test("even a fully open gate never lets the tool publish or engage", () => {
 test("a publication record needs the approved text hash, identity, approval and a channel permalink", () => {
 	const item = buildQueue(candidates, ctx()).items.find((i) => i.channel === "x");
 	const evidence = { date: "2026-10-22", permalink: "https://x.com/Grid_Permit/status/123", approval_ref: "owner-2026-10-22", identity_verified: true, posted_text_sha256: item.text_sha256 };
+	const originalLength = ledger.length;
 	const next = recordPublication(ledger, item, evidence);
 	assert.equal(next.length, ledger.length + 1);
 	assert.equal(next.at(-1).text_sha256, item.text_sha256);
-	assert.equal(ledger.length, 4, "input ledger is not mutated");
+	assert.equal(ledger.length, originalLength, "input ledger is not mutated");
 	for (const bad of [{ posted_text_sha256: "0".repeat(64) }, { permalink: "https://example.com/p" }, { approval_ref: "" }, { identity_verified: false }, { date: "yesterday" }]) {
 		assert.throws(() => recordPublication(ledger, item, { ...evidence, ...bad }), /refused/, JSON.stringify(bad));
 	}
