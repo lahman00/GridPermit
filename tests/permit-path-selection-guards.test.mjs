@@ -117,3 +117,21 @@ test("script keeps municipality and utility destinations source-linked, not comm
   assert.match(html, /Record last verified|Sources used by this locality record/);
   assert.doesNotMatch(html, /CompareSolarPrices/);
 });
+
+test("result links to the Pro proposal as interest only, without counting interest", () => {
+  const html = checker([]).render();
+  const pro = html.match(/<p class="pro-note">[\s\S]*?<\/p>/)?.[0];
+  assert.ok(pro, "Pro proposal note must render with the result");
+  assert.match(pro, /<a href="\/pro\/">/, "Plain internal link to the canonical /pro/ URL");
+  assert.match(pro, /does not exist yet/i, "Must say the product is not available");
+  // pro_interest_clicked stays reserved for the mailto on /pro/; a navigation click is not interest.
+  assert.doesNotMatch(pro, /data-track-click|utm_|href="[^"]*\?/);
+  assert.doesNotMatch(pro, /\$|price|trial|subscri|refund|sign up|buy/i);
+  assert.ok(html.indexOf("Send project facts") < html.indexOf('class="pro-note"'), "Help link stays the primary next step");
+});
+
+test("missing locality shows no Pro proposal", () => {
+  const c = checker([]);
+  c.elements.get("locality").value = "";
+  assert.doesNotMatch(c.render(), /pro-note|\/pro\//);
+});
