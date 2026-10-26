@@ -1,3 +1,5 @@
+> **Execution update, 2026-10-26:** Q03 (San Diego self-issued PV, LinkedIn) was published early on October 26 as GridPermit company page post: https://www.linkedin.com/feed/update/urn:li:share:7520405538686312448/. Never republish Q03 on its originally planned October 29 date. An AB 1738 remote-inspection/PTO company post was independently verified as published October 24; its permalink remains unrecorded. The canonical duplicate-prevention ledger is `data/distribution/posted-topics.json`. No automated publishing or engagement gate was enabled.
+
 # GridPermit organic distribution: 30-day plan (2026-10-26 to 2026-11-20)
 
 Status: **plan and drafts only. Nothing has been posted, scheduled, liked, followed or sent.** Written 2026-10-23 on branch `claude/sprint-distribution-20261023`. The publishing gate (`data/distribution/publishing-gate.json`) is fully disabled and unchanged. Machine-readable version: `data/distribution/queue-30day.json`. Draft texts: `data/distribution/candidates.json`.
