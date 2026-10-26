@@ -130,6 +130,13 @@ test("result links to the Pro proposal as interest only, without counting intere
   assert.ok(html.indexOf("Send project facts") < html.indexOf('class="pro-note"'), "Help link stays the primary next step");
 });
 
+test("Pro proposal link resolves to the canonical /pro/ page and interest is counted only there", () => {
+  const proPage = readFileSync(path.join(root, "src/pages/pro.astro"), "utf8");
+  assert.match(proPage, /<link rel="canonical" href="https:\/\/mygridpermit\.com\/pro\/"/, "/pro/ link target must stay the canonical Pro page");
+  assert.match(proPage, /data-track-click="pro_interest_clicked"/, "Interest event stays on the /pro/ CTA");
+  assert.doesNotMatch(template, /pro_interest_clicked/, "Permit Path must never fire the Pro interest event");
+});
+
 test("missing locality shows no Pro proposal", () => {
   const c = checker([]);
   c.elements.get("locality").value = "";
