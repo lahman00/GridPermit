@@ -9,9 +9,37 @@ export interface CommercialSeoProfile {
 // were held candidates from that review, added 2026-10-16 after their City
 // pages were rechecked). Raw search metrics stay in the private
 // operator evidence store; this public source contains only reviewed copy.
-// Every factual phrase below is already supported by the corresponding
-// locality record and its official sources.
+// The 2026-10-28 review adds Bakersfield, Fresno and Oxnard. Profiles only
+// affect copy; they do not activate a commercial route. Official permit
+// sources were re-read for this copy, not to recertify every record field.
 export const COMMERCIAL_SEO_PROFILES = new Map<string, CommercialSeoProfile>([
+	[
+		"ca-kern-bakersfield-pge",
+		{
+			title: "Bakersfield Solar Permits: Checklist & Documents | GridPermit",
+			description:
+				"Find Bakersfield's official solar permit sources, application checklist, plan requirements and inspection steps. PG&E interconnection is separate.",
+			lead: "Start with the City's permit checklist and plans. PG&E interconnection and PTO remain separate.",
+		},
+	],
+	[
+		"ca-fresno-fresno-pge",
+		{
+			title: "Fresno Solar Permits: City & County Links | GridPermit",
+			description:
+				"Find the City of Fresno solar permit guide, SolarAPP+ and Accela steps, plus separate Fresno County permit links. PG&E PTO remains separate.",
+			lead: "This guide covers City of Fresno permits. Use the County links below for County-issued permits; PG&E PTO remains separate.",
+		},
+	],
+	[
+		"ca-ventura-oxnard-sce",
+		{
+			title: "Oxnard Solar Permits: SolarAPP+ & Contractor Steps | GridPermit",
+			description:
+				"Check Oxnard's licensed-contractor SolarAPP+ path, Click2Gov application, business license and inspection steps. SCE interconnection remains separate.",
+			lead: "Oxnard's SolarAPP+ and Click2Gov path is for licensed contractors. SCE interconnection and PTO remain separate.",
+		},
+	],
 	[
 		"ca-san-diego-chula-vista-sdge",
 		{

@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import DesignHead from "../components/DesignHead.astro";
+import FresnoPermitJurisdiction from "../components/FresnoPermitJurisdiction.astro";
 // Reusable shell for locality guide pages. A page using this layout should
 // only import its locality JSON record and pass it here along with the
 // route's own path — every other section, schema block, and trust rule is
@@ -271,6 +272,7 @@ const tocItems = [
               <a href="#overview" class="gp-button gp-locality-actions">See your permit path <span aria-hidden="true">↓</span></a>
             </div>
             <p class="subtitle gp-locality-context">{record.county.value && <>{countyHubUrl ? <a href={countyHubUrl}>{record.county.value}</a> : record.county.value} · </>}{utilityHubUrl && <a href={utilityHubUrl}>Explore related utility guides</a>}</p>
+			{record.record_id === "ca-fresno-fresno-pge" && <FresnoPermitJurisdiction />}
 
 			<!-- Screen-hidden, print-only: a checklist masthead so a printed
 			     page is identifiable and dated on its own, without the nav/

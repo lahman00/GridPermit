@@ -8,6 +8,9 @@ import {
 import { isCompareSolarServedLocality } from "../src/lib/compare-solar-prices.ts";
 
 const EXPECTED = new Map([
+	["ca-kern-bakersfield-pge", "Bakersfield"],
+	["ca-fresno-fresno-pge", "Fresno"],
+	["ca-ventura-oxnard-sce", "Oxnard"],
 	["ca-san-diego-chula-vista-sdge", "Chula Vista"],
 	["ca-los-angeles-pomona-sce", "Pomona"],
 	["ca-riverside-menifee-sce", "Menifee"],
@@ -20,10 +23,10 @@ const EXPECTED = new Map([
 	["ca-los-angeles-lakewood-sce", "Lakewood"],
 ]);
 
-test("commercial SEO profiles stay bounded to the ten reviewed active routes", () => {
+test("SEO profiles stay bounded to reviewed pages without activating unpaid routes", () => {
 	assert.deepEqual([...COMMERCIAL_SEO_PROFILES.keys()].sort(), [...EXPECTED.keys()].sort());
 	for (const [recordId, city] of EXPECTED) {
-		assert.equal(isCompareSolarServedLocality("CA", city), true, `${city} must remain an approved CSP locality`);
+		assert.equal(isCompareSolarServedLocality("CA", city), !["Bakersfield", "Fresno"].includes(city), `${city} commercial eligibility must remain unchanged`);
 		assert.ok(getCommercialSeoProfile(recordId));
 	}
 	assert.equal(getCommercialSeoProfile("ca-los-angeles-los-angeles-ladwp"), null);
@@ -38,7 +41,7 @@ test("reviewed titles and descriptions are distinct, concise, and fact-bounded",
 		assert.ok(profile.title.length <= 65, `${city} title is ${profile.title.length} characters`);
 		assert.ok(profile.description.length >= 120, `${city} description is too thin`);
 		assert.ok(profile.description.length <= 160, `${city} description is ${profile.description.length} characters`);
-		assert.match(profile.description, /(?:SDG&E|SCE) (?:interconnection|PTO)/);
+		assert.match(profile.description, /(?:SDG&E|SCE|PG&E) (?:interconnection|PTO)/);
 		assert.match(profile.lead, /PTO remains? separate/);
 		assert.doesNotMatch(profile.title + profile.description + profile.lead, /guarantee|save \$|approval in/i);
 		titles.add(profile.title);
@@ -46,6 +49,18 @@ test("reviewed titles and descriptions are distinct, concise, and fact-bounded",
 	}
 	assert.equal(titles.size, EXPECTED.size);
 	assert.equal(descriptions.size, EXPECTED.size);
+});
+
+test("new search copy distinguishes Fresno jurisdictions and Oxnard contractor scope", () => {
+	const fresno = getCommercialSeoProfile("ca-fresno-fresno-pge");
+	assert.match(fresno.lead, /covers City of Fresno permits/);
+	assert.match(fresno.description, /separate Fresno County permit links/);
+	const oxnard = getCommercialSeoProfile("ca-ventura-oxnard-sce");
+	assert.match(oxnard.lead, /for licensed contractors/);
+	for (const id of ["ca-kern-bakersfield-pge", "ca-fresno-fresno-pge", "ca-ventura-oxnard-sce"]) {
+		const profile = getCommercialSeoProfile(id);
+		assert.doesNotMatch(profile.title + profile.description + profile.lead, /\$\d|\d+\s*kW|same.day|guarantee/i);
+	}
 });
 
 test("fee language appears only where a sourced city fee is available", () => {
