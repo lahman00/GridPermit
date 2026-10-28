@@ -1,5 +1,6 @@
 ---
 import BrandLogo from './BrandLogo.astro';
+import { SOLAR_ORGANIZER, organizerCheckout } from '../lib/solar-organizer';
 
 const year = new Date().getFullYear();
 ---
@@ -9,7 +10,7 @@ const year = new Date().getFullYear();
       <div class="gp-footer-intro"><a href="/" class="gp-wordmark" aria-label="GridPermit home"><BrandLogo /></a><p>A clearer path from local requirements to your next solar decision.</p></div>
       <nav class="gp-footer-nav" aria-label="Footer navigation">
         <div><a href="/search/">Find a permit guide</a><a href="/permits/">Browse states</a><a href="/california/solar-permit-guides/">California cities</a><a href="/blog/">Solar guides</a></div>
-        <div><a href="/methodology/">Methodology</a><a href="/how-it-works/">How it works</a><a href="/for-installers/">For installers</a><a href="/pro/">GridPermit Pro</a></div>
+        <div><a href="/methodology/">Methodology</a><a href="/how-it-works/">How it works</a><a href="/for-installers/">For installers</a><a href="/pro/">GridPermit Pro</a>{organizerCheckout && <a href={SOLAR_ORGANIZER.path}>Solar Project Organizer · $9</a>}</div>
         <div><a href="/about/">About</a><a href="/partners/">Partners</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
       </nav>
     </div>
