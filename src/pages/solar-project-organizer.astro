@@ -1,0 +1,115 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import DesignHead from "../components/DesignHead.astro";
+import Analytics from "../components/Analytics.astro";
+import { SOLAR_ORGANIZER, organizerCheckout } from "../lib/solar-organizer";
+
+const title = "Solar Project Organizer: Fillable PDF & Templates | GridPermit";
+const description = "Organize solar quotes, permit paperwork, inspections and utility approval in a six-page fillable PDF and three CSV templates. $9 USD, one-time purchase.";
+const canonical = `https://mygridpermit.com${SOLAR_ORGANIZER.path}`;
+const price = SOLAR_ORGANIZER.priceCents / 100;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  description,
+  url: canonical,
+};
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <DesignHead />
+  <Analytics />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {!organizerCheckout && <meta name="robots" content="noindex, nofollow" />}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="https://mygridpermit.com/products/solar-project-organizer-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <Header />
+  <main id="main-content" class="gp-container organizer-page" tabindex="-1">
+    <a class="back-link" href="/">← GridPermit</a>
+    <section class="organizer-hero" aria-labelledby="organizer-title">
+      <div>
+        <p class="eyebrow">A downloadable workbook for homeowners</p>
+        <h1 id="organizer-title">Solar Project Organizer</h1>
+        <p class="lead">Keep your quotes, permit paperwork and utility approvals in one working file.</p>
+        <p>Compare written offers, track the next step and collect the documents you will need at the end of your solar project.</p>
+        <div class="purchase-box">
+          <p class="price">${price} <span>USD · one-time purchase</span></p>
+          {organizerCheckout ? <>
+            <a class="buy-link" href={organizerCheckout} rel="noopener">Buy the organizer · ${price}</a>
+            <p class="purchase-note">Checkout is handled by Whop. After payment, sign in to Whop and download the ZIP from Files. Download access lasts one year; save the files to keep your own copy. Any applicable tax is shown at checkout.</p>
+          </> : <>
+            <button class="buy-link" disabled>Checkout not yet available</button>
+            <p class="purchase-note">This product is not currently for sale.</p>
+          </>}
+          <p class="purchase-note">Six-page fillable PDF + three editable CSV templates. No subscription.</p>
+        </div>
+      </div>
+      <figure>
+        <a href="/products/solar-project-organizer-preview.png" aria-label="View the first page of the organizer">
+          <img src="/products/solar-project-organizer-preview.png" alt="Preview of the organizer's project overview page, with blank fields for project details and next actions" width="1275" height="1650" fetchpriority="high" />
+        </a>
+        <figcaption>Page 1 of 6. Click to view the sample.</figcaption>
+      </figure>
+    </section>
+    <section class="details" aria-labelledby="included-title">
+      <h2 id="included-title">What you get</h2>
+      <div class="contents-grid">
+        <div><h3>A six-page PDF with 45 fillable fields</h3><p>Project overview, quote comparison, permit office check, permit and inspection tracker, utility approval tracker, and final handoff checklist.</p></div>
+        <div><h3>Three editable CSV templates</h3><p>Quote comparison, project action log and source check log. Add more rows as your project grows.</p></div>
+        <div><h3>A short setup guide</h3><p>Save your own copy, open the PDF in a reader that supports forms, and use a spreadsheet application for the CSV files. The PDF can also be printed.</p></div>
+      </div>
+    </section>
+    <section class="details boundary" aria-labelledby="scope-title">
+      <h2 id="scope-title">Know what you are buying</h2>
+      <p>This is a blank organizer. It does not include current permit rules, individual research, application filing, design work or live updates. Verify your project's requirements with the official permit office and electric utility.</p>
+      <p>Your completed files stay with you. The PDF has no submit button, automatic upload or JavaScript.</p>
+      <p>Our <a href="/search/">city permit guides</a> remain free. For questions about the download, <a href="/contact/">contact GridPermit</a>.</p>
+    </section>
+  </main>
+  <Footer />
+</body>
+</html>
+<style>
+  .organizer-page { padding-block: 40px 88px; }
+  .back-link { display: inline-block; margin-bottom: 36px; font-size: 14px; }
+  .organizer-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
+  .eyebrow { color: var(--gp-accent); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { font-size: clamp(40px, 5vw, 68px); max-width: 680px; }
+  .lead { font-size: 22px; line-height: 1.5; }
+  .purchase-box { border-top: 1px solid var(--gp-line); margin-top: 28px; padding-top: 18px; }
+  .price { font-size: 36px; font-weight: 600; margin: 0 0 18px; }
+  .price span { font-size: 15px; font-weight: 400; color: var(--gp-muted); }
+  .buy-link { display: inline-block; border: 0; border-radius: 2px; padding: 15px 22px; background: var(--gp-accent); color: var(--gp-accent-ink); font: 600 17px/1.4 var(--gp-font); text-decoration: none; }
+  .buy-link:hover { color: var(--gp-accent-ink); }
+  .buy-link:disabled { background: var(--gp-surface); color: var(--gp-muted); cursor: not-allowed; }
+  .purchase-note { color: var(--gp-muted); font-size: 13px; max-width: 570px; }
+  figure { margin: 0; }
+  figure img { display: block; width: 100%; height: auto; border: 1px solid var(--gp-line); background: white; }
+  figcaption { margin-top: 12px; font-size: 12px; color: var(--gp-muted); }
+  .details { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--gp-line); }
+  .details h2 { font-size: 32px; margin-bottom: 28px; }
+  .contents-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  .contents-grid h3 { font-size: 22px; line-height: 1.3; }
+  .contents-grid p, .boundary p { color: var(--gp-muted); }
+  .boundary { max-width: 850px; }
+  @media (max-width: 760px) { .organizer-hero, .contents-grid { grid-template-columns: 1fr; } .organizer-hero figure { max-width: 480px; } .lead { font-size: 20px; } .details { margin-top: 44px; } }
+</style>
