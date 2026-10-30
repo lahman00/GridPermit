@@ -4,12 +4,13 @@ import path from 'node:path';
 import {buildHebrewAutopilotReport,collectAutopilotFindings,publicAutopilotStatus,reconcileAutopilotState} from './lib/autopilot-system.mjs';
 
 const args=process.argv.slice(2),options={};
-for(let i=0;i<args.length;i++){if(!['--mode','--out','--operations','--partner-health','--probe','--sources','--state','--expected-commit','--now'].includes(args[i])||!args[i+1])throw new Error(`Invalid option: ${args[i]}`);options[args[i].slice(2).replaceAll('-','_')]=args[++i];}
+for(let i=0;i<args.length;i++){if(!['--mode','--out','--operations','--partner-health','--probe','--sources','--state','--expected-commit','--now','--build-status'].includes(args[i])||!args[i+1])throw new Error(`Invalid option: ${args[i]}`);options[args[i].slice(2).replaceAll('-','_')]=args[++i];}
+if(options.build_status&&!['success','failure','cancelled','skipped'].includes(options.build_status))throw new Error('Invalid build status');
 if(!['daily','weekly'].includes(options.mode)||!options.out||!options.operations||!options.partner_health||!options.probe||!options.sources||!/^[a-f0-9]{40}$/.test(options.expected_commit??''))throw new Error('Missing required autopilot options');
 const json=async file=>JSON.parse(await readFile(file,'utf8')),optional=async file=>{if(!file)return null;try{return await json(file);}catch(error){if(error.code==='ENOENT')return null;throw error;}};
 const now=options.now??new Date().toISOString();
 const [operations,partnerHealth,probe,sources,priorState]=await Promise.all([json(options.operations),json(options.partner_health),json(options.probe),json(options.sources),optional(options.state)]);
-const findings=collectAutopilotFindings({operations,partnerHealth,probe,sources,expectedCommit:options.expected_commit});
+const findings=collectAutopilotFindings({operations,partnerHealth,probe,sources,expectedCommit:options.expected_commit,buildStatus:options.build_status});
 findings.operations_outbounds=Number.isSafeInteger(operations?.revenue?.stage_counts?.OUTBOUND_RECORDED)?operations.revenue.stage_counts.OUTBOUND_RECORDED:null;
 const transition=reconcileAutopilotState({priorState,findings,mode:options.mode,now});
 const report=buildHebrewAutopilotReport({mode:options.mode,now,findings,transition});

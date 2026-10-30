@@ -39,21 +39,24 @@ function stageCounts(operations){
   return Object.fromEntries(CONVERSION_STAGES.map(stage=>[stage,n(counts[stage])]));
 }
 
-export function collectAutopilotFindings({operations=null,partnerHealth=null,probe=null,sources={},expectedCommit=null}={}){
+export function collectAutopilotFindings({operations=null,partnerHealth=null,probe=null,sources={},expectedCommit=null,buildStatus=null}={}){
   const productionAvailable=probe?.production?.available===true;
   const productionOk=productionAvailable&&probe.production.ok===true;
   const releaseCommit=probe?.production?.release_commit??null;
   const releaseMatches=Boolean(expectedCommit&&releaseCommit===expectedCommit);
   const routeFailures=n(partnerHealth?.failures?.length)??null;
   const destinationFailures=n(partnerHealth?.destination_failures?.length)??null;
+  const stalePrograms=Array.isArray(partnerHealth?.stale_programs)?partnerHealth.stale_programs:null;
   const telemetryAvailable=probe?.telemetry?.available===true;
   const telemetryOk=telemetryAvailable&&probe.telemetry.ok===true;
   const counts=stageCounts(operations);
   const paid=Number.isSafeInteger(operations?.revenue?.paid_revenue_cents)?operations.revenue.paid_revenue_cents:null;
   const statuses={
+    source_build:buildStatus==='success'?'VERIFIED':buildStatus==='failure'?'NEEDS ATTENTION':'UNKNOWN',
     production:productionOk?'VERIFIED':productionAvailable?'NEEDS ATTENTION':'UNKNOWN',
     release_identity:releaseMatches?'VERIFIED':releaseCommit&&expectedCommit?'NEEDS ATTENTION':'UNKNOWN',
-    commercial_routes:routeFailures===0?'VERIFIED':routeFailures===null?'UNKNOWN':'NEEDS ATTENTION',
+    commercial_routes:stalePrograms?.length?'NEEDS ATTENTION':routeFailures===0?'VERIFIED':routeFailures===null?'UNKNOWN':'NEEDS ATTENTION',
+    partner_programs:stalePrograms===null?'UNKNOWN':stalePrograms.length?'NEEDS ATTENTION':'VERIFIED',
     destination:destinationFailures===0?'VERIFIED':destinationFailures===null?'UNKNOWN':'NEEDS ATTENTION',
     telemetry:telemetryOk?'VERIFIED':telemetryAvailable?'NEEDS ATTENTION':sources.outbound==='BLOCKED'?'BLOCKED':'UNKNOWN',
     outbound_export:STATUS.has(sources.outbound)?sources.outbound:'UNKNOWN',
@@ -63,6 +66,7 @@ export function collectAutopilotFindings({operations=null,partnerHealth=null,pro
     notifications:STATUS.has(sources.notifications)?sources.notifications:'UNKNOWN'
   };
   const events=[];
+  if(buildStatus==='failure')events.push(event('WORKFLOW_FAILURE','source-build'));
   if(productionAvailable&&!productionOk)events.push(event('PRODUCTION_OUTAGE'));
   if(expectedCommit&&releaseCommit&&releaseCommit!==expectedCommit)events.push(event('RELEASE_DRIFT',releaseCommit.slice(0,12)));
   if(routeFailures>0)events.push(event('ACTIVE_ROUTE_BROKEN','active-routes',routeFailures));
@@ -104,6 +108,15 @@ export function reconcileAutopilotState({priorState=null,findings,mode,now,coold
 const show=value=>value===null?'UNKNOWN':String(value);
 const shekelsNever=amount=>amount===null?'UNKNOWN':`$${(amount/100).toFixed(2)}`;
 const statusLine=(label,status)=>`- ${label}: **${status}**`;
+const nextAction=findings=>findings.statuses.partner_programs==='NEEDS ATTENTION'
+  ? 'לאמת מחדש את ראיות השותף שפג תוקפן לפני חידוש המסלולים; לא להאריך תוקף או לעקוף שערים אוטומטית.'
+  : findings.statuses.source_build==='NEEDS ATTENTION'
+    ? 'לטפל בכשל הבנייה ושימור המסלולים. בדיקות האתר החי מוצגות בנפרד; הכשל אינו הוכחה להשבתת האתר.'
+    : findings.statuses.telemetry!=='VERIFIED'
+      ? 'להחזיר גישת export פרטית לטלמטריית היציאה ולשמור UNKNOWN עד שהגישה קיימת.'
+      : findings.statuses.partner_report!=='VERIFIED'
+        ? 'לקבל דוח CID אנונימי ומאומת מהשותף ולבצע reconciliation.'
+        : 'לטפל בהתראה המסחרית החדשה בעלת החומרה הגבוהה ביותר.';
 
 export function buildHebrewAutopilotReport({mode,now,findings,transition}={}){
   const daily=`# דוח תפעול יומי GridPermit
@@ -111,9 +124,11 @@ export function buildHebrewAutopilotReport({mode,now,findings,transition}={}){
 **זמן בדיקה:** ${now}
 
 ## בריאות המערכת
+${statusLine('בנייה ושימור מסלולים',findings.statuses.source_build)}
 ${statusLine('פרודקשן',findings.statuses.production)}
 ${statusLine('זהות גרסה',findings.statuses.release_identity)}
 ${statusLine('מסלולים מסחריים',findings.statuses.commercial_routes)}
+${statusLine('תוקף אימות תוכנית השותף',findings.statuses.partner_programs)}
 ${statusLine('יעד השותף',findings.statuses.destination)}
 ${statusLine('טלמטריית יציאה',findings.statuses.telemetry)}
 
@@ -135,6 +150,7 @@ UNKNOWN אינו אפס. לא נוצרו clicks, referrals או test leads במ�
 
 ## פעולה
 ${transition.notifications.length?`נמצאו ${transition.notifications.length} התראות חדשות שדורשות טיפול.`:'אין התראה חדשה המחייבת פעולה.'}
+${nextAction(findings)}
 `;
   if(mode==='daily')return daily;
   return `# דוח בעלים שבועי GridPermit
@@ -152,8 +168,10 @@ ${statusLine('Search Console',findings.statuses.gsc)}
 ${statusLine('GA4',findings.statuses.ga4)}
 
 ## שותפים ותפעול
+${statusLine('בנייה ושימור מסלולים',findings.statuses.source_build)}
 ${statusLine('דוח שותף',findings.statuses.partner_report)}
 ${statusLine('מסלולים מסחריים',findings.statuses.commercial_routes)}
+${statusLine('תוקף אימות תוכנית השותף',findings.statuses.partner_programs)}
 - עמודים שנבדקו: ${show(findings.pages_checked)}
 - עמודים עם מסלול בתשלום: ${show(findings.paid_pages)}
 
@@ -161,7 +179,7 @@ ${statusLine('מסלולים מסחריים',findings.statuses.commercial_routes
 ${transition.changed?'נמצא שינוי במצב המאומת.':'לא נמצא שינוי מהותי במצב המאומת.'}
 
 ## הפעולה החשובה הבאה
-${findings.statuses.telemetry!=='VERIFIED'?'להחזיר גישת export פרטית לטלמטריית היציאה ולשמור UNKNOWN עד שהגישה קיימת.':findings.statuses.partner_report!=='VERIFIED'?'לקבל דוח CID אנונימי ומאומת מהשותף ולבצע reconciliation.':'לטפל בהתראה המסחרית החדשה בעלת החומרה הגבוהה ביותר.'}
+${nextAction(findings)}
 
 לא בוצעו deploy, מיזוג, הודעה לשותף, spend או יצירת תנועה מסחרית.
 `;

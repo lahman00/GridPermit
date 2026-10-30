@@ -3,6 +3,9 @@ import assert from 'node:assert/strict';
 import {mkdtemp,readFile,writeFile} from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {runInNewContext} from 'node:vm';
+import {load as loadYaml} from 'js-yaml';
 import {assertPublicSafe,buildHebrewAutopilotReport,collectAutopilotFindings,emptyAutopilotState,publicAutopilotStatus,reconcileAutopilotState} from '../scripts/lib/autopilot-system.mjs';
 
 const now='2026-10-09T10:00:00.000Z',commit='a'.repeat(40);
@@ -18,6 +21,72 @@ test('healthy unavailable evidence stays BLOCKED or UNKNOWN rather than zero',()
   assert.equal(findings.statuses.partner_report,'BLOCKED');
   assert.equal(findings.counts.QUALIFIED_LEAD,null);
   assert.equal(findings.paid_revenue_cents,null);
+});
+
+test('failed source build does not imply a production outage or a successful release',()=>{
+  const findings=collectAutopilotFindings({operations,partnerHealth:health,probe,sources,expectedCommit:commit,buildStatus:'failure'});
+  assert.equal(findings.statuses.source_build,'NEEDS ATTENTION');
+  assert.equal(findings.statuses.production,'VERIFIED');
+  assert.equal(findings.statuses.telemetry,'VERIFIED');
+  assert.deepEqual(findings.events.map(({code,severity})=>({code,severity})),[{code:'WORKFLOW_FAILURE',severity:'CRITICAL'}]);
+  assert.equal(collectAutopilotFindings().statuses.source_build,'UNKNOWN');
+});
+
+test('expired partner evidence cannot look healthy when no eligible routes remain',()=>{
+  const findings=collectAutopilotFindings({operations,partnerHealth:{...health,paid_pages:0,stale_programs:['synthetic-partner'],ok:false},probe,sources,expectedCommit:commit,buildStatus:'failure'});
+  assert.equal(findings.statuses.commercial_routes,'NEEDS ATTENTION');
+  assert.equal(findings.statuses.partner_programs,'NEEDS ATTENTION');
+  assert.equal(findings.statuses.destination,'VERIFIED');
+  assert.deepEqual(findings.events.map(x=>x.code),['WORKFLOW_FAILURE','EVIDENCE_EXPIRED']);
+  const transition=reconcileAutopilotState({findings,mode:'weekly',now});
+  for(const mode of ['daily','weekly']){
+    const report=buildHebrewAutopilotReport({mode,now,findings,transition});
+    assert.match(report,/לאמת מחדש את ראיות השותף/);
+    assert.match(report,/לא להאריך תוקף/);
+    assert.match(report,/UNKNOWN/);
+  }
+  assert.equal(collectAutopilotFindings().statuses.partner_programs,'UNKNOWN');
+});
+
+test('workflow continues independent evidence and reporting after build or audit failure without masking failed steps',async()=>{
+  const workflow=loadYaml(await readFile(new URL('../.github/workflows/autopilot.yml',import.meta.url),'utf8'));
+  const steps=workflow.jobs.operate.steps;
+  const build=steps.find(s=>s.id==='build');
+  assert.equal(build.run,'npm run build');
+  assert.equal(build['continue-on-error'],undefined);
+  const independent=['Probe production','Audit live','Record integration','Run the existing','Build daily'];
+  for(const prefix of independent){
+    const step=steps.find(s=>s.name?.startsWith(prefix));
+    assert.equal(step['continue-on-error'],undefined);
+    const expression=step.if.replace(/^\$\{\{\s*|\s*\}\}$/g,'');
+    const context={cancelled:()=>false,steps:{install:{outcome:'success'},mode:{outcome:'success'},build:{outcome:'failure'}}};
+    assert.equal(runInNewContext(expression,context),true,step.name);
+    assert.equal(runInNewContext(expression,{...context,cancelled:()=>true}),false,step.name);
+    assert.equal(runInNewContext(expression,{...context,steps:{...context.steps,install:{outcome:'failure'}}}),false,step.name);
+  }
+  const reporter=steps.find(s=>s.id==='autopilot');
+  assert.equal(reporter.env.BUILD_STATUS,'${{ steps.build.outcome }}');
+  assert.match(reporter.run,/--build-status "\$BUILD_STATUS"/);
+  // Private export and delivery retain the default success() gate on a failed run.
+  assert.equal(steps.find(s=>s.id==='outbound').if,undefined);
+  assert.doesNotMatch(steps.find(s=>s.name?.startsWith('Deliver private')).if,/always\(|cancelled\(|failure\(/);
+});
+
+test('CLI writes both reports and public failure evidence after a failed build with expired approval',async()=>{
+  const root=await mkdtemp(path.join(os.tmpdir(),'gp-autopilot-failure-'));
+  const inputs={operations,health:{...health,paid_pages:0,stale_programs:['synthetic-partner'],ok:false},probe,sources};
+  for(const [name,value] of Object.entries(inputs))await writeFile(path.join(root,name+'.json'),JSON.stringify(value));
+  const result=spawnSync(process.execPath,[path.resolve(import.meta.dirname,'../scripts/gridpermit-autopilot.mjs'),'--mode','weekly','--build-status','failure','--out',path.join(root,'result'),'--operations',path.join(root,'operations.json'),'--partner-health',path.join(root,'health.json'),'--probe',path.join(root,'probe.json'),'--sources',path.join(root,'sources.json'),'--expected-commit',commit],{encoding:'utf8'});
+  assert.equal(result.status,0,result.stderr);
+  const summary=JSON.parse(result.stdout);
+  assert.equal(summary.critical_alerts,1);
+  const publicStatus=JSON.parse(await readFile(path.join(root,'result/AUTOPILOT_PUBLIC_STATUS.json'),'utf8'));
+  assert.equal(publicStatus.statuses.source_build,'NEEDS ATTENTION');
+  assert.equal(publicStatus.statuses.production,'VERIFIED');
+  assert.equal(publicStatus.statuses.commercial_routes,'NEEDS ATTENTION');
+  assert.equal(publicStatus.statuses.partner_programs,'NEEDS ATTENTION');
+  assert.doesNotThrow(()=>assertPublicSafe(publicStatus));
+  for(const name of ['DAILY_OPERATIONS_REPORT_HE.md','WEEKLY_OWNER_REPORT_HE.md'])assert.match(await readFile(path.join(root,'result',name),'utf8'),/לאמת מחדש את ראיות השותף/);
 });
 
 test('production, route, destination and telemetry failures create critical events',()=>{
