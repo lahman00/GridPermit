@@ -54,8 +54,8 @@ const schema = {
         <div class="purchase-box">
           <p class="price">${price} <span>USD · one-time purchase</span></p>
           {organizerCheckout ? <>
-            <a class="buy-link" href={organizerCheckout} rel="noopener">Buy the organizer · ${price}</a>
-            <p class="purchase-note">Checkout is handled by Whop. After payment, sign in to Whop and download the ZIP from Files. Download access lasts one year; save the files to keep your own copy. Any applicable tax is shown at checkout.</p>
+            <a class="buy-link" href={organizerCheckout} rel="noopener" data-track-click="organizer_checkout_clicked">Buy the organizer · ${price}</a>
+            <p class="purchase-note">Checkout is handled by Whop. After payment, sign in to Whop and download the ZIP from Files. Download access lasts one year; save the files to keep your own copy. Any applicable tax is shown at checkout. See the <a href="/terms/">digital download terms</a>.</p>
           </> : <>
             <button class="buy-link" disabled>Checkout not yet available</button>
             <p class="purchase-note">This product is not currently for sale.</p>

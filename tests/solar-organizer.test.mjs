@@ -16,3 +16,15 @@ test("missing or malformed payment destinations stay disabled", () => {
 test("the verified GridPermit Whop checkout URL can be used without scripts or payment data on GridPermit", () => {
   assert.equal(validatedOrganizerCheckout("https://whop.com/checkout/plan_40O1gcALdY9Hz/"), "https://whop.com/checkout/plan_40O1gcALdY9Hz/");
 });
+
+import { readFileSync } from "node:fs";
+
+test("the buy link is measured by a closed-list event and the purchase is disclosed in the terms and privacy pages", () => {
+  const page = readFileSync(new URL("../src/pages/solar-project-organizer.astro", import.meta.url), "utf8");
+  assert.match(page, /href=\{organizerCheckout\}[^>]*data-track-click="organizer_checkout_clicked"/);
+  assert.match(page, /href="\/terms\/"/);
+  const terms = readFileSync(new URL("../src/pages/terms.astro", import.meta.url), "utf8");
+  assert.match(terms, /Digital Downloads:[\s\S]*Whop[\s\S]*does not receive your card details/);
+  const privacy = readFileSync(new URL("../src/pages/privacy.astro", import.meta.url), "utf8");
+  assert.match(privacy, /<h2>Purchases<\/h2>[\s\S]*Whop[\s\S]*without any purchase, name, email or payment details/);
+});
