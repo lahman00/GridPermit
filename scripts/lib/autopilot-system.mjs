@@ -109,7 +109,7 @@ const show=value=>value===null?'UNKNOWN':String(value);
 const shekelsNever=amount=>amount===null?'UNKNOWN':`$${(amount/100).toFixed(2)}`;
 const statusLine=(label,status)=>`- ${label}: **${status}**`;
 const nextAction=findings=>findings.statuses.partner_programs==='NEEDS ATTENTION'
-  ? 'לאמת מחדש את ראיות השותף שפג תוקפן לפני חידוש המסלולים; לא להאריך תוקף או לעקוף שערים אוטומטית.'
+  ? 'לאמת מחדש את ראיות השותף ולתעד סקירה לפני חידוש המסלולים. חלף מועד הבדיקה הפנימי; זו אינה קביעה שהשותפות הסתיימה. אין להאריך תוקף אוטומטית או לעקוף שערים.'
   : findings.statuses.source_build==='NEEDS ATTENTION'
     ? 'לטפל בכשל הבנייה ושימור המסלולים. בדיקות האתר החי מוצגות בנפרד; הכשל אינו הוכחה להשבתת האתר.'
     : findings.statuses.telemetry!=='VERIFIED'

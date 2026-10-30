@@ -42,7 +42,8 @@ test('expired partner evidence cannot look healthy when no eligible routes remai
   for(const mode of ['daily','weekly']){
     const report=buildHebrewAutopilotReport({mode,now,findings,transition});
     assert.match(report,/לאמת מחדש את ראיות השותף/);
-    assert.match(report,/לא להאריך תוקף/);
+    assert.match(report,/אין להאריך תוקף אוטומטית/);
+    assert.match(report,/זו אינה קביעה שהשותפות הסתיימה/);
     assert.match(report,/UNKNOWN/);
   }
   assert.equal(collectAutopilotFindings().statuses.partner_programs,'UNKNOWN');
