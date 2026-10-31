@@ -24,12 +24,14 @@ const defaults = {
     gap: 8px;
     width: fit-content;
     color: var(--gp-muted);
-    font: 9px/1.5 var(--gp-mono);
+    font: 11px/1.5 var(--gp-mono);
     letter-spacing: .07em;
     text-transform: uppercase;
   }
   .gp-evidence-state i { width: 7px; height: 7px; border: 1px solid currentColor; background: transparent; }
   .gp-evidence-state--verified { color: #62b982; }
+  :global(:root[data-theme='light']) .gp-evidence-state--verified { color: #1b6b3a; }
+  :global(:root[data-theme='light']) .gp-evidence-state--conditional { color: #8a5300; }
   .gp-evidence-state--verified i { background: currentColor; box-shadow: 0 0 0 4px color-mix(in srgb, #62b982 12%, transparent); }
   .gp-evidence-state--conditional { color: #e6a34a; }
   .gp-evidence-state--conditional i { background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
