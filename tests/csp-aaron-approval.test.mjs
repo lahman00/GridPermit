@@ -9,14 +9,15 @@ import {buildCommercialOutbound} from '../src/lib/commercial/attribution.ts';
 import {inspectPartnerHtml} from '../scripts/partner-health.mjs';
 
 const ROOT=path.resolve('.');
-const NOW='2026-09-30T12:00:00Z';
 const CID='a'.repeat(24);
 const registry=await loadPlatformRegistry(ROOT);
+const partner=registry.partners.find(p=>p.partner_id==='compare-solar-prices');
+const approval=registry.verifications.find(v=>v.reference===partner.approval_reference);
+const NOW=new Date(Date.parse(approval.verified_at)+3600000).toISOString();
 // This suite tests Aaron approval/routing semantics, not wall-clock destination freshness.
 // Pin cached health to the suite clock so a legitimate later health refresh cannot make
 // these deterministic approval assertions fail as if production routing regressed.
 for(const health of registry.health) health.checkedAt=NOW;
-const partner=registry.partners.find(p=>p.partner_id==='compare-solar-prices');
 
 function record(id){const r=registry.records.find(x=>x.record_id===id);assert.ok(r,'missing '+id);return r;}
 function contextFor(r,pagePath,intent='NEW_SOLAR'){
@@ -30,8 +31,25 @@ test('Aaron written approval binds CSP to new-solar plus existing-solar battery 
   assert.equal(partner.qualification.existing_solar,'ALLOW');
   assert.equal(partner.paths.battery,'https://www.comparesolarprices.net/#quote');
   assert.ok(!partner.categories.includes('BATTERY_NEW_INSTALL'));
-  assert.equal(partner.approval_reference,'csp-aaron-email-20260930');
+  assert.equal(partner.approval_reference,'csp-operator-review-20261030');
+  assert.equal(approval.reviewed,true);
+  for(const source of ['gmail:1a03a05e3fd3f646','gmail:1a0eafa285b84cf3','gmail:1a0ef13f175fb849','gmail:1a0f1bf9041d8bb6','gmail:1a0fdcecf35f78d3'])assert.ok(approval.evidence_reference.includes(source));
+  assert.equal(Date.parse(approval.expires_at)-Date.parse(approval.verified_at),30*86400000);
+  assert.equal(partner.program.reverify_after,approval.expires_at);
   assert.equal(partner.program.terms_reference,'gmail:1a0eafa285b84cf3; gmail:1a0f1bf9041d8bb6');
+});
+
+test('a fresh HEAD cannot override the next program or approval review deadline',()=>{
+  const r=record('ca-san-diego-san-diego-sdge');
+  const context=contextFor(r,'/blog/sdge-battery-roi-guide/','BATTERY_RETROFIT');
+  const expiredAt=approval.expires_at;
+  const expired=structuredClone(registry);
+  for(const health of expired.health)health.checkedAt=expiredAt;
+  const audit=debugPartnerRoutes(context,expired,expiredAt);
+  assert.equal(audit.selected,null);
+  const reasons=audit.candidates.find(c=>c.partner_id==='compare-solar-prices').reasons;
+  assert.ok(reasons.includes('PROGRAM_REVERIFY_DUE'));
+  assert.ok(reasons.includes('EVIDENCE_STALE_OR_INVALID'));
 });
 
 test('reviewed SDGE battery page selects CSP without GridPermit PII and preserves approved direct quote tracking',async()=>{
