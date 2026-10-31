@@ -1,31 +1,31 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { mkdtemp, writeFile, rm } from "node:fs/promises";
-import { readFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { loadPlatformRegistry } from "../scripts/lib/partner-config-io.mjs";
+import { buildFirstRevenueOpportunities } from "../scripts/build-first-revenue-opportunities.mjs";
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
 const SCRIPT = path.join(REPO_ROOT, "scripts/build-first-revenue-opportunities.mjs");
 
-const canonicalHealth = JSON.parse(readFileSync(path.join(REPO_ROOT, "data/commercial/destination-health.json"), "utf8"));
-const cspHealth = canonicalHealth.find((h) => h.url === "https://www.comparesolarprices.net/#quote");
-if (!cspHealth) throw new Error("Missing canonical CompareSolarPrices health");
-const cspCheckedAt = Date.parse(cspHealth.checkedAt);
-if (!Number.isFinite(cspCheckedAt)) throw new Error("Invalid canonical CompareSolarPrices health timestamp");
-// Deterministic relative clocks: a real health refresh must not make the fresh case
-// look future-dated or the stale case look fresh.
-const ROUTING_NOW = new Date(cspCheckedAt + 60 * 60 * 1000).toISOString();
-const ROUTING_STALE_NOW = new Date(cspCheckedAt + 49 * 60 * 60 * 1000).toISOString();
+const registry = await loadPlatformRegistry(REPO_ROOT);
+const partner = registry.partners.find(p => p.partner_id === "compare-solar-prices");
+const approval = registry.verifications.find(v => v.reference === partner.approval_reference);
+// Synthetic health is confined to this in-memory test registry. A real prebuild
+// refresh must not move a routing test's clock beyond the reviewed approval.
+const HEALTH_AT = approval.verified_at;
+for (const health of registry.health) health.checkedAt = HEALTH_AT;
+const ROUTING_NOW = new Date(Date.parse(HEALTH_AT) + 60 * 60 * 1000).toISOString();
+const ROUTING_STALE_NOW = new Date(Date.parse(HEALTH_AT) + 49 * 60 * 60 * 1000).toISOString();
 
-async function runWithRows(rows, now = ROUTING_NOW) {
+async function runWithRows(rows, now = ROUTING_NOW, testRegistry = registry) {
 	const dir = await mkdtemp(path.join(os.tmpdir(), "gp-first-revenue-"));
 	await writeFile(path.join(dir, "current_page.json"), JSON.stringify({ start: "2026-09-01", end: "2026-09-28", rows }));
 	try {
-		const out = execFileSync(process.execPath, ["--experimental-strip-types", SCRIPT, dir, "--now", now], { encoding: "utf8" });
-		return JSON.parse(out);
+		return await buildFirstRevenueOpportunities(dir, { now, registry: testRegistry });
 	} finally {
 		await rm(dir, { recursive: true, force: true });
 	}
@@ -82,6 +82,31 @@ test("expired destination health cannot be mislabeled as a currently paid route"
 	assert.equal(candidate.currently_paid_route, false);
 	assert.equal(candidate.classification, "NO_ACTION");
 	assert.ok(candidate.partner_blockers.includes("DESTINATION_UNVERIFIED_OR_BROKEN"));
+});
+
+test("expired approval is not monetized even when destination health is fresh", async () => {
+	const now = new Date(Date.parse(approval.expires_at) + 1000).toISOString();
+	const expired = structuredClone(registry);
+	for (const health of expired.health) health.checkedAt = now;
+	const out = await runWithRows([row("https://mygridpermit.com/california/poway/solar-permit-guide/", 1, 10)], now, expired);
+	assert.equal(out.candidates[0].currently_paid_route, false);
+	assert.equal(out.candidates[0].classification, "NO_ACTION");
+	assert.ok(out.candidates[0].partner_blockers.includes("EVIDENCE_STALE_OR_INVALID"));
+	assert.ok(out.candidates[0].partner_blockers.includes("PROGRAM_REVERIFY_DUE"));
+});
+
+test("CLI keeps using canonical fail-closed evidence after the review deadline", async () => {
+	const dir = await mkdtemp(path.join(os.tmpdir(), "gp-first-revenue-cli-"));
+	try {
+		await writeFile(path.join(dir, "current_page.json"), JSON.stringify({ rows: [row("https://mygridpermit.com/california/poway/solar-permit-guide/", 1, 10)] }));
+		const now = new Date(Date.parse(approval.expires_at) + 1000).toISOString();
+		const out = JSON.parse(execFileSync(process.execPath, ["--experimental-strip-types", SCRIPT, dir, "--now", now], { encoding: "utf8" }));
+		assert.equal(out.candidates[0].currently_paid_route, false);
+		assert.ok(out.candidates[0].partner_blockers.includes("PROGRAM_REVERIFY_DUE"));
+		assert.ok(out.candidates[0].partner_blockers.includes("EVIDENCE_STALE_OR_INVALID"));
+	} finally {
+		await rm(dir, { recursive: true, force: true });
+	}
 });
 
 test("the homepage is no-action, not misclassified as a locality page", async () => {

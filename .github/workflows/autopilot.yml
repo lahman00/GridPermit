@@ -38,6 +38,7 @@ jobs:
           cache: npm
 
       - name: Install dependencies
+        id: install
         run: npm ci
 
       - name: Choose bounded run mode
@@ -63,9 +64,11 @@ jobs:
             gridpermit-autopilot-state-
 
       - name: Build canonical source
+        id: build
         run: npm run build
 
       - name: Probe production and telemetry without creating traffic
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: |
           mkdir -p "$AUTOPILOT_ROOT"
           node scripts/autopilot-probe.mjs \
@@ -73,6 +76,7 @@ jobs:
             --expected-commit "$GITHUB_SHA"
 
       - name: Audit live commercial routes and approved destination
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: |
           node --experimental-strip-types scripts/partner-health.mjs \
             --live \
@@ -97,15 +101,18 @@ jobs:
 
       - name: Record integration availability without secrets
         id: sources
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         shell: bash
         env:
           OUTBOUND_STATUS: ${{ steps.outbound.outputs.status }}
           NOTIFICATION_CONFIGURED: ${{ secrets.GRIDPERMIT_ALERT_WEBHOOK_URL != '' }}
         run: |
-          node -e 'const fs=require("fs");const out={outbound:process.env.OUTBOUND_STATUS,partner_report:"BLOCKED",gsc:"BLOCKED",ga4:"BLOCKED",notifications:process.env.NOTIFICATION_CONFIGURED==="true"?"VERIFIED":"BLOCKED"};fs.writeFileSync(process.env.AUTOPILOT_ROOT+"/sources.json",JSON.stringify(out,null,2)+"\n")'
+          mkdir -p "$AUTOPILOT_ROOT"
+          node -e 'const fs=require("fs");const out={outbound:process.env.OUTBOUND_STATUS||"UNKNOWN",partner_report:"BLOCKED",gsc:"BLOCKED",ga4:"BLOCKED",notifications:process.env.NOTIFICATION_CONFIGURED==="true"?"VERIFIED":"BLOCKED"};fs.writeFileSync(process.env.AUTOPILOT_ROOT+"/sources.json",JSON.stringify(out,null,2)+"\n")'
           echo "notification_configured=$NOTIFICATION_CONFIGURED" >> "$GITHUB_OUTPUT"
 
       - name: Run the existing five-agent coordinator
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         shell: bash
         run: |
           args=(--out "$AUTOPILOT_ROOT/operations")
@@ -114,12 +121,15 @@ jobs:
 
       - name: Build daily and weekly reports with alert deduplication
         id: autopilot
+        if: ${{ !cancelled() && steps.install.outcome == 'success' && steps.mode.outcome == 'success' }}
         shell: bash
         env:
           MODE: ${{ steps.mode.outputs.value }}
+          BUILD_STATUS: ${{ steps.build.outcome }}
         run: |
           args=(
             --mode "$MODE"
+            --build-status "$BUILD_STATUS"
             --out "$AUTOPILOT_ROOT/result"
             --operations "$AUTOPILOT_ROOT/operations/OPERATING_STATE.json"
             --partner-health "$AUTOPILOT_ROOT/partner-health/PARTNER_HEALTH.json"
@@ -139,7 +149,7 @@ jobs:
         shell: bash
         run: |
           if [[ -f "$AUTOPILOT_ROOT/result/AUTOPILOT_PUBLIC_STATUS.json" ]]; then
-            node -e 'const fs=require("fs"),x=JSON.parse(fs.readFileSync(process.argv[1]));const lines=["## GridPermit Autopilot","Mode: **"+x.mode+"**","Production: **"+x.statuses.production+"**","Commercial routes: **"+x.statuses.commercial_routes+"**","Telemetry: **"+x.statuses.telemetry+"**","New public-safe alerts: **"+x.alerts.length+"**"];fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,lines.join("\n")+"\n")' "$AUTOPILOT_ROOT/result/AUTOPILOT_PUBLIC_STATUS.json"
+            node -e 'const fs=require("fs"),x=JSON.parse(fs.readFileSync(process.argv[1]));const lines=["## GridPermit Autopilot","Mode: **"+x.mode+"**","Source build: **"+x.statuses.source_build+"**","Production: **"+x.statuses.production+"**","Commercial routes: **"+x.statuses.commercial_routes+"**","Partner program evidence: **"+x.statuses.partner_programs+"**","Telemetry: **"+x.statuses.telemetry+"**","New public-safe alerts: **"+x.alerts.length+"**"];fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,lines.join("\n")+"\n")' "$AUTOPILOT_ROOT/result/AUTOPILOT_PUBLIC_STATUS.json"
           fi
 
       - name: Deliver private alert or weekly report when configured

@@ -1,6 +1,6 @@
 # CompareSolarPrices implementation and activation runbook
 
-Current source review: 2026-09-30. Production activity must be independently verified; a passing city helper is not an activation receipt.
+Current evidence review: [2026-10-30](reviews/2026-10-30-csp-evidence-review.md), covering the existing permission and later scoped correspondence. Internal review deadlines are separate from attribution windows and do not assert a partnership end date. Production activity must be independently verified; a passing city helper is not an activation receipt.
 
 ## Runtime contract
 
