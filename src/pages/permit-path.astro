@@ -144,6 +144,7 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       </section>
       <section class="card" id="result-card" aria-labelledby="result-heading">
         <h2 id="result-heading" tabindex="-1">Verified path</h2>
+        <p class="sr-only" role="status" id="result-announce"></p>
         <div id="result"><div class="result-empty">Select a locality and project facts to see the verified AHJ, utility path, known documents, fees, timeline and open questions.</div></div>
       </section>
     </div>
@@ -200,14 +201,19 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       }
     });
 
-    // After a check, bring the result into view and move keyboard/screen-reader focus to its heading
-    // (on narrow screens the result sits below the form and nothing else signals that it changed).
-    function revealResult() {
+    // After a check, tell screen readers the verdict, move focus to the result heading and, when the
+    // result sits below the form (single-column layout), scroll it into view. The page's scroll-padding
+    // keeps it clear of the sticky header.
+    function revealResult(announcement) {
       const card = $("result-card");
       const heading = card && card.querySelector ? card.querySelector("h2") : null;
       if (!heading) return;
-      const calm = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (card.scrollIntoView) card.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+      const live = $("result-announce");
+      if (live) live.textContent = announcement;
+      const media = (query) => typeof matchMedia === "function" && matchMedia(query).matches;
+      if (media("(max-width: 820px)") && card.scrollIntoView) {
+        card.scrollIntoView({ behavior: media("(prefers-reduced-motion: reduce)") ? "auto" : "smooth", block: "start" });
+      }
       if (heading.focus) heading.focus({ preventScroll: true });
     }
 
@@ -215,7 +221,8 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       const record = byId.get($("locality")?.value);
       if (!record) {
         $("result").innerHTML = `<div class="status caution" role="alert">Choose a researched locality first. If your city is not listed, GridPermit does not yet have a publishable locality record for it.</div>`;
-        revealResult();
+        // The alert states the problem; keep the user at the field they must fix.
+        $("locality")?.focus?.();
         return;
       }
       const conditions = record.eligibility?.other_conditions || [];
@@ -267,7 +274,7 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
         <div class="section"><h3>Sources used by this locality record</h3><div class="sources">${sourceHtml}</div>${record.lastVerified ? `<div class="verified">Record last verified: ${esc(record.lastVerified)}</div>` : ""}</div>
         <div class="cta"><strong>Still ambiguous?</strong><p class="helper">Send the jurisdiction, utility, scope and exact correction/delay. Include dated milestones when the issue is inspection or PTO.</p><a href="${helpUrl}">Send project facts</a></div>
         <p class="pro-note">Installer or permit specialist checking many jurisdictions? GridPermit Pro is a proposed research tool that does not exist yet. We're asking whether it would help before we build it. <a href="/pro/">Read the proposal</a></p>`;
-      revealResult();
+      revealResult(`${record.city}, ${record.state}: ${statusText}`);
     });
   </script>
 <Footer />

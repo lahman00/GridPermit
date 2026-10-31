@@ -9,28 +9,38 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const template = readFileSync(path.join(root, "src/pages/permit-path.astro"), "utf8");
 const inlineScript = template.match(/<script is:inline>([\s\S]*?)<\/script>/)?.[1];
 
-function run({ reduceMotion }) {
+function run({ reduceMotion = false, narrow = true } = {}) {
   const calls = [];
   const elements = new Map();
   const heading = { focus: (opts) => calls.push(["focus", opts]) };
+  const announce = { textContent: "" };
+  const locality = { value: "", focus: () => calls.push(["focus-locality"]) };
   const card = { querySelector: (sel) => (sel === "h2" ? heading : null), scrollIntoView: (opts) => calls.push(["scroll", opts]) };
   const el = (id) => {
     if (id === "result-card") return card;
+    if (id === "result-announce") return announce;
+    if (id === "locality") return locality;
     if (!elements.has(id)) elements.set(id, { value: "", checked: false, innerHTML: "", textContent: "", handlers: {}, addEventListener(t, f) { this.handlers[t] = f; } });
     return elements.get(id);
   };
   const record = { id: "r1", city: "Torrance", state: "CA", utility: "SCE", permitAuthority: "City of Torrance", permitUrl: "https://www.torranceca.gov/", interconnectionUrl: "https://www.sce.com/", eligibility: { program_or_pathway: "x", other_conditions: [] }, sources: [] };
   el("permit-path-data").textContent = JSON.stringify([record]);
-  el("locality").value = "r1"; el("project-type").value = "new-pv"; el("stage").value = "planning";
+  locality.value = "r1"; el("project-type").value = "new-pv"; el("stage").value = "planning";
   for (const id of ["battery", "mpu", "ground", "existing", "owner", "equipment", "unpermitted", "result", "check-path"]) el(id);
-  vm.runInNewContext(inlineScript, { document: { getElementById: el }, encodeURIComponent, matchMedia: () => ({ matches: reduceMotion }) }, { timeout: 2000 });
-  return { calls, click: () => el("check-path").handlers.click(), clickEmpty() { el("locality").value = ""; el("check-path").handlers.click(); return el("result").innerHTML; } };
+  vm.runInNewContext(inlineScript, { document: { getElementById: el }, encodeURIComponent, matchMedia: (q) => ({ matches: q.includes("reduced-motion") ? reduceMotion : narrow }) }, { timeout: 2000 });
+  return { calls, announce, click: () => el("check-path").handlers.click(), clickEmpty() { locality.value = ""; el("check-path").handlers.click(); return el("result").innerHTML; } };
 }
 
-test("a completed check scrolls to the result and moves focus to its heading without a second scroll", () => {
-  const r = run({ reduceMotion: false });
+test("on a narrow screen a completed check scrolls to the result and moves focus to its heading without a second scroll", () => {
+  const r = run();
   r.click();
   assert.deepEqual(JSON.parse(JSON.stringify(r.calls)), [["scroll", { behavior: "smooth", block: "start" }], ["focus", { preventScroll: true }]]);
+});
+
+test("on a wide screen the form stays put: focus moves to the result heading and the page does not jump", () => {
+  const r = run({ narrow: false });
+  r.click();
+  assert.deepEqual(JSON.parse(JSON.stringify(r.calls)), [["focus", { preventScroll: true }]]);
 });
 
 test("reduced-motion users get an instant jump", () => {
@@ -39,11 +49,18 @@ test("reduced-motion users get an instant jump", () => {
   assert.equal(r.calls[0][1].behavior, "auto");
 });
 
-test("choosing no locality announces the problem as an alert and still reveals the result area", () => {
-  const r = run({ reduceMotion: false });
+test("the verdict is announced through a status region, because focusing the heading alone would read only its title", () => {
+  const r = run();
+  r.click();
+  assert.match(r.announce.textContent, /^Torrance, CA: .+/);
+  assert.match(template, /<p class="sr-only" role="status" id="result-announce"><\/p>/);
+});
+
+test("choosing no locality announces the problem as an alert and keeps focus on the locality field", () => {
+  const r = run();
   const html = r.clickEmpty();
   assert.match(html, /role="alert"/);
-  assert.equal(r.calls.length, 2);
+  assert.deepEqual(JSON.parse(JSON.stringify(r.calls)), [["focus-locality"]]);
 });
 
 test("the result card no longer re-reads the whole result as a live region", () => {
