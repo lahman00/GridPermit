@@ -38,6 +38,13 @@ test("the product page explains audience, contents, purchase flow and limits wit
   assert.match(page, /does not include current permit rules/);
   assert.match(page, /const price = SOLAR_ORGANIZER\.priceCents \/ 100;/);
   assert.match(page, /href=\{organizerCheckout\}[^>]*data-track-click="organizer_checkout_clicked"/);
-  assert.doesNotMatch(page, /refund|guarantee|testimonial|\breviews?\b|\brated\b|\bsave[sd]? you\b|hours? (a|per) (week|month)/i);
+  assert.doesNotMatch(page, /guarantee|testimonial|\breviews?\b|\brated\b|\bsave[sd]? you\b|hours? (a|per) (week|month)/i);
+  // The only refund wording allowed is the owner-approved 14-day policy, stated the same way as in the terms.
+  assert.equal((page.match(/refund/gi) ?? []).length, 2, "refund appears only in the approved policy sentence");
+  assert.match(page, /14-day refund policy:<\/strong> Request a full refund within 14 days of purchase/);
+  assert.match(page, /No reason required\./);
+  assert.match(page, /statutory consumer rights remain\s+unaffected/);
+  const terms = readFileSync(new URL("../src/pages/terms.astro", import.meta.url), "utf8");
+  assert.match(terms, /Solar Project Organizer Refunds:<\/strong> You may request a full refund within 14 days of your purchase, for any reason/);
   assert.doesNotMatch(page, /—/);
 });
