@@ -28,3 +28,16 @@ test("the buy link is measured by a closed-list event and the purchase is disclo
   const privacy = readFileSync(new URL("../src/pages/privacy.astro", import.meta.url), "utf8");
   assert.match(privacy, /<h2>Purchases<\/h2>[\s\S]*Whop[\s\S]*without any purchase, name, email or payment details/);
 });
+
+test("the product page explains audience, contents, purchase flow and limits without unverified claims", () => {
+  const page = readFileSync(new URL("../src/pages/solar-project-organizer.astro", import.meta.url), "utf8");
+  for (const id of ["fit-title", "included-title", "how-title", "scope-title"]) assert.match(page, new RegExp(`<h2 id="${id}">`), id);
+  for (const item of ["Project overview", "Quote comparison", "Permit office check", "Permit and inspection tracker", "Utility approval tracker", "Final handoff checklist", "Project action log", "Source check log"]) assert.ok(page.includes(item), item);
+  assert.match(page, /\$9 USD, one time/);
+  assert.match(page, /sign in to Whop and open Files/);
+  assert.match(page, /does not include current permit rules/);
+  assert.match(page, /const price = SOLAR_ORGANIZER\.priceCents \/ 100;/);
+  assert.match(page, /href=\{organizerCheckout\}[^>]*data-track-click="organizer_checkout_clicked"/);
+  assert.doesNotMatch(page, /refund|guarantee|testimonial|\breviews?\b|\brated\b|\bsave[sd]? you\b|hours? (a|per) (week|month)/i);
+  assert.doesNotMatch(page, /—/);
+});
