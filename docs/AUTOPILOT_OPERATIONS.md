@@ -26,6 +26,12 @@ The workflow in `.github/workflows/autopilot.yml` is active on `main` as of 2026
 
 Missing private evidence remains `BLOCKED` or `UNKNOWN`. It is never reported as zero.
 
+### Failed source build or expired partner evidence
+
+After a successful dependency install, a failed build does not suppress the independent production/telemetry probe, live commercial audit, local coordinator, or reports. These steps use explicit non-cancelled conditions; no build or audit error is ignored and the workflow remains failed. Reports record the actual build outcome separately from production availability and flag expired partner evidence even when the generated eligible-route set is empty. Missing required evidence files still fail report generation.
+
+An elapsed `program.reverify_after` or approval-record `expires_at` remains a verification blocker, not proof that the partnership ended. Do not advance dates without a documented evidence review, alter routing, lower release-preservation checks, or treat a successful destination HEAD as approval. Review the existing permission and subsequent evidence separately for territory, intent, destination and tracking; record source dates separately from the actual review date. The [2026-10-30 CSP review](reviews/2026-10-30-csp-evidence-review.md) records such a bounded review without new business permissions. Private export and notification delivery retain their existing success-only behavior on a failed run; only the public-safe status is uploaded.
+
 ## Weekly review
 
 Monday reuses the same coordinator run and adds a Hebrew owner report covering revenue evidence, SEO availability, partner status, critical failures, changes since the prior run, and one next action. GSC, GA4, partner reports, and revenue stages remain blocked or unknown until authenticated unattended inputs are configured.

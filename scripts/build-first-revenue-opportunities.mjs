@@ -56,13 +56,13 @@ function currentCommercialState(record, pagePath, registry, now) {
 	return { audit, selected, csp };
 }
 
-async function main(gscDir, { now = new Date().toISOString() } = {}) {
+export async function buildFirstRevenueOpportunities(gscDir, { now = new Date().toISOString(), registry: suppliedRegistry } = {}) {
 	if (!gscDir) throw new Error("Usage: build-first-revenue-opportunities.mjs <path-to-saved-gsc-dir> [--now <ISO timestamp>]");
 	if (!Number.isFinite(Date.parse(now))) throw new Error("Invalid clock");
 
 	const [pageData, registry] = await Promise.all([
 		readFile(path.join(gscDir, "current_page.json"), "utf8").then(JSON.parse),
-		loadPlatformRegistry(ROOT),
+		suppliedRegistry ?? loadPlatformRegistry(ROOT),
 	]);
 	if (!Array.isArray(pageData.rows)) throw new Error("current_page.json rows required");
 	const rows = pageData.rows.filter((r) => r.clicks > 0 || r.impressions >= 10);
@@ -169,14 +169,14 @@ async function main(gscDir, { now = new Date().toISOString() } = {}) {
 		classification_summary: summary,
 		candidates: opportunities,
 	};
-	console.log(JSON.stringify(output, null, 2));
+	return output;
 }
 
 const isDirectRun = Boolean(process.argv[1]) && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isDirectRun) {
 	try {
 		const { gscDir, now } = parseArgs(process.argv.slice(2));
-		await main(gscDir, { now });
+		console.log(JSON.stringify(await buildFirstRevenueOpportunities(gscDir, { now }), null, 2));
 	} catch (e) {
 		console.error(e);
 		process.exitCode = 1;
