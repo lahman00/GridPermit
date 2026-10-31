@@ -70,19 +70,67 @@ const schema = {
         <figcaption>Page 1 of 6. Click to view the sample.</figcaption>
       </figure>
     </section>
+    <section class="details" aria-labelledby="fit-title">
+      <h2 id="fit-title">Who it is for</h2>
+      <div class="fit-grid">
+        <div>
+          <h3>A good fit if you</h3>
+          <ul>
+            <li>are comparing written solar quotes from more than one installer</li>
+            <li>are tracking a permit, an inspection and the utility's approval at the same time</li>
+            <li>want a working file of your own, on your own computer</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Start somewhere else if you</h3>
+          <ul>
+            <li>want the permit rules for your city looked up for you. Our free <a href="/search/">city permit guides</a> and <a href="/permit-path/">permit path checker</a> do that, and they stay free.</li>
+            <li>need someone to design the system or file the application</li>
+          </ul>
+        </div>
+      </div>
+    </section>
     <section class="details" aria-labelledby="included-title">
       <h2 id="included-title">What you get</h2>
       <div class="contents-grid">
-        <div><h3>A six-page PDF with 45 fillable fields</h3><p>Project overview, quote comparison, permit office check, permit and inspection tracker, utility approval tracker, and final handoff checklist.</p></div>
-        <div><h3>Three editable CSV templates</h3><p>Quote comparison, project action log and source check log. Add more rows as your project grows.</p></div>
-        <div><h3>A short setup guide</h3><p>Save your own copy, open the PDF in a reader that supports forms, and use a spreadsheet application for the CSV files. The PDF can also be printed.</p></div>
+        <div>
+          <h3>A six-page PDF with 45 fillable fields</h3>
+          <ul>
+            <li>Project overview</li>
+            <li>Quote comparison</li>
+            <li>Permit office check</li>
+            <li>Permit and inspection tracker</li>
+            <li>Utility approval tracker</li>
+            <li>Final handoff checklist</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Three editable CSV templates</h3>
+          <ul>
+            <li>Quote comparison</li>
+            <li>Project action log</li>
+            <li>Source check log</li>
+          </ul>
+          <p>Add more rows as your project grows.</p>
+        </div>
+        <div>
+          <h3>A short setup guide</h3>
+          <p>Save your own copy, open the PDF in a reader that supports forms, and use a spreadsheet application for the CSV files. The PDF can also be printed.</p>
+        </div>
       </div>
+    </section>
+    <section class="details" aria-labelledby="how-title">
+      <h2 id="how-title">How buying and downloading works</h2>
+      <ol class="steps">
+        <li><strong>Buy on Whop.</strong> Checkout, payment and tax are handled by Whop. The price is $9 USD, one time. Checkout may show a converted amount in your local currency.</li>
+        <li><strong>Download the ZIP.</strong> After payment, sign in to Whop and open Files. Download access lasts one year, so save a copy of the files.</li>
+        <li><strong>Fill it in.</strong> The PDF has no submit button, automatic upload or JavaScript. Your completed files stay with you.</li>
+      </ol>
     </section>
     <section class="details boundary" aria-labelledby="scope-title">
       <h2 id="scope-title">Know what you are buying</h2>
       <p>This is a blank organizer. It does not include current permit rules, individual research, application filing, design work or live updates. Verify your project's requirements with the official permit office and electric utility.</p>
-      <p>Your completed files stay with you. The PDF has no submit button, automatic upload or JavaScript.</p>
-      <p>Our <a href="/search/">city permit guides</a> remain free. For questions about the download, <a href="/contact/">contact GridPermit</a>.</p>
+      <p>Questions about the download? <a href="/contact/">Contact GridPermit</a>.</p>
     </section>
   </main>
   <Footer />
@@ -111,5 +159,12 @@ const schema = {
   .contents-grid h3 { font-size: 22px; line-height: 1.3; }
   .contents-grid p, .boundary p { color: var(--gp-muted); }
   .boundary { max-width: 850px; }
-  @media (max-width: 760px) { .organizer-hero, .contents-grid { grid-template-columns: 1fr; } .organizer-hero figure { max-width: 480px; } .lead { font-size: 20px; } .details { margin-top: 44px; } }
+  .fit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  .fit-grid h3 { font-size: 22px; line-height: 1.3; }
+  .details ul { margin: 0; padding-left: 1.2em; color: var(--gp-muted); }
+  .details li { margin: 0 0 .45em; }
+  .steps { margin: 0; padding-left: 1.4em; max-width: 760px; color: var(--gp-muted); }
+  .steps li { margin: 0 0 1em; padding-left: .3em; }
+  .steps strong { color: var(--gp-ink); }
+  @media (max-width: 760px) { .organizer-hero, .contents-grid, .fit-grid { grid-template-columns: 1fr; } .organizer-hero figure { max-width: 480px; } .lead { font-size: 20px; } .details { margin-top: 44px; } }
 </style>
