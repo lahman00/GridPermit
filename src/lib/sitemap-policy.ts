@@ -1,4 +1,4 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 
 import { citySlug, guideUrlForCitySlug, type LocalityRecord } from "./locality-guide.ts";
@@ -79,6 +79,20 @@ export function buildSitemapPolicy(repoRoot: string): SitemapPolicy {
 		}
 	}
 	if (latestLocalityDate) routeDates.set("/permits/", latestLocalityDate);
+
+	// Significant page edits can occur after the underlying permit facts were
+	// checked. Record those actual edit dates separately; never refresh the
+	// locality's last_verified or every page's lastmod just because we built.
+	const contentUpdatesPath = path.join(repoRoot, "data", "locality-content-updates.json");
+	if (existsSync(contentUpdatesPath)) {
+		const contentUpdates = readJson(contentUpdatesPath) as Record<string, unknown>;
+		for (const [pagePath, value] of Object.entries(contentUpdates)) {
+			const updated = isoDate(value);
+			if (updated && pagePath.endsWith("/solar-permit-guide/") && routeDates.has(pagePath)) {
+				routeDates.set(pagePath, laterDate(routeDates.get(pagePath), updated));
+			}
+		}
+	}
 
 	let latestBlogDate: string | undefined;
 	for (const filename of readdirSync(blogDir).filter((name) => /\.mdx?$/.test(name))) {
