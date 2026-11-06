@@ -37,6 +37,14 @@ test("state template noindexes only hubs with zero published guides", () => {
 	assert.match(source, /robotsDirective && <meta name="robots" content=\{robotsDirective\}/);
 });
 
+test("a significant locality page edit updates only its sitemap date, not permit verification", () => {
+	const policy = buildSitemapPolicy(REPO_ROOT);
+	const record = JSON.parse(readFileSync(path.join(REPO_ROOT, "data/localities/ca-kern-bakersfield-pge.json"), "utf8"));
+	assert.equal(policy.lastmodByPath.get("/california/bakersfield/solar-permit-guide/"), "2026-11-06");
+	assert.ok(record.last_verified < "2026-11-06", "a navigation edit must not claim the permit record was reverified");
+	assert.equal(policy.lastmodByPath.get("/california/san-pablo/solar-permit-guide/"), "2026-08-09");
+});
+
 test("publishing Indiana's first READY guide reverses both sitemap exclusion and noindex policy", () => {
 	const root = mkdtempSync(path.join(tmpdir(), "gridpermit-indiana-reversal-"));
 	mkdirSync(path.join(root, "data/localities"), { recursive: true });
@@ -55,6 +63,15 @@ test("publishing Indiana's first READY guide reverses both sitemap exclusion and
 	assert.equal(policy.emptyStatePaths.has("/indiana/"), false);
 	assert.equal(policy.lastmodByPath.get("/indiana/"), "2026-10-12");
 	assert.equal(stateHubRobotsDirective(1), null);
+	writeFileSync(path.join(root, "data/locality-content-updates.json"), JSON.stringify({
+		"/indiana/indianapolis/solar-permit-guide/": "2026-09-01",
+		"/indiana/unpublished/solar-permit-guide/": "2026-11-06",
+		"/indiana/": "2026-11-06",
+	}));
+	const editedPolicy = buildSitemapPolicy(root);
+	assert.equal(editedPolicy.lastmodByPath.get("/indiana/indianapolis/solar-permit-guide/"), "2026-10-12", "an older editorial date must not replace newer verified content");
+	assert.equal(editedPolicy.lastmodByPath.has("/indiana/unpublished/solar-permit-guide/"), false, "editorial metadata must not publish a route");
+	assert.equal(editedPolicy.lastmodByPath.get("/indiana/"), "2026-10-12", "the hub date must not be refreshed by a single guide edit");
 });
 
 test("homepage does not render empty Coming Soon comparison rows", () => {
