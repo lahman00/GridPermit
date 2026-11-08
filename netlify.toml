@@ -2089,6 +2089,12 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
 
+# Permit Path record files are data for the checker, not pages: keep them out of search results.
+[[headers]]
+  for = "/permit-path/records/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"

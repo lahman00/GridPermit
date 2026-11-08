@@ -33,6 +33,7 @@ Type: headings are light weight with tight tracking (`h1` clamps 40 to 76px). Bo
 - Primary action: `.gp-button` (accent fill). Secondary: `.gp-button-quiet`. Inline navigation: `.gp-text-link` with a trailing arrow. Targets are at least 44px high.
 - External destinations say so before the click, for example the organizer buy link is described by "Checkout opens on Whop" and shows an arrow.
 - Location context: `.breadcrumb-nav` (Home / Section / Page) instead of ad hoc back links.
+- Header: four links below 1100px, five from 1100px (the Permit checker joins). Locality pages add a header call to action, and it must never wrap; check 761 to 1440px on an Escondido, Fresno and Austin guide after any header change.
 - Panels: `.fact-callout` or a 1px `--gp-line` border on `--gp-surface`. Commercial partner boxes keep their existing selectors and disclosures; their markup is protected by the release-preservation and partner-health gates and must not be restyled without rerunning them.
 - Form fields: visible `<label>`; groups use `<fieldset>`/`<legend>`. Validation messages sit directly under the field in `.gp-field-error` with `role="alert"`, the field gets `aria-invalid="true"` and `aria-describedby` pointing at the message. Clear the message when the field changes.
 
@@ -48,7 +49,7 @@ Type: headings are light weight with tight tracking (`h1` clamps 40 to 76px). Bo
 ## Motion
 
 - Global rule: `prefers-reduced-motion: reduce` collapses all transitions and animations.
-- Transitions come from transitions.dev snippets, installed per snippet in `global.css` with their own reduced-motion guards: panel reveal (`.t-panel-slide`, used for Permit Path results, 12px travel) and error state shake (`.t-input.is-shaking`, used for the locality field). The snippet's auto-hiding error message is intentionally not used: validation messages stay until the field is fixed.
+- Transitions come from transitions.dev snippets, installed per snippet in `global.css` with their own reduced-motion guards: panel reveal (`.t-panel-slide`, used for Permit Path results, 12px travel) and error state shake (`.t-input.is-shaking`, used for the locality field). Two deliberate deviations: the snippet's auto-hiding error message is not used (validation messages stay until the field is fixed), and the resting panel drops `filter` and `will-change` (only `.is-revealing` sets the hint) with a print override, because a resting filter turned printed results into images without selectable text or links.
 - Durations: 150 to 250ms for hover and state changes, 400ms for a panel reveal. Do not add an animation library.
 
 ## Accessibility checklist for any UI change

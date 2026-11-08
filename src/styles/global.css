@@ -418,6 +418,12 @@ html:root[data-theme] .confidence-dot { background: currentColor; border-radius:
 @media (prefers-reduced-motion: reduce) {
   .t-panel-slide { transition: none !important; }
 }
+/* GridPermit override of the snippet: at rest the panel keeps no filter and no compositing hint, so a
+   printed or saved result stays selectable text with working links. The hint applies only while revealing. */
+.t-panel-slide { will-change: auto; }
+.t-panel-slide.is-revealing { will-change: transform, opacity, filter; }
+.t-panel-slide[data-open="true"] { filter: none; }
+@media print { .t-panel-slide { transform: none !important; opacity: 1 !important; filter: none !important; transition: none !important; } }
 .t-input {
   transition: border-color 150ms ease-out;
   will-change: transform;
@@ -443,5 +449,7 @@ html:root[data-theme] .confidence-dot { background: currentColor; border-radius:
 /* Field-level validation: the message sits next to the field and stays until the field is fixed. */
 .gp-field-error { display: flex; gap: var(--gp-space-1); align-items: flex-start; margin: var(--gp-space-1) 0 0; color: var(--gp-danger); font-size: 14px; line-height: 1.5; }
 .gp-field-error:empty { display: none; }
-.gp-field-error::before { content: '!'; flex: none; display: inline-grid; place-items: center; width: 18px; height: 18px; margin-top: 2px; border: 1px solid currentColor; font: 600 11px/1 var(--gp-mono); }
-select[aria-invalid='true'], input[aria-invalid='true'] { border-color: var(--gp-danger); }
+.gp-field-error::before { content: '!'; content: '!' / ''; flex: none; display: inline-grid; place-items: center; width: 18px; height: 18px; margin-top: 2px; border: 1px solid currentColor; font: 600 11px/1 var(--gp-mono); }
+select[aria-invalid='true'], input[aria-invalid='true'], .t-input[aria-invalid='true'] { border-color: var(--gp-danger); }
+/* The checker link joins the header only where it fits beside the page's own header call to action. */
+@media (max-width: 1099px) { .gp-desktop-nav a[href='/permit-path/'] { display: none; } }

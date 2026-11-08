@@ -16,8 +16,8 @@ const schema = {
   description,
   url: canonical,
 };
-// Product data mirrors the verified checkout: same price constant and currency, published
-// only while the validated Whop checkout is live. It adds no claims beyond the page itself.
+// Product data mirrors the buy button: same price constant and currency, and the same gate (the
+// checkout URL must pass validatedOrganizerCheckout). It adds no claims beyond the page itself.
 const productSchema = organizerCheckout ? {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -75,15 +75,15 @@ const productSchema = organizerCheckout ? {
           {organizerCheckout ? <>
             <a class="buy-link" href={organizerCheckout} rel="noopener" data-track-click="organizer_checkout_clicked" aria-describedby="checkout-note">Buy the organizer · ${price} <span class="buy-arrow" aria-hidden="true">↗</span></a>
             <p class="checkout-note" id="checkout-note">Checkout opens on Whop, which handles payment and tax. After payment, sign in to Whop and download the ZIP from Files.</p>
-            <ul class="purchase-facts">
-              <li>Download access lasts one year; keep your own copy of the files.</li>
-              <li>Any applicable tax is shown at checkout. See the <a href="/terms/">digital download terms</a>.</li>
-              <li><strong>14-day refund policy:</strong> Request a full refund within 14 days of purchase through <a href="/contact/#organizer-orders">GridPermit support</a>, using your checkout email address. No reason required. Your statutory consumer rights remain unaffected.</li>
-            </ul>
           </> : <>
             <button class="buy-link" disabled>Checkout not yet available</button>
             <p class="checkout-note">This product is not currently for sale.</p>
           </>}
+          <ul class="purchase-facts">
+            <li>Download access lasts one year; keep your own copy of the files.</li>
+            <li>Any applicable tax is shown at checkout. See the <a href="/terms/">digital download terms</a>.</li>
+            <li><strong>14-day refund policy:</strong> Request a full refund within 14 days of purchase through <a href="/contact/#organizer-orders">GridPermit support</a>, using your checkout email address. No reason required. Your statutory consumer rights remain unaffected.</li>
+          </ul>
         </div>
       </div>
       <figure>

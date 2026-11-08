@@ -98,6 +98,29 @@ export function sanitizeAnalyticsParams(params: AnalyticsEventParams): Analytics
 	return safe;
 }
 
+// Inline page scripts cannot import this module, so they request an event by
+// dispatching a "gridpermit:track" DOM event (see src/components/Analytics.astro).
+// That path is deliberately narrower than trackEvent(): only the events below,
+// only these parameter names, and only these values. Anything else is dropped.
+const PERMIT_PATH_STAGES = ["planning", "permit", "installation", "inspection", "interconnection", "pto"] as const;
+const PERMIT_PATH_PROJECT_TYPES = ["new-pv", "pv-storage", "battery-only", "pv-expansion", "revision"] as const;
+const PERMIT_PATH_PATHWAYS = ["automated", "standard"] as const;
+const MAX_PERMIT_PATH_OPEN_ITEMS = 20;
+
+export function bridgeAnalyticsEvent(detail: unknown): { name: AnalyticsEventName; params: AnalyticsEventParams } | null {
+	if (!detail || typeof detail !== "object") return null;
+	const { name, params } = detail as { name?: unknown; params?: unknown };
+	if (name !== "permit_path_checked" || !params || typeof params !== "object") return null;
+	const p = params as Record<string, unknown>;
+	if (Object.keys(p).sort().join(",") !== "open_items,pathway,project_type,stage") return null;
+	const { stage, project_type, pathway, open_items } = p;
+	if (!(PERMIT_PATH_STAGES as readonly unknown[]).includes(stage)) return null;
+	if (!(PERMIT_PATH_PROJECT_TYPES as readonly unknown[]).includes(project_type)) return null;
+	if (!(PERMIT_PATH_PATHWAYS as readonly unknown[]).includes(pathway)) return null;
+	if (typeof open_items !== "number" || !Number.isInteger(open_items) || open_items < 0 || open_items > MAX_PERMIT_PATH_OPEN_ITEMS) return null;
+	return { name, params: { stage: stage as string, project_type: project_type as string, pathway: pathway as string, open_items } };
+}
+
 export function trackEvent(name: AnalyticsEventName, params: AnalyticsEventParams = {}): void {
 	if (!isKnownAnalyticsEvent(name)) return;
 	if (typeof window === "undefined" || typeof window.gtag !== "function") return;

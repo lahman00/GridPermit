@@ -18,6 +18,8 @@ const css = read("src/styles/global.css");
 test("the free Permit Path checker is in the shared header and footer", () => {
   assert.match(header, /\{ href: '\/permit-path\/', label: 'Permit checker' \}/);
   assert.match(footer, /<a href="\/permit-path\/">Permit path checker<\/a>/);
+  // Below 1100px the header keeps its previous four links so a page's header call to action never wraps.
+  assert.match(css, /@media \(max-width: 1099px\) \{ \.gp-desktop-nav a\[href='\/permit-path\/'\] \{ display: none; \} \}/);
 });
 
 test("homepage stage links go where their labels say", () => {
@@ -52,7 +54,27 @@ test("the preview ships a lossless WebP with the PNG fallback and its real intri
   const webp = readFileSync(new URL("../public/products/solar-project-organizer-preview.webp", import.meta.url));
   assert.equal(webp.toString("ascii", 0, 4), "RIFF");
   assert.equal(webp.toString("ascii", 8, 12), "WEBP");
+  assert.equal(webp.toString("ascii", 12, 16), "VP8L", "lossless bitstream");
+  // VP8L header: 14-bit width-1 and height-1 after the signature byte.
+  const bits = webp.readUInt32LE(21);
+  assert.equal((bits & 0x3fff) + 1, width);
+  assert.equal(((bits >> 14) & 0x3fff) + 1, height);
   assert.ok(webp.length < png.length, "WebP is smaller than the PNG");
+});
+
+test("purchase facts and the approved policy sentence show whether or not checkout is enabled", () => {
+  const conditionalEnd = organizer.indexOf("</>}");
+  const facts = organizer.indexOf('<ul class="purchase-facts">');
+  assert.ok(conditionalEnd > 0 && facts > conditionalEnd, "facts list sits after the checkout conditional");
+});
+
+test("record files are data, not pages: noindex header, and the result panel prints as text", () => {
+  const toml = read("netlify.toml");
+  assert.match(toml, /\[\[headers\]\]\s*for = "\/permit-path\/records\/\*"\s*\[headers\.values\]\s*X-Robots-Tag = "noindex"/);
+  assert.match(css, /\.t-panel-slide\[data-open="true"\] \{ filter: none; \}/);
+  assert.match(css, /@media print \{ \.t-panel-slide \{ transform: none !important; opacity: 1 !important; filter: none !important;/);
+  assert.match(css, /\.t-panel-slide \{ will-change: auto; \}/);
+  assert.match(css, /\.t-input\[aria-invalid='true'\] \{ border-color: var\(--gp-danger\); \}|\.t-input\[aria-invalid='true'\]/);
 });
 
 test("buyers asking for help reach a contact section written for organizer orders", () => {

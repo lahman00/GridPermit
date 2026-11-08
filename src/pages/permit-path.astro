@@ -136,16 +136,25 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
   <script is:inline>
     // Records embedded in the page (none in production) are used directly; every other
     // record is a small static JSON file fetched once, when its locality is chosen.
-    const records = JSON.parse(document.getElementById("permit-path-data")?.textContent || "[]");
+    let records = [];
+    try {
+      const embedded = JSON.parse(document.getElementById("permit-path-data")?.textContent || "[]");
+      if (Array.isArray(embedded)) records = embedded;
+    } catch {
+      records = [];
+    }
     const byId = new Map(records.map((record) => [record.id, record]));
     const $ = (id) => document.getElementById(id);
     const pending = new Map();
     const EMPTY_RESULT = $("result")?.innerHTML || "";
+    const RECORD_TIMEOUT_MS = 10000;
     function loadRecord(id) {
       if (byId.has(id)) return Promise.resolve(byId.get(id));
       if (pending.has(id)) return pending.get(id);
       if (typeof fetch !== "function") return Promise.reject(new Error("Record loading is unavailable"));
-      const request = fetch(`/permit-path/records/${encodeURIComponent(id)}.json`, { headers: { Accept: "application/json" } })
+      const controller = typeof AbortController === "function" ? new AbortController() : null;
+      const timer = controller && typeof setTimeout === "function" ? setTimeout(() => controller.abort(), RECORD_TIMEOUT_MS) : null;
+      const request = fetch(`/permit-path/records/${encodeURIComponent(id)}.json`, { headers: { Accept: "application/json" }, ...(controller ? { signal: controller.signal } : {}) })
         .then((response) => {
           if (!response.ok) throw new Error(`Record request failed (${response.status})`);
           return response.json();
@@ -155,13 +164,17 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
           byId.set(id, record);
           return record;
         })
-        .finally(() => pending.delete(id));
+        .finally(() => {
+          if (timer !== null && typeof clearTimeout === "function") clearTimeout(timer);
+          pending.delete(id);
+        });
       pending.set(id, request);
       return request;
     }
     const checked = (id) => Boolean($(id)?.checked);
     const esc = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
-    const link = (url, label) => url ? `<a class="official" href="${esc(url)}" target="_blank" rel="noopener">${esc(label)} ↗</a>` : `<span class="muted">Official link not verified in this record.</span>`;
+    const safeUrl = (url) => (typeof url === "string" && /^https?:\/\//i.test(url) ? url : "");
+    const link = (url, label) => safeUrl(url) ? `<a class="official" href="${esc(safeUrl(url))}" target="_blank" rel="noopener">${esc(label)} ↗</a>` : `<span class="muted">Official link not verified in this record.</span>`;
     const hasText = (items, pattern) => (items || []).some((item) => pattern.test(String(item)));
 
     function formatFee(fees) {
@@ -225,22 +238,43 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       if (message) message.textContent = "";
       $("locality")?.setAttribute?.("aria-invalid", "false");
     }
+    // Each check gets a sequence number; a later check or a new locality makes older responses stale.
+    let checkSeq = 0;
+    let prefetchTimer = null;
     $("locality")?.addEventListener?.("change", () => {
       clearLocalityError();
+      checkSeq += 1;
+      const result = $("result");
+      if (result?.getAttribute?.("aria-busy") === "true") {
+        result.removeAttribute?.("aria-busy");
+        result.innerHTML = EMPTY_RESULT;
+      }
       const id = $("locality")?.value;
-      if (id) loadRecord(id).catch(() => {});
+      if (!id) return;
+      // Keyboard arrowing fires change per option on some platforms: wait for the choice to settle.
+      if (typeof setTimeout !== "function") {
+        loadRecord(id).catch(() => {});
+        return;
+      }
+      if (prefetchTimer !== null && typeof clearTimeout === "function") clearTimeout(prefetchTimer);
+      prefetchTimer = setTimeout(() => {
+        prefetchTimer = null;
+        if ($("locality")?.value === id) loadRecord(id).catch(() => {});
+      }, 250);
     });
 
     // Replays the transitions.dev panel reveal so an updated result is noticeable. Reduced-motion
     // users get the new content instantly (see the t-panel-slide guard in global.css).
     function replayReveal() {
       const panel = $("result");
-      if (!panel?.style || !panel.dataset) return;
+      if (!panel?.style || !panel.dataset || !panel.classList) return;
+      panel.classList.add("is-revealing");
       panel.style.transition = "none";
       panel.dataset.open = "false";
       void panel.offsetWidth;
       panel.style.transition = "";
       panel.dataset.open = "true";
+      if (typeof setTimeout === "function") setTimeout(() => panel.classList.remove("is-revealing"), 450);
     }
 
     // Asks the site analytics wiring (src/components/Analytics.astro) to record a completed check.
@@ -274,24 +308,29 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
         return;
       }
       clearLocalityError();
+      const token = ++checkSeq;
       const cached = byId.get(id);
       if (cached) {
         renderResult(cached);
         return;
       }
       const result = $("result");
+      const live = $("result-announce");
       result?.setAttribute?.("aria-busy", "true");
       if (result) result.innerHTML = `<div class="result-empty">Loading the verified record for this locality…</div>`;
+      if (live) live.textContent = "Loading the verified record.";
       loadRecord(id).then(
         (record) => {
+          // A newer check or a different locality owns the panel now.
+          if (token !== checkSeq) return;
           result?.removeAttribute?.("aria-busy");
-          // The visitor may have picked another locality while this one loaded.
-          if ($("locality")?.value === id) renderResult(record);
-          else if (result) result.innerHTML = EMPTY_RESULT;
+          renderResult(record);
         },
         () => {
+          if (token !== checkSeq) return;
           result?.removeAttribute?.("aria-busy");
           if (result) result.innerHTML = `<div class="status caution" role="alert">This locality record could not be loaded. Check your connection, then select Check permit path again.</div>`;
+          if (live) live.textContent = "";
           replayReveal();
         },
       );
@@ -331,7 +370,7 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
         : `<span class="muted">Required documents are not verified in this record.</span>`;
       const condHtml = conditions.length ? `<ul class="docs">${conditions.map((condition) => `<li>${esc(condition)}</li>`).join("")}</ul>` : `<span class="muted">No project-level eligibility conditions are verified in this record.</span>`;
       const openItems = [...blockers, ...unknowns];
-      const sourceHtml = (record.sources || []).slice(0, 8).map((source) => `<div class="source"><a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.title)}</a> — ${esc(source.publisher || source.type || "official source")}${source.accessedDate ? ` · accessed ${esc(source.accessedDate)}` : ""}</div>`).join("") || `<span class="muted">No source list available.</span>`;
+      const sourceHtml = (record.sources || []).slice(0, 8).map((source) => `<div class="source">${safeUrl(source.url) ? `<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener">${esc(source.title)}</a>` : esc(source.title)} — ${esc(source.publisher || source.type || "official source")}${source.accessedDate ? ` · accessed ${esc(source.accessedDate)}` : ""}</div>`).join("") || `<span class="muted">No source list available.</span>`;
       const scopeParts = [projectType, checked("battery") && "battery", checked("mpu") && "MPU", checked("ground") && "ground mount/canopy", checked("existing") && "existing PV", checked("owner") && "owner-builder", checked("equipment") && "equipment change", checked("unpermitted") && "unpermitted work"].filter(Boolean);
       const helpUrl = `/project-help/?jurisdiction=${encodeURIComponent(`${record.city}, ${record.state}`)}&utility=${encodeURIComponent(record.utility || "")}&scope=${encodeURIComponent(scopeParts.join(", "))}&stage=${encodeURIComponent(stage)}&utm_source=permit_path_checker&utm_medium=owned&utm_campaign=decision_stage`;
 

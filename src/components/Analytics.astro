@@ -39,7 +39,7 @@ applies the font with JS disabled. -->
 	});
 </script>
 <script>
-	import { trackEvent, isKnownAnalyticsEvent } from "../lib/analytics-events";
+	import { trackEvent, isKnownAnalyticsEvent, bridgeAnalyticsEvent } from "../lib/analytics-events";
 
 	document.addEventListener("DOMContentLoaded", () => {
 		for (const el of document.querySelectorAll("[data-track-view]")) {
@@ -57,21 +57,13 @@ applies the font with JS disabled. -->
 		if (isKnownAnalyticsEvent(name)) trackEvent(name);
 	});
 
-	// Inline page scripts cannot import this module, so they request an
-	// allowlisted event with document.dispatchEvent(new CustomEvent(
-	// "gridpermit:track", { detail: { name, params } })). The closed event list
-	// and the parameter sanitizer above still apply; only primitive values pass.
+	// Inline page scripts cannot import this module, so they request an event
+	// with document.dispatchEvent(new CustomEvent("gridpermit:track", { detail })).
+	// bridgeAnalyticsEvent() accepts only the bridged events with their exact,
+	// enumerated parameters (today: permit_path_checked); everything else is dropped.
 	document.addEventListener("gridpermit:track", (event) => {
-		const detail = (event as CustomEvent<{ name?: unknown; params?: unknown }>).detail;
-		const name = typeof detail?.name === "string" ? detail.name : "";
-		if (!isKnownAnalyticsEvent(name)) return;
-		const params: Record<string, string | number | boolean> = {};
-		if (detail?.params && typeof detail.params === "object") {
-			for (const [key, value] of Object.entries(detail.params as Record<string, unknown>)) {
-				if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") params[key] = value;
-			}
-		}
-		trackEvent(name, params);
+		const request = bridgeAnalyticsEvent((event as CustomEvent).detail);
+		if (request) trackEvent(request.name, request.params);
 	});
 
 	// <details>'s native "toggle" event doesn't bubble, so each element needs
