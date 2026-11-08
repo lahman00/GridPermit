@@ -33,7 +33,7 @@ const webPageSchema = {
 	<link rel="sitemap" href="/sitemap-index.xml" />
 
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-	<style>.back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--gp-accent); font-weight: 600; text-decoration: none; }.cross-links { font-size: 0.85rem; color: var(--gp-muted); margin-bottom: 1.5rem; }.cross-links a { color: var(--gp-accent); text-decoration: none; }
+	<style>.back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--gp-accent); font-weight: 600; text-decoration: none; }.cross-links { font-size: 0.85rem; color: var(--gp-muted); margin-bottom: 1.5rem; }.cross-links a { color: var(--gp-accent); text-decoration: none; }.contact-orders { margin: var(--gp-space-5) 0; padding: var(--gp-space-3); border: 1px solid var(--gp-line); border-left: 2px solid var(--gp-accent); background: var(--gp-surface); }.contact-orders h2 { margin: 0 0 var(--gp-space-2); font-size: 24px; }.contact-orders p:last-child { margin-bottom: 0; }
 	</style>
 </head>
 <body>
@@ -45,9 +45,14 @@ const webPageSchema = {
 		<h1>Contact GridPermit</h1>
 		<p>GridPermit is an independent educational referral website. We do not sell or install solar equipment directly.</p>
 		<p>For questions about our calculation methodology, general educational content, or privacy inquiries, contact us via email:</p>
-		<p><strong>General Support:</strong> support@mygridpermit.com<br><strong>Privacy Inquiries:</strong> privacy@mygridpermit.com</p>
-		<p><strong>Partnerships & integrations:</strong> review our <a href="/partners/" style="color: var(--gp-accent);">partner pilot page</a> or use the <a href="/partner-inquiry/" style="color: var(--gp-accent);">partner inquiry form</a>.</p>
-		<p><strong>Found an outdated or inaccurate fact on a city guide?</strong> Email support@mygridpermit.com with the city name and the specific fact. Include a link to a current official source if you have one. We review every correction against the cited source (or a newer official source) and update or remove the fact rather than leave a known error live. See our <a href="/methodology#ready-criteria" style="color: var(--gp-accent);">methodology page</a> for how we verify and source city guide facts.</p>
+		<p><strong>General Support:</strong> <a href="mailto:support@mygridpermit.com">support@mygridpermit.com</a><br><strong>Privacy Inquiries:</strong> <a href="mailto:privacy@mygridpermit.com">privacy@mygridpermit.com</a></p>
+		<section class="contact-orders" id="organizer-orders" aria-labelledby="organizer-orders-title">
+			<h2 id="organizer-orders-title">Solar Project Organizer orders</h2>
+			<p>For download help or a refund request, email <a href="mailto:support@mygridpermit.com?subject=Solar%20Project%20Organizer%20order">support@mygridpermit.com</a> from the email address you used at checkout. Please do not send card details.</p>
+			<p>After payment, the ZIP is in Files when you sign in to Whop. The <a href="/solar-project-organizer/#how-it-works">download steps</a> show where to find it, and the refund terms are in our <a href="/terms/">Terms of Service</a>.</p>
+		</section>
+		<p><strong>Partnerships & integrations:</strong> review our <a href="/partners/">partner pilot page</a> or use the <a href="/partner-inquiry/">partner inquiry form</a>.</p>
+		<p><strong>Found an outdated or inaccurate fact on a city guide?</strong> Email <a href="mailto:support@mygridpermit.com">support@mygridpermit.com</a> with the city name and the specific fact. Include a link to a current official source if you have one. We review every correction against the cited source (or a newer official source) and update or remove the fact rather than leave a known error live. See our <a href="/methodology#ready-criteria">methodology page</a> for how we verify and source city guide facts.</p>
 	</main>
 <Footer />
 </body>
