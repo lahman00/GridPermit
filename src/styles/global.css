@@ -20,6 +20,14 @@
   --gp-accent-ink: #fff; --gp-focus: #ad2d12;
   --black: 24,24,24; --gray: 89,89,84; --gray-light: 201,200,193; --gray-dark: 24,24,24;
 }
+/* Design tokens added 2026-11. Every value above is unchanged; use these for new or
+   refactored components. Spacing follows an 8px grid. See docs/DESIGN_SYSTEM.md. */
+:root {
+  --gp-space-half: 4px; --gp-space-1: 8px; --gp-space-2: 16px; --gp-space-3: 24px; --gp-space-4: 32px;
+  --gp-space-5: 40px; --gp-space-6: 48px; --gp-space-8: 64px; --gp-space-10: 80px;
+  --gp-ok: #62b982; --gp-warn: #e6a34a; --gp-danger: #ff8a80;
+}
+:root[data-theme='light'] { --gp-ok: #1b6b3a; --gp-warn: #8a5300; --gp-danger: #9f1d14; }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-padding-top: 8rem; -webkit-text-size-adjust: 100%; }
 body { margin: 0; padding: 0; background: var(--gp-bg); color: var(--gp-ink); font: 400 17px/1.65 var(--gp-font); overflow-wrap: break-word; transition: background-color .28s ease, color .28s ease; }
@@ -370,3 +378,70 @@ html:root[data-theme] button[type='submit'],html:root[data-theme] .btn-banner-ct
 
 html:root[data-theme] button.button,html:root[data-theme] .state-search-row button,html:root[data-theme] .state-search-form button { color: var(--gp-accent-ink); background: var(--gp-accent); }
 html:root[data-theme] .confidence-dot { background: currentColor; border-radius: 0; width: .4em; height: .4em; }
+
+/* Motion primitives from transitions.dev (panel reveal, error state shake), installed per
+   snippet with their reduced-motion guards. Inert until a page adds the t-* hooks. */
+:root {
+  --panel-open-dur: 400ms;
+  --panel-close-dur: 350ms;
+  --panel-translate-y: 12px;
+  --panel-blur: 2px;
+  --panel-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --shake-distance: 6px;
+  --shake-overshoot: 4px;
+  --shake-dur-a: 80ms;
+  --shake-dur-b: 60ms;
+  --shake-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --revert-dur: 280ms;
+}
+.t-panel-slide {
+  transform: translateY(var(--panel-translate-y));
+  opacity: 0;
+  filter: blur(var(--panel-blur));
+  pointer-events: none;
+  transition:
+    transform var(--panel-close-dur) var(--panel-ease),
+    opacity   var(--panel-close-dur) var(--panel-ease),
+    filter    var(--panel-close-dur) var(--panel-ease);
+  will-change: transform, opacity, filter;
+}
+.t-panel-slide[data-open="true"] {
+  transform: translateY(0);
+  opacity: 1;
+  filter: blur(0);
+  pointer-events: auto;
+  transition:
+    transform var(--panel-open-dur) var(--panel-ease),
+    opacity   var(--panel-open-dur) var(--panel-ease),
+    filter    var(--panel-open-dur) var(--panel-ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-panel-slide { transition: none !important; }
+}
+.t-input {
+  transition: border-color 150ms ease-out;
+  will-change: transform;
+}
+.t-input.is-error {
+  transition: border-color var(--revert-dur, 280ms) ease-out;
+}
+.t-input.is-shaking {
+  animation: t-input-shake calc(
+      var(--shake-dur-a) * 2 + var(--shake-dur-b) * 2
+    ) linear;
+}
+@keyframes t-input-shake {
+  0%      { transform: translateX(0);                                 animation-timing-function: var(--shake-ease); }
+  28.57%  { transform: translateX(var(--shake-distance));             animation-timing-function: var(--shake-ease); }
+  57.14%  { transform: translateX(calc(var(--shake-distance) * -1)); animation-timing-function: var(--shake-ease); }
+  78.57%  { transform: translateX(var(--shake-overshoot));            animation-timing-function: var(--shake-ease); }
+  100%    { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-input { animation: none !important; transform: none !important; }
+}
+/* Field-level validation: the message sits next to the field and stays until the field is fixed. */
+.gp-field-error { display: flex; gap: var(--gp-space-1); align-items: flex-start; margin: var(--gp-space-1) 0 0; color: var(--gp-danger); font-size: 14px; line-height: 1.5; }
+.gp-field-error:empty { display: none; }
+.gp-field-error::before { content: '!'; flex: none; display: inline-grid; place-items: center; width: 18px; height: 18px; margin-top: 2px; border: 1px solid currentColor; font: 600 11px/1 var(--gp-mono); }
+select[aria-invalid='true'], input[aria-invalid='true'] { border-color: var(--gp-danger); }
