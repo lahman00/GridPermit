@@ -28,6 +28,9 @@ export const ANALYTICS_EVENTS = [
 	"pay_per_call_clicked",
 	"internal_resource_clicked",
 	"organizer_checkout_clicked",
+	// A completed Permit Path check. Categorical project facts only (stage,
+	// project type, pathway kind, open-item count) — never the locality.
+	"permit_path_checked",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[number];
