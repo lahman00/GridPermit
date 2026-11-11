@@ -11,6 +11,7 @@ import Analytics from "../../components/Analytics.astro";
 import { SITE_ORIGIN, buildBreadcrumbSchema, type LocalityRecord } from "../../lib/locality-guide";
 import {
 	CEC_DASHBOARD_URL,
+	EXPRESS_KIND,
 	PERMIT_DATA_CSV_PATH,
 	PERMIT_DATA_PATH,
 	buildPermitDataRows,
@@ -38,16 +39,16 @@ const CSV_URL = `${SITE_ORIGIN}${PERMIT_DATA_CSV_PATH}`;
 const LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/";
 const PUBLISHED = "2026-11-12";
 const title = "California Solar Permit Data by City (2026) | GridPermit";
-const description =
-	`Permit office, recorded SolarAPP+ or Symbium path, utility and published fees for the ${s.total} California cities ` +
-	"GridPermit covers, each linked to its official source. Free CSV.";
+const description = `Permit office, SolarAPP+ or Symbium path, utility and published fees for the ${s.total} California cities GridPermit covers. Free CSV.`;
 
 const monthYear = (iso: string | null) =>
 	iso ? new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" }) : "";
 const checkedRange =
 	monthYear(s.verifiedFrom) === monthYear(s.verifiedTo) ? monthYear(s.verifiedTo) : `${monthYear(s.verifiedFrom)} to ${monthYear(s.verifiedTo)}`;
 const topUtilities = s.utilities.slice(0, 3);
-const otherUtilityCount = s.total - s.splitUtility - topUtilities.reduce((sum, u) => sum + u.count, 0);
+const otherUtilities = s.utilities.slice(3);
+const otherUtilityCities = otherUtilities.reduce((sum, u) => sum + u.count, 0);
+const pathLabel = (kind: string | null) => (kind === "Other automated" ? "Automated, platform not named" : kind ?? "");
 const utilityOptions = s.utilities.map((u) => u.name);
 
 const breadcrumbItems = [
@@ -87,13 +88,14 @@ const faqs = [
 		q: "Of the cities in this table, how many record SolarAPP+ or another automated permit path?",
 		a:
 			`${s.automated} of the ${s.total} cities in this table (${percentOf(s.automated, s.total)}%) have an automated or instant residential permit path stated in their verified record: ` +
-			`${s.byKind["SolarAPP+"]} SolarAPP+, ${s.byKind.Symbium} Symbium, ${s.byKind["SolarAPP+ and Symbium"]} both, and ${s.byKind["Other automated"]} another platform. ` +
+			`${s.byKind["SolarAPP+"]} SolarAPP+, ${s.byKind.Symbium} Symbium, ${s.byKind["SolarAPP+ and Symbium"]} both, and ${s.byKind["Other automated"]} that state an automated or instant path without naming a platform. ` +
 			`${s.fromPathwayField} come from the record's pathway field and ${s.fromOtherFields} from another sourced field, such as a required SolarAPP+ approval document. ` +
+			`Another ${s.express} record an express, over-the-counter or self-issued path, which is not counted as automated. ` +
 			"Eligibility is limited to qualifying projects. The table covers only cities with a GridPermit guide, so it is not a statewide count.",
 	},
 	{
 		q: "Is this a list of cities that comply with SB 379?",
-		a: "No. GridPermit records what each city's own pages state. For each jurisdiction's self-reported platform status, see the California Energy Commission's Residential Solar Permit Program Status Dashboard.",
+		a: "No. GridPermit records what official city, county and utility pages state. For each jurisdiction's self-reported platform status, see the California Energy Commission's Residential Solar Permit Program Status Dashboard.",
 	},
 	{
 		q: "Does an automated permit mean utility approval?",
@@ -170,15 +172,19 @@ const faqSchema = {
 				</div>
 				<div class="data-stat" role="listitem">
 					<strong>{s.byKind["SolarAPP+"]} SolarAPP+ · {s.byKind.Symbium} Symbium</strong>
-					<span>{s.byKind["SolarAPP+ and Symbium"]} list both; {s.byKind["Other automated"]} use another platform</span>
+					<span>{s.byKind["SolarAPP+ and Symbium"]} list both; {s.byKind["Other automated"]} state an automated path without naming a platform</span>
+				</div>
+				<div class="data-stat" role="listitem">
+					<strong>{s.express} more cities</strong>
+					<span>record an express, over-the-counter or self-issued path (not counted as automated)</span>
 				</div>
 				<div class="data-stat" role="listitem">
 					<strong>{s.withCityOrUtilityFee} cities</strong>
-					<span>have a published city permit or utility interconnection fee amount on file</span>
+					<span>have a published residential city permit or utility interconnection fee amount on file</span>
 				</div>
 				<div class="data-stat" role="listitem">
 					<strong>{topUtilities.map((u) => `${u.name} ${u.count}`).join(" · ")}</strong>
-					<span>interconnection utility; {otherUtilityCount} other utilities, {s.splitUtility} split territories</span>
+					<span>interconnection utility; {otherUtilityCities} cities served by {otherUtilities.length} other utilities; {s.splitUtility} split territories</span>
 				</div>
 			</div>
 
@@ -186,6 +192,7 @@ const faqSchema = {
 				<a class="button primary" href={PERMIT_DATA_CSV_PATH} download="gridpermit-california-solar-permit-data.csv" data-track-click="permit_data_downloaded">Download CSV ({s.total} rows)</a>
 				<a class="button secondary" href="/permit-path/">Check one project with the free checker</a>
 			</p>
+			<p class="csv-note">UTF-8 CSV with a byte order mark (in Python, open it with encoding "utf-8-sig").</p>
 
 			<div class="disclaimer-box">
 				<strong>What this table is.</strong> One row per California city with a GridPermit guide ({s.total} of California's
@@ -204,13 +211,14 @@ const faqSchema = {
 						<input type="search" id="filter-text" autocomplete="off" placeholder="Fresno" />
 					</label>
 					<label>
-						<span>Automated path</span>
+						<span>Permit path</span>
 						<select id="filter-path">
 							<option value="">Any</option>
 							<option value="SolarAPP+">SolarAPP+</option>
 							<option value="Symbium">Symbium</option>
 							<option value="SolarAPP+ and Symbium">SolarAPP+ and Symbium</option>
-							<option value="Other automated">Other automated</option>
+							<option value="Other automated">Automated, platform not named</option>
+							<option value={EXPRESS_KIND}>Express or over-the-counter</option>
 							<option value="none">Not stated in record</option>
 						</select>
 					</label>
@@ -228,13 +236,13 @@ const faqSchema = {
 
 				<div class="data-table-wrap" tabindex="0" role="region" aria-label="City table, scrolls sideways">
 					<table class="data-table" id="data-table">
-						<caption class="sr-only">California solar permit data by city. Columns: city, county, permit office, automated path, utility, published fees, last verified.</caption>
+						<caption class="sr-only">California solar permit data by city. Columns: city, county, permit office, permit path, utility, published fees, last verified.</caption>
 						<thead>
 							<tr>
 								<th scope="col">City</th>
 								<th scope="col">County</th>
 								<th scope="col">Permit office</th>
-								<th scope="col">Automated path</th>
+								<th scope="col">Permit path</th>
 								<th scope="col">Utility</th>
 								<th scope="col">Published fees</th>
 								<th scope="col">Checked</th>
@@ -251,15 +259,17 @@ const faqSchema = {
 									<td>{row.county ?? ""}</td>
 									<td>{row.permitUrl && row.permitAuthority ? <a href={row.permitUrl} rel="noopener">{row.permitAuthority}</a> : row.permitAuthority ?? ""}</td>
 									<td>
-										{row.automatedKind ?? ""}
-										{row.automatedEvidence && row.automatedEvidence !== "pathway field" && <span class="found-in">stated in {row.automatedEvidence}</span>}
+										{pathLabel(row.automatedKind)}
+										{row.automatedEvidence === "platform's jurisdiction list"
+											? <span class="found-in">per the platform's jurisdiction list; not counted</span>
+											: row.automatedEvidence && row.automatedEvidence !== "pathway field" && <span class="found-in">stated in {row.automatedEvidence}</span>}
 									</td>
 									<td>{utilityLabel(row)}</td>
 									<td>
 										{row.feeRecheck
 											? <span class="fee-note">Fee entry being re-checked</span>
 											: row.fees.map((fee) => <span class="fee">{formatFee(fee)}</span>)}
-										{row.platformFees.length > 0 && <span class="fee platform">Platform: {row.platformFees.map(formatFee).join("; ")}</span>}
+										{row.platformFees.length > 0 && <span class="fee platform">Platform or path: {row.platformFees.map(formatFee).join("; ")}</span>}
 									</td>
 									<td><time datetime={row.lastVerified}>{row.lastVerified}</time></td>
 								</tr>
@@ -273,9 +283,10 @@ const faqSchema = {
 				<h2>Method and limits</h2>
 				<ul class="fact-list">
 					<li><strong>Scope:</strong> every California city with a published GridPermit guide. Cities without a guide yet are not in the table.</li>
-					<li><strong>Automated path:</strong> first, the record's pathway field, read with the same rule the <a href="/permit-path/">Permit Path checker</a> uses (SolarAPP+, Symbium, automated or instant). If that field does not name one, the table also reads the record's other sourced fields: conditions, required documents (for example a SolarAPP+ approval document), inspection steps, fee names, the permit page address and the titles of cited city pages. Research notes and negative or unconfirmed statements are never counted. The table shows which field the path came from; the CSV includes the exact text.</li>
+					<li><strong>Automated path:</strong> first, the record's pathway field, read with the same rule the <a href="/permit-path/">Permit Path checker</a> uses (SolarAPP+, Symbium, automated or instant). If that field does not name one, the table reads the record's other sourced fields that have a confidence of at least 0.7: conditions, required documents (for example a SolarAPP+ approval document), inspection steps, fee names, the permit page address, and the titles of cited official pages that back a content field. Research notes, platform vendor pages, and negative or unconfirmed statements are never counted. A row whose only source for the path is the platform's own jurisdiction list is shown but not counted. The table shows which field the path came from; the CSV includes the exact text and that field's confidence.</li>
+					<li><strong>Express or over-the-counter:</strong> a pathway field or condition that describes an express, over-the-counter, self-issued or no-plan-review path, without naming an automated platform. Shown separately and not counted as automated.</li>
 					<li><strong>Confidence:</strong> {s.lowConfidencePathway} of the {s.fromPathwayField} pathway-field entries have a record confidence below 0.7 for their eligibility details. The CSV includes each score.</li>
-					<li><strong>Published fees:</strong> residential city permit or utility interconnection fee amounts stated on an official page and recorded with a confidence of at least 0.7. SolarAPP+ or Symbium platform fees are listed separately, and commercial, multifamily and sample-total entries are left out. {s.feeRecheck} cities' fee entries are being re-checked against their sources and are not shown yet. Names and units are kept as recorded; amounts are not totals and can change.</li>
+					<li><strong>Published fees:</strong> residential city permit or utility interconnection fee amounts stated on an official page and recorded with a confidence of at least 0.7. Platform or path fees (SolarAPP+ or Symbium charges, and fees a record lists as part of that path) are shown separately. Commercial, multifamily, sample-total, penalty and re-inspection entries, and tiers for systems of 50 kW or more, are left out. {s.feeRecheck} cities' fee entries are being re-checked against their sources and are not shown yet. Names and units are kept as recorded; amounts are not totals and can change.</li>
 					<li><strong>Utility:</strong> the distribution utility that handles interconnection and permission to operate, as recorded. Cities served by more than one utility are marked as split territories.</li>
 					<li><strong>Checked:</strong> the date the city's record was last verified against its sources. Each city guide lists every source.</li>
 				</ul>
@@ -353,12 +364,13 @@ const faqSchema = {
 		.data-filters label { display: flex; flex-direction: column; gap: var(--gp-space-half); font-size: 13px; color: var(--gp-muted); min-width: 180px; flex: 1 1 180px; }
 		.data-filters input, .data-filters select { min-height: 44px; font: inherit; font-size: 16px; color: var(--gp-ink); background: var(--gp-bg, transparent); border: 1px solid var(--gp-line); border-radius: 2px; padding: 8px 10px; }
 		.data-count { color: var(--gp-muted); font-size: 14px; margin: 0 0 var(--gp-space-1); }
+		.csv-note { color: var(--gp-muted); font-size: 13px; margin: calc(-1 * var(--gp-space-3)) 0 var(--gp-space-4); }
 		.skip-table { font-size: 14px; margin: 0 0 var(--gp-space-2); }
 		.data-table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--gp-line); }
 		.data-table-wrap:focus-visible { outline: 2px solid var(--gp-accent); outline-offset: 2px; }
 		.data-table { min-width: 900px; font-size: 14px; }
 		.data-table th, .data-table td { padding: 10px 12px; }
-		.data-table tbody th { font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--gp-ink); font-weight: 500; position: sticky; left: 0; background: var(--gp-bg); z-index: 1; }
+		.data-table tbody th { font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--gp-ink); font-weight: 500; position: sticky; left: 0; background: var(--gp-bg); z-index: 1; box-shadow: 1px 0 0 var(--gp-line); }
 		.data-table time { white-space: nowrap; }
 		.data-table .fee, .data-table .found-in, .data-table .fee-note { display: block; }
 		.data-table .fee + .fee { margin-top: 4px; }

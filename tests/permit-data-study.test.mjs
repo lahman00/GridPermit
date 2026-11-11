@@ -12,6 +12,11 @@ import test from "node:test";
 import {
 	AUTOMATED_PATH_PATTERN,
 	CEC_DASHBOARD_URL,
+	EXPRESS_KIND,
+	PATH_FEE_NAMES,
+	isAutomatedRow,
+	isCommercialTier,
+	sizeFloorKw,
 	CSV_BOM,
 	CSV_COLUMNS,
 	FEE_RECHECK,
@@ -74,16 +79,42 @@ test("automated path: pathway field first, then other sourced fields, never note
 	const ev = (o) => automatedPathEvidence(baseRecord(o));
 	assert.equal(ev({}), null);
 	assert.deepEqual(ev({ eligibility_constraints: { value: { program_or_pathway: "SolarAPP+ (residential)" }, confidence: 0.8, source_ids: ["S1"] } })?.evidence, "pathway field");
-	assert.equal(ev({ required_documents: { value: [{ name: "SolarAPP+ Approval ID number and approval documents" }], source_ids: ["S1"] } })?.evidence, "required documents");
+	assert.equal(ev({ required_documents: { value: [{ name: "SolarAPP+ Approval ID number and approval documents" }], confidence: 0.8, source_ids: ["S1"] } })?.evidence, "required documents");
 	assert.equal(ev({ required_documents: { value: [{ name: "SolarAPP+ Approval Document" }], source_ids: [] } }), null, "unsourced field ignored");
-	assert.equal(ev({ inspection_steps: { value: ["SolarAPP+ plans and job cards must be present"], source_ids: ["S1"] } })?.evidence, "inspection steps");
-	assert.equal(ev({ permit_url: { value: "https://www.city.example.gov/1694/Solar-APP", source_ids: ["S1"] } })?.evidence, "permit page address");
-	assert.equal(ev({ inspection_steps: { value: ["Installer submits the solar application through PowerClerk"], source_ids: ["S1"] } }), null, "solar application is not SolarAPP+");
+	assert.equal(ev({ inspection_steps: { value: ["SolarAPP+ plans and job cards must be present"], confidence: 0.8, source_ids: ["S1"] } })?.evidence, "inspection steps");
+	assert.equal(ev({ permit_url: { value: "https://www.city.example.gov/1694/Solar-APP", confidence: 0.8, source_ids: ["S1"] } })?.evidence, "permit page address");
+	assert.equal(ev({ inspection_steps: { value: ["Installer submits the solar application through PowerClerk"], confidence: 0.9, source_ids: ["S1"] } }), null, "solar application is not SolarAPP+");
 	assert.equal(ev({ eligibility_constraints: { value: { program_or_pathway: "Standard", other_conditions: ["SolarAPP+ coming soon"] }, confidence: 0.8, source_ids: ["S1"] } }), null);
 	assert.equal(ev({ eligibility_constraints: { value: { program_or_pathway: "Standard", other_conditions: ["Independent reporting (not confirmed) describes a Symbium pathway"] }, confidence: 0.8, source_ids: ["S1"] } }), null);
 	assert.equal(ev({ permit_url: { value: "https://www.alpha.example.gov/building", source_ids: ["S1"], notes: "City page says SolarAPP+ is available" } }), null, "notes are never read");
 	assert.equal(ev({ sources: [{ id: "S9", title: "SolarAPP+: What types of systems are eligible", url: "https://help.gosolarapp.org/article/43" }] }), null, "vendor pages are not city evidence");
-	assert.equal(ev({ sources: [{ id: "S9", title: "SolarApp+ for Solar Installers", url: "https://www.city.example.gov/solar" }] })?.evidence, "cited city page");
+	assert.equal(ev({ sources: [{ id: "S9", title: "SolarApp+ for Solar Installers", url: "https://www.city.example.gov/solar" }] }), null, "a cited page that backs no content field is not evidence");
+	assert.equal(
+		ev({
+			sources: [{ id: "S9", title: "SolarApp+ for Solar Installers", url: "https://www.city.example.gov/solar" }],
+			required_documents: { value: [{ name: "Site plan" }], confidence: 0.8, source_ids: ["S9"] },
+		})?.evidence,
+		"cited official page",
+	);
+	assert.equal(
+		ev({
+			sources: [{ id: "S9", title: "SolarAPP+", url: "https://www.city.example.gov/solar" }],
+			permit_url: { value: "https://www.city.example.gov/solar", confidence: 0.55, source_ids: ["S9"] },
+			city: { value: "Alpha", confidence: 1, source_ids: ["S9"] },
+		}),
+		null,
+		"identity fields and low-confidence fields do not make a page read",
+	);
+	assert.equal(ev({ required_documents: { value: [{ name: "SolarAPP+ Approval Document" }], confidence: 0.5, source_ids: ["S1"] } }), null, "low-confidence field ignored");
+	const vendorOnly = ev({
+		eligibility_constraints: { value: { program_or_pathway: "Symbium rooftop solar workflow" }, confidence: 0.5, source_ids: ["S6"] },
+		sources: [{ id: "S6", title: "Where is Symbium available?", url: "https://help.symbium.com/hc/en-us/articles/1" }],
+	});
+	assert.equal(vendorOnly?.evidence, "platform's jurisdiction list");
+	assert.equal(isAutomatedRow({ automatedKind: vendorOnly.kind, automatedEvidence: vendorOnly.evidence }), false);
+	const express = ev({ eligibility_constraints: { value: { program_or_pathway: "Self-issued residential solar PV permit, no plan review" }, confidence: 0.9, source_ids: ["S1"] } });
+	assert.equal(express?.kind, EXPRESS_KIND);
+	assert.equal(isAutomatedRow({ automatedKind: express.kind, automatedEvidence: express.evidence }), false);
 	assert.equal(kindFromText("Symbium/SolarApp automated permitting portal"), "SolarAPP+ and Symbium");
 	assert.equal(kindFromText("Photovoltaic Real Time (PRT) Permit"), "Other automated");
 	assert.equal(String(AUTOMATED_PATH_PATTERN), "/solarapp|symbium|automated|instant/i");
@@ -99,6 +130,19 @@ test("fees: city and utility amounts apart from platform fees; non-residential a
 	]);
 	assert.deepEqual(row.fees.map((f) => f.amountUsd), [300]);
 	assert.deepEqual(row.platformFees.map((f) => f.amountUsd), [25]);
+	assert.equal(sizeFloorKw("Electrical Permit - Photovoltaic Systems (51kW-250kW)"), 51);
+	assert.equal(isCommercialTier("Photovoltaic System (PV) 50.1 kVA and greater"), true);
+	assert.equal(isCommercialTier("Photovoltaic System (PV) 10.1–50 kVA"), false);
+	assert.equal(isCommercialTier("Residential Solar Energy System (≤15 kW)"), false);
+	const penalty = fees([{ name: "Re-inspection penalty (missing/incorrect documents)", amount_usd: 150, unit: "flat" }]);
+	assert.deepEqual(penalty.fees, []);
+	const pathFees = toPermitDataRow(
+		baseRecord({ record_id: "ca-contra-costa-hercules-pge", permit_fees: { value: [{ name: "Solar system review fee", amount_usd: 35 }, { name: "Energy storage add-on fee", amount_usd: 25 }], confidence: 0.85, source_ids: ["S1"] } }),
+		"/x/",
+	);
+	assert.deepEqual(pathFees.fees, []);
+	assert.deepEqual(pathFees.platformFees.map((f) => f.amountUsd), [35, 25]);
+	assert.ok(PATH_FEE_NAMES["ca-contra-costa-hercules-pge"].length > 0);
 	for (const id of Object.keys(FEE_RECHECK)) {
 		const r = toPermitDataRow(baseRecord({ record_id: id, permit_fees: { value: [{ name: "Residential", amount_usd: 175, unit: "per kW" }], confidence: 0.9, source_ids: ["S1"] } }), "/x/");
 		assert.deepEqual(r.fees, [], id);
@@ -124,6 +168,7 @@ test("CSV is quoted per RFC 4180, starts with a BOM and never starts a cell like
 	assert.equal(percentOf(1, 3), 33);
 	const csv = permitDataCsv([toPermitDataRow(baseRecord(), "/california/alpha/solar-permit-guide/")]);
 	assert.ok(csv.startsWith(CSV_BOM));
+	assert.ok(CSV_COLUMNS.includes("path_evidence_confidence") && CSV_COLUMNS.includes("pathway_field_confidence"));
 	assert.equal(csv.slice(1).split("\r\n")[0], CSV_COLUMNS.join(","));
 	assert.ok(csv.endsWith("\r\n"));
 });
@@ -146,11 +191,16 @@ test("real data: one row per READY California guide, labels match the records, c
 	// Records that state SolarAPP+ outside the pathway field are counted.
 	const byCity = new Map(rows.map((r) => [r.city, r]));
 	for (const city of ["Sacramento", "Riverside", "Sunnyvale", "Folsom", "Richmond", "Coronado"]) assert.ok(byCity.get(city)?.automatedKind, city);
-	for (const city of ["Pasadena", "Redondo Beach", "Irvine"]) assert.ok(!byCity.get(city) || byCity.get(city).automatedEvidence !== "inspection steps" && byCity.get(city).automatedEvidence !== "conditions", city);
+	for (const city of ["Pasadena", "Redondo Beach", "Irvine", "Lake Forest", "Norwalk"]) assert.ok(!isAutomatedRow(byCity.get(city) ?? {}), city);
+	for (const city of ["Los Angeles", "San Diego", "San José", "Long Beach", "Anaheim"]) assert.equal(byCity.get(city)?.automatedKind, EXPRESS_KIND, city);
+	assert.equal(byCity.get("San Juan Capistrano")?.automatedEvidence, "platform's jurisdiction list");
+	for (const row of rows) for (const fee of row.fees) assert.ok(!isCommercialTier(fee.name), `${row.recordId} ${fee.name}`);
 	const s = summarizePermitData(rows);
 	assert.equal(s.total, rows.length);
 	assert.equal(s.automated, s.fromPathwayField + s.fromOtherFields);
+	assert.equal(s.automated, rows.filter(isAutomatedRow).length);
 	assert.equal(Object.values(s.byKind).reduce((a, b) => a + b, 0), s.automated);
+	assert.equal(s.express, rows.filter((r) => r.automatedKind === EXPRESS_KIND).length);
 	assert.equal(s.utilities.reduce((a, u) => a + u.count, 0) + s.splitUtility, s.total);
 	assert.ok(s.automated > s.fromPathwayField, "evidence from other fields is counted");
 	const csv = permitDataCsv(rows);
