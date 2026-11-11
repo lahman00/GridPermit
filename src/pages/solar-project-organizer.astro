@@ -16,6 +16,23 @@ const schema = {
   description,
   url: canonical,
 };
+// Product data mirrors the buy button: same price constant and currency, and the same gate (the
+// checkout URL must pass validatedOrganizerCheckout). It adds no claims beyond the page itself.
+const productSchema = organizerCheckout ? {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: SOLAR_ORGANIZER.title,
+  description,
+  image: "https://mygridpermit.com/products/solar-project-organizer-preview.png",
+  brand: { "@type": "Brand", name: "GridPermit" },
+  offers: {
+    "@type": "Offer",
+    price: price.toFixed(2),
+    priceCurrency: SOLAR_ORGANIZER.currency,
+    availability: "https://schema.org/InStock",
+    url: canonical,
+  },
+} : null;
 ---
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
@@ -39,36 +56,44 @@ const schema = {
   <meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
   <link rel="sitemap" href="/sitemap-index.xml" />
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  {productSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(productSchema)} />}
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <Header />
   <main id="main-content" class="gp-container organizer-page" tabindex="-1">
-    <a class="back-link" href="/">← GridPermit</a>
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb"><a href="/">Home</a><span class="crumb-sep" aria-hidden="true">/</span><span class="crumb-current" aria-current="page">Solar Project Organizer</span></nav>
     <section class="organizer-hero" aria-labelledby="organizer-title">
       <div>
-        <p class="eyebrow">A downloadable workbook for homeowners</p>
+        <p class="gp-kicker"><span class="gp-accent">Downloadable workbook</span> / For homeowners</p>
         <h1 id="organizer-title">Solar Project Organizer</h1>
         <p class="lead">Keep your quotes, permit paperwork and utility approvals in one working file.</p>
-        <p>Compare written offers, track the next step and collect the documents you will need at the end of your solar project.</p>
+        <p class="intro">Compare written offers, track the next step and collect the documents you will need at the end of your solar project.</p>
         <div class="purchase-box">
           <p class="price">${price} <span>USD · one-time purchase</span></p>
+          <p class="includes">Six-page fillable PDF + three editable CSV templates. No subscription.</p>
           {organizerCheckout ? <>
-            <a class="buy-link" href={organizerCheckout} rel="noopener" data-track-click="organizer_checkout_clicked">Buy the organizer · ${price}</a>
-            <p class="purchase-note">Checkout is handled by Whop. After payment, sign in to Whop and download the ZIP from Files. Download access lasts one year; save the files to keep your own copy. Any applicable tax is shown at checkout. See the <a href="/terms/">digital download terms</a>.</p>
+            <a class="buy-link" href={organizerCheckout} rel="noopener" data-track-click="organizer_checkout_clicked" aria-describedby="checkout-note">Buy the organizer · ${price} <span class="buy-arrow" aria-hidden="true">↗</span></a>
+            <p class="checkout-note" id="checkout-note">Checkout opens on Whop, which handles payment and tax. After payment, sign in to Whop and download the ZIP from Files.</p>
           </> : <>
             <button class="buy-link" disabled>Checkout not yet available</button>
-            <p class="purchase-note">This product is not currently for sale.</p>
+            <p class="checkout-note">This product is not currently for sale.</p>
           </>}
-          <p class="purchase-note">Six-page fillable PDF + three editable CSV templates. No subscription.</p>
-          <p class="purchase-note"><strong>14-day refund policy:</strong> Request a full refund within 14 days of purchase through <a href="/contact/">GridPermit support</a>, using your checkout email address. No reason required. Your statutory consumer rights remain unaffected.</p>
+          <ul class="purchase-facts">
+            <li>Download access lasts one year; keep your own copy of the files.</li>
+            <li>Any applicable tax is shown at checkout. See the <a href="/terms/">digital download terms</a>.</li>
+            <li><strong>14-day refund policy:</strong> Request a full refund within 14 days of purchase through <a href="/contact/#organizer-orders">GridPermit support</a>, using your checkout email address. No reason required. Your statutory consumer rights remain unaffected.</li>
+          </ul>
         </div>
       </div>
       <figure>
         <a href="/products/solar-project-organizer-preview.png" aria-label="View the first page of the organizer">
-          <img src="/products/solar-project-organizer-preview.png" alt="Preview of the organizer's project overview page, with blank fields for project details and next actions" width="1275" height="1650" fetchpriority="high" />
+          <picture>
+            <source srcset="/products/solar-project-organizer-preview.webp" type="image/webp" />
+            <img src="/products/solar-project-organizer-preview.png" alt="Preview of the organizer's project overview page, with blank fields for project details and next actions" width="773" height="1000" fetchpriority="high" />
+          </picture>
         </a>
-        <figcaption>Page 1 of 6. Click to view the sample.</figcaption>
+        <figcaption>Page 1 of 6. Select the image to view the sample.</figcaption>
       </figure>
     </section>
     <section class="details" aria-labelledby="fit-title">
@@ -120,7 +145,7 @@ const schema = {
         </div>
       </div>
     </section>
-    <section class="details" aria-labelledby="how-title">
+    <section class="details" id="how-it-works" aria-labelledby="how-title">
       <h2 id="how-title">How buying and downloading works</h2>
       <ol class="steps">
         <li><strong>Buy on Whop.</strong> Checkout, payment and tax are handled by Whop. The price is $9 USD, one time. Checkout may show a converted amount in your local currency.</li>
@@ -138,34 +163,44 @@ const schema = {
 </body>
 </html>
 <style>
-  .organizer-page { padding-block: 40px 88px; }
-  .back-link { display: inline-block; margin-bottom: 36px; font-size: 14px; }
+  .organizer-page { padding-block: var(--gp-space-4) var(--gp-space-10); }
+  .organizer-page .breadcrumb-nav { margin-bottom: var(--gp-space-5); }
   .organizer-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(32px, 6vw, 80px); align-items: start; }
-  .eyebrow { color: var(--gp-accent); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-  h1 { font-size: clamp(40px, 5vw, 68px); max-width: 680px; }
-  .lead { font-size: 22px; line-height: 1.5; }
-  .purchase-box { border-top: 1px solid var(--gp-line); margin-top: 28px; padding-top: 18px; }
-  .price { font-size: 36px; font-weight: 600; margin: 0 0 18px; }
-  .price span { font-size: 15px; font-weight: 400; color: var(--gp-muted); }
-  .buy-link { display: inline-block; border: 0; border-radius: 2px; padding: 15px 22px; background: var(--gp-accent); color: var(--gp-accent-ink); font: 600 17px/1.4 var(--gp-font); text-decoration: none; }
-  .buy-link:hover { color: var(--gp-accent-ink); }
-  .buy-link:disabled { background: var(--gp-surface); color: var(--gp-muted); cursor: not-allowed; }
-  .purchase-note { color: var(--gp-muted); font-size: 13px; max-width: 570px; }
+  .organizer-hero .gp-kicker { margin-bottom: var(--gp-space-3); }
+  h1 { font-size: clamp(40px, 5vw, 68px); max-width: 680px; margin-bottom: var(--gp-space-3); }
+  .lead { font-size: 22px; line-height: 1.5; margin-bottom: var(--gp-space-2); }
+  .intro { color: var(--gp-muted); max-width: 600px; }
+  .purchase-box { border-top: 1px solid var(--gp-line); margin-top: var(--gp-space-4); padding-top: var(--gp-space-3); max-width: 600px; }
+  .price { font-size: 40px; font-weight: 500; line-height: 1.1; letter-spacing: -.02em; margin: 0 0 var(--gp-space-1); }
+  .price span { font-size: 15px; font-weight: 400; letter-spacing: 0; color: var(--gp-muted); }
+  .includes { font-size: 15px; margin: 0 0 var(--gp-space-3); }
+  .buy-link { display: inline-flex; align-items: center; justify-content: space-between; gap: var(--gp-space-4); min-height: 52px; border: 1px solid var(--gp-accent); border-radius: 2px; padding: 14px 24px; background: var(--gp-accent); color: var(--gp-accent-ink); font: 500 16px/1.4 var(--gp-font); text-decoration: none; transition: filter .2s ease, transform .2s ease; }
+  .buy-link:hover { color: var(--gp-accent-ink); filter: brightness(1.08); }
+  .buy-link:active { transform: translateY(1px); }
+  .buy-arrow { transition: transform .25s ease; }
+  .buy-link:hover .buy-arrow { transform: translate(3px, -3px); }
+  .buy-link:disabled { background: var(--gp-surface); border-color: var(--gp-line); color: var(--gp-muted); cursor: not-allowed; }
+  .checkout-note { color: var(--gp-muted); font-size: 14px; margin: var(--gp-space-2) 0 var(--gp-space-3); max-width: 570px; }
+  .purchase-facts { list-style: none; margin: 0; padding: var(--gp-space-2) 0 0; border-top: 1px solid var(--gp-line); max-width: 570px; }
+  .purchase-facts li { position: relative; margin: 0 0 var(--gp-space-1); padding-left: var(--gp-space-3); color: var(--gp-muted); font-size: 14px; line-height: 1.6; }
+  .purchase-facts li::before { content: ''; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; background: var(--gp-accent); }
+  .purchase-facts strong { color: var(--gp-ink); }
+  figure picture { display: block; }
   figure { margin: 0; }
   figure img { display: block; width: 100%; height: auto; border: 1px solid var(--gp-line); background: white; }
   figcaption { margin-top: 12px; font-size: 12px; color: var(--gp-muted); }
-  .details { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--gp-line); }
-  .details h2 { font-size: 32px; margin-bottom: 28px; }
-  .contents-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+  .details { margin-top: var(--gp-space-8); padding-top: var(--gp-space-4); border-top: 1px solid var(--gp-line); }
+  .details h2 { font-size: 32px; margin-bottom: var(--gp-space-3); }
+  .contents-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gp-space-4); }
   .contents-grid h3 { font-size: 22px; line-height: 1.3; }
   .contents-grid p, .boundary p { color: var(--gp-muted); }
   .boundary { max-width: 850px; }
-  .fit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+  .fit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gp-space-4); }
   .fit-grid h3 { font-size: 22px; line-height: 1.3; }
   .details ul { margin: 0; padding-left: 1.2em; color: var(--gp-muted); }
   .details li { margin: 0 0 .45em; }
   .steps { margin: 0; padding-left: 1.4em; max-width: 760px; color: var(--gp-muted); }
   .steps li { margin: 0 0 1em; padding-left: .3em; }
   .steps strong { color: var(--gp-ink); }
-  @media (max-width: 760px) { .organizer-hero, .contents-grid, .fit-grid { grid-template-columns: 1fr; } .organizer-hero figure { max-width: 480px; } .lead { font-size: 20px; } .details { margin-top: 44px; } }
+  @media (max-width: 760px) { .organizer-hero, .contents-grid, .fit-grid { grid-template-columns: 1fr; } .organizer-hero figure { max-width: 480px; } .lead { font-size: 20px; } .details { margin-top: var(--gp-space-6); } .organizer-page .breadcrumb-nav { margin-bottom: var(--gp-space-3); } .buy-link { width: 100%; } }
 </style>

@@ -28,7 +28,7 @@ function run({ reduceMotion = false, narrow = true } = {}) {
   locality.value = "r1"; el("project-type").value = "new-pv"; el("stage").value = "planning";
   for (const id of ["battery", "mpu", "ground", "existing", "owner", "equipment", "unpermitted", "result", "check-path"]) el(id);
   vm.runInNewContext(inlineScript, { document: { getElementById: el }, encodeURIComponent, matchMedia: (q) => ({ matches: q.includes("reduced-motion") ? reduceMotion : narrow }) }, { timeout: 2000 });
-  return { calls, announce, click: () => el("check-path").handlers.click(), clickEmpty() { locality.value = ""; el("check-path").handlers.click(); return el("result").innerHTML; } };
+  return { calls, announce, localityError: el("locality-error"), click: () => el("check-path").handlers.click(), clickEmpty() { locality.value = ""; el("check-path").handlers.click(); return el("result").innerHTML; } };
 }
 
 test("on a narrow screen a completed check scrolls to the result and moves focus to its heading without a second scroll", () => {
@@ -56,10 +56,14 @@ test("the verdict is announced through a status region, because focusing the hea
   assert.match(template, /<p class="sr-only" role="status" id="result-announce"><\/p>/);
 });
 
-test("choosing no locality announces the problem as an alert and keeps focus on the locality field", () => {
+test("choosing no locality announces the problem as an alert next to the field and keeps focus on it", () => {
   const r = run();
   const html = r.clickEmpty();
-  assert.match(html, /role="alert"/);
+  // The message lives under the select (role="alert"), not in the result panel that sits far below on a phone.
+  assert.match(template, /<select id="locality" class="t-input" aria-describedby="locality-error">/);
+  assert.match(template, /<\/select>\s*<p class="gp-field-error" id="locality-error" role="alert"><\/p>/);
+  assert.match(r.localityError.textContent, /^Choose a researched locality first\./);
+  assert.equal(html, "", "the result panel is left as it was");
   assert.deepEqual(JSON.parse(JSON.stringify(r.calls)), [["focus-locality"]]);
 });
 

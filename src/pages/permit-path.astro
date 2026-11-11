@@ -3,40 +3,18 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import DesignHead from "../components/DesignHead.astro";
 import Analytics from "../components/Analytics.astro";
-import { SITE_ORIGIN, type LocalityRecord } from "../lib/locality-guide";
+import { SITE_ORIGIN } from "../lib/locality-guide";
 import { stateMeta } from "../lib/state-meta";
+import { permitPathRecords, type PublishedLocality } from "../lib/permit-path-records";
 
 const localityModules = import.meta.glob("../../data/localities/*.json", { eager: true }) as Record<
   string,
-  { default: LocalityRecord & { record_id: string; last_verified?: string } }
+  { default: PublishedLocality }
 >;
 
-const records = Object.values(localityModules)
-  .map((mod) => mod.default)
-  .filter((record) => record.city?.value && record.permit_authority?.value)
-  .map((record) => ({
-    id: record.record_id,
-    state: record.state,
-    city: record.city?.value ?? null,
-    county: record.county?.value ?? null,
-    utility: record.utility?.value ?? null,
-    permitAuthority: record.permit_authority?.value ?? null,
-    permitUrl: record.permit_url?.value ?? null,
-    interconnectionUrl: record.interconnection_url?.value ?? null,
-    requiredDocuments: record.required_documents?.value ?? null,
-    timeline: record.timeline_days?.value ?? null,
-    eligibility: record.eligibility_constraints?.value ?? null,
-    permitFees: record.permit_fees?.value ?? null,
-    lastVerified: record.last_verified ?? null,
-    sources: (record.sources ?? []).map((source) => ({
-      title: source.title,
-      url: source.url,
-      publisher: source.publisher,
-      type: source.type,
-      accessedDate: source.accessed_date,
-    })),
-  }))
-  .sort((a, b) => `${a.state}-${a.city}`.localeCompare(`${b.state}-${b.city}`));
+// The page only needs each locality's label for the <select>. Record details are
+// static JSON files (src/pages/permit-path/records/[id].json.ts) loaded on demand.
+const records = permitPathRecords(Object.values(localityModules).map((mod) => mod.default));
 
 const localityGroups: { name: string; records: typeof records }[] = [];
 for (const record of records) {
@@ -91,6 +69,9 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
 .mods {border:0;margin:.95rem 0 0;padding:0;min-width:0}
 .mods legend {padding:0;font-weight:750;font-size:.86rem;margin:0 0 .35rem}
 :global(#result .pro-note) {margin:1rem 0 0;font-size:.86rem;color:var(--muted)}:global(#result .pro-note a) {display:inline-flex;align-items:center;min-height:44px;color:var(--blue);font-weight:750}.disclaimer {max-width:900px;margin:1.5rem 0 0;color:var(--muted);font-size:.8rem}@media(max-width:820px){.layout {grid-template-columns:1fr}.checks {grid-template-columns:1fr}}
+.eyebrow {margin:0 0 var(--gp-space-2)}
+.hero h1 {margin:0 0 var(--gp-space-3)}
+:global(#result[aria-busy='true'] .result-empty) {border-style:solid}
   </style>
 </head>
 <body>
@@ -107,10 +88,11 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
         <h2 id="checker-heading">Project facts</h2>
         <p class="helper">Start with jurisdiction and utility. Then flag anything that may change permit or interconnection review.</p>
         <label for="locality">Jurisdiction / utility</label>
-        <select id="locality">
+        <select id="locality" class="t-input" aria-describedby="locality-error">
           <option value="">Select a researched locality</option>
           {localityGroups.map((group) => <optgroup label={group.name}>{group.records.map((record) => <option value={record.id}>{record.city}, {record.state} · {record.utility ?? "Utility not verified"}</option>)}</optgroup>)}
         </select>
+        <p class="gp-field-error" id="locality-error" role="alert"></p>
         <label for="project-type">Project type</label>
         <select id="project-type">
           <option value="new-pv">New rooftop PV</option>
@@ -145,20 +127,54 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       <section class="card" id="result-card" aria-labelledby="result-heading">
         <h2 id="result-heading" tabindex="-1">Verified path</h2>
         <p class="sr-only" role="status" id="result-announce"></p>
-        <div id="result"><div class="result-empty">Select a locality and project facts to see the verified AHJ, utility path, known documents, fees, timeline and open questions.</div></div>
+        <div id="result" class="t-panel-slide" data-open="true"><div class="result-empty">Select a locality and project facts to see the verified AHJ, utility path, known documents, fees, timeline and open questions.</div></div>
       </section>
     </div>
     <aside class="cta" aria-labelledby="organizer-cta-title"><h2 id="organizer-cta-title">Keep your solar project organized</h2><p class="helper">For homeowners comparing quotes and tracking permits, inspections and utility approval, the optional Solar Project Organizer includes a six-page fillable PDF and three editable CSV templates. It is a blank planning tool, not a permit research or filing service.</p><a href="/solar-project-organizer/" data-track-click="internal_resource_clicked">View the $9 Solar Project Organizer</a></aside>
     <p class="disclaimer">GridPermit is an informational research tool, not an AHJ, utility, engineering firm, electrical contractor or legal service. Always use the current official permit and interconnection instructions for the actual project. Technical electrical and structural decisions belong with the responsible authority and qualified professionals.</p>
   </main>
-  <script id="permit-path-data" type="application/json" set:html={JSON.stringify(records)}></script>
   <script is:inline>
-    const records = JSON.parse(document.getElementById("permit-path-data")?.textContent || "[]");
+    // Records embedded in the page (none in production) are used directly; every other
+    // record is a small static JSON file fetched once, when its locality is chosen.
+    let records = [];
+    try {
+      const embedded = JSON.parse(document.getElementById("permit-path-data")?.textContent || "[]");
+      if (Array.isArray(embedded)) records = embedded;
+    } catch {
+      records = [];
+    }
     const byId = new Map(records.map((record) => [record.id, record]));
     const $ = (id) => document.getElementById(id);
+    const pending = new Map();
+    const EMPTY_RESULT = $("result")?.innerHTML || "";
+    const RECORD_TIMEOUT_MS = 10000;
+    function loadRecord(id) {
+      if (byId.has(id)) return Promise.resolve(byId.get(id));
+      if (pending.has(id)) return pending.get(id);
+      if (typeof fetch !== "function") return Promise.reject(new Error("Record loading is unavailable"));
+      const controller = typeof AbortController === "function" ? new AbortController() : null;
+      const timer = controller && typeof setTimeout === "function" ? setTimeout(() => controller.abort(), RECORD_TIMEOUT_MS) : null;
+      const request = fetch(`/permit-path/records/${encodeURIComponent(id)}.json`, { headers: { Accept: "application/json" }, ...(controller ? { signal: controller.signal } : {}) })
+        .then((response) => {
+          if (!response.ok) throw new Error(`Record request failed (${response.status})`);
+          return response.json();
+        })
+        .then((record) => {
+          if (!record || record.id !== id) throw new Error("Unexpected record");
+          byId.set(id, record);
+          return record;
+        })
+        .finally(() => {
+          if (timer !== null && typeof clearTimeout === "function") clearTimeout(timer);
+          pending.delete(id);
+        });
+      pending.set(id, request);
+      return request;
+    }
     const checked = (id) => Boolean($(id)?.checked);
     const esc = (value) => String(value ?? "").replace(/[&<>'"]/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
-    const link = (url, label) => url ? `<a class="official" href="${esc(url)}" target="_blank" rel="noopener">${esc(label)} ↗</a>` : `<span class="muted">Official link not verified in this record.</span>`;
+    const safeUrl = (url) => (typeof url === "string" && /^https?:\/\//i.test(url) ? url : "");
+    const link = (url, label) => safeUrl(url) ? `<a class="official" href="${esc(safeUrl(url))}" target="_blank" rel="noopener">${esc(label)} ↗</a>` : `<span class="muted">Official link not verified in this record.</span>`;
     const hasText = (items, pattern) => (items || []).some((item) => pattern.test(String(item)));
 
     function formatFee(fees) {
@@ -201,6 +217,73 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
       }
     });
 
+    // Field-level validation: the message sits under the field that needs fixing (on a phone the
+    // result panel is far below), the field is marked invalid and gets a short shake.
+    const LOCALITY_REQUIRED = "Choose a researched locality first. If your city is not listed, GridPermit does not yet have a publishable locality record for it.";
+    function showLocalityError() {
+      const field = $("locality");
+      const message = $("locality-error");
+      if (message) message.textContent = LOCALITY_REQUIRED;
+      field?.setAttribute?.("aria-invalid", "true");
+      if (field?.classList) {
+        field.classList.remove("is-shaking");
+        void field.offsetWidth;
+        field.classList.add("is-shaking");
+        if (typeof setTimeout === "function") setTimeout(() => field.classList.remove("is-shaking"), 320);
+      }
+      field?.focus?.();
+    }
+    function clearLocalityError() {
+      const message = $("locality-error");
+      if (message) message.textContent = "";
+      $("locality")?.setAttribute?.("aria-invalid", "false");
+    }
+    // Each check gets a sequence number; a later check or a new locality makes older responses stale.
+    let checkSeq = 0;
+    let prefetchTimer = null;
+    $("locality")?.addEventListener?.("change", () => {
+      clearLocalityError();
+      checkSeq += 1;
+      const result = $("result");
+      if (result?.getAttribute?.("aria-busy") === "true") {
+        result.removeAttribute?.("aria-busy");
+        result.innerHTML = EMPTY_RESULT;
+      }
+      const id = $("locality")?.value;
+      if (!id) return;
+      // Keyboard arrowing fires change per option on some platforms: wait for the choice to settle.
+      if (typeof setTimeout !== "function") {
+        loadRecord(id).catch(() => {});
+        return;
+      }
+      if (prefetchTimer !== null && typeof clearTimeout === "function") clearTimeout(prefetchTimer);
+      prefetchTimer = setTimeout(() => {
+        prefetchTimer = null;
+        if ($("locality")?.value === id) loadRecord(id).catch(() => {});
+      }, 250);
+    });
+
+    // Replays the transitions.dev panel reveal so an updated result is noticeable. Reduced-motion
+    // users get the new content instantly (see the t-panel-slide guard in global.css).
+    function replayReveal() {
+      const panel = $("result");
+      if (!panel?.style || !panel.dataset || !panel.classList) return;
+      panel.classList.add("is-revealing");
+      panel.style.transition = "none";
+      panel.dataset.open = "false";
+      void panel.offsetWidth;
+      panel.style.transition = "";
+      panel.dataset.open = "true";
+      if (typeof setTimeout === "function") setTimeout(() => panel.classList.remove("is-revealing"), 450);
+    }
+
+    // Asks the site analytics wiring (src/components/Analytics.astro) to record a completed check.
+    // Only categorical project facts are sent: never the locality, city or any free text.
+    function reportCheck(params) {
+      if (typeof CustomEvent !== "function" || typeof document.dispatchEvent !== "function") return;
+      document.dispatchEvent(new CustomEvent("gridpermit:track", { detail: { name: "permit_path_checked", params } }));
+    }
+
     // After a check, tell screen readers the verdict, move focus to the result heading and, when the
     // result sits below the form (single-column layout), scroll it into view. The page's scroll-padding
     // keeps it clear of the sticky header.
@@ -218,13 +301,42 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
     }
 
     $("check-path")?.addEventListener("click", () => {
-      const record = byId.get($("locality")?.value);
-      if (!record) {
-        $("result").innerHTML = `<div class="status caution" role="alert">Choose a researched locality first. If your city is not listed, GridPermit does not yet have a publishable locality record for it.</div>`;
-        // The alert states the problem; keep the user at the field they must fix.
-        $("locality")?.focus?.();
+      const id = $("locality")?.value;
+      if (!id) {
+        // The alert states the problem next to the field; keep the user at the field they must fix.
+        showLocalityError();
         return;
       }
+      clearLocalityError();
+      const token = ++checkSeq;
+      const cached = byId.get(id);
+      if (cached) {
+        renderResult(cached);
+        return;
+      }
+      const result = $("result");
+      const live = $("result-announce");
+      result?.setAttribute?.("aria-busy", "true");
+      if (result) result.innerHTML = `<div class="result-empty">Loading the verified record for this locality…</div>`;
+      if (live) live.textContent = "Loading the verified record.";
+      loadRecord(id).then(
+        (record) => {
+          // A newer check or a different locality owns the panel now.
+          if (token !== checkSeq) return;
+          result?.removeAttribute?.("aria-busy");
+          renderResult(record);
+        },
+        () => {
+          if (token !== checkSeq) return;
+          result?.removeAttribute?.("aria-busy");
+          if (result) result.innerHTML = `<div class="status caution" role="alert">This locality record could not be loaded. Check your connection, then select Check permit path again.</div>`;
+          if (live) live.textContent = "";
+          replayReveal();
+        },
+      );
+    });
+
+    function renderResult(record) {
       const conditions = record.eligibility?.other_conditions || [];
       const program = record.eligibility?.program_or_pathway || "";
       const automatedPath = /solarapp|symbium|automated|instant/i.test(program);
@@ -258,7 +370,7 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
         : `<span class="muted">Required documents are not verified in this record.</span>`;
       const condHtml = conditions.length ? `<ul class="docs">${conditions.map((condition) => `<li>${esc(condition)}</li>`).join("")}</ul>` : `<span class="muted">No project-level eligibility conditions are verified in this record.</span>`;
       const openItems = [...blockers, ...unknowns];
-      const sourceHtml = (record.sources || []).slice(0, 8).map((source) => `<div class="source"><a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.title)}</a> — ${esc(source.publisher || source.type || "official source")}${source.accessedDate ? ` · accessed ${esc(source.accessedDate)}` : ""}</div>`).join("") || `<span class="muted">No source list available.</span>`;
+      const sourceHtml = (record.sources || []).slice(0, 8).map((source) => `<div class="source">${safeUrl(source.url) ? `<a href="${esc(safeUrl(source.url))}" target="_blank" rel="noopener">${esc(source.title)}</a>` : esc(source.title)} — ${esc(source.publisher || source.type || "official source")}${source.accessedDate ? ` · accessed ${esc(source.accessedDate)}` : ""}</div>`).join("") || `<span class="muted">No source list available.</span>`;
       const scopeParts = [projectType, checked("battery") && "battery", checked("mpu") && "MPU", checked("ground") && "ground mount/canopy", checked("existing") && "existing PV", checked("owner") && "owner-builder", checked("equipment") && "equipment change", checked("unpermitted") && "unpermitted work"].filter(Boolean);
       const helpUrl = `/project-help/?jurisdiction=${encodeURIComponent(`${record.city}, ${record.state}`)}&utility=${encodeURIComponent(record.utility || "")}&scope=${encodeURIComponent(scopeParts.join(", "))}&stage=${encodeURIComponent(stage)}&utm_source=permit_path_checker&utm_medium=owned&utm_campaign=decision_stage`;
 
@@ -274,8 +386,10 @@ const canonical = `${SITE_ORIGIN}/permit-path/`;
         <div class="section"><h3>Sources used by this locality record</h3><div class="sources">${sourceHtml}</div>${record.lastVerified ? `<div class="verified">Record last verified: ${esc(record.lastVerified)}</div>` : ""}</div>
         <div class="cta"><strong>Still ambiguous?</strong><p class="helper">Send the jurisdiction, utility, scope and exact correction/delay. Include dated milestones when the issue is inspection or PTO.</p><a href="${helpUrl}">Send project facts</a></div>
         <p class="pro-note">Installer or permit specialist checking many jurisdictions? GridPermit Pro is a proposed research tool that does not exist yet. We're asking whether it would help before we build it. <a href="/pro/">Read the proposal</a></p>`;
+      replayReveal();
       revealResult(`${record.city}, ${record.state}: ${statusText}`);
-    });
+      reportCheck({ stage, project_type: projectType, pathway: automatedPath ? "automated" : "standard", open_items: openItems.length });
+    }
   </script>
 <Footer />
 </body>

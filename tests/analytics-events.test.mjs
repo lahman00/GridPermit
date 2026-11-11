@@ -10,12 +10,13 @@ import assert from "node:assert/strict";
 
 import {
 	ANALYTICS_EVENTS,
+	bridgeAnalyticsEvent,
 	isKnownAnalyticsEvent,
 	sanitizeAnalyticsParams,
 	trackEvent,
 } from "../src/lib/analytics-events.ts";
 
-test("ANALYTICS_EVENTS is exactly the 22 approved conversion events", () => {
+test("ANALYTICS_EVENTS is exactly the 23 approved conversion events", () => {
 	assert.deepEqual(
 		[...ANALYTICS_EVENTS].sort(),
 		[
@@ -29,6 +30,7 @@ test("ANALYTICS_EVENTS is exactly the 22 approved conversion events", () => {
 			"official_source_clicked",
 			"organizer_checkout_clicked",
 			"page_not_found",
+			"permit_path_checked",
 			"permit_guide_clicked",
 			"pro_interest_clicked",
 			"search_used",
@@ -156,5 +158,32 @@ test("sanitizeAnalyticsParams allows only the fixed non-PII first-lead page_loca
 		"https://mygridpermit.com/california/hemet/solar-permit-guide/?gp_cid=abc123&gp_src=arbitrary",
 	]) {
 		assert.deepEqual(sanitizeAnalyticsParams({ page_location: unsafe, partner: "compare_solar_prices" }), { partner: "compare_solar_prices" });
+	}
+});
+
+test("the inline-script bridge accepts only permit_path_checked with its enumerated parameters", () => {
+	const valid = { name: "permit_path_checked", params: { stage: "pto", project_type: "battery-only", pathway: "standard", open_items: 3 } };
+	assert.deepEqual(bridgeAnalyticsEvent(valid), valid);
+	for (const stage of ["planning", "permit", "installation", "inspection", "interconnection", "pto"]) {
+		assert.ok(bridgeAnalyticsEvent({ ...valid, params: { ...valid.params, stage } }), stage);
+	}
+});
+
+test("the bridge rejects other events, extra or location keys, unknown values and bad counts", () => {
+	const params = { stage: "pto", project_type: "new-pv", pathway: "automated", open_items: 1 };
+	for (const name of ["organizer_checkout_clicked", "cpl_cta_clicked", "affiliate_cta_clicked", "page_view", ""]) {
+		assert.equal(bridgeAnalyticsEvent({ name, params }), null, name);
+	}
+	for (const extra of [{ city: "Pomona" }, { locality: "ca-pomona-sce" }, { utility: "SCE" }, { value: 9 }, { transaction_id: "x" }]) {
+		assert.equal(bridgeAnalyticsEvent({ name: "permit_path_checked", params: { ...params, ...extra } }), null, JSON.stringify(extra));
+	}
+	for (const bad of [{ stage: "Pomona, CA" }, { project_type: "anything" }, { pathway: "fast" }, { open_items: -1 }, { open_items: 21 }, { open_items: 1.5 }, { open_items: "2" }]) {
+		assert.equal(bridgeAnalyticsEvent({ name: "permit_path_checked", params: { ...params, ...bad } }), null, JSON.stringify(bad));
+	}
+	const missing = { ...params };
+	delete missing.open_items;
+	assert.equal(bridgeAnalyticsEvent({ name: "permit_path_checked", params: missing }), null);
+	for (const detail of [null, undefined, "permit_path_checked", 42, { name: "permit_path_checked" }]) {
+		assert.equal(bridgeAnalyticsEvent(detail), null, String(detail));
 	}
 });
