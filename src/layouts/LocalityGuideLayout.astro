@@ -46,6 +46,7 @@ import ContentLinkList from "../components/ContentLinkList.astro";
 import { selectLocalityResources } from "../lib/content-links";
 import { contentLinkRegistry, localityFacts } from "../lib/content-links-site";
 import { observationLockedRecordIds, relatedForPage } from "../lib/related-balance";
+import { buildFactDescription, isSnippetHoldout, isSnippetLocked } from "../lib/guide-snippet";
 import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../lib/ready-quality";
 
 interface Props {
@@ -70,7 +71,6 @@ const commercialSeoProfile = getCommercialSeoProfile(record.record_id);
 const quickAnswerPilot = getQuickAnswerPilot(record.record_id);
 const { canonicalUrl, utilityShortName: utilityShort } = baselineMeta;
 const title = commercialSeoProfile?.title ?? baselineMeta.title;
-const description = commercialSeoProfile?.description ?? baselineMeta.description;
 const localityLead = commercialSeoProfile?.lead ?? "Your local requirements. The official sources. A clearer next step.";
 const permitAuthorityLabel = resolvePermitAuthorityLabel(record);
 const sourceCount = record.sources.length;
@@ -123,12 +123,29 @@ const currentEntry = {
 };
 // Balanced selection only for the counties listed in the content-link registry;
 // every other page gets exactly what buildRelatedLocalities returns.
+const observationLocked = observationLockedRecordIds(allReadyEntries, contentLinkRegistry.rollout.locality_pages);
 const relatedLocalities = relatedForPage(
 	currentEntry,
 	allReadyEntries,
 	contentLinkRegistry.balanced_related,
-	observationLockedRecordIds(allReadyEntries, contentLinkRegistry.rollout.locality_pages),
+	observationLocked,
 );
+
+// Fact-bearing search description from this record's own verified fields,
+// only for guides outside every measurement window and outside the
+// pre-registered one-in-four holdout (see src/lib/guide-snippet.ts).
+const snippetLocked = isSnippetLocked({
+	recordId: record.record_id,
+	pagePath,
+	lockedRecordIds: observationLocked,
+	balancedRelated: contentLinkRegistry.balanced_related,
+	heldPaths: FIRST_LEAD_SPRINT_PATHS,
+});
+const snippetHoldout = isSnippetHoldout(record.record_id);
+const description =
+	commercialSeoProfile?.description ??
+	(snippetLocked || snippetHoldout ? null : buildFactDescription(record)) ??
+	baselineMeta.description;
 
 // County hub link — only when this city's county cleared the hub-page
 // value threshold (see MIN_READY_CITIES_FOR_HUB in src/lib/county-hub.ts).
