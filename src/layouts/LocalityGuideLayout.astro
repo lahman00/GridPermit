@@ -46,7 +46,7 @@ import ContentLinkList from "../components/ContentLinkList.astro";
 import { selectLocalityResources } from "../lib/content-links";
 import { contentLinkRegistry, localityFacts } from "../lib/content-links-site";
 import { observationLockedRecordIds, relatedForPage } from "../lib/related-balance";
-import { buildFactDescription, isSnippetLocked } from "../lib/guide-snippet";
+import { buildFactDescription, isSnippetHoldout, isSnippetLocked } from "../lib/guide-snippet";
 import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../lib/ready-quality";
 
 interface Props {
@@ -132,7 +132,8 @@ const relatedLocalities = relatedForPage(
 );
 
 // Fact-bearing search description from this record's own verified fields,
-// only for guides outside every measurement window (see src/lib/guide-snippet.ts).
+// only for guides outside every measurement window and outside the
+// pre-registered one-in-four holdout (see src/lib/guide-snippet.ts).
 const snippetLocked = isSnippetLocked({
 	recordId: record.record_id,
 	pagePath,
@@ -140,8 +141,11 @@ const snippetLocked = isSnippetLocked({
 	balancedRelated: contentLinkRegistry.balanced_related,
 	heldPaths: FIRST_LEAD_SPRINT_PATHS,
 });
+const snippetHoldout = isSnippetHoldout(record.record_id);
 const description =
-	commercialSeoProfile?.description ?? (snippetLocked ? null : buildFactDescription(record)) ?? baselineMeta.description;
+	commercialSeoProfile?.description ??
+	(snippetLocked || snippetHoldout ? null : buildFactDescription(record)) ??
+	baselineMeta.description;
 
 // County hub link — only when this city's county cleared the hub-page
 // value threshold (see MIN_READY_CITIES_FOR_HUB in src/lib/county-hub.ts).

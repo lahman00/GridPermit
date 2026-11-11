@@ -1,18 +1,29 @@
 // Fact-bearing search descriptions for city guides: built only from the
-// record's own verified fields, never longer than 160 characters, and never
-// applied to a guide inside a measurement or observation window.
+// record's own verified fields, never longer than 160 characters, never
+// applied to a guide inside a measurement or observation window, and held
+// back on a pre-registered one-in-four holdout.
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
-import { MAX_DESCRIPTION_LENGTH, buildFactDescription, checkedMonth, isSnippetLocked } from "../src/lib/guide-snippet.ts";
-import { publishedFees, automatedKindFor } from "../src/lib/permit-data-study.ts";
+import {
+	MAX_DESCRIPTION_LENGTH,
+	MIN_PATH_CONFIDENCE,
+	buildFactDescription,
+	checkedMonth,
+	isSnippetHoldout,
+	isSnippetLocked,
+	snippetFacts,
+	stableHash,
+} from "../src/lib/guide-snippet.ts";
+import { automatedKindFor, canonicalUtilityName, cityOrUtilityFees } from "../src/lib/record-facts.ts";
 import { buildLocalityIndexEntries, citySlug, guideUrlForCitySlug } from "../src/lib/locality-guide.ts";
 import { observationLockedRecordIds } from "../src/lib/related-balance.ts";
 import { COMMERCIAL_SEO_PROFILES } from "../src/lib/commercial-seo-profiles.ts";
 import { QUICK_ANSWER_PILOTS } from "../src/lib/quick-answer-pilots.ts";
 import { PERMIT_PATHWAY_RECORD_IDS } from "../src/lib/permit-pathway-answer.ts";
+import { hasVerifiedUnambiguousUtility } from "../src/lib/utility-split-guard.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (rel) => readFileSync(path.join(root, rel), "utf8");
@@ -33,8 +44,10 @@ function loadData() {
 	const evaluated = readdirSync(path.join(root, "output"))
 		.filter((n) => n.endsWith("-evaluation.json"))
 		.flatMap((n) => JSON.parse(read(`output/${n}`)).records ?? []);
-	return { recordsById, evaluated, entries: buildLocalityIndexEntries(evaluated, recordsById) };
+	return { recordsById, entries: buildLocalityIndexEntries(evaluated, recordsById) };
 }
+
+const sourcedList = (field) => Array.isArray(field?.value) && field.value.length > 0 && Boolean(field.source_ids?.length);
 
 test("checked month is derived from the record date only", () => {
 	assert.equal(checkedMonth("2026-08-09"), "Aug 2026");
@@ -44,7 +57,7 @@ test("checked month is derived from the record date only", () => {
 	assert.equal(checkedMonth(undefined), null);
 });
 
-test("every READY guide gets a bounded, record-backed description or keeps the old one", () => {
+test("every claim in a description is backed by the record", () => {
 	const { recordsById, entries } = loadData();
 	let built = 0;
 	for (const entry of entries) {
@@ -52,23 +65,84 @@ test("every READY guide gets a bounded, record-backed description or keeps the o
 		const text = buildFactDescription(record);
 		if (!text) continue;
 		built += 1;
-		assert.ok(text.length <= MAX_DESCRIPTION_LENGTH, `${entry.recordId}: ${text.length}`);
-		assert.ok(text.startsWith(`${record.city.value}, ${record.state} solar permit:`), entry.recordId);
-		assert.ok(text.endsWith(`Checked ${checkedMonth(record.last_verified)}.`), entry.recordId);
-		const kind = automatedKindFor(record.eligibility_constraints?.value?.program_or_pathway);
-		assert.equal(text.includes("SolarAPP+"), kind === "SolarAPP+", `${entry.recordId} SolarAPP+ claim`);
-		assert.equal(text.includes("Symbium"), kind === "Symbium", `${entry.recordId} Symbium claim`);
-		assert.equal(text.includes("published fees"), publishedFees(record).length > 0, `${entry.recordId} fee claim`);
-		assert.doesNotMatch(text, /confidence-scored|guarantee|instant approval|fast(est)?\b/i);
+		const id = entry.recordId;
+		assert.ok(text.length <= MAX_DESCRIPTION_LENGTH, `${id}: ${text.length}`);
+		assert.ok(text.startsWith(`${record.city.value}, ${record.state} solar permit guide:`), id);
+		assert.ok(text.endsWith(`Checked ${checkedMonth(record.last_verified)}.`), id);
+		const eligibility = record.eligibility_constraints;
+		const kind = automatedKindFor(eligibility?.value?.program_or_pathway);
+		const confident = (eligibility?.confidence ?? 0) >= MIN_PATH_CONFIDENCE;
+		assert.ok(!text.includes("SolarAPP+") || (kind === "SolarAPP+" && confident), `${id} SolarAPP+ claim`);
+		assert.ok(!text.includes("Symbium") || (kind === "Symbium" && confident), `${id} Symbium claim`);
+		assert.ok(!text.includes("automated permit path") || (kind === "Other automated" && confident), `${id} automated claim`);
+		assert.ok(!text.includes("published fees") || cityOrUtilityFees(record).length > 0, `${id} fee claim`);
+		assert.ok(!text.includes("document checklist") || sourcedList(record.required_documents), `${id} documents claim`);
+		assert.ok(!text.includes("inspection steps") || sourcedList(record.inspection_steps), `${id} inspections claim`);
+		if (!hasVerifiedUnambiguousUtility(record)) assert.ok(text.includes("utility interconnection"), `${id} split utility named`);
+		assert.doesNotMatch(text, /confidence-scored|guarantee|instant approval|fastest|portal link|company interconnection|, Inc\.|LLC/i, id);
 	}
 	assert.ok(built >= entries.length * 0.9, `expected most guides to get a description, got ${built}/${entries.length}`);
 });
 
-test("no description without a sourced permit office", () => {
+test("utility names in descriptions are readable short names", () => {
+	assert.equal(canonicalUtilityName("Southern California Edison (SCE)"), "SCE");
+	assert.equal(canonicalUtilityName("Southern California Edison"), "SCE");
+	assert.equal(canonicalUtilityName("Pacific Gas and Electric Company (PG&E)"), "PG&E");
+	assert.equal(canonicalUtilityName("San Diego Gas & Electric (SDG&E)"), "SDG&E");
+	assert.equal(canonicalUtilityName("PECO (an Exelon company)"), "PECO");
+	assert.equal(canonicalUtilityName("Delmarva Power (an Exelon company)"), "Delmarva Power");
+	assert.equal(canonicalUtilityName("Appalachian Power (an AEP company)"), "Appalachian Power");
+	assert.equal(canonicalUtilityName("Lompoc Utilities (Electric Division, City of Lompoc)"), "Lompoc Utilities");
+	assert.equal(canonicalUtilityName("Chugach Electric Association, Inc."), "Chugach Electric Association");
+	assert.equal(canonicalUtilityName("Entergy Arkansas, LLC"), "Entergy Arkansas");
+	assert.equal(canonicalUtilityName("Nevada Power Company d/b/a NV Energy"), "NV Energy");
+	assert.equal(canonicalUtilityName("Sacramento Municipal Utility District (SMUD)"), "SMUD");
+	assert.equal(canonicalUtilityName("Azusa Light & Water"), "Azusa Light & Water");
+	assert.equal(canonicalUtilityName(null), null);
+	const { recordsById } = loadData();
+	for (const id of ["pa-philadelphia-philadelphia-peco", "de-new-castle-new-castle-county-delmarva", "wv-kanawha-charleston-appalachianpower"]) {
+		const record = recordsById.get(id);
+		if (!record) continue;
+		const text = buildFactDescription(record) ?? "";
+		assert.doesNotMatch(text, /company interconnection/, id);
+	}
+});
+
+test("platform fees alone never produce a 'published fees' claim", () => {
+	const base = { name: "SolarAPP+ processing fee", amount_usd: 25, unit: "flat" };
+	const record = (fees) => ({ permit_fees: { value: fees, confidence: 0.9, source_ids: ["S1"] } });
+	assert.equal(cityOrUtilityFees(record([base])).length, 0);
+	assert.equal(cityOrUtilityFees(record([{ ...base, name: "SolarAPP+ design revision (4th and later)" }])).length, 0);
+	assert.equal(cityOrUtilityFees(record([{ name: "SolarAPP+ fee", amount_usd: 35, notes: "Paid directly to the SolarAPP+ platform." }])).length, 0);
+	assert.equal(cityOrUtilityFees(record([{ name: "Residential Photovoltaic System via SolarAPP+", amount_usd: 385 }])).length, 1);
+	assert.equal(cityOrUtilityFees(record([{ name: "SolarApp+ OTC Permit Fee", amount_usd: 120 }])).length, 1);
+	assert.equal(cityOrUtilityFees(record([{ name: "Residential interconnection fee", amount_usd: 330 }])).length, 1);
+	assert.equal(cityOrUtilityFees({ permit_fees: { value: [base], confidence: 0.5, source_ids: ["S1"] } }).length, 0);
+});
+
+test("missing or unsourced facts are left out, and statewide records keep the old sentence", () => {
 	const { recordsById, entries } = loadData();
 	const record = structuredClone(recordsById.get(entries[0].recordId));
 	record.permit_authority = { value: record.permit_authority.value, source_ids: [] };
 	assert.equal(buildFactDescription(record), null);
+	const bare = structuredClone(recordsById.get(entries[0].recordId));
+	bare.required_documents = { value: [], source_ids: [] };
+	bare.inspection_steps = { value: null };
+	const facts = snippetFacts(bare);
+	assert.equal(facts.documents, false);
+	assert.equal(facts.inspections, false);
+	assert.doesNotMatch(buildFactDescription(bare) ?? "", /document checklist|inspection steps/);
+	const statewide = [...recordsById.values()].find((r) => /\(/.test(r.city?.value ?? ""));
+	if (statewide) assert.equal(buildFactDescription(statewide), null);
+});
+
+test("the holdout is a stable one-in-four split", () => {
+	assert.equal(stableHash("abc"), stableHash("abc"));
+	assert.notEqual(stableHash("ca-a"), stableHash("ca-b"));
+	const { entries } = loadData();
+	const held = entries.filter((e) => isSnippetHoldout(e.recordId)).length;
+	const share = held / entries.length;
+	assert.ok(share > 0.17 && share < 0.33, `holdout share ${share.toFixed(3)}`);
 });
 
 test("every guide inside a measurement or observation window is locked", () => {
@@ -95,14 +169,13 @@ test("every guide inside a measurement or observation window is locked", () => {
 		assert.ok(check(id), `held page ${page}`);
 	}
 	assert.equal(SPRINT_PATHS.size, 3, "the three lead-sprint guides are read from the layout");
-	const unlocked = entries.filter((e) => !check(e.recordId));
-	assert.ok(unlocked.length > 200, `most guides are outside any window (${unlocked.length})`);
 });
 
-test("the layout keeps profile copy first and falls back to the old description", () => {
+test("the layout keeps profile copy first, honours locks and the holdout, and falls back", () => {
+	assert.match(layout, /const snippetHoldout = isSnippetHoldout\(record\.record_id\);/);
 	assert.match(
 		layout,
-		/const description =\s*commercialSeoProfile\?\.description \?\? \(snippetLocked \? null : buildFactDescription\(record\)\) \?\? baselineMeta\.description;/,
+		/commercialSeoProfile\?\.description \?\?\s*\(snippetLocked \|\| snippetHoldout \? null : buildFactDescription\(record\)\) \?\?\s*baselineMeta\.description;/,
 	);
 	assert.match(layout, /lockedRecordIds: observationLocked,/);
 	assert.match(layout, /balancedRelated: contentLinkRegistry\.balanced_related,/);

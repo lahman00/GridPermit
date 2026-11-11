@@ -1,17 +1,21 @@
 // Search-snippet description for a city guide, built only from that city's
 // own verified record: the named permit office, a recorded automated path
-// (SolarAPP+, Symbium or another platform), published fee amounts, and the
-// interconnection utility. It replaces the generic template sentence only on
-// guides that are not inside a measurement or observation window; every
-// locked guide keeps its current description so its measurement stays clean.
-// No fact is added that the record does not state; when the record cannot
-// support a fact-bearing sentence, the caller keeps the existing description.
+// (SolarAPP+, Symbium or another platform), city or utility fee amounts on
+// file, a document checklist and inspection steps when the record has them,
+// and the interconnection utility when it is unambiguous. It replaces the
+// generic template sentence only on guides outside every measurement window
+// and outside the pre-registered holdout; every other guide keeps its
+// current description. When the record cannot support a fact-bearing
+// sentence, the caller keeps the existing description.
 
-import { utilityShortName, type LocalityRecord } from "./locality-guide.ts";
-import { automatedKindFor, publishedFees } from "./permit-data-study.ts";
+import type { LocalityRecord } from "./locality-guide.ts";
+import { automatedKindFor, canonicalUtilityName, cityOrUtilityFees } from "./record-facts.ts";
 import { hasVerifiedUnambiguousUtility } from "./utility-split-guard.ts";
 
 export const MAX_DESCRIPTION_LENGTH = 160;
+// Below this eligibility confidence the snippet does not name the platform;
+// the guide still shows the recorded pathway with its confidence label.
+export const MIN_PATH_CONFIDENCE = 0.6;
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -22,31 +26,85 @@ export function checkedMonth(isoDate: string | null | undefined): string | null 
 	return month >= 1 && month <= 12 ? `${MONTHS[month - 1]} ${m[1]}` : null;
 }
 
-function sourced(field: { value: unknown; source_ids?: string[] | null } | undefined | null): boolean {
-	return Boolean(field && field.value && field.source_ids?.length);
+function sourcedList(field: { value: unknown; source_ids?: string[] | null } | undefined | null): boolean {
+	return Boolean(field && Array.isArray(field.value) && field.value.length > 0 && field.source_ids?.length);
+}
+
+export interface SnippetFacts {
+	office: string;
+	path: string | null;
+	fees: boolean;
+	documents: boolean;
+	inspections: boolean;
+	utility: string | null;
+}
+
+export function snippetFacts(record: LocalityRecord): SnippetFacts | null {
+	const authority = record.permit_authority;
+	if (!authority?.value || !authority.source_ids?.length) return null;
+	const eligibility = record.eligibility_constraints;
+	const kind = automatedKindFor(eligibility?.value?.program_or_pathway);
+	const confident = typeof eligibility?.confidence === "number" && eligibility.confidence >= MIN_PATH_CONFIDENCE;
+	const path = kind && confident && eligibility?.source_ids?.length
+		? (kind === "Other automated" ? "automated permit path" : `${kind} path`)
+		: null;
+	return {
+		office: String(authority.value),
+		path,
+		fees: cityOrUtilityFees(record).length > 0,
+		documents: sourcedList(record.required_documents),
+		inspections: sourcedList(record.inspection_steps),
+		utility: hasVerifiedUnambiguousUtility(record) ? canonicalUtilityName(record.utility.value) : null,
+	};
+}
+
+function joinItems(items: string[]): string {
+	return items.length <= 1 ? items.join("") : `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
 }
 
 export function buildFactDescription(record: LocalityRecord): string | null {
 	const city = record.city?.value;
 	const month = checkedMonth(record.last_verified);
-	if (!city || !month || !sourced(record.permit_authority)) return null;
-	const authority = String(record.permit_authority.value);
-	const kind = automatedKindFor(record.eligibility_constraints?.value?.program_or_pathway);
-	const path = kind === "SolarAPP+" ? "SolarAPP+ path" : kind === "Symbium" ? "Symbium path" : kind ? "automated permit path" : null;
-	const fees = publishedFees(record).length > 0;
-	const utility = hasVerifiedUnambiguousUtility(record) ? utilityShortName(record.utility.value) : null;
-	const interconnection = utility ? `${utility} interconnection` : "utility interconnection";
+	// Statewide or otherwise annotated records ("Vermont (Statewide)") keep the old sentence.
+	if (!city || /[()]/.test(city) || !month) return null;
+	const facts = snippetFacts(record);
+	if (!facts) return null;
 	const place = `${city}, ${record.state}`;
+	const interconnection = facts.utility ? `${facts.utility} interconnection` : "utility interconnection";
+	const optional = [
+		facts.path,
+		facts.fees ? "published fees" : null,
+		facts.documents ? "document checklist" : null,
+		facts.inspections ? "inspection steps" : null,
+	].filter((item): item is string => Boolean(item));
 
-	const extras = [path, fees ? "published fees" : null].filter(Boolean).join(", ");
-	const withExtras = extras ? `, ${extras}` : "";
-	const candidates = [
-		`${place} solar permit: ${authority} portal link${withExtras}, documents, inspections and ${interconnection}. Checked ${month}.`,
-		`${place} solar permit: ${authority} portal link${withExtras} and ${interconnection}. Checked ${month}.`,
-		`${place} solar permit: official portal link${withExtras}, documents, inspections and ${interconnection}. Checked ${month}.`,
-		`${place} solar permit: official portal link${withExtras} and ${interconnection}. Checked ${month}.`,
-	];
+	const candidates: string[] = [];
+	for (const office of [`${facts.office} link`, "official city permit link"]) {
+		// Drop optional items from the end (inspections, documents, fees) before the path.
+		for (let keep = optional.length; keep >= 0; keep -= 1) {
+			candidates.push(`${place} solar permit guide: ${joinItems([office, ...optional.slice(0, keep), interconnection])}. Checked ${month}.`);
+		}
+	}
 	return candidates.find((text) => text.length <= MAX_DESCRIPTION_LENGTH) ?? null;
+}
+
+// FNV-1a, 32-bit. Deterministic across builds and machines.
+export function stableHash(text: string): number {
+	let hash = 0x811c9dc5;
+	for (let i = 0; i < text.length; i += 1) {
+		hash ^= text.charCodeAt(i);
+		hash = Math.imul(hash, 0x01000193) >>> 0;
+	}
+	return hash >>> 0;
+}
+
+/**
+ * Pre-registered holdout: one in four eligible guides, chosen by a stable
+ * hash of the record id, keeps the old description so the change can be
+ * measured against comparable guides (see docs/growth/TRAFFIC_GROWTH_20261111.md).
+ */
+export function isSnippetHoldout(recordId: string): boolean {
+	return stableHash(recordId) % 4 === 0;
 }
 
 export interface SnippetLockInputs {

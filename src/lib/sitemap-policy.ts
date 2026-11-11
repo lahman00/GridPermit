@@ -76,7 +76,6 @@ export function buildSitemapPolicy(repoRoot: string): SitemapPolicy {
 		if (stateCode === "CA") {
 			routeDates.set("/california/solar-permit-guides/", lastmod);
 			routeDates.set("/california/solar-permit-timeline/", lastmod);
-			routeDates.set("/california/solar-permit-data/", lastmod);
 		}
 	}
 	if (latestLocalityDate) routeDates.set("/permits/", latestLocalityDate);
