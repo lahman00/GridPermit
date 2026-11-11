@@ -16,7 +16,7 @@ import {
 	trackEvent,
 } from "../src/lib/analytics-events.ts";
 
-test("ANALYTICS_EVENTS is exactly the 23 approved conversion events", () => {
+test("ANALYTICS_EVENTS is exactly the 24 approved conversion events", () => {
 	assert.deepEqual(
 		[...ANALYTICS_EVENTS].sort(),
 		[
@@ -31,6 +31,7 @@ test("ANALYTICS_EVENTS is exactly the 23 approved conversion events", () => {
 			"organizer_checkout_clicked",
 			"page_not_found",
 			"permit_path_checked",
+			"permit_data_downloaded",
 			"permit_guide_clicked",
 			"pro_interest_clicked",
 			"search_used",
