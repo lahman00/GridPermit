@@ -31,6 +31,8 @@ export const ANALYTICS_EVENTS = [
 	// A completed Permit Path check. Categorical project facts only (stage,
 	// project type, pathway kind, open-item count) — never the locality.
 	"permit_path_checked",
+	// The California permit data CSV download link was clicked (no params).
+	"permit_data_downloaded",
 ] as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[number];
