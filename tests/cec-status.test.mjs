@@ -8,7 +8,14 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 import { buildCecCityIndex, cecForCity, cecLabel, normalizeJurisdictionName } from "../src/lib/cec-status.ts";
-import { CSV_COLUMNS, buildPermitDataRows, pathsDiffer, summarizePermitData } from "../src/lib/permit-data-study.ts";
+import {
+	CSV_COLUMNS,
+	RECORD_VS_CEC,
+	buildPermitDataRows,
+	permitDataCsv,
+	recordVsCec,
+	summarizePermitData,
+} from "../src/lib/permit-data-study.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (rel) => readFileSync(path.join(root, rel), "utf8");
@@ -59,22 +66,55 @@ test("every published California guide gets a CEC status, and the summary adds u
 	assert.equal(s.cec.matched, rows.length);
 	assert.equal(Object.values(s.cec.byStatus).reduce((a, b) => a + b, 0), s.cec.matched);
 	assert.equal(s.cec.platformReported, s.cec.byStatus["SolarAPP+"] + s.cec.byStatus.Symbium + s.cec.byStatus["Custom platform"]);
-	assert.equal(s.cec.pathsDiffer, rows.filter(pathsDiffer).length);
+	for (const value of RECORD_VS_CEC) assert.equal(s.cec.comparison[value], rows.filter((r) => recordVsCec(r) === value).length);
+	assert.equal(Object.values(s.cec.comparison).reduce((a, b) => a + b, 0), s.cec.matched, "every matched row is classified once");
+	assert.ok(s.cec.comparison.cec_platform_not_in_record >= s.cec.recordBlankCecPlatform);
 	assert.ok(CSV_COLUMNS.includes("cec_reported_status"));
+	// The CSV marks each row with the same comparison the page counts.
+	const csv = permitDataCsv(rows).replace(/^﻿/, "").trim().split("\r\n");
+	const col = csv[0].split(",").indexOf("record_vs_cec");
+	assert.ok(col > 0);
+	assert.equal(csv.length - 1, rows.length);
 	// Without an index the rows carry no CEC value (guides never depend on it).
 	assert.ok(buildPermitDataRows(evaluated, recordsById, "CA").every((r) => r.cecStatus === null));
 });
 
-test("record and CEC disagreements are detected, not hidden", () => {
-	const row = (automatedKind, cecStatus) => ({ automatedKind, automatedEvidence: automatedKind ? "pathway field" : null, cecStatus });
-	assert.equal(pathsDiffer(row("SolarAPP+", "SolarAPP+")), false);
-	assert.equal(pathsDiffer(row("SolarAPP+", "Custom platform")), true);
-	assert.equal(pathsDiffer(row("Symbium", "Symbium")), false);
-	assert.equal(pathsDiffer(row("SolarAPP+ and Symbium", "Symbium")), false);
-	assert.equal(pathsDiffer(row("Express or over-the-counter", "Custom platform")), false);
-	assert.equal(pathsDiffer(row("Express or over-the-counter", "No platform reported")), true);
-	assert.equal(pathsDiffer(row(null, "SolarAPP+")), false, "a blank record is a gap, counted separately");
-	assert.equal(pathsDiffer(row("SolarAPP+", null)), false);
+test("record and CEC are compared without overstating conflicts", () => {
+	const cmp = (automatedKind, cecStatus) => recordVsCec({ automatedKind, cecStatus });
+	const expected = {
+		"SolarAPP+": { "SolarAPP+": "consistent", Symbium: "conflict", "Custom platform": "conflict", "No platform reported": "conflict", Exempt: "conflict" },
+		Symbium: { "SolarAPP+": "conflict", Symbium: "consistent", "Custom platform": "conflict", "No platform reported": "conflict", Exempt: "conflict" },
+		"SolarAPP+ and Symbium": { "SolarAPP+": "consistent", Symbium: "consistent", "Custom platform": "conflict", "No platform reported": "conflict", Exempt: "conflict" },
+		// Automated, platform not named: a named CEC platform adds detail; a CEC custom platform fits.
+		"Other automated": {
+			"SolarAPP+": "cec_platform_not_in_record",
+			Symbium: "cec_platform_not_in_record",
+			"Custom platform": "consistent",
+			"No platform reported": "conflict",
+			Exempt: "conflict",
+		},
+		// An express or over-the-counter path is not a platform claim.
+		"Express or over-the-counter": {
+			"SolarAPP+": "cec_platform_not_in_record",
+			Symbium: "cec_platform_not_in_record",
+			"Custom platform": "cec_platform_not_in_record",
+			"No platform reported": "no_platform_in_either",
+			Exempt: "no_platform_in_either",
+		},
+		blank: {
+			"SolarAPP+": "cec_platform_not_in_record",
+			Symbium: "cec_platform_not_in_record",
+			"Custom platform": "cec_platform_not_in_record",
+			"No platform reported": "no_platform_in_either",
+			Exempt: "no_platform_in_either",
+		},
+	};
+	for (const [kind, byCec] of Object.entries(expected)) {
+		for (const [cecStatus, value] of Object.entries(byCec)) {
+			assert.equal(cmp(kind === "blank" ? null : kind, cecStatus), value, `${kind} vs ${cecStatus}`);
+		}
+	}
+	assert.equal(cmp("SolarAPP+", null), null, "no CEC match, no comparison");
 });
 
 test("the page shows the CEC column with attribution and does not change guides", () => {
@@ -83,5 +123,9 @@ test("the page shows the CEC column with attribution and does not change guides"
 	assert.match(page, /The CEC does not certify compliance/);
 	assert.match(page, /credit the CEC for it/);
 	assert.match(page, /isBasedOn/);
+	assert.match(page, /s\.cec\.comparison\.conflict/);
+	assert.match(page, /record_vs_cec/);
+	assert.match(page, /listed without a platform/, "the file lists a status; it does not say the city reported none");
+	assert.doesNotMatch(page, /report none|name different things/);
 	assert.doesNotMatch(read("src/layouts/LocalityGuideLayout.astro"), /cec-status|cecData/);
 });

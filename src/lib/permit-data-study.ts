@@ -123,7 +123,7 @@ export interface PermitDataSummary {
 		byStatus: Record<CecLabel, number>;
 		platformReported: number;
 		recordBlankCecPlatform: number;
-		pathsDiffer: number;
+		comparison: Record<RecordVsCec, number>;
 	};
 	withPlatformFeeOnly: number;
 	feeRecheck: number;
@@ -299,17 +299,32 @@ export function withCecStatus(row: PermitDataRow, index: CecCityIndex | null | u
 	return match ? { ...row, cecStatus: cecLabel(match.status), cecDeadline: match.sb379_deadline } : row;
 }
 
-/** True when the record's path and the CEC report name different things. */
-export function pathsDiffer(row: Pick<PermitDataRow, "automatedKind" | "automatedEvidence" | "cecStatus">): boolean {
-	if (!row.cecStatus) return false;
-	const cecPlatform = CEC_PLATFORM_LABELS.includes(row.cecStatus);
+/**
+ * How the record's path compares with the CEC report.
+ * - consistent: both name the same platform (an unnamed automated path in the
+ *   record is consistent with a CEC custom platform).
+ * - cec_platform_not_in_record: the CEC reports a platform that the record does
+ *   not name (the record is blank, states only an express or over-the-counter
+ *   path, or states an automated path without naming SolarAPP+ or Symbium).
+ * - conflict: the record names an automated path that the CEC report does not
+ *   match (a different platform, or none listed).
+ * - no_platform_in_either: the record names no automated path and the CEC lists
+ *   no platform (an express path and "without platform" are compatible).
+ */
+export type RecordVsCec = "consistent" | "cec_platform_not_in_record" | "conflict" | "no_platform_in_either";
+export const RECORD_VS_CEC: RecordVsCec[] = ["consistent", "cec_platform_not_in_record", "conflict", "no_platform_in_either"];
+
+export function recordVsCec(row: Pick<PermitDataRow, "automatedKind" | "cecStatus">): RecordVsCec | null {
+	const cec = row.cecStatus;
+	if (!cec) return null;
+	const cecPlatform = CEC_PLATFORM_LABELS.includes(cec);
 	const kind = row.automatedKind;
-	if (!kind) return false;
-	if (!cecPlatform) return true;
-	if (kind === "SolarAPP+") return row.cecStatus !== "SolarAPP+";
-	if (kind === "Symbium") return row.cecStatus !== "Symbium";
-	if (kind === "SolarAPP+ and Symbium") return row.cecStatus !== "SolarAPP+" && row.cecStatus !== "Symbium";
-	return row.cecStatus !== "Custom platform";
+	if (!kind || kind === EXPRESS_KIND) return cecPlatform ? "cec_platform_not_in_record" : "no_platform_in_either";
+	if (!cecPlatform) return "conflict";
+	if (kind === "Other automated") return cec === "Custom platform" ? "consistent" : "cec_platform_not_in_record";
+	if (kind === "SolarAPP+") return cec === "SolarAPP+" ? "consistent" : "conflict";
+	if (kind === "Symbium") return cec === "Symbium" ? "consistent" : "conflict";
+	return cec === "SolarAPP+" || cec === "Symbium" ? "consistent" : "conflict";
 }
 
 /** One row per READY guide in `state`, sorted by city name. */
@@ -367,7 +382,9 @@ export function summarizePermitData(rows: PermitDataRow[]): PermitDataSummary {
 			},
 			platformReported: rows.filter((r) => r.cecStatus && CEC_PLATFORM_LABELS.includes(r.cecStatus)).length,
 			recordBlankCecPlatform: rows.filter((r) => !r.automatedKind && r.cecStatus && CEC_PLATFORM_LABELS.includes(r.cecStatus)).length,
-			pathsDiffer: rows.filter(pathsDiffer).length,
+			comparison: Object.fromEntries(
+				RECORD_VS_CEC.map((value) => [value, rows.filter((r) => recordVsCec(r) === value).length]),
+			) as Record<RecordVsCec, number>,
 		},
 		withPlatformFeeOnly: rows.filter((r) => !r.fees.length && r.platformFees.length && !r.feeRecheck).length,
 		feeRecheck: rows.filter((r) => r.feeRecheck).length,
@@ -423,6 +440,7 @@ export const CSV_COLUMNS = [
 	"fee_note",
 	"cec_reported_status",
 	"cec_sb379_deadline",
+	"record_vs_cec",
 	"last_verified",
 	"gridpermit_guide_url",
 	"official_permit_url",
@@ -453,6 +471,7 @@ export function permitDataCsv(rows: PermitDataRow[]): string {
 				row.feeRecheck ? `fee entry withheld: ${row.feeRecheck}` : "",
 				row.cecStatus,
 				row.cecDeadline,
+				recordVsCec(row) ?? "",
 				row.lastVerified,
 				`${SITE_ORIGIN}${row.guideUrl}`,
 				row.permitUrl,
