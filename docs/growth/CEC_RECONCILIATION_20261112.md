@@ -25,6 +25,23 @@ Generated from `data/cec/residential-solar-permitting-status-2026-11-02.json` (C
 | Seaside | SolarAPP+ (pathway field) | No platform reported |
 | Selma | SolarAPP+ (pathway field) | No platform reported |
 
+### Conflicts re-read on each city's own page, 2026-11-12
+
+Read-only check of the page or document each record cites (or the city's dedicated solar page). Eight city pages state SolarAPP+ as our records do; Campbell's supports the CEC entry; Selma's site could not be read from here. No record was changed.
+
+| City | Page read | Finding |
+|---|---|---|
+| Camarillo | Building & Safety page | Automated permitting for eligible rooftop solar through SolarAPP+. Record supported. |
+| Campbell | Simple Construction Part II guide (PDF, September 2024) | The automatic path is the city's own MGOC-RE platform; SolarAPP+ appears only in a revisions heading. CEC "custom" supported; the record's SolarAPP+ label is not. Correct the record. |
+| Chino Hills | Residential Solar page | SolarApp+ offered as an optional path next to standard plan check. Record supported. |
+| Chowchilla | SolarAPP+ Residential Solar Permitting page | Dedicated SolarAPP+ page. Record supported. |
+| Citrus Heights | Solar Energy Permit Electronic Submittal page | SolarAPP+ portal for instant permitting. Record supported. |
+| Diamond Bar | Instant Solar Permit (ISP) page | The ISP is issued through SolarAPP+. Record supported. |
+| Indio | Photovoltaic Information page | Automated review through SolarAPP+, then a city permit application in the city's portal. Record supported. |
+| Palmdale | SolarAPP+ page | The city adopted SolarAPP+ for single-family and duplex projects. Record supported. |
+| Seaside | Solar App+ page | Dedicated SolarAPP+ page. Record supported; the record cites the department page at confidence 0.5, so add this page as its source. |
+| Selma | Automated Solar Permitting page | Not read: the site returned HTTP 403 to every request from here, including a browser. |
+
 ## CEC lists a platform that our record does not name
 
 Record states only an express or over-the-counter path (10; includes several of the largest cities):
