@@ -14,6 +14,7 @@
 import { SITE_ORIGIN, buildLocalityIndexEntries, type EvaluationRecordSummary, type LocalityRecord } from "./locality-guide.ts";
 import { AUTOMATED_PATH_PATTERN, canonicalUtilityName, isPlatformFee, publishedFees, type RecordFee } from "./record-facts.ts";
 import { hasVerifiedUnambiguousUtility } from "./utility-split-guard.ts";
+import { CEC_PLATFORM_LABELS, cecForCity, cecLabel, type CecCityIndex, type CecLabel } from "./cec-status.ts";
 
 export { AUTOMATED_PATH_PATTERN };
 
@@ -102,6 +103,9 @@ export interface PermitDataRow {
 	platformFees: PermitDataFee[];
 	feeRecheck: string | null;
 	lastVerified: string;
+	// California Energy Commission dashboard, self-reported by the jurisdiction.
+	cecStatus: CecLabel | null;
+	cecDeadline: string | null;
 }
 
 export interface PermitDataSummary {
@@ -114,6 +118,13 @@ export interface PermitDataSummary {
 	platformListOnly: number;
 	byKind: Record<AutomatedKind, number>;
 	withCityOrUtilityFee: number;
+	cec: {
+		matched: number;
+		byStatus: Record<CecLabel, number>;
+		platformReported: number;
+		recordBlankCecPlatform: number;
+		pathsDiffer: number;
+	};
 	withPlatformFeeOnly: number;
 	feeRecheck: number;
 	utilities: { name: string; count: number }[];
@@ -277,7 +288,28 @@ export function toPermitDataRow(record: LocalityRecord, guideUrl: string): Permi
 		platformFees: fees.filter(isPathFee).map(displayFee),
 		feeRecheck: recheck,
 		lastVerified: record.last_verified,
+		cecStatus: null,
+		cecDeadline: null,
 	};
+}
+
+/** Attach the CEC dashboard status by exact city name; rows without a match stay null. */
+export function withCecStatus(row: PermitDataRow, index: CecCityIndex | null | undefined): PermitDataRow {
+	const match = index ? cecForCity(index, row.city) : null;
+	return match ? { ...row, cecStatus: cecLabel(match.status), cecDeadline: match.sb379_deadline } : row;
+}
+
+/** True when the record's path and the CEC report name different things. */
+export function pathsDiffer(row: Pick<PermitDataRow, "automatedKind" | "automatedEvidence" | "cecStatus">): boolean {
+	if (!row.cecStatus) return false;
+	const cecPlatform = CEC_PLATFORM_LABELS.includes(row.cecStatus);
+	const kind = row.automatedKind;
+	if (!kind) return false;
+	if (!cecPlatform) return true;
+	if (kind === "SolarAPP+") return row.cecStatus !== "SolarAPP+";
+	if (kind === "Symbium") return row.cecStatus !== "Symbium";
+	if (kind === "SolarAPP+ and Symbium") return row.cecStatus !== "SolarAPP+" && row.cecStatus !== "Symbium";
+	return row.cecStatus !== "Custom platform";
 }
 
 /** One row per READY guide in `state`, sorted by city name. */
@@ -285,10 +317,11 @@ export function buildPermitDataRows(
 	evaluationRecords: EvaluationRecordSummary[],
 	recordsById: Map<string, LocalityRecord>,
 	state = "CA",
+	cecIndex: CecCityIndex | null = null,
 ): PermitDataRow[] {
 	return buildLocalityIndexEntries(evaluationRecords, recordsById)
 		.filter((entry) => entry.state === state)
-		.map((entry) => toPermitDataRow(recordsById.get(entry.recordId) as LocalityRecord, entry.guideUrl))
+		.map((entry) => withCecStatus(toPermitDataRow(recordsById.get(entry.recordId) as LocalityRecord, entry.guideUrl), cecIndex))
 		.sort((a, b) => a.city.localeCompare(b.city) || a.recordId.localeCompare(b.recordId));
 }
 
@@ -323,6 +356,19 @@ export function summarizePermitData(rows: PermitDataRow[]): PermitDataSummary {
 		platformListOnly: rows.filter((r) => r.automatedEvidence === "platform's jurisdiction list").length,
 		byKind,
 		withCityOrUtilityFee: rows.filter((r) => r.fees.length).length,
+		cec: {
+			matched: rows.filter((r) => r.cecStatus).length,
+			byStatus: {
+				"SolarAPP+": rows.filter((r) => r.cecStatus === "SolarAPP+").length,
+				Symbium: rows.filter((r) => r.cecStatus === "Symbium").length,
+				"Custom platform": rows.filter((r) => r.cecStatus === "Custom platform").length,
+				"No platform reported": rows.filter((r) => r.cecStatus === "No platform reported").length,
+				Exempt: rows.filter((r) => r.cecStatus === "Exempt").length,
+			},
+			platformReported: rows.filter((r) => r.cecStatus && CEC_PLATFORM_LABELS.includes(r.cecStatus)).length,
+			recordBlankCecPlatform: rows.filter((r) => !r.automatedKind && r.cecStatus && CEC_PLATFORM_LABELS.includes(r.cecStatus)).length,
+			pathsDiffer: rows.filter(pathsDiffer).length,
+		},
 		withPlatformFeeOnly: rows.filter((r) => !r.fees.length && r.platformFees.length && !r.feeRecheck).length,
 		feeRecheck: rows.filter((r) => r.feeRecheck).length,
 		utilities: [...utilityCounts.entries()]
@@ -375,6 +421,8 @@ export const CSV_COLUMNS = [
 	"city_or_utility_fees",
 	"platform_fees",
 	"fee_note",
+	"cec_reported_status",
+	"cec_sb379_deadline",
 	"last_verified",
 	"gridpermit_guide_url",
 	"official_permit_url",
@@ -403,6 +451,8 @@ export function permitDataCsv(rows: PermitDataRow[]): string {
 				row.fees.map(formatFee).join("; "),
 				row.platformFees.map(formatFee).join("; "),
 				row.feeRecheck ? `fee entry withheld: ${row.feeRecheck}` : "",
+				row.cecStatus,
+				row.cecDeadline,
 				row.lastVerified,
 				`${SITE_ORIGIN}${row.guideUrl}`,
 				row.permitUrl,
