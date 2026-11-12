@@ -14,6 +14,7 @@
 import { SITE_ORIGIN, buildLocalityIndexEntries, type EvaluationRecordSummary, type LocalityRecord } from "./locality-guide.ts";
 import { AUTOMATED_PATH_PATTERN, canonicalUtilityName, isPlatformFee, publishedFees, type RecordFee } from "./record-facts.ts";
 import { hasVerifiedUnambiguousUtility } from "./utility-split-guard.ts";
+import { CEC_PLATFORM_LABELS, cecForCity, cecLabel, type CecCityIndex, type CecLabel } from "./cec-status.ts";
 
 export { AUTOMATED_PATH_PATTERN };
 
@@ -102,6 +103,9 @@ export interface PermitDataRow {
 	platformFees: PermitDataFee[];
 	feeRecheck: string | null;
 	lastVerified: string;
+	// California Energy Commission dashboard, self-reported by the jurisdiction.
+	cecStatus: CecLabel | null;
+	cecDeadline: string | null;
 }
 
 export interface PermitDataSummary {
@@ -114,6 +118,13 @@ export interface PermitDataSummary {
 	platformListOnly: number;
 	byKind: Record<AutomatedKind, number>;
 	withCityOrUtilityFee: number;
+	cec: {
+		matched: number;
+		byStatus: Record<CecLabel, number>;
+		platformReported: number;
+		recordBlankCecPlatform: number;
+		comparison: Record<RecordVsCec, number>;
+	};
 	withPlatformFeeOnly: number;
 	feeRecheck: number;
 	utilities: { name: string; count: number }[];
@@ -277,7 +288,43 @@ export function toPermitDataRow(record: LocalityRecord, guideUrl: string): Permi
 		platformFees: fees.filter(isPathFee).map(displayFee),
 		feeRecheck: recheck,
 		lastVerified: record.last_verified,
+		cecStatus: null,
+		cecDeadline: null,
 	};
+}
+
+/** Attach the CEC dashboard status by exact city name; rows without a match stay null. */
+export function withCecStatus(row: PermitDataRow, index: CecCityIndex | null | undefined): PermitDataRow {
+	const match = index ? cecForCity(index, row.city) : null;
+	return match ? { ...row, cecStatus: cecLabel(match.status), cecDeadline: match.sb379_deadline } : row;
+}
+
+/**
+ * How the record's path compares with the CEC report.
+ * - consistent: both name the same platform (an unnamed automated path in the
+ *   record is consistent with a CEC custom platform).
+ * - cec_platform_not_in_record: the CEC reports a platform that the record does
+ *   not name (the record is blank, states only an express or over-the-counter
+ *   path, or states an automated path without naming SolarAPP+ or Symbium).
+ * - conflict: the record names an automated path that the CEC report does not
+ *   match (a different platform, or none listed).
+ * - no_platform_in_either: the record names no automated path and the CEC lists
+ *   no platform (an express path and "without platform" are compatible).
+ */
+export type RecordVsCec = "consistent" | "cec_platform_not_in_record" | "conflict" | "no_platform_in_either";
+export const RECORD_VS_CEC: RecordVsCec[] = ["consistent", "cec_platform_not_in_record", "conflict", "no_platform_in_either"];
+
+export function recordVsCec(row: Pick<PermitDataRow, "automatedKind" | "cecStatus">): RecordVsCec | null {
+	const cec = row.cecStatus;
+	if (!cec) return null;
+	const cecPlatform = CEC_PLATFORM_LABELS.includes(cec);
+	const kind = row.automatedKind;
+	if (!kind || kind === EXPRESS_KIND) return cecPlatform ? "cec_platform_not_in_record" : "no_platform_in_either";
+	if (!cecPlatform) return "conflict";
+	if (kind === "Other automated") return cec === "Custom platform" ? "consistent" : "cec_platform_not_in_record";
+	if (kind === "SolarAPP+") return cec === "SolarAPP+" ? "consistent" : "conflict";
+	if (kind === "Symbium") return cec === "Symbium" ? "consistent" : "conflict";
+	return cec === "SolarAPP+" || cec === "Symbium" ? "consistent" : "conflict";
 }
 
 /** One row per READY guide in `state`, sorted by city name. */
@@ -285,10 +332,11 @@ export function buildPermitDataRows(
 	evaluationRecords: EvaluationRecordSummary[],
 	recordsById: Map<string, LocalityRecord>,
 	state = "CA",
+	cecIndex: CecCityIndex | null = null,
 ): PermitDataRow[] {
 	return buildLocalityIndexEntries(evaluationRecords, recordsById)
 		.filter((entry) => entry.state === state)
-		.map((entry) => toPermitDataRow(recordsById.get(entry.recordId) as LocalityRecord, entry.guideUrl))
+		.map((entry) => withCecStatus(toPermitDataRow(recordsById.get(entry.recordId) as LocalityRecord, entry.guideUrl), cecIndex))
 		.sort((a, b) => a.city.localeCompare(b.city) || a.recordId.localeCompare(b.recordId));
 }
 
@@ -323,6 +371,21 @@ export function summarizePermitData(rows: PermitDataRow[]): PermitDataSummary {
 		platformListOnly: rows.filter((r) => r.automatedEvidence === "platform's jurisdiction list").length,
 		byKind,
 		withCityOrUtilityFee: rows.filter((r) => r.fees.length).length,
+		cec: {
+			matched: rows.filter((r) => r.cecStatus).length,
+			byStatus: {
+				"SolarAPP+": rows.filter((r) => r.cecStatus === "SolarAPP+").length,
+				Symbium: rows.filter((r) => r.cecStatus === "Symbium").length,
+				"Custom platform": rows.filter((r) => r.cecStatus === "Custom platform").length,
+				"No platform reported": rows.filter((r) => r.cecStatus === "No platform reported").length,
+				Exempt: rows.filter((r) => r.cecStatus === "Exempt").length,
+			},
+			platformReported: rows.filter((r) => r.cecStatus && CEC_PLATFORM_LABELS.includes(r.cecStatus)).length,
+			recordBlankCecPlatform: rows.filter((r) => !r.automatedKind && r.cecStatus && CEC_PLATFORM_LABELS.includes(r.cecStatus)).length,
+			comparison: Object.fromEntries(
+				RECORD_VS_CEC.map((value) => [value, rows.filter((r) => recordVsCec(r) === value).length]),
+			) as Record<RecordVsCec, number>,
+		},
 		withPlatformFeeOnly: rows.filter((r) => !r.fees.length && r.platformFees.length && !r.feeRecheck).length,
 		feeRecheck: rows.filter((r) => r.feeRecheck).length,
 		utilities: [...utilityCounts.entries()]
@@ -375,6 +438,9 @@ export const CSV_COLUMNS = [
 	"city_or_utility_fees",
 	"platform_fees",
 	"fee_note",
+	"cec_reported_status",
+	"cec_sb379_deadline",
+	"record_vs_cec",
 	"last_verified",
 	"gridpermit_guide_url",
 	"official_permit_url",
@@ -403,6 +469,9 @@ export function permitDataCsv(rows: PermitDataRow[]): string {
 				row.fees.map(formatFee).join("; "),
 				row.platformFees.map(formatFee).join("; "),
 				row.feeRecheck ? `fee entry withheld: ${row.feeRecheck}` : "",
+				row.cecStatus,
+				row.cecDeadline,
+				recordVsCec(row) ?? "",
 				row.lastVerified,
 				`${SITE_ORIGIN}${row.guideUrl}`,
 				row.permitUrl,

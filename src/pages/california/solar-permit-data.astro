@@ -20,6 +20,8 @@ import {
 	summarizePermitData,
 	utilityLabel,
 } from "../../lib/permit-data-study";
+import { buildCecCityIndex, type CecDataset } from "../../lib/cec-status";
+import cecData from "../../../data/cec/residential-solar-permitting-status-2026-11-02.json";
 
 const localityModules = import.meta.glob("../../../data/localities/*.json", { eager: true }) as Record<
 	string,
@@ -31,7 +33,8 @@ const evaluationModules = import.meta.glob("../../../output/*-evaluation.json", 
 	{ default: { records: Array<{ record_id: string; readiness: string; completeness_pct: number }> } }
 >;
 const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
-const rows = buildPermitDataRows(allEvaluatedRecords, recordsById, "CA");
+const cec = cecData as CecDataset;
+const rows = buildPermitDataRows(allEvaluatedRecords, recordsById, "CA", buildCecCityIndex(cec));
 const s = summarizePermitData(rows);
 
 const CANONICAL_URL = `${SITE_ORIGIN}${PERMIT_DATA_PATH}`;
@@ -49,6 +52,8 @@ const topUtilities = s.utilities.slice(0, 3);
 const otherUtilities = s.utilities.slice(3);
 const otherUtilityCities = otherUtilities.reduce((sum, u) => sum + u.count, 0);
 const pathLabel = (kind: string | null) => (kind === "Other automated" ? "Automated, platform not named" : kind ?? "");
+const cecDate = new Date(`${cec.data_last_updated}T00:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const cecOptions = ["SolarAPP+", "Symbium", "Custom platform", "No platform reported", "Exempt"];
 const utilityOptions = s.utilities.map((u) => u.name);
 
 const breadcrumbItems = [
@@ -79,7 +84,8 @@ const datasetSchema = {
 	measurementTechnique: "Manual review of each city's official permit pages and the serving utility's pages, recorded with sources, confidence scores and verification dates.",
 	spatialCoverage: { "@type": "Place", name: "California, United States" },
 	temporalCoverage: s.verifiedFrom && s.verifiedTo ? `${s.verifiedFrom}/${s.verifiedTo}` : undefined,
-	variableMeasured: ["Permit office", "Automated permit path stated in record", "Interconnection utility", "Published fee amounts", "Last verified date"],
+	variableMeasured: ["Permit office", "Automated permit path stated in record", "CEC dashboard platform status (self-reported)", "Interconnection utility", "Published fee amounts", "Last verified date"],
+	isBasedOn: { "@type": "Dataset", name: "Residential Solar Permit Program Status Dashboard (California Energy Commission)", url: cec.dashboard_url },
 	distribution: [{ "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: CSV_URL }],
 };
 
@@ -179,6 +185,10 @@ const faqSchema = {
 					<span>record an express, over-the-counter or self-issued path (not counted as automated)</span>
 				</div>
 				<div class="data-stat" role="listitem">
+					<strong>CEC: {s.cec.platformReported} of {s.cec.matched}</strong>
+					<span>self-report an SB 379 platform to the state ({s.cec.byStatus["SolarAPP+"]} SolarAPP+, {s.cec.byStatus.Symbium} Symbium, {s.cec.byStatus["Custom platform"]} custom); {s.cec.byStatus["No platform reported"]} are listed without a platform and {s.cec.byStatus.Exempt} as exempt</span>
+				</div>
+				<div class="data-stat" role="listitem">
 					<strong>{s.withCityOrUtilityFee} cities</strong>
 					<span>have a published residential city permit or utility interconnection fee amount on file</span>
 				</div>
@@ -197,9 +207,10 @@ const faqSchema = {
 			<div class="disclaimer-box">
 				<strong>What this table is.</strong> One row per California city with a GridPermit guide ({s.total} of California's
 				roughly 480 cities). A value appears only if the city's verified record states it in a sourced field. A blank cell means
-				our record does not state it, not that the city lacks it.
+				our record does not state it, not that the city lacks it.{" "}
 				<strong>What it is not:</strong> a statewide census or an SB 379 compliance assessment. For each jurisdiction's
-				self-reported platform status, see the <a href={CEC_DASHBOARD_URL} rel="noopener">CEC Residential Solar Permit Program Status Dashboard</a>.
+				self-reported platform status, see the <a href={CEC_DASHBOARD_URL} rel="noopener">CEC Residential Solar Permit Program Status Dashboard</a>;
+				the "CEC status" column repeats that report (data dated {cecDate}). The CEC does not certify compliance.
 				An automated path covers qualifying projects only, and the utility's interconnection approval is always a separate step.
 			</div>
 
@@ -223,6 +234,13 @@ const faqSchema = {
 						</select>
 					</label>
 					<label>
+						<span>CEC status</span>
+						<select id="filter-cec">
+							<option value="">Any</option>
+							{cecOptions.map((name) => <option value={name}>{name}</option>)}
+						</select>
+					</label>
+					<label>
 						<span>Utility</span>
 						<select id="filter-utility">
 							<option value="">Any</option>
@@ -236,13 +254,14 @@ const faqSchema = {
 
 				<div class="data-table-wrap" tabindex="0" role="region" aria-label="City table, scrolls sideways">
 					<table class="data-table" id="data-table">
-						<caption class="sr-only">California solar permit data by city. Columns: city, county, permit office, permit path, utility, published fees, last verified.</caption>
+						<caption class="sr-only">California solar permit data by city. Columns: city, county, permit office, permit path from the city's record, CEC self-reported status, utility, published fees, last verified.</caption>
 						<thead>
 							<tr>
 								<th scope="col">City</th>
 								<th scope="col">County</th>
 								<th scope="col">Permit office</th>
-								<th scope="col">Permit path</th>
+								<th scope="col">Permit path (record)</th>
+								<th scope="col">CEC status</th>
 								<th scope="col">Utility</th>
 								<th scope="col">Published fees</th>
 								<th scope="col">Checked</th>
@@ -254,6 +273,7 @@ const faqSchema = {
 									data-search={`${row.city} ${row.county ?? ""}`.toLowerCase()}
 									data-path={row.automatedKind ?? "none"}
 									data-utility={row.utilitySplit ? "split" : row.utility ?? "Not recorded"}
+									data-cec={row.cecStatus ?? ""}
 								>
 									<th scope="row"><a href={row.guideUrl}>{row.city}</a></th>
 									<td>{row.county ?? ""}</td>
@@ -264,6 +284,7 @@ const faqSchema = {
 											? <span class="found-in">per the platform's jurisdiction list; not counted</span>
 											: row.automatedEvidence && row.automatedEvidence !== "pathway field" && <span class="found-in">stated in {row.automatedEvidence}</span>}
 									</td>
+									<td>{row.cecStatus ?? ""}</td>
 									<td>{utilityLabel(row)}</td>
 									<td>
 										{row.feeRecheck
@@ -285,6 +306,7 @@ const faqSchema = {
 					<li><strong>Scope:</strong> every California city with a published GridPermit guide. Cities without a guide yet are not in the table.</li>
 					<li><strong>Automated path:</strong> first, the record's pathway field, read with the same rule the <a href="/permit-path/">Permit Path checker</a> uses (SolarAPP+, Symbium, automated or instant). If that field does not name one, the table reads the record's other sourced fields that have a confidence of at least 0.7: conditions, required documents (for example a SolarAPP+ approval document), inspection steps, fee names, the permit page address, and the titles of cited official pages that back a content field. Research notes, platform vendor pages, and negative or unconfirmed statements are never counted. A row whose only source for the path is the platform's own jurisdiction list is shown but not counted. The table shows which field the path came from; the CSV includes the exact text and that field's confidence.</li>
 					<li><strong>Express or over-the-counter:</strong> a pathway field or condition that describes an express, over-the-counter, self-issued or no-plan-review path, without naming an automated platform. Shown separately and not counted as automated.</li>
+					<li><strong>CEC status:</strong> the platform status each jurisdiction self-reports to the California Energy Commission under SB 379, copied from the CEC dashboard's data download (data last updated {cecDate}; retrieved {cec.retrieved}) and matched to each city by exact name. The CEC does not certify compliance. For {s.cec.comparison.cec_platform_not_in_record} cities the CEC reports a platform that our record does not name, and for {s.cec.comparison.conflict} the automated path in our record does not match the CEC report; check the city's own page before relying on either. The CSV's <code>record_vs_cec</code> column marks each row.</li>
 					<li><strong>Confidence:</strong> {s.lowConfidencePathway} of the {s.fromPathwayField} pathway-field entries have a record confidence below 0.7 for their eligibility details. The CSV includes each score.</li>
 					<li><strong>Published fees:</strong> residential city permit or utility interconnection fee amounts stated on an official page and recorded with a confidence of at least 0.7. Platform or path fees (SolarAPP+ or Symbium charges, and fees a record lists as part of that path) are shown separately. Commercial, multifamily, sample-total, penalty and re-inspection entries, and tiers for systems of 50 kW or more, are left out. {s.feeRecheck} cities' fee entries are being re-checked against their sources and are not shown yet. Names and units are kept as recorded; amounts are not totals and can change.</li>
 					<li><strong>Utility:</strong> the distribution utility that handles interconnection and permission to operate, as recorded. Cities served by more than one utility are marked as split territories.</li>
@@ -295,7 +317,7 @@ const faqSchema = {
 
 			<section id="cite">
 				<h2>Reuse and citation</h2>
-				<p>The table and the <a href={PERMIT_DATA_CSV_PATH} download="gridpermit-california-solar-permit-data.csv" data-track-click="permit_data_downloaded">CSV download</a> are free to reuse under <a href={LICENSE_URL} rel="license noopener">CC BY 4.0</a>. Please credit GridPermit and link to this page:</p>
+				<p>The table and the <a href={PERMIT_DATA_CSV_PATH} download="gridpermit-california-solar-permit-data.csv" data-track-click="permit_data_downloaded">CSV download</a> are free to reuse under <a href={LICENSE_URL} rel="license noopener">CC BY 4.0</a>. Please credit GridPermit and link to this page. The CEC status column comes from the California Energy Commission; credit the CEC for it.</p>
 				<p class="cite-line">GridPermit. <em>California Solar Permit Data by City</em>. {CANONICAL_URL} (published {PUBLISHED}; records checked {checkedRange}).</p>
 				<p>Found a value that changed? <a href="/contact/">Tell us</a> and we will re-check the official source.</p>
 			</section>
@@ -326,6 +348,7 @@ const faqSchema = {
 			const text = document.getElementById("filter-text");
 			const path = document.getElementById("filter-path");
 			const utility = document.getElementById("filter-utility");
+			const cecFilter = document.getElementById("filter-cec");
 			const count = document.getElementById("data-count");
 			const rows = Array.from(document.querySelectorAll("#data-table tbody tr"));
 			if (!text || !path || !utility || !count || !rows.length) return;
@@ -335,12 +358,14 @@ const faqSchema = {
 				const q = text.value.trim().toLowerCase();
 				const p = path.value;
 				const u = utility.value;
+				const c = cecFilter ? cecFilter.value : "";
 				let shown = 0;
 				for (const row of rows) {
 					const match =
 						(!q || (row.getAttribute("data-search") || "").includes(q)) &&
 						(!p || row.getAttribute("data-path") === p) &&
-						(!u || row.getAttribute("data-utility") === u);
+						(!u || row.getAttribute("data-utility") === u) &&
+						(!c || row.getAttribute("data-cec") === c);
 					row.hidden = !match;
 					if (match) shown += 1;
 				}
@@ -350,6 +375,7 @@ const faqSchema = {
 			text.addEventListener("input", () => { window.clearTimeout(timer); timer = window.setTimeout(apply, 150); });
 			path.addEventListener("change", apply);
 			utility.addEventListener("change", apply);
+			if (cecFilter) cecFilter.addEventListener("change", apply);
 		})();
 	</script>
 
@@ -368,7 +394,7 @@ const faqSchema = {
 		.skip-table { font-size: 14px; margin: 0 0 var(--gp-space-2); }
 		.data-table-wrap { max-width: 100%; overflow-x: auto; border: 1px solid var(--gp-line); }
 		.data-table-wrap:focus-visible { outline: 2px solid var(--gp-accent); outline-offset: 2px; }
-		.data-table { min-width: 900px; font-size: 14px; }
+		.data-table { min-width: 1000px; font-size: 14px; }
 		.data-table th, .data-table td { padding: 10px 12px; }
 		.data-table tbody th { font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--gp-ink); font-weight: 500; position: sticky; left: 0; background: var(--gp-bg); z-index: 1; box-shadow: 1px 0 0 var(--gp-line); }
 		.data-table time { white-space: nowrap; }
