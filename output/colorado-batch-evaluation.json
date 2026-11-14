@@ -1,7 +1,39 @@
 {
   "state": "CO",
-  "generated_at": "2026-11-14T21:14:23.938Z",
+  "generated_at": "2026-11-14T21:25:02.378Z",
   "records": [
+    {
+      "record_id": "co-adams-thornton-multi",
+      "state": "CO",
+      "city": "Thornton",
+      "county": "Adams County",
+      "completeness_pct": 80,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
+        "battery_programs",
+        "rebates"
+      ],
+      "warning_categories": [],
+      "readiness": "READY"
+    },
     {
       "record_id": "co-adams-westminster-multi",
       "state": "CO",
@@ -433,8 +465,8 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 84.1,
-    "average_validation_score": 95.9,
+    "average_completeness_pct": 83.8,
+    "average_validation_score": 96.2,
     "fields_most_often_missing": [
       {
         "field": "timeline_days",
@@ -442,15 +474,15 @@
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 7
+        "missing_in_records": 8
       },
       {
         "field": "battery_programs",
-        "missing_in_records": 7
+        "missing_in_records": 8
       },
       {
         "field": "rebates",
-        "missing_in_records": 4
+        "missing_in_records": 5
       },
       {
         "field": "required_documents",
@@ -472,6 +504,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "co-adams-thornton-multi",
       "co-adams-westminster-multi",
       "co-arapahoe-aurora-xcel",
       "co-arapahoe-centennial-multi",
