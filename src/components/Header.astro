@@ -2,10 +2,19 @@
 import BrandLogo from './BrandLogo.astro';
 import CommandSearch from './CommandSearch.astro';
 
+interface Props {
+  // Opt-in only. Guides and other pages under the search measurement window
+  // (src/lib/measurement-window-guides.ts, closes 2026-12-16) must keep their
+  // navigation byte-identical, so the Colorado link is added only where a page
+  // explicitly asks for it.
+  showColorado?: boolean;
+}
+const { showColorado = false } = Astro.props;
 const links = [
   { href: '/search/', label: 'Find a city' },
   { href: '/permit-path/', label: 'Permit checker' },
   { href: '/california/', label: 'California' },
+  ...(showColorado ? [{ href: '/colorado/', label: 'Colorado' }] : []),
   { href: '/blog/', label: 'Solar guides' },
   { href: '/for-installers/', label: 'For installers' },
 ];
