@@ -2086,6 +2086,9 @@
     Cache-Control = "public, max-age=0, must-revalidate"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
+    # Modern browsers allow only our own pages and the owner's portfolio to frame the site.
+    # DENY remains a fail-closed fallback for clients without frame-ancestors support.
+    Content-Security-Policy = "frame-ancestors 'self' https://eyal-haimovich-studio.lahman.chatgpt.site"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
 
