@@ -320,3 +320,27 @@ test("Boulder keeps permit scope, conditional programs and City versus utility d
  assert.match(docs, /full City solar-specific upload checklist/);
  assert.doesNotMatch(docs, /City and LPC/);
 });
+
+test("Colorado navigation is opt-in on discovery pages and leaves protected pages and the California estimator untouched", () => {
+ const header = read("src/components/Header.astro");
+ const home = read("src/pages/index.astro");
+ const stateHub = read("src/pages/[state]/index.astro");
+ const permits = read("src/pages/permits.astro");
+ const search = read("src/pages/search.astro");
+ const guideLayout = read("src/layouts/LocalityGuideLayout.astro");
+ const blogLayout = read("src/layouts/BlogPost.astro");
+ const organizer = read("src/pages/solar-project-organizer.astro");
+ assert.match(header, /showColorado\?: boolean/);
+ assert.match(header, /const \{ showColorado = false \} = Astro\.props/);
+ assert.match(header, /\.\.\.\(showColorado \? \[\{ href: '\/colorado\/', label: 'Colorado' \}\] : \[\]\)/);
+ assert.match(home, /<Header showColorado \/>/);
+ assert.match(home, /<a href="\/colorado\/"><span><small>Source-linked city guides<\/small>Colorado<\/span><span aria-hidden="true">↗<\/span><\/a>/);
+ assert.match(home, /California-Only Tool/);
+ assert.match(home, /function isCaliforniaZip\(zip: string\): boolean/);
+ assert.match(permits, /<Header showColorado \/>/);
+ assert.match(search, /<Header showColorado \/>/);
+ assert.match(stateHub, /<Header showColorado=\{stateCode === "CO"\} \/>/);
+ assert.doesNotMatch(guideLayout, /showColorado/);
+ assert.doesNotMatch(blogLayout, /showColorado/);
+ assert.doesNotMatch(organizer, /showColorado/);
+});
