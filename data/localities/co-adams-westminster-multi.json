@@ -1,0 +1,557 @@
+{
+  "record_id": "co-adams-westminster-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy or United Power — check your electric bill",
+    "confidence": 0.9,
+    "source_ids": [
+      "SOLAR",
+      "INSPGUIDE",
+      "UP-AREA"
+    ],
+    "notes": "Westminster's Solar Resources page and Solar Inspection Guideline highlight Xcel Energy programs and electronic NET meter release, while United Power also officially lists Westminster (along with Adams County and Jefferson County) within its electric service territory. Check the electric provider on your electric bill before applying for interconnection or relying on utility-specific incentives."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The generation supplier has not been verified for a specific address. Confirm the account details with the electric provider."
+  },
+  "city": {
+    "value": "Westminster",
+    "confidence": 1,
+    "source_ids": [
+      "SOLAR",
+      "BUILDING"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Adams and Jefferson counties",
+    "confidence": 0.95,
+    "source_ids": [
+      "ADCO-CITIES",
+      "JEFFCO-LIFE",
+      "JEFFCO-ADDR",
+      "DESIGN-6124"
+    ],
+    "notes": "The incorporated City of Westminster spans Adams County (generally east of Sheridan Boulevard) and Jefferson County (generally west of Sheridan Boulevard and south of West 120th Avenue). Because a Westminster mailing address can also belong to unincorporated county parcels or enclaves, verify that the property is inside incorporated Westminster city limits rather than unincorporated Adams or Jefferson County before applying."
+  },
+  "permit_authority": {
+    "value": "City of Westminster Building Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "SOLAR",
+      "BUILDING",
+      "RESOURCES"
+    ],
+    "notes": "Solar permit applications for properties inside Westminster's incorporated jurisdiction are reviewed and inspected by the City of Westminster Building Division (4800 W. 92nd Ave., Westminster, CO 80031; 303-658-2075; permits@westminsterco.gov; hours Monday through Thursday, 7:00 a.m. to 6:00 p.m.)."
+  },
+  "permit_url": {
+    "value": "https://www.westminsterco.gov/737/Solar-Resources",
+    "confidence": 0.95,
+    "source_ids": [
+      "SOLAR",
+      "BUILDING",
+      "RESOURCES",
+      "APPLY-617"
+    ],
+    "notes": "Westminster's Solar Resources page links the City's Solar Permitting Checklist, Solar Inspection Guideline, and eTRAKiT online permit portal (https://develop.cityofwestminster.us/etrakit/), and the Building Division Resources page details the Residential Solar permit subtypes (New PV Install and Remove and Reinstall). eTRAKiT works best in Google Chrome and applications cannot be completed on a smartphone or tablet."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "XCEL-NEM",
+      "XCEL-APP",
+      "UP-SOLAR"
+    ],
+    "notes": "Choose the interconnection route for the utility shown on your electric bill. Xcel Energy customers follow Xcel's solar application, net metering, and permission-to-operate (PTO) process (Westminster transmits an electronic NET Electrical Meter Release to Xcel on the next business day after passing Final Electrical Inspection). United Power customers apply through United Power's Connect Your Solar process (https://www.unitedpower.com/connect-your-solar) and submit the signed electrical permit inspection sign-off to solar@unitedpower.com. City permit approval and inspection sign-off do not authorize parallel operation on either utility's grid."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Xcel Energy Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel's Renewable Battery Connect pays an upfront incentive based on maximum continuous discharge power: $250 per kW AC for general customers (up to $5,000 per application); $1,000 per kW AC for income-qualified customers; or $500 per kW AC in disproportionately impacted communities. The last two categories are capped at 75% of equipment-only cost. Participants also receive $100 annually for five years for participating in control events.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For eligible Xcel Energy electric customers in Westminster adding a solar-charged battery (Xcel lists Tesla Powerwall models and current Enphase models as eligible equipment) and participating in peak-demand control events. In Westminster, adding an energy storage system (ESS) requires a separate 'Residential Building -> Electrical' permit in eTRAKiT in addition to the 'Residential Solar' permit. Check equipment eligibility and program availability before purchasing. This is an Xcel Energy program, not a United Power incentive.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "SOLAR",
+      "RESOURCES",
+      "XCEL-RBC",
+      "UP-AREA",
+      "UP-SOLAR"
+    ],
+    "notes": "Xcel Energy terms were checked on November 14, 2026. No United Power or City of Westminster battery rebate was verified on the captured pages. Confirm your electric provider and equipment eligibility before relying on an incentive."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Xcel Energy Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10 kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer in Westminster and qualify under Xcel's Income Qualified terms before installation. Confirm qualification and available funding with Xcel before relying on the incentive. This program applies to Xcel Energy accounts, not United Power accounts.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Xcel Energy Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10 kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer in Westminster located in an eligible Disproportionately Impacted Community and apply before installation. Confirm qualification and available funding with Xcel before relying on the incentive. This program applies to Xcel Energy accounts, not United Power accounts.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "SOLAR",
+      "ENERGY-352",
+      "XCEL-REWARDS",
+      "UP-AREA",
+      "UP-SOLAR"
+    ],
+    "notes": "Xcel Energy Solar*Rewards incentives are conditional on account, location/income eligibility, pre-installation application approval, and available program capacity. Neither the City of Westminster nor United Power publishes a municipal or cooperative residential solar PV rebate on the verified pages."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Online eTRAKiT Residential Solar permit application ('New PV Install' with kW and module count, or 'Remove and Reinstall' for reroofing/removal)",
+        "required_when": "Required for all residential PV installations, removals, or reroof reinstallations; active City contractor registration or homeowner public account required. Separate permits are required for an energy storage system (ESS), EV charger, or main panel upgrade (MPU).",
+        "source_ids": [
+          "BUILDING",
+          "APPLY-617",
+          "RESOURCES",
+          "PERMITTYPES",
+          "ROOFING-5341",
+          "CONTRACTOR-APP",
+          "LIC-UPD-6992",
+          "ETRAKIT-ACCT-5766"
+        ]
+      },
+      {
+        "name": "Site plan and roof layout locating all PV equipment and all plumbing, mechanical, and building vents",
+        "required_when": "Required for all residential solar submittals. Panels cannot cover low-profile attic, dryer, or bathroom exhaust vents; plumbing vents must remain at least 6 inches above the roof per the IPC; mechanical vents must maintain IMC clearances; and roof access/setback pathways must comply with adopted Fire Code rules.",
+        "source_ids": [
+          "RESOURCES",
+          "CHECKLIST",
+          "BUILDING",
+          "FIRE-577",
+          "CODE-AMEND-6990"
+        ]
+      },
+      {
+        "name": "Structural plan and roof-mounted structural engineer's letter verifying compliance with Westminster's Design Criteria for Structures",
+        "required_when": "Structural plan required for all New PV Install submittals; a structural engineer's letter is explicitly required on the City's Resources page when panels are mounted on the roof (verifying 30 psf ground snow load, Special Wind Region, mapped IRC Ultimate Wind Speed of 131 mph in Zone 1 east of Sheridan Blvd, 142 mph in Zone 2 between Wadsworth Pkwy and Sheridan Blvd, or 155 mph in Zone 3 west of Wadsworth Pkwy, roof framing type, permanently fastened/flashed standoffs, and number of roofing layers).",
+        "source_ids": [
+          "RESOURCES",
+          "DESIGN-6124",
+          "CHECKLIST"
+        ]
+      },
+      {
+        "name": "Electrical plan with three-line diagram, schematic drawing, and conductor/voltage/current calculations",
+        "required_when": "Required for all New PV Install submittals. Must specify stand-alone vs. interactive (grid-tied) operation, module/inverter/disconnect/service/battery/grounding locations and required clearances, and calculations from modules to inverter and inverter to point of connection.",
+        "source_ids": [
+          "RESOURCES",
+          "CHECKLIST"
+        ]
+      },
+      {
+        "name": "Manufacturer equipment information sheets (cut sheets) and installation instructions",
+        "required_when": "Required for modules, inverters, racking, and balance-of-system components.",
+        "source_ids": [
+          "RESOURCES",
+          "CHECKLIST"
+        ]
+      },
+      {
+        "name": "Unlocked or flattened PDF files meeting Westminster Electronic File Submittal Requirements (including 5-inch by 5-inch blank stamp space)",
+        "required_when": "Required for all electronic plan uploads in eTRAKiT (black-and-white vector PDF preferred, 1 MB average per sheet, 50 MB maximum per file, no zip files or PDF packages, with a 5\" x 5\" blank space in the bottom right-hand corner of all drawing sheets for the City approval stamp).",
+        "source_ids": [
+          "EFILE-1531",
+          "APPLY-617"
+        ]
+      },
+      {
+        "name": "Separate utility interconnection application and technical documents for Xcel Energy or United Power",
+        "required_when": "Required by the serving electric utility (confirm Xcel Energy or United Power on the property's electric bill) to obtain utility approval and Permission to Operate (PTO).",
+        "source_ids": [
+          "SOLAR",
+          "XCEL-NEM",
+          "XCEL-APP",
+          "UP-AREA",
+          "UP-SOLAR"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "SOLAR",
+      "RESOURCES",
+      "CHECKLIST",
+      "DESIGN-6124",
+      "EFILE-1531",
+      "BUILDING",
+      "FIRE-577"
+    ],
+    "notes": "Westminster's current Building Division Resources page ('Residential Solar -> New PV Install') requires a full plan set (site plan, electrical plan, structural plan, and equipment information sheets) plus a structural engineer's letter if mounted on the roof to verify it meets the City's Design Criteria for Structures (Effective June 1, 2024). Note document vintage vs. current codes: the Solar Photovoltaic Permitting Checklist PDF linked on the Solar Resources page is dated May 7, 2018 ('Updated 5/7/2018') and still cites 2015 IFC fire amendments without mentioning the structural engineer's letter, whereas the Building Division and Fire Department pages state that the 2021 International Codes (2021 IBC, IRC, IFC, IECC) took effect June 1, 2024 and the 2026 National Electrical Code (NEC) is in effect. Prepare plans to the current 2021 I-Codes, 2026 NEC, and June 1, 2024 Design Criteria."
+  },
+  "inspection_steps": {
+    "value": [
+      "Complete all PV installation work and all code-required safety and directory labeling (including the main electrical disconnect photovoltaic caution label) before scheduling an inspection; Westminster's Solar Inspection Guideline states that no rough inspection shall be scheduled unless specifically requested by the AHJ for the site.",
+      "Log in to eTRAKiT to schedule a Final Electrical Inspection (and inspections for any separate ESS, EV charger, or main panel upgrade permits). Inspections requested before 4:00 p.m. can be scheduled for the next business day, and the Solar Resources page states inspections are completed within 5 business days (AM 8:00 a.m.\u2013noon and PM noon\u20135:00 p.m. windows are not guaranteed).",
+      "Confirm the PV array is free of snow (solar inspections are not performed when snow covers the array), have the full set of uploaded/approved plans and the yellow inspection card on site at the main electrical service, and ensure a person 18 years of age or older is present to provide safe access. External roof ladders are not required unless requested by the AHJ, but internal ladders are required to inspect any structural modifications per the approved plans.",
+      "If the inspection fails, correct all noted items and reschedule the Final Electrical Inspection within 180 days (a $50.00 re-inspection fee may apply). When the inspection passes, the inspector signs the on-site inspection card and updates eTRAKiT by the end of the day.",
+      "For Xcel Energy customers, Westminster transmits an electronic NET Electrical Meter Release to Xcel Energy on the next business day after passing the Final Electrical Inspection; for United Power customers, submit the signed electrical inspection approval to United Power (solar@unitedpower.com). Wait for formal utility Permission to Operate (PTO) before energizing the system."
+    ],
+    "confidence": 0.92,
+    "source_ids": [
+      "INSPGUIDE",
+      "INSPECTIONS-977",
+      "SOLAR",
+      "FEE2026",
+      "XCEL-APP",
+      "UP-SOLAR"
+    ],
+    "notes": "Passing the City's Final Electrical Inspection and receiving an electronic meter release does not authorize parallel operation on the utility grid. Separate utility Permission to Operate (PTO) from Xcel Energy or United Power is required."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Westminster's Solar Resources page states that 'All small system PV permits will receive at the longest a three-day turn-around time' and that once installed, 'The inspection will be completed within 5 business days' (while the Inspections page notes that inspections scheduled in eTRAKiT before 4:00 p.m. can be scheduled for the next business day). Because the City does not define 'small system' by kW AC/DC capacity and review duration depends on submittal completeness, structural engineering review, separate permits for battery storage or panel upgrades, and separate utility interconnection review, no numeric end-to-end timeline is set."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential Solar permit ('New PV Install' or 'Remove and Reinstall') via Westminster eTRAKiT",
+      "other_conditions": [
+        "Confirm municipal jurisdiction before applying: the incorporated City of Westminster spans Adams County and Jefferson County, and a Westminster mailing address can belong to unincorporated Adams or Jefferson County outside City permitting authority.",
+        "Confirm the electric utility on the property's utility bill: Xcel Energy and United Power both serve parts of Westminster, and interconnection applications, net metering rules, and utility incentives depend on which utility serves the address.",
+        "Westminster's 'Residential Solar' permit type in eTRAKiT is exclusively for photovoltaic (PV) installation ('New PV Install') or reroof removal/reinstallation ('Remove and Reinstall'). If the install includes an energy storage system (ESS), electric vehicle (EV) charger, or main panel upgrade (MPU), a separate permit is required ('Residential Building -> Electrical' for ESS or MPU; 'Residential Counter -> EV Charger' for a residential EV charger).",
+        "Roof-mounted New PV Install applications require a structural engineer's letter verifying compliance with Westminster's Design Criteria for Structures (Effective June 1, 2024: 30 psf ground snow load, Special Wind Region, and mapped IRC Ultimate Wind Speed of 131 mph in Zone 1 east of Sheridan Blvd, 142 mph in Zone 2 between Wadsworth Pkwy and Sheridan Blvd, or 155 mph in Zone 3 west of Wadsworth Pkwy).",
+        "Stale checklist date vs. current adopted codes: the Solar Photovoltaic Permitting Checklist PDF linked on the Solar Resources page is dated May 7, 2018 ('Updated 5/7/2018') and cites 2015 IFC fire amendments, whereas the Building Division and Fire Department enforce the 2021 International Codes (2021 IBC, IRC, IFC, IECC, effective June 1, 2024) and the 2026 National Electrical Code (NEC). Confirm current roof-setback and labeling requirements under the 2021 IFC and 2026 NEC with the Building Division.",
+        "While the Solar Resources page states that 'All small system PV permits will receive at the longest a three-day turn-around time', it does not define a kW size cap for a 'small system' and does not guarantee total permit approval or utility interconnection timing.",
+        "All contractors must be registered with the City of Westminster and signed onto the permit in eTRAKiT before issuance (Class C Electrical Contractor registration requires copies of the State Master Electrician and State Electrical Contractor licenses at no City license fee; general/roofing classes are $110). While Westminster preserves a general homeowner exemption for work on a homeowner's own single-family or duplex home, homeowners should confirm solar PV electrical permitting and inspection requirements with the Building Division (303-658-2075) before applying."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "SOLAR",
+      "RESOURCES",
+      "BUILDING",
+      "FIRE-577",
+      "PERMITTYPES",
+      "DESIGN-6124",
+      "CHECKLIST",
+      "CONTRACTOR-APP",
+      "LIC-UPD-6992",
+      "CODE-AMEND-6990"
+    ],
+    "notes": "No instant or SolarAPP+ permitting route is published by the City of Westminster. Commercial solar projects require a separate Commercial Building permit application."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar Systems Permit Fee (2026 Miscellaneous Permit Fees schedule)",
+        "amount_usd": 300,
+        "unit": "base permit fee",
+        "notes": "Published on the Solar Resources page ('Solar permits cost $300') and in the Building Division Fee Schedule effective January 1, 2026 ('Solar Systems: $300.00' under Miscellaneous Permit Fees). This is the Solar Systems permit fee entry, not a guaranteed all-in project total: Estimated Use Tax (4.25% of 50% of Total Valuation), plan review fees (65% of Building Permit Fee where applicable), multi-trade fees, separate permits for ESS/EV charger/main panel upgrade, and a 2.85% credit card service fee in eTRAKiT (0% for eCheck) may also apply."
+      },
+      {
+        "name": "Re-inspection Fee / Additional Plan Review for Revisions",
+        "amount_usd": 50,
+        "unit": "per re-inspection or per hour of revision review",
+        "notes": "The Building Division Fee Schedule (Effective January 1, 2026) lists $50.00 for re-inspection fees and $50.00 per hour for additional plan review for revisions."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "SOLAR",
+      "FEE2026",
+      "FEES",
+      "RESOURCES",
+      "ETRAKIT-PAY-1226"
+    ],
+    "notes": "Both the Solar Resources page and the Building Division Fee Schedule (Effective January 1, 2026) list $300.00 for 'Solar Systems' under Miscellaneous Permit Fees (note that the HTML text on the City's Fees webpage retains an older 'Effective September 1, 2010' subheading while linking the January 1, 2026 PDF and showing the 2026 4.25% use tax rate on 50% of valuation). Because the 2026 Fee Schedule states that building permit fees include permit and plan review fees (65% of Building Permit Fee where applicable), Estimated Use Tax (4.25% of 50% of Total Valuation, effective January 1, 2026), and trade fees as applicable \u2014 and because separate permits are required for battery storage (ESS), EV chargers, or main panel upgrades (MPU) \u2014 confirm the full invoice for your project scope with the Building Division (303-658-2075, permits@westminsterco.gov)."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Westminster Building Division",
+        "role": "Solar permits, plan review, contractor registration, and inspections",
+        "phone": "303-658-2075",
+        "email": "permits@westminsterco.gov",
+        "url": "https://www.westminsterco.gov/737/Solar-Resources"
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "SOLAR",
+      "BUILDING"
+    ],
+    "notes": "4800 W. 92nd Avenue, Westminster, CO 80031. Hours: Monday through Thursday, 7:00 a.m. to 6:00 p.m."
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "SOLAR",
+      "title": "Solar Resources",
+      "url": "https://www.westminsterco.gov/737/Solar-Resources",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CHECKLIST",
+      "title": "Solar Photovoltaic Permitting Checklist (Updated 5/7/2018)",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/1530/Permitting-Checklist-PDF?bidId=",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "INSPGUIDE",
+      "title": "Solar Inspection Guideline",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/1528/Solar-Inspection-Guideline-PDF?bidId=",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FEE2026",
+      "title": "Building Division Fee Schedule (Effective January 1, 2026)",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/6284/Fee-Schedule-V3-2026",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FEES",
+      "title": "Building Division Fees",
+      "url": "https://www.westminsterco.gov/979/Fees",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "RESOURCES",
+      "title": "Building Division Resources (Residential & Commercial Permit Types)",
+      "url": "https://www.westminsterco.gov/978/Resources",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "BUILDING",
+      "title": "Building Division & Adopted Building Codes",
+      "url": "https://www.westminsterco.gov/621",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "APPLY-617",
+      "title": "Apply for a Permit or Project (eTRAKiT)",
+      "url": "https://www.westminsterco.gov/617/Apply-for-a-Permit-Project",
+      "publisher": "City of Westminster Community Services Department",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "INSPECTIONS-977",
+      "title": "Building Inspections",
+      "url": "https://www.westminsterco.gov/977/Inspections",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FIRE-577",
+      "title": "Permits & Fire Code Policies (2021 IFC)",
+      "url": "https://www.westminsterco.gov/577/Permits-Fire-Code-Policies",
+      "publisher": "City of Westminster Fire Department",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PERMITTYPES",
+      "title": "Permit Type and Subtype Descriptions (04-03-2025)",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/5603/BLDG---Permit-Type-and-Subtype-Descriptions---04-03-2025-",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "DESIGN-6124",
+      "title": "Design Criteria for Structures (Effective June 1, 2024)",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/4058/Design-Criteria-for-Structures-Effective-6124",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "ROOFING-5341",
+      "title": "Roofing Policy",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/5341/Roofing-Policy",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "EFILE-1531",
+      "title": "Electronic File Submittal Requirements (08-05-2019)",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/1531/Electronic-File-Submittal-Requirements-PDF?bidId=",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CONTRACTOR-APP",
+      "title": "Contractor License Application (Revised October 9, 2025)",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/5376/Contractor-License-Application-fillable-Oct-09-2025",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CODE-AMEND-6990",
+      "title": "2021 Code Amendments & 2026 NEC Update Public Summary",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/6990/2021-Code-Amendments---Public-Summary",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LIC-UPD-6992",
+      "title": "Proposed Contractor Licensing Update Public Summary",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/6992/Proposed-Contractor-Licensing-Update---Public-Summary",
+      "publisher": "City of Westminster Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "ETRAKIT-ACCT-5766",
+      "title": "Creating an eTRAKiT Public User Account (12-04-2025)",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/5766/CS---SOP---Creating-eTRAKiT-Public-User-Account---12-04-2025",
+      "publisher": "City of Westminster Community Services Department",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "ETRAKIT-PAY-1226",
+      "title": "Paying Permit and Project Fees in eTRAKiT",
+      "url": "https://www.westminsterco.gov/DocumentCenter/View/1226/Paying-Permit-and-Project-Fees-PDF",
+      "publisher": "City of Westminster Community Services Department",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "ENERGY-352",
+      "title": "Energy Efficiency & Electrification",
+      "url": "https://www.westminsterco.gov/352/Energy-Efficiency-Electrification",
+      "publisher": "City of Westminster Sustainability Division",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "ADCO-CITIES",
+      "title": "Cities & Towns",
+      "url": "https://adamscountyco.gov/about-adams-county/cities-towns/",
+      "publisher": "Adams County, Colorado",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "JEFFCO-LIFE",
+      "title": "Life in Jeffco (County Boundaries and Cities)",
+      "url": "https://www.jeffco.us/2574/Life-in-Jeffco",
+      "publisher": "Jefferson County, Colorado",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "JEFFCO-ADDR",
+      "title": "Address Lookup (City vs. Unincorporated Jurisdiction)",
+      "url": "https://www.jeffco.us/2197/Address-Wizard",
+      "publisher": "Jefferson County, Colorado",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "UP-AREA",
+      "title": "United Power: Service Area",
+      "url": "https://www.unitedpower.com/service-area",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "UP-SOLAR",
+      "title": "United Power: Connect Your Solar",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCEL-NEM",
+      "title": "Xcel Energy: Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCEL-APP",
+      "title": "Xcel Energy: Solar Application Process",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCEL-REWARDS",
+      "title": "Xcel Energy: Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCEL-RBC",
+      "title": "Xcel Energy: Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}
