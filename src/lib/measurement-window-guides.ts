@@ -23,6 +23,7 @@ export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string
 	"co-larimer-fort-collins-fcu",
 	"co-jefferson-lakewood-xcel",
 	"co-jefferson-arvada-multi",
+	"co-boulder-longmont-multi",
 ]);
 
 // These three pilot guides were already live before the Arvada release. Keep
@@ -43,6 +44,9 @@ export function isNewGuideDuringMeasurement(recordId: string | null | undefined)
  * guide can link to everything already published.
  */
 export function relatedPoolFor<T extends { recordId: string }>(currentRecordId: string, entries: T[]): T[] {
+	// Longmont is newer than all four published pilots. Preserve every prior pool.
+	if (currentRecordId === "co-boulder-longmont-multi") return entries;
+	entries = entries.filter((entry) => entry.recordId !== "co-boulder-longmont-multi");
 	if (EARLIER_PILOT_GUIDES.has(currentRecordId)) {
 		return entries.filter((entry) => entry.recordId !== "co-jefferson-arvada-multi");
 	}

@@ -130,6 +130,8 @@ const observationLocked = observationLockedRecordIds(allReadyEntries, contentLin
 // other guide's related list, so pages under measurement stay unchanged.
 const isNewGuide = isNewGuideDuringMeasurement(record.record_id);
 const isArvadaGuide = record.record_id === "co-jefferson-arvada-multi";
+const isLongmontGuide = record.record_id === "co-boulder-longmont-multi";
+const hasDocumentContext = isArvadaGuide || isLongmontGuide;
 // Keep this opt-in independent of the temporary related-list embargo, so
 // eligibility remains visible after the measurement window closes.
 const showProgramEligibility = new Set([
@@ -206,13 +208,19 @@ const batteryPrograms = getDisplayablePrograms(record.battery_programs.value);
 const rebatePrograms = getDisplayablePrograms(record.rebates.value);
 const td = record.timeline_days?.value ?? null;
 const hasTimeline = td !== null;
-const timeline = td !== null ? formatTimeline(td) : null;
+const timeline = td !== null ? {
+	...formatTimeline(td),
+	...(isLongmontGuide ? {
+		label: "5 business days for eligible expedited review",
+		standardPathCaveat: "Complete qualifying applications only; electrical service upgrades are excluded. This is not a total project or utility-approval timeline.",
+	} : {}),
+} : null;
 const generationSupplier = record.generation_supplier.value;
 const hasGenerationSupplier = generationSupplier !== null;
 
 const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canonicalUrl });
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
-const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, documentContext: isArvadaGuide });
+const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide });
 const faqSchema = buildFaqSchema(faqs);
 
 // Table of contents — ids match the section anchors added below. FAQ and
@@ -416,7 +424,7 @@ const tocItems = [
 
 			<section id="required-documents">
 				<p class="gp-kicker">02 / Prepare your application</p><h2>What you need.</h2>
-				{isArvadaGuide && <p class="fact-notes" data-documents-context>{publicResearchNote(record.required_documents.notes)}</p>}
+				{hasDocumentContext && <p class="fact-notes" data-documents-context>{publicResearchNote(record.required_documents.notes)}</p>}
 				{record.required_documents.value ? (
 					<>
 						<ul class="fact-list gp-checklist">
