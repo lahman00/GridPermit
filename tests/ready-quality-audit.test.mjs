@@ -42,10 +42,10 @@ test("only the severe review threshold recommends noindex review", () => {
 	assert.equal(veryLowConfidence.recommendedAction, "REVIEW_FOR_NOINDEX");
 });
 
-test("all 351 published guides appear in the audit and no status is mutated", async () => {
+test("all 353 published guides appear in the audit and no status is mutated", async () => {
 	const rows = await buildReadyQualityAudit();
-	assert.equal(rows.length, 351);
-	assert.deepEqual(rows.map((row) => row.traffic_priority), Array.from({ length: 351 }, (_, index) => index + 1));
+	assert.equal(rows.length, 353);
+	assert.deepEqual(rows.map((row) => row.traffic_priority), Array.from({ length: 353 }, (_, index) => index + 1));
 	assert.equal(rows.filter((row) => row.ready_quality_gate.startsWith("FAIL")).length, 141);
 	assert.ok(rows.every((row) => ["KEEP_INDEXED_MONITOR", "COMPLETE_CORE_FACTS_PRIORITY", "REVIEW_FOR_NOINDEX"].includes(row.recommended_action)));
 	assert.ok(rows.some((row) => row.traffic_evidence_status === "UNKNOWN_FULL_PRIVATE_EXPORT_UNAVAILABLE"));

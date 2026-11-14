@@ -48,6 +48,8 @@ import { contentLinkRegistry, localityFacts } from "../lib/content-links-site";
 import { observationLockedRecordIds, relatedForPage } from "../lib/related-balance";
 import { buildFactDescription, isSnippetHoldout, isSnippetLocked } from "../lib/guide-snippet";
 import { assessReadyCoreQuality, READY_CORE_FIELDS } from "../lib/ready-quality";
+import { isNewGuideDuringMeasurement, relatedPoolFor } from "../lib/measurement-window-guides";
+import OrganizerNote from "../components/OrganizerNote.astro";
 
 interface Props {
 	record: LocalityRecord;
@@ -124,9 +126,12 @@ const currentEntry = {
 // Balanced selection only for the counties listed in the content-link registry;
 // every other page gets exactly what buildRelatedLocalities returns.
 const observationLocked = observationLockedRecordIds(allReadyEntries, contentLinkRegistry.rollout.locality_pages);
+// A guide published during the search measurement window is not offered to any
+// other guide's related list, so pages under measurement stay unchanged.
+const isNewGuide = isNewGuideDuringMeasurement(record.record_id);
 const relatedLocalities = relatedForPage(
 	currentEntry,
-	allReadyEntries,
+	relatedPoolFor(record.record_id, allReadyEntries),
 	contentLinkRegistry.balanced_related,
 	observationLocked,
 );
@@ -198,7 +203,7 @@ const hasGenerationSupplier = generationSupplier !== null;
 
 const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canonicalUrl });
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
-const faqs = buildFaqs(record);
+const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide });
 const faqSchema = buildFaqSchema(faqs);
 
 // Table of contents — ids match the section anchors added below. FAQ and
@@ -415,6 +420,8 @@ const tocItems = [
 					</>
 				) : <p class="fact-value muted">{NOT_VERIFIED}</p>}
 			</section>
+
+			{isNewGuide && <OrganizerNote />}
 
 			{permitPathway && <PermitPathwayAnswer answer={permitPathway} />}
 

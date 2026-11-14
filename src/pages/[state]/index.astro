@@ -24,6 +24,8 @@ import {
 } from "../../lib/locality-guide";
 import { STATE_META, SUPPORTED_STATE_CODES } from "../../lib/state-meta";
 import { stateHubRobotsDirective } from "../../lib/sitemap-policy";
+import { hasVerifiedUnambiguousUtility } from "../../lib/utility-split-guard";
+import { NEW_GUIDES_DURING_MEASUREMENT } from "../../lib/measurement-window-guides";
 import Analytics from "../../components/Analytics.astro";
 
 export async function getStaticPaths() {
@@ -50,6 +52,16 @@ const evaluationModules = import.meta.glob("../../../output/*-evaluation.json", 
 >;
 const allEvaluatedRecords = Object.values(evaluationModules).flatMap((mod) => mod.default.records);
 const entries = buildLocalityIndexEntries(allEvaluatedRecords, recordsById).filter((e) => e.state === stateCode);
+
+// Guides published during the search measurement window whose record is not a
+// city-wide utility determination: the card says so instead of naming one utility
+// for the whole city. Older guides keep their card until the window closes.
+const addressLevelUtilityIds = new Set(
+	[...NEW_GUIDES_DURING_MEASUREMENT].filter((id) => {
+		const record = recordsById.get(id);
+		return record ? !hasVerifiedUnambiguousUtility(record) : false;
+	}),
+);
 
 const lettersPresent = [...new Set(entries.map((e) => e.city[0]!.toUpperCase()))];
 
@@ -167,7 +179,7 @@ const collectionSchema = {
 									{entries.filter((entry) => entry.city[0]!.toUpperCase() === letter).map((entry) => (
 										<a href={entry.guideUrl} class="guide-card" data-filter-text={[entry.city, entry.county, entry.utility, entry.generationSupplierName].filter(Boolean).join(" ")} data-track-click="permit_guide_clicked">
 											<h3>{entry.city}</h3>
-											<p class="card-field"><strong>Utility:</strong> {entry.utility}</p>
+											<p class="card-field"><strong>Utility:</strong> {entry.utility}{addressLevelUtilityIds.has(entry.recordId) && " (depends on the address)"}</p>
 											{entry.generationSupplierName && (
 												<p class="card-field"><strong>Generation supplier:</strong> {entry.generationSupplierName}</p>
 											)}

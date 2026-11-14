@@ -1,9 +1,9 @@
 {
   "record_id": "co-larimer-fort-collins-fcu",
   "file": "data/localities/co-larimer-fort-collins-fcu.json",
-  "validated_at": "2026-08-13",
+  "validated_at": "2026-11-14",
   "status": "REVIEW",
-  "score": 94,
+  "score": 88,
   "errors": [],
   "warnings": [
     {
@@ -14,64 +14,91 @@
     {
       "field": "interconnection_url",
       "category": "broken_url",
-      "message": "https://www.fortcollins.gov/Services/Utilities/Programs-and-Rebates/Energy-Programs/Renewable-Options-in-Fort-Collins — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.fortcollins.gov/Services/Utilities/Programs-and-Rebates/Energy-Programs/Residential-Solar-and-Battery-Storage — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     },
     {
-      "field": "rebates[0].url",
+      "field": "official_contacts[0].url",
       "category": "broken_url",
-      "message": "https://dpt.colorado.gov/renewable-energy — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+      "message": "https://www.fortcollins.gov/Business/Building-and-Development/Building-Services — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "official_contacts[2].url",
+      "category": "broken_url",
+      "message": "https://www.fortcollins.gov/Services/Utilities/Programs-and-Rebates/Energy-Programs/Residential-Solar-and-Battery-Storage/Solar-Contractor-Resources — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "official_contacts[3].url",
+      "category": "broken_url",
+      "message": "https://www.fortcollins.gov/Services/Historic-Preservation/Historic-Property-Resources — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "broken_url",
+      "message": "https://www.fortcollins.gov/Services/Utilities/Other-Utilities-Pages/Light-and-Power — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
     }
   ],
   "recommendations": [
     {
-      "field": "battery_programs",
-      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "required_documents",
-      "message": "'required_documents' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "inspection_steps",
-      "message": "'inspection_steps' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
       "field": "timeline_days",
       "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "eligibility_constraints",
-      "message": "'eligibility_constraints' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
-    },
-    {
-      "field": "permit_fees",
-      "message": "'permit_fees' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
     }
   ],
   "url_checks": [
     {
       "url": "https://www.fortcollins.gov/Business/Permits-and-Licensing/Building-Permits",
-      "checked_at": "2026-08-13T20:44:37.259Z",
+      "checked_at": "2026-11-14T07:06:59.632Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
-      "url": "https://www.fortcollins.gov/Services/Utilities/Programs-and-Rebates/Energy-Programs/Renewable-Options-in-Fort-Collins",
-      "checked_at": "2026-08-13T20:44:38.233Z",
+      "url": "https://www.fortcollins.gov/Services/Utilities/Programs-and-Rebates/Energy-Programs/Residential-Solar-and-Battery-Storage",
+      "checked_at": "2026-11-14T07:07:00.277Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
     },
     {
-      "url": "https://dpt.colorado.gov/renewable-energy",
-      "checked_at": "2026-08-13T20:44:38.318Z",
+      "url": "https://www.fortcollins.gov/Business/Building-and-Development/Building-Services",
+      "checked_at": "2026-11-14T07:07:00.328Z",
       "status": "BLOCKED_OR_UNVERIFIABLE",
       "http_status": 403,
       "method": "HEAD",
       "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.fortcollins.gov/Services/Utilities/Programs-and-Rebates/Energy-Programs/Residential-Solar-and-Battery-Storage/Solar-Contractor-Resources",
+      "checked_at": "2026-11-14T07:07:00.406Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.fortcollins.gov/Services/Historic-Preservation/Historic-Property-Resources",
+      "checked_at": "2026-11-14T07:07:00.461Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.fortcollins.gov/Services/Utilities/Other-Utilities-Pages/Light-and-Power",
+      "checked_at": "2026-11-14T07:07:00.517Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://library.municode.com/co/fort_collins/codes/municipal_code?nodeId=CH26UT_ARTVIEL_DIV4RAFECH_S26-464REENSESCR",
+      "checked_at": "2026-11-14T07:07:00.677Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
     }
   ]
 }

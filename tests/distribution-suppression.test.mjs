@@ -56,21 +56,23 @@ test("distribution outputs are byte-deterministic and contain no generated times
 });
 
 test("the report reconciles every locality into a published or suppressed partition", () => {
-	assert.equal(pack.summary.record_count, 414);
-	assert.equal(pack.records.length, 414);
-	assert.equal(pack.summary.published_route_count, 351);
-	assert.equal(pack.summary.suppressed_record_count, 63);
+	// 2026-11-14: Aurora (new record) and Fort Collins (LIMITED to READY) were published
+	// after source capture, quote checks and an independent audit: 415 records, 353 routes.
+	assert.equal(pack.summary.record_count, 415);
+	assert.equal(pack.records.length, 415);
+	assert.equal(pack.summary.published_route_count, 353);
+	assert.equal(pack.summary.suppressed_record_count, 62);
 	assert.equal(pack.summary.published_route_count + pack.summary.suppressed_record_count, pack.summary.record_count);
-	assert.equal(pack.summary.recorded_ready_count, 351);
-	assert.equal(pack.summary.recorded_limited_count, 61);
+	assert.equal(pack.summary.recorded_ready_count, 353);
+	assert.equal(pack.summary.recorded_limited_count, 60);
 	assert.equal(pack.summary.recorded_not_ready_count, 2);
 	// The 2026-10-08 READY refresh added one current, primary-source-backed field
 	// to each of nine previously stale published records (Glendale, Banning,
 	// Loma Linda, Lodi, Shasta Lake, New Castle County, Ann Arbor, Oklahoma City
 	// and Salt Lake City). All nine now recompute at 80% / READY without changing
 	// their published route state.
-	assert.equal(pack.summary.recomputed_ready_count, 350);
-	assert.equal(pack.summary.recomputed_limited_count, 62);
+	assert.equal(pack.summary.recomputed_ready_count, 352);
+	assert.equal(pack.summary.recomputed_limited_count, 61);
 	assert.equal(pack.summary.recomputed_not_ready_count, 2);
 	// ca-riverside-corona-multi graduated into this disagreement set once its
 	// utility field was properly sourced (was null/genuinely-ambiguous; now a
@@ -201,7 +203,7 @@ test("the current suppressed inventory is completeness-only, while published rea
 	assert.equal(Math.min(...pack.suppressed_rows.map((row) => row.recomputed_readiness.validation_score)), 91);
 	assert.deepEqual(
 		Object.fromEntries([1, 2, 3, 4].map((gap) => [gap, pack.suppressed_rows.filter((row) => row.fields_needed_to_publish === gap).length])),
-		{ 1: 23, 2: 16, 3: 10, 4: 11 },
+		{ 1: 23, 2: 16, 3: 9, 4: 11 },
 	);
 	assert.deepEqual(
 		pack.records.filter((row) => row.readiness_disagreement).map((row) => row.record_id),
