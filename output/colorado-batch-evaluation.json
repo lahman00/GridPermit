@@ -1,6 +1,6 @@
 {
   "state": "CO",
-  "generated_at": "2026-11-14T17:58:27.526Z",
+  "generated_at": "2026-11-14T19:21:39.816Z",
   "records": [
     {
       "record_id": "co-arapahoe-aurora-xcel",
@@ -62,6 +62,38 @@
         "generation_supplier",
         "battery_programs",
         "rebates"
+      ],
+      "warning_categories": [],
+      "readiness": "READY"
+    },
+    {
+      "record_id": "co-boulder-boulder-multi",
+      "state": "CO",
+      "city": "Boulder",
+      "county": "Boulder County",
+      "completeness_pct": 86.7,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
+        "timeline_days"
       ],
       "warning_categories": [],
       "readiness": "READY"
@@ -305,12 +337,12 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 84.4,
-    "average_validation_score": 94.1,
+    "average_completeness_pct": 84.7,
+    "average_validation_score": 94.7,
     "fields_most_often_missing": [
       {
         "field": "timeline_days",
-        "missing_in_records": 7
+        "missing_in_records": 8
       },
       {
         "field": "battery_programs",
@@ -318,7 +350,7 @@
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 3
+        "missing_in_records": 4
       },
       {
         "field": "rebates",
@@ -346,6 +378,7 @@
     "recommended_publish_record_ids": [
       "co-arapahoe-aurora-xcel",
       "co-arapahoe-centennial-multi",
+      "co-boulder-boulder-multi",
       "co-boulder-longmont-multi",
       "co-denver-denver-xcel",
       "co-el-paso-colorado-springs-csu",

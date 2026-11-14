@@ -132,7 +132,8 @@ const isNewGuide = isNewGuideDuringMeasurement(record.record_id);
 const isArvadaGuide = record.record_id === "co-jefferson-arvada-multi";
 const isLongmontGuide = record.record_id === "co-boulder-longmont-multi";
 const isCentennialGuide = record.record_id === "co-arapahoe-centennial-multi";
-const hasDocumentContext = isArvadaGuide || isLongmontGuide || isCentennialGuide;
+const isBoulderGuide = record.record_id === "co-boulder-boulder-multi";
+const hasDocumentContext = isArvadaGuide || isLongmontGuide || isCentennialGuide || isBoulderGuide;
 // Keep this opt-in independent of the temporary related-list embargo, so
 // eligibility remains visible after the measurement window closes.
 const showProgramEligibility = new Set([
@@ -140,6 +141,7 @@ const showProgramEligibility = new Set([
 	"co-larimer-fort-collins-fcu",
 	"co-jefferson-lakewood-xcel",
 	"co-jefferson-arvada-multi",
+	"co-boulder-boulder-multi",
 ]).has(record.record_id);
 const relatedLocalities = relatedForPage(
 	currentEntry,
@@ -225,7 +227,7 @@ const hasGenerationSupplier = generationSupplier !== null;
 
 const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canonicalUrl });
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
-const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide || isCentennialGuide, expectedReviewTimeline: isCentennialGuide, documentChecklistIntro: isCentennialGuide ? "City and utility submission documents include the following, subject to the provider conditions shown:" : undefined });
+const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, utilityAnswer: isBoulderGuide ? record.utility.notes ?? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide || isCentennialGuide || isBoulderGuide, expectedReviewTimeline: isCentennialGuide, documentChecklistIntro: isBoulderGuide ? "Verified City application items and separate Xcel documents include:" : isCentennialGuide ? "City and utility submission documents include the following, subject to the provider conditions shown:" : undefined });
 const faqSchema = buildFaqSchema(faqs);
 
 // Table of contents — ids match the section anchors added below. FAQ and

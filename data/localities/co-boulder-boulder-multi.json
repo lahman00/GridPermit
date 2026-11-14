@@ -1,0 +1,386 @@
+{
+  "record_id": "co-boulder-boulder-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy (confirm service at your address)",
+    "confidence": 0.9,
+    "source_ids": [
+      "UTILITY",
+      "XCEL"
+    ],
+    "notes": "Check your electric bill before using the Xcel interconnection steps. The City describes its partnership with Xcel, but a Boulder mailing address alone does not establish City permit jurisdiction or the provider for your own address. This guide does not identify a second City electric provider."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The generation supplier has not been verified for an individual account. Confirm the account details with your electric provider."
+  },
+  "city": {
+    "value": "Boulder",
+    "confidence": 1,
+    "source_ids": [
+      "SOLAR",
+      "BUILD"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Boulder County",
+    "confidence": 0.95,
+    "source_ids": [
+      "COUNTY"
+    ],
+    "notes": "Boulder County Land Use does not issue permits for properties within municipal jurisdictions. Check City limits before using a City or County solar checklist."
+  },
+  "permit_authority": {
+    "value": "City of Boulder Planning & Development Services",
+    "confidence": 0.95,
+    "source_ids": [
+      "BUILD",
+      "COUNTY"
+    ],
+    "notes": "For properties inside the City of Boulder. County requirements apply to a different jurisdiction; confirm the address with the City if the boundary is unclear."
+  },
+  "permit_url": {
+    "value": "https://bouldercolorado.gov/services/building-permits-and-inspections",
+    "confidence": 0.95,
+    "source_ids": [
+      "BUILD",
+      "SOLAR"
+    ],
+    "notes": "Solar PV requires an electrical permit; solar thermal uses a mechanical permit. Apply through the Customer Self-Service Portal linked from the City permit page and confirm the correct application for the project scope."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+    "confidence": 0.95,
+    "source_ids": [
+      "XCEL"
+    ],
+    "notes": "For Xcel-served properties, the installer typically manages the DER Application Portal submission. Xcel recommends waiting for engineering approval and signed agreements before installation. Submit the final municipal electrical inspection through the utility process and wait for Xcel permission to operate; City permit approval is a separate milestone."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "City of Boulder battery-system sales and use tax rebate",
+        "administrator": "City of Boulder",
+        "description": "The City extended its tax rebate to permanently installed battery systems beginning in April 2026. The program may return approximately 15% of eligible City sales and use tax paid, not 15% of the battery price. The City calculates the amount.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For qualifying permanently installed systems operating in parallel with the utility grid with bidirectional energy flow. Apply within 12 months of the City final inspection, subject to available funding. The linked form still lists solar options and refers to a Letter of Completion; confirm the current battery application and qualifying dates with City Finance.",
+        "url": "https://bouldercolorado.gov/services/solar-and-battery-system-tax-rebates",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "TAX",
+      "BATTERY",
+      "TAX-FORM"
+    ],
+    "notes": "This is a partial City-tax rebate, not a flat installation incentive. The solar and battery descriptions refer to the same City program; do not assume the same tax payment can be rebated twice."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "City of Boulder solar sales and use tax rebate",
+        "administrator": "City of Boulder",
+        "description": "The City may rebate approximately 15% of City sales and use tax paid on solar materials and permits, not 15% of the system price. The final amount is calculated by the City.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For qualifying installations on property in the City. Apply within 12 months of the City final inspection, subject to funding. Keep the purchase invoice and permit receipt. The posted form refers to the Letter of Completion; confirm the deadline and current required forms with City Finance.",
+        "url": "https://bouldercolorado.gov/services/solar-and-battery-system-tax-rebates",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "City of Boulder income-qualified residential solar grant",
+        "administrator": "City of Boulder",
+        "description": "The published grant is $1 per watt of system capacity, limited to 50% of total project costs after other incentives and a maximum of $8,000. Grants are offered on a rolling, first-come basis while funding is available.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 1,
+        "eligibility": "For income-qualified owners of owner-occupied housing units in the City of Boulder. EnergySmart enrollment and income qualification are required. Check the current household-income limits and funding with EnergySmart before relying on the grant.",
+        "url": "https://bouldercolorado.gov/services/solar-grants",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "TAX",
+      "TAX-FORM",
+      "GRANT",
+      "ENERGYSMART"
+    ],
+    "notes": "City programs are separate from any utility incentive. These are conditional programs, not guaranteed savings. No eligibility for a particular household or funding reservation has been verified."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City electrical permit application for solar PV",
+        "required_when": "Confirm the application and required uploads with Planning & Development Services.",
+        "source_ids": [
+          "BUILD",
+          "SOLAR"
+        ]
+      },
+      {
+        "name": "Site plan and electrical line diagram with customer name, address and AC/DC system size",
+        "required_when": "Separate Xcel interconnection submission for Xcel-served properties; this does not replace the City checklist.",
+        "source_ids": [
+          "XCEL"
+        ]
+      },
+      {
+        "name": "Plans prepared by a Colorado-licensed structural engineer",
+        "required_when": "When the project involves structural modifications; the City general permit FAQ does not establish this as a requirement for every solar installation.",
+        "source_ids": [
+          "BUILD"
+        ]
+      },
+      {
+        "name": "Landmark Alteration Certificate and supporting solar-panel drawings",
+        "required_when": "For an individually designated landmark or a property in a historic district. Obtain the applicable Landmark Alteration Certificate before submitting the City permit application.",
+        "source_ids": [
+          "LANDMARK",
+          "BUILD"
+        ]
+      },
+      {
+        "name": "Homeowner Contractor License Application",
+        "required_when": "When requesting to do the work yourself at your own residence; ask the City to confirm solar electrical-work eligibility.",
+        "source_ids": [
+          "BUILD",
+          "LICENSE"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "BUILD",
+      "SOLAR",
+      "XCEL",
+      "LANDMARK",
+      "LICENSE",
+      "CODE"
+    ],
+    "notes": "The full City solar-specific upload checklist has not been verified. The items below separate verified City application conditions from Xcel interconnection documents; ask Planning & Development Services for the complete checklist for your design. The City codes page lists NEC 2026 with local amendments effective August 1, 2026; the contractor page still refers to NEC 2023. Use the current code page and confirm scope-specific design requirements."
+  },
+  "inspection_steps": {
+    "value": [
+      "Obtain the City permit and complete the applicable utility review before starting installation. Confirm any structural, electrical-service or historic-preservation approvals for the actual scope.",
+      "Use the City Customer Self-Service Portal to request the inspections assigned to the permit. Complete any corrections and verify that City inspection requirements are closed.",
+      "For Xcel-served properties, upload the final municipal electrical inspection through the DER application process. Complete the utility metering and review steps and wait for Xcel permission to operate.",
+      "Keep the City final-inspection and completion records, permit receipt and purchase invoice if applying for the conditional City tax rebate. Confirm the application deadline with City Finance."
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "BUILD",
+      "XCEL",
+      "TAX",
+      "TAX-FORM"
+    ],
+    "notes": "A City final inspection does not replace utility permission to operate. No solar-specific inspection sequence or guaranteed inspection date is established here; confirm the list assigned to your permit."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No solar-specific review duration has been verified. The City describes over-the-counter eligibility for some small rooftop systems, but that is not a same-day approval guarantee. Ask Planning & Development Services about the actual submission."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City electrical permit review for residential solar PV",
+      "other_conditions": [
+        "The City says properly prepared roof-mounted systems under 10 kW are typically eligible for over-the-counter processing. Confirm the checklist and your design with a Project Specialist. The page does not specify AC or DC for that threshold, and it is not a city-wide system-size cap or guaranteed approval time.",
+        "The City codes page lists NEC 2026 with local amendments effective August 1, 2026, alongside the 2024 International Codes and the separate City energy code. The permit page applies NEC 2026 to applications from that date. The contractor page retains NEC 2023 wording; confirm the editions and amendments for your permit.",
+        "General homeowner rules require the owner to personally do work on their own residence, not a property intended for rent, resale or public use. Work performed by others requires appropriately licensed subcontractors. Confirm the solar electrical scope with the City before relying on a homeowner application.",
+        "Solar panels on an individual landmark or a property in a historic district require Landmark Alteration Certificate review. Obtain the applicable certificate before submitting the City permit application; it is separate from the electrical permit.",
+        "Structural modifications require plans from a Colorado-licensed structural engineer under the City general permit FAQ. Battery storage, ground-mounted systems, service upgrades and changes to existing arrays need scope-specific confirmation."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "SOLAR",
+      "BUILD",
+      "CODE",
+      "LICENSE",
+      "LANDMARK"
+    ],
+    "notes": "Confirm City jurisdiction and the provider on your electric bill. This guide does not establish automated-permit eligibility, a universal engineering checklist or a maximum permitted system size."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "2026 published residential photovoltaic permit fee",
+        "amount_usd": 69.6,
+        "unit": "residential PV permit",
+        "notes": "Confirm the fee category for the property. This is the published PV permit line item, not an all-in project total."
+      },
+      {
+        "name": "2026 published multifamily or nonresidential photovoltaic permit fee",
+        "amount_usd": 139.2,
+        "unit": "multifamily or nonresidential PV permit",
+        "notes": "This category may apply to a multifamily property even when the end use is housing. Do not automatically use the single-residential fee."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "FEE"
+    ],
+    "notes": "These are the photovoltaic permit entries in the City 2026 schedule, not a complete project quote. Rates in force at application control. Confirm any applicable plan-review charges, use tax, service-upgrade permits, utility fees and other scope-specific charges with the City and provider."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Boulder Planning & Development Services",
+        "role": "Permit jurisdiction, application checklist, fees, current codes and inspections",
+        "phone": "303-441-1880",
+        "email": null,
+        "url": "https://bouldercolorado.gov/services/building-permits-and-inspections"
+      },
+      {
+        "name": "City of Boulder Sales Tax",
+        "role": "Solar and battery tax-rebate forms, qualifying dates and supporting records",
+        "phone": "303-441-3051",
+        "email": "salestax@bouldercolorado.gov",
+        "url": "https://bouldercolorado.gov/services/solar-and-battery-system-tax-rebates"
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "BUILD",
+      "TAX"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "SOLAR",
+      "title": "How to Go Solar: City permit route",
+      "url": "https://bouldercolorado.gov/services/how-go-solar",
+      "publisher": "City of Boulder",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "BUILD",
+      "title": "Building Permits and Inspections",
+      "url": "https://bouldercolorado.gov/services/building-permits-and-inspections",
+      "publisher": "City of Boulder",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CODE",
+      "title": "Building Codes and Regulations",
+      "url": "https://bouldercolorado.gov/services/building-codes-and-regulations",
+      "publisher": "City of Boulder",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FEE",
+      "title": "Planning and Development Services 2026 Schedule of Fees",
+      "url": "https://bouldercolorado.gov/planning-and-development-services-2026-schedule-fees",
+      "publisher": "City of Boulder",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LICENSE",
+      "title": "Contractor Licensing",
+      "url": "https://bouldercolorado.gov/services/contractor-licensing",
+      "publisher": "City of Boulder",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "COUNTY",
+      "title": "Boulder County Building FAQs: municipal jurisdiction",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/building/frequently-asked-questions/",
+      "publisher": "Boulder County",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LANDMARK",
+      "title": "Landmark Alteration Certificate Application and Review",
+      "url": "https://bouldercolorado.gov/services/landmark-alteration-certificate-application-and-review",
+      "publisher": "City of Boulder",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "UTILITY",
+      "title": "City of Boulder and Xcel Energy Partnership",
+      "url": "https://bouldercolorado.gov/projects/xcel-energy-partnership",
+      "publisher": "City of Boulder",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCEL",
+      "title": "Xcel Energy: Colorado Solar Application Process",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "TAX",
+      "title": "Solar and Battery System Tax Rebates",
+      "url": "https://bouldercolorado.gov/services/solar-and-battery-system-tax-rebates",
+      "publisher": "City of Boulder",
+      "type": "program_administrator",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "BATTERY",
+      "title": "April 10, 2026: battery-system tax rebate extension",
+      "url": "https://bouldercolorado.gov/news/city-boulder-expands-sales-tax-rebate-support-battery-energy-storage-systems",
+      "publisher": "City of Boulder",
+      "type": "program_administrator",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "TAX-FORM",
+      "title": "Posted Solar Sales and Use Tax Rebate Form",
+      "url": "https://bouldercolorado.gov/media/3905/download?inline=",
+      "publisher": "City of Boulder",
+      "type": "program_administrator",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "GRANT",
+      "title": "Residential Solar Grants: eligibility and limits",
+      "url": "https://bouldercolorado.gov/services/solar-grants",
+      "publisher": "City of Boulder",
+      "type": "program_administrator",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "ENERGYSMART",
+      "title": "EnergySmart: City of Boulder Solar Grant",
+      "url": "https://energysmartyes.com/electrification/solar/cob-grant/",
+      "publisher": "Boulder County EnergySmart",
+      "type": "program_administrator",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}

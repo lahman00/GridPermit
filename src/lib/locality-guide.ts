@@ -413,6 +413,8 @@ export interface BuildFaqOptions {
 	 * measurement window closes (src/lib/measurement-window-guides.ts).
 	 */
 	addressLevelUtility?: boolean;
+	/** Source-grounded wording when the generic address-dependent answer overstates coverage. */
+	utilityAnswer?: string;
 	/** Include the posted-checklist qualification when a city's process changed. */
 	documentContext?: boolean;
 	/** Preserve project/provider conditions for a combined City and utility list. */
@@ -431,9 +433,9 @@ export function buildFaqs(record: LocalityRecord, options: BuildFaqOptions = {})
 	if (record.utility.value && options.addressLevelUtility) {
 		faqs.push({
 			q: `What utility serves solar customers in ${record.city.value}, ${stateName(record.state)}?`,
-			a:
+			a: options.utilityAnswer ?? (
 				`It depends on the address. This guide covers ${record.utility.value}, and electric service in ${record.city.value} can differ from one address to another. ` +
-				`Check the utility named on your electric bill before you apply for interconnection.`,
+				`Check the utility named on your electric bill before you apply for interconnection.`),
 		});
 	} else if (record.utility.value) {
 		const normalizedUtility = record.utility.value.trim().toLowerCase();

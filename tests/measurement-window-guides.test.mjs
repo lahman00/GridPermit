@@ -35,12 +35,12 @@ function loadEntries() {
 	return { recordsById, evaluated, entries: buildLocalityIndexEntries(evaluated, recordsById) };
 }
 
-test("existing and earlier pilot guides keep their pools; Centennial can see all guides", () => {
+test("existing and earlier pilot guides keep their pools; Boulder can see all guides", () => {
 	const entries = [{ recordId: "co-denver-denver-xcel" }, ...[...NEW_GUIDES_DURING_MEASUREMENT].map((recordId) => ({ recordId }))];
 	assert.deepEqual(relatedPoolFor("co-denver-denver-xcel", entries), [{ recordId: "co-denver-denver-xcel" }]);
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		assert.equal(isNewGuideDuringMeasurement(id), true);
-		const hidden = id === "co-arapahoe-centennial-multi" ? [] : id === "co-boulder-longmont-multi" ? ["co-arapahoe-centennial-multi"] : id === "co-jefferson-arvada-multi" ? ["co-arapahoe-centennial-multi", "co-boulder-longmont-multi"] : ["co-arapahoe-centennial-multi", "co-boulder-longmont-multi", "co-jefferson-arvada-multi"];
+		const hidden = id === "co-boulder-boulder-multi" ? [] : ["co-boulder-boulder-multi", ...(id === "co-arapahoe-centennial-multi" ? [] : id === "co-boulder-longmont-multi" ? ["co-arapahoe-centennial-multi"] : id === "co-jefferson-arvada-multi" ? ["co-arapahoe-centennial-multi", "co-boulder-longmont-multi"] : ["co-arapahoe-centennial-multi", "co-boulder-longmont-multi", "co-jefferson-arvada-multi"])];
 		assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !hidden.includes(entry.recordId)));
 	}
 	assert.equal(isNewGuideDuringMeasurement("co-denver-denver-xcel"), false);
@@ -130,7 +130,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	}
 	// Aurora's own sources say other utilities serve parts of the city, so it stays an address check.
 	assert.equal(hasVerifiedUnambiguousUtility(JSON.parse(read("data/localities/co-arapahoe-aurora-xcel.json"))), false);
-	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide \|\| isCentennialGuide, expectedReviewTimeline: isCentennialGuide, documentChecklistIntro: isCentennialGuide/);
+	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, utilityAnswer: isBoulderGuide \? record\.utility\.notes \?\? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide \|\| isCentennialGuide \|\| isBoulderGuide, expectedReviewTimeline: isCentennialGuide, documentChecklistIntro: isBoulderGuide/);
 	const denver = JSON.parse(read("data/localities/co-denver-denver-xcel.json"));
 	assert.match(buildFaqs(denver)[0].a, /is the interconnection and distribution utility for Denver\./);
 	assert.deepEqual(buildFaqs(denver), buildFaqs(denver, {}));
@@ -152,12 +152,12 @@ test("Lakewood does not turn an old general fee schedule into a solar price or r
 	assert.match(record.eligibility_constraints.value.other_conditions.join(" "), /O-2024-20/);
 });
 
-test("program eligibility is displayed only on the four approved guides and survives the measurement window", () => {
+test("program eligibility is displayed only on the five approved guides and survives the measurement window", () => {
 	const layout = read("src/layouts/LocalityGuideLayout.astro");
 	const scoped = layout.match(/const showProgramEligibility = new Set\(\[([\s\S]*?)\]\)\.has\(record.record_id\);/);
 	assert.ok(scoped);
 	assert.deepEqual([...scoped[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), [
-		"co-arapahoe-aurora-xcel", "co-jefferson-arvada-multi", "co-jefferson-lakewood-xcel", "co-larimer-fort-collins-fcu",
+		"co-arapahoe-aurora-xcel", "co-boulder-boulder-multi", "co-jefferson-arvada-multi", "co-jefferson-lakewood-xcel", "co-larimer-fort-collins-fcu",
 	]);
 	assert.equal(layout.match(/showProgramEligibility && p\.eligibility &&/g)?.length, 3);
 	assert.equal(layout.match(/data-program-eligibility/g)?.length, 3);
@@ -171,7 +171,7 @@ test("program eligibility is displayed only on the four approved guides and surv
 
 test("Arvada cannot change the related lists of the three already-published Colorado pilots", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => !["co-jefferson-arvada-multi", "co-boulder-longmont-multi", "co-arapahoe-centennial-multi"].includes(e.recordId));
+ const before = entries.filter((e) => !["co-jefferson-arvada-multi", "co-boulder-longmont-multi", "co-arapahoe-centennial-multi", "co-boulder-boulder-multi"].includes(e.recordId));
  for (const id of ["co-arapahoe-aurora-xcel", "co-larimer-fort-collins-fcu", "co-jefferson-lakewood-xcel"]) {
   const current = entries.find((e) => e.recordId === id);
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(id, entries), 6), buildRelatedLocalities(current, before, 6));
@@ -207,7 +207,7 @@ test("Arvada keeps utility choice, process uncertainty and the posted-document c
 test("Longmont preserves the related lists of all 355 previously published guides", () => {
  const { entries } = loadEntries();
  const id = "co-boulder-longmont-multi";
- const before = entries.filter((e) => e.recordId !== id && e.recordId !== "co-arapahoe-centennial-multi");
+ const before = entries.filter((e) => e.recordId !== id && e.recordId !== "co-arapahoe-centennial-multi" && e.recordId !== "co-boulder-boulder-multi");
  assert.equal(before.length, 355);
  for (const current of before) {
   const expected = buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6);
@@ -240,7 +240,7 @@ test("Longmont keeps expedited review, jurisdiction, contractor and current-code
  const timeline = faq.find((x) => x.q.startsWith("How long"));
  assert.match(timeline.a, /different review stages/);
  const layout = read("src/layouts/LocalityGuideLayout.astro");
- assert.match(layout, /const hasDocumentContext = isArvadaGuide \|\| isLongmontGuide \|\| isCentennialGuide;/);
+ assert.match(layout, /const hasDocumentContext = isArvadaGuide \|\| isLongmontGuide \|\| isCentennialGuide \|\| isBoulderGuide;/);
  assert.match(layout, /5 business days for eligible expedited review/);
  assert.match(layout, /Complete qualifying applications only; electrical service upgrades are excluded/);
 });
@@ -248,7 +248,7 @@ test("Longmont keeps expedited review, jurisdiction, contractor and current-code
 
 test("Centennial preserves the related lists of all 356 previously published guides", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => e.recordId !== "co-arapahoe-centennial-multi");
+ const before = entries.filter((e) => e.recordId !== "co-arapahoe-centennial-multi" && e.recordId !== "co-boulder-boulder-multi");
  assert.equal(before.length, 356);
  for (const current of before) {
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6), buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6), current.recordId);
@@ -279,4 +279,44 @@ test("Centennial keeps first-comment timing, fee scope and utility-specific docu
  assert.match(docs, /NEC 2023/);
  assert.match(faqs.find((f) => f.q.startsWith("How long")).a, /not a permit-issuance deadline/);
  assert.doesNotMatch(faqs.find((f) => f.q.startsWith("How long")).a, /upper bound is verified/);
+});
+
+
+test("Boulder preserves the related lists of all 357 previously published guides", () => {
+ const { entries } = loadEntries();
+ const before = entries.filter((e) => e.recordId !== "co-boulder-boulder-multi");
+ assert.equal(before.length, 357);
+ for (const current of before) {
+  assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6), buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6), current.recordId);
+ }
+});
+
+test("Boulder keeps permit scope, conditional programs and City versus utility documents", async () => {
+ const record = JSON.parse(read("data/localities/co-boulder-boulder-multi.json"));
+ const { hasVerifiedUnambiguousUtility } = await import("../src/lib/utility-split-guard.ts");
+ const { buildFaqs } = await import("../src/lib/locality-guide.ts");
+ assert.equal(hasVerifiedUnambiguousUtility(record), false);
+ assert.equal(record.timeline_days.value, null);
+ assert.equal(record.eligibility_constraints.value.system_size_kw_ac_max, null);
+ assert.equal(record.eligibility_constraints.value.system_size_kw_dc_max, null);
+ assert.match(record.eligibility_constraints.value.other_conditions.join(" "), /under 10 kW/);
+ assert.match(record.eligibility_constraints.value.other_conditions.join(" "), /typically/);
+ assert.match(record.eligibility_constraints.value.other_conditions.join(" "), /August 1, 2026/);
+ assert.deepEqual(record.permit_fees.value.map((f) => f.amount_usd), [69.6,139.2]);
+ assert.match(record.permit_fees.notes, /not a complete project quote/);
+ assert.match(record.battery_programs.value[0].eligibility, /12 months/);
+ assert.match(record.battery_programs.value[0].eligibility, /parallel/);
+ assert.match(record.rebates.value[0].description, /not 15% of the system price/);
+ assert.match(record.rebates.value[1].eligibility, /owner-occupied/);
+ assert.match(record.rebates.value[1].eligibility, /EnergySmart/);
+ assert.match(record.rebates.value[1].description, /50%/);
+ assert.match(record.rebates.value[1].description, /8,000/);
+ const boulderFaqs = buildFaqs(record, {addressLevelUtility:true,utilityAnswer:record.utility.notes,documentContext:true,combinedDocumentChecklist:true,documentChecklistIntro:"Verified City application items and separate Xcel documents include:"});
+ assert.equal(boulderFaqs[0].a, record.utility.notes);
+ assert.doesNotMatch(boulderFaqs[0].a, /can differ from one address/);
+ const docs = boulderFaqs.find((f) => f.q.startsWith("What documents")).a;
+ assert.match(docs, /Xcel-served/);
+ assert.match(docs, /structural modifications/);
+ assert.match(docs, /full City solar-specific upload checklist/);
+ assert.doesNotMatch(docs, /City and LPC/);
 });
