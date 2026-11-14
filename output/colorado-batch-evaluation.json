@@ -1,7 +1,39 @@
 {
   "state": "CO",
-  "generated_at": "2026-08-14T14:38:01.863Z",
+  "generated_at": "2026-11-14T07:07:39.492Z",
   "records": [
+    {
+      "record_id": "co-arapahoe-aurora-xcel",
+      "state": "CO",
+      "city": "Aurora",
+      "county": "Arapahoe, Adams and Douglas counties",
+      "completeness_pct": 93.3,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days"
+      ],
+      "warning_categories": [],
+      "readiness": "READY"
+    },
     {
       "record_id": "co-denver-denver-xcel",
       "state": "CO",
@@ -110,11 +142,11 @@
       "state": "CO",
       "city": "Fort Collins",
       "county": "Larimer County",
-      "completeness_pct": 60,
-      "validation_score": 94,
+      "completeness_pct": 93.3,
+      "validation_score": 88,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 3,
+      "warning_count": 6,
       "populated_fields": [
         "utility",
         "generation_supplier",
@@ -123,71 +155,68 @@
         "permit_authority",
         "permit_url",
         "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
         "rebates",
         "official_contacts"
       ],
       "missing_fields": [
-        "battery_programs",
-        "required_documents",
-        "inspection_steps",
-        "timeline_days",
-        "eligibility_constraints",
-        "permit_fees"
+        "timeline_days"
       ],
       "warning_categories": [
         "broken_url"
       ],
-      "readiness": "LIMITED"
+      "readiness": "READY"
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 71.7,
-    "average_validation_score": 94.8,
+    "average_completeness_pct": 82.7,
+    "average_validation_score": 94.6,
     "fields_most_often_missing": [
       {
-        "field": "battery_programs",
-        "missing_in_records": 4
-      },
-      {
         "field": "timeline_days",
-        "missing_in_records": 4
+        "missing_in_records": 5
       },
       {
-        "field": "required_documents",
-        "missing_in_records": 2
-      },
-      {
-        "field": "inspection_steps",
-        "missing_in_records": 2
-      },
-      {
-        "field": "eligibility_constraints",
-        "missing_in_records": 2
-      },
-      {
-        "field": "permit_fees",
-        "missing_in_records": 2
+        "field": "battery_programs",
+        "missing_in_records": 3
       },
       {
         "field": "generation_supplier",
+        "missing_in_records": 1
+      },
+      {
+        "field": "required_documents",
+        "missing_in_records": 1
+      },
+      {
+        "field": "inspection_steps",
+        "missing_in_records": 1
+      },
+      {
+        "field": "eligibility_constraints",
+        "missing_in_records": 1
+      },
+      {
+        "field": "permit_fees",
         "missing_in_records": 1
       }
     ]
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "co-arapahoe-aurora-xcel",
       "co-denver-denver-xcel",
-      "co-el-paso-colorado-springs-csu"
+      "co-el-paso-colorado-springs-csu",
+      "co-larimer-fort-collins-fcu"
     ],
     "limited_for_now": [
       {
         "record_id": "co-fremont-canon-city-bhe",
         "city": "Cañon City",
-        "reason": "readiness=LIMITED (completeness 60%, score 94)"
-      },
-      {
-        "record_id": "co-larimer-fort-collins-fcu",
-        "city": "Fort Collins",
         "reason": "readiness=LIMITED (completeness 60%, score 94)"
       }
     ],

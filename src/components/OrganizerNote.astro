@@ -1,0 +1,27 @@
+---
+// Optional pointer from a locality guide to the existing Solar Project Organizer
+// product page. The wording matches the Permit Path page: a blank planning tool,
+// not permit research, filing or advice. Price, title and path come from the one
+// product constant, and the note renders only while the verified checkout exists,
+// the same gate the footer link uses.
+//
+// The layout renders this only for guides published during the current search
+// measurement window (src/lib/measurement-window-guides.ts), so no guide under
+// measurement changes.
+import { SOLAR_ORGANIZER, organizerCheckout } from "../lib/solar-organizer";
+
+const dollars = SOLAR_ORGANIZER.priceCents / 100;
+const price = Number.isInteger(dollars) ? String(dollars) : dollars.toFixed(2);
+---
+
+{organizerCheckout && (
+	<aside class="fact-callout organizer-note" aria-labelledby="organizer-note-title">
+		<h3 id="organizer-note-title">Keep your solar project organized</h3>
+		<p class="fact-notes">For homeowners comparing quotes and tracking permits, inspections and utility approval, the optional {SOLAR_ORGANIZER.title} includes a six-page fillable PDF and three editable CSV templates. It is a blank planning tool, not a permit research or filing service.</p>
+		<a class="gp-text-link" href={SOLAR_ORGANIZER.path} data-track-click="internal_resource_clicked">View the ${price} {SOLAR_ORGANIZER.title} <span aria-hidden="true">→</span></a>
+	</aside>
+)}
+
+<style>
+	@media print { .organizer-note { display: none; } }
+</style>

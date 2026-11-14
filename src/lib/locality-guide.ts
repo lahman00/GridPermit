@@ -403,12 +403,30 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
 // appears here if the record itself supports it (no independently authored
 // claims), and each answer that touches timeline data carries the same
 // standard-path caveat shown in the visible page content.
-export function buildFaqs(record: LocalityRecord): FaqEntry[] {
+export interface BuildFaqOptions {
+	/**
+	 * The record's utility is not a city-wide determination (see
+	 * utility-split-guard.ts). The utility answer then says the utility depends on
+	 * the address instead of naming one utility for the whole city. Opt-in: guides
+	 * that were live before 2026-11-13 keep their existing answer until the search
+	 * measurement window closes (src/lib/measurement-window-guides.ts).
+	 */
+	addressLevelUtility?: boolean;
+}
+
+export function buildFaqs(record: LocalityRecord, options: BuildFaqOptions = {}): FaqEntry[] {
 	const faqs: FaqEntry[] = [];
 	const generationSupplier = record.generation_supplier.value;
 	const timelineValue = record.timeline_days?.value ?? null;
 
-	if (record.utility.value) {
+	if (record.utility.value && options.addressLevelUtility) {
+		faqs.push({
+			q: `What utility serves solar customers in ${record.city.value}, ${stateName(record.state)}?`,
+			a:
+				`It depends on the address. This guide covers ${record.utility.value}, and electric service in ${record.city.value} can differ from one address to another. ` +
+				`Check the utility named on your electric bill before you apply for interconnection.`,
+		});
+	} else if (record.utility.value) {
 		const normalizedUtility = record.utility.value.trim().toLowerCase();
 		const normalizedSupplier = generationSupplier?.name.trim().toLowerCase() ?? null;
 		const sameUtilityAndSupplier = normalizedSupplier === normalizedUtility;

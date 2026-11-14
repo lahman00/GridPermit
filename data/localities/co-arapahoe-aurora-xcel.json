@@ -1,0 +1,493 @@
+{
+  "record_id": "co-arapahoe-aurora-xcel",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Public Service Company of Colorado (Xcel Energy)",
+    "confidence": 0.8,
+    "source_ids": [
+      "S6",
+      "S10",
+      "S15"
+    ],
+    "notes": "The City says Xcel Energy provides electric and gas service to the majority of residences in the city of Aurora. The City's Energy Action Plan (August 2021) says some portions of the City are served by other electric utilities. The City's Other Utilities page and its Energy Action Plan do not name the other providers. Electric service in Aurora is split between Xcel Energy and other electric utilities that serve some portions of the city. Confirm the utility named on your electric bill before you apply for interconnection. Xcel Energy's list of Colorado communities served (10/2015) shows Aurora with gas and electricity service."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy. The City says Xcel serves the majority of residences and that some portions of the City are served by other electric utilities. Check the utility named on your electric bill."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S6",
+      "S10"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Aurora",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Arapahoe, Adams and Douglas counties",
+    "confidence": 0.9,
+    "source_ids": [
+      "S5",
+      "S8"
+    ],
+    "notes": "The City says it reaches into Arapahoe, Adams and Douglas counties. If the property is located within the city of Aurora, the City's Addressing page says to use its Property Information tool to research information associated with the address."
+  },
+  "permit_authority": {
+    "value": "City of Aurora Building Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S8"
+    ],
+    "notes": "The City directs questions about permits for residential solar photovoltaic installations to its Building Division at 303.739.7420. The City's Addressing, Maps and About Aurora pages do not say which office issues permits for a property that has an Aurora mailing address but is outside the city limits. If the property is located within the city of Aurora, the City's Addressing page says to use its Property Information tool to research information associated with the address."
+  },
+  "permit_url": {
+    "value": "https://www.auroragov.org/business_services/development_center/codes_rules/solar_installations",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S4"
+    ],
+    "notes": "The City's Solar Installations page links the solar checklist and the solar inspection fact sheet. The page says permits and plans can be submitted electronically at www.aurora4biz.org or in person. The City's 2026 flat-rate fee sheet says to apply online at Aurora4Biz.org."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.8,
+    "source_ids": [
+      "S11",
+      "S12",
+      "S14"
+    ],
+    "notes": "For Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. Xcel says the interconnection work ends with a permission to operate letter from Xcel to the generator owner. The utility's permission to operate is separate from the City permit and the City's inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery to your home or small business and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5-years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S13"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page. The page shows a 2026 incentive budget with budget available, on figures dated 11/02/2026."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Statement of whether the system is interactive, hybrid or stand-alone",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Three-line diagram showing number of modules, wattage of modules, conductor sizes, wire lengths, insulation types, conduit sizes, fuses, circuit breaker ratings, inverter ratings, AC & DC disconnect rating and ground fault protection devices, with all grounding included",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "PV module nameplate short circuit current and open circuit voltage relative to the work performed",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Location of all disconnecting means and the installation of equipment and panels with reference to building and service equipment, with wiring identified as interior or exterior",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer's cut sheets, installation instructions and listing information for modules, racks, combiner boxes, DC disconnects, inverters, rapid shut down and any other PV equipment, with the equipment for the intended use highlighted",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Point-to-point fault current calculations that show feeder lengths, at all affected line terminals, for new and existing panel boards, plus U.L. series rated listing information, manufacturer specification cut sheets and point-to-point motor contributions per NEC 240-86",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer's installation instructions specific to the product being installed, including the pounds per square foot weight of the solar panels",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Stamped plan showing the layout of the solar panels and the anchorage system, including size, spacing, embedment depth (wood) and location of fasteners",
+        "required_when": "The anchorage details apply if the system is installed on a roof.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Stamped structural reinforcing details",
+        "required_when": "If applicable.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Engineer's letter with a complete, detailed description of the existing roof framing, the name of the person or organization under the responsible charge of the engineer who performed the site visit, the design criteria and assumptions used in the structural analysis of the existing roof, and conclusions and recommendations",
+        "required_when": "Residential systems.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural analysis of the existing roof",
+        "required_when": "Two revisions of the City's checklist state the scope of this analysis differently. Confirm the current requirement with the Building Division.",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S2",
+      "S18"
+    ],
+    "notes": "From the City's solar checklist, Form #A205, Solar Photovoltaic Systems. The form says all submittals require this information prior to acceptance for review. The City's solar page links the revision marked Revised 09/2017. A later revision marked Revised 05/2023 also exists, and the two revisions give different design snow loads and wind speeds and differ on some structural items. Confirm the current structural requirements and design values with the Building Division before you prepare plans. The electrical list is the same in both revisions."
+  },
+  "inspection_steps": {
+    "value": [
+      "Contractors registered and licensed with the City can request inspections online at aurora4biz.org for the same day (Form #A325 gives a 5:00 a.m. cutoff, the City's Inspections page gives 5:45 a.m.; confirm with the Building Division). Anyone can call the Building Inspection Line at 303.739.7420 or email inspections@auroragov.org up to 4:30 p.m. for the following business day.",
+      "Electrical Rough: the inspector checks for proper bonding of array supports, without panels installed.",
+      "Frame Final: the inspector checks the connection of array supports to the structure. 1/3 of the panels may be installed.",
+      "The Electrical Rough and Frame Final may be done at the same time and should be called for the same day.",
+      "Electrical Final, called when the entire system is complete: the inspector checks wiring methods, that over current protection is installed and sized correctly, bonding and grounding of the system, and that all components of the approved drawings are installed correctly and are code compliant.",
+      "Once all inspections are completed and passed, the City releases the \"Net Meter\" to the energy purveyor."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S16"
+    ],
+    "notes": "From the City's Residential Solar PV Inspection Facts sheet, Form #A325, Revised 12/2020. The sheet says there are a total of three inspections on a residential PV system: Electrical Rough, Frame Final and Electrical Final. Contractors may request a call ahead to be notified 30 minutes before the inspector arrives. Passing the City's inspections is not the utility's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City publishes building plan review timelines by project category, but does not say which category applies to a residential solar permit. Ask the Building Division."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential Solar PV System permit (flat-rate fee), applied for at Aurora4Biz.org",
+      "other_conditions": [
+        "To work in the city of Aurora as a contractor, you need to obtain the appropriate license.",
+        "Electricians need a current State of Colorado master's and contractor's license on file with the Building Division. The City does not issue a separate electrical contractor license.",
+        "The City's DIY & Do It Right home improvement handbook (March 2019) says homeowners can obtain permits for work on their primary home and that hired contractors must be licensed by the City. It lists solar PV systems as always needing a permit and a plan submittal. Confirm with the Building Division before doing solar electrical work yourself.",
+        "The City says solar systems are permitted in all zone districts, subject to underlying zone restrictions.",
+        "The City's solar page, permit pages and solar forms describe no separate expedited path for residential solar permits.",
+        "Xcel Energy net metering: you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number, and the name on the application must match the name on the Xcel Energy account or bill.",
+        "Xcel Energy net metering: the system must be sized so that expected generation, combined with other distributed generation serving the service address, does not exceed 200% of historical consumption (the previous 12 months at the time of application submission).",
+        "Xcel Energy net metering: all equipment must be UL 1741 SB certified and listed within the Solar Equipment Lists on the California Energy Commission website."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S4",
+      "S7",
+      "S11",
+      "S17"
+    ],
+    "notes": "License conditions are from the City's Contractor Licensing page. Sizing, equipment and account conditions are Xcel Energy's and apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential Solar PV System permit (flat-rate fee)",
+        "amount_usd": 500,
+        "unit": "flat fee per permit",
+        "notes": "From the City's 2026 Flat Rate Fee Permits sheet, Form #A175, Revised 08/2026."
+      },
+      {
+        "name": "Energy Storage System permit (flat-rate fee)",
+        "amount_usd": 191,
+        "unit": "flat fee per permit",
+        "notes": "Form #A175, Revised 08/2026. The sheet does not say whether storage installed with solar needs this separate permit."
+      },
+      {
+        "name": "Residential Electrical Service Upgrade permit (flat-rate fee)",
+        "amount_usd": 190,
+        "unit": "flat fee per permit",
+        "notes": "Form #A175, Revised 08/2026. The sheet does not say whether a service upgrade done with a solar installation needs this separate permit."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S4",
+      "S9"
+    ],
+    "notes": "Flat fees are from the City's 2026 Flat Rate Fee Permits sheet, Form #A175, Revised 08/2026. The sheet describes a flat fee as the same permit fee for the same project type. City use tax is separate from the flat fee. The fee sheet says the flat fee process has no effect on the calculation and collection of city use taxes. You must still provide building material costs so the City can estimate city use and county taxes. The City's Use Tax page says the building use tax deposit is the building materials cost multiplied by the city tax rate of 3.75% (4.00% in Arapahoe County). The City's Use Tax page does not mention an exemption for solar equipment. For questions, the City gives the Tax Audit Section at 303-326-8829."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S12"
+    ],
+    "notes": "These are Xcel Energy programs. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. The City's solar page does not mention a City rebate or incentive for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Aurora Building Division",
+        "role": "City of Aurora Building Division (solar permit questions), 15151 E. Alameda Parkway, Ste 2400, Aurora, CO 80012",
+        "phone": "303.739.7420",
+        "email": "permitcounter@auroragov.org",
+        "url": "https://www.auroragov.org/business_services/development_center/codes_rules/solar_installations"
+      },
+      {
+        "name": "City of Aurora Building Inspection Line",
+        "role": "City of Aurora Building Inspection Line (inspection requests)",
+        "phone": "303.739.7420",
+        "email": "inspections@auroragov.org",
+        "url": "https://www.auroragov.org/UserFiles/Servers/Server_1881137/File/Business%20Services/Forms/Residential%20Solar%20PV%20Fact%20Sheet.pdf"
+      },
+      {
+        "name": "City of Aurora Tax Audit Section",
+        "role": "City of Aurora Tax Audit Section (building use tax questions)",
+        "phone": "303-326-8829",
+        "email": null,
+        "url": "https://www.auroragov.org/business_services/taxes/use_tax"
+      },
+      {
+        "name": "City of Aurora Office of Development Assistance",
+        "role": "City of Aurora Office of Development Assistance (questions about the role of renewable energy in Aurora)",
+        "phone": "303.739.7345",
+        "email": null,
+        "url": "https://www.auroragov.org/business_services/development_center/codes_rules/solar_installations"
+      },
+      {
+        "name": "Xcel Energy",
+        "role": "Xcel Energy (electric and gas service; the City lists this number for applying for service)",
+        "phone": "800.895.4999",
+        "email": null,
+        "url": "https://www.auroragov.org/residents/other_utilities"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S6",
+      "S9"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-13",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Installations",
+      "url": "https://www.auroragov.org/business_services/development_center/codes_rules/solar_installations",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S2",
+      "title": "Solar Photovoltaic Systems, Form #A205 (Revised 09/2017)",
+      "url": "https://www.auroragov.org/UserFiles/Servers/Server_1881137/File/Business%20Services/Forms/Solar%20Photovoltaic%20Systems.pdf",
+      "publisher": "City of Aurora Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S3",
+      "title": "Residential Solar PV Inspection Facts, Form #A325 (Revised 12/2020)",
+      "url": "https://www.auroragov.org/UserFiles/Servers/Server_1881137/File/Business%20Services/Forms/Residential%20Solar%20PV%20Fact%20Sheet.pdf",
+      "publisher": "City of Aurora Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S4",
+      "title": "2026 Flat Rate Fee Permits for You, Form #A175 (Revised 08/2026)",
+      "url": "https://www.auroragov.org/UserFiles/Servers/Server_1881137/File/Business%20Services/Forms/Flat%20Rate%20Fees.pdf",
+      "publisher": "City of Aurora Permit Center",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S5",
+      "title": "About Aurora",
+      "url": "https://www.auroragov.org/city_hall/about_aurora",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S6",
+      "title": "Other Utilities",
+      "url": "https://www.auroragov.org/residents/other_utilities",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S7",
+      "title": "Contractor Licensing and Lookup",
+      "url": "https://www.auroragov.org/business_services/building_division/contractor_licensing_and_lookup",
+      "publisher": "City of Aurora Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S8",
+      "title": "Addressing",
+      "url": "https://www.auroragov.org/city_hall/about_aurora/addressing",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S9",
+      "title": "Use Tax",
+      "url": "https://www.auroragov.org/business_services/taxes/use_tax",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S10",
+      "title": "City of Aurora Partners in Energy Plan (Energy Action Plan), August 2021",
+      "url": "https://www.auroragov.org/UserFiles/Servers/Server_1881137/File/Residents/Environmental%20Review/Energy%20Action%20Plan/City%20of%20Aurora%20Energy%20Action%20Plan_FINAL_0.pdf",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S11",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S12",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S13",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S14",
+      "title": "Interconnection (Renewable Developers)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S15",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S16",
+      "title": "Inspections & Certificate of Occupancy",
+      "url": "https://www.auroragov.org/business_services/development_center/inspections___certificate_of_occupancy",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S17",
+      "title": "DIY & Do It Right home improvement handbook (March 2019)",
+      "url": "https://www.auroragov.org/UserFiles/Servers/Server_1881137/File/Business%20Services/Forms/DIY%20and%20DIR%20Brochure.pdf",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    },
+    {
+      "id": "S18",
+      "title": "Solar Photovoltaic Systems, Form #A205 (Revised 05/2023)",
+      "url": "https://auroraver2.hosted.civiclive.com//Userfiles/DBFiles/server_1881137/202307/19648299/solar_photovoltaic_systems.pdf",
+      "publisher": "City of Aurora",
+      "type": "government",
+      "accessed_date": "2026-11-13"
+    }
+  ]
+}
