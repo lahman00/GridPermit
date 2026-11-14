@@ -117,7 +117,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	const { hasVerifiedUnambiguousUtility } = await import("../src/lib/utility-split-guard.ts");
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		const record = JSON.parse(read(`data/localities/${id}.json`));
-		// Both records tell the reader to check their own address in the utility notes.
+		// Each record tells the reader to check their own address in the utility notes.
 		assert.match(record.utility.notes, /your (own address|electric bill)/);
 		const utilityFaq = buildFaqs(record, { addressLevelUtility: true })[0];
 		assert.match(utilityFaq.a, /^It depends on the address\./);
@@ -125,7 +125,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 		// Pathway text must never be read as an automated permit path by the snippet or Permit Path logic.
 		assert.doesNotMatch(record.eligibility_constraints.value.program_or_pathway, /solarapp|symbium|automated|instant/i);
 		// Null fee amounts render as "amount not verified"; taxes belong in the notes.
-		assert.ok(record.permit_fees.value.every((fee) => typeof fee.amount_usd === "number"));
+		assert.ok(record.permit_fees.value.every((fee) => fee.amount_usd === null || typeof fee.amount_usd === "number"));
 	}
 	// Aurora's own sources say other utilities serve parts of the city, so it stays an address check.
 	assert.equal(hasVerifiedUnambiguousUtility(JSON.parse(read("data/localities/co-arapahoe-aurora-xcel.json"))), false);
@@ -139,4 +139,30 @@ test("the state index marks only new address-level guides", () => {
 	const page = read("src/pages/[state]/index.astro");
 	assert.match(page, /NEW_GUIDES_DURING_MEASUREMENT/);
 	assert.match(page, /addressLevelUtilityIds\.has\(entry\.recordId\) && " \(depends on the address\)"/);
+});
+
+test("Lakewood does not turn an old general fee schedule into a solar price or review promise", () => {
+	const record = JSON.parse(read("data/localities/co-jefferson-lakewood-xcel.json"));
+	assert.equal(record.timeline_days.value, null);
+	assert.ok(record.permit_fees.value.every((fee) => fee.amount_usd === null));
+	assert.match(record.permit_fees.notes, /January 1, 2021/);
+	assert.match(record.required_documents.value[0].name, /professional engineer/i);
+	assert.match(record.inspection_steps.value.join(" "), /framing inspection is required when the roof structure needs upgrading/i);
+	assert.match(record.eligibility_constraints.value.other_conditions.join(" "), /O-2024-20/);
+});
+
+test("program eligibility is displayed only on the three approved guides and survives the measurement window", () => {
+	const layout = read("src/layouts/LocalityGuideLayout.astro");
+	const scoped = layout.match(/const showProgramEligibility = new Set\(\[([\s\S]*?)\]\)\.has\(record.record_id\);/);
+	assert.ok(scoped);
+	assert.deepEqual([...scoped[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), [
+		"co-arapahoe-aurora-xcel", "co-jefferson-lakewood-xcel", "co-larimer-fort-collins-fcu",
+	]);
+	assert.equal(layout.match(/showProgramEligibility && p\.eligibility &&/g)?.length, 3);
+	assert.equal(layout.match(/data-program-eligibility/g)?.length, 3);
+	assert.doesNotMatch(scoped[0], /isNewGuide|MEASUREMENT/);
+	const fortCollins = JSON.parse(read("data/localities/co-larimer-fort-collins-fcu.json"));
+	assert.match(fortCollins.rebates.value[0].eligibility, /Participating Solar Contractor/);
+	assert.match(fortCollins.rebates.value[1].eligibility, /640/);
+	assert.match(fortCollins.eligibility_constraints.value.other_conditions.join(" "), /existing generation and participation in Community Solar/);
 });

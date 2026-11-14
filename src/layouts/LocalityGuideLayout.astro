@@ -129,6 +129,13 @@ const observationLocked = observationLockedRecordIds(allReadyEntries, contentLin
 // A guide published during the search measurement window is not offered to any
 // other guide's related list, so pages under measurement stay unchanged.
 const isNewGuide = isNewGuideDuringMeasurement(record.record_id);
+// Keep this opt-in independent of the temporary related-list embargo, so
+// eligibility remains visible after the measurement window closes.
+const showProgramEligibility = new Set([
+	"co-arapahoe-aurora-xcel",
+	"co-larimer-fort-collins-fcu",
+	"co-jefferson-lakewood-xcel",
+]).has(record.record_id);
 const relatedLocalities = relatedForPage(
 	currentEntry,
 	relatedPoolFor(record.record_id, allReadyEntries),
@@ -392,6 +399,7 @@ const tocItems = [
 									<div class="program-item">
 										<p class="fact-value">{p.name}</p>
 										<p class="fact-notes">{publicResearchNote(p.description) ?? p.description}</p>
+										{showProgramEligibility && p.eligibility && <p class="fact-notes" data-program-eligibility><strong>Eligibility:</strong> {publicResearchNote(p.eligibility) ?? p.eligibility}</p>}
 										<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 									</div>
 								))}
@@ -433,6 +441,7 @@ const tocItems = [
 						<div class="program-item">
 							<p class="fact-value">{p.name}</p>
 							<p class="fact-notes">{publicResearchNote(p.description) ?? p.description}</p>
+							{showProgramEligibility && p.eligibility && <p class="fact-notes" data-program-eligibility><strong>Eligibility:</strong> {publicResearchNote(p.eligibility) ?? p.eligibility}</p>}
 							<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 						</div>
 					))}
@@ -473,6 +482,7 @@ const tocItems = [
 							<div class="program-item">
 								<p class="fact-value">{p.name}</p>
 								<p class="fact-notes">{publicResearchNote(p.description) ?? p.description}</p>
+								{showProgramEligibility && p.eligibility && <p class="fact-notes" data-program-eligibility><strong>Eligibility:</strong> {publicResearchNote(p.eligibility) ?? p.eligibility}</p>}
 								<p class="fact-status">Status on file: <strong>{p.status}</strong>. Verify current status before relying on this.</p>
 							</div>
 						))}
