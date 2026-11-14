@@ -1,0 +1,331 @@
+{
+  "record_id": "co-boulder-longmont-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Longmont Power & Communications (LPC)",
+    "confidence": 0.95,
+    "source_ids": [
+      "LPC",
+      "MAP"
+    ],
+    "notes": "Check your electric bill and the LPC service map before using these interconnection steps. LPC's territory extends beyond Longmont city limits, and the map also shows neighboring utilities. A Longmont mailing address alone does not establish the electric provider or permit authority."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Longmont Power & Communications",
+      "type": "utility",
+      "notes": "For LPC accounts, electricity is purchased wholesale from Platte River Power Authority. LPC remains the customer's electric-service and interconnection contact. Customers served by another utility must follow that provider's rules."
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "SUPPLY",
+      "LPC"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Longmont",
+    "confidence": 1,
+    "source_ids": [
+      "PV"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Boulder and Weld counties",
+    "confidence": 0.95,
+    "source_ids": [
+      "COUNTY"
+    ],
+    "notes": "Confirm whether the property is inside Longmont city limits before applying. County location and electric service territory are separate checks."
+  },
+  "permit_authority": {
+    "value": "City of Longmont Building Services",
+    "confidence": 0.95,
+    "source_ids": [
+      "PV",
+      "LPC"
+    ],
+    "notes": "For projects inside City limits. LPC customers outside City limits need the applicable county permit and LPC's separate interconnection submission."
+  },
+  "permit_url": {
+    "value": "https://longmontcolorado.gov/building-inspection/solar-pv-systems/",
+    "confidence": 0.95,
+    "source_ids": [
+      "PV"
+    ],
+    "notes": "Follow the online application link on the City page. An account is required. Confirm that the complete project qualifies for expedited review before selecting that path."
+  },
+  "interconnection_url": {
+    "value": "https://longmontcolorado.gov/longmont-power-communications/renewable-energy/solar-energy/",
+    "confidence": 0.95,
+    "source_ids": [
+      "LPC",
+      "DER"
+    ],
+    "notes": "These instructions apply to LPC customers. Submit the utility forms alongside the City permit application for an address inside City limits. For an LPC-served property outside City limits, follow LPC's separate submission route. Do not energize the system before LPC issues permission to operate. New or expanded systems after January 1, 2025 use LPC's value-of-solar export credit; check the current residential rate before estimating savings."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No current residential battery incentive was verified for this guide. Battery interconnection requirements do not establish a rebate."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No current residential solar installation rebate was verified for this guide. Check available programs with your own electric provider before budgeting for an incentive."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Site and roof plans showing equipment, access and fire-clearance details",
+        "required_when": null,
+        "source_ids": [
+          "DOC",
+          "DER"
+        ]
+      },
+      {
+        "name": "Electrical one-line diagram and equipment specification sheets",
+        "required_when": null,
+        "source_ids": [
+          "DOC",
+          "DER"
+        ]
+      },
+      {
+        "name": "Site-specific structural engineering evaluation letter using current adopted loads",
+        "required_when": "Roof-mounted equipment.",
+        "source_ids": [
+          "DER"
+        ]
+      },
+      {
+        "name": "LPC interconnection application, customer-signed agreement and installer/designer DER Data Form",
+        "required_when": "LPC-served projects; revisions require a new DER Data Form.",
+        "source_ids": [
+          "DER"
+        ]
+      },
+      {
+        "name": "Estimated annual generation and system size in AC and DC kW",
+        "required_when": "LPC interconnection submission.",
+        "source_ids": [
+          "DER"
+        ]
+      },
+      {
+        "name": "Battery specifications and line-side connection details",
+        "required_when": "When storage or a line-side connection is part of the project.",
+        "source_ids": [
+          "DER"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "DOC",
+      "DER",
+      "CODE"
+    ],
+    "notes": "The posted City solar checklist still refers to NEC 2020 and IRC 2021. The City's codes page lists 2024 International Codes and NEC 2023, and also announces a proposed NEC 2026 update. Confirm the edition in force and the required uploads for your application; this checklist does not replace the City's or LPC's full requirements."
+  },
+  "inspection_steps": {
+    "value": [
+      "Obtain the required City permit and LPC review before installation.",
+      "After installation, request the assigned City inspections through the permit portal or 303-651-8332. Confirm any corrections have been accepted.",
+      "LPC may perform pre-parallel or anti-islanding testing. Wait for LPC permission to operate before turning the system on."
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "STEPS",
+      "INSPECT",
+      "DER"
+    ],
+    "notes": "A completed City inspection and utility permission to operate are separate milestones. Confirm the inspection list and scheduling instructions for your permit."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 5,
+      "notes": "The City publishes a five-business-day turnaround for complete applications that meet the Solar ABC's Expedited Permit Process requirements. Incomplete submissions and projects with an electrical service upgrade do not qualify. Separately, LPC's checklist says Building Services typically approves residential permits within three days after LPC approval, if documentation is complete. These are different review stages, not a combined installation or permission-to-operate deadline."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "PV",
+      "DER"
+    ],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Expedited review for qualifying residential PV applications",
+      "other_conditions": [
+        "The five-business-day path requires a complete application that meets the City's linked Solar ABC's criteria. An electrical service upgrade is excluded. Ask Building Services to confirm eligibility for the actual design.",
+        "The solar-specific checklist says the electrical contractor licensed with both the City and Colorado must obtain the permit. The general contractor page allows some work by a homeowner in their primary residence, but this does not establish a homeowner exception for solar electrical work. Confirm who must hold each permit.",
+        "The posted solar checklist refers to older code editions. The current codes page lists 2024 International Codes and NEC 2023, with a separate proposed NEC 2026 update. Verify the electrical edition, local amendments and design loads that apply when submitting.",
+        "LPC's residential sizing rules distinguish customer-owned systems from leased or third-party-owned systems and include provisions for usage history and variances. Have the installer check the current interconnection application; one city-wide kW cap would be misleading.",
+        "This guide covers residential grid-connected PV. Battery additions, ground-mounted arrays, service upgrades and removal/reinstallation need scope-specific confirmation. The separate plug-in-solar rules announced for January 2027 are outside this guide."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "PV",
+      "DOC",
+      "CODE",
+      "CONTRACTOR",
+      "DER",
+      "LPC"
+    ],
+    "notes": "Confirm both City jurisdiction and the electric provider. An expedited review is not an automatic permit or permission to operate."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential solar PV permit and related charges",
+        "amount_usd": null,
+        "unit": null,
+        "notes": "Ask Building Services for the current project-specific total and LPC about any applicable utility or meter charges."
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "PV",
+      "FEE"
+    ],
+    "notes": "The FY2026 manual provides general permit, plan-review and tax provisions, but a verified total for a standard residential PV project is not established here. The solar page links an older House Bill 1199 fee-cap document; that reference alone does not establish the cap in force today. Confirm the current cap, valuation, taxes and any separate electrical or utility charges before budgeting."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Longmont Building Services",
+        "role": "Solar permits, expedited-review eligibility and inspections",
+        "phone": "303-651-8332",
+        "email": "building.inspection@longmontcolorado.gov",
+        "url": "https://longmontcolorado.gov/building-inspection/solar-pv-systems/"
+      },
+      {
+        "name": "LPC Field Engineering",
+        "role": "Interconnection for LPC-served properties; outside-City submissions",
+        "phone": null,
+        "email": "LPC_Field_Engineering_Staff@longmontcolorado.gov",
+        "url": "https://longmontcolorado.gov/longmont-power-communications/renewable-energy/solar-energy/"
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "PV",
+      "LPC",
+      "DER"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "PV",
+      "title": "Solar PV Systems: applications and expedited review",
+      "url": "https://longmontcolorado.gov/building-inspection/solar-pv-systems/",
+      "publisher": "City of Longmont",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "DOC",
+      "title": "Residential Solar PV: posted plan-submittal checklist",
+      "url": "https://longmontcolorado.gov/wp-content/uploads/2024/07/Solar-PV-requirements.pdf",
+      "publisher": "City of Longmont",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CODE",
+      "title": "Adopted Building Codes",
+      "url": "https://longmontcolorado.gov/building-inspection/building-codes/",
+      "publisher": "City of Longmont",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CONTRACTOR",
+      "title": "Contractors Information and Resources",
+      "url": "https://longmontcolorado.gov/building-inspection/contractors-information-and-resources/",
+      "publisher": "City of Longmont",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FEE",
+      "title": "Fiscal Year 2026 Fee Manual",
+      "url": "https://longmontcolorado.gov/wp-content/uploads/2026/03/Fee-Manual-3-24-2026.pdf",
+      "publisher": "City of Longmont",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LPC",
+      "title": "LPC: Solar Energy",
+      "url": "https://longmontcolorado.gov/longmont-power-communications/renewable-energy/solar-energy/",
+      "publisher": "City of Longmont",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "DER",
+      "title": "LPC: Interconnection Application and Submittal Checklist",
+      "url": "https://longmontcolorado.gov/wp-content/uploads/2026/02/Interconnection-Application-Checklist.pdf",
+      "publisher": "City of Longmont",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "MAP",
+      "title": "LPC: Distribution Systems and Service Map",
+      "url": "https://longmontcolorado.gov/longmont-power-communications/electric-service/distribution-systems-service-map/",
+      "publisher": "City of Longmont",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "SUPPLY",
+      "title": "LPC: Renewable Power Purchase Program and wholesale supplier",
+      "url": "https://longmontcolorado.gov/longmont-power-communications/renewable-energy/renewable-power-purchase-program/",
+      "publisher": "City of Longmont",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "INSPECT",
+      "title": "Permit Portal and Inspections",
+      "url": "https://longmontcolorado.gov/building-inspection/permit-portal-inspections/",
+      "publisher": "City of Longmont",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "STEPS",
+      "title": "Steps to Going Solar: Inside City Limits",
+      "url": "https://longmontcolorado.gov/wp-content/uploads/2024/07/Steps-for-Going-Solar-Inside-City-Limits.pdf",
+      "publisher": "City of Longmont",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "COUNTY",
+      "title": "Outside Agency Resources: city and county jurisdiction",
+      "url": "https://longmontcolorado.gov/information/outside-agency-resources/",
+      "publisher": "City of Longmont",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}

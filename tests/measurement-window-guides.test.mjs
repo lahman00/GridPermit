@@ -35,12 +35,13 @@ function loadEntries() {
 	return { recordsById, evaluated, entries: buildLocalityIndexEntries(evaluated, recordsById) };
 }
 
-test("existing and earlier pilot guides keep their pools; Arvada can see all guides", () => {
+test("existing and earlier pilot guides keep their pools; Longmont can see all guides", () => {
 	const entries = [{ recordId: "co-denver-denver-xcel" }, ...[...NEW_GUIDES_DURING_MEASUREMENT].map((recordId) => ({ recordId }))];
 	assert.deepEqual(relatedPoolFor("co-denver-denver-xcel", entries), [{ recordId: "co-denver-denver-xcel" }]);
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		assert.equal(isNewGuideDuringMeasurement(id), true);
-		assert.equal(relatedPoolFor(id, entries).length, entries.length - (id === "co-jefferson-arvada-multi" ? 0 : 1));
+		const hidden = id === "co-boulder-longmont-multi" ? [] : id === "co-jefferson-arvada-multi" ? ["co-boulder-longmont-multi"] : ["co-boulder-longmont-multi", "co-jefferson-arvada-multi"];
+		assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !hidden.includes(entry.recordId)));
 	}
 	assert.equal(isNewGuideDuringMeasurement("co-denver-denver-xcel"), false);
 	assert.equal(isNewGuideDuringMeasurement(null), false);
@@ -129,7 +130,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	}
 	// Aurora's own sources say other utilities serve parts of the city, so it stays an address check.
 	assert.equal(hasVerifiedUnambiguousUtility(JSON.parse(read("data/localities/co-arapahoe-aurora-xcel.json"))), false);
-	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, documentContext: isArvadaGuide \}\)/);
+	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide \}\)/);
 	const denver = JSON.parse(read("data/localities/co-denver-denver-xcel.json"));
 	assert.match(buildFaqs(denver)[0].a, /is the interconnection and distribution utility for Denver\./);
 	assert.deepEqual(buildFaqs(denver), buildFaqs(denver, {}));
@@ -170,7 +171,7 @@ test("program eligibility is displayed only on the four approved guides and surv
 
 test("Arvada cannot change the related lists of the three already-published Colorado pilots", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => e.recordId !== "co-jefferson-arvada-multi");
+ const before = entries.filter((e) => !["co-jefferson-arvada-multi", "co-boulder-longmont-multi"].includes(e.recordId));
  for (const id of ["co-arapahoe-aurora-xcel", "co-larimer-fort-collins-fcu", "co-jefferson-lakewood-xcel"]) {
   const current = entries.find((e) => e.recordId === id);
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(id, entries), 6), buildRelatedLocalities(current, before, 6));
@@ -197,7 +198,49 @@ test("Arvada keeps utility choice, process uncertainty and the posted-document c
  assert.match(faq.a, /posted solar checklist/);
  assert.match(faq.a, /Confirm the required uploads under the June 2026 process/);
  const layout = read("src/layouts/LocalityGuideLayout.astro");
- assert.match(layout, /isArvadaGuide && <p class="fact-notes" data-documents-context/);
- assert.match(layout, /documentContext: isArvadaGuide/);
+ assert.match(layout, /hasDocumentContext && <p class="fact-notes" data-documents-context/);
+ assert.match(layout, /documentContext: hasDocumentContext/);
  assert.match(layout, /data-utility-choice/);
+});
+
+
+test("Longmont preserves the related lists of all 355 previously published guides", () => {
+ const { entries } = loadEntries();
+ const id = "co-boulder-longmont-multi";
+ const before = entries.filter((e) => e.recordId !== id);
+ assert.equal(before.length, 355);
+ for (const current of before) {
+  const expected = buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6);
+  const actual = buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6);
+  assert.deepEqual(actual, expected, current.recordId);
+ }
+});
+
+test("Longmont keeps expedited review, jurisdiction, contractor and current-code qualifications", async () => {
+ const record = JSON.parse(read("data/localities/co-boulder-longmont-multi.json"));
+ const { hasVerifiedUnambiguousUtility } = await import("../src/lib/utility-split-guard.ts");
+ const { buildFaqs } = await import("../src/lib/locality-guide.ts");
+ assert.equal(hasVerifiedUnambiguousUtility(record), false);
+ assert.equal(record.battery_programs.value, null);
+ assert.equal(record.rebates.value, null);
+ assert.ok(record.permit_fees.value.every((fee) => fee.amount_usd === null));
+ assert.equal(record.timeline_days.value.max_days, 5);
+ assert.match(record.timeline_days.value.notes, /electrical service upgrade do not qualify/);
+ assert.match(record.timeline_days.value.notes, /after LPC approval/);
+ assert.match(record.eligibility_constraints.value.other_conditions.join(" "), /does not establish a homeowner exception/);
+ assert.match(record.interconnection_url.notes, /Do not energize/);
+ const faq = buildFaqs(record, { addressLevelUtility: true, documentContext: true, combinedDocumentChecklist: true });
+ const doc = faq.find((x) => x.q.startsWith("What documents"));
+ assert.match(doc.a, /City and LPC submission documents/);
+ assert.match(doc.a, /applies when: Roof-mounted equipment/);
+ assert.match(doc.a, /LPC-served projects/);
+ assert.match(doc.a, /When storage or a line-side connection/);
+ assert.match(doc.a, /NEC 2020 and IRC 2021/);
+ assert.match(doc.a, /proposed NEC 2026 update/);
+ const timeline = faq.find((x) => x.q.startsWith("How long"));
+ assert.match(timeline.a, /different review stages/);
+ const layout = read("src/layouts/LocalityGuideLayout.astro");
+ assert.match(layout, /const hasDocumentContext = isArvadaGuide \|\| isLongmontGuide;/);
+ assert.match(layout, /5 business days for eligible expedited review/);
+ assert.match(layout, /Complete qualifying applications only; electrical service upgrades are excluded/);
 });
