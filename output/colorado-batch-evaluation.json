@@ -1,7 +1,39 @@
 {
   "state": "CO",
-  "generated_at": "2026-11-14T20:41:51.963Z",
+  "generated_at": "2026-11-14T20:58:42.185Z",
   "records": [
+    {
+      "record_id": "co-adams-westminster-multi",
+      "state": "CO",
+      "city": "Westminster",
+      "county": "Adams and Jefferson counties",
+      "completeness_pct": 86.7,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
+        "timeline_days"
+      ],
+      "warning_categories": [],
+      "readiness": "READY"
+    },
     {
       "record_id": "co-arapahoe-aurora-xcel",
       "state": "CO",
@@ -369,20 +401,20 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 84.2,
-    "average_validation_score": 95.2,
+    "average_completeness_pct": 84.5,
+    "average_validation_score": 95.6,
     "fields_most_often_missing": [
       {
         "field": "timeline_days",
-        "missing_in_records": 8
+        "missing_in_records": 9
+      },
+      {
+        "field": "generation_supplier",
+        "missing_in_records": 6
       },
       {
         "field": "battery_programs",
         "missing_in_records": 6
-      },
-      {
-        "field": "generation_supplier",
-        "missing_in_records": 5
       },
       {
         "field": "rebates",
@@ -408,6 +440,7 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "co-adams-westminster-multi",
       "co-arapahoe-aurora-xcel",
       "co-arapahoe-centennial-multi",
       "co-boulder-boulder-multi",
