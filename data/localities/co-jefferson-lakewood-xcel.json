@@ -1,0 +1,356 @@
+{
+  "record_id": "co-jefferson-lakewood-xcel",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Public Service Company of Colorado (Xcel Energy)",
+    "confidence": 0.85,
+    "source_ids": [
+      "LW-S8"
+    ],
+    "notes": "Lakewood lists Xcel Energy as an electric and natural gas provider. This is a city-level listing, not confirmation for a particular property. Check the utility on your electric bill before applying for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "For properties with Xcel Energy electric service. Confirm your provider on the electric bill."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "LW-S8",
+      "X1"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Lakewood",
+    "confidence": 1,
+    "source_ids": [
+      "LW-S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Jefferson County",
+    "confidence": 0.9,
+    "source_ids": [
+      "LW-S6",
+      "LW-S7"
+    ],
+    "notes": "Jefferson County lists Lakewood among its cities. Its Address Lookup identifies whether an address is inside a city or in unincorporated county territory. A Lakewood mailing address alone does not establish the permit authority."
+  },
+  "permit_authority": {
+    "value": "City of Lakewood Permit Counter, Public Works Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "LW-S2",
+      "LW-S7"
+    ],
+    "notes": "This guide covers work inside Lakewood city limits. Check the property's municipal status before applying; the county Address Lookup is linked in Official sources."
+  },
+  "permit_url": {
+    "value": "https://www.lakewoodco.gov/Local-Government/Departments/Public-Works/Building-and-Construction-Permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "LW-S1",
+      "LW-S2"
+    ],
+    "notes": "Apply in the eTRAKiT portal linked from the City's permit page. The solar handout specifies the Alternative Energy permit type."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "X1",
+      "X4"
+    ],
+    "notes": "For Xcel electric customers: the installer usually submits the interconnection application, or you can manage it yourself. Xcel recommends waiting for engineering approval and signed agreements before construction. The utility's process ends with a permission-to-operate letter, separate from the City's permit and inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel's Renewable Battery Connect pays an upfront incentive based on maximum continuous discharge power: $250 per kW AC for general customers (maximum $5,000); $1,000 per kW AC for income-qualified customers; or $500 per kW AC in disproportionately impacted communities. The last two categories are capped at 75% of equipment-only cost. Participants also receive $100 annually for five years for taking part in control events.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For eligible Xcel electric customers adding a solar-charged battery at a home or small business. Xcel lists Tesla Powerwall models and current Enphase models as eligible equipment. Participation allows Xcel to manage the battery during periods of peak grid demand. Check equipment eligibility and program availability before purchasing.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "X3"
+    ],
+    "notes": "Utility program terms checked on November 14, 2026. Confirm current eligibility and funding with Xcel."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Roof analysis and installation calculations by a Colorado-registered professional engineer",
+        "required_when": null,
+        "source_ids": [
+          "LW-S1"
+        ]
+      },
+      {
+        "name": "Roof and array plans, with fire-code exclusion areas, roof materials and attachment details",
+        "required_when": null,
+        "source_ids": [
+          "LW-S1"
+        ]
+      },
+      {
+        "name": "Manufacturer specifications for panels, mounting and electrical equipment",
+        "required_when": null,
+        "source_ids": [
+          "LW-S1"
+        ]
+      },
+      {
+        "name": "Electrical one-line diagram showing output, wiring, grounding, inverter and disconnects",
+        "required_when": null,
+        "source_ids": [
+          "LW-S1"
+        ]
+      },
+      {
+        "name": "Scaled plot plan",
+        "required_when": "Ground-mounted systems.",
+        "source_ids": [
+          "LW-S1"
+        ]
+      },
+      {
+        "name": "Signed and sealed electrical design",
+        "required_when": "Projects involving a service panel over 200 amps.",
+        "source_ids": [
+          "LW-S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "LW-S1"
+    ],
+    "notes": "Use the City's solar handout for the full submission checklist. Its filename is dated 2023; no printed revision date was found."
+  },
+  "inspection_steps": {
+    "value": [
+      "Request inspections through the permit in eTRAKiT.",
+      "A framing inspection is required when the roof structure needs upgrading. Rough electrical inspection is not required when all wiring is readily accessible.",
+      "Arrange final inspections for the building permit and associated systems. Provide approved plans and safe roof and attic access."
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "LW-S1",
+      "LW-S3"
+    ],
+    "notes": "The permit's inspection requirements apply to your project. Passing City inspections does not replace utility permission to operate; check the utility's process separately."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "A current solar-specific review time has not been verified. Ask the Permit Counter about your submission; no same-day approval is promised here."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Alternative Energy permit through eTRAKiT",
+      "other_conditions": [
+        "An owner-occupant doing the work on a detached single-family home may apply for a homeowner permit. Create an eTRAKiT account and complete the Homeowner Permit Agreement.",
+        "The homeowner handout excludes LLCs, trusts and corporations from homeowner permits. It gives different conditions for townhomes, duplexes and condominiums; check the requirements for your housing type.",
+        "Hired contractors must be registered with Lakewood. Electrical and plumbing contractors must be added to the permit. Owners doing their own systems work must add themselves for the relevant trade in eTRAKiT, subject to the homeowner handout.",
+        "The solar handout cites the 2020 National Electrical Code. Later City Ordinance O-2024-20 adopts the 2023 edition. Confirm the applicable editions and amendments before submitting plans.",
+        "Ask the Permit Counter which additional permits and documents apply if the project includes storage, a service upgrade or removal and reinstallation of panels.",
+        "Xcel net metering requires an active electric account and premise number, with the application name matching the account. Expected generation, including other distributed generation at the address, must not exceed 200% of the previous 12 months of consumption."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "LW-S1",
+      "LW-S3",
+      "LW-S5",
+      "X1"
+    ],
+    "notes": "The City's permit requirements and Xcel's interconnection conditions are separate. Utility conditions apply only where Xcel provides electric service."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential solar permit: project-specific fee",
+        "amount_usd": null,
+        "unit": null,
+        "notes": "The linked general schedule is based on project valuation and includes plan review charges. It does not identify a solar-specific amount; ask the Permit Counter for the project's permit fee, review fee and applicable taxes."
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "LW-S2",
+      "LW-S3",
+      "LW-S4"
+    ],
+    "notes": "The City's permit page links a fee schedule effective January 1, 2021. The schedule asks applicants to confirm amounts. The homeowner handout places plan-check payment before review, with the permit fee and estimated use tax collected at issuance. These are general instructions, not a determination that a particular solar component is taxable."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms. Confirm qualification and available funding with Xcel before relying on the incentive.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities. Confirm qualification and available funding with Xcel before relying on the incentive.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "X2"
+    ],
+    "notes": "These are Xcel programs, available only to qualifying customers. A City of Lakewood incentive has not been verified."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Lakewood Permit Counter",
+        "role": "Public Works Department: permits, submission requirements and project fee questions",
+        "phone": "303-987-7500",
+        "email": "permitcounter@LakewoodCO.gov",
+        "url": "https://www.lakewoodco.gov/Local-Government/Departments/Public-Works/Building-and-Construction-Permits"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "LW-S2"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "LW-S1",
+      "title": "Solar Panel Installations (2023 file)",
+      "url": "https://www.lakewoodco.gov/files/assets/public/v/4/public-works/pdfs/engineering/2023-solar-panel-installations.pdf",
+      "publisher": "City of Lakewood",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LW-S2",
+      "title": "Building and Construction Permits",
+      "url": "https://www.lakewoodco.gov/Local-Government/Departments/Public-Works/Building-and-Construction-Permits",
+      "publisher": "City of Lakewood",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LW-S3",
+      "title": "Permits for Homeowners",
+      "url": "https://www.lakewoodco.gov/files/assets/public/v/4/public-works/pdfs/engineering/2023-permit-for-homeowners-10-18-23.pdf",
+      "publisher": "City of Lakewood",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LW-S4",
+      "title": "Building Permit and Inspection Fee Schedule",
+      "url": "https://www.lakewoodco.gov/files/assets/public/v/3/public-works/pdfs/engineering/2021-building-permit-inspection-fee-schedule-january-2021.pdf",
+      "publisher": "City of Lakewood",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LW-S5",
+      "title": "Ordinance O-2024-20",
+      "url": "https://www.lakewoodco.gov/Local-Government/Departments/City-Clerks-Office/City-Council-Ordinances-Resolutions/2024-Ordinances/O-2024-20",
+      "publisher": "City of Lakewood",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LW-S6",
+      "title": "Life in Jeffco",
+      "url": "https://www.jeffco.us/2574/Life-in-Jeffco",
+      "publisher": "Jefferson County",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LW-S7",
+      "title": "Jefferson County Address Lookup",
+      "url": "https://www.jeffco.us/2197/Address-Lookup",
+      "publisher": "Jefferson County",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LW-S8",
+      "title": "Local Service Providers",
+      "url": "https://www.lakewoodco.gov/Community/Local-Service-Providers",
+      "publisher": "City of Lakewood",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "X1",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "X2",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "X3",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "X4",
+      "title": "Interconnection (Renewable Developers)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}

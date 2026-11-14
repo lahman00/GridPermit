@@ -38,6 +38,7 @@ export interface GenerationSupplier {
 export interface BatteryProgram {
 	name: string;
 	description?: string;
+	eligibility?: string | null;
 	status: string;
 }
 

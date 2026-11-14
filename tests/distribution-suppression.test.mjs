@@ -56,14 +56,14 @@ test("distribution outputs are byte-deterministic and contain no generated times
 });
 
 test("the report reconciles every locality into a published or suppressed partition", () => {
-	// 2026-11-14: Aurora (new record) and Fort Collins (LIMITED to READY) were published
-	// after source capture, quote checks and an independent audit: 415 records, 353 routes.
-	assert.equal(pack.summary.record_count, 415);
-	assert.equal(pack.records.length, 415);
-	assert.equal(pack.summary.published_route_count, 353);
+	// 2026-11-14: Aurora, Fort Collins and Lakewood now have reviewed guides:
+	// 416 records, 354 published routes. Lakewood adds one READY record.
+	assert.equal(pack.summary.record_count, 416);
+	assert.equal(pack.records.length, 416);
+	assert.equal(pack.summary.published_route_count, 354);
 	assert.equal(pack.summary.suppressed_record_count, 62);
 	assert.equal(pack.summary.published_route_count + pack.summary.suppressed_record_count, pack.summary.record_count);
-	assert.equal(pack.summary.recorded_ready_count, 353);
+	assert.equal(pack.summary.recorded_ready_count, 354);
 	assert.equal(pack.summary.recorded_limited_count, 60);
 	assert.equal(pack.summary.recorded_not_ready_count, 2);
 	// The 2026-10-08 READY refresh added one current, primary-source-backed field
@@ -71,7 +71,7 @@ test("the report reconciles every locality into a published or suppressed partit
 	// Loma Linda, Lodi, Shasta Lake, New Castle County, Ann Arbor, Oklahoma City
 	// and Salt Lake City). All nine now recompute at 80% / READY without changing
 	// their published route state.
-	assert.equal(pack.summary.recomputed_ready_count, 352);
+	assert.equal(pack.summary.recomputed_ready_count, 353);
 	assert.equal(pack.summary.recomputed_limited_count, 61);
 	assert.equal(pack.summary.recomputed_not_ready_count, 2);
 	// ca-riverside-corona-multi graduated into this disagreement set once its

@@ -21,6 +21,7 @@ export const MEASUREMENT_WINDOW_CLOSES = "2026-12-16";
 export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string>([
 	"co-arapahoe-aurora-xcel",
 	"co-larimer-fort-collins-fcu",
+	"co-jefferson-lakewood-xcel",
 ]);
 
 export function isNewGuideDuringMeasurement(recordId: string | null | undefined): boolean {
