@@ -129,12 +129,14 @@ const observationLocked = observationLockedRecordIds(allReadyEntries, contentLin
 // A guide published during the search measurement window is not offered to any
 // other guide's related list, so pages under measurement stay unchanged.
 const isNewGuide = isNewGuideDuringMeasurement(record.record_id);
+const isArvadaGuide = record.record_id === "co-jefferson-arvada-multi";
 // Keep this opt-in independent of the temporary related-list embargo, so
 // eligibility remains visible after the measurement window closes.
 const showProgramEligibility = new Set([
 	"co-arapahoe-aurora-xcel",
 	"co-larimer-fort-collins-fcu",
 	"co-jefferson-lakewood-xcel",
+	"co-jefferson-arvada-multi",
 ]).has(record.record_id);
 const relatedLocalities = relatedForPage(
 	currentEntry,
@@ -210,7 +212,7 @@ const hasGenerationSupplier = generationSupplier !== null;
 
 const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canonicalUrl });
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
-const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide });
+const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, documentContext: isArvadaGuide });
 const faqSchema = buildFaqSchema(faqs);
 
 // Table of contents — ids match the section anchors added below. FAQ and
@@ -414,6 +416,7 @@ const tocItems = [
 
 			<section id="required-documents">
 				<p class="gp-kicker">02 / Prepare your application</p><h2>What you need.</h2>
+				{isArvadaGuide && <p class="fact-notes" data-documents-context>{publicResearchNote(record.required_documents.notes)}</p>}
 				{record.required_documents.value ? (
 					<>
 						<ul class="fact-list gp-checklist">
@@ -516,7 +519,7 @@ const tocItems = [
 					<h3>Interconnection</h3>
 					{record.interconnection_url.value ? (
 						<>
-							<p class="fact-value"><a href={record.interconnection_url.value} target="_blank" rel="noopener">{record.interconnection_url.value}</a></p>
+							{isArvadaGuide ? <p class="fact-value" data-utility-choice>{sourcesFor(record.interconnection_url.source_ids).map((s, i) => <>{i > 0 && " · "}<a href={s.url} target="_blank" rel="noopener" data-track-click="official_source_clicked">{s.title}</a></>)}</p> : <p class="fact-value"><a href={record.interconnection_url.value} target="_blank" rel="noopener">{record.interconnection_url.value}</a></p>}
 							{publicResearchNote(record.interconnection_url.notes) && <p class="fact-notes">{publicResearchNote(record.interconnection_url.notes)}</p>}
 							<ConfidenceBadge confidence={record.interconnection_url.confidence} />
 						</>

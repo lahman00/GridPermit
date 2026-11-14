@@ -1,0 +1,377 @@
+{
+  "record_id": "co-jefferson-arvada-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy or United Power (check your address)",
+    "confidence": 0.9,
+    "source_ids": [
+      "AR-S10",
+      "UP1"
+    ],
+    "notes": "Arvada's utility page names Xcel Energy, while United Power lists Arvada among the communities it serves. Check the provider on your electric bill. The City name alone does not establish which utility handles your interconnection or which incentives apply."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The generation supplier has not been verified for a specific address. Confirm the account details with the electric provider."
+  },
+  "city": {
+    "value": "Arvada",
+    "confidence": 1,
+    "source_ids": [
+      "AR-S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Jefferson and Adams counties",
+    "confidence": 0.95,
+    "source_ids": [
+      "JC1",
+      "AC1"
+    ],
+    "notes": "Both counties list Arvada. Use the City's address-verification link to check that the property is inside Arvada's permit jurisdiction; a mailing address is not enough."
+  },
+  "permit_authority": {
+    "value": "City of Arvada Building Services",
+    "confidence": 0.95,
+    "source_ids": [
+      "AR-S2"
+    ],
+    "notes": "For properties inside Arvada's jurisdiction. The Building Permits page links the City's address-verification tool."
+  },
+  "permit_url": {
+    "value": "https://www.arvadaco.gov/332/Building-Permits",
+    "confidence": 0.95,
+    "source_ids": [
+      "AR-S2"
+    ],
+    "notes": "Use the Arvada Permits eTRAKiT portal linked from the City's permit page. Homeowners and contractors have different account options. Permits are not processed over the counter."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.9,
+    "source_ids": [
+      "X1",
+      "UP2"
+    ],
+    "notes": "Choose the link for the utility on your electric bill. Xcel customers follow Xcel's interconnection application and permission-to-operate process. United Power customers submit the appropriate solar or battery application, an engineering one-line drawing and the required agreement; their contractor arranges the local inspection. City permit approval does not authorize operation on either utility's grid."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Xcel Energy Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel's Renewable Battery Connect pays an upfront incentive based on maximum continuous discharge power: $250 per kW AC for general customers (maximum $5,000); $1,000 per kW AC for income-qualified customers; or $500 per kW AC in disproportionately impacted communities. The last two categories are capped at 75% of equipment-only cost. Participants also receive $100 annually for five years for taking part in control events.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For eligible Xcel electric customers adding a solar-charged battery at a home or small business. Xcel lists Tesla Powerwall models and current Enphase models as eligible equipment. Participation allows Xcel to manage the battery during periods of peak grid demand. Check equipment eligibility and program availability before purchasing. This is an Xcel program, not a United Power incentive.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "X3",
+      "UP2"
+    ],
+    "notes": "Xcel terms were checked on November 14, 2026. United Power says it does not offer rebates for new system installations. Confirm your electric provider before relying on an incentive."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Xcel Energy Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms. Confirm qualification and available funding with Xcel before relying on the incentive. This program applies to Xcel accounts, not United Power accounts.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Xcel Energy Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities. Confirm qualification and available funding with Xcel before relying on the incentive. This program applies to Xcel accounts, not United Power accounts.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "X2",
+      "UP2"
+    ],
+    "notes": "Xcel programs are conditional on account and program eligibility. United Power reports no rebate for new system installations. No City-funded solar rebate has been verified here."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "PDF plan set and equipment plot plan with a three-line wiring diagram",
+        "required_when": null,
+        "source_ids": [
+          "AR-S1"
+        ]
+      },
+      {
+        "name": "Engineer’s roof-load report",
+        "required_when": "Roof-mounted systems, as listed on the City’s posted solar checklist.",
+        "source_ids": [
+          "AR-S1"
+        ]
+      },
+      {
+        "name": "Engineer-stamped electrical diagram showing the proposed equipment and connections",
+        "required_when": null,
+        "source_ids": [
+          "AR-S1"
+        ]
+      },
+      {
+        "name": "Manufacturer documentation for panels, inverter and mounting equipment",
+        "required_when": null,
+        "source_ids": [
+          "AR-S1"
+        ]
+      },
+      {
+        "name": "Subcontractor approval form",
+        "required_when": "When applicable to the contractors on the permit.",
+        "source_ids": [
+          "AR-S1"
+        ]
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "AR-S1",
+      "AR-S4"
+    ],
+    "notes": "The City's posted Solar page still contains older fees, review timing and code references. This is its posted checklist. Confirm the required uploads under the June 2026 process before submitting; the review change does not say engineering documents can be omitted."
+  },
+  "inspection_steps": {
+    "value": [
+      "Schedule the inspections assigned to your permit through Arvada Permits.",
+      "The City's solar page lists final building and final electrical inspections. It lists rough electrical and framing inspections for new construction only.",
+      "Provide safe access and check the results in the portal. Obtain your utility's approval before operating the system."
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "AR-S1",
+      "AR-S2",
+      "X1",
+      "X4",
+      "UP2"
+    ],
+    "notes": "The June 2026 review change does not remove permits or inspections. Confirm the inspection list for the actual project scope."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City says complete applications that do not need plan review are typically issued within three business days. This is general guidance, not a solar-specific guarantee. Confirm the expected issue date for your application."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential solar permit through Arvada Permits (eTRAKiT)",
+      "other_conditions": [
+        "From June 1, 2026, the City's published process removes formal building plan review before permit issuance for residential solar and residential battery/energy-storage projects. Permits, inspections and compliance with adopted codes, manufacturer instructions and product listings still apply.",
+        "A homeowner, authorized representative or contractor may apply. This does not establish permission for unrestricted do-it-yourself electrical work. Confirm who may perform each part of the project.",
+        "The adopted-code page lists NEC 2026, while the transition page still says NEC 2023 remains pending state implementation. The solar checklist also retains a NEC 2020 reference. Confirm the electrical edition and local amendments that apply to your permit.",
+        "Ask Building Services about additional requirements for a ground-mounted array, service or panel upgrade, battery added to solar, or removal and reinstallation for roofing. This guide does not assume those scopes share one permit or fee.",
+        "The City's general guidance says complete applications without plan review are typically issued within three business days. Its Solar page still describes an older seven-day review. Confirm the current issue-time estimate; neither statement is an approval guarantee."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "AR-S1",
+      "AR-S2",
+      "AR-S4",
+      "AR-S6",
+      "AR-S7"
+    ],
+    "notes": "The June 2026 process change is residential. Commercial and mixed-scope projects need their own confirmation; no instant or SolarAPP+ permit is established here."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential solar photovoltaic permit: 2026 table entry",
+        "amount_usd": 55,
+        "unit": "base permit fee",
+        "notes": "This is the fee table's solar PV entry, not the total project bill."
+      },
+      {
+        "name": "Residential energy storage system: separate 2026 table entry",
+        "amount_usd": 55,
+        "unit": "base permit fee",
+        "notes": "Ask whether a combined solar-and-battery project needs a separate ESS permit; do not automatically add the two entries."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "AR-S1",
+      "AR-S3",
+      "AR-S4"
+    ],
+    "notes": "The fee schedule effective January 1, 2026 lists these residential amounts. Use tax and other project charges may apply, and the schedule allows review fees when review is required. Confirm the total for your scope. The Solar page's older $50 permit and $36 review figures conflict with the 2026 schedule and are not used here."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Arvada Building Services",
+        "role": "Permits, submissions and inspections",
+        "phone": "720-898-7620",
+        "email": null,
+        "url": "https://www.arvadaco.gov/332/Building-Permits"
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "AR-S2"
+    ],
+    "notes": "8101 Ralston Road, Arvada, CO 80002."
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "AR-S1",
+      "title": "Solar: posted checklist and inspections",
+      "url": "https://www.arvadaco.gov/522/Solar",
+      "publisher": "City of Arvada",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "AR-S2",
+      "title": "Building Permits",
+      "url": "https://www.arvadaco.gov/332/Building-Permits",
+      "publisher": "City of Arvada",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "AR-S3",
+      "title": "2026 Building Fee Schedule",
+      "url": "https://www.arvadaco.gov/1263/Building-Fee-Schedule",
+      "publisher": "City of Arvada",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "AR-S4",
+      "title": "2026 Process Improvements",
+      "url": "https://www.arvadaco.gov/1545/2026-Process-Improvements",
+      "publisher": "City of Arvada",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "AR-S6",
+      "title": "Adopted building codes and design criteria",
+      "url": "https://www.arvadaco.gov/165/Adopted-building-codes-and-design-criter",
+      "publisher": "City of Arvada",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "AR-S7",
+      "title": "For builders: detailed changes coming in 2026",
+      "url": "https://www.arvadaco.gov/1446/For-Builders-Detailed-changes-coming-in-",
+      "publisher": "City of Arvada",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "AR-S10",
+      "title": "Utilities: electric and gas providers",
+      "url": "https://www.arvadaco.gov/785/Utilities",
+      "publisher": "City of Arvada",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "JC1",
+      "title": "Life in Jeffco",
+      "url": "https://www.jeffco.us/2574/Life-in-Jeffco",
+      "publisher": "Jefferson County",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "AC1",
+      "title": "Cities and Towns",
+      "url": "https://adamscountyco.gov/about-adams-county/cities-towns/",
+      "publisher": "Adams County",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "UP1",
+      "title": "United Power: service area",
+      "url": "https://www.unitedpower.com/service-area",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "UP2",
+      "title": "United Power: Solar and Storage Connection",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "X1",
+      "title": "Xcel Energy: Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "X2",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "X3",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "X4",
+      "title": "Interconnection (Renewable Developers)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}

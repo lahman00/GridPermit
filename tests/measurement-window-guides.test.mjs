@@ -35,12 +35,12 @@ function loadEntries() {
 	return { recordsById, evaluated, entries: buildLocalityIndexEntries(evaluated, recordsById) };
 }
 
-test("an existing guide never sees a new guide; a new guide sees everything", () => {
+test("existing and earlier pilot guides keep their pools; Arvada can see all guides", () => {
 	const entries = [{ recordId: "co-denver-denver-xcel" }, ...[...NEW_GUIDES_DURING_MEASUREMENT].map((recordId) => ({ recordId }))];
 	assert.deepEqual(relatedPoolFor("co-denver-denver-xcel", entries), [{ recordId: "co-denver-denver-xcel" }]);
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		assert.equal(isNewGuideDuringMeasurement(id), true);
-		assert.equal(relatedPoolFor(id, entries).length, entries.length);
+		assert.equal(relatedPoolFor(id, entries).length, entries.length - (id === "co-jefferson-arvada-multi" ? 0 : 1));
 	}
 	assert.equal(isNewGuideDuringMeasurement("co-denver-denver-xcel"), false);
 	assert.equal(isNewGuideDuringMeasurement(null), false);
@@ -129,7 +129,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	}
 	// Aurora's own sources say other utilities serve parts of the city, so it stays an address check.
 	assert.equal(hasVerifiedUnambiguousUtility(JSON.parse(read("data/localities/co-arapahoe-aurora-xcel.json"))), false);
-	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide \}\)/);
+	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, documentContext: isArvadaGuide \}\)/);
 	const denver = JSON.parse(read("data/localities/co-denver-denver-xcel.json"));
 	assert.match(buildFaqs(denver)[0].a, /is the interconnection and distribution utility for Denver\./);
 	assert.deepEqual(buildFaqs(denver), buildFaqs(denver, {}));
@@ -151,12 +151,12 @@ test("Lakewood does not turn an old general fee schedule into a solar price or r
 	assert.match(record.eligibility_constraints.value.other_conditions.join(" "), /O-2024-20/);
 });
 
-test("program eligibility is displayed only on the three approved guides and survives the measurement window", () => {
+test("program eligibility is displayed only on the four approved guides and survives the measurement window", () => {
 	const layout = read("src/layouts/LocalityGuideLayout.astro");
 	const scoped = layout.match(/const showProgramEligibility = new Set\(\[([\s\S]*?)\]\)\.has\(record.record_id\);/);
 	assert.ok(scoped);
 	assert.deepEqual([...scoped[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), [
-		"co-arapahoe-aurora-xcel", "co-jefferson-lakewood-xcel", "co-larimer-fort-collins-fcu",
+		"co-arapahoe-aurora-xcel", "co-jefferson-arvada-multi", "co-jefferson-lakewood-xcel", "co-larimer-fort-collins-fcu",
 	]);
 	assert.equal(layout.match(/showProgramEligibility && p\.eligibility &&/g)?.length, 3);
 	assert.equal(layout.match(/data-program-eligibility/g)?.length, 3);
@@ -165,4 +165,39 @@ test("program eligibility is displayed only on the three approved guides and sur
 	assert.match(fortCollins.rebates.value[0].eligibility, /Participating Solar Contractor/);
 	assert.match(fortCollins.rebates.value[1].eligibility, /640/);
 	assert.match(fortCollins.eligibility_constraints.value.other_conditions.join(" "), /existing generation and participation in Community Solar/);
+});
+
+
+test("Arvada cannot change the related lists of the three already-published Colorado pilots", () => {
+ const { entries } = loadEntries();
+ const before = entries.filter((e) => e.recordId !== "co-jefferson-arvada-multi");
+ for (const id of ["co-arapahoe-aurora-xcel", "co-larimer-fort-collins-fcu", "co-jefferson-lakewood-xcel"]) {
+  const current = entries.find((e) => e.recordId === id);
+  assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(id, entries), 6), buildRelatedLocalities(current, before, 6));
+ }
+});
+
+test("Arvada keeps utility choice, process uncertainty and the posted-document caveat", async () => {
+ const record = JSON.parse(read("data/localities/co-jefferson-arvada-multi.json"));
+ const { hasVerifiedUnambiguousUtility } = await import("../src/lib/utility-split-guard.ts");
+ const { buildFaqs } = await import("../src/lib/locality-guide.ts");
+ assert.equal(hasVerifiedUnambiguousUtility(record), false);
+ assert.equal(record.generation_supplier.value, null);
+ assert.equal(record.timeline_days.value, null);
+ assert.match(record.utility.value, /Xcel Energy or United Power/);
+ assert.deepEqual(record.interconnection_url.source_ids, ["X1", "UP2"]);
+ assert.deepEqual(record.permit_fees.value.map((x) => x.amount_usd), [55, 55]);
+ assert.match(record.permit_fees.notes, /Use tax and other project charges/);
+ assert.match(record.permit_fees.value[1].notes, /do not automatically add/);
+ const context = record.eligibility_constraints.value.other_conditions.join(" ");
+ assert.match(context, /June 1, 2026/);
+ assert.match(context, /NEC 2026/);
+ assert.match(context, /NEC 2023/);
+ const faq = buildFaqs(record, { addressLevelUtility: true, documentContext: true }).find((x) => x.q.startsWith("What documents"));
+ assert.match(faq.a, /posted solar checklist/);
+ assert.match(faq.a, /Confirm the required uploads under the June 2026 process/);
+ const layout = read("src/layouts/LocalityGuideLayout.astro");
+ assert.match(layout, /isArvadaGuide && <p class="fact-notes" data-documents-context/);
+ assert.match(layout, /documentContext: isArvadaGuide/);
+ assert.match(layout, /data-utility-choice/);
 });
