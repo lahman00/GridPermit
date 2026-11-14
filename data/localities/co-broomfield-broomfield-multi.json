@@ -1,0 +1,514 @@
+{
+  "record_id": "co-broomfield-broomfield-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy or United Power (check your address)",
+    "confidence": 0.95,
+    "source_ids": [
+      "ENERGY",
+      "COMP2016",
+      "XCELGUIDE",
+      "UP_AREA"
+    ],
+    "notes": "Check your electric bill to confirm which electric provider serves your address. Broomfield's 2016 Comprehensive Plan states that United Power serves the northern part of Broomfield and Xcel Energy serves the southern portion (while Xcel provides natural gas service throughout Broomfield), and both utilities list Broomfield in their service territories. Your electric utility determines which interconnection application, metering rules and utility programs apply."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The generation supplier has not been verified for an individual account. Confirm account details with the electric provider named on your bill."
+  },
+  "city": {
+    "value": "Broomfield",
+    "confidence": 1,
+    "source_ids": [
+      "BUILD",
+      "CONST"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "City and County of Broomfield",
+    "confidence": 0.95,
+    "source_ids": [
+      "CONST",
+      "GIS",
+      "PROPSEARCH"
+    ],
+    "notes": "Broomfield consolidated into the unified City and County of Broomfield on November 15, 2001 (detaching from Adams, Boulder, Jefferson and Weld counties), and the GIS page states that the boundaries of the City and the County of Broomfield are identical in all cases. Because nearby unincorporated or neighboring-city addresses may share postal conventions or historical county records, check the Assessor Property Records Search or GIS Aerial Property Search to verify that the parcel is inside Broomfield before applying."
+  },
+  "permit_authority": {
+    "value": "City and County of Broomfield Building Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "BUILD",
+      "GIS",
+      "CONST"
+    ],
+    "notes": "Because the City and County of Broomfield share identical boundaries, the Broomfield Building Division is the single municipal/county building permit authority for properties inside Broomfield."
+  },
+  "permit_url": {
+    "value": "https://broomfield.org/building",
+    "confidence": 0.95,
+    "source_ids": [
+      "BUILD",
+      "CONTRACTOR",
+      "HOMEOWNER",
+      "PORTALGUIDE",
+      "PUBACCESS"
+    ],
+    "notes": "Permit applications, plans, revisions and affidavits must be emailed to buildingpermits@broomfield.org; both the Contractor and Homeowner permit pages state that permits cannot be submitted using the Online Portal. After submission, use the Citizen Access / Public Access Portal only to check review and inspection status, pay fees, print the permit card and city-stamped plans, and (for contractors) schedule or cancel inspections. The contractor portal guide warns not to upload documents into the portal unless instructed because the system does not notify staff."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+    "confidence": 0.95,
+    "source_ids": [
+      "XCEL",
+      "XCELGUIDE",
+      "UP_SOLAR"
+    ],
+    "notes": "Follow the interconnection process for the electric utility on your bill. For Xcel Energy electric accounts, applications are submitted online through Xcel's Distributed Energy Resource (DER) / Solar Application Portal; Xcel recommends waiting for engineering approval and signed agreements before starting construction, and requires uploading the passed municipal final electrical inspection and completing meter installation before granting Permission to Operate (PTO). For United Power electric accounts (https://www.unitedpower.com/connect-your-solar), members submit an online solar/battery interconnection application with a one-line engineering drawing, sign United Power's Interconnection Terms and Conditions, install a required exterior disconnect switch and production meter housing, arrange the local AHJ inspection, and complete United Power engineering review before operating. City permit or inspection approval does not authorize grid operation on either utility."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City-funded residential battery rebate was verified on Broomfield's Energy or Rebates pages, and United Power states that it does not offer a rebate for new solar or storage installations. Xcel Energy electric customers should verify current battery program availability and equipment eligibility directly with Xcel before purchasing."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No active City-funded solar installation rebate was verified on Broomfield's Rebates and Incentives page (which lists heat pump and weatherization rebates). Broomfield's Switch Together Solar page describes a Solar United Neighbors group-buying auction program whose published November 11, 2026 registration deadline has passed. United Power states that it does not offer a rebate for new system installations; Xcel Energy customers should check current Xcel solar program eligibility directly with Xcel."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed General Permit Application form with project valuation split into General (racking/mounting) and Electrical (panels, equipment, wiring) portions",
+        "required_when": "Required for all Broomfield solar PV permit submittals, emailed to buildingpermits@broomfield.org.",
+        "source_ids": [
+          "PV",
+          "APP",
+          "BUILD"
+        ]
+      },
+      {
+        "name": "Electrician's Affidavit / Grounding & Bonding / Roof Letter signed by the Master Electrician with Colorado Master Electrician license number",
+        "required_when": "Required by the April 2026 Photovoltaic Solar Systems handout; certifies compliance with the current code cycle and replaces the midpoint and grounding inspection of roof panels and racking.",
+        "source_ids": [
+          "PV"
+        ]
+      },
+      {
+        "name": "Site plan and roof plan (8.5 x 11 inches acceptable) locating PV array, combiner/junction boxes, disconnects, inverters, meter, service panel/tie-in, ESS location if applicable, structure footprint, property lines, and roof vents (b-vents, attic vents, plumbing vents)",
+        "required_when": "Required for all solar PV submittals. Note that Improvement Location Certificates (ILCs) are not accepted as base plans for building/structure reviews; confirm base-plan acceptability with the Building Division.",
+        "source_ids": [
+          "PV",
+          "BUILD"
+        ]
+      },
+      {
+        "name": "Manufacturer specification sheets for PV modules, inverter and mounting/racking system (showing wind uplift capacity, snow load capacity, and fastener type, size and spacing)",
+        "required_when": "Required for all solar PV submittals.",
+        "source_ids": [
+          "PV"
+        ]
+      },
+      {
+        "name": "Complete 3-line electrical diagram showing DC STC nameplate system size, module/array STC specs (VOC with temperature corrections, VMP, ISC, IMP), string count/fuses, conductor and equipment-grounding sizes/types, overcurrent protection/disconnect ratings, inverter AC ratings, and AC load panel busbar, main breaker and backfeed breaker/tap details",
+        "required_when": "Required for all solar PV submittals.",
+        "source_ids": [
+          "PV"
+        ]
+      },
+      {
+        "name": "Colorado-stamped engineer's verification letter for mounting/racking (or site-specific engineered design if custom racking) and stamped Structural Evaluation letter with roof framing size/type/spacing, sheathing, roofing layers, flush vs. tilt mount, and framing-member location method",
+        "required_when": "Required for roof-mounted solar PV submittals.",
+        "source_ids": [
+          "PV",
+          "BUILD"
+        ]
+      },
+      {
+        "name": "Signed Homeowner Statement (when applying as an eligible homeowner-occupant) or Solar PV Reinstallation Affidavit (for unaltered panel removal and re-installation)",
+        "required_when": "Conditional on project and applicant type. Confirm with the Building Division whether an owner-occupant may pull a solar PV permit under a Homeowner Statement given the PV handout's licensed-electrician requirement.",
+        "source_ids": [
+          "HSTMT",
+          "HOMEOWNER",
+          "PV",
+          "REINSTALL"
+        ]
+      },
+      {
+        "name": "Separate utility interconnection application, site plan and one-line diagram for Xcel Energy or United Power",
+        "required_when": "Submitted directly to the electric utility serving the address; does not replace the City permit submittal.",
+        "source_ids": [
+          "XCEL",
+          "XCELGUIDE",
+          "UP_SOLAR"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "PV",
+      "APP",
+      "BUILD",
+      "CODE",
+      "ORD2295",
+      "SFD",
+      "HSTMT",
+      "HOMEOWNER",
+      "REINSTALL",
+      "XCEL",
+      "XCELGUIDE",
+      "UP_SOLAR"
+    ],
+    "notes": "This checklist reflects Broomfield's Photovoltaic Solar Systems handout (Revised April 2026) and separate utility interconnection rules. Note two internal City document updates to confirm with a Plans Analyst before engineering sign-off: (1) the April 2026 PV handout is titled for the 2023 NEC and 2024 IRC, whereas the Building Code Information page states Broomfield began enforcing the 2026 NEC on August 1, 2026 (matching the July 2026 new-home submittal sheet and Ordinance 2295's adoption of the latest State-adopted NEC); and (2) the April 2026 PV handout lists 110 mph (3-second gust) wind and 30 psf snow loads, whereas Ordinance 2295 and the Building Code Information page update residential roof/ground snow load to 42 psf or ASCE 7-22 (whichever is higher) and wind design to ASCE 7-22."
+  },
+  "inspection_steps": {
+    "value": [
+      "Email the complete solar permit package to buildingpermits@broomfield.org, pay the permit, plan-review and use-tax fees in the Citizen Access Portal once approved, and print the Permit Card and City-Stamped Plans to keep on site for inspection.",
+      "Complete the Electric Provider's pre-construction interconnection review (Xcel Energy DER Application Portal or United Power online solar/storage application) before installing equipment.",
+      "Under the April 2026 PV handout, the Master Electrician's signed Affidavit / Grounding & Bonding / Roof Letter takes the place of the midpoint and grounding inspection of the panels and racking on the roof.",
+      "When the PV system is complete, request the Final inspection (contractors schedule in the Online Portal; homeowners call the automated line at 303-438-6376 up to four days out). Panelboards and the point of interconnection must be open and visible. Inspections occur between 8:30 a.m. and 4:00 p.m.; check the Daily Inspection List or call 303-438-6370 (option 5) between 8:00 and 8:30 a.m. for arrival windows or same-day cancellation before 8:30 a.m.",
+      "For an unaltered existing solar PV system removed and re-installed (for example during re-roofing) under the separate $70 permit, Broomfield's Revised April 14, 2026 Solar PV Reinstallation Affidavit signed by the homeowner, electrician and Building Department is accepted in lieu of a final inspection.",
+      "After passing the Broomfield final inspection, submit the inspection release / documentation through Xcel Energy's or United Power's interconnection process, complete required utility metering/disconnect checks, and wait for utility Permission to Operate (PTO) before energizing the system."
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "PV",
+      "BUILD",
+      "FAQ",
+      "PORTALGUIDE",
+      "PUBACCESS",
+      "REINSTALL",
+      "XCEL",
+      "XCELGUIDE",
+      "UP_SOLAR"
+    ],
+    "notes": "Next-day inspections are not guaranteed. Canceling an inspection after 8:30 a.m. on the day of inspection or failing an inspection with a penalty (including missing the printed Permit Card and Approved Plans on site) incurs a $150 fee. City final approval does not authorize grid operation."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 7,
+      "max_days": 14,
+      "notes": "Broomfield's Building Division page and Building FAQ list a current plan-review estimate of 1 to 2 weeks (7 to 14 calendar days) for a Solar PV System, and expressly state that estimated review times are goals, not guaranteed. Although a Plans Analyst holds over-the-counter homeowner consultation hours on Tuesdays (9 a.m. to Noon) and Thursdays (1 to 4 p.m.) where some homeowner permits may be issued same-day, the City does not state that solar PV qualifies for same-day issuance. Utility interconnection review and Permission to Operate are separate timelines."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "BUILD",
+      "FAQ",
+      "HOMEOWNER"
+    ],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Broomfield Building Division email submittal and plan review for residential solar PV",
+      "other_conditions": [
+        "Confirm that the property is inside the unified City and County of Broomfield and verify on your electric bill whether Xcel Energy or United Power serves the address.",
+        "Permits cannot be submitted through the Online Portal; all application documents, plans, revisions and affidavits must be emailed to buildingpermits@broomfield.org. No SolarAPP+ or instant online solar permit path is published by Broomfield.",
+        "Official Broomfield documents contain an unresolved tension on homeowner-performed solar electrical work: the April 2026 PV handout states that the PV installation company shall be licensed as a Class C subcontractor, electrical wiring shall be performed by a Broomfield-licensed electrician, the permit will not be issued without a licensed electrician indicated on the permit, and a Colorado Master Electrician must sign the grounding/bonding/roof affidavit; meanwhile, the Homeowner Permits page links the Solar Panels guide alongside the Homeowner Statement, which states permits may be issued to homeowner-occupants to personally perform electrical work on their own non-rental, non-resale residence. Confirm DIY solar eligibility with the Building Division before applying.",
+        "Official Broomfield documents show a transition in code editions and structural loads: Ordinance 2295 adopted the 2024 International Codes and the Colorado Low Energy and Carbon Code effective April 15, 2026, and the Building Code Information page states Broomfield began enforcing the 2026 NEC on August 1, 2026 (matching the July 2026 new-home sheet) and lists a residential roof/ground snow load of 42 psf or ASCE 7-22 (whichever is higher) and ASCE 7-22 wind design, whereas the April 2026 PV handout still cites the 2023 NEC and lists 110 mph wind and 30 psf snow loads. Confirm which NEC edition and structural load criteria apply to your plan set.",
+        "The PV handout requires showing ESS location on the site plan if applicable, but does not publish standalone residential battery storage, ground-mount or main-panel upgrade checklists. Note also that Ordinance 2295's Fire Code amendments (enforced with North Metro Fire Rescue District) exempt PV on detached non-habitable Group U structures from a fire district construction permit; confirm with the Building Division and North Metro Fire Rescue District whether any fire review applies to battery storage or non-standard PV scopes.",
+        "Both Xcel Energy and United Power cap net-metered residential solar sizing at 200% of the location's annual electricity usage, and United Power additionally specifies a 25 kW threshold for its standard inverter-based interconnection track."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "BUILD",
+      "PV",
+      "CONTRACTOR",
+      "HOMEOWNER",
+      "HSTMT",
+      "FAQ",
+      "CODE",
+      "ORD2295",
+      "SFD",
+      "XCEL",
+      "XCELGUIDE",
+      "UP_SOLAR"
+    ],
+    "notes": "Contractors must hold the appropriate City and County of Broomfield contractor license (B.M.C. Chapter 15-32; Class C subcontractor license for PV installation companies and no-fee City registration with State and Master licenses for electrical contractors)."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Valuation-based building (general) and electrical permit fees (BMC 15-03-100 Table 1-A)",
+        "amount_usd": null,
+        "unit": "calculated separately on General (racking/mounting) and Electrical (panels, equipment, wiring) valuations",
+        "notes": "Based on total system value (materials, labor, overhead and profit) before rebates, split into General and Electrical trade valuations. Each trade is priced from Table 1-A (Revised August 2026): $1\u2013$500 is $23.50; $501\u2013$2,000 is $23.50 for the first $500 plus $3.05 per additional $100 or fraction; $2,001\u2013$25,000 is $69.25 for the first $2,000 plus $14.00 per additional $1,000 or fraction; $25,001\u2013$50,000 is $391.75 for the first $25,000 plus $10.10 per additional $1,000 or fraction (with higher brackets above $50,000)."
+      },
+      {
+        "name": "Solar permit plan review fee",
+        "amount_usd": null,
+        "unit": "65% of combined building and electrical permit fees (plus $50/hour if separate hourly review is assessed)",
+        "notes": "The August 2026 Fee Schedule and Fees page explicitly charge a Plan Review Fee on solar permits equal to 65% of the building permit fees (including general, electrical, mechanical and plumbing), paid at permit issuance."
+      },
+      {
+        "name": "Building materials use tax",
+        "amount_usd": null,
+        "unit": "4.15% on 50% of total project valuation (or 4.15% of total materials cost for homeowners performing all work)",
+        "notes": "Collected at building permit issuance under BMC 03-08-060. For contracted projects, 50% of total valuation is assumed to be materials and taxed at 4.15% (an effective 2.075% of total valuation). Homeowners doing all their own work list total materials cost taxed at 4.15%."
+      },
+      {
+        "name": "Solar Panel Removal and Re-Installation Permit",
+        "amount_usd": 70.0,
+        "unit": "flat permit fee for unaltered removal and re-installation",
+        "notes": "Applies only to removing and re-installing an existing PV system without alteration (such as for re-roofing), not to new solar PV installations."
+      },
+      {
+        "name": "Reinspection or late inspection cancellation fee",
+        "amount_usd": 150.0,
+        "unit": "per disapproved inspection with penalty or cancellation after 8:30 a.m.",
+        "notes": "Charged when an inspection is disapproved with a penalty or canceled after 8:30 a.m. on the scheduled inspection day."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "PV",
+      "FEES",
+      "FEEPDF",
+      "APP",
+      "FAQ",
+      "BUILD"
+    ],
+    "notes": "Broomfield does not charge a single flat fee for a new solar PV installation; total permit cost depends on how total pre-rebate system value is divided between General (racking/mounting) and Electrical (panels/equipment/wiring) valuations, plus the 65% plan review fee and 4.15% materials use tax. The Fees page invites applicants to email buildingpermits@broomfield.org for a fee estimate. Utility application or study fees are separate."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City and County of Broomfield Building Division",
+        "role": "Permit applications, solar plan review, fee estimates, contractor licensing and inspection questions (One DesCombes Drive, Broomfield, CO 80020)",
+        "phone": "303-438-6370",
+        "email": "buildingpermits@broomfield.org",
+        "url": "https://broomfield.org/building"
+      },
+      {
+        "name": "Broomfield Automated Homeowner Inspection Scheduling Line",
+        "role": "Automated phone line for homeowners to schedule inspections up to four days in advance using the numeric permit number and 3-digit inspection code",
+        "phone": "303-438-6376",
+        "email": null,
+        "url": "https://broomfield.org/m/faq?cat=23"
+      },
+      {
+        "name": "United Power Member Services & Solar Interconnection",
+        "role": "Electric service verification and solar/battery interconnection for United Power-served addresses in northern Broomfield",
+        "phone": "303-637-1300",
+        "email": null,
+        "url": "https://www.unitedpower.com/connect-your-solar"
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "BUILD",
+      "CONTRACTOR",
+      "FAQ",
+      "UP_SOLAR"
+    ],
+    "notes": "For contractor licensing submissions and renewals, email contractorlicense@broomfield.org. For use-tax questions, the General Permit Application and Building FAQ list the Broomfield Sales and Use Tax Division at 303-464-5811."
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "BUILD",
+      "title": "Building Division: Permit Applications, Review Timelines and Inspections",
+      "url": "https://broomfield.org/building",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PV",
+      "title": "Photovoltaic Solar Systems (2023 NEC & 2024 IRC) Design Criteria Requirements (Revised April 2026)",
+      "url": "https://broomfield.org/DocumentCenter/View/2544",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "REINSTALL",
+      "title": "Solar PV Reinstallation Affidavit (Revised April 14, 2026)",
+      "url": "https://broomfield.org/DocumentCenter/View/40537/Final-Solar-PV-Reinstallation-Affidavit",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FEES",
+      "title": "Building Permit Fees",
+      "url": "https://broomfield.org/4139/Fees",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FEEPDF",
+      "title": "Building Permit Fee Schedule (Revised August 2026)",
+      "url": "https://broomfield.org/DocumentCenter/View/2915",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CONTRACTOR",
+      "title": "Contractor Licensing and Building Permits",
+      "url": "https://broomfield.org/177/Fees",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "HOMEOWNER",
+      "title": "Homeowner Permits and Building Guides",
+      "url": "https://broomfield.org/178/Forms",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "HSTMT",
+      "title": "Homeowner Permit Statement (Work on Own Home)",
+      "url": "https://broomfield.org/DocumentCenter/View/2524",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FAQ",
+      "title": "Frequently Asked Questions: Community Development - Building",
+      "url": "https://broomfield.org/m/faq?cat=23",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "GIS",
+      "title": "Geographic Information Systems (GIS): City and County Boundaries",
+      "url": "https://broomfield.org/222/GIS",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CONST",
+      "title": "Constitutional Amendment: Creation of the City and County of Broomfield",
+      "url": "https://broomfield.org/1635/Constitutional-Amendment",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "ENERGY",
+      "title": "Save Energy: Utilities, Programs and Resources",
+      "url": "https://broomfield.org/3399/Energy",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "COMP2016",
+      "title": "Broomfield 2016 Comprehensive Plan, Chapter 10: Utilities",
+      "url": "https://broomfield.org/DocumentCenter/View/26829",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCELGUIDE",
+      "title": "Natural Gas and Electric Installation: Information for Residential Contractors (Revised January 2025)",
+      "url": "https://broomfield.org/DocumentCenter/View/48347",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CODE",
+      "title": "Building Code Information: 2024 I-Codes and 2026 NEC",
+      "url": "https://broomfield.org/176/Building-Code-Information",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "ORD2295",
+      "title": "Notice of Public Hearing: Ordinance No. 2295 Adopting the 2024 Building Codes (Effective April 15, 2026)",
+      "url": "https://broomfield.org/DocumentCenter/View/50395",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "APP",
+      "title": "General Permit Application and Building Division Fee Table",
+      "url": "https://broomfield.org/DocumentCenter/View/2557",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PORTALGUIDE",
+      "title": "Community Development Online Portal Instructions for Contractors",
+      "url": "https://broomfield.org/DocumentCenter/View/40994/Online-Portal-Instructions-for-Contractors",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PUBACCESS",
+      "title": "Public Access Portal Instructions",
+      "url": "https://broomfield.org/DocumentCenter/View/10448/Public-Access-Process",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "SFD",
+      "title": "New Single Family Dwelling Permit Submittal Sheet (2024 IRC and 2026 NEC, July 2026)",
+      "url": "https://broomfield.org/DocumentCenter/View/5484",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PROPSEARCH",
+      "title": "Property Search Links: Assessor EagleWeb and Aerial Property Search (GIS)",
+      "url": "https://broomfield.org/3950/Property-Search-Links",
+      "publisher": "City and County of Broomfield",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCEL",
+      "title": "Xcel Energy: Colorado Solar Application Process",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "UP_AREA",
+      "title": "United Power: Our Service Area and Communities Served",
+      "url": "https://www.unitedpower.com/service-area",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "UP_SOLAR",
+      "title": "United Power: Solar and Storage Connection Requirements",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}
