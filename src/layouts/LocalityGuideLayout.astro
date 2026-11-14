@@ -136,7 +136,8 @@ const isBoulderGuide = record.record_id === "co-boulder-boulder-multi";
 const isBroomfieldGuide = record.record_id === "co-broomfield-broomfield-multi";
 const isWestminsterGuide = record.record_id === "co-adams-westminster-multi";
 const isParkerGuide = record.record_id === "co-douglas-parker-multi";
-const hasDocumentContext = isArvadaGuide || isLongmontGuide || isCentennialGuide || isBoulderGuide || isBroomfieldGuide || isWestminsterGuide || isParkerGuide;
+const isThorntonGuide = record.record_id === "co-adams-thornton-multi";
+const hasDocumentContext = isArvadaGuide || isLongmontGuide || isCentennialGuide || isBoulderGuide || isBroomfieldGuide || isWestminsterGuide || isParkerGuide || isThorntonGuide;
 // Keep this opt-in independent of the temporary related-list embargo, so
 // eligibility remains visible after the measurement window closes.
 const showProgramEligibility = new Set([
@@ -234,13 +235,17 @@ const timeline = td !== null ? {
 		label: "Simple solar review goal: 10–14 business days",
 		standardPathCaveat: "Completeness check takes 3–5 business days. Goal only, not a guaranteed approval or CORE PTO date.",
 	} : {}),
+	...(isThorntonGuide ? {
+		label: "1 business day (qualifying homeowner rapid review) or up to 8 working days",
+		standardPathCaveat: "Published review goals by pathway, not guaranteed permit issuance or utility PTO dates.",
+	} : {}),
 } : null;
 const generationSupplier = record.generation_supplier.value;
 const hasGenerationSupplier = generationSupplier !== null;
 
 const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canonicalUrl });
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
-const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, utilityAnswer: isBoulderGuide ? record.utility.notes ?? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide || isCentennialGuide || isBoulderGuide || isBroomfieldGuide || isWestminsterGuide || isParkerGuide, expectedReviewTimeline: isCentennialGuide || isBroomfieldGuide || isParkerGuide, documentChecklistIntro: isParkerGuide ? "Town of Parker eTRAKiT solar submittal items and CORE interconnection documents include:" : isWestminsterGuide ? "Westminster Residential Solar submittal items and separate utility documents include:" : isBroomfieldGuide ? "Broomfield solar submittal items and separate utility documents include:" : isBoulderGuide ? "Verified City application items and separate Xcel documents include:" : isCentennialGuide ? "City and utility submission documents include the following, subject to the provider conditions shown:" : undefined });
+const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, utilityAnswer: isBoulderGuide ? record.utility.notes ?? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide || isCentennialGuide || isBoulderGuide || isBroomfieldGuide || isWestminsterGuide || isParkerGuide || isThorntonGuide, expectedReviewTimeline: isCentennialGuide || isBroomfieldGuide || isParkerGuide || isThorntonGuide, documentChecklistIntro: isThorntonGuide ? "City of Thornton CityView solar submittal items and separate utility documents include:" : isParkerGuide ? "Town of Parker eTRAKiT solar submittal items and CORE interconnection documents include:" : isWestminsterGuide ? "Westminster Residential Solar submittal items and separate utility documents include:" : isBroomfieldGuide ? "Broomfield solar submittal items and separate utility documents include:" : isBoulderGuide ? "Verified City application items and separate Xcel documents include:" : isCentennialGuide ? "City and utility submission documents include the following, subject to the provider conditions shown:" : undefined });
 const faqSchema = buildFaqSchema(faqs);
 
 // Table of contents — ids match the section anchors added below. FAQ and

@@ -1,0 +1,430 @@
+{
+  "record_id": "co-adams-thornton-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy or United Power — check your electric bill",
+    "confidence": 0.98,
+    "source_ids": [
+      "THO-S11",
+      "THO-S19",
+      "THO-S20",
+      "XCEL-APP",
+      "THO-S22"
+    ],
+    "notes": "Electric service in the City of Thornton is split between Xcel Energy and United Power depending on property location. Check your electric bill to confirm which provider serves your address before submitting an interconnection application. Also confirm your property is inside Thornton corporate limits, as unincorporated Adams County addresses with a Thornton ZIP code permit through Adams County."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The generation supplier depends on whether the address is served by Xcel Energy or United Power; check your electric account for utility-specific supply terms."
+  },
+  "city": {
+    "value": "Thornton",
+    "confidence": 1.0,
+    "source_ids": [
+      "THO-S01",
+      "THO-S14"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Adams County",
+    "confidence": 0.95,
+    "source_ids": [
+      "THO-TAXPAGE",
+      "THO-S22"
+    ],
+    "notes": "The City of Thornton is in Adams County. Because mailing ZIP codes extend beyond municipal boundaries, confirm your parcel is inside Thornton corporate limits before applying to the City Building Inspection Division."
+  },
+  "permit_authority": {
+    "value": "City of Thornton Building Inspection Division",
+    "confidence": 0.98,
+    "source_ids": [
+      "THO-S01",
+      "THO-S14"
+    ],
+    "notes": "Applies to properties within the City of Thornton corporate limits (9500 Civic Center Drive, Thornton, CO 80229; 303-538-7250)."
+  },
+  "permit_url": {
+    "value": "https://www.thorntonco.gov/business-development/city-development/building-permits-inspections",
+    "confidence": 0.95,
+    "source_ids": [
+      "THO-S14",
+      "THO-S01",
+      "THO-S04"
+    ],
+    "notes": "All Solar PV permit applications must be submitted online through the CityView Portal linked from the Building Permits & Inspections page. When a main electrical panel or service upgrade is included, Thornton requires a separate Electrical Service Change / Main Panel Upgrade permit in addition to the Solar PV permit."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+    "confidence": 0.95,
+    "source_ids": [
+      "XCEL-APP",
+      "THO-S19",
+      "THO-S11"
+    ],
+    "notes": "Use the interconnection portal for the utility listed on your electric bill: Xcel Energy's DER Application Portal (co.my.xcelenergy.com/s/renewable/solar-application-process) or United Power's online solar interconnection portal (unitedpower.com/connect-your-solar). City permit approval and virtual final inspection do not authorize grid-parallel operation; wait for your electric utility's meter installation and Permission to Operate (PTO)."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City of Thornton battery storage rebate was verified. Energy Storage Systems require a City building permit and are listed on both the Solar PV checklist and the Homeowner Rapid Review list; United Power also requires battery storage engineering evaluation (powerstorage@unitedpower.com). Check directly with Xcel Energy or United Power for any current utility storage incentives."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No City of Thornton municipal solar rebate was verified. Check directly with your electric provider (Xcel Energy or United Power) for current income-qualified or renewable program offerings before budgeting for an incentive."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Signed customer contract showing total cost of materials and labor",
+        "required_when": "Required for all Solar PV permit submittals; the contract total must match the valuation entered on the CityView permit application.",
+        "source_ids": [
+          "THO-S01"
+        ]
+      },
+      {
+        "name": "Separate Electrical Service Change / Main Panel Upgrade (MPU) permit application",
+        "required_when": "Required whenever upgrading an electrical service or main distribution panel in conjunction with a Solar PV installation; the MPU permit and inspections must be completed before the solar system is approved.",
+        "source_ids": [
+          "THO-S01",
+          "THO-S04",
+          "THO-S18"
+        ]
+      },
+      {
+        "name": "Roof layout and site plan showing equipment locations, fire access aisles, and ridge setbacks",
+        "required_when": "Must show footprints of all structures on the property, North arrow, streets, driveway, existing electric service/meter location, proposed solar equipment locations, roof access points, fire access aisles, and ridge setbacks.",
+        "source_ids": [
+          "THO-S01"
+        ]
+      },
+      {
+        "name": "Electrical one-line diagram",
+        "required_when": "Must detail panel/module layout, inverter, batteries (if installed), disconnects, overcurrent protection, grounding, conductor types/sizes/insulation/temperature ratings, conduit types/sizes, rapid shutdown markings, and point of connection. (Xcel Energy separately requires customer name, address, and AC/DC system sizes on the line diagram.)",
+        "source_ids": [
+          "THO-S01",
+          "XCEL-APP",
+          "THO-S19"
+        ]
+      },
+      {
+        "name": "Stamped Colorado Professional Engineer structural analysis and separately uploaded Engineer's Letter",
+        "required_when": "Must evaluate existing roof framing for dead load and wind uplift, specify attachment layout/spacing and roof framing size/spacing, carry a Colorado PE seal, and be uploaded both with the plan set and as a separate Engineer's Letter document.",
+        "source_ids": [
+          "THO-S01",
+          "THO-S16"
+        ]
+      },
+      {
+        "name": "Manufacturer specification sheets and installation manuals",
+        "required_when": "Required for roof racking/anchorage, PV modules, inverters/microinverters, combiner boxes, disconnects, rapid shutdown equipment, and any battery storage units.",
+        "source_ids": [
+          "THO-S01",
+          "THO-S19"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "THO-S01",
+      "THO-S04",
+      "THO-S16",
+      "THO-S18",
+      "XCEL-APP",
+      "THO-S19"
+    ],
+    "notes": "Upload all required PDFs through the CityView Portal. Note that while the posted Solar PV Submittal handout (THO-S01, dated May 2023) still cites the 2020 NEC and 2021 ICC Codes, the Building Permits & Inspections page (THO-S14) announces the 2024 ICC Codes effective July 1, 2026 and the 2026 NEC effective August 1, 2026, alongside updated Structural Design Criteria (THO-S16: 30 psf ground snow load and 105 mph ultimate wind speed for IRC structures). Confirm applicable code editions with the Building Inspection Division before sealing plans."
+  },
+  "inspection_steps": {
+    "value": [
+      "Ensure both your City of Thornton Solar PV permit (and any separate Main Panel Upgrade permit) and your utility engineering review are in place before starting installation.",
+      "If your project includes a Main Electrical Panel Upgrade (MPU), complete the separate MPU permit inspections first; Thornton requires the electrical service/MPU permit and inspections to be completed before the Solar PV installation can pass final approval.",
+      "Schedule your final Solar PV inspection online through the CityView Portal (or via the automated phone system at 303-538-7577 before 4:00 p.m. for next-business-day scheduling). Provide the name and cell phone number of the on-site technician/representative when booking.",
+      "Thornton conducts all Roof and Solar PV inspections virtually via FaceTime or Google Meet. Between 8:00 a.m. and 10:00 a.m. on the morning of the inspection, the City inspector will call the listed on-site contact to schedule the live video inspection time. City-approved stamped plans must be on site.",
+      "After passing the City final inspection, submit the municipal electrical inspection sign-off to your electric utility (Xcel Energy or United Power) and wait for utility meter installation and written Permission to Operate (PTO) before activating the system."
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "THO-S01",
+      "THO-S14",
+      "THO-S04",
+      "XCEL-APP",
+      "THO-S19"
+    ],
+    "notes": "Virtual inspections require a mobile device with FaceTime or Google Meet, strong cell reception at the job site, and the City-stamped plan set on site."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 1,
+      "max_days": 8,
+      "notes": "Thornton's Building Permits & Inspections page (THO-S14) and Homeowner Rapid Review list (THO-S06, updated 2/20/2026) publish a 1-business-day review goal for qualifying homeowner projects (which explicitly includes Solar PV systems and Energy Storage Systems when no engineering review is required), and 8 working days or less for standard Residential Remodels and Misc. initial plan review. Resubmittals and separate utility interconnection review (up to 2 weeks for United Power engineering review plus up to 10 business days for meter installation) add time."
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "THO-S14",
+      "THO-S06",
+      "THO-S19"
+    ],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "CityView Online Solar PV Permit Review (Standard or Qualifying Homeowner Rapid Review)",
+      "other_conditions": [
+        "Confirm your property is inside City of Thornton corporate limits and identify whether Xcel Energy or United Power provides your electric service.",
+        "For United Power customers, residential solar systems must be designed to produce no more than 120% of the home's annual electrical load unless written exception approval is granted by United Power.",
+        "When upgrading a main electrical distribution panel or service in conjunction with solar, Thornton requires a separate Main Panel Upgrade (MPU) permit that must be inspected and approved prior to final Solar PV approval.",
+        "All contractors must hold an active City of Thornton contractor license prior to permit issuance. Class D Electrical Contractors must provide current State of Colorado Electrical Contractor and Master Electrician licenses ($0 City license fee). Homeowners working on their own personal, private primary residence are exempt from contractor licensing but assume full permit and liability responsibility.",
+        "Adopted code transition: Thornton's Building Permits & Inspections page announces the 2024 ICC Codes effective July 1, 2026 and the 2026 NEC effective August 1, 2026, whereas the May 2023 Solar PV handout still references the 2020 NEC and 2021 ICC Codes."
+      ]
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "THO-S01",
+      "THO-S14",
+      "THO-S04",
+      "THO-S05",
+      "THO-S06",
+      "THO-S18",
+      "THO-S07",
+      "THO-S08",
+      "THO-S11",
+      "THO-S16",
+      "THO-AMEND",
+      "THO-S19",
+      "XCEL-APP"
+    ],
+    "notes": "No single city-wide kW cap is set by Thornton's municipal checklist; sizing limits depend on structural capacity, electrical service rating, and your electric utility's interconnection tariff."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "City of Thornton residential solar building permit fee cap",
+        "amount_usd": 500,
+        "unit": "maximum residential solar building permit fee (valued at $3.50/watt up to cap)",
+        "notes": "Thornton's Building Permit Fee Schedule (Effective January 1, 2026, THO-FEE) states: 'NOTE: Solar value calculated at $3.50/watt (permit fee for solar maxed at $500 residential, $1000 commercial).' The schedule separately lists Plan Review Fee = 65% of Building Permit Fee and Electric Meter = $25.00; confirm how the statutory residential solar cap applies to combined permit and plan review charges with the Building Inspection Division."
+      },
+      {
+        "name": "City of Thornton construction use tax deposit",
+        "amount_usd": null,
+        "unit": "3.75% of 50% of project valuation (or 100% of total material cost)",
+        "notes": "Collected at building permit issuance per the 2026 Building Permit Fee Schedule (THO-FEE) and Building Construction Use Tax Information sheet (THO-S15). Separate permit fees apply if a separate Main Panel Upgrade permit is required."
+      },
+      {
+        "name": "United Power residential solar interconnection application fee (United Power accounts only)",
+        "amount_usd": 100,
+        "unit": "per residential interconnection application (United Power territory only)",
+        "notes": "Paid directly to United Power when applying to connect a residential solar system in United Power's service territory (THO-S19)."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "THO-FEE",
+      "THO-S15",
+      "THO-TAXPAGE",
+      "THO-S04",
+      "THO-S19"
+    ],
+    "notes": "Municipal permit fees and City use tax are paid to the City of Thornton; utility interconnection application fees are paid separately to United Power or Xcel Energy as applicable."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Thornton Building Inspection Division",
+        "role": "Solar PV permits, CityView Portal support, contractor licensing, and virtual inspections",
+        "phone": "303-538-7250",
+        "email": "buildings@thorntonco.gov",
+        "url": "https://www.thorntonco.gov/business-development/city-development/building-permits-inspections"
+      },
+      {
+        "name": "City of Thornton Automated Inspection Scheduling Line",
+        "role": "24-hour automated phone inspection requests (4:00 p.m. cutoff for next business day)",
+        "phone": "303-538-7577",
+        "email": null,
+        "url": "https://www.thorntonco.gov/business-development/city-development/building-permits-inspections"
+      },
+      {
+        "name": "United Power Solar Interconnection & Storage Team",
+        "role": "Interconnection and battery storage review for United Power electric customers",
+        "phone": "303-637-1300",
+        "email": "powerstorage@unitedpower.com",
+        "url": "https://www.unitedpower.com/connect-your-solar"
+      },
+      {
+        "name": "Xcel Energy Distributed Energy Resources",
+        "role": "Solar application and interconnection process for Xcel Energy electric customers",
+        "phone": "800-895-4999",
+        "email": null,
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process"
+      }
+    ],
+    "confidence": 0.98,
+    "source_ids": [
+      "THO-S01",
+      "THO-S14",
+      "THO-S11",
+      "THO-S19",
+      "XCEL-APP"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "THO-S01",
+      "title": "Solar Photovoltaic (PV) System \u2014 Residential and Commercial Submittal and Inspection Requirements",
+      "url": "https://www.thorntonco.gov/media/file/solarphotovoltaicsystem",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S14",
+      "title": "City of Thornton: Building Permits & Inspections (Code Adoption, Review Times & Virtual Inspections)",
+      "url": "https://www.thorntonco.gov/business-development/city-development/building-permits-inspections",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-FEE",
+      "title": "Building Permit Fee Schedule (Effective January 1, 2026)",
+      "url": "https://www.thorntonco.gov/media/file/building-permit-fee-schedule",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S04",
+      "title": "Main Electrical Panel Upgrades for Solar PV Installations",
+      "url": "https://www.thorntonco.gov/media/file/solar-pv-main-panel-upgradespdf",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S05",
+      "title": "Projects Requiring a Building Permit",
+      "url": "https://www.thorntonco.gov/media/file/required-building-permit",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S06",
+      "title": "Homeowner Projects Eligible for Rapid Review (Updated 2/20/2026)",
+      "url": "https://www.thorntonco.gov/media/file/homeowner-projects-eligible-rapid-review",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S18",
+      "title": "Homeowner Projects Issued Over-the-Counter (No Review Needed)",
+      "url": "https://www.thorntonco.gov/media/file/homeowner-projects-issued-otcpdf",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S07",
+      "title": "City of Thornton: Contractor Information",
+      "url": "https://www.thorntonco.gov/business-development/city-development/building-permits-inspections/contractor-information",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S08",
+      "title": "City of Thornton: Contractor License Application Packet",
+      "url": "https://www.thorntonco.gov/media/file/contractor-license-packet",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S11",
+      "title": "City of Thornton: Electric & Gas Utility Services",
+      "url": "https://www.thorntonco.gov/electric-gas-utility-services",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S15",
+      "title": "Building Construction Use Tax Information",
+      "url": "https://www.thorntonco.gov/media/file/use-tax-information",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-TAXPAGE",
+      "title": "City of Thornton: Thornton Taxes Explained",
+      "url": "https://www.thorntonco.gov/government/finance/thornton-taxes-explained",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S16",
+      "title": "Structural Design Criteria (Updated for 2024 Codes, 6/10/2025)",
+      "url": "https://www.thorntonco.gov/media/file/structural-design-criteria-updated-2024-codes-6-10-25",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-AMEND",
+      "title": "City of Thornton 2024 Building Code Amendments",
+      "url": "https://www.thorntonco.gov/media/file/2024-code-amendments",
+      "publisher": "City of Thornton",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S19",
+      "title": "United Power: Connect Your Solar",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S20",
+      "title": "United Power: Service Area",
+      "url": "https://www.unitedpower.com/service-area",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCEL-APP",
+      "title": "Xcel Energy: Colorado Solar Application Process",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "THO-S22",
+      "title": "Xcel Energy: Colorado Communities Served",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}
