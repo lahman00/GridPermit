@@ -2106,6 +2106,14 @@
     Content-Type = "text/csv; charset=utf-8"
     Content-Disposition = "attachment; filename=\"gridpermit-california-solar-permit-data.csv\""
 
+# The organizer sample is a download; index the product page instead.
+[[headers]]
+  for = "/products/solar-project-organizer-sample.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+    Content-Type = "application/pdf"
+    Content-Disposition = "attachment; filename=\"gridpermit-organizer-free-sample.pdf\""
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
