@@ -1,6 +1,6 @@
 {
   "state": "CO",
-  "generated_at": "2026-11-14T15:16:01.644Z",
+  "generated_at": "2026-11-14T16:50:02.642Z",
   "records": [
     {
       "record_id": "co-arapahoe-aurora-xcel",
@@ -138,6 +138,40 @@
       "readiness": "LIMITED"
     },
     {
+      "record_id": "co-jefferson-arvada-multi",
+      "state": "CO",
+      "city": "Arvada",
+      "county": "Jefferson and Adams counties",
+      "completeness_pct": 86.7,
+      "validation_score": 86,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 7,
+      "populated_fields": [
+        "utility",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "broken_url"
+      ],
+      "readiness": "READY"
+    },
+    {
       "record_id": "co-jefferson-lakewood-xcel",
       "state": "CO",
       "city": "Lakewood",
@@ -207,12 +241,12 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 84.4,
-    "average_validation_score": 93.5,
+    "average_completeness_pct": 84.8,
+    "average_validation_score": 92.4,
     "fields_most_often_missing": [
       {
         "field": "timeline_days",
-        "missing_in_records": 6
+        "missing_in_records": 7
       },
       {
         "field": "battery_programs",
@@ -220,7 +254,7 @@
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 1
+        "missing_in_records": 2
       },
       {
         "field": "required_documents",
@@ -245,6 +279,7 @@
       "co-arapahoe-aurora-xcel",
       "co-denver-denver-xcel",
       "co-el-paso-colorado-springs-csu",
+      "co-jefferson-arvada-multi",
       "co-jefferson-lakewood-xcel",
       "co-larimer-fort-collins-fcu"
     ],

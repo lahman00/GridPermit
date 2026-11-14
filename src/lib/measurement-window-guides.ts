@@ -22,6 +22,15 @@ export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string
 	"co-arapahoe-aurora-xcel",
 	"co-larimer-fort-collins-fcu",
 	"co-jefferson-lakewood-xcel",
+	"co-jefferson-arvada-multi",
+]);
+
+// These three pilot guides were already live before the Arvada release. Keep
+// their related lists unchanged too, while the original measurement runs.
+const EARLIER_PILOT_GUIDES = new Set([
+	"co-arapahoe-aurora-xcel",
+	"co-larimer-fort-collins-fcu",
+	"co-jefferson-lakewood-xcel",
 ]);
 
 export function isNewGuideDuringMeasurement(recordId: string | null | undefined): boolean {
@@ -30,9 +39,13 @@ export function isNewGuideDuringMeasurement(recordId: string | null | undefined)
 
 /**
  * The entries a guide may choose its related cities from. An existing guide never
- * sees a new guide; a new guide sees everything, including the other new guides.
+ * sees a new guide. Earlier pilot guides keep their existing pool; the newest
+ * guide can link to everything already published.
  */
 export function relatedPoolFor<T extends { recordId: string }>(currentRecordId: string, entries: T[]): T[] {
+	if (EARLIER_PILOT_GUIDES.has(currentRecordId)) {
+		return entries.filter((entry) => entry.recordId !== "co-jefferson-arvada-multi");
+	}
 	if (isNewGuideDuringMeasurement(currentRecordId)) return entries;
 	return entries.filter((entry) => !NEW_GUIDES_DURING_MEASUREMENT.has(entry.recordId));
 }

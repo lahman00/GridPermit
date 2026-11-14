@@ -413,6 +413,8 @@ export interface BuildFaqOptions {
 	 * measurement window closes (src/lib/measurement-window-guides.ts).
 	 */
 	addressLevelUtility?: boolean;
+	/** Include the posted-checklist qualification when a city's process changed. */
+	documentContext?: boolean;
 }
 
 export function buildFaqs(record: LocalityRecord, options: BuildFaqOptions = {}): FaqEntry[] {
@@ -460,11 +462,12 @@ export function buildFaqs(record: LocalityRecord, options: BuildFaqOptions = {})
 	}
 
 	if (record.required_documents.value?.length) {
+		const documentList = record.required_documents.value.map((d) => d.name).join("; ");
 		faqs.push({
 			q: `What documents are required for a solar permit in ${record.city.value}?`,
-			a: `Commonly required documents include: ${record.required_documents.value
-				.map((d) => d.name)
-				.join("; ")}.`,
+			a: options.documentContext
+				? `The City's posted solar checklist lists: ${documentList}. ${record.required_documents.notes ?? ""}`.trim()
+				: `Commonly required documents include: ${documentList}.`,
 		});
 	}
 
