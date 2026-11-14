@@ -96,6 +96,12 @@ const productSchema = organizerCheckout ? {
         <figcaption>Page 1 of 6. Select the image to view the sample.</figcaption>
       </figure>
     </section>
+    <section class="details sample" aria-labelledby="sample-title">
+      <h2 id="sample-title">Try one page before you buy</h2>
+      <p>Use the organizer's quote comparison page to record two written offers. Compare the equipment, payment terms, permit tasks and exclusions in one place.</p>
+      <p><a class="sample-link" href="/products/solar-project-organizer-sample.pdf" download data-track-click="internal_resource_clicked" aria-describedby="sample-note">Download free sample (PDF, 22 KB)</a></p>
+      <p id="sample-note">One page from the six-page organizer. No email or account needed. Open it in a PDF reader that supports forms, add a few entries, then save and reopen it to check they are kept. CSV templates are included with the full organizer.</p>
+    </section>
     <section class="details" aria-labelledby="fit-title">
       <h2 id="fit-title">Who it is for</h2>
       <div class="fit-grid">
@@ -190,6 +196,9 @@ const productSchema = organizerCheckout ? {
   figure img { display: block; width: 100%; height: auto; border: 1px solid var(--gp-line); background: white; }
   figcaption { margin-top: 12px; font-size: 12px; color: var(--gp-muted); }
   .details { margin-top: var(--gp-space-8); padding-top: var(--gp-space-4); border-top: 1px solid var(--gp-line); }
+  .sample { max-width: 850px; }
+  .sample p { color: var(--gp-muted); }
+  .sample-link { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: .2em; }
   .details h2 { font-size: 32px; margin-bottom: var(--gp-space-3); }
   .contents-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gp-space-4); }
   .contents-grid h3 { font-size: 22px; line-height: 1.3; }
