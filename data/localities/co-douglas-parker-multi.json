@@ -1,0 +1,476 @@
+{
+  "record_id": "co-douglas-parker-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "CORE Electric Cooperative — check your electric bill",
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S20",
+      "PAR-S24",
+      "PAR-S02",
+      "PAR-S25"
+    ],
+    "notes": "Town of Parker utility directories and the residential solar checklist identify CORE Electric Cooperative (formerly IREA) as the electric provider and Xcel Energy as the natural gas provider. Confirm the electric provider on your electric bill and CORE's service area map before applying, and verify that your address is inside Town of Parker corporate limits rather than unincorporated Douglas County."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Retail electric service and interconnection are handled through CORE Electric Cooperative for CORE-served addresses; wholesale supply mix is not a separate customer-selected option on the permit or interconnection application."
+  },
+  "city": {
+    "value": "Parker",
+    "confidence": 1.0,
+    "source_ids": [
+      "PAR-S05",
+      "PAR-S12"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Douglas County",
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S12",
+      "PAR-S20",
+      "PAR-S24"
+    ],
+    "notes": "Many unincorporated Douglas County residences carry a Parker mailing address. Use the Town of Parker boundary map to confirm your property is inside Town corporate limits before applying to the Town Building Division."
+  },
+  "permit_authority": {
+    "value": "Town of Parker Building Division",
+    "confidence": 0.98,
+    "source_ids": [
+      "PAR-S05",
+      "PAR-S12"
+    ],
+    "notes": "Applies to properties within the Town of Parker corporate limits (20120 E. Mainstreet, Parker, CO 80138; 303-841-1970)."
+  },
+  "permit_url": {
+    "value": "https://www.parkerco.gov/1693/Solar-Energy-Systems",
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S05",
+      "PAR-S11",
+      "PAR-S03"
+    ],
+    "notes": "Submit all solar permit applications and PDF plans online through the Town's eTRAKiT portal linked from the Solar Energy Systems page. In eTRAKiT, residential rooftop solar is filed under Residential Electrical \u2014 Solar System (with separate valuation or permit entries for main panel upgrades, sub-panels, or battery storage as applicable)."
+  },
+  "interconnection_url": {
+    "value": "https://core.coop/my-cooperative/renewables/generation-interconnections/",
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S26",
+      "PAR-S27",
+      "CORE-PROC",
+      "PAR-S02"
+    ],
+    "notes": "CORE Electric Cooperative processes Distributed Energy Resource interconnections through its online PowerClerk portal. Parker's residential solar checklist requires uploading a copy of the CORE Level 1 application form showing the CORE identification number with your Town permit submittal. Town final inspection approval does not authorize parallel grid operation; wait for CORE meter and Permission to Operate (PTO) release."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the Town of Parker nor CORE Electric Cooperative lists an active residential battery rebate on the verified solar pages. Energy storage systems require separate project cost reporting and plan details on the Town permit."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No Town of Parker or CORE Electric Cooperative cash installation rebate was verified for residential rooftop solar. Under CORE's net-metering rules, excess annual kWh credits roll over monthly and cash out once per year in April at CORE's avoided-cost rate ($0.04473/kWh through April 2026; $0.04616/kWh starting May 2026)."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed eTRAKiT online application with total system capacity (Watts), system type, and PDF submittal package",
+        "required_when": "Required for all residential solar submittals; non-PDF uploads are rejected and delay review.",
+        "source_ids": [
+          "PAR-S05",
+          "PAR-S02",
+          "PAR-S11"
+        ]
+      },
+      {
+        "name": "CORE Electric Cooperative Level 1 application form with identification number",
+        "required_when": "Required by the Town of Parker Residential Solar PV Checklist at permit submittal.",
+        "source_ids": [
+          "PAR-S02",
+          "PAR-S26",
+          "CORE-PROC"
+        ]
+      },
+      {
+        "name": "Separate valuation and cost breakdown for any electrical service upgrade, sub-panel, or energy storage system",
+        "required_when": "Required whenever a service change, sub-panel, or battery storage system is part of the scope.",
+        "source_ids": [
+          "PAR-S02",
+          "PAR-S18"
+        ]
+      },
+      {
+        "name": "Site plan and floor plan showing equipment locations and fire access/setback pathways",
+        "required_when": "Must show AC/DC disconnects, utility meter, PV modules, batteries, inverters/microinverters, grounding locations, roof access points, ridge setbacks, and emergency escape pathways.",
+        "source_ids": [
+          "PAR-S02",
+          "PAR-SAMPLE"
+        ]
+      },
+      {
+        "name": "Electrical one-line diagram",
+        "required_when": "Must show module layout, grounding, conduit sizes/types, wire sizes/types, conductor temperature and insulation ratings, overcurrent protection, inverter/battery ratings, and point of connection.",
+        "source_ids": [
+          "PAR-S02",
+          "PAR-SAMPLE"
+        ]
+      },
+      {
+        "name": "Manufacturer specification and listing sheets (cut sheets)",
+        "required_when": "Required for modules, racking and anchorage, inverters/microinverters, disconnects, combiners, and any energy storage equipment, showing testing agency listings.",
+        "source_ids": [
+          "PAR-S02"
+        ]
+      },
+      {
+        "name": "Colorado Registered Professional Engineer signed, sealed, and dated roof dead-load evaluation letter and stamped structural pages",
+        "required_when": "Must verify roof framing dead-load capacity, state wind and snow loads used in the evaluation, and carry the engineer's stamp on all structural plan pages (plus engineered footing design for any ground-mount or pole-mount array).",
+        "source_ids": [
+          "PAR-S02",
+          "PAR-SAMPLE"
+        ]
+      },
+      {
+        "name": "Signed Solar Photovoltaic Rooftop Installation Affidavit (or Detach-Reattach Affidavit for reroof/reinstall work)",
+        "required_when": "Completed and signed by the electrical contractor or engineer of record and provided to the Town building inspector at final inspection.",
+        "source_ids": [
+          "PAR-S02",
+          "PAR-AFFIDAVIT",
+          "PAR-DETACH"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S02",
+      "PAR-S05",
+      "PAR-S11",
+      "PAR-S18",
+      "PAR-SAMPLE",
+      "PAR-AFFIDAVIT",
+      "PAR-DETACH",
+      "PAR-S26",
+      "CORE-PROC"
+    ],
+    "notes": "All plan files must be uploaded to eTRAKiT as unsecured PDFs. Note that while the Town's Building Codes page (PAR-CODES) establishes the 2024 International Codes (effective June 30, 2026) and the 2023 NEC through December 31, 2026 (followed by the 2026 NEC on January 1, 2027), the posted Solar PV Checklist PDF (PAR-S02) still contains two notes referencing the 2020 NEC. Confirm current code notes and structural design criteria with the Building Division before sealing plans."
+  },
+  "inspection_steps": {
+    "value": [
+      "After the Town completes plan review and fees are paid, download and print the Town-stamped 'Released for Construction' (RFCC) plan set in color; approved plans must be on site for all inspections.",
+      "Request inspections through eTRAKiT before 4:00 p.m. for next-business-day inspection. The residential solar checklist instructs scheduling Rough Electrical, Final Electrical, Rough Frame, Final Building, and (if applicable) Electrical Service inspections for the same day.",
+      "Between 7:30 a.m. and 8:30 a.m. on the morning of the scheduled inspection, call the Building Division at 303-841-1970 to speak directly with your inspector and arrange a 3-hour morning or afternoon arrival window.",
+      "Provide the inspector with the printed RFCC plans, the signed Solar Photovoltaic Rooftop Installation Affidavit, attic access for roof framing verification, and a qualified representative on site to open equipment covers and perform the rapid shutdown test.",
+      "After passing the Town final electrical and building inspections, submit the municipal inspection approval to CORE Electric Cooperative via PowerClerk and wait for CORE meter installation/release and Permission to Operate (PTO) before energizing the system in parallel with the grid."
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S05",
+      "PAR-S02",
+      "PAR-S14",
+      "PAR-AFFIDAVIT",
+      "PAR-S26",
+      "CORE-PROC"
+    ],
+    "notes": "Do not energize the system in parallel with CORE's distribution grid until CORE grants Permission to Operate."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 10,
+      "max_days": 14,
+      "notes": "The Town's Solar Energy Systems page states a goal of 10\u201314 business days to review simple solar permits. Separately, Obtaining Permits states that a Building Permit Technician evaluates new uploads for completeness within 3\u20135 business days before billing plan review fees. Parker does not advertise SolarAPP+ instant permitting, and utility interconnection review by CORE Electric Cooperative runs on a separate clock."
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S05",
+      "PAR-S11"
+    ],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": 10,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Town of Parker eTRAKiT Residential Solar Review + CORE Electric Cooperative Level 1 Net Metering",
+      "other_conditions": [
+        "Confirm your property is inside Town of Parker corporate limits using the Town map; unincorporated Douglas County addresses with a Parker ZIP code must permit through Douglas County.",
+        "Under CORE Electric Cooperative's Rooftop Solar rules, residential net-metered systems are capped at 10 kW AC and may not be sized to exceed 200% of the premises' previous 12 months of electricity usage (CORE's broader Level 1 inverter interconnection track covers systems up to 25 kW).",
+        "Contractors must register with the Town of Parker (call 303-841-1970) before being linked to a permit; electrical contractors must provide a current Colorado Electrical Contractor license and Master Electrician license ($0 Town registration fee).",
+        "While general Town rules and the Homeowner Affidavit allow homeowners to pull permits on their own primary, non-rented residence, the Solar PV Checklist requires the contractor on site for inspection and the Solar PV Rooftop Installation Affidavit states it must be completed by the electrical contractor or engineer of record. Homeowners should confirm solar DIY eligibility with the Building Division before applying.",
+        "Adopted code transition: Parker enforces the 2024 International Codes (effective June 30, 2026), 2025 Colorado Model Electric Ready and Solar Ready Code, and 2025 Colorado Wildfire Resiliency Code; the 2023 NEC remains in effect through December 31, 2026 and transitions to the 2026 NEC on January 1, 2027."
+      ]
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S05",
+      "PAR-S02",
+      "PAR-CODES",
+      "PAR-S10",
+      "PAR-S12",
+      "PAR-CONTRULES",
+      "PAR-HOMEAFF",
+      "PAR-ELECPROC",
+      "PAR-AFFIDAVIT",
+      "PAR-S26",
+      "PAR-S27",
+      "CORE-PROC"
+    ],
+    "notes": "The 10 kW AC maximum reflects CORE Electric Cooperative's published residential net-metering limit; larger systems or non-CORE premises follow different utility rules."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Town of Parker residential solar permit and plan review fee cap",
+        "amount_usd": 500,
+        "unit": "flat cap for residential solar-only permit and plan review",
+        "notes": "The Town's Solar Energy Systems page states: 'Permit and plan review fees for residential homes are $500 and for commercial projects $1000, per State requirements. Additional taxes will apply.' Administrative Code Table 3.2 (PAR-S07) likewise caps residential solar-only permits at $500.00 pursuant to C.R.S. 24-38.5-103."
+      },
+      {
+        "name": "Town of Parker and Douglas County estimated construction use tax deposit",
+        "amount_usd": null,
+        "unit": "4% of 50% of project valuation (2% of total valuation) collected at permit issuance",
+        "notes": "Per the Building Permit Fees page and January 2026 Construction Project Cost Report (PAR-S16, PAR-S18), the Town collects an estimated 4% use tax at permit issuance on 50% of total valuation (3% Town of Parker use tax + 1% Douglas County use tax), reconciled at the 3% Town rate within 60 days of final inspection. Separate valuation/fees apply to electrical service upgrades, sub-panels, or battery storage."
+      },
+      {
+        "name": "CORE Electric Cooperative Level 1 interconnection application fee",
+        "amount_usd": 350,
+        "unit": "per Level 1 interconnection application (inverter-based systems up to 25 kW)",
+        "notes": "Paid to CORE Electric Cooperative (not the Town of Parker) under Section 2.B of CORE's Small Generation Interconnection Procedures ( July 21, 2025)."
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "PAR-S05",
+      "PAR-S07",
+      "PAR-S16",
+      "PAR-S18",
+      "CORE-PROC"
+    ],
+    "notes": "Municipal permit/plan-review fees ($500 residential cap plus applicable use taxes and any separate panel-upgrade or storage valuation) are paid to the Town of Parker; the $350 Level 1 interconnection fee is paid separately to CORE Electric Cooperative."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Parker Building Division",
+        "role": "Municipal solar permits, eTRAKiT submittals, contractor registration, and inspections",
+        "phone": "303-841-1970",
+        "email": "building@parkerco.gov",
+        "url": "https://www.parkerco.gov/1693/Solar-Energy-Systems"
+      },
+      {
+        "name": "CORE Electric Cooperative Interconnection Team",
+        "role": "Electric utility Level 1 interconnection, PowerClerk applications, and net metering",
+        "phone": "800-332-9540",
+        "email": "interconnections@core.coop",
+        "url": "https://core.coop/my-cooperative/renewables/generation-interconnections/"
+      }
+    ],
+    "confidence": 0.98,
+    "source_ids": [
+      "PAR-S05",
+      "PAR-S12",
+      "PAR-S26",
+      "CORE-PROC"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "PAR-S05",
+      "title": "Town of Parker: Solar Energy Systems",
+      "url": "https://www.parkerco.gov/1693/Solar-Energy-Systems",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S02",
+      "title": "Solar Photovoltaic (PV) Systems Information Checklist (Residential)",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/14919/Solar-Photovoltaic-Systems-Information-Checklist?bidId=",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S03",
+      "title": "Building Permit Type and Subtype Definitions",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/16233/Building-Permit-Type-and-Subtype-Definitions?bidId=",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-CODES",
+      "title": "Town of Parker: Building Codes (2024 I-Codes and 2023/2026 NEC Schedule)",
+      "url": "https://www.parkerco.gov/445/Building-Codes",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S07",
+      "title": "Development Review Application Fees (Administrative Code Table 3.2 Electrical Permit Fees)",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/30045/Development-Review-Application-Fees-2025",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S10",
+      "title": "Town of Parker: Contractor Registration",
+      "url": "https://www.parkerco.gov/1934/Contractor-Registration",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S11",
+      "title": "Town of Parker: Obtaining Permits",
+      "url": "https://www.parkerco.gov/457/Obtaining-Permits",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S12",
+      "title": "Town of Parker: Building Division",
+      "url": "https://www.parkerco.gov/114/Building-Division",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S14",
+      "title": "Town of Parker: Homeowner Corner",
+      "url": "https://www.parkerco.gov/462/Homeowner-Corner",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S16",
+      "title": "Town of Parker: Building Permit Fees",
+      "url": "https://www.parkerco.gov/459/Building-Permit-Fees",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S18",
+      "title": "Construction Project Cost Report \u2014 January 2026",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/22608/Construction-Project-Cost-Report---January-2026?bidId=",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S20",
+      "title": "Town of Parker: HOA Resources and Utility Contacts",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/29919/HOA-Resources?bidId=",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S24",
+      "title": "Town of Parker: Services Provided by Other Agencies",
+      "url": "https://www.parkerco.gov/142/Services-Provided-by-Other-Agencies",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-AFFIDAVIT",
+      "title": "Solar Photovoltaic Rooftop Installation Affidavit",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/14917/Solar-Photovoltaic-Rooftop-Installation-Affidavit",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-DETACH",
+      "title": "Detach-Reattach Solar Photovoltaic Affidavit",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/29837/Detach-Reattach-Solar-Photovoltaic-Affidavit",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-HOMEAFF",
+      "title": "Homeowner Affidavit Agreement",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/21492/Homeowner-Affidavit-Agreement",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-CONTRULES",
+      "title": "Contractor Registration Rules for Parker",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/21491/Contractor-Registration-Rules-for-Parker",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-ELECPROC",
+      "title": "Contemporaneous Review Procedures for Electrical and Plumbing Licenses",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/26918/Contemporaneous-Review-Procedures-for-Electrical-and-Plumbing-Licenses",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-SAMPLE",
+      "title": "Town of Parker: Sample Solar System Plan",
+      "url": "https://www.parkerco.gov/DocumentCenter/View/14916/Sample-Solar-System-Plan",
+      "publisher": "Town of Parker",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S25",
+      "title": "CORE Electric Cooperative: Service Area Map",
+      "url": "https://core.coop/my-cooperative/service-area/",
+      "publisher": "CORE Electric Cooperative",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S26",
+      "title": "CORE Electric Cooperative: Generation Interconnections",
+      "url": "https://core.coop/my-cooperative/renewables/generation-interconnections/",
+      "publisher": "CORE Electric Cooperative",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PAR-S27",
+      "title": "CORE Electric Cooperative: Rooftop Solar",
+      "url": "https://core.coop/my-cooperative/renewables/rooftop-solar/",
+      "publisher": "CORE Electric Cooperative",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CORE-PROC",
+      "title": "CORE Electric Cooperative: Small Generation Interconnection Procedures (July 21, 2025)",
+      "url": "https://core.coop/wp-content/uploads/2025/08/CORESmallGenerationInterconnectionProcedures07212025.pdf",
+      "publisher": "CORE Electric Cooperative",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}

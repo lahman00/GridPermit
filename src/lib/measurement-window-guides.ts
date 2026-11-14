@@ -28,6 +28,7 @@ export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string
 	"co-boulder-boulder-multi",
 	"co-broomfield-broomfield-multi",
 	"co-adams-westminster-multi",
+	"co-douglas-parker-multi",
 ]);
 
 // These three pilot guides were already live before the Arvada release. Keep
@@ -48,6 +49,9 @@ export function isNewGuideDuringMeasurement(recordId: string | null | undefined)
  * guide can link to everything already published.
  */
 export function relatedPoolFor<T extends { recordId: string }>(currentRecordId: string, entries: T[]): T[] {
+	// Parker is newer than the nine pilots; preserve every previous pool.
+	if (currentRecordId === "co-douglas-parker-multi") return entries;
+	entries = entries.filter((entry) => entry.recordId !== "co-douglas-parker-multi");
 	// Westminster is newer than the eight pilots; preserve every previous pool.
 	if (currentRecordId === "co-adams-westminster-multi") return entries;
 	entries = entries.filter((entry) => entry.recordId !== "co-adams-westminster-multi");
