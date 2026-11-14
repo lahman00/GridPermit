@@ -417,6 +417,10 @@ export interface BuildFaqOptions {
 	documentContext?: boolean;
 	/** Preserve project/provider conditions for a combined City and utility list. */
 	combinedDocumentChecklist?: boolean;
+	/** Optional City/provider wording for the condition-preserving checklist. */
+	documentChecklistIntro?: string;
+	/** An expected review target must not become a verified upper bound. */
+	expectedReviewTimeline?: boolean;
 }
 
 export function buildFaqs(record: LocalityRecord, options: BuildFaqOptions = {}): FaqEntry[] {
@@ -459,7 +463,9 @@ export function buildFaqs(record: LocalityRecord, options: BuildFaqOptions = {})
 			q: timeline.isSameDaySolarAppOnly
 				? `How long does an expedited-eligible residential solar permit take in ${record.city.value}?`
 				: `How long does a residential solar permit take in ${record.city.value}?`,
-			a: timeline.standardPathCaveat ? `${baseAnswer} ${timeline.standardPathCaveat}` : baseAnswer,
+			a: options.expectedReviewTimeline
+				? `${baseAnswer} The City publishes an expected review period, not a guaranteed response or approval deadline.`
+				: timeline.standardPathCaveat ? `${baseAnswer} ${timeline.standardPathCaveat}` : baseAnswer,
 		});
 	}
 
@@ -467,9 +473,9 @@ export function buildFaqs(record: LocalityRecord, options: BuildFaqOptions = {})
 		const documentList = record.required_documents.value.map((d) =>
 			options.combinedDocumentChecklist && d.required_when ? `${d.name} (applies when: ${d.required_when})` : d.name
 		).join("; ");
-		const checklistIntro = options.combinedDocumentChecklist
+		const checklistIntro = options.documentChecklistIntro ?? (options.combinedDocumentChecklist
 			? "City and LPC submission documents include the following, subject to the project and provider conditions shown:"
-			: "The City's posted solar checklist lists:";
+			: "The City's posted solar checklist lists:");
 		faqs.push({
 			q: `What documents are required for a solar permit in ${record.city.value}?`,
 			a: options.documentContext
