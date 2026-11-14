@@ -1,0 +1,352 @@
+{
+  "record_id": "co-arapahoe-centennial-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy or CORE Electric Cooperative (check your address)",
+    "confidence": 0.95,
+    "source_ids": [
+      "UTILITY",
+      "PROPERTY"
+    ],
+    "notes": "Check your electric bill and the Centennial Property Search before applying. The City lists both providers; the utility serving your own address determines which interconnection process applies. A Centennial mailing address alone does not establish City permit jurisdiction."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The generation supplier has not been verified for a specific address. Check the account with your electric provider."
+  },
+  "city": {
+    "value": "Centennial",
+    "confidence": 1,
+    "source_ids": [
+      "BUILD"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Arapahoe County",
+    "confidence": 0.95,
+    "source_ids": [
+      "PROPERTY"
+    ],
+    "notes": "The City directs property-tax questions to Arapahoe County. Confirm the property is within Centennial City limits before using this permit route."
+  },
+  "permit_authority": {
+    "value": "City of Centennial Building Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "BUILD",
+      "APPLY"
+    ],
+    "notes": "For work within Centennial City limits. Confirm jurisdiction with the Building Division if the property address or boundary is unclear."
+  },
+  "permit_url": {
+    "value": "https://www.centennialco.gov/Online-Services/Apply-for-a-Building-Permit",
+    "confidence": 0.95,
+    "source_ids": [
+      "APPLY",
+      "CLASS"
+    ],
+    "notes": "Apply through the linked Self-Service Portal. The City classifies residential solar as Residential Renewable Energy. Have the address, labor-and-materials valuation, project description, contractor details and PDF plans ready."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+    "confidence": 0.95,
+    "source_ids": [
+      "XCEL",
+      "CORE"
+    ],
+    "notes": "Choose the link for the provider on your electric bill. Xcel uses its DER Application Portal; CORE links to PowerClerk and its Small Generation Interconnection requirements. City permit approval does not authorize grid operation. Xcel recommends waiting for engineering approval and signed agreements before installation, then requires its permission to operate. CORE customers must follow the applicable interconnection approval and inspection process."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No battery incentive was verified for this guide. Storage interconnection rules do not establish rebate eligibility."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "No solar installation rebate was verified for this guide. Check current programs and eligibility with your own electric provider before budgeting for an incentive."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Project overview, scope of work and roof-framing information",
+        "required_when": null,
+        "source_ids": [
+          "PV"
+        ]
+      },
+      {
+        "name": "Aerial and vicinity maps, plus site and roof plans showing equipment locations",
+        "required_when": null,
+        "source_ids": [
+          "PV"
+        ]
+      },
+      {
+        "name": "Complete electrical three-line diagram",
+        "required_when": "The City solar guide requests a three-line diagram; Xcel separately requests a line diagram with customer name, address and AC/DC system size.",
+        "source_ids": [
+          "PV",
+          "XCEL"
+        ]
+      },
+      {
+        "name": "Stamped and sealed letter from a licensed structural engineer",
+        "required_when": "Structural evaluation required by the posted City solar guide.",
+        "source_ids": [
+          "PV"
+        ]
+      },
+      {
+        "name": "Manufacturer mounting details, equipment specifications and required signage",
+        "required_when": null,
+        "source_ids": [
+          "PV"
+        ]
+      },
+      {
+        "name": "Utility interconnection application and supporting documents",
+        "required_when": "Use CORE/IREA documents only for CORE-served properties. Xcel customers should confirm the equivalent upload with the City and follow Xcel requirements.",
+        "source_ids": [
+          "PV",
+          "XCEL",
+          "CORE"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "PV",
+      "BUILD",
+      "XCEL",
+      "CORE"
+    ],
+    "notes": "This checklist summarizes the posted City solar guide and the separate utility steps. The PDF contains conflicting code references, including NEC 2020 and older International Codes; the Building Division code list names NEC 2023 and 2021 International Codes. Confirm the current editions, local amendments and required uploads with the City. The CORE/IREA references in the PDF do not establish requirements for Xcel accounts."
+  },
+  "inspection_steps": {
+    "value": [
+      "Confirm City permit issuance and the required approval from your electric provider before starting work.",
+      "The posted City solar guide calls for final electrical and building inspections with the electrician present and says no rough inspection is needed for its described installation. Confirm the inspection list for your actual scope, especially storage, structural work or a service upgrade.",
+      "For CORE-served properties, the City guide calls for CORE/IREA approval before requesting its final inspection. After the passed City inspection, follow CORE's meter-release and inspection requirements; parallel operation requires the applicable utility authorization and witness test or waiver.",
+      "For Xcel-served properties, submit the final municipal electrical inspection through the utility application process and wait for Xcel permission to operate. City final approval and utility permission to operate are separate milestones."
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "PV",
+      "FAQ",
+      "CORE-PROC",
+      "XCEL"
+    ],
+    "notes": "Schedule through the City Self-Service Portal. The City FAQ gives a 3:30 p.m. request cutoff for consideration for the next business day, but expressly says next-day inspections are not guaranteed."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 5,
+      "notes": "The City review schedule lists an expected 5 business days to first comments for Residential Renewable Energy. Review starts with a complete submittal and payment of the plan-review fee. This is not a permit-issuance deadline or a total installation or utility-approval timeline; corrections and subsequent reviews can add time."
+    },
+    "confidence": 0.95,
+    "source_ids": [
+      "REVIEW"
+    ],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential Renewable Energy permit review",
+      "other_conditions": [
+        "Use the City permit route only after confirming the property is inside Centennial. Separately identify Xcel or CORE electric service by address.",
+        "The solar guide requires the licensed electrical contractor to be identified at application. The general City FAQ allows an owner doing the work in their own occupied residence to use a Homeowner Agreement, but it does not establish a solar-specific exception. Confirm who must hold the solar and electrical permits before applying.",
+        "The Building Division code list names NEC 2023 and 2021 International Codes, while the solar PDF and other City text retain older editions. Ask the Building Division which editions and local amendments apply to your submission.",
+        "The 5-business-day review period is for first comments after a complete submittal and plan-review fee payment. It is not automatic approval or utility permission to operate.",
+        "Battery storage, ground-mounted arrays, electrical service upgrades and structural changes need project-specific confirmation. Utility sizing and net-metering requirements depend on the provider and system; no city-wide kW limit is established here."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "PV",
+      "FAQ",
+      "BUILD",
+      "CLASS",
+      "REVIEW",
+      "LICENSE",
+      "PROPERTY",
+      "UTILITY"
+    ],
+    "notes": "Contractors must meet City registration and applicable Colorado licensing requirements. This guide does not establish a homeowner solar exception or eligibility for an expedited electronic approval."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Posted electrical fee: valuation of $2,000 or less",
+        "amount_usd": 100,
+        "unit": "electrical work valued at $2,000 or less",
+        "notes": "The All Other Electrical Fees section expressly includes photovoltaic installations. This is one fee component, not a total solar permit quote."
+      },
+      {
+        "name": "Posted electrical fee: valuation above $2,000",
+        "amount_usd": null,
+        "unit": null,
+        "notes": "The schedule specifies $100 plus $5 per $1,000 or fraction of the total electrical valuation. Its example is $5,150 of valuation with a $130 electrical fee. Confirm the valuation and current schedule with the City."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "FEE",
+      "TAX"
+    ],
+    "notes": "The posted fee PDF has no verified effective date. Confirm any separate permit, plan-review, utility and applicable tax charges, and whether renewable-energy tax exemptions apply. The general use-tax page alone does not establish the tax due on a particular solar project. No complete solar permit total is verified here."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Centennial Building Division",
+        "role": "Permit jurisdiction, current codes, applicant eligibility, fees and inspections",
+        "phone": "303-754-3321",
+        "email": "buildingdivision@centennialco.gov",
+        "url": "https://www.centennialco.gov/Government/Departments/Building"
+      },
+      {
+        "name": "CORE Electric Cooperative",
+        "role": "Interconnection for CORE-served properties",
+        "phone": "800-332-9540",
+        "email": "interconnections@core.coop",
+        "url": "https://core.coop/my-cooperative/renewables/generation-interconnections/"
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "BUILD",
+      "CORE",
+      "CORE-PROC"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-14",
+  "sources": [
+    {
+      "id": "BUILD",
+      "title": "Building Division: current codes and contacts",
+      "url": "https://www.centennialco.gov/Government/Departments/Building",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PV",
+      "title": "Photovoltaic (Solar) Panels and Modules Guide",
+      "url": "https://www.centennialco.gov/files/sharedassets/public/v/4/documents/building/photovoltaic-solar-installation-ada.pdf",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "APPLY",
+      "title": "Apply for a Building Permit",
+      "url": "https://www.centennialco.gov/Online-Services/Apply-for-a-Building-Permit",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CLASS",
+      "title": "Building Permit Classifications",
+      "url": "https://www.centennialco.gov/Online-Services/Apply-for-a-Building-Permit/Building-Permit-Classifications",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "REVIEW",
+      "title": "Building Permit Review Schedule",
+      "url": "https://www.centennialco.gov/Government/Departments/Building/Building-Review-Schedule",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FEE",
+      "title": "Building Permit Fee Schedule",
+      "url": "https://www.centennialco.gov/files/sharedassets/public/v/5/documents/building/building-permit-fee-schedule-ada.pdf",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "FAQ",
+      "title": "Building Frequently Asked Questions",
+      "url": "https://www.centennialco.gov/Government/Departments/Building/Building-Frequently-Asked-Questions",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "LICENSE",
+      "title": "Apply or Renew a Contractor License",
+      "url": "https://www.centennialco.gov/Online-Services/Apply-or-Renew-a-Contractor-License",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "TAX",
+      "title": "Building Materials Use Tax Frequently Asked Questions",
+      "url": "https://www.centennialco.gov/Government/Departments/Building/Building-Materials-Use-Tax",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "UTILITY",
+      "title": "Trash and Utilities: providers by address",
+      "url": "https://www.centennialco.gov/Residents/Living-Here/Trash-Utilities",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "PROPERTY",
+      "title": "Centennial Property Search",
+      "url": "https://www.centennialco.gov/Online-Services/Property-Search",
+      "publisher": "City of Centennial",
+      "type": "government",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "XCEL",
+      "title": "Xcel Energy: Colorado Solar Application Process",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CORE",
+      "title": "CORE: Generation Interconnections",
+      "url": "https://core.coop/my-cooperative/renewables/generation-interconnections/",
+      "publisher": "CORE Electric Cooperative",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    },
+    {
+      "id": "CORE-PROC",
+      "title": "CORE: Small Generation Interconnection Procedures (July 21, 2025)",
+      "url": "https://core.coop/wp-content/uploads/2025/08/CORESmallGenerationInterconnectionProcedures07212025.pdf",
+      "publisher": "CORE Electric Cooperative",
+      "type": "utility",
+      "accessed_date": "2026-11-14"
+    }
+  ]
+}
