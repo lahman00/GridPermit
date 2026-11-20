@@ -197,3 +197,49 @@ test("record_id must match the kebab-case pattern — a record_id with an unders
 	const report = await validate(writeFixture(r));
 	assert.ok(report.errors.some((e) => e.category === "schema_violation"));
 });
+
+// --- capture attestations for URLs that refuse automated requests ---
+
+test("a blocked URL is covered only by a valid, recent capture of the exact URL for the same record", async () => {
+	const { captureCovering, CAPTURE_MAX_AGE_DAYS } = await import("../scripts/validate-record.mjs");
+	const record = { record_id: "co-test-city-xcel", last_verified: "2026-11-20" };
+	const url = "https://www.example-city.gov/building/solar";
+	const blocked = { url, status: "BLOCKED_OR_UNVERIFIABLE", http_status: 403 };
+	const capture = { url, http_status: 200, sha256: "a".repeat(64), bytes: 1234, captured_at: "2026-11-20T14:11:57Z", method: "headless-browser" };
+	const attestation = { record_id: "co-test-city-xcel", captures: [capture] };
+	const now = new Date("2026-11-21T00:00:00Z");
+	assert.equal(captureCovering(blocked, attestation, record, now), capture);
+	assert.equal(captureCovering({ ...blocked, http_status: 429 }, attestation, record, now), capture);
+	// Not an explicit refusal: a timeout, a 5xx or a bot-challenge page can hide a dead page.
+	assert.equal(captureCovering({ ...blocked, http_status: null }, attestation, record, now), null);
+	assert.equal(captureCovering({ ...blocked, http_status: 503 }, attestation, record, now), null);
+	assert.equal(captureCovering({ ...blocked, http_status: 200 }, attestation, record, now), null);
+	// A confirmed-broken or reachable URL is never touched.
+	assert.equal(captureCovering({ ...blocked, status: "CONFIRMED_BROKEN", http_status: 404 }, attestation, record, now), null);
+	// Wrong URL, wrong record, missing file.
+	assert.equal(captureCovering({ ...blocked, url: url + "/" }, attestation, record, now), null);
+	assert.equal(captureCovering(blocked, { ...attestation, record_id: "co-other-city-xcel" }, record, now), null);
+	assert.equal(captureCovering(blocked, null, record, now), null);
+	// Capture did not succeed, has no hash, is empty, is in the future, or is too old.
+	for (const bad of [{ http_status: 403 }, { sha256: "abc" }, { bytes: 0 }, { captured_at: "2026-11-22T00:00:00Z" }, { captured_at: "2026-09-01T00:00:00Z" }, { captured_at: "not a date" }]) {
+		assert.equal(captureCovering(blocked, { ...attestation, captures: [{ ...capture, ...bad }] }, record, now), null, JSON.stringify(bad));
+	}
+	assert.equal(CAPTURE_MAX_AGE_DAYS, 30);
+});
+
+test("no published record changes score: attestations exist only for records that cite them", async () => {
+	const { readdirSync, readFileSync, existsSync } = await import("node:fs");
+	const { CAPTURE_ATTESTATION_DIR } = await import("../scripts/validate-record.mjs");
+	const files = existsSync(CAPTURE_ATTESTATION_DIR) ? readdirSync(CAPTURE_ATTESTATION_DIR).filter((f) => f.endsWith(".json")) : [];
+	for (const file of files) {
+		const attestation = JSON.parse(readFileSync(path.join(CAPTURE_ATTESTATION_DIR, file), "utf8"));
+		assert.equal(`${attestation.record_id}.json`, file);
+		const record = JSON.parse(readFileSync(path.join(CAPTURE_ATTESTATION_DIR, "..", "localities", file), "utf8"));
+		const cited = new Set(JSON.stringify(record).match(/https?:\/\/[^"\\]+/g) ?? []);
+		for (const capture of attestation.captures) {
+			assert.ok(cited.has(capture.url), `${file}: ${capture.url} is not cited by the record`);
+			assert.match(capture.sha256, /^[0-9a-f]{64}$/);
+			assert.equal(Number(capture.http_status), 200);
+		}
+	}
+});
