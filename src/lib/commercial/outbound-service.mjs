@@ -21,11 +21,12 @@ export async function recordOutbound(store,event,now=Date.now()){
  if(!control?.ok||!Number.isFinite(Date.parse(control.checked_at))||now-Date.parse(control.checked_at)>90*60000||Date.parse(control.checked_at)>now)throw new Error('RETENTION_NOT_HEALTHY');
  const key=eventKey(event),prior=await store.get(key,{type:'json',consistency:'strong'});
  if(prior)return sameClick(prior,event)?'DUPLICATE':'CAPACITY_COLLISION';
- await store.setJSON(key,event,{onlyIfNew:true});
+ const write=await store.setJSON(key,event,{onlyIfNew:true});
  // Do not trust conditional-write success flags alone. A fresh strong read
  // proves the exact event survived before acknowledging OUTBOUND_RECORDED.
  const saved=await store.get(key,{type:'json',consistency:'strong'});
- if(!sameClick(saved,event))throw new Error('WRITE_NOT_CONFIRMED');
+ if(!sameClick(saved,event)){if(write?.created===false)return 'CAPACITY_COLLISION';throw new Error('WRITE_NOT_CONFIRMED');}
+ if(write?.created===false)return 'DUPLICATE';
  return saved.timestamp===event.timestamp?'RECORDED':'DUPLICATE';
 }
 async function boundedBody(request){

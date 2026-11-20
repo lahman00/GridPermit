@@ -16,7 +16,7 @@ for(const row of rows){
 }
 await mkdir('netlify/generated',{recursive:true});
 await writeFile('netlify/generated/outbound-routes.json',JSON.stringify(routes,null,2)+'\n');
-let commit=null;try{commit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();}catch{}
+let commit=process.env.VERCEL_GIT_COMMIT_SHA??null;try{commit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8',stdio:['ignore','pipe','pipe']}).trim();}catch{}
 const manifest=await sourceManifest(root);
-await writeFile('dist/gridpermit-release.json',JSON.stringify({schema_version:2,base_commit:commit,source_sha256:manifest.sha256,partners:registry.partners.filter(p=>p.status==='ACTIVE').map(p=>p.partner_id),outbound_telemetry:'netlify-blobs-v1'},null,2)+'\n');
+await writeFile('dist/gridpermit-release.json',JSON.stringify({schema_version:2,base_commit:commit,source_sha256:manifest.sha256,partners:registry.partners.filter(p=>p.status==='ACTIVE').map(p=>p.partner_id),outbound_telemetry:process.env.VERCEL?'neon-postgres-v1':'netlify-blobs-v1'},null,2)+'\n');
 console.log('Built outbound manifest:',routes.length,'approved page placements');

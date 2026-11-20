@@ -25,7 +25,7 @@ export async function verifyRelease(root=process.cwd()) {
  const readJson=async p=>JSON.parse(await readFile(path.join(root,p),'utf8'));
  const routes=await readJson('netlify/generated/outbound-routes.json'),release=await readJson('dist/gridpermit-release.json'),cityHtml={},functionNames=[];
  for(const city of [...REQUIRED_CITY_SLUGS,'mission-viejo','corona']){try{cityHtml[city]=await readFile(path.join(root,'dist','california',city,'solar-permit-guide','index.html'),'utf8');}catch(e){if(e.code!=='ENOENT')throw e;cityHtml[city]='';}}
- for(const name of ['outbound','outbound-health','outbound-retention']){try{await readFile(path.join(root,'netlify','functions',name+'.mjs'));functionNames.push(name);}catch(e){if(e.code!=='ENOENT')throw e;}}
+ for(const name of ['outbound','outbound-health','outbound-retention']){try{await readFile(path.join(root,...(process.env.VERCEL?['api']:['netlify','functions']),name+'.mjs'));functionNames.push(name);}catch(e){if(e.code!=='ENOENT')throw e;}}
  const batteryHtml=await readFile(path.join(root,'dist/blog/sdge-battery-roi-guide/index.html'),'utf8');
  const errors=checkReleaseContract({routes,release,cityHtml,batteryHtml,functionNames});if(errors.length)throw new Error(errors.join('\n'));
  return {ok:true,routes:routes.length,required_cities:REQUIRED_CITY_SLUGS.length,functions:functionNames.length,unsafe_utility_routes_blocked:true};
