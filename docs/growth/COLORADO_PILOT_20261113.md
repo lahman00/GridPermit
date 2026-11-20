@@ -71,3 +71,13 @@ Twelve more Colorado cities were researched from raw captures of official source
 - Grand Junction permits are issued by the Mesa County Building Department. Which of Xcel Energy and Grand Valley Power serves an address is not stated by either source, and the guide says so.
 - Measurement window: the three ids are in `NEW_GUIDES_DURING_MEASUREMENT` and in the batch 2 set of `relatedPoolFor`, so no existing guide's related list changes. `utility-hub.ts` and `county-hub.ts` now skip guides published during the window; without that, the new Xcel guides would have created an "Xcel Energy" hub and changed the hub link on existing Xcel guides.
 - Not built, with reasons (research kept): Greeley, Castle Rock, Pueblo, Windsor, Northglenn (official pages captured do not give a solar document list, a solar fee, or the City site refuses automated access); Brighton (audit passed, held back by the coordinator as too thin on the City side); Englewood, Littleton, Commerce City (audited and ready, but the validation score is below 85 only because the city sites answer automated link checks with 403; they need an owner decision on that gate before publication).
+
+## Capture attestations and Englewood, Littleton, Commerce City (2026-11-20, owner-approved gate change)
+
+Some city sites answer every automated request with HTTP 403 although their pages open normally. The validator charged 2 points per such link, so a record whose sources were all read in a browser could fall below the READY threshold of 85 only because it cited many pages of one blocked site.
+
+`scripts/validate-record.mjs` now reads `data/source-captures/<record_id>.json`. A URL that returns HTTP 401, 403 or 429 carries no score penalty when that file holds a capture of the exact URL: HTTP 200 in a browser session, a SHA-256 of the saved copy, taken within 30 days of the record's `last_verified`. The finding is still reported (`blocked_url_with_capture`), so a report never looks cleaner than the network check was. Timeouts, DNS failures, 5xx responses, bot-challenge pages and 404/410 are treated exactly as before. A record without an attestation file scores exactly as before, so no existing record's score changes.
+
+Each attested hash was re-checked against the saved file on the owner's computer before commit; entries that could not be re-checked were left out and keep their penalty.
+
+With that rule, three audited records publish: Englewood (validation 100), Littleton (96) and Commerce City (96). They follow the same embargo as the other batch 2 guides.

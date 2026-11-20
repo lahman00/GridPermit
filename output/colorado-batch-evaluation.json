@@ -1,7 +1,42 @@
 {
   "state": "CO",
-  "generated_at": "2026-11-20T15:38:01.654Z",
+  "generated_at": "2026-11-20T19:41:01.400Z",
   "records": [
+    {
+      "record_id": "co-adams-commerce-city-multi",
+      "state": "CO",
+      "city": "Commerce City",
+      "county": "Adams County",
+      "completeness_pct": 93.3,
+      "validation_score": 96,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 23,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture",
+        "broken_url"
+      ],
+      "readiness": "READY"
+    },
     {
       "record_id": "co-adams-thornton-multi",
       "state": "CO",
@@ -128,6 +163,75 @@
         "rebates"
       ],
       "warning_categories": [],
+      "readiness": "READY"
+    },
+    {
+      "record_id": "co-arapahoe-englewood-xcel",
+      "state": "CO",
+      "city": "Englewood",
+      "county": "Arapahoe County",
+      "completeness_pct": 93.3,
+      "validation_score": 100,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 15,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture"
+      ],
+      "readiness": "READY"
+    },
+    {
+      "record_id": "co-arapahoe-littleton-xcel",
+      "state": "CO",
+      "city": "Littleton",
+      "county": "Arapahoe, Jefferson and Douglas counties",
+      "completeness_pct": 93.3,
+      "validation_score": 96,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 19,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture",
+        "broken_url"
+      ],
       "readiness": "READY"
     },
     {
@@ -565,12 +669,12 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 84.7,
-    "average_validation_score": 95.8,
+    "average_completeness_pct": 86,
+    "average_validation_score": 96.1,
     "fields_most_often_missing": [
       {
         "field": "timeline_days",
-        "missing_in_records": 12
+        "missing_in_records": 15
       },
       {
         "field": "generation_supplier",
@@ -608,10 +712,13 @@
   },
   "batch_recommendation": {
     "recommended_publish_record_ids": [
+      "co-adams-commerce-city-multi",
       "co-adams-thornton-multi",
       "co-adams-westminster-multi",
       "co-arapahoe-aurora-xcel",
       "co-arapahoe-centennial-multi",
+      "co-arapahoe-englewood-xcel",
+      "co-arapahoe-littleton-xcel",
       "co-boulder-boulder-multi",
       "co-boulder-lafayette-xcel",
       "co-boulder-longmont-multi",

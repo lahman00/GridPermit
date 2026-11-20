@@ -1,0 +1,563 @@
+{
+  "record_id": "co-arapahoe-littleton-xcel",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy",
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "notes": "The City's New to Littleton page lists Xcel Energy as the electric utility serving Littleton, and Xcel Energy's list of Colorado communities served (10/2015) shows Littleton with gas and electricity service. The City's Utilities page links Xcel Energy for starting, stopping or transferring gas and electric service. No City page says that every address in the city is served by Xcel Energy, so confirm the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy, so check the utility named on your electric bill."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Littleton",
+    "confidence": 0.95,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Arapahoe, Jefferson and Douglas counties",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Littleton city limits are in three counties: Arapahoe, Jefferson and Douglas."
+  },
+  "permit_authority": {
+    "value": "City of Littleton Building Division (Community Development)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S4",
+      "S5",
+      "S6",
+      "S1",
+      "S7",
+      "S8"
+    ],
+    "notes": "The Building Division is part of the Community Development Department and includes the Permit Center. It reviews building applications and plans, inspects construction and verifies contractor licensing. The City's rooftop solar and energy storage requirements apply to residential systems administered by Littleton's Building and Code Compliance Division, and other City departments or outside authorities may require additional permits, fees or inspections. Many neighborhoods with a Littleton mailing address are not inside the city limits, including neighborhoods in unincorporated Jefferson and Douglas counties. Use the City's Address Wizard to check whether an address is in the city limits, because eTRAKiT applicants must confirm this before they apply. DORA lists Arapahoe (except Bow Mar, Deer Trail and Sheridan city limits), Douglas and Jefferson counties as local electrical inspection areas, and the State does not inspect in local jurisdictions that have their own electrical inspection program."
+  },
+  "permit_url": {
+    "value": "https://www.littletonco.gov/Building-Development/Permits-Review-Guides-and-Requirements/Residential-Submittal-Requirements",
+    "confidence": 0.95,
+    "source_ids": [
+      "S6",
+      "S9",
+      "S10",
+      "S7"
+    ],
+    "notes": "This page holds the City's Residential Rooftop Solar and ESS Requirements. All permits are required to be submitted through the eTRAKiT portal, which the City's eTRAKiT FAQ gives as https://permit9.littletonco.gov/eTRAKiT/. In eTRAKiT you can view the anticipated issue date for a permit."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.8,
+    "source_ids": [
+      "S11",
+      "S12",
+      "S6"
+    ],
+    "notes": "For Xcel Energy customers. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction not start until your application has full approval from its engineering team and all final agreements are signed. Xcel's interconnection process ends with a permission to operate letter to the generator owner, which is separate from the City permit and the City's inspections. The City asks for the utility interconnection status on the electrical cover sheet of the solar plans."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events, for 5 years.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program. Eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel Energy is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S13",
+      "S6"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page, which shows 2026 incentive budget available on figures dated 11/02/2026. A battery installed in Littleton must also meet the City's energy storage rules on listing, location and alarms."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Plans with the applicable codes noted and the project address on each document",
+        "required_when": "All residential rooftop solar and ESS submittals. All documents are required to be submitted electronically, and plans marked Preliminary or Not for Construction are unacceptable.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Structural engineer's letter, digitally stamped and signed by a State of Colorado-registered Structural Engineer",
+        "required_when": "Submitted as part of the building permit application. The letter must state that the engineer has evaluated the existing, non-concealed elements of the structure, considered the proposed PV improvements and Littleton design criteria, and either verifies that no structural modifications are required or provides the design for them.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Structural sheets stamped and signed by a Colorado-registered Structural Engineer",
+        "required_when": "All sheets in the drawing set that contain structural design or related information.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Electrical sheets stamped and signed by a Colorado-registered Electrical Engineer",
+        "required_when": "All sheets in the drawing set that contain electrical design or related information.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Electrical cover sheet",
+        "required_when": "Shows the project address, a location map, designer, installer and contractor contacts, system capacity in DC and AC, utility interconnection status and whether an ESS is included.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Dimensioned site plan",
+        "required_when": "Shows the property layout, solar array, required pathways and setbacks, and equipment such as power storage, disconnects, panels and meters.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "One-line and/or three-line diagram of the whole PV system and wiring",
+        "required_when": "Part of the electrical sheets.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Roof attachment diagram",
+        "required_when": "Shows how panels or modules attach to the existing roof.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Required warning labels shown on the plans",
+        "required_when": "Part of the electrical sheets.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "NEC compliance calculations and details",
+        "required_when": "Calculations and details needed to show compliance with the National Electrical Code as adopted by the City.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Battery (ESS) warning labels, operation and maintenance manuals, and service contact information (if a battery is installed)",
+        "required_when": "Energy storage systems.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Homeowner Affidavit (if the homeowner performs the work)",
+        "required_when": "Required from a homeowner performing a project that involves only one discipline. The City's pages do not say whether a homeowner may install their own rooftop PV system.",
+        "source_ids": [
+          "S9"
+        ]
+      },
+      {
+        "name": "Written revision narrative and full-page replacements (resubmittals)",
+        "required_when": "Explain each revision by page number, section or detail number. After you upload documents in eTRAKiT, email the Permit Center with the permit number and job address. The solar requirements and Permits page give permits@littletonco.gov, while the eTRAKiT page gives buildingpermits@littletongov.org, so confirm the address with the Permit Center at 303-795-3751.",
+        "source_ids": [
+          "S9",
+          "S6"
+        ]
+      }
+    ],
+    "confidence": 0.95,
+    "source_ids": [
+      "S6",
+      "S9"
+    ],
+    "notes": "From the City's Residential Rooftop Solar and ESS Requirements, which say the electrical sheets should at least provide the listed information. The requirements cover rooftop systems and do not describe separate requirements for ground-mounted systems, expansions or panel upgrades."
+  },
+  "inspection_steps": {
+    "value": [
+      "In most cases your installer submits the interconnection application to Xcel Energy, or you can manage your own. Xcel highly recommends not starting construction until its engineering team fully approves the application and all final agreements are signed.",
+      "Confirm the address is inside Littleton city limits with the Address Wizard, then apply in eTRAKiT and upload the solar plan set and the structural engineer's letter.",
+      "Pay the plan review fee when you submit. The application is not processed until it is paid.",
+      "After the permit is issued, schedule inspections in eTRAKiT, up to seven business days in advance.",
+      "Install no more than 25% of the panels before the rough frame and rough electrical inspection.",
+      "Get each required inspection approved before starting the next phase. Inspections must be marked approved to move forward to final.",
+      "Xcel coordinates any needed work on its system, witness tests and energizes the system, and ends its process with a permission to operate letter."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11",
+      "S1",
+      "S7",
+      "S9",
+      "S6",
+      "S14",
+      "S15",
+      "S12",
+      "S16"
+    ],
+    "notes": "The City's pages give two scheduling deadlines: the Building Inspections page (and a banner on the Permits page) says requests made by 4:00 p.m., Monday through Friday, go on the next business day's schedule, while the FAQ on the Permits page says requests must be received by 11:59 pm on the business day before the inspection. Confirm the cutoff with the Permit Center. The owner, if the homeowner applied for the permit, or the contractor is responsible for requesting inspections in advance. Indoor inspections will not be performed if an adult is not present. A third failed inspection of the same item places the permit on a three-business-day hold. The City's pages do not name the final solar inspection or say what the City sends Xcel after final approval. The City permit and inspections are separate from Xcel's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City publishes no plan review or processing time for residential solar. eTRAKiT shows the anticipated issue date for each permit."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential rooftop solar permit, applied for in eTRAKiT",
+      "other_conditions": [
+        "The City describes no expedited or same-day permit path for residential solar.",
+        "Contractors and installers must be licensed to perform photovoltaic and electrical work within the City of Littleton.",
+        "The contractor license application lists a Class D-20 Solar PV license (Class D licenses are $50 each) and a no-fee Class E Electrical Contractor Registration. Electrical contractors must show an active State of Colorado Master's or Journeyman's license and a State Contractor's license.",
+        "If the electrical contractor of record is unknown when you apply, the permit is not issued until that contractor has met the City's license checks (Policy 20-002).",
+        "The City's pages give two insurance amounts for contractor licenses: the licensing web page requires $1,000,000 per occurrence and $2,000,000 aggregate for all licenses, while the license application (Revised 4/2022) lists $500,000 single occurrence for Class A and B and $300,000 single occurrence for all others. Confirm the current amount with the Permit Center.",
+        "Building permits may be applied for by contractors licensed with the City and by homeowners who reside in the structure. Homeowner permits are only for residential properties and for people who own, use and occupy them.",
+        "The solar requirements say contractors and installers must be licensed, and the City's pages do not say whether a homeowner may install their own rooftop PV system.",
+        "Townhouses and multi-family buildings: the PV system, pathways and setbacks must stay within the roof area allocated to the individual unit.",
+        "Where roofs of separate properties adjoin, a roof-mounted PV system may not encroach within 18 inches of the shared property line (City amendment to IRC R329.6, Ordinance 11, Series 2025).",
+        "Panels must be listed to UL 1703 or to both UL 61730-1 and UL 61730-2, inverters to UL 1741, and grid-connected systems must use inverters listed for utility interaction.",
+        "Exposed roof grounding conductors must be 6 AWG copper or larger, and a single rod, pipe or plate grounding electrode needs a supplemental electrode.",
+        "Batteries (ESS) must be listed to UL 9540 and installed per IRC R328.4, the NEC and Littleton amendments. They are allowed only in detached garages or detached accessory structures, attached garages separated from living space, outdoors at least 3 feet from doors and windows into the home, or enclosed utility closets, basements, storage or utility spaces with finished or noncombustible walls and ceilings, and never in sleeping rooms or in closets or spaces opening into them. Unfinished wood-framed walls and ceilings must be covered with at least 5/8 inch Type X gypsum wallboard.",
+        "Batteries inside dwelling units, basements and attached garages need interconnected smoke alarms or heat detectors.",
+        "The City has adopted the 2024 International Residential Code, the 2026 National Electrical Code and the Colorado Model Electric Ready and Solar Ready Code.",
+        "The solar requirements link to Littleton's design criteria but do not print snow or wind loads. Ordinance 11, Series 2025 sets ground snow loads for prescriptive IRC designs at no less than 40 pounds per square foot. The City's pages state no solar-specific zoning, HOA or historic review rule, although the City runs a historic preservation program for historic buildings, sites and neighborhoods.",
+        "Plug-in solar: under Policy 26-002 (effective August 12, 2026), one qualifying portable device per dwelling unit that supplies no more than 1,920 watts to the grid may connect to one existing wall outlet without a City electrical permit if no wiring or electrical equipment is installed or altered and the policy's other conditions are met (complete listed system, code-compliant receptacle and circuit, no overload). Installing or altering a receptacle, circuit, wiring, disconnect or panel to serve it needs a City electrical permit first.",
+        "Xcel Energy net metering (for Xcel customers): expected generation, combined with other distributed generation at the service address, must not exceed 200% of historical consumption, and all equipment must be UL 1741 SB certified and listed on the California Energy Commission Solar Equipment Lists.",
+        "Xcel Energy: you must be an Xcel residential or business electricity customer, and the name on the application must match the name on the Xcel account or bill."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S6",
+      "S9",
+      "S17",
+      "S18",
+      "S19",
+      "S20",
+      "S5",
+      "S21",
+      "S11"
+    ],
+    "notes": "Licensing, structural, electrical and battery conditions are the City's. Sizing, equipment and account conditions marked Xcel Energy apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Inspection during normal business hours",
+        "amount_usd": 80,
+        "unit": "per hour (or the total hourly cost to the City, whichever is greater)",
+        "notes": null
+      },
+      {
+        "name": "Re-inspection",
+        "amount_usd": 80,
+        "unit": "per hour, on the fee schedule (or the total hourly cost to the City, whichever is greater)",
+        "notes": "The City's pages differ on when it applies: the Permits page FAQ says a fee of $80 may be assessed upon the third failure of an inspection type and each failure after, while Policy #26-002 (2/10/2026) says an $80 fee is assessed when the same item fails a second time and no inspections may be scheduled until it is paid. Confirm with the Permit Center."
+      },
+      {
+        "name": "Review of plan revisions or resubmittals",
+        "amount_usd": 160,
+        "unit": "minimum, first two hours (or the total hourly cost to the City, whichever is greater)",
+        "notes": "$80 per hour for each hour after the first two."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S22",
+      "S9",
+      "S16",
+      "S14",
+      "S10",
+      "S23"
+    ],
+    "notes": "The City prints no flat or solar-specific permit fee. Building permit fees use the valuation table approved by City Council on December 21, 2025 (Resolution 2025-105), whose fee column is headed 2025 FEES. The table starts at $25.85 for a valuation of $1 to $500.00. From $500.01 to $2,000.00 it is $25.85 for the first $500 plus $3.35 for each additional $100 or fraction thereof. From $2,000.01 to $25,000.00 it is $76.17 for the first $2,000 plus $15.40 for each additional $1,000 or fraction thereof. From $25,000.01 to $50,000.00 it is $430.37 for the first $25,000 plus $11.11 for each additional $1,000 or fraction thereof. The plan review fee is 65% of the permit fee and applies only when construction documents are reviewed. Project valuation must be stated on the application and is verified by the Building Division during plan review. The building permit also carries a use tax deposit of .01969 x total job valuation ((total job valuation x 52.5%) x 3.75%) and an Arapahoe County Open Space Tax of .00125 x total valuation ((total job valuation x 50%) x .25%). The fee page does not say whether the Arapahoe County Open Space Tax applies to properties in the Jefferson or Douglas County parts of the city. Use tax on building permits is assessed and collected at permit issuance. Credit card payments in eTRAKiT carry a 2.2% service charge. The Colorado General Assembly's summary of HB21-1284 says the act limits all charges a governmental body may assess to install an active solar energy system to $500 for a residential permit, and extends the repeal date of that limit to December 31, 2029. The City's fee page does not mention this limit."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S24"
+    ],
+    "notes": "These are Xcel Energy programs for Xcel customers. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. The City's pages describe no City rebate for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Littleton Permit Center",
+        "role": "City of Littleton Permit Center, Building Division (solar permit questions and inspections)",
+        "phone": "303-795-3751",
+        "email": "permits@littletonco.gov",
+        "url": "https://www.littletonco.gov/Building-Development/Permits-Review-Guides-and-Requirements/Residential-Submittal-Requirements"
+      },
+      {
+        "name": "City of Littleton Development Review (Planning & Engineering)",
+        "role": "City of Littleton Development Review (zoning, setbacks, grading and land use questions, by appointment)",
+        "phone": "303-734-8076",
+        "email": null,
+        "url": "https://www.littletonco.gov/Building-Development"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S6",
+      "S9",
+      "S4"
+    ],
+    "notes": "The Permit Center is open Monday to Thursday, 8 a.m. to 4:30 p.m., and closed Fridays. Walk-in hours are Monday 1 to 4:30 p.m. (no walk-ins after 4:15 p.m.) and Thursday 8 to 11:30 a.m. The Littleton Center is at 2255 W. Berry Avenue, Littleton, Colorado 80120."
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "New to Littleton",
+      "url": "https://www.littletonco.gov/I-Want-To/New-to-Littleton",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Utilities",
+      "url": "https://www.littletonco.gov/Government/City-Services/Utilities",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Building & Development",
+      "url": "https://www.littletonco.gov/Building-Development",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Building Codes and Amendments",
+      "url": "https://www.littletonco.gov/Building-Development/Permits-Review-Guides-and-Requirements/Building-Codes-Amendments-Division-Policies",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Residential Submittal Requirements (Residential Rooftop Solar and ESS Requirements)",
+      "url": "https://www.littletonco.gov/Building-Development/Permits-Review-Guides-and-Requirements/Residential-Submittal-Requirements",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "eTRAKiT Online System",
+      "url": "https://www.littletonco.gov/Building-Development/eTRAKiT-Online-System",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Electrical and Plumbing Permits",
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits",
+      "publisher": "Colorado Department of Regulatory Agencies (DORA)",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Permits, Review Guides, and Requirements",
+      "url": "https://www.littletonco.gov/Building-Development/Permits-Review-Guides-and-Requirements",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "eTRAKiT FAQs",
+      "url": "https://www.littletonco.gov/Building-Development/eTRAKiT-Online-System/eTRAKiT-FAQ",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Interconnection (Renewable Developer Resources)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S14",
+      "title": "Policy #20-003: Collection of Plan Review Fees",
+      "url": "https://www.littletonco.gov/files/sharedassets/public/v/2/building-amp-development/documents-building/building-amp-inspections/bldg-div-policies/policy20003collectionofpla.pdf",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S15",
+      "title": "Building Inspections",
+      "url": "https://www.littletonco.gov/Building-Development/Permits-Review-Guides-and-Requirements/Building-Inspections",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S16",
+      "title": "Policy #26-002: Inspection Failures, Reinspection Fees, and Three-Day Holds (2/10/2026)",
+      "url": "https://www.littletonco.gov/files/sharedassets/public/v/2/building-amp-development/documents-building/building-amp-inspections/bldg-guides-amp-checklists/policy-26-001-failed-inspections-fees-and-permit-holds.pdf",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S17",
+      "title": "Contractor License Application (Revised 4/2022)",
+      "url": "https://www.littletonco.gov/files/sharedassets/public/building-amp-development/documents-building/building-amp-inspections/permits-amp-applications/contractorslicenseapplicat_1.pdf",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S18",
+      "title": "Contractor Licensing & Renewal",
+      "url": "https://www.littletonco.gov/Building-Development/Permits-Review-Guides-and-Requirements/Contractor-Licensing-Renewal",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S19",
+      "title": "Policy #20-002: Contemporaneous Review of State of Colorado Issued Electrical Licenses",
+      "url": "https://www.littletonco.gov/files/sharedassets/public/v/2/building-amp-development/documents-building/building-amp-inspections/bldg-div-policies/policy20002contemporaneous.pdf",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S20",
+      "title": "Ordinance 11, Series 2025, repealing and reenacting Title 4, Chapter 1 Building Codes",
+      "url": "https://www.littletonco.gov/files/sharedassets/public/v/1/legal-notices/2025-city-clerk/o-11-2025-amending-city-code-re-building-codes_2nd-reading.pdf",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S21",
+      "title": "Building Division Policy 26-002: Portable-Scale Solar Generation Devices (effective August 12, 2026)",
+      "url": "https://www.littletonco.gov/files/sharedassets/public/v/1/building-amp-development/documents-building/policy-26-002-hb26-1007-portable-solar-devices.pdf",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S22",
+      "title": "Permit Fee Schedules",
+      "url": "https://www.littletonco.gov/Building-Development/Permits-Review-Guides-and-Requirements/Permit-Fee-Schedules",
+      "publisher": "City of Littleton",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S23",
+      "title": "HB21-1284 Limit Fee Install Active Solar Energy System",
+      "url": "https://leg.colorado.gov/bills/hb21-1284",
+      "publisher": "Colorado General Assembly",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S24",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}

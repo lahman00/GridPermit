@@ -200,6 +200,48 @@ async function checkUrl(url) {
   return { ...base, status: BLOCKED_OR_UNVERIFIABLE, http_status: res.status, method, details: `HTTP ${res.status}: not a removal signal, treated as unverifiable` };
 }
 
+// A city site that refuses automated requests (HTTP 401/403/429) is not a broken
+// link, but it used to cost 2 points per URL, which could push a record whose
+// every source was read in a real browser below the READY threshold. A blocked
+// URL carries no penalty when the repository holds a capture attestation for it:
+// proof that the exact URL returned HTTP 200 to a real browser session, with the
+// SHA-256 of the saved copy, taken close to the record's last_verified date.
+// The finding is still listed (category blocked_url_with_capture) so the report
+// never looks cleaner than the network check was. Timeouts, DNS failures, 5xx
+// and bot-challenge pages are NOT covered: those can hide a page that is gone.
+export const CAPTURE_ATTESTATION_DIR = path.join(REPO_ROOT, "data", "source-captures");
+export const CAPTURE_MAX_AGE_DAYS = 30;
+const CAPTURE_COVERED_HTTP = new Set([401, 403, 429]);
+
+export function captureCovering(result, attestation, record, now = new Date()) {
+  if (!attestation || !Array.isArray(attestation.captures)) return null;
+  if (attestation.record_id !== record.record_id) return null;
+  if (result.status !== BLOCKED_OR_UNVERIFIABLE || !CAPTURE_COVERED_HTTP.has(result.http_status)) return null;
+  const verified = new Date(`${record.last_verified}T00:00:00Z`);
+  if (Number.isNaN(verified.getTime())) return null;
+  for (const capture of attestation.captures) {
+    if (capture.url !== result.url) continue;
+    if (Number(capture.http_status) !== 200) continue;
+    if (!/^[0-9a-f]{64}$/.test(capture.sha256 ?? "")) continue;
+    if (!(Number(capture.bytes) > 0)) continue;
+    const taken = new Date(capture.captured_at);
+    if (Number.isNaN(taken.getTime()) || taken.getTime() > now.getTime()) continue;
+    const ageDays = Math.abs(verified.getTime() - taken.getTime()) / 86_400_000;
+    if (ageDays > CAPTURE_MAX_AGE_DAYS) continue;
+    return capture;
+  }
+  return null;
+}
+
+async function loadCaptureAttestation(recordId) {
+  if (typeof recordId !== "string" || !/^[a-z0-9-]+$/.test(recordId)) return null;
+  try {
+    return JSON.parse(await readFile(path.join(CAPTURE_ATTESTATION_DIR, `${recordId}.json`), "utf8"));
+  } catch {
+    return null;
+  }
+}
+
 function collectAllUrls(record) {
   // { label, url } pairs for every URL embedded anywhere in the record.
   const urls = [];
@@ -479,6 +521,7 @@ export async function validate(filePath) {
   // 8. broken_url — live fetch of every URL in the record, three-state result.
   // REACHABLE costs nothing and is not added to errors/warnings, only to
   // url_checks (full evidence trail for every URL, not just failing ones).
+  const captureAttestation = await loadCaptureAttestation(record.record_id);
   const allUrls = collectAllUrls(record);
   const seenUrls = new Set();
   const urlChecks = [];
@@ -490,7 +533,13 @@ export async function validate(filePath) {
     if (result.status === CONFIRMED_BROKEN) {
       addFinding(errors, label, "broken_url", `${url} — ${result.details}`);
     } else if (result.status === BLOCKED_OR_UNVERIFIABLE) {
-      addFinding(warnings, label, "broken_url", `${url} — ${result.details} — recommend a manual check`);
+      const capture = captureCovering(result, captureAttestation, record, now);
+      if (capture) {
+        result.capture = { captured_at: capture.captured_at, sha256: capture.sha256, method: capture.method ?? null };
+        addFinding(warnings, label, "blocked_url_with_capture", `${url} — ${result.details} — a browser capture of this URL (HTTP 200, ${capture.captured_at}) is on record, no score penalty`);
+      } else {
+        addFinding(warnings, label, "broken_url", `${url} — ${result.details} — recommend a manual check`);
+      }
     }
     // REACHABLE: no finding. Requirement 4: a blocked/broken URL never
     // touches the field's own confidence score — that stays whatever the
@@ -506,7 +555,8 @@ export async function validate(filePath) {
   }
 
   const urlWarningCount = warnings.filter((w) => w.category === "broken_url").length;
-  const otherWarningCount = warnings.length - urlWarningCount;
+  const capturedWarningCount = warnings.filter((w) => w.category === "blocked_url_with_capture").length;
+  const otherWarningCount = warnings.length - urlWarningCount - capturedWarningCount;
   const score = Math.max(
     0,
     100 - ERROR_PENALTY * errors.length

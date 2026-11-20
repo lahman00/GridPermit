@@ -59,12 +59,13 @@ test("the report reconciles every locality into a published or suppressed partit
 	// 2026-11-14: Aurora, Fort Collins, Lakewood, Arvada and Longmont now have reviewed guides:
 	// 424 records, 362 published routes. Thornton adds one READY record.
 	// 2026-11-20 batch 2: Wheat Ridge, Lafayette and Grand Junction (audited): 427 records, 365 routes.
-	assert.equal(pack.summary.record_count, 427);
-	assert.equal(pack.records.length, 427);
-	assert.equal(pack.summary.published_route_count, 365);
+	// Englewood, Littleton and Commerce City followed once capture attestations existed: 430 records, 368 routes.
+	assert.equal(pack.summary.record_count, 430);
+	assert.equal(pack.records.length, 430);
+	assert.equal(pack.summary.published_route_count, 368);
 	assert.equal(pack.summary.suppressed_record_count, 62);
 	assert.equal(pack.summary.published_route_count + pack.summary.suppressed_record_count, pack.summary.record_count);
-	assert.equal(pack.summary.recorded_ready_count, 365);
+	assert.equal(pack.summary.recorded_ready_count, 368);
 	assert.equal(pack.summary.recorded_limited_count, 60);
 	assert.equal(pack.summary.recorded_not_ready_count, 2);
 	// The 2026-10-08 READY refresh added one current, primary-source-backed field
@@ -72,7 +73,7 @@ test("the report reconciles every locality into a published or suppressed partit
 	// Loma Linda, Lodi, Shasta Lake, New Castle County, Ann Arbor, Oklahoma City
 	// and Salt Lake City). All nine now recompute at 80% / READY without changing
 	// their published route state.
-	assert.equal(pack.summary.recomputed_ready_count, 364);
+	assert.equal(pack.summary.recomputed_ready_count, 367);
 	assert.equal(pack.summary.recomputed_limited_count, 61);
 	assert.equal(pack.summary.recomputed_not_ready_count, 2);
 	// ca-riverside-corona-multi graduated into this disagreement set once its

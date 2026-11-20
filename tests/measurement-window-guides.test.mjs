@@ -36,7 +36,7 @@ function loadEntries() {
 }
 
 // Batch 2 guides (2026-11-20) are newer than every guide tested below.
-const BATCH_2_IDS = new Set(["co-jefferson-wheat-ridge-xcel", "co-boulder-lafayette-xcel", "co-mesa-grand-junction-multi"]);
+const BATCH_2_IDS = new Set(["co-jefferson-wheat-ridge-xcel", "co-boulder-lafayette-xcel", "co-mesa-grand-junction-multi", "co-arapahoe-englewood-xcel", "co-arapahoe-littleton-xcel", "co-adams-commerce-city-multi"]);
 
 test("existing and earlier pilot guides keep their pools; Thornton can see all guides", () => {
 	const entries = [{ recordId: "co-denver-denver-xcel" }, ...[...NEW_GUIDES_DURING_MEASUREMENT].map((recordId) => ({ recordId }))];

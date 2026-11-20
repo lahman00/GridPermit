@@ -34,6 +34,9 @@ export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string
 	"co-jefferson-wheat-ridge-xcel",
 	"co-boulder-lafayette-xcel",
 	"co-mesa-grand-junction-multi",
+	"co-arapahoe-englewood-xcel",
+	"co-arapahoe-littleton-xcel",
+	"co-adams-commerce-city-multi",
 ]);
 
 // These three pilot guides were already live before the Arvada release. Keep
@@ -50,6 +53,9 @@ const BATCH_2_GUIDES = new Set([
 	"co-jefferson-wheat-ridge-xcel",
 	"co-boulder-lafayette-xcel",
 	"co-mesa-grand-junction-multi",
+	"co-arapahoe-englewood-xcel",
+	"co-arapahoe-littleton-xcel",
+	"co-adams-commerce-city-multi",
 ]);
 
 export function isNewGuideDuringMeasurement(recordId: string | null | undefined): boolean {
