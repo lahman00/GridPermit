@@ -7,8 +7,8 @@ import {factoryRoutes,coverageDelta} from './factory-context.mjs';
 import {importActivationBundle} from '../partner-import.mjs';
 import {auditPartners} from '../partner-health.mjs';
 export const SITE_ID='d49c19aa-f997-43f3-9b11-fabff36c4c83';
-const SOURCE_DIRS=['src','scripts','data','tests','public','docs','.github','netlify'];
-const SOURCE_FILES=['package.json','package-lock.json','tsconfig.json','netlify.toml','astro.config.mjs','AGENTS.md','.gitignore','.nvmrc'];
+const SOURCE_DIRS=['src','scripts','data','tests','public','docs','.github','netlify','api'];
+const SOURCE_FILES=['package.json','package-lock.json','tsconfig.json','netlify.toml','vercel.json','astro.config.mjs','AGENTS.md','.gitignore','.nvmrc'];
 export async function sourceManifest(root){
  const files=(await Promise.all(SOURCE_DIRS.map(d=>walkFiles(path.join(root,d))))).flat();for(const name of SOURCE_FILES){try{await stat(path.join(root,name));files.push(path.join(root,name));}catch(e){if(e.code!=='ENOENT')throw e;}}
  const rows=[];for(const file of files.sort())rows.push({path:path.relative(root,file),sha256:digest(await readFile(file))});
