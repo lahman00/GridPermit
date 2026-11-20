@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createNeonStore} from '../src/lib/commercial/vercel-store.mjs';
 import {recordOutbound, RETENTION_MS} from '../src/lib/commercial/outbound-service.mjs';
-import {makeOutbound, makeHealth, makeRetention} from '../src/lib/commercial/vercel-handlers.mjs';
+import {makeOutbound, makeHealth, makeRetention, normalizeProductionRequest} from '../src/lib/commercial/vercel-handlers.mjs';
 
 const now = Date.parse('2026-11-20T12:00:00Z');
 const event = {stage:'OUTBOUND_RECORDED',cid:'123456789012345678901234',partner_id:'compare-solar-prices',page_path:'/fixture/',city:'Fixture',intent:'SOLAR_NEW',cta_id:'fixture',timestamp:new Date(now).toISOString()};
@@ -111,4 +111,21 @@ test('Concurrent cleanup lease denial performs no cleanup and returns conflict',
   const handler=makeRetention({env:{VERCEL_ENV:'production',CRON_SECRET:'x'.repeat(32)},getStore:()=>({acquireCleanupLock:async()=>null,setJSON:async()=>{writes++;}})});
   assert.equal((await handler(new Request('https://mygridpermit.com/api/outbound-retention',{headers:{authorization:'Bearer '+'x'.repeat(32)}}))).status,409);
   assert.equal(writes,0);
+});
+
+test('Only the exact production TLS edge can normalize an internal HTTP URL', async () => {
+  const env={VERCEL_ENV:'production',CRON_SECRET:'x'.repeat(32)};
+  const routeRows=[{page_path:'/fixture/',partner_id:'compare-solar-prices',valid_until:'2099-01-01T00:00:00Z',qualification_required:true,url_template:'https://partner.example/?cid=000000000000000000000000'}];
+  const headers={host:'mygridpermit.com','x-forwarded-host':'mygridpermit.com','x-forwarded-proto':'https',origin:'https://mygridpermit.com','sec-fetch-site':'same-origin','x-forwarded-for':'192.0.2.1','content-type':'application/x-www-form-urlencoded'};
+  const request=(extra={},url='http://mygridpermit.com/go/compare-solar-prices')=>new Request(url,{method:'POST',headers:{...headers,...extra},body:new URLSearchParams({cid:event.cid,page_path:'/fixture/',qualified:'0'})});
+  const handler=makeOutbound({env,routeRows,getStore:()=>({consumeRateLimit:async()=>true})});
+  const response=await handler(request());
+  assert.equal(response.status,403);
+  assert.equal(await response.text(),'Qualification required');
+  for(const extra of [{host:'preview.vercel.app'},{'x-forwarded-host':'evil.example'},{'x-forwarded-proto':'http'}]) {
+    assert.equal(normalizeProductionRequest(request(extra),env).url,'http://mygridpermit.com/go/compare-solar-prices');
+    assert.equal(await (await handler(request(extra))).text(),'Request not allowed');
+  }
+  assert.equal(normalizeProductionRequest(request(),{VERCEL_ENV:'preview'}).url,'http://mygridpermit.com/go/compare-solar-prices');
+  assert.equal(normalizeProductionRequest(request({},'http://preview.vercel.app/go/compare-solar-prices'),env).url,'http://preview.vercel.app/go/compare-solar-prices');
 });

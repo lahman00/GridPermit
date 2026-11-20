@@ -3,10 +3,39 @@ import {isDeepStrictEqual} from 'node:util';
 import {createOutboundHandler, cleanupOutbound} from './outbound-service.mjs';
 import {getVercelStore, checkRateLimit} from './vercel-store.mjs';
 
+export function normalizeProductionRequest(request, env) {
+  const url = new URL(request.url);
+  const host = request.headers.get('host');
+  const forwardedHost = request.headers.get('x-forwarded-host');
+  if (env.VERCEL_ENV === 'production' && url.protocol === 'http:' &&
+      url.host === 'mygridpermit.com' && host === 'mygridpermit.com' &&
+      (!forwardedHost || forwardedHost === 'mygridpermit.com') &&
+      request.headers.get('x-forwarded-proto') === 'https') {
+    url.protocol = 'https:';
+    return new Request(url, request);
+  }
+  return request;
+}
+
 export function makeOutbound({env = process.env, getStore = () => getVercelStore(env), routeRows = []} = {}) {
   const handler = createOutboundHandler({routes: routeRows, getStore});
   return async request => {
     if (env.VERCEL_ENV !== 'production') return new Response('Referrals unavailable in this environment', {status: 403, headers: {'Cache-Control': 'no-store'}});
+    if (request.headers.get('user-agent') === 'GridPermit-Migration-QA/1.0') {
+      const diagnosticUrl = new URL(request.url);
+      console.info('gridpermit-runtime-diagnostic', JSON.stringify({
+        origin: diagnosticUrl.origin,
+        pathname: diagnosticUrl.pathname,
+        hasSearch: Boolean(diagnosticUrl.search),
+        host: request.headers.get('host'),
+        forwardedHost: request.headers.get('x-forwarded-host'),
+        forwardedProto: request.headers.get('x-forwarded-proto'),
+        requestOrigin: request.headers.get('origin'),
+        secFetchSite: request.headers.get('sec-fetch-site'),
+        environment: env.VERCEL_ENV,
+      }));
+    }
+    request = normalizeProductionRequest(request, env);
     const url = new URL(request.url);
     // Preserve normal rejection semantics without touching storage for GETs or
     // cross-origin requests. Vercel overwrites x-forwarded-for at its edge.
