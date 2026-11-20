@@ -1931,10 +1931,6 @@
   ],
   "rewrites": [
     {
-      "source": "/go/:partner",
-      "destination": "/api/outbound"
-    },
-    {
       "source": "/outbound-health",
       "destination": "/api/outbound-health"
     },
@@ -1953,5 +1949,11 @@
     "api/*.mjs": {
       "maxDuration": 60
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "^/go/[^/]+$",
+      "dest": "/api/outbound"
+    }
+  ]
 }
