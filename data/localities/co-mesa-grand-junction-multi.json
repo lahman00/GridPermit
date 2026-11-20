@@ -1,0 +1,554 @@
+{
+  "record_id": "co-mesa-grand-junction-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy or Grand Valley Power",
+    "confidence": 0.6,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served (10/2015) shows Grand Junction with gas and electricity service. Grand Valley Power says it serves the Grand Valley, excluding certain areas of Grand Junction and Fruita as well as Palisade, Clifton, East Orchard Mesa and the Redlands. Xcel's 2015 list includes Grand Junction, and Grand Valley Power's description of its territory excludes only certain areas of Grand Junction, which suggests that both utilities serve parts of the city. Neither source says how service is divided. Neither source shows which utility serves a given address, so check the utility named on your electric bill."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy or Grand Valley Power, depending on the address",
+      "type": "utility",
+      "notes": "The sources suggest that both Xcel Energy and Grand Valley Power serve parts of Grand Junction, but neither says how service is divided. No source gives an address lookup, so check the utility named on your electric bill."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Grand Junction",
+    "confidence": 0.95,
+    "source_ids": [
+      "S3",
+      "S4"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Mesa County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S5",
+      "S3"
+    ],
+    "notes": "The Mesa County Building Department serves the City of Grand Junction, and the County's adopted codes page lists Grand Junction and the surrounding area in its local snow and wind load table."
+  },
+  "permit_authority": {
+    "value": "Mesa County Building Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S3",
+      "S4",
+      "S6",
+      "S7"
+    ],
+    "notes": "The City of Grand Junction lists building permits among the permits issued through Mesa County, and the Mesa County Building Department performs inspections and issues permits for the county, the towns of De Beque, Collbran and Palisade, and the City of Grand Junction. The City's Community Development Department handles Planning Clearance requirements (970-244-1430). The Mesa County Building Department inspects building permits for each jurisdiction and unincorporated Mesa County. DORA lists Mesa County as a local electrical inspection area, where the State does not inspect. No City or County page gives an address lookup for Grand Junction city limits, so ask the City or the County if you are not sure."
+  },
+  "permit_url": {
+    "value": "https://www.mesacounty.us/sites/default/files/2026-04/Photovoltaic%20Guide%207-20-2023.pdf",
+    "confidence": 0.85,
+    "source_ids": [
+      "S8",
+      "S9",
+      "S10",
+      "S11"
+    ],
+    "notes": "This is the Mesa County Photovoltaic Guide, linked from the County's Building Guides page as the Residential and Commercial Building Guide - Solar. Apply for building permits through the Mesa County Customer Portal (https://h9.maintstar.co/MesaCounty/Portal/)."
+  },
+  "interconnection_url": {
+    "value": "https://gvp.org/sites/default/files/PDFs/Solar/GVP%20Level%201%20DER%20Interconnection%20Application%20March%202024.pdf",
+    "confidence": 0.8,
+    "source_ids": [
+      "S12",
+      "S13",
+      "S14"
+    ],
+    "notes": "This is Grand Valley Power's Level 1 interconnection application (Revised 3-2024) for inverter-based systems of 25 kW or smaller. A $350.00 fee must accompany the application, and GVP's GEN-1 net-metering tariff (approved January 21, 2026) lists the same Level 1 fee. Send the completed application to Grand Valley Power, 845 22 Road, P.O. Box 190, Grand Junction, CO 81502, or to dg@gvp.org. GVP says it will give notice of acceptance or rejection within 10 days of receiving the application. Xcel Energy customers use Xcel's Net Energy Metering page (https://co.my.xcelenergy.com/s/renewable/net-metering) instead. Xcel says the installer usually submits the application, and highly recommends not starting construction until the application has full approval and all final agreements are signed."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events, for 5 years.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program. Xcel's Solar*Rewards page lists it among its programs and requires that you be an Xcel Energy residential or business electricity customer. Eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel Energy is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S15",
+      "S14",
+      "S12"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page, which shows 2026 incentive budget available on figures dated 11/02/2026. Grand Valley Power's interconnection application asks whether energy storage is included and whether it will export. No Grand Valley Power page describes a battery incentive."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Valuation of all labor and materials, broken out by part of the work",
+        "required_when": "All PV applications, as applicable. Break it out as modules to inverters, the remainder of the electrical work (for example generator, AC wiring, service upgrade or ESS), and any required structural alterations.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Structural certification report for the existing roof framing",
+        "required_when": "Verifies that the existing roof framing will safely support the array.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Three-line diagram",
+        "required_when": "Shows all conductor sizing and insulation types, overcurrent protective devices, and conduit sizing and types.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Source connection being used",
+        "required_when": "All PV applications, as applicable.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Method used to determine the required busbar ampere rating",
+        "required_when": "All PV applications, as applicable.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Specification sheets for all listed compatible components",
+        "required_when": "All PV applications, as applicable.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Roof layout with access, pathways, ridge setback, total roof area and total array area",
+        "required_when": "All PV applications, as applicable.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Structural, foundation and electrical drawings stamped and signed by a Colorado Professional Engineer (ground-mount systems)",
+        "required_when": "All commercial and ground-mount PV designs.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Residential planning clearance (ground-mount systems)",
+        "required_when": "Required before issuance on all residential ground-mount solar permits, regardless of jurisdiction. For roof-mount systems the guide requires it only in De Beque, Collbran or Palisade. In Grand Junction, the City's Community Development Department handles Planning Clearance requirements.",
+        "source_ids": [
+          "S8",
+          "S4"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S8",
+      "S4",
+      "S12"
+    ],
+    "notes": "From the Mesa County Photovoltaic Guide (file dated 7-20-2023), which lists the items that must be provided for all PV system applications, as applicable. The guide does not describe separate rules for battery-only systems, expansions or panel upgrades. Grand Valley Power's interconnection application also asks for the manufacturer's cut sheet showing the UL1741 listing."
+  },
+  "inspection_steps": {
+    "value": [
+      "Apply to your electric utility. Grand Valley Power members may start construction once GVP approves the application and returns it. Xcel highly recommends that its customers not start construction until its engineering team fully approves the application and all final agreements are signed.",
+      "Apply for the building permit through the Mesa County Customer Portal with the Photovoltaic Guide items. For a ground-mount system, get the residential planning clearance first.",
+      "Post the permit on the job site, keep the plans there, and post a job address legible from the street, or inspections will not be made.",
+      "Schedule each inspection on the Customer Portal, by phone at 970-256-1564, or by texting SCHEDULE to 844-987-4628.",
+      "Do not cover or conceal electrical work until it is inspected and approved.",
+      "Grand Valley Power members may operate the system only after the local electrical inspection, return of the certificate of completion to GVP, and GVP's own inspection. GVP inspects within ten business days after receiving the certificate and provides a written statement that the system passed, or tells you what steps are needed.",
+      "Xcel customers: Xcel's process ends with a permission to operate letter."
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S12",
+      "S14",
+      "S10",
+      "S8",
+      "S16",
+      "S6",
+      "S17",
+      "S18"
+    ],
+    "notes": "The County's inspection page says inspections can be scheduled for the same day or the next business day if received by 7:00 a.m., while the County's inspection card (02-05-24) says inspections scheduled by 6:30 AM on a working day will be performed the same working day. Confirm the cutoff with the Building Department. Permits become null and void if the project is not commenced and progress verified by an inspector every 180 days. The County's Residential Inspection Guidelines list 462-ELECTRICAL as a rough-in inspection before insulation and 476-ELECTRICAL among the finals, but they are written for residential construction generally. No County page lists the inspections a residential solar permit needs. Grand Valley Power may disconnect a system for improper installation or failure to return the certificate of completion. The County permit and inspections are separate from the utility's approval."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the County nor the City publishes a plan review or processing time for residential solar."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Mesa County building permit, using the County's Photovoltaic Guide",
+      "other_conditions": [
+        "The County describes no expedited or same-day permit path specific to residential solar. Its Permit Requirements page lists an \"OTC Permit Application 4-13-23\" form but does not say which projects qualify.",
+        "Contractor licensing is only required in Grand Junction city limits, and the Mesa County Building Department runs the licensing program for the City.",
+        "The County's inspection card says a city contractor license is required in the City of Grand Junction, and that, except for a residential homeowner, it is illegal to perform electrical work unless licensed by the State of Colorado.",
+        "The County's pages do not say which license class a solar installer needs, or whether a homeowner may install their own PV system.",
+        "Mesa County inspectors check State electrical licenses during inspections of electrical permits when possible.",
+        "A rapid shutdown function is required, and DC circuits in buildings need metal raceways labeled PHOTOVOLTAIC POWER SOURCE.",
+        "The Photovoltaic Guide says design criteria shall include a wind speed of 115 mph and snow loads by elevation, while the County's Adopted Codes page lists, for Grand Junction and the surrounding area, a ground snow load of 30# and a basic wind speed (residential only) of 104. Confirm the design values with the Building Department.",
+        "The Photovoltaic Guide (file dated 7-20-2023) lists the 2018 IBC, IRC, IEBC and IFC and the 2023 NEC, while the County's Adopted Codes page lists the 2024 International Residential Code and the 2023 National Electric Code. The 2026 NEC takes effect January 1, 2027. Confirm the code editions that apply with the Building Department.",
+        "Commercial systems within Grand Junction city limits need a planning and fire clearance.",
+        "The City's pages state no solar-specific zoning, HOA or historic review rule.",
+        "Grand Valley Power (for its members): residential net-metering interconnections are limited to 10 kW DC, and the Level 1 process covers inverter-based systems of 25 kW or smaller.",
+        "Grand Valley Power: under its revised net-metering tariff, beginning April 1, 2026, GVP purchases all kilowatt-hours accrued through March 31, 2027.",
+        "Xcel Energy net metering (for Xcel customers): expected generation, combined with other distributed generation at the service address, must not exceed 200% of historical consumption, and all equipment must be UL 1741 SB certified and listed on the California Energy Commission Solar Equipment Lists.",
+        "Xcel Energy: you must be an Xcel residential or business electricity customer, and the name on the application must match the name on the Xcel account or bill."
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S8",
+      "S3",
+      "S19",
+      "S16",
+      "S5",
+      "S13",
+      "S12",
+      "S20",
+      "S14"
+    ],
+    "notes": "Size limits listed are utility interconnection rules, not County permit rules."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "First re-inspection",
+        "amount_usd": 50,
+        "unit": "per re-inspection",
+        "notes": null
+      },
+      {
+        "name": "Additional re-inspection on the same violation",
+        "amount_usd": 100,
+        "unit": "per re-inspection",
+        "notes": null
+      },
+      {
+        "name": "Inspection outside normal business hours",
+        "amount_usd": 60,
+        "unit": "per hour per person, 2-hour minimum",
+        "notes": null
+      },
+      {
+        "name": "Same-day inspection, if staff is available",
+        "amount_usd": 100,
+        "unit": "in addition to the re-inspection fee",
+        "notes": null
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S21",
+      "S22",
+      "S8",
+      "S12",
+      "S13",
+      "S23"
+    ],
+    "notes": "The County prints no flat or solar-specific permit fee. Mesa County charges remodel work and other building upgrades from its fee schedule based on project valuation, and the Photovoltaic Guide asks for a valuation of all labor and materials. The fee schedule (Exhibit A) sets mechanical, electrical and plumbing permit fees from Table 2, where Total Valuation is the actual cost of project labor and materials. Table 2 starts at $50.00 for a valuation up to $1,200.00. From $1,200.01 to $2,000 it is $50.00 for the first $1,200.00 plus $2.20 for each additional $100.00 or fraction thereof. From $2,000.01 to $25,000 it is $68.00 for the first $2,000.00 plus $9.90 for each additional $1,000.00 or fraction thereof. From $25,000.01 to $50,000 it is $295.70 for the first $25,000.00 plus $7.20 for each additional $1,000.00 or fraction thereof. All Table 2 permit fees are rounded up to the next dollar. Re-inspection and additional plan review fees may also apply, and work started before permit issuance can be charged 2x the permit fee at the Building Official's discretion. Grand Valley Power members also pay a $350.00 Level 1 interconnection application fee to GVP. The Colorado General Assembly's summary of HB21-1284 says the act limits all charges a governmental body may assess to install an active solar energy system to $500 for a residential permit, and extends the repeal date of that limit to December 31, 2029. The County's fee pages do not mention this limit. The City's Permits page does not describe any City tax on solar building permits."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S24"
+    ],
+    "notes": "These are Xcel Energy programs for Xcel customers. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. No Grand Valley Power page describes a solar rebate. No City or County page describes a local rebate for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Mesa County Building Department",
+        "role": "Mesa County Building Department (building permits and inspections for Grand Junction)",
+        "phone": "970-244-1631",
+        "email": "mccomdev@mesacounty.us",
+        "url": "https://www.mesacounty.us/departments-and-services/community-development/building"
+      },
+      {
+        "name": "City of Grand Junction Community Development Department",
+        "role": "City of Grand Junction Community Development (Planning Clearance requirements)",
+        "phone": "970-244-1430",
+        "email": null,
+        "url": "https://www.gjcity.org/355/Permits"
+      },
+      {
+        "name": "Grand Valley Power",
+        "role": "Grand Valley Power (interconnection applications for GVP members)",
+        "phone": null,
+        "email": "dg@gvp.org",
+        "url": "https://gvp.org/sites/default/files/PDFs/Solar/GVP%20Level%201%20DER%20Interconnection%20Application%20March%202024.pdf"
+      },
+      {
+        "name": "Mesa County inspection scheduling line",
+        "role": "Mesa County Building Department inspection scheduling line (phone)",
+        "phone": "970-256-1564",
+        "email": null,
+        "url": "https://www.mesacounty.us/departments-and-services/community-development/building/inspection-and-policy-information-building"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S4",
+      "S12",
+      "S6"
+    ],
+    "notes": "The Building Department is at Central Services (Community Development), 200 South Spruce Street, Grand Junction, CO 81501, open Monday to Friday, 8:00 a.m. to 5:00 p.m. The City's Community Development Department is at 250 N 5th Street, Grand Junction, CO 81501."
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Service Territory",
+      "url": "https://www.gvp.org/service-territory",
+      "publisher": "Grand Valley Power (Grand Valley Rural Power Lines, Inc.)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Building Department",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Permits",
+      "url": "https://www.gjcity.org/355/Permits",
+      "publisher": "City of Grand Junction",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Adopted Codes and Regulations for the Building Department",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/adopted-codes-and-regulations-building",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Inspection and Policy Information for the Building Department",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/inspection-and-policy-information-building",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Electrical and Plumbing Permits",
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits",
+      "publisher": "Colorado Department of Regulatory Agencies (DORA)",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Mesa County Photovoltaic Guide (7-20-2023)",
+      "url": "https://www.mesacounty.us/sites/default/files/2026-04/Photovoltaic%20Guide%207-20-2023.pdf",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Building Guides",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/building-guides",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Mesa County Customer Portal",
+      "url": "https://h9.maintstar.co/MesaCounty/Portal/",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Applications and Fees for the Planning Department",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/planning/applications-and-fees-planning-department",
+      "publisher": "Mesa County Planning Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Interconnection Application, Level 1 Distributed Energy Resources (Revised 3-2024)",
+      "url": "https://gvp.org/sites/default/files/PDFs/Solar/GVP%20Level%201%20DER%20Interconnection%20Application%20March%202024.pdf",
+      "publisher": "Grand Valley Power (Grand Valley Rural Power Lines, Inc.)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Rate GEN-1 Net-Metering Interconnections (approved January 21, 2026)",
+      "url": "https://www.gvp.org/sites/default/files/Service%20Regs%2C%20Fees%2C%20Rates/Rates/2026%20Rates/GEN-1_Tariff_04-01-2026.pdf",
+      "publisher": "Grand Valley Power (Grand Valley Rural Power Lines, Inc.)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S14",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S15",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S16",
+      "title": "Building Inspection Card (Sample Inspection Codes 02-05-24)",
+      "url": "https://www.mesacounty.us/sites/default/files/2026-04/Building%20Sample%20Inspection%20Codes%2002-05-24%20ADA.pdf",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S17",
+      "title": "Interconnection (Renewable Developer Resources)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S18",
+      "title": "Residential Inspection Request Guidelines",
+      "url": "https://www.mesacounty.us/sites/default/files/2025-12/res._inspection_guidlines_3.pdf",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S19",
+      "title": "Contractor Licensing for the Building Department",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/contractor-licensing-building-department",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S20",
+      "title": "Rates and Tariffs",
+      "url": "https://www.gvp.org/rates",
+      "publisher": "Grand Valley Power (Grand Valley Rural Power Lines, Inc.)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S21",
+      "title": "Exhibit A: Mesa County Building Department Fee Schedule",
+      "url": "https://www.mesacounty.us/sites/default/files/2025-09/exhibit_a-_mesa_county_building_department_fee_schedule_2024_ada_compliant.pdf",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S22",
+      "title": "Permit and Plan Review Fees for the Building Department",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/permit-and-plan-review-fees-building",
+      "publisher": "Mesa County Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S23",
+      "title": "HB21-1284 Limit Fee Install Active Solar Energy System",
+      "url": "https://leg.colorado.gov/bills/hb21-1284",
+      "publisher": "Colorado General Assembly",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S24",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}

@@ -9,6 +9,7 @@
 // facts (its own name, and its interconnection page when every one of its
 // READY cities cites the exact same URL) ever appear here.
 
+import { isNewGuideDuringMeasurement } from "./measurement-window-guides.ts";
 import { citySlug, guideUrlForCitySlug, utilityShortName, type LocalityRecord } from "./locality-guide.ts";
 import { stateMeta } from "./state-meta.ts";
 
@@ -62,6 +63,9 @@ export function buildUtilityHubs(
 		if (evalRecord.readiness !== "READY") continue;
 		const record = recordsById.get(evalRecord.record_id);
 		if (!record || !record.utility?.value) continue;
+		// Guides published during the search measurement window must not create or
+		// change hub pages or hub links on existing guides (docs/growth/COLORADO_PILOT_20261113.md).
+		if (isNewGuideDuringMeasurement(record.record_id)) continue;
 		const short = utilityShortName(record.utility.value);
 		if (!short) continue;
 		const key = `${record.state}::${short}`;

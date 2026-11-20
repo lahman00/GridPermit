@@ -55,3 +55,19 @@ Revert the merge commit. That removes both pages, both redirects, the records' n
 ## Not done on purpose
 
 No indexing request was sent to Google, no account or permission was changed, no paid tool or API was used, no outreach was sent, and no test purchase was made. Publishing these guides is not evidence of rankings, traffic or sales.
+
+## Batch 2 (2026-11-20): Wheat Ridge, Lafayette, Grand Junction
+
+Twelve more Colorado cities were researched from raw captures of official sources (`01-Command-Center/research/colorado-batch2-20261120/`). Three passed every gate and are published in this change:
+
+| Guide | Record | Readiness |
+|---|---|---|
+| `/colorado/wheat-ridge/solar-permit-guide/` | `co-jefferson-wheat-ridge-xcel` | 13 of 15 fields, validation 86 |
+| `/colorado/lafayette/solar-permit-guide/` | `co-boulder-lafayette-xcel` | 13 of 15 fields, validation 100 |
+| `/colorado/grand-junction/solar-permit-guide/` | `co-mesa-grand-junction-multi` | 14 of 15 fields, validation 96 |
+
+- Same method as the pilot: sentence-level trace to quote-checked claims, then an independent audit with a verdict per sentence. All audit edits were applied; a failed inferred county (Lafayette) was removed and two inferred "split" sentences (Grand Junction) were replaced by the auditor's wording.
+- Wheat Ridge is the first Colorado guide whose pathway names SolarAPP+: the City's own "Solar APP +" page says it accepts SolarAPP+ for residential roof-mounted systems and lists the limits and exclusions. Three low-value City sources were dropped from the record so that the City's bot-blocked links (HTTP 403 to automated HEAD requests) stay within what the validator tolerates.
+- Grand Junction permits are issued by the Mesa County Building Department. Which of Xcel Energy and Grand Valley Power serves an address is not stated by either source, and the guide says so.
+- Measurement window: the three ids are in `NEW_GUIDES_DURING_MEASUREMENT` and in the batch 2 set of `relatedPoolFor`, so no existing guide's related list changes. `utility-hub.ts` and `county-hub.ts` now skip guides published during the window; without that, the new Xcel guides would have created an "Xcel Energy" hub and changed the hub link on existing Xcel guides.
+- Not built, with reasons (research kept): Greeley, Castle Rock, Pueblo, Windsor, Northglenn (official pages captured do not give a solar document list, a solar fee, or the City site refuses automated access); Brighton (audit passed, held back by the coordinator as too thin on the City side); Englewood, Littleton, Commerce City (audited and ready, but the validation score is below 85 only because the city sites answer automated link checks with 403; they need an owner decision on that gate before publication).
