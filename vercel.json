@@ -1953,7 +1953,12 @@
   "routes": [
     {
       "src": "^/go/[^/]+$",
-      "dest": "/api/outbound"
+      "dest": "/api/outbound",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "frame-ancestors 'self' https://eyal-haimovich-studio.lahman.chatgpt.site",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()"
+      }
     }
   ]
 }
