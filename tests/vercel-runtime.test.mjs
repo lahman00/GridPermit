@@ -2,9 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createNeonStore} from '../src/lib/commercial/vercel-store.mjs';
 import {recordOutbound, RETENTION_MS} from '../src/lib/commercial/outbound-service.mjs';
-import {makeOutbound} from '../api/outbound.mjs';
-import {makeHealth} from '../api/outbound-health.mjs';
-import {makeRetention} from '../api/outbound-retention.mjs';
+import {makeOutbound, makeHealth, makeRetention} from '../src/lib/commercial/vercel-handlers.mjs';
 
 const now = Date.parse('2026-11-20T12:00:00Z');
 const event = {stage:'OUTBOUND_RECORDED',cid:'123456789012345678901234',partner_id:'compare-solar-prices',page_path:'/fixture/',city:'Fixture',intent:'SOLAR_NEW',cta_id:'fixture',timestamp:new Date(now).toISOString()};
