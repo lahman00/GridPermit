@@ -1931,10 +1931,6 @@
   ],
   "rewrites": [
     {
-      "source": "/go/:partner",
-      "destination": "/api/outbound"
-    },
-    {
       "source": "/outbound-health",
       "destination": "/api/outbound-health"
     },
@@ -1953,5 +1949,16 @@
     "api/*.mjs": {
       "maxDuration": 60
     }
-  }
+  },
+  "routes": [
+    {
+      "src": "^/go/[^/]+$",
+      "dest": "/api/outbound",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "frame-ancestors 'self' https://eyal-haimovich-studio.lahman.chatgpt.site",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()"
+      }
+    }
+  ]
 }
