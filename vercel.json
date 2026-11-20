@@ -3,7 +3,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm ci",
-  "trailingSlash": true,
   "redirects": [
     {
       "source": "/sitemap.xml",
@@ -1848,6 +1847,11 @@
     {
       "source": "/colorado/commerce-city/",
       "destination": "/colorado/commerce-city/solar-permit-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path((?!api/|go/|telemetry/|.*\\.).*[^/])",
+      "destination": "/:path/",
       "statusCode": 301
     }
   ],
