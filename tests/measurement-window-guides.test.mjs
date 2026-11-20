@@ -438,7 +438,7 @@ test("Parker keeps CORE electric cooperative check, 10-14 business day review go
  assert.equal(record.county.value, "Douglas County");
  assert.equal(record.timeline_days.value.min_days, 10);
  assert.equal(record.timeline_days.value.max_days, 14);
- assert.match(record.timeline_days.value.notes, /goal of 10–14 business days/);
+ assert.match(record.timeline_days.value.notes, /goal of 10 to 14 business days/);
  assert.deepEqual(record.permit_fees.value.map((f) => f.amount_usd), [500, null, 350]);
  assert.match(record.permit_fees.notes, /500 residential cap/);
  const faqs = buildFaqs(record, { addressLevelUtility: true, documentContext: true, combinedDocumentChecklist: true, expectedReviewTimeline: true, documentChecklistIntro: "Town of Parker eTRAKiT solar submittal items and CORE interconnection documents include:" });
