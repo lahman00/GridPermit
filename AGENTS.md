@@ -24,8 +24,12 @@ Consult these guides before working on related tasks:
 
 ## Production release integrity
 
-Before any production-bound push, read `https://mygridpermit.com/gridpermit-release.json` and the exact Netlify site's published deployment. GitHub main or a local main checkout may be older than the deployed source; a documentation-only commit can still trigger a full automatic deployment. Reconcile the verified production source first. Do not overwrite unrelated dirty worktrees.
+Before any production-bound push, read `https://mygridpermit.com/gridpermit-release.json` and the exact hosting project's production deployment. Reconcile the public domain, live source commit and provider before using a local or GitHub main checkout. Do not overwrite unrelated dirty worktrees.
 
-The canonical production site ID is `d49c19aa-f997-43f3-9b11-fabff36c4c83`; a CLI default project is not evidence of the correct target. Run tests, typecheck, build/release-preservation and partner-health gates, then independently verify the deployed commit, functions and route contracts. A green CI run alone does not prove correct production identity.
+The Vercel production target is team `lahman001` (`team_H3WXTdYUtyb1PHly4EZJQVeT`), project `gridpermit-migration` (`prj_yqFniKhSom1J5qBlIMSWjVZFojxz`). Its production branch is `main`. Confirm its deployment is READY, its source commit matches the release metadata, and public HTTPS/DNS and `/telemetry/health` verify the intended provider. A green CI run alone does not prove correct production identity.
+
+Netlify site `d49c19aa-f997-43f3-9b11-fabff36c4c83` is the migration rollback target. Keep its historical attribution data and unrelated account sites intact. Never deploy there as the primary production target merely because an older script hardcodes the site ID. During a rollback, verify the actual public release before proceeding.
+
+Run tests, typecheck, build/release-preservation, SEO and partner-health gates. Verify the approved commercial manifest, actual function behavior, authenticated retention schedule, durable storage health and unchanged page/measurement contracts. Preview deployments must reject real referrals. Never generate accepted affiliate requests for QA.
 
 City coverage confirmation is separate from a canonical locality record, an unambiguous utility, an approved intent and a published route. Do not override any gate based on the legacy city allowlist. Keep private search metrics, outbound receipts and partner outreach logs outside the public repository. A URL-only regression fixture is sufficient for route-preservation tests.
