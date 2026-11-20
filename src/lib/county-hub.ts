@@ -4,6 +4,7 @@
 // Every fact here is derived directly from the same LocalityRecord data the
 // city guides themselves use; nothing county-specific is invented.
 
+import { isNewGuideDuringMeasurement } from "./measurement-window-guides.ts";
 import { citySlug, guideUrlForCitySlug, utilityShortName, type LocalityRecord } from "./locality-guide.ts";
 import { stateMeta } from "./state-meta.ts";
 
@@ -77,6 +78,9 @@ export function buildCountyHubs(
 		if (evalRecord.readiness !== "READY" || seenRecordIds.has(evalRecord.record_id)) continue;
 		const record = recordsById.get(evalRecord.record_id);
 		if (!record || !record.county?.value) continue;
+		// Guides published during the search measurement window must not create or
+		// change hub pages or hub links on existing guides (docs/growth/COLORADO_PILOT_20261113.md).
+		if (isNewGuideDuringMeasurement(record.record_id)) continue;
 		seenRecordIds.add(evalRecord.record_id);
 		const county = record.county.value.trim();
 		const key = `${record.state}::${countySlug(county)}`;
