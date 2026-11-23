@@ -249,7 +249,7 @@ main:not([class]) { width: min(900px, calc(100% - var(--gp-gutter) * 2)); margin
 .gp-checklist-tools output { font: 11px/1.6 var(--gp-mono); color: var(--gp-muted); }
 .print-checklist-header { display: none; }
 .reading-progress-track { height: 2px; position: fixed; top: 0; left: 0; right: 0; z-index: 110; }
-.reading-progress-bar { height: 100%; background: var(--gp-accent); width: 0; }
+.reading-progress-bar { height: 100%; background: var(--gp-accent); width: 100%; transform: scaleX(0); transform-origin: left; }
 /* Keep existing commercial selectors and scripts; only their visual treatment changes. */
 html:root[data-theme] .compare-solar-cta,html:root[data-theme] .installer-cta-box { background: var(--gp-surface); color: var(--gp-ink); border: 1px solid var(--gp-line); border-radius: 2px; padding: 32px; text-align: left; margin: 40px 0; }
 html:root[data-theme] .first-lead-panel .compare-solar-cta { border: 0; padding: 24px 0 0; margin: 24px 0 0; border-top: 1px solid var(--gp-line); }

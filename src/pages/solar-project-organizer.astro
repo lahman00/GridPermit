@@ -89,8 +89,8 @@ const productSchema = organizerCheckout ? {
       <figure>
         <a href="/products/solar-project-organizer-preview.png" aria-label="View the first page of the organizer">
           <picture>
-            <source srcset="/products/solar-project-organizer-preview.webp" type="image/webp" />
-            <img src="/products/solar-project-organizer-preview.png" alt="Preview of the organizer's project overview page, with blank fields for project details and next actions" width="773" height="1000" fetchpriority="high" />
+            <source srcset="/products/solar-project-organizer-preview-384.webp 384w, /products/solar-project-organizer-preview-640.webp 640w, /products/solar-project-organizer-preview.webp 773w" sizes="(max-width: 520px) calc(100vw - 40px), (max-width: 760px) 480px, (max-width: 1333px) 37vw, 493px" type="image/webp" />
+            <img src="/products/solar-project-organizer-preview.png" alt="Preview of the organizer's project overview page, with blank fields for project details and next actions" width="773" height="1000" loading="lazy" decoding="async" />
           </picture>
         </a>
         <figcaption>Page 1 of 6. Select the image to view the sample.</figcaption>

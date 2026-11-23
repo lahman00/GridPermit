@@ -49,7 +49,7 @@ test("the buy link says where checkout happens before the visitor leaves the sit
 test("the preview ships a lossless WebP with the PNG fallback and its real intrinsic size", () => {
   const png = readFileSync(new URL("../public/products/solar-project-organizer-preview.png", import.meta.url));
   const width = png.readUInt32BE(16), height = png.readUInt32BE(20);
-  assert.match(organizer, /<source srcset="\/products\/solar-project-organizer-preview\.webp" type="image\/webp" \/>/);
+  assert.match(organizer, /<source srcset="[^"]*\/products\/solar-project-organizer-preview\.webp 773w" sizes="[^"]+" type="image\/webp" \/>/);
   assert.match(organizer, new RegExp(`src="/products/solar-project-organizer-preview\\.png"[^>]*width="${width}" height="${height}"`));
   const webp = readFileSync(new URL("../public/products/solar-project-organizer-preview.webp", import.meta.url));
   assert.equal(webp.toString("ascii", 0, 4), "RIFF");

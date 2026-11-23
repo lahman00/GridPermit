@@ -1,25 +1,3 @@
----
-import { buildLocalityIndexEntries, type LocalityRecord } from '../lib/locality-guide';
-import { buildSearchIndex } from '../lib/search-index';
-import { buildCountyHubs } from '../lib/county-hub';
-import { buildUtilityHubs } from '../lib/utility-hub';
-import { getAllBlogPosts } from '../lib/blog-posts';
-import { STATE_META, SUPPORTED_STATE_CODES } from '../lib/state-meta';
-
-const localityModules = import.meta.glob('../../data/localities/*.json', { eager: true }) as Record<string, { default: LocalityRecord }>;
-const recordsById = new Map(Object.values(localityModules).map(mod => [mod.default.record_id, mod.default]));
-const evaluationModules = import.meta.glob('../../output/*-evaluation.json', { eager: true }) as Record<string, { default: { records: Array<{record_id:string;readiness:string;completeness_pct:number}> } }>;
-const evaluations = Object.values(evaluationModules).flatMap(mod => mod.default.records);
-const localityEntries = buildLocalityIndexEntries(evaluations, recordsById);
-const index = buildSearchIndex({
-  localityEntries,
-  blogPosts: await getAllBlogPosts(),
-  countyHubs: buildCountyHubs(evaluations, recordsById).filter(hub => hub.state === 'CA'),
-  utilityHubs: buildUtilityHubs(evaluations, recordsById).filter(hub => hub.state === 'CA'),
-  states: SUPPORTED_STATE_CODES.map(code => STATE_META[code]),
-});
-
----
 <div class="gp-quick-search" data-quick-search>
   <form id="hero-search-form" action="/search/" method="get" role="search">
     <label for="hero-search-input" class="gp-kicker">Start with your location</label>
@@ -35,7 +13,6 @@ const index = buildSearchIndex({
   </div>
   <p id="quick-search-help" class="gp-search-help">City-level research. No address or contact details required.</p>
   <p class="sr-only" data-search-status role="status"></p>
-  <script is:inline type="application/json" data-quick-search-index set:html={JSON.stringify(index).replace(/</g, '\\u003c')} />
 </div>
 <script>
   import { searchEntries, type SearchEntry } from '../lib/search-index';
@@ -47,13 +24,32 @@ const index = buildSearchIndex({
     const empty = root.querySelector<HTMLElement>('[data-search-empty]');
     const all = root.querySelector<HTMLAnchorElement>('[data-search-all]');
     const status = root.querySelector<HTMLElement>('[data-search-status]');
-    const index: SearchEntry[] = JSON.parse(root.querySelector('[data-quick-search-index]')?.textContent ?? '[]');
-    const close = () => { if (dropdown) dropdown.hidden = true; };
-    const render = () => {
+    let indexPromise: Promise<SearchEntry[]> | null = null;
+    const loadIndex = () => {
+      if (!indexPromise) indexPromise = fetch('/search-index.json', { cache: 'force-cache' }).then(response => {
+        if (!response.ok) throw new Error('Search index unavailable');
+        return response.json() as Promise<SearchEntry[]>;
+      }).catch(error => { indexPromise = null; throw error; });
+      return indexPromise;
+    };
+    let renderVersion = 0;
+    const close = () => { renderVersion++; if (dropdown) dropdown.hidden = true; };
+    const render = async () => {
       if (!input || !list || !dropdown || !empty || !all) return;
+      const version = ++renderVersion;
       const q = input.value.trim();
-      list.replaceChildren();
       if (!q) { close(); if (status) status.textContent = ''; return; }
+      let index: SearchEntry[];
+      try { index = await loadIndex(); } catch {
+        if (version === renderVersion) {
+          if (status) status.textContent = 'Suggestions unavailable. Use Find to search.';
+          close();
+        }
+        return;
+      }
+      // A slower earlier request must not overwrite the latest query or reopen a closed list.
+      if (version !== renderVersion || input.value.trim() !== q || !root.contains(document.activeElement)) return;
+      list.replaceChildren();
       const results = searchEntries(index, q);
       for (const result of results.slice(0, 5)) {
         const li = document.createElement('li');
@@ -74,8 +70,8 @@ const index = buildSearchIndex({
       dropdown.hidden = false;
       if (status) status.textContent = results.length ? `${results.length} results. ${Math.min(results.length, 5)} suggestions shown. Use Tab or Arrow Down to explore.` : 'No exact match. Try a city, county or electric utility.';
     };
-    input?.addEventListener('input', render);
-    input?.addEventListener('focus', render);
+    input?.addEventListener('input', () => void render());
+    input?.addEventListener('focus', () => { void loadIndex().catch(() => {}); void render(); });
     input?.addEventListener('keydown', event => {
       if (event.key === 'ArrowDown' && dropdown && !dropdown.hidden) {
         const first = list?.querySelector('a');

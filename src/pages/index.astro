@@ -1,4 +1,5 @@
 ---
+import "../styles/home-atmosphere.css";
 import QuickSearch from "../components/QuickSearch.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -65,7 +66,7 @@ const websiteSchema = {
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 	<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 </head>
-<body>
+<body class="gp-home-page">
 	<a href="#main-content" class="skip-link">Skip to main content</a>
 
 
@@ -82,20 +83,65 @@ const websiteSchema = {
           </div>
           <div class="gp-route-map" aria-hidden="true">
             <div class="gp-route-map-head"><span>Project route</span><span>Source linked</span></div>
-            <svg viewBox="0 0 400 390" role="presentation">
-              <g class="gp-route-grid">
-                <path d="M40 48H360M40 133H360M40 218H360M40 303H360" />
-                <path d="M80 24V344M200 24V344M320 24V344" />
+            <div class="gp-route-board">
+            <svg class="gp-isometric-scene" viewBox="0 70 400 285" role="presentation">
+              <defs>
+                <linearGradient id="gp-scene-ground" x1="0" y1="0" x2="1" y2="1"><stop stop-color="var(--scene-top)"/><stop offset="1" stop-color="var(--scene-front)"/></linearGradient>
+                <linearGradient id="gp-scene-panel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#658896"/><stop offset="1" stop-color="#273e4a"/></linearGradient>
+                <clipPath id="gp-scene-ground-clip"><path d="M30 201 220 98 377 187 188 294Z"/></clipPath>
+              </defs>
+              <ellipse cx="207" cy="335" rx="143" ry="20" fill="var(--scene-shadow)" opacity=".12"/>
+              <!-- A solid raised plot, rather than a flat graph. -->
+              <path d="m30 213 158 93 189-107v18L188 325 30 231Z" fill="var(--scene-side)"/>
+              <path d="m30 201 158 93v24L30 225Z" fill="var(--scene-front)" stroke="var(--scene-edge)"/>
+              <path d="m188 294 189-107v24L188 318Z" fill="var(--scene-right)" stroke="var(--scene-edge)"/>
+              <path d="M30 201 220 98 377 187 188 294Z" fill="url(#gp-scene-ground)" stroke="var(--scene-edge)"/>
+              <g clip-path="url(#gp-scene-ground-clip)" fill="none" stroke="var(--scene-edge)" opacity=".55">
+                <path d="m48 170 217 126M80 151l217 126M112 132l217 126M144 113l217 126M176 94l217 126"/>
+                <path d="m62 249 226-132M99 269l226-132M136 290l226-132M25 228l226-132"/>
               </g>
-              <path class="gp-route-line-shadow" d="M70 286C105 286 118 231 157 231S203 150 246 150s49-70 91-70" />
-              <path class="gp-route-line" d="M70 286C105 286 118 231 157 231S203 150 246 150s49-70 91-70" />
-              <g class="gp-route-node gp-route-node--one" transform="translate(70 286)"><circle r="15"/><circle r="4"/></g>
-              <g class="gp-route-node gp-route-node--two" transform="translate(200 178)"><circle r="15"/><circle r="4"/></g>
-              <g class="gp-route-node gp-route-node--three" transform="translate(337 80)"><circle r="19"/><path d="m-7 0 5 5L8-7" /></g>
+              <path d="m50 208 138 80 170-96" fill="none" stroke="var(--scene-top)" stroke-width="2" opacity=".8"/>
+              <!-- The route is lifted above its ground shadow. -->
+              <path d="M140 221 182 245Q191 250 200 245L282 197" fill="none" stroke="var(--scene-shadow)" stroke-width="13" stroke-linecap="round" opacity=".14"/>
+              <path d="M140 214 182 238Q191 243 200 238L282 190" fill="none" stroke="var(--scene-right)" stroke-width="13" stroke-linecap="round"/>
+              <path class="gp-route-line" d="M140 209 182 233Q191 238 200 233L282 185" fill="none" stroke-width="9" stroke-linejoin="round"/>
+              <!-- A solar-roof house: independent geometry, no models or textures. -->
+              <path d="m90 188 54 31 65-37-54-31Z" fill="var(--scene-shadow)" opacity=".12"/>
+              <path d="m96 136 48 28v50l-48-28Z" fill="var(--scene-front)" stroke="var(--scene-edge)"/>
+              <path d="m144 164 56-32v50l-56 32Z" fill="var(--scene-right)" stroke="var(--scene-edge)"/>
+              <path d="m90 132 54 31 61-35-54-31Z" fill="var(--scene-roof)"/>
+              <path d="m90 132 54 31v6l-54-31Zm54 31 61-35v6l-61 35Z" fill="#1d2d31"/>
+              <g fill="url(#gp-scene-panel)" stroke="#c1d9df" stroke-width=".8">
+                <path d="m103 130 23-13 23 13-23 14Z"/><path d="m130 114 23-13 23 13-23 14Z"/>
+                <path d="m130 146 23-14 23 14-23 13Z"/><path d="m157 130 23-14 13 8-23 14Z"/>
+              </g>
+              <g fill="none" stroke="#c1d9df" stroke-width=".5" opacity=".8"><path d="m114 124 24 13m-24 0 24-14m4-15 23 13m-24 0 24-14m-24 32 24 13m-24 0 24-14"/></g>
+              <path d="m105 156 12 7v13l-12-7Zm20 12 11 7v13l-11-7Z" fill="var(--scene-window)" stroke="var(--scene-edge)"/>
+              <path d="m158 181 13-8v25l-13 8Z" fill="var(--scene-roof)"/>
+              <path d="m181 168 10-6v13l-10 6Z" fill="var(--scene-window)"/>
+              <path d="m99 186 45 26 52-30" fill="none" stroke="var(--scene-edge)"/>
+              <!-- A utility connection pedestal, with a physical top and sides. -->
+              <path d="m252 190 31 18 32-19-31-17Z" fill="var(--scene-shadow)" opacity=".12"/>
+              <path d="m263 132 20 12v48l-20-12Z" fill="var(--scene-front)" stroke="var(--scene-edge)"/>
+              <path d="m283 144 20-12v48l-20 12Z" fill="var(--scene-right)" stroke="var(--scene-edge)"/>
+              <path d="m263 132 20-12 20 12-20 12Z" fill="var(--scene-top)" stroke="var(--scene-edge)"/>
+              <path d="m268 149 10 6v17l-10-6Z" fill="var(--scene-roof)"/>
+              <path d="m271 155 3 2-2 5 4-1-4 6 1-6-3 1Z" fill="var(--gp-accent)"/>
+              <path d="M283 121V104" fill="none" stroke="var(--scene-edge)" stroke-width="3"/>
+              <circle cx="283" cy="98" r="11" fill="var(--gp-accent)"/>
+              <path d="m278 98 4 4 6-8" fill="none" stroke="var(--gp-accent-ink)" stroke-width="2.5"/>
+              <!-- Inspection marker and two small landscape elements. -->
+              <ellipse cx="221" cy="226" rx="12" ry="7" fill="var(--scene-shadow)" opacity=".15"/>
+              <path d="M221 222v-22" stroke="var(--gp-accent)" stroke-width="3"/>
+              <circle cx="221" cy="191" r="12" fill="var(--scene-top)" stroke="var(--gp-accent)" stroke-width="3"/>
+              <path d="m216 191 4 4 7-9" fill="none" stroke="var(--gp-accent)" stroke-width="2.5"/>
+              <g><ellipse cx="66" cy="206" rx="10" ry="5" fill="var(--scene-shadow)" opacity=".12"/><path d="M66 203v-20" stroke="var(--scene-roof)" stroke-width="3"/><circle cx="66" cy="177" r="11" fill="var(--scene-foliage)"/><circle cx="62" cy="171" r="8" fill="var(--scene-foliage-light)"/></g>
+              <g><ellipse cx="324" cy="220" rx="8" ry="4" fill="var(--scene-shadow)" opacity=".12"/><path d="M324 218v-15" stroke="var(--scene-roof)" stroke-width="2"/><circle cx="324" cy="198" r="9" fill="var(--scene-foliage)"/><circle cx="321" cy="193" r="6" fill="var(--scene-foliage-light)"/></g>
             </svg>
             <div class="gp-route-label gp-route-label--permit"><span>01</span><strong>Permit</strong><small>Local authority</small></div>
             <div class="gp-route-label gp-route-label--inspect"><span>02</span><strong>Inspection</strong><small>Field approval</small></div>
             <div class="gp-route-label gp-route-label--pto"><span>03</span><strong>PTO</strong><small>Utility approval</small></div>
+            </div>
             <div class="gp-route-readout"><span><i></i> Verified facts</span><span>No contact info</span></div>
           </div>
         </div>
@@ -308,29 +354,46 @@ const websiteSchema = {
  .gp-home-hero h1 > span { color: var(--gp-accent); }
  .gp-home-lead { color: var(--gp-muted); font-size: 18px; line-height: 1.6; margin: 30px 0 0; }
  .gp-route-map { position: relative; min-height: 390px; border: 1px solid var(--gp-line); overflow: hidden; background: var(--gp-surface); }
+ .gp-route-map { perspective: 1000px; isolation: isolate; --scene-top: #eeeee5; --scene-front: #e0e0d4; --scene-right: #c7cbbe; --scene-side: #a9b2a2; --scene-edge: #c1c9ba; --scene-roof: #31454a; --scene-window: #9bb7b9; --scene-shadow: #192d27; --scene-foliage: #899a79; --scene-foliage-light: #a5b68f; border-radius: 4px; background: radial-gradient(ellipse at 14% 10%, color-mix(in srgb, var(--gp-accent) 10%, transparent), transparent 55%), var(--gp-surface); box-shadow: inset 0 1px 0 #ffffff55, 0 18px 40px #00000009; }
+ .gp-route-board { position: absolute; inset: 40px 0 40px; transform-style: flat; transition: transform 180ms ease-out; }
+ .gp-route-board::before { display: none; content: ''; position: absolute; inset: 18px 14px; border: 1px solid var(--gp-line); border-radius: 3px; background: color-mix(in srgb, var(--gp-bg) 60%, transparent); box-shadow: 0 20px 30px #00000010; }
+ .gp-route-map[data-depth-ready] .gp-route-board { transform-style: preserve-3d; transform: rotateX(calc(3deg + var(--depth-y, 0deg))) rotateY(var(--depth-x, 0deg)); }
+ :global(:root[data-theme='dark']) .gp-route-map { --scene-top: #303d35; --scene-front: #29372f; --scene-right: #1c2922; --scene-side: #111c15; --scene-edge: #4c5d50; --scene-roof: #253b41; --scene-window: #779e9b; --scene-shadow: #000; --scene-foliage: #4a6c47; --scene-foliage-light: #67845a; }
  .gp-route-map-head,.gp-route-readout { position: absolute; z-index: 2; left: 18px; right: 18px; display: flex; justify-content: space-between; gap: 18px; color: var(--gp-muted); font: 9px/1.4 var(--gp-mono); letter-spacing: .08em; text-transform: uppercase; }
  .gp-route-map-head { top: 16px; }
- .gp-route-map svg { position: absolute; inset: 28px 0 34px; width: 100%; height: calc(100% - 62px); }
+ .gp-route-board svg { position: absolute; inset: 0; width: 100%; height: 100%; }
  .gp-route-grid path { fill: none; stroke: var(--gp-line); stroke-width: 1; vector-effect: non-scaling-stroke; }
  .gp-route-line-shadow { fill: none; stroke: var(--gp-bg); stroke-width: 12; }
- .gp-route-line { fill: none; stroke: var(--gp-accent); stroke-width: 3; stroke-linecap: square; stroke-dasharray: 410; stroke-dashoffset: 410; animation: gp-route-draw 1.8s .35s cubic-bezier(.22,.72,.25,1) forwards; }
+ .gp-route-line { fill: none; stroke: var(--gp-accent); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 190; stroke-dashoffset: 0; }
  .gp-route-node > circle:first-child { fill: var(--gp-bg); stroke: var(--gp-accent); stroke-width: 2; }
  .gp-route-node > circle:nth-child(2) { fill: var(--gp-accent); }
- .gp-route-node--two { animation: gp-node-arrive .55s 1.15s both; }
- .gp-route-node--three { animation: gp-node-arrive .55s 1.9s both; }
+ .gp-route-map.has-entered .gp-route-node--two { animation: gp-node-arrive .55s 1.15s both; }
+ .gp-route-map.has-entered .gp-route-node--three { animation: gp-node-arrive .55s 1.9s both; }
  .gp-route-node--three circle { fill: var(--gp-accent) !important; }
  .gp-route-node--three path { fill: none; stroke: var(--gp-accent-ink); stroke-width: 3; stroke-linecap: square; stroke-linejoin: miter; }
  .gp-route-label { position: absolute; z-index: 2; display: grid; grid-template-columns: 24px auto; column-gap: 8px; padding: 5px 7px; color: var(--gp-ink); background: var(--gp-surface); border-left: 1px solid var(--gp-accent); }
+ .gp-route-label { border: 1px solid var(--gp-line); border-left: 2px solid var(--gp-accent); border-radius: 9px; padding: 10px 12px; background: linear-gradient(135deg, color-mix(in srgb, var(--gp-bg) 86%, transparent), color-mix(in srgb, var(--gp-bg) 60%, transparent)); box-shadow: inset 0 1px 0 #ffffffb0, 0 8px 22px #16291f1a; transform: none; }
+ .gp-route-map[data-depth-ready] .gp-route-board::before { display: none; transform: translateZ(-16px); }
+ .gp-route-map[data-depth-ready] .gp-route-label { transform: translateZ(26px); }
+ @media (min-width: 1021px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  @supports (backdrop-filter: blur(1px)) { .gp-route-map[data-depth-ready] .gp-route-label { background: linear-gradient(135deg, color-mix(in srgb, var(--gp-bg) 80%, transparent), color-mix(in srgb, var(--gp-bg) 52%, transparent)); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); } }
+ }
+ @media (prefers-reduced-transparency: reduce), (forced-colors: active) { .gp-route-label, .gp-route-map[data-depth-ready] .gp-route-label { background: var(--gp-bg); backdrop-filter: none; -webkit-backdrop-filter: none; } }
  .gp-route-label > span { grid-row: 1 / 3; color: var(--gp-accent); font: 9px/1.5 var(--gp-mono); }
- .gp-route-label strong { font-size: 13px; font-weight: 500; line-height: 1.25; }
+ .gp-route-label strong { font-size: 14px; font-weight: 500; line-height: 1.25; }
  .gp-route-label small { color: var(--gp-muted); font: 9px/1.5 var(--gp-mono); text-transform: uppercase; letter-spacing: .04em; }
- .gp-route-label--permit { left: 25%; top: 72%; }
- .gp-route-label--inspect { left: 55%; top: 49%; }
- .gp-route-label--pto { right: 24%; top: 11%; }
+ .gp-route-label--permit { left: 3%; top: 64%; }
+ .gp-route-label--inspect { right: 3%; top: 48%; }
+ .gp-route-label--pto { right: 11%; top: 0; }
  .gp-route-readout { bottom: 14px; padding-top: 12px; border-top: 1px solid var(--gp-line); }
  .gp-route-readout span:first-child { color: var(--gp-ink); }
- .gp-route-readout i { display: inline-block; width: 6px; height: 6px; margin-right: 6px; background: var(--gp-accent); animation: gp-live-pulse 2.2s ease-in-out infinite; }
- @keyframes gp-route-draw { to { stroke-dashoffset: 0; } }
+ .gp-route-readout i { display: inline-block; width: 6px; height: 6px; margin-right: 6px; background: var(--gp-accent);  }
+ .gp-route-map.has-entered .gp-route-line { animation: gp-route-draw 1.8s .35s cubic-bezier(.22,.72,.25,1) both; }
+ .gp-route-map.has-entered .gp-route-readout i { animation: gp-live-pulse 2.2s ease-in-out infinite; }
+ .gp-route-map:not([data-visible]) .gp-route-line,
+ .gp-route-map:not([data-visible]) .gp-route-node,
+ .gp-route-map:not([data-visible]) .gp-route-readout i { animation-play-state: paused; }
+ @keyframes gp-route-draw { from { stroke-dashoffset: 190; } to { stroke-dashoffset: 0; } }
  @keyframes gp-node-arrive { from { opacity: 0; } to { opacity: 1; } }
  @keyframes gp-live-pulse { 50% { opacity: .3; } }
  .gp-home-hero-bottom { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--gp-line); color: var(--gp-muted); font: 10px/1.5 var(--gp-mono); letter-spacing: .07em; text-transform: uppercase; }
@@ -375,7 +438,7 @@ const websiteSchema = {
  .results-metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px 0; }
  .results-table-wrap { overflow-x: auto; }
  .lead-action-box p { color: var(--gp-muted); font-size: 14px; }
- @media (max-width: 1020px) { .gp-hero-stage { grid-template-columns: 1fr; } .gp-route-map { width: min(100%, 560px); min-height: 330px; } }
+ @media (max-width: 1020px) { .gp-route-map[data-depth-ready] .gp-route-board { transform: none; transform-style: flat; } .gp-route-map[data-depth-ready] .gp-route-label, .gp-route-map[data-depth-ready] .gp-route-board::before { transform: none; } .gp-hero-stage { grid-template-columns: 1fr; } .gp-route-map { width: min(100%, 560px); min-height: 330px; } }
  @media (max-width: 900px) { .gp-home-path,.gp-home-discover { gap: 50px; } }
  @media (max-width: 760px) {
   .gp-home-hero { min-height: auto; padding-top: 62px; }
@@ -385,9 +448,9 @@ const websiteSchema = {
   .gp-hero-stage { gap: 46px; }
   .gp-route-map { min-height: 300px; }
   .gp-route-label { grid-template-columns: 20px auto; padding: 4px 5px; }
-  .gp-route-label--permit { left: 24%; top: 71%; }
-  .gp-route-label--inspect { left: 53%; top: 48%; }
-  .gp-route-label--pto { right: 19%; top: 10%; }
+  .gp-route-label--permit { left: 3%; top: 68%; }
+  .gp-route-label--inspect { right: 3%; top: 49%; }
+  .gp-route-label--pto { right: 5%; top: 0; }
   .gp-home-hero-bottom { margin-top: 58px; font-size: 8px; gap: 20px; }
   .gp-home-section { padding-block: 64px; }
   .gp-home-path,.gp-home-discover,.gp-trust-editorial { grid-template-columns: 1fr; gap: 32px; }
@@ -395,12 +458,51 @@ const websiteSchema = {
   .gp-lab > summary { flex-wrap: wrap; font-size: 14px; }
   .gp-lab > summary .gp-kicker { flex-basis: 100%; }
  }
+ @media (hover: none), (pointer: coarse) {
+  .gp-route-map.has-entered .gp-route-line { animation: none; stroke-dashoffset: 0; }
+  .gp-route-map.has-entered .gp-route-readout i { animation: none; }
+ }
  @media (prefers-reduced-motion: reduce) {
-  .gp-route-line { animation: none; stroke-dashoffset: 0; }
-  .gp-route-node--two,.gp-route-node--three,.gp-route-readout i { animation: none; }
+  .gp-route-map[data-depth-ready] .gp-route-board { transform: none; transition: none; }
+  .gp-route-map.has-entered .gp-route-line { animation: none; stroke-dashoffset: 0; }
+  .gp-route-map.has-entered .gp-route-node--two,.gp-route-map.has-entered .gp-route-node--three,.gp-route-map.has-entered .gp-route-readout i { animation: none; }
  }
 </style>
 <script>
+ // Decorative motion starts only after load/paint and while the map is visible.
+ const routeMap = document.querySelector<HTMLElement>('.gp-route-map');
+ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+ if (routeMap && !reducedMotion.matches && 'IntersectionObserver' in window) {
+   const observeMap = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+     const observer = new IntersectionObserver(entries => {
+       for (const entry of entries) {
+         routeMap.toggleAttribute('data-visible', entry.isIntersecting);
+         if (entry.isIntersecting) {
+           routeMap.classList.add('has-entered');
+           const device = navigator as Navigator & { connection?: { saveData?: boolean }; deviceMemory?: number };
+           const canEnhance = !reducedMotion.matches && window.matchMedia('(min-width: 1021px) and (hover: hover) and (pointer: fine)').matches
+             && !device.connection?.saveData && (device.deviceMemory ?? 4) >= 4
+             && (device.hardwareConcurrency || 4) >= 4;
+           if (canEnhance && !routeMap.dataset.depthRequested) {
+             routeMap.dataset.depthRequested = 'true';
+             void import('../lib/hero-depth').then(({ enableHeroDepth }) => enableHeroDepth(routeMap)).catch(() => {});
+           }
+         }
+       }
+     });
+     observer.observe(routeMap);
+   }));
+   const device = navigator as Navigator & { connection?: { saveData?: boolean }; deviceMemory?: number };
+   const canAnimatePage = window.matchMedia('(min-width: 1021px) and (hover: hover) and (pointer: fine)').matches
+     && !device.connection?.saveData && (device.deviceMemory ?? 4) >= 4 && (device.hardwareConcurrency || 4) >= 4;
+   const enhancePage = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+     if (canAnimatePage && !reducedMotion.matches) void import('../lib/home-motion').then(({ enhanceHomeMotion }) => enhanceHomeMotion()).catch(() => {});
+   }));
+   if (document.readyState === 'complete') enhancePage();
+   else window.addEventListener('load', enhancePage, { once: true });
+   if (document.readyState === 'complete') observeMap();
+   else window.addEventListener('load', observeMap, { once: true });
+ }
  const revealCalculator = () => { if (window.location.hash === '#calculator') document.getElementById('calculator')?.setAttribute('open', ''); };
  window.addEventListener('hashchange', revealCalculator); revealCalculator();
 </script>

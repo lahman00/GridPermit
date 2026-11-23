@@ -39,7 +39,7 @@ const backlinks = selectArticleBacklinks(
 		<main class="gp-container" id="main-content" tabindex="-1">
 			<article class="gp-article">
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && <Image width={1020} height={510} widths={[400, 680, 1020]} sizes="(max-width: 860px) calc(100vw - 40px), 820px" format="webp" quality={80} loading="eager" decoding="async" src={heroImage} alt="" />}
 				</div>
 				<div class="prose">
 					<div class="title">

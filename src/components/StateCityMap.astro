@@ -1,0 +1,72 @@
+---
+import geography from '../../data/maps/state-geography.json';
+import {publishedMapCities} from '../lib/state-city-map';
+import type {LocalityIndexEntry} from '../lib/locality-guide';
+interface Props {state:'CA'|'CO';entries:LocalityIndexEntry[]}
+const {state,entries}=Astro.props;
+const pageSources=import.meta.glob('../pages/{california,colorado}/*/solar-permit-guide.astro');
+const routes=new Set(Object.keys(pageSources).map(p=>p.replace('../pages','').replace('solar-permit-guide.astro','solar-permit-guide/')));
+const cities=publishedMapCities(entries,state,routes);
+const name=state==='CA'?'California':'Colorado';
+---
+<section id="city-map" class="city-explorer" data-map-depth data-city-explorer aria-label={`${name} published city guides`}>
+ <div class="explorer-heading"><span class="gp-kicker">EXPLORE {name.toUpperCase()}</span><h2>Find your city guide</h2><p>Choose a point on the map, or search the list. Only cities with a published guide are shown.</p></div>
+ <div class="explorer-grid">
+  <div class="map-column">
+   <div class="city-map" data-map-canvas data-state={state}>
+    <div class="map-plate-label" aria-hidden="true"><span>THE LOCAL ATLAS</span><strong>{state}</strong></div>
+    <svg viewBox="0 0 600 600" aria-hidden="true">
+     <defs>
+      <linearGradient id={`land-${state}`} x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e2e8cf"/><stop offset=".42" stop-color="#a8c6aa"/><stop offset="1" stop-color="#568f84"/></linearGradient>
+      <linearGradient id={`edge-${state}`} x1="0" y1="0" x2="0" y2="1"><stop stop-color="#477d72"/><stop offset="1" stop-color="#173b39"/></linearGradient>
+      <clipPath id={`land-clip-${state}`}><path d={geography[state].path}/></clipPath>
+     </defs>
+     <ellipse cx="306" cy="500" rx="205" ry="39" fill="#020f15" opacity=".3"/>
+     <g transform="matrix(.90 .18 -.18 .75 84 20)">
+      <path d={geography[state].path} transform="translate(0 15)" fill="#092b2c" stroke="#123e3a" stroke-width="3"/>
+      <path d={geography[state].path} transform="translate(0 10)" fill={`url(#edge-${state})`} stroke="#619386" stroke-width="1"/>
+      <path d={geography[state].path} transform="translate(0 6)" fill="#477f71" stroke="#699b86" stroke-width="1"/>
+      <path d={geography[state].path} fill={`url(#land-${state})`} stroke="#e2f6d7" stroke-width="2"/>
+      <g clip-path={`url(#land-clip-${state})`} fill="none" stroke="#e8f6d8" stroke-width="1" opacity=".23">
+       {[0,1,2,3,4,5,6,7,8].map(i=><path d={`M-60 ${100+i*48} C160 ${-70+i*48} 220 ${330+i*32} 660 ${100+i*48}`}/>)}
+      </g>
+     </g>
+    </svg>
+    <div class="map-state-name" aria-hidden="true">{name}<span>{cities.length} PUBLISHED CITY GUIDES</span></div>
+    <span class="map-north" aria-hidden="true">↑ N</span>
+    <div data-map-points></div>
+   </div>
+   <p class="map-caption" data-map-help hidden>Each number shows how many published city guides are at that point. Choose a number to see the cities.</p>
+   <p class="map-source">Approximate city locations. Not permit or utility boundaries. <a href="https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html">U.S. Census geography</a>.</p>
+  </div>
+  <div class="city-directory">
+   <label for={`map-search-${state}`}>Search published cities</label>
+   <div class="map-search-row"><input id={`map-search-${state}`} data-map-search type="search" placeholder={`City in ${name}`} autocomplete="off"/><button type="button" data-map-reset hidden>Show all</button></div>
+   <p data-map-status role="status">{cities.length} published city guides</p>
+   <ul class="map-city-list" data-map-list>
+    {cities.map(c=><li data-map-city data-name={c.name} data-x={c.x} data-y={c.y}><a href={c.url} data-track-click="permit_guide_clicked"><span>{c.name}</span><small>{c.county ? (/count(?:y|ies)/i.test(c.county) ? c.county : `${c.county} County`) : 'Published guide'}</small><span class="city-arrow" aria-hidden="true">↗</span></a></li>)}
+   </ul>
+   <p data-map-empty hidden>No published city matches that search. Try another city name.</p>
+   <noscript><p>The full list works without JavaScript. Map selection and filtering require JavaScript.</p></noscript>
+  </div>
+ </div>
+</section>
+<script>
+ import {initCityMaps} from '../lib/state-city-map-client';
+ initCityMaps();
+</script>
+<style>
+.city-explorer{margin:32px 0 48px;padding:32px;border:1px solid var(--gp-line);border-radius:24px;background:var(--gp-surface);color:var(--gp-ink)}
+.explorer-heading h2{margin:8px 0 16px;font-size:clamp(28px,4vw,42px)}.explorer-heading p{max-width:620px;color:var(--gp-muted)}
+.explorer-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;margin-top:24px}.map-column,.city-directory{min-width:0}
+.city-map{position:relative;isolation:isolate;aspect-ratio:1;max-width:600px;overflow:visible;background:radial-gradient(ellipse at 55% 37%,#254b49 0%,#142d32 48%,#0c1d27 100%);border-radius:24px;border:1px solid #47726b;box-shadow:0 20px 40px -28px #061f2a99}
+.city-map::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 39px,#c6ead308 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,#c6ead308 39px 40px);mask-image:linear-gradient(transparent,#000 40%,transparent)}
+.city-map svg{display:block;width:100%;height:100%;position:relative}.map-north{position:absolute;right:24px;top:26px;font:11px var(--gp-mono);color:#b7d4cb}.map-plate-label{position:absolute;left:24px;top:24px;display:flex;flex-direction:column;color:#abc8c0;letter-spacing:.12em;font:9px var(--gp-mono)}.map-plate-label strong{font:500 28px var(--gp-mono);letter-spacing:-.04em;color:#eef5e9;margin-top:8px}.map-state-name{position:absolute;bottom:24px;left:24px;pointer-events:none;font:400 clamp(24px,3vw,36px)/1.1 var(--gp-display,var(--gp-sans));color:#eff6e9;letter-spacing:-.04em}.map-state-name span{display:block;margin-top:10px;font:9px var(--gp-mono);color:#b7d4cb;letter-spacing:.12em}
+.city-map :global(.map-point){position:absolute;transform:translate(-50%,-50%);width:48px;height:48px;border:0;background:transparent;color:#122e2c;font:700 11px var(--gp-mono);cursor:pointer;padding:0;touch-action:manipulation;display:grid;place-items:center;z-index:2}
+.city-map :global(.map-point::before){content:"";position:absolute;width:26px;height:26px;border-radius:50%;background:#f4e0b9;border:1px solid #fff2d5;box-shadow:0 3px 0 #a57c4b,0 7px 12px #071b2766;z-index:-1;transition:background .18s,box-shadow .18s}
+.city-map :global(.map-point[aria-pressed=true]::before){background:#fbad76;box-shadow:0 3px 0 #975634,0 0 0 5px #ffbf8c33}.city-map :global(.map-point:focus-visible){outline:2px solid #fff0c9;outline-offset:0;border-radius:50%}
+@media(hover:hover) and (pointer:fine){.city-map :global(.map-point:hover::before){background:#fff1d7;box-shadow:0 3px 0 #a57c4b,0 0 0 5px #fff0cb33}}
+.map-caption,.map-source{font-size:12px!important;line-height:1.6;color:var(--gp-muted)}.city-directory label{display:block;font-weight:600;margin-bottom:8px}.map-search-row{display:flex;gap:8px}.map-search-row input{min-width:0;flex:1;width:100%;padding:12px;min-height:48px;border:1px solid var(--gp-line);border-radius:12px;background:var(--gp-surface);color:var(--gp-ink);font:inherit}.map-search-row button{font:inherit;padding:8px 12px;border:1px solid var(--gp-line);border-radius:12px;background:var(--gp-surface);color:var(--gp-ink);cursor:pointer}
+[data-map-status]{font-size:12px!important;color:var(--gp-muted);margin:12px 0!important}.map-city-list{list-style:none!important;padding:0!important;margin:0!important;max-height:480px;overflow-y:auto;border:1px solid var(--gp-line);border-radius:16px;overscroll-behavior:auto;scroll-margin-top:100px}.map-city-list li{margin:0!important;border-bottom:1px solid var(--gp-line)}.map-city-list li:last-child{border:0}.map-city-list a{display:grid;grid-template-columns:1fr auto;gap:4px;padding:16px;min-height:64px;text-decoration:none!important;color:var(--gp-ink)}.map-city-list small{grid-column:1;font-size:12px;color:var(--gp-muted)}.city-arrow{grid-column:2;grid-row:1/3;align-self:center;color:var(--gp-accent)}.map-city-list a:focus-visible{outline-offset:-4px}.map-city-list a:hover{background:color-mix(in srgb,#b9d9c4 20%,var(--gp-surface))}
+[hidden]{display:none!important}@media(max-width:800px){.city-explorer{padding:20px;margin-inline:0}.explorer-grid{grid-template-columns:1fr;gap:24px}.city-map{max-width:420px;margin-inline:auto}.map-state-name{bottom:16px;left:16px;font-size:24px}.map-plate-label{left:16px;top:16px}.map-north{right:16px;top:18px}.map-city-list{max-height:none;overflow:visible}.map-source{margin-bottom:0!important}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}@media print{.city-map,.map-caption,.map-search-row{display:none}.explorer-grid{display:block}.map-city-list{max-height:none;overflow:visible}}
+</style>
