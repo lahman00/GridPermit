@@ -18,7 +18,7 @@ export function initCityMaps(){
     const px=Number(item.dataset.x),py=Number(item.dataset.y);
     const x=(.90*px-.18*py+84)/600*size,y=(.18*px+.75*py+20)/600*size;
     // Fixed anchors keep every distinct 48px touch target apart.
-    const group=groups.find(g=>Math.hypot(g.x-x,g.y-y)<54);
+    const group=groups.find(g=>Math.abs(g.x-x)<54&&Math.abs(g.y-y)<54);
     if(group)group.items.push(item);else groups.push({x,y,items:[item]});
    }
    points.replaceChildren();
