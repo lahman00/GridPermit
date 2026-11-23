@@ -128,11 +128,13 @@ test('sources, section anchors and native print disclosure remain available',()=
  assert.match(css,/scroll-padding-top: 8rem/);
 });
 
-test('instant discovery reuses the existing matcher and emits no query telemetry or remote requests',()=>{
- assert.match(quick,/buildSearchIndex/);assert.match(quick,/searchEntries\(index, q\)/);
+test('instant discovery loads the shared index on demand without sending queries or telemetry',()=>{
+ assert.match(read('src/pages/search-index.json.ts'),/buildSearchIndex/);assert.match(quick,/searchEntries\(index, q\)/);
+ assert.match(quick,/fetch\('\/search-index\.json', \{ cache: 'force-cache' \}\)/);
+ assert.doesNotMatch(quick,/data-quick-search-index|application\/json/);
  assert.match(quick,/action="\/search\/" method="get"/);
  assert.match(quick,/title\.textContent = result\.title/);
- assert.doesNotMatch(quick,/fetch\(|XMLHttpRequest|sendBeacon|trackEvent\(/);
+ assert.doesNotMatch(quick,/XMLHttpRequest|sendBeacon|trackEvent\(/);
  assert.match(quick,/ArrowDown/);assert.match(quick,/Escape/);
  assert.doesNotMatch(quick,/placeholder="[^"]*ZIP/);
  assert.match(directory,/card\.hidden/);assert.match(directory,/aria-live="polite"/);
@@ -161,10 +163,10 @@ test('published state pages participate in the shared search index, including st
  assert.equal(searchEntries(index,'Ohio')[0]?.url,'/ohio/');
  assert.equal(index.filter(entry=>entry.url==='/california/').length,1);
  assert.equal(index.find(entry=>entry.url==='/ohio/').category,'State');
- for(const file of ['src/components/QuickSearch.astro','src/pages/search.astro']){
+ for(const file of ['src/pages/search-index.json.ts','src/pages/search.astro']){
   assert.match(read(file),/states: SUPPORTED_STATE_CODES.map/);
-  assert.match(read(file),/countyHubs: .*filter\(hub => hub.state === 'CA'\)/);
-  assert.match(read(file),/utilityHubs: .*filter\(hub => hub.state === 'CA'\)/);
+  assert.match(read(file),/countyHubs(?: =|:) .*filter\(hub => hub.state === 'CA'\)/);
+  assert.match(read(file),/utilityHubs(?: =|:) .*filter\(hub => hub.state === 'CA'\)/);
  }
 });
 

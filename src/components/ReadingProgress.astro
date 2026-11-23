@@ -1,16 +1,25 @@
 <div class="reading-progress-track" aria-hidden="true"><div class="reading-progress-bar" data-reading-progress></div></div>
 <script>
   const progressBar = document.querySelector<HTMLElement>('[data-reading-progress]');
-  let progressFrame = 0;
-  function updateReadingProgress() {
-    cancelAnimationFrame(progressFrame);
-    progressFrame = requestAnimationFrame(() => {
-      const available = document.documentElement.scrollHeight - window.innerHeight;
-      const percentage = available > 0 ? (window.scrollY / available) * 100 : 0;
-      progressBar?.style.setProperty('width', `${Math.min(100, Math.max(0, percentage))}%`);
-    });
+  if (progressBar) {
+    let progressFrame = 0;
+    let available = 0;
+    const updateReadingProgress = () => {
+      if (progressFrame) return;
+      progressFrame = requestAnimationFrame(() => {
+        progressFrame = 0;
+        const fraction = available > 0 ? window.scrollY / available : 0;
+        progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, fraction))})`;
+      });
+    };
+    const measureReadingExtent = () => {
+      available = document.documentElement.scrollHeight - window.innerHeight;
+      updateReadingProgress();
+    };
+    window.addEventListener('scroll', updateReadingProgress, { passive: true });
+    window.addEventListener('resize', measureReadingExtent, { passive: true });
+    window.addEventListener('load', measureReadingExtent, { once: true });
+    if ('ResizeObserver' in window) new ResizeObserver(measureReadingExtent).observe(document.body);
+    measureReadingExtent();
   }
-  window.addEventListener('scroll', updateReadingProgress, { passive: true });
-  window.addEventListener('resize', updateReadingProgress, { passive: true });
-  updateReadingProgress();
 </script>
