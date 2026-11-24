@@ -154,7 +154,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 test("the state index marks only new address-level guides", () => {
 	const page = read("src/pages/[state]/index.astro");
 	assert.match(page, /NEW_GUIDES_DURING_MEASUREMENT/);
-	assert.match(page, /addressLevelUtilityIds\.has\(entry\.recordId\) && " \(depends on the address\)"/);
+	assert.match(page, /addressLevelUtilityIds\.has\(entry\.recordId\) && " \(confirm for your address\)"/);
 });
 
 test("Lakewood does not turn an old general fee schedule into a solar price or review promise", () => {
