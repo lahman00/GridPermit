@@ -133,6 +133,10 @@ const isArvadaGuide = record.record_id === "co-jefferson-arvada-multi";
 const isLongmontGuide = record.record_id === "co-boulder-longmont-multi";
 const isCentennialGuide = record.record_id === "co-arapahoe-centennial-multi";
 const isBoulderGuide = record.record_id === "co-boulder-boulder-multi";
+// These guides answer the utility FAQ with the record's own audited utility notes:
+// the generic address-level sentence is not supported by every city's sources.
+const UTILITY_ANSWER_FROM_NOTES = new Set(["co-boulder-boulder-multi", "co-adams-brighton-multi", "co-boulder-erie-multi", "co-boulder-superior-xcel", "az-maricopa-queen-creek-multi", "az-pima-oro-valley-multi"]);
+const utilityAnswerFromNotes = UTILITY_ANSWER_FROM_NOTES.has(record.record_id);
 const isBroomfieldGuide = record.record_id === "co-broomfield-broomfield-multi";
 const isWestminsterGuide = record.record_id === "co-adams-westminster-multi";
 const isParkerGuide = record.record_id === "co-douglas-parker-multi";
@@ -245,7 +249,7 @@ const hasGenerationSupplier = generationSupplier !== null;
 
 const breadcrumbItems = buildBreadcrumbItems(record, { cityPath, pageUrl: canonicalUrl });
 const breadcrumbSchema = buildBreadcrumbSchema(breadcrumbItems);
-const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, utilityAnswer: isBoulderGuide ? record.utility.notes ?? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide || isCentennialGuide || isBoulderGuide || isBroomfieldGuide || isWestminsterGuide || isParkerGuide || isThorntonGuide, expectedReviewTimeline: isCentennialGuide || isBroomfieldGuide || isParkerGuide || isThorntonGuide, documentChecklistIntro: isThorntonGuide ? "City of Thornton CityView solar submittal items and separate utility documents include:" : isParkerGuide ? "Town of Parker eTRAKiT solar submittal items and CORE interconnection documents include:" : isWestminsterGuide ? "Westminster Residential Solar submittal items and separate utility documents include:" : isBroomfieldGuide ? "Broomfield solar submittal items and separate utility documents include:" : isBoulderGuide ? "Verified City application items and separate Xcel documents include:" : isCentennialGuide ? "City and utility submission documents include the following, subject to the provider conditions shown:" : undefined });
+const faqs = buildFaqs(record, { addressLevelUtility: isNewGuide, utilityAnswer: utilityAnswerFromNotes ? record.utility.notes ?? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide || isCentennialGuide || isBoulderGuide || isBroomfieldGuide || isWestminsterGuide || isParkerGuide || isThorntonGuide, expectedReviewTimeline: isCentennialGuide || isBroomfieldGuide || isParkerGuide || isThorntonGuide, documentChecklistIntro: isThorntonGuide ? "City of Thornton CityView solar submittal items and separate utility documents include:" : isParkerGuide ? "Town of Parker eTRAKiT solar submittal items and CORE interconnection documents include:" : isWestminsterGuide ? "Westminster Residential Solar submittal items and separate utility documents include:" : isBroomfieldGuide ? "Broomfield solar submittal items and separate utility documents include:" : isBoulderGuide ? "Verified City application items and separate Xcel documents include:" : isCentennialGuide ? "City and utility submission documents include the following, subject to the provider conditions shown:" : undefined });
 const faqSchema = buildFaqSchema(faqs);
 
 // Table of contents — ids match the section anchors added below. FAQ and

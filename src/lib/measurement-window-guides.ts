@@ -41,7 +41,7 @@ export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string
 	"co-adams-brighton-multi",
 	"co-boulder-erie-multi",
 	"co-boulder-superior-xcel",
-	"az-maricopa-queen-creek-srp",
+	"az-maricopa-queen-creek-multi",
 	"az-pima-oro-valley-multi",
 ]);
 
@@ -70,7 +70,7 @@ const BATCH_3_GUIDES = new Set([
 	"co-adams-brighton-multi",
 	"co-boulder-erie-multi",
 	"co-boulder-superior-xcel",
-	"az-maricopa-queen-creek-srp",
+	"az-maricopa-queen-creek-multi",
 	"az-pima-oro-valley-multi",
 ]);
 

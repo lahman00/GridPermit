@@ -38,7 +38,7 @@ function loadEntries() {
 // Batch 2 guides (2026-11-20) are newer than every guide tested below.
 const BATCH_2_IDS = new Set(["co-jefferson-wheat-ridge-xcel", "co-boulder-lafayette-xcel", "co-mesa-grand-junction-multi", "co-arapahoe-englewood-xcel", "co-arapahoe-littleton-xcel", "co-adams-commerce-city-multi"]);
 // Batch 3 guides (2026-11-24) are newer than batch 2.
-const BATCH_3_IDS = new Set(["co-adams-brighton-multi", "co-boulder-erie-multi", "co-boulder-superior-xcel", "az-maricopa-queen-creek-srp", "az-pima-oro-valley-multi"]);
+const BATCH_3_IDS = new Set(["co-adams-brighton-multi", "co-boulder-erie-multi", "co-boulder-superior-xcel", "az-maricopa-queen-creek-multi", "az-pima-oro-valley-multi"]);
 const LATER_BATCH_IDS = new Set([...BATCH_2_IDS, ...BATCH_3_IDS]);
 
 test("existing and earlier pilot guides keep their pools; Thornton can see all guides", () => {
@@ -140,7 +140,12 @@ test("new guides say the utility depends on the address; existing guides keep th
 	}
 	// Aurora's own sources say other utilities serve parts of the city, so it stays an address check.
 	assert.equal(hasVerifiedUnambiguousUtility(JSON.parse(read("data/localities/co-arapahoe-aurora-xcel.json"))), false);
-	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, utilityAnswer: isBoulderGuide \? record\.utility\.notes \?\? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide \|\| isCentennialGuide \|\| isBoulderGuide \|\| isBroomfieldGuide \|\| isWestminsterGuide \|\| isParkerGuide \|\| isThorntonGuide, expectedReviewTimeline: isCentennialGuide \|\| isBroomfieldGuide \|\| isParkerGuide \|\| isThorntonGuide, documentChecklistIntro: isThorntonGuide/);
+	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, utilityAnswer: utilityAnswerFromNotes \? record\.utility\.notes \?\? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide \|\| isCentennialGuide \|\| isBoulderGuide \|\| isBroomfieldGuide \|\| isWestminsterGuide \|\| isParkerGuide \|\| isThorntonGuide, expectedReviewTimeline: isCentennialGuide \|\| isBroomfieldGuide \|\| isParkerGuide \|\| isThorntonGuide, documentChecklistIntro: isThorntonGuide/);
+	// Batch 3 guides answer the utility question with their own audited notes (Boulder already did).
+	const notesSet = read("src/layouts/LocalityGuideLayout.astro").match(/const UTILITY_ANSWER_FROM_NOTES = new Set\(\[([^\]]*)\]\);/);
+	assert.ok(notesSet);
+	assert.deepEqual([...notesSet[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), ["co-boulder-boulder-multi", ...BATCH_3_IDS].sort());
+	for (const id of BATCH_3_IDS) assert.match(JSON.parse(read(`data/localities/${id}.json`)).utility.notes, /electric bill/);
 	const denver = JSON.parse(read("data/localities/co-denver-denver-xcel.json"));
 	assert.match(buildFaqs(denver)[0].a, /is the interconnection and distribution utility for Denver\./);
 	assert.deepEqual(buildFaqs(denver), buildFaqs(denver, {}));

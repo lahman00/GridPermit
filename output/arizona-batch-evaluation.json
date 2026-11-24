@@ -1,6 +1,6 @@
 {
   "state": "AZ",
-  "generated_at": "2026-11-24T17:27:47.209Z",
+  "generated_at": "2026-11-24T17:38:38.087Z",
   "records": [
     {
       "record_id": "az-maricopa-chandler-srp",
@@ -106,7 +106,7 @@
       "readiness": "READY"
     },
     {
-      "record_id": "az-maricopa-queen-creek-srp",
+      "record_id": "az-maricopa-queen-creek-multi",
       "state": "AZ",
       "city": "Queen Creek",
       "county": "Maricopa and Pinal counties",
@@ -114,7 +114,7 @@
       "validation_score": 100,
       "validation_status": "REVIEW",
       "error_count": 0,
-      "warning_count": 8,
+      "warning_count": 7,
       "populated_fields": [
         "utility",
         "city",
@@ -178,12 +178,13 @@
       "state": "AZ",
       "city": "Oro Valley",
       "county": "Pima County",
-      "completeness_pct": 80,
+      "completeness_pct": 86.7,
       "validation_score": 100,
       "validation_status": "REVIEW",
       "error_count": 0,
       "warning_count": 8,
       "populated_fields": [
+        "utility",
         "city",
         "county",
         "permit_authority",
@@ -198,7 +199,6 @@
         "official_contacts"
       ],
       "missing_fields": [
-        "utility",
         "generation_supplier",
         "rebates"
       ],
@@ -244,7 +244,7 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 75.2,
+    "average_completeness_pct": 76.2,
     "average_validation_score": 94.1,
     "fields_most_often_missing": [
       {
@@ -276,10 +276,6 @@
         "missing_in_records": 2
       },
       {
-        "field": "utility",
-        "missing_in_records": 1
-      },
-      {
         "field": "interconnection_url",
         "missing_in_records": 1
       },
@@ -292,7 +288,7 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "az-maricopa-phoenix-aps",
-      "az-maricopa-queen-creek-srp",
+      "az-maricopa-queen-creek-multi",
       "az-pima-oro-valley-multi",
       "az-pima-tucson-tep"
     ],
