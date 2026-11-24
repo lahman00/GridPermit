@@ -37,6 +37,9 @@ function loadEntries() {
 
 // Batch 2 guides (2026-11-20) are newer than every guide tested below.
 const BATCH_2_IDS = new Set(["co-jefferson-wheat-ridge-xcel", "co-boulder-lafayette-xcel", "co-mesa-grand-junction-multi", "co-arapahoe-englewood-xcel", "co-arapahoe-littleton-xcel", "co-adams-commerce-city-multi"]);
+// Batch 3 guides (2026-11-24) are newer than batch 2.
+const BATCH_3_IDS = new Set(["co-adams-brighton-multi", "co-boulder-erie-multi", "co-boulder-superior-xcel", "az-maricopa-queen-creek-multi", "az-pima-oro-valley-multi"]);
+const LATER_BATCH_IDS = new Set([...BATCH_2_IDS, ...BATCH_3_IDS]);
 
 test("existing and earlier pilot guides keep their pools; Thornton can see all guides", () => {
 	const entries = [{ recordId: "co-denver-denver-xcel" }, ...[...NEW_GUIDES_DURING_MEASUREMENT].map((recordId) => ({ recordId }))];
@@ -44,8 +47,9 @@ test("existing and earlier pilot guides keep their pools; Thornton can see all g
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		assert.equal(isNewGuideDuringMeasurement(id), true);
 		const hidden = id === "co-adams-thornton-multi" ? [] : ["co-adams-thornton-multi", ...(id === "co-douglas-parker-multi" ? [] : ["co-douglas-parker-multi", ...(id === "co-adams-westminster-multi" ? [] : ["co-adams-westminster-multi", ...(id === "co-broomfield-broomfield-multi" ? [] : ["co-broomfield-broomfield-multi", ...(id === "co-boulder-boulder-multi" ? [] : ["co-boulder-boulder-multi", ...(id === "co-arapahoe-centennial-multi" ? [] : id === "co-boulder-longmont-multi" ? ["co-arapahoe-centennial-multi"] : id === "co-jefferson-arvada-multi" ? ["co-arapahoe-centennial-multi", "co-boulder-longmont-multi"] : ["co-arapahoe-centennial-multi", "co-boulder-longmont-multi", "co-jefferson-arvada-multi"])])])])])];
-		if (BATCH_2_IDS.has(id)) { assert.deepEqual(relatedPoolFor(id, entries), entries); continue; }
-		assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !hidden.includes(entry.recordId) && !BATCH_2_IDS.has(entry.recordId)));
+		if (BATCH_3_IDS.has(id)) { assert.deepEqual(relatedPoolFor(id, entries), entries); continue; }
+		if (BATCH_2_IDS.has(id)) { assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !BATCH_3_IDS.has(entry.recordId))); continue; }
+		assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !hidden.includes(entry.recordId) && !LATER_BATCH_IDS.has(entry.recordId)));
 	}
 	assert.equal(isNewGuideDuringMeasurement("co-denver-denver-xcel"), false);
 	assert.equal(isNewGuideDuringMeasurement(null), false);
@@ -123,19 +127,25 @@ test("new guides say the utility depends on the address; existing guides keep th
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		const record = JSON.parse(read(`data/localities/${id}.json`));
 		// Each record tells the reader to check their own address in the utility notes.
-		assert.match(record.utility.notes, /your (own address|electric bill)/);
+		assert.match(record.utility.notes, /your (own )?address|your electric bill/);
 		const utilityFaq = buildFaqs(record, { addressLevelUtility: true })[0];
 		assert.match(utilityFaq.a, /^It depends on the address\./);
 		assert.doesNotMatch(utilityFaq.a, /is the interconnection and distribution utility for/);
 		// Pathway text must never be read as an automated permit path by the snippet or Permit Path logic.
 		// Wheat Ridge is the exception: the City itself accepts SolarAPP+ (its "Solar APP +" page).
-		if (id !== "co-jefferson-wheat-ridge-xcel") assert.doesNotMatch(record.eligibility_constraints.value.program_or_pathway, /solarapp|symbium|automated|instant/i);
+		// Oro Valley too: the Town's own "SolarAPP+ Residential Solar Permits" page offers it.
+		if (id !== "co-jefferson-wheat-ridge-xcel" && id !== "az-pima-oro-valley-multi") assert.doesNotMatch(record.eligibility_constraints.value.program_or_pathway, /solarapp|symbium|automated|instant/i);
 		// Null fee amounts render as "amount not verified"; taxes belong in the notes.
 		assert.ok(record.permit_fees.value.every((fee) => fee.amount_usd === null || typeof fee.amount_usd === "number"));
 	}
 	// Aurora's own sources say other utilities serve parts of the city, so it stays an address check.
 	assert.equal(hasVerifiedUnambiguousUtility(JSON.parse(read("data/localities/co-arapahoe-aurora-xcel.json"))), false);
-	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, utilityAnswer: isBoulderGuide \? record\.utility\.notes \?\? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide \|\| isCentennialGuide \|\| isBoulderGuide \|\| isBroomfieldGuide \|\| isWestminsterGuide \|\| isParkerGuide \|\| isThorntonGuide, expectedReviewTimeline: isCentennialGuide \|\| isBroomfieldGuide \|\| isParkerGuide \|\| isThorntonGuide, documentChecklistIntro: isThorntonGuide/);
+	assert.match(read("src/layouts/LocalityGuideLayout.astro"), /buildFaqs\(record, \{ addressLevelUtility: isNewGuide, utilityAnswer: utilityAnswerFromNotes \? record\.utility\.notes \?\? undefined : undefined, documentContext: hasDocumentContext, combinedDocumentChecklist: isLongmontGuide \|\| isCentennialGuide \|\| isBoulderGuide \|\| isBroomfieldGuide \|\| isWestminsterGuide \|\| isParkerGuide \|\| isThorntonGuide, expectedReviewTimeline: isCentennialGuide \|\| isBroomfieldGuide \|\| isParkerGuide \|\| isThorntonGuide, documentChecklistIntro: isThorntonGuide/);
+	// Batch 3 guides answer the utility question with their own audited notes (Boulder already did).
+	const notesSet = read("src/layouts/LocalityGuideLayout.astro").match(/const UTILITY_ANSWER_FROM_NOTES = new Set\(\[([^\]]*)\]\);/);
+	assert.ok(notesSet);
+	assert.deepEqual([...notesSet[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), ["co-boulder-boulder-multi", ...BATCH_3_IDS].sort());
+	for (const id of BATCH_3_IDS) assert.match(JSON.parse(read(`data/localities/${id}.json`)).utility.notes, /your (own )?address|your electric bill/);
 	const denver = JSON.parse(read("data/localities/co-denver-denver-xcel.json"));
 	assert.match(buildFaqs(denver)[0].a, /is the interconnection and distribution utility for Denver\./);
 	assert.deepEqual(buildFaqs(denver), buildFaqs(denver, {}));
@@ -144,7 +154,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 test("the state index marks only new address-level guides", () => {
 	const page = read("src/pages/[state]/index.astro");
 	assert.match(page, /NEW_GUIDES_DURING_MEASUREMENT/);
-	assert.match(page, /addressLevelUtilityIds\.has\(entry\.recordId\) && " \(depends on the address\)"/);
+	assert.match(page, /addressLevelUtilityIds\.has\(entry\.recordId\) && " \(confirm for your address\)"/);
 });
 
 test("Lakewood does not turn an old general fee schedule into a solar price or review promise", () => {
@@ -176,7 +186,7 @@ test("program eligibility is displayed only on the seven approved guides and sur
 
 test("Arvada cannot change the related lists of the three already-published Colorado pilots", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => !BATCH_2_IDS.has(e.recordId)).filter((e) => !["co-jefferson-arvada-multi", "co-boulder-longmont-multi", "co-arapahoe-centennial-multi", "co-boulder-boulder-multi", "co-broomfield-broomfield-multi", "co-adams-westminster-multi", "co-douglas-parker-multi", "co-adams-thornton-multi"].includes(e.recordId));
+ const before = entries.filter((e) => !LATER_BATCH_IDS.has(e.recordId)).filter((e) => !["co-jefferson-arvada-multi", "co-boulder-longmont-multi", "co-arapahoe-centennial-multi", "co-boulder-boulder-multi", "co-broomfield-broomfield-multi", "co-adams-westminster-multi", "co-douglas-parker-multi", "co-adams-thornton-multi"].includes(e.recordId));
  for (const id of ["co-arapahoe-aurora-xcel", "co-larimer-fort-collins-fcu", "co-jefferson-lakewood-xcel"]) {
   const current = entries.find((e) => e.recordId === id);
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(id, entries), 6), buildRelatedLocalities(current, before, 6));
@@ -212,7 +222,7 @@ test("Arvada keeps utility choice, process uncertainty and the posted-document c
 test("Longmont preserves the related lists of all 355 previously published guides", () => {
  const { entries } = loadEntries();
  const id = "co-boulder-longmont-multi";
- const before = entries.filter((e) => !BATCH_2_IDS.has(e.recordId)).filter((e) => e.recordId !== id && e.recordId !== "co-arapahoe-centennial-multi" && e.recordId !== "co-boulder-boulder-multi" && e.recordId !== "co-broomfield-broomfield-multi" && e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
+ const before = entries.filter((e) => !LATER_BATCH_IDS.has(e.recordId)).filter((e) => e.recordId !== id && e.recordId !== "co-arapahoe-centennial-multi" && e.recordId !== "co-boulder-boulder-multi" && e.recordId !== "co-broomfield-broomfield-multi" && e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
  assert.equal(before.length, 355);
  for (const current of before) {
   const expected = buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6);
@@ -253,7 +263,7 @@ test("Longmont keeps expedited review, jurisdiction, contractor and current-code
 
 test("Centennial preserves the related lists of all 356 previously published guides", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => !BATCH_2_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-arapahoe-centennial-multi" && e.recordId !== "co-boulder-boulder-multi" && e.recordId !== "co-broomfield-broomfield-multi" && e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
+ const before = entries.filter((e) => !LATER_BATCH_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-arapahoe-centennial-multi" && e.recordId !== "co-boulder-boulder-multi" && e.recordId !== "co-broomfield-broomfield-multi" && e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
  assert.equal(before.length, 356);
  for (const current of before) {
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6), buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6), current.recordId);
@@ -289,7 +299,7 @@ test("Centennial keeps first-comment timing, fee scope and utility-specific docu
 
 test("Boulder preserves the related lists of all 357 previously published guides", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => !BATCH_2_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-boulder-boulder-multi" && e.recordId !== "co-broomfield-broomfield-multi" && e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
+ const before = entries.filter((e) => !LATER_BATCH_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-boulder-boulder-multi" && e.recordId !== "co-broomfield-broomfield-multi" && e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
  assert.equal(before.length, 357);
  for (const current of before) {
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6), buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6), current.recordId);
@@ -353,7 +363,7 @@ test("Colorado navigation is opt-in on discovery pages and leaves protected page
 
 test("Broomfield preserves the related lists of all 358 previously published guides", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => !BATCH_2_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-broomfield-broomfield-multi" && e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
+ const before = entries.filter((e) => !LATER_BATCH_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-broomfield-broomfield-multi" && e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
  assert.equal(before.length, 358);
  for (const current of before) {
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6), buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6), current.recordId);
@@ -393,7 +403,7 @@ test("Broomfield keeps unified jurisdiction, dual utility check, review goal cav
 
 test("Westminster preserves the related lists of all 359 previously published guides", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => !BATCH_2_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
+ const before = entries.filter((e) => !LATER_BATCH_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-adams-westminster-multi" && e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
  assert.equal(before.length, 359);
  for (const current of before) {
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6), buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6), current.recordId);
@@ -424,7 +434,7 @@ test("Westminster keeps dual county/utility checks, $300 base fee scope, separat
 
 test("Parker preserves the related lists of all 360 previously published guides", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => !BATCH_2_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
+ const before = entries.filter((e) => !LATER_BATCH_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-douglas-parker-multi" && e.recordId !== "co-adams-thornton-multi");
  assert.equal(before.length, 360);
  for (const current of before) {
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6), buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6), current.recordId);
@@ -456,7 +466,7 @@ test("Parker keeps CORE electric cooperative check, 10-14 business day review go
 
 test("Thornton preserves the related lists of all 361 previously published guides", () => {
  const { entries } = loadEntries();
- const before = entries.filter((e) => !BATCH_2_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-adams-thornton-multi");
+ const before = entries.filter((e) => !LATER_BATCH_IDS.has(e.recordId)).filter((e) => e.recordId !== "co-adams-thornton-multi");
  assert.equal(before.length, 361);
  for (const current of before) {
   assert.deepEqual(buildRelatedLocalities(current, relatedPoolFor(current.recordId, entries), 6), buildRelatedLocalities(current, relatedPoolFor(current.recordId, before), 6), current.recordId);

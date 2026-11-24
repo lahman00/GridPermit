@@ -1,0 +1,182 @@
+{
+  "record_id": "az-pima-oro-valley-multi",
+  "file": "data/localities/az-pima-oro-valley-multi.json",
+  "validated_at": "2026-11-24",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/SolarAPP-Residential-Solar-Permits — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:07:08Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:06:58Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[1].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Schedule-Inspections-for-Permits — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:08:02Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S1].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Residential-Permits — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:07:32Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Apply-for-a-Building-Permit — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:07:41Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S6].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Permit-Inspections-FAQs — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:08:11Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S7].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Building-Codes-and-Amendments — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:08:43Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S8].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Building-Codes-and-Amendments/Building-Code-Update-Frequently-Asked-Questions-FAQ — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:08:51Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "rebates",
+      "message": "'rebates' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/SolarAPP-Residential-Solar-Permits",
+      "checked_at": "2026-11-24T17:59:13.031Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:07:08Z",
+        "sha256": "8edc5e0475de17ee3f60d7c1d98ddd9b96da6ecc7f8f2e44d298c8a36c8c50ce",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.tep.com/residential-interconnection/",
+      "checked_at": "2026-11-24T17:59:13.111Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.tep.com/energy-storage-rewards/",
+      "checked_at": "2026-11-24T17:59:13.161Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development",
+      "checked_at": "2026-11-24T17:59:13.199Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:06:58Z",
+        "sha256": "113c9a037c931596a699d3e95c1d3190bf6593ead2c47883c8325629f29d867a",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Schedule-Inspections-for-Permits",
+      "checked_at": "2026-11-24T17:59:13.245Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:08:02Z",
+        "sha256": "ccb3b0c5d768b47278d0db368e5dc4225dc1ad5a6bc05a83648d6c780a7441f4",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Residential-Permits",
+      "checked_at": "2026-11-24T17:59:13.384Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:07:32Z",
+        "sha256": "30fcc12a6dd9ef29bf4a46b77106c2386d8968b731d54bfa2c2586441e503ef5",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Apply-for-a-Building-Permit",
+      "checked_at": "2026-11-24T17:59:13.434Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:07:41Z",
+        "sha256": "1323993d0c610288dd60ae7a19f1f58f28507f1c0bc88464373591ddeba1b4dd",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Permit-Inspections-FAQs",
+      "checked_at": "2026-11-24T17:59:13.484Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:08:11Z",
+        "sha256": "f3e10c3b31283f5874e035d38e47aec03bac9414a6cb2cc98c83242a9f4cad13",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Building-Codes-and-Amendments",
+      "checked_at": "2026-11-24T17:59:13.538Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:08:43Z",
+        "sha256": "9ef93ecfdecfdab9d8e3704199cc6386d3a96e71d6a3df121fcfb40becd20eff",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Building-Codes-and-Amendments/Building-Code-Update-Frequently-Asked-Questions-FAQ",
+      "checked_at": "2026-11-24T17:59:13.588Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:08:51Z",
+        "sha256": "a8a3264bcaabd2d526cc03d849043cfecbb2b56f05a7bfb24a167b19a68465bf",
+        "method": "headless-browser"
+      }
+    }
+  ]
+}

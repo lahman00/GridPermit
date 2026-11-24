@@ -1,0 +1,220 @@
+{
+  "record_id": "az-maricopa-queen-creek-multi",
+  "file": "data/localities/az-maricopa-queen-creek-multi.json",
+  "validated_at": "2026-11-24",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.queencreekaz.gov/government/development-services/building-safety/solar-energy-systems — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:12:13Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[3].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.queencreekaz.gov/government/development-services/building-safety/building-inspections — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:13:48Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.queencreekaz.gov/government/development-services — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:12:04Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.queencreekaz.gov/government/development-services/development-nexus-home/development-nexus-faq — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:13:07Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.queencreekaz.gov/home/showpublisheddocument/39924/638695873254800000 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:12:50Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S6].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.queencreekaz.gov/home/showpublisheddocument/40461/638941290500130000 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:13:41Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S11].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.queencreekaz.gov/government/development-services/building-safety/building-codes — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:14:06Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.queencreekaz.gov/government/development-services/building-safety/solar-energy-systems",
+      "checked_at": "2026-11-24T17:38:11.347Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:12:13Z",
+        "sha256": "3f35acdcfd2a261f11a554c203e93d9264c87e99564484a25fbab70de644b1b4",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.srpnet.com/assets/srpnet/pdf/energy-savings-rebates/home/solar-residential-interconnection-process.pdf",
+      "checked_at": "2026-11-24T17:38:11.518Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.srpnet.com/energy-savings-rebates/home/residential-solar/battery-partner",
+      "checked_at": "2026-11-24T17:38:12.318Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.srpnet.com/assets/srpnet/pdf/energy-savings-rebates/home/solar-residential-program-requirements.pdf",
+      "checked_at": "2026-11-24T17:38:12.730Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://queencreekaz.gov/government/development-services/building-safety",
+      "checked_at": "2026-11-24T17:38:13.140Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://queencreekaz.gov/government/development-services/development-nexus-home",
+      "checked_at": "2026-11-24T17:38:15.580Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.queencreekaz.gov/government/development-services/building-safety/building-inspections",
+      "checked_at": "2026-11-24T17:38:17.734Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:13:48Z",
+        "sha256": "a0bad2ecadfb226d39108d35fdb1aaa51a18c1ca61bbdc7b836179764d1cde27",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.queencreekaz.gov/government/development-services",
+      "checked_at": "2026-11-24T17:38:17.766Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:12:04Z",
+        "sha256": "2bdfc7eb8a52d3fbd1fc49acce2c57c00a6c5907021051cf40c49b1772250556",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.queencreekaz.gov/government/development-services/development-nexus-home/development-nexus-faq",
+      "checked_at": "2026-11-24T17:38:17.818Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:13:07Z",
+        "sha256": "3375e89fd78df0eca66c8b734f3c0e4c06b0803039706c574d0c957c7e926982",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.queencreekaz.gov/home/showpublisheddocument/39924/638695873254800000",
+      "checked_at": "2026-11-24T17:38:17.873Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:12:50Z",
+        "sha256": "b0bf15d5f01bb759a1a93be0c798134149432638799735a0ec11320c6dd7c4ac",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.queencreekaz.gov/home/showpublisheddocument/40461/638941290500130000",
+      "checked_at": "2026-11-24T17:38:17.946Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:13:41Z",
+        "sha256": "0ed0e4e72143a13c875ea2f80d06834bd770595f36fe866820defc9a3fdc5dec",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://queencreekaz.gov/residents/resident-resources",
+      "checked_at": "2026-11-24T17:38:18.001Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://queencreekaz.gov/business/sales-tax",
+      "checked_at": "2026-11-24T17:38:20.292Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.queencreekaz.gov/government/development-services/building-safety/building-codes",
+      "checked_at": "2026-11-24T17:38:22.525Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:14:06Z",
+        "sha256": "d0433322eb5d95f850102962eca887531da55a7a476b20749bd2030e6d388e22",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.srpnet.com/about/service-area-territory",
+      "checked_at": "2026-11-24T17:38:22.564Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://queencreekaz.gov/government/development-services/fee-schedule",
+      "checked_at": "2026-11-24T17:38:22.909Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    }
+  ]
+}

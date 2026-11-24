@@ -1,0 +1,422 @@
+{
+  "record_id": "co-boulder-superior-xcel",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy",
+    "confidence": 0.85,
+    "source_ids": [
+      "S6",
+      "S7"
+    ],
+    "notes": "The Town's Energy page says Xcel Energy is the electric utility for Town of Superior residents and businesses. Xcel Energy's list of Colorado communities served (10/2015) shows Superior with gas and electricity service. Check the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Xcel says all solar customers receive Net Energy Metering (NEM) benefits from a system installed on their premise. Excess energy is held in the customer's virtual solar bank and applied against future bills. On Xcel's Time of Use rate, rollover credits are tied to the time they were generated (on-peak or off-peak)."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S6",
+      "S9",
+      "S11"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Superior",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Boulder County",
+    "confidence": 0.7,
+    "source_ids": [
+      "S8",
+      "S2"
+    ],
+    "notes": "Boulder County's table of tax district rates within Boulder County lists Superior, and the County says its use tax on building materials is also collected by the municipal building departments in several towns, including Superior. The Town's Permit Guidance page lists a County Use Tax of 1.335% (2026), while the solar section of the Town's Sustainable Building page prints a combined 3.8% Local & County Tax."
+  },
+  "permit_authority": {
+    "value": "Town of Superior Building Department (operated by SAFEbuilt)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "The Town says a building permit must be pulled through its permit portal, Community Core, through the Town's Building Department, which is operated by SAFEbuilt. Building Department, Planning and Zoning, Public Works and Fire Prevention approvals must be completed before a permit is issued. The office is at 100 Superior Plaza Way, Suite 200, and the Building Department phone is 303-381-2028. The Town's pages do not explain how to confirm that an address is inside Town limits."
+  },
+  "permit_url": {
+    "value": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Sustainable-Building",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "notes": "The Solar Installation section of the Town's Sustainable Building page lists solar code requirements, general notes and links to the Photovoltaic Solar Systems submittal requirements. All permit applications and submittals must be submitted electronically through Community Core. The solar section also says electronic submittal and communication is permitted."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.8,
+    "source_ids": [
+      "S10",
+      "S9",
+      "S1"
+    ],
+    "notes": "Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. The Town's solar section says that if the final inspection passes, Xcel Energy is notified the same day. Xcel's process ends with a permission to operate letter from Xcel to the generator owner, which is separate from the Town's final inspection."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "When you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events, for 5 years.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For Xcel Energy customers. Xcel says eligible battery equipment includes all Tesla Powerwall models or all current Enphase models.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S12"
+    ],
+    "notes": "Xcel's page shows a 2026 general incentive budget of $13,629,630 with $10,635,423 available, on figures dated 11/02/2026. The Town's solar section does not describe battery storage permits or a Town battery program."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "General permit application form, completed",
+        "required_when": "All PV systems.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Site plan locating all equipment, with a roof plan",
+        "required_when": "All PV systems. Show the PV array, combiner and junction boxes, disconnects, inverters, meter and service panel or tie-in, the structure's footprint and relation to property lines, and the location and size of all PV panels and roof vents. An 8 1/2 by 11 inch plan is acceptable.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Manufacturer's specification sheets for the PV panels and inverter",
+        "required_when": "All PV systems.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Complete 3 line electrical diagram",
+        "required_when": "All PV systems. Include system size, module and array specifications, strings, conductors, grounding, overcurrent protection and disconnects, inverter ratings, and the grid interconnection location with the AC load panel and backfeed breaker rating.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Mounting and racking system details with a Colorado stamped engineer's verification letter",
+        "required_when": "All PV systems. Include the racking spec sheets with uplift capacity for wind and snow loads and attachment details (type, size and spacing of fasteners).",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Site specific engineered racking design (custom racking)",
+        "required_when": "If custom racking is used.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Structural information on the roof",
+        "required_when": "All PV systems: size, type and spacing of roof framing members, roof sheathing, layers of roofing, whether the array is flush or tilt mounted, and the method of locating framing members.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Total cost of materials (before rebates) and installation, listed on the permit",
+        "required_when": "All solar permits, for calculating use tax.",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S3",
+      "S1"
+    ],
+    "notes": "The list is from the Town's Photovoltaic Solar Systems requirements handout, which is linked from the solar section and prints no date. Additional information or engineering may be required for unique situations. The handout asks for racking uplift capacity for 110 mph (3 second gust) wind, while the Town's solar web section and Building Codes page give a wind speed of 154 mph, so confirm the design wind speed with the Building Department. The Town also links an alternate submittal per Solar ABC's expedited permit process for PV systems, with example diagrams."
+  },
+  "inspection_steps": {
+    "value": [
+      "Apply for the permit electronically through Community Core, with a State of Colorado licensed electrician listed on the permit.",
+      "Your installer usually submits the interconnection application to Xcel Energy, and Xcel recommends not starting construction until the application is fully approved and all final agreements are signed.",
+      "Pay any plan review fees that apply; the Permit Guidance page says plan review fees must be paid before reviews begin.",
+      "Wait for the Building Department, Planning and Zoning, Public Works and Fire Prevention approvals; you or your contractor receive the permit by email once all reviews are complete.",
+      "When the project is complete, the contractor calls for a final inspection. Inspections requested on business days before 4 p.m. are scheduled for the following business day.",
+      "The contractor provides an affidavit that the rooftop mounting and grounding were completed per design requirements.",
+      "If the final inspection passes, Xcel Energy is notified the same day.",
+      "Xcel witness tests and energizes the system and issues a permission to operate letter to the generator owner. In Xcel's 2024 installer guide for its Renewable Battery Connect program, permission to operate (PTO) means the customer can turn on their system."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S9",
+      "S10",
+      "S13"
+    ],
+    "notes": "The Town's solar pages name only the final inspection and link separate inspection checklists, so ask the Building Department which inspections to request. Passing the Town's final inspection is not Xcel's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's pages give three different time statements for solar. The solar section says the permit will be issued within 5 business days of a complete application and passing plan review. The Town's Energy page says Superior has an average turnaround time of two days for residential solar permits. The Permit Guidance page gives a 10 business day review target for residential permits in general, and says periods are targets only."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Solar PV building permit (permit fee waived), applied for on Community Core",
+      "other_conditions": [
+        "Installation of the electrical wiring shall be performed by a State of Colorado licensed electrician, and the permit will not be issued without a licensed electrician listed on the permit.",
+        "All contractors are required to have a certificate of insurance on file with the Town of Superior named as certificate holder.",
+        "The Town began licensing contractors on October 13, 2025, and lists solar work under a Specialty License; an Electrical Contractor license requires active State and Master Licenses.",
+        "Contractor licenses expire on December 31 every year.",
+        "Snow load and ground snow load are 30 psf.",
+        "The solar section says the Town has adopted the 2018 International Codes, while the Building Codes page lists the 2024 International codes and the 2023 National Electric Code; confirm the code edition with the Building Department.",
+        "Residences in Rock Creek must get their HOA approval.",
+        "The Town links an alternate submittal per Solar ABC's expedited permit process for PV systems.",
+        "Community members can register in Community Core to apply for a permit, but the solar pages still require a licensed electrician to install the wiring.",
+        "Xcel Energy net metering: you must be an Xcel residential or business electricity customer with an active and valid account number and premise number, and the name on the application must match the name on the Xcel account or bill.",
+        "Xcel Energy net metering: expected generation, combined with other distributed generation at the service address, must not exceed 200% of historical consumption (the previous 12 months at the time of application).",
+        "Xcel Energy: all equipment must be UL 1741 SB certified and listed within the Solar Equipment Lists on the California Energy Commission website."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S11"
+    ],
+    "notes": "Sizing, equipment and account conditions are Xcel Energy's and apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar PV permit fee (waived)",
+        "amount_usd": 0,
+        "unit": "the Town says permit fees of $300 are waived",
+        "notes": "The Town's solar section and its solar requirements handout both say permit fees of $300 are waived. The Town's Energy page also lists waiving solar permit fees among its SolSmart actions."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S6",
+      "S2",
+      "S8"
+    ],
+    "notes": "Use tax still applies: the total cost of materials (before rebates) and installation must be listed on the permit for calculation of the use tax. The solar section prints 3.8% Local & County Tax, while the Permit Guidance page lists a Town Use Tax of 3.775% (2025) and a County Use Tax of 1.335% (2026), each of 50% of total project valuation. The Permit Guidance page says materials cost is assumed to be 50% of the total valuation, and Boulder County's own page gives its 2026 use tax rate as 1.335%. The Permit Guidance page also lists a plan review fee of 65% of the building permit fee, payable before reviews begin, and the Town's pages do not say whether it applies when the solar permit fee is waived. For fee questions, the Town lists a Permit Fees phone number, 720-738-7326."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S9",
+      "S6"
+    ],
+    "notes": "Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. The Town waives the solar permit fee. The Town's Energy page also promoted the Switch Together solar group purchase with Boulder County, with registration by June 18, 2025."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Superior Building Department",
+        "role": "Town of Superior Building Department, operated by SAFEbuilt (solar permit questions), 100 Superior Plaza Way, Suite 200",
+        "phone": "303-381-2028",
+        "email": null,
+        "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance"
+      },
+      {
+        "name": "Town of Superior permit fees line",
+        "role": "Town of Superior permit fees",
+        "phone": "720-738-7326",
+        "email": null,
+        "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance"
+      },
+      {
+        "name": "Town of Superior contractor licensing (SAFEbuilt)",
+        "role": "Town of Superior contractor licensing questions",
+        "phone": null,
+        "email": "superiorinspections@safebuilt.com",
+        "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance/Contractor-Licensing"
+      },
+      {
+        "name": "Town of Superior Planning",
+        "role": "Town of Superior Planning",
+        "phone": "303-499-3675 ext. 131",
+        "email": null,
+        "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S4"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Sustainable Building (Solar Installation section)",
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Sustainable-Building",
+      "publisher": "Town of Superior Planning and Building",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Permit Guidance",
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance",
+      "publisher": "Town of Superior Planning and Building",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Photovoltaic Solar Systems requirements (PDF)",
+      "url": "https://www.superiorcolorado.gov/files/assets/town/v/2/planning-amp-building/documents/solar-requirements.pdf",
+      "publisher": "Town of Superior",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Contractor Licensing",
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance/Contractor-Licensing",
+      "publisher": "Town of Superior",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Building Codes and Zoning Regulations",
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Building-Codes-and-Zoning-Regulations",
+      "publisher": "Town of Superior",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Energy",
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Sustainability/Energy",
+      "publisher": "Town of Superior Sustainability",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Sales and Use Tax",
+      "url": "https://bouldercounty.gov/government/budget-and-finance/sales-and-use-tax/",
+      "publisher": "Boulder County",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Interconnection (Renewable Developers)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Xcel Energy: CO Renewable Battery Connect Interconnection Application Installer Guide (2024)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe-responsive/Working%20With%20Us/Renewable%20Developers/CO%20Renewable%20Battery%20Connect%20Interconnection%20Application%20Installer%20Guide_2024.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-21"
+    }
+  ]
+}

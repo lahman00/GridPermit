@@ -181,7 +181,7 @@ const collectionSchema = {
 									{entries.filter((entry) => entry.city[0]!.toUpperCase() === letter).map((entry) => (
 										<a href={entry.guideUrl} class="guide-card" data-filter-text={[entry.city, entry.county, entry.utility, entry.generationSupplierName].filter(Boolean).join(" ")} data-track-click="permit_guide_clicked">
 											<h3>{entry.city}</h3>
-											<p class="card-field"><strong>Utility:</strong> {entry.utility}{addressLevelUtilityIds.has(entry.recordId) && " (depends on the address)"}</p>
+											<p class="card-field"><strong>Utility:</strong> {entry.utility}{addressLevelUtilityIds.has(entry.recordId) && " (confirm for your address)"}</p>
 											{entry.generationSupplierName && (
 												<p class="card-field"><strong>Generation supplier:</strong> {entry.generationSupplierName}</p>
 											)}

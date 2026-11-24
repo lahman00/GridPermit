@@ -1,11 +1,67 @@
 {
   "record_id": "co-arapahoe-centennial-multi",
   "file": "data/localities/co-arapahoe-centennial-multi.json",
-  "validated_at": "2026-11-14",
-  "status": "PASS",
+  "validated_at": "2026-11-24",
+  "status": "REVIEW",
   "score": 100,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Online-Services/Apply-for-a-Building-Permit — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:04Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Government/Departments/Building — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:16:54Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[PV].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/files/sharedassets/public/v/4/documents/building/photovoltaic-solar-installation-ada.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:16:58Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[CLASS].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Online-Services/Apply-for-a-Building-Permit/Building-Permit-Classifications — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:11Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[REVIEW].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Government/Departments/Building/Building-Review-Schedule — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:18Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[FEE].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/files/sharedassets/public/v/5/documents/building/building-permit-fee-schedule-ada.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:22Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[FAQ].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Government/Departments/Building/Building-Frequently-Asked-Questions — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:28Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[LICENSE].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Online-Services/Apply-or-Renew-a-Contractor-License — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:34Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[TAX].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Government/Departments/Building/Building-Materials-Use-Tax — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:41Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[UTILITY].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Residents/Living-Here/Trash-Utilities — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:48Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[PROPERTY].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.centennialco.gov/Online-Services/Property-Search — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-24T15:17:56Z) is on record, no score penalty"
+    }
+  ],
   "recommendations": [
     {
       "field": "generation_supplier",
@@ -23,15 +79,20 @@
   "url_checks": [
     {
       "url": "https://www.centennialco.gov/Online-Services/Apply-for-a-Building-Permit",
-      "checked_at": "2026-11-14T17:57:32.179Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:37.121Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:04Z",
+        "sha256": "cd8e3f66079ed889513b30b43a023c589941d59f76319b583e9030d5e055eeef",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
-      "checked_at": "2026-11-14T17:57:32.959Z",
+      "checked_at": "2026-11-24T17:29:37.304Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -39,15 +100,20 @@
     },
     {
       "url": "https://www.centennialco.gov/Government/Departments/Building",
-      "checked_at": "2026-11-14T17:57:33.572Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:37.825Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:16:54Z",
+        "sha256": "b0c92a1774dd2372766d37f21b5cfd0ce9a422ac7ddced9deeeeb9da31d2b8c4",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://core.coop/my-cooperative/renewables/generation-interconnections/",
-      "checked_at": "2026-11-14T17:57:34.173Z",
+      "checked_at": "2026-11-24T17:29:37.888Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
@@ -55,79 +121,124 @@
     },
     {
       "url": "https://www.centennialco.gov/files/sharedassets/public/v/4/documents/building/photovoltaic-solar-installation-ada.pdf",
-      "checked_at": "2026-11-14T17:57:34.900Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.398Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:16:58Z",
+        "sha256": "fb3f3a71b12335e4effcddd52093c84d443e07df77e23b24ced0a8350997ec05",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://www.centennialco.gov/Online-Services/Apply-for-a-Building-Permit/Building-Permit-Classifications",
-      "checked_at": "2026-11-14T17:57:35.292Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.452Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:11Z",
+        "sha256": "84aa9e997ae1d72b7249be293e8e8e4824c49c1b57104df7791bb19d7bf946ec",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://www.centennialco.gov/Government/Departments/Building/Building-Review-Schedule",
-      "checked_at": "2026-11-14T17:57:35.953Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.497Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:18Z",
+        "sha256": "08f085651b436769e36b3b2b790602ccfafd346e91a6194d78fe67b03ee68e30",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://www.centennialco.gov/files/sharedassets/public/v/5/documents/building/building-permit-fee-schedule-ada.pdf",
-      "checked_at": "2026-11-14T17:57:36.721Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.564Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:22Z",
+        "sha256": "be5fd3e4f35e89e17b5c968729ea60d9ab9d9247096dc978cdfd6fcb4cbaa1a4",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://www.centennialco.gov/Government/Departments/Building/Building-Frequently-Asked-Questions",
-      "checked_at": "2026-11-14T17:57:36.936Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.616Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:28Z",
+        "sha256": "1c6a23f5884beab168d64dc58afcd09b3ae968c356f5eb88ca1955b6a59a6916",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://www.centennialco.gov/Online-Services/Apply-or-Renew-a-Contractor-License",
-      "checked_at": "2026-11-14T17:57:38.269Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.669Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:34Z",
+        "sha256": "7b0b1c1f401dc9202dd110dfa7a53349505a3265fbffc91abe6e7673f4b61cf6",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://www.centennialco.gov/Government/Departments/Building/Building-Materials-Use-Tax",
-      "checked_at": "2026-11-14T17:57:39.467Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.718Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:41Z",
+        "sha256": "7e02f4c37ea0613f0dc7ccca0bf9b8943727d121ba80afc0cb64bf100e65d70a",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://www.centennialco.gov/Residents/Living-Here/Trash-Utilities",
-      "checked_at": "2026-11-14T17:57:40.564Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.779Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:48Z",
+        "sha256": "ce4f33deb29a6e8beb8905dd2976b8378b9d245467969ab9dcc4acbb3d039637",
+        "method": "headless-browser"
+      }
     },
     {
       "url": "https://www.centennialco.gov/Online-Services/Property-Search",
-      "checked_at": "2026-11-14T17:57:41.268Z",
-      "status": "REACHABLE",
-      "http_status": 200,
+      "checked_at": "2026-11-24T17:29:39.922Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
       "method": "HEAD",
-      "details": "HTTP 200"
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-24T15:17:56Z",
+        "sha256": "31efcadc78fa02d09d78081c20860032547e5b9f5d4635ebbfd04cc4bc232e68",
+        "method": "headless-browser"
+      }
     },
     {
-      "url": "https://core.coop/wp-content/uploads/2025/08/CORESmallGenerationInterconnectionProcedures07212025.pdf",
-      "checked_at": "2026-11-14T17:57:41.956Z",
+      "url": "https://core.coop/wp-content/uploads/CORESmallGenerationInterconnectionProcedures07212025.pdf",
+      "checked_at": "2026-11-24T17:29:39.981Z",
       "status": "REACHABLE",
       "http_status": 200,
       "method": "HEAD",
