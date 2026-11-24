@@ -1,0 +1,358 @@
+{
+  "record_id": "az-pima-oro-valley-multi",
+  "schema_version": "1.4.0",
+  "state": "AZ",
+  "utility": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's permit pages refer to Tucson Electric Power (TEP), for example when TEP grants a reconnection after site inspections for a house whose power has been off more than six months. The Town's pages do not say which electric utility serves every address in Oro Valley, and TEP's service territory page describes the Tucson metropolitan area without naming Oro Valley. Confirm the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's and TEP's pages do not name a separate generation supplier."
+  },
+  "city": {
+    "value": "Oro Valley",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Pima County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Town's Residential Permits page refers to Climate Zone 2 (Pima County) for energy code values."
+  },
+  "permit_authority": {
+    "value": "Town of Oro Valley Community and Economic Development",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "notes": "The Town reviews solar plan submittals for compliance with the current International Residential Code, the current National Electric Code and local amendments. Town of Oro Valley Building Code inspectors perform the site inspections. For help with permits or inspections, call 520-229-4800 or email permits@orovalleyaz.gov. The Town's pages do not explain how to confirm that an address is inside Town limits, so check with the Town before you apply."
+  },
+  "permit_url": {
+    "value": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/SolarAPP-Residential-Solar-Permits",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2",
+      "S1"
+    ],
+    "notes": "This is the Town's SolarAPP+ Residential Solar Permits page. To apply, visit the Town of Oro Valley Customer Portal and apply for a Residential Building permit. The Town's Residential Permits page has the Solar Installation submittal instructions for permits that do not use SolarAPP+, and plans are accepted online through the customer portal."
+  },
+  "interconnection_url": {
+    "value": "https://www.tep.com/residential-interconnection/",
+    "confidence": 0.8,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "This is TEP's residential interconnection page, and it applies if TEP is your electric utility. TEP says Interconnection Agreements are required for all projects in its service area. TEP requires an electrical inspection release or clearance from the authority having jurisdiction before it re-energizes service that was turned off for wiring or equipment work. New applications submitted before October 1 each year receive the Resource Comparison Proxy (RCP) export rate in effect at that time. Installers must not operate the system until TEP issues Permission to Operate."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Energy Storage Rewards",
+        "administrator": "Tucson Electric Power (TEP)",
+        "description": "TEP says you will receive $120 per kilowatt (kW), averaged over all events during the season, and that customers may receive an average of $360 per season. Actual compensation varies with battery size and performance. TEP may call up to 100 events per year, and payments are bill credits issued twice a year. TEP calls it a pilot that is currently only approved for TEP residential battery systems.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "You must be a TEP residential electric customer with the electric service in your name. You need a grid-connected qualifying battery system that performs as stated in your interconnection agreement, with a reliable continuous internet connection.",
+        "url": "https://www.tep.com/energy-storage-rewards/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S10"
+    ],
+    "notes": "This is a TEP program and applies only if TEP is your electric utility. Program questions go to tep-battery@energyhub.com or TEP customer care at 520-623-7711."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "SolarAPP+ approved plans (SolarAPP+ path)",
+        "required_when": "If you use SolarAPP+, input the requested information and upload the SolarAPP+ approved plans in the Customer Portal.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Cover sheet (standard path)",
+        "required_when": "Standard solar submittal: job title and address, name and contact information of the person responsible for the design, a legend, and the scope of work.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan with equipment, clearances and roof access pathways (standard path)",
+        "required_when": "Show dimensions from equipment to property lines and structures, and the location of all disconnects, batteries and inverters. Show the layout of all roof arrays with the minimum access and pathways per IFC 2018 Section 1204.2 to 1204. Ground mount installs must show panel location, panel area, and dimensions to property lines, other structures and easements.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural details: roof plan, framing cross-section, attachments, wind uplift (standard path)",
+        "required_when": "If roof mounted, the roof plan and framing cross-section must show the roof type, roof slope and how the module and frame connect to the roof, unless it is a ballast layout. Wind uplift information is required, and you must identify the pullout strength per attachment and the required number of connectors.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural design analysis (when over 5 lbs/sq. ft. or 45 lbs point load per attachment)",
+        "required_when": "Required from a qualifying party for residential applications when roof mounted equipment exceeds a distributed load of 5 lbs/sq. ft. or a point load of 45 lbs per attachment. Ballast roof systems need engineering calculations with the grouping layout and details regardless.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "One line and three line electrical diagrams (standard path)",
+        "required_when": "List the kW rating, the existing service size and the bus bar rating. If a main breaker is de-rated, provide electrical load calculations. Indicate if the power supply is uninterrupted (UPS) or battery back-up.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Product listing sheets for all equipment (standard path)",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical engineer's stamp (if the DC rating is over 20 kW)",
+        "required_when": "If the DC rating is over 20 kW, a registered electrical professional engineer must stamp the design.",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "All documents must be in PDF format, and all pages of the building plans should be in one PDF. The standard-path items are summarized from the Solar Installation section of the Town's Residential Permits page, which lists further structural and electrical details; the SolarAPP+ item is from the Town's SolarAPP+ page."
+  },
+  "inspection_steps": {
+    "value": [
+      "If TEP is your utility, your installer submits TEP's Interconnection Application through PowerClerk.",
+      "Apply in the Town Customer Portal for a Residential Building permit. For SolarAPP+, select SolarAPP+ without storage or SolarAPP+ with storage; otherwise submit plans under the Town's Solar Installation instructions.",
+      "For a standard submittal, the Town reviews the plans and staff contact you when the fees have been determined.",
+      "Pay the Town's permit fees; a SolarAPP+ permit is issued within 24 hours after the fees are paid, excluding holidays and weekends.",
+      "The Town issues the permit electronically.",
+      "TEP says construction may only begin after TEP approves the project.",
+      "If a TEP power kill is needed, the installer schedules it with TEP Design Services after TEP approves the project, and the Town asks that the corresponding inspection on your permit, typically an Electric Reconnect, be requested ahead of time.",
+      "Request the Town inspections through the Customer Portal.",
+      "When installation is complete, the installer submits a Notice of Completion with as-built photos to TEP.",
+      "TEP installs a production meter (and a new billing meter if needed) and issues Permission to Operate, after which the installer may energize the system."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S5",
+      "S6",
+      "S9"
+    ],
+    "notes": "Next business day inspections must be requested before 3:30 p.m. the business day before. For solar, the Town suggests requesting all inspections for the same day if all work is complete. The permit and the Town stamped approved plans, printed in color, must be on site for the inspector. Town inspectors cannot be on site with TEP before 9:00 a.m. The Town permit, the Town inspections and TEP's Permission to Operate are separate approvals."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": 10,
+      "max_days": 10,
+      "notes": "Business days for a standard solar plan review. With SolarAPP+ approved plans, the Town says the permit is issued within 24 hours after its fees are paid, excluding holidays and weekends."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S4"
+    ],
+    "notes": "The Town's solar section says plan review is 10 business days. The Town's general permit page says review may take 7 to 20 business days depending on the type of project."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ or standard solar plan review, applied for in the Town Customer Portal",
+      "other_conditions": [
+        "SolarAPP+ is a third-party program the Town uses to verify code compliance for residential PV projects, and the Town accepts SolarAPP+ permits with or without storage.",
+        "Roof mounted equipment over 5 lbs/sq. ft. or 45 lbs point load per attachment needs a structural design analysis, and ballast systems always need engineering calculations.",
+        "A DC rating over 20 kW needs a stamp from a registered electrical professional engineer.",
+        "The Town's solar section says the person responsible for the permit (applicant, contractor or homeowner) must print one full-size set of the permit, the stamped approved plans and supporting documents for the job site; it does not otherwise say who may apply or whether a contractor license is required.",
+        "The Town adopted the 2024 codes and the 2023 National Electric Code (except the 2018 IECC) effective January 1, 2026, and applications submitted on or after that date are reviewed under the 2024 codes. The solar section still cites IFC 2018 Section 1204 and ASCE 7-05, so confirm the edition with the Town.",
+        "The solar section cites rapid shutdown requirements (Section 1204.5).",
+        "TEP rules (not Town permit rules): construction may only begin after TEP approval, and residential solar customers must choose the Time-Of-Use or Demand Time-of-Use pricing plan."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Photovoltaic permit (residential)",
+        "amount_usd": 54,
+        "unit": "per permit",
+        "notes": "Listed as Photovoltaic: $54.00 in the Solar Installation section, where the Town says staff will contact you when the fees have been determined, before the permit is issued."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The same section lists the solar water heater fee as TBD and says commercial fees are based on the valuation of labor and materials. The Town's pages do not say whether the $54.00 fee also applies to SolarAPP+ permits or whether a battery adds a fee, so ask the Town."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the Town's solar permit pages nor TEP's interconnection page describes a rebate for solar PV."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Oro Valley Community and Economic Development",
+        "role": "Town of Oro Valley Community and Economic Development (solar permit questions)",
+        "phone": "520-229-4800",
+        "email": "permits@orovalleyaz.gov",
+        "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development"
+      },
+      {
+        "name": "Town of Oro Valley Inspectors Hotline",
+        "role": "Town of Oro Valley Inspectors Hotline (building inspectors)",
+        "phone": "520-229-4830",
+        "email": null,
+        "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Schedule-Inspections-for-Permits"
+      },
+      {
+        "name": "Tucson Electric Power (TEP) Customer Care",
+        "role": "TEP Customer Care (pricing plan and RCP rate questions, if TEP is your utility)",
+        "phone": "520-623-7711",
+        "email": null,
+        "url": "https://www.tep.com/residential-interconnection/"
+      },
+      {
+        "name": "TEP Energy Storage Rewards",
+        "role": "TEP Energy Storage Rewards (battery program questions)",
+        "phone": null,
+        "email": "tep-battery@energyhub.com",
+        "url": "https://www.tep.com/energy-storage-rewards/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S5",
+      "S9",
+      "S10"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Permits",
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Residential-Permits",
+      "publisher": "Town of Oro Valley",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "SolarAPP+ Residential Solar Permits",
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/SolarAPP-Residential-Solar-Permits",
+      "publisher": "Town of Oro Valley",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Community and Economic Development",
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development",
+      "publisher": "Town of Oro Valley",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Apply for a Building Permit",
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Apply-for-a-Building-Permit",
+      "publisher": "Town of Oro Valley",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Schedule Inspections for Permits",
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Services/Schedule-Inspections-for-Permits",
+      "publisher": "Town of Oro Valley",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Permit Inspections FAQs",
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Permit-Inspections-FAQs",
+      "publisher": "Town of Oro Valley",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Building Codes and Amendments",
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Building-Codes-and-Amendments",
+      "publisher": "Town of Oro Valley",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Building Code Update FAQ",
+      "url": "https://www.orovalleyaz.gov/Government/Departments/Community-and-Economic-Development/Building-Codes-and-Amendments/Building-Code-Update-Frequently-Asked-Questions-FAQ",
+      "publisher": "Town of Oro Valley",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Residential Interconnection Application Process",
+      "url": "https://www.tep.com/residential-interconnection/",
+      "publisher": "Tucson Electric Power (TEP)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Energy Storage Rewards",
+      "url": "https://www.tep.com/energy-storage-rewards/",
+      "publisher": "Tucson Electric Power (TEP)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}

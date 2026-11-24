@@ -37,6 +37,12 @@ export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string
 	"co-arapahoe-englewood-xcel",
 	"co-arapahoe-littleton-xcel",
 	"co-adams-commerce-city-multi",
+	// Batch 3 (2026-11-24)
+	"co-adams-brighton-multi",
+	"co-boulder-erie-multi",
+	"co-boulder-superior-xcel",
+	"az-maricopa-queen-creek-srp",
+	"az-pima-oro-valley-multi",
 ]);
 
 // These three pilot guides were already live before the Arvada release. Keep
@@ -58,6 +64,16 @@ const BATCH_2_GUIDES = new Set([
 	"co-adams-commerce-city-multi",
 ]);
 
+// Batch 3 (2026-11-24) is newer than batch 2. Every guide above keeps the pool
+// it had; a batch 3 guide can link to everything already published.
+const BATCH_3_GUIDES = new Set([
+	"co-adams-brighton-multi",
+	"co-boulder-erie-multi",
+	"co-boulder-superior-xcel",
+	"az-maricopa-queen-creek-srp",
+	"az-pima-oro-valley-multi",
+]);
+
 export function isNewGuideDuringMeasurement(recordId: string | null | undefined): boolean {
 	return typeof recordId === "string" && NEW_GUIDES_DURING_MEASUREMENT.has(recordId);
 }
@@ -68,6 +84,8 @@ export function isNewGuideDuringMeasurement(recordId: string | null | undefined)
  * guide can link to everything already published.
  */
 export function relatedPoolFor<T extends { recordId: string }>(currentRecordId: string, entries: T[]): T[] {
+	if (BATCH_3_GUIDES.has(currentRecordId)) return entries;
+	entries = entries.filter((entry) => !BATCH_3_GUIDES.has(entry.recordId));
 	if (BATCH_2_GUIDES.has(currentRecordId)) return entries;
 	entries = entries.filter((entry) => !BATCH_2_GUIDES.has(entry.recordId));
 	// Thornton is newer than the ten pilots; preserve every previous pool.

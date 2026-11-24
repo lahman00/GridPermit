@@ -1,6 +1,6 @@
 {
   "state": "AZ",
-  "generated_at": "2026-08-14T14:38:01.666Z",
+  "generated_at": "2026-11-24T17:27:47.209Z",
   "records": [
     {
       "record_id": "az-maricopa-chandler-srp",
@@ -106,6 +106,40 @@
       "readiness": "READY"
     },
     {
+      "record_id": "az-maricopa-queen-creek-srp",
+      "state": "AZ",
+      "city": "Queen Creek",
+      "county": "Maricopa and Pinal counties",
+      "completeness_pct": 86.7,
+      "validation_score": 100,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 8,
+      "populated_fields": [
+        "utility",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture"
+      ],
+      "readiness": "READY"
+    },
+    {
       "record_id": "az-maricopa-scottsdale-aps",
       "state": "AZ",
       "city": "Scottsdale",
@@ -138,6 +172,40 @@
         "unsupported_claim"
       ],
       "readiness": "LIMITED"
+    },
+    {
+      "record_id": "az-pima-oro-valley-multi",
+      "state": "AZ",
+      "city": "Oro Valley",
+      "county": "Pima County",
+      "completeness_pct": 80,
+      "validation_score": 100,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 8,
+      "populated_fields": [
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "timeline_days",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "utility",
+        "generation_supplier",
+        "rebates"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture"
+      ],
+      "readiness": "READY"
     },
     {
       "record_id": "az-pima-tucson-tep",
@@ -176,11 +244,15 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 72,
-    "average_validation_score": 91.8,
+    "average_completeness_pct": 75.2,
+    "average_validation_score": 94.1,
     "fields_most_often_missing": [
       {
         "field": "battery_programs",
+        "missing_in_records": 5
+      },
+      {
+        "field": "timeline_days",
         "missing_in_records": 5
       },
       {
@@ -188,12 +260,12 @@
         "missing_in_records": 4
       },
       {
-        "field": "timeline_days",
-        "missing_in_records": 4
-      },
-      {
         "field": "permit_fees",
         "missing_in_records": 3
+      },
+      {
+        "field": "generation_supplier",
+        "missing_in_records": 2
       },
       {
         "field": "required_documents",
@@ -204,7 +276,15 @@
         "missing_in_records": 2
       },
       {
+        "field": "utility",
+        "missing_in_records": 1
+      },
+      {
         "field": "interconnection_url",
+        "missing_in_records": 1
+      },
+      {
+        "field": "rebates",
         "missing_in_records": 1
       }
     ]
@@ -212,6 +292,8 @@
   "batch_recommendation": {
     "recommended_publish_record_ids": [
       "az-maricopa-phoenix-aps",
+      "az-maricopa-queen-creek-srp",
+      "az-pima-oro-valley-multi",
       "az-pima-tucson-tep"
     ],
     "limited_for_now": [
