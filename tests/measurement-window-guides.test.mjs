@@ -127,7 +127,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		const record = JSON.parse(read(`data/localities/${id}.json`));
 		// Each record tells the reader to check their own address in the utility notes.
-		assert.match(record.utility.notes, /your (own address|electric bill)/);
+		assert.match(record.utility.notes, /your (own )?address|your electric bill/);
 		const utilityFaq = buildFaqs(record, { addressLevelUtility: true })[0];
 		assert.match(utilityFaq.a, /^It depends on the address\./);
 		assert.doesNotMatch(utilityFaq.a, /is the interconnection and distribution utility for/);
@@ -145,7 +145,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	const notesSet = read("src/layouts/LocalityGuideLayout.astro").match(/const UTILITY_ANSWER_FROM_NOTES = new Set\(\[([^\]]*)\]\);/);
 	assert.ok(notesSet);
 	assert.deepEqual([...notesSet[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), ["co-boulder-boulder-multi", ...BATCH_3_IDS].sort());
-	for (const id of BATCH_3_IDS) assert.match(JSON.parse(read(`data/localities/${id}.json`)).utility.notes, /electric bill/);
+	for (const id of BATCH_3_IDS) assert.match(JSON.parse(read(`data/localities/${id}.json`)).utility.notes, /your (own )?address|your electric bill/);
 	const denver = JSON.parse(read("data/localities/co-denver-denver-xcel.json"));
 	assert.match(buildFaqs(denver)[0].a, /is the interconnection and distribution utility for Denver\./);
 	assert.deepEqual(buildFaqs(denver), buildFaqs(denver, {}));

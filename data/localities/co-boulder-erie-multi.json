@@ -1,0 +1,574 @@
+{
+  "record_id": "co-boulder-erie-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "United Power or Xcel Energy, check the Town's utility map for your address",
+    "confidence": 0.75,
+    "source_ids": [
+      "S10"
+    ],
+    "notes": "The Town of Erie's Utility Providers page lists United Power and Xcel under Electricity. To see which providers serve your address, use the interactive map linked on the Town's Utility Providers page."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Your electric utility (United Power or Xcel Energy)",
+      "type": "utility",
+      "notes": "Xcel Energy customers: Xcel says all solar customers receive Net Energy Metering benefits, and any excess energy is held in a virtual solar bank for use in future months. United Power members: you connect your system to the United Power grid through net metering. United Power rolls your net meter energy bank balance over each month until March, when all banks are settled and returned to zero, and balances are paid out at the current wholesale energy rate. United Power applies demand charges to all rate classes, including members with solar on a net-metering agreement."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S10",
+      "S16",
+      "S17"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Erie",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Boulder County and Weld County",
+    "confidence": 0.8,
+    "source_ids": [
+      "S10",
+      "S7",
+      "S8"
+    ],
+    "notes": "The Town refers to a Boulder County side and a Weld County side of Erie. For a building permit, the county matters for use tax: the Town collects Boulder County use tax on permits for projects in Boulder County, and its reconciliation form says no County use tax applies if the project was in Weld County. The Town's use tax reconciliation forms are separate for Boulder and Weld counties. To check which tax district your address is in, the Town's Sales and Use Tax page links a Sales Tax Rate Lookup map."
+  },
+  "permit_authority": {
+    "value": "Town of Erie Building Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S1"
+    ],
+    "notes": "The Building Division reviews construction plans, issues permits, performs inspections and manages the licensing of contractors and trades. The office is at 645 Holbrook St., Erie, CO 80516, Monday to Friday, 8 a.m. to 5 p.m. PV shingle systems, and battery storage located inside the house other than in the garage, also need an approved permit from Mountain View Fire Rescue before the Town issues the permit. The Town's pages do not explain how to confirm that an address is inside Town limits, so ask the Building Division if you are unsure."
+  },
+  "permit_url": {
+    "value": "https://www.erieco.gov/1811/Solar",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S22"
+    ],
+    "notes": "The Town's Solar page lists the local code requirements, submittal requirements, required inspections, photo inspection rules and a pre-submittal checklist. The solar permit is submitted on the Town's Customer Self Service Portal (eTRAKiT); you register for an account and then apply."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.75,
+    "source_ids": [
+      "S18",
+      "S16",
+      "S21"
+    ],
+    "notes": "This link is for Xcel Energy customers. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends not starting construction until your application receives full approval from its engineering team and all final agreements are fully signed. Xcel's process ends with a permission to operate letter from Xcel to the generator owner. United Power members instead review and submit United Power's online application with their solar contractor, on its Connect Your Solar page (https://www.unitedpower.com/connect-your-solar). United Power warns that systems connected without proper notification to United Power will be immediately disabled. The Town's permit and inspections are separate from the utility's approval."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Town of Erie Energy Efficiency Rebate: Battery Back-up",
+        "administrator": "Town of Erie",
+        "description": "The Town's 2026 rebate table lists $200.00 for a battery back-up. Funds are limited and available on a first come, first served basis. Purchases made in 2026 must be submitted for a rebate by Jan. 8, 2027.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": 200,
+        "value_usd_per_watt": null,
+        "eligibility": "The battery must be installed by a licensed electrician. Applicants must be a Town of Erie utility customer with a current, non-delinquent account, and the equipment must be for use at a Town of Erie service address. The purchase must be made between Jan. 1, 2026 and Dec. 31, 2026, and leased fixtures are not eligible.",
+        "url": "https://www.erieco.gov/2242/Energy-Efficiency-Rebates",
+        "effective_from": "2026-01-01",
+        "expires_on": "2026-12-31",
+        "status": "active"
+      },
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "When you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events, for 5 years.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For Xcel Energy customers only, so check that Xcel is your electric utility first. Xcel says eligible battery equipment includes all Tesla Powerwall models or all current Enphase models.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S11",
+      "S20"
+    ],
+    "notes": "Xcel's Renewable Battery Connect page shows a 2026 general incentive budget of $13,629,630 with $10,635,423 available, on figures dated 11/02/2026. United Power says batteries can run parallel to the grid and United Power must be aware of the equipment. A battery storage system located inside the house, other than in the garage, needs an approved Mountain View Fire Rescue permit before the Town issues the permit."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed building permit application",
+        "required_when": "All solar PV permits (Submittal Requirements on the Solar page).",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Electrical engineer stamped plans",
+        "required_when": "All solar PV permits (Submittal Requirements on the Solar page).",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Engineer letter that the existing roof can support the system, or engineered plans for the needed structural modifications",
+        "required_when": "All solar PV permits (Submittal Requirements on the Solar page).",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan showing the location of major components",
+        "required_when": "Pre-submittal checklist. The drawing need not be exactly to scale but should show the relative location of components.",
+        "source_ids": [
+          "S1",
+          "S3"
+        ]
+      },
+      {
+        "name": "Electrical diagram or worksheets",
+        "required_when": "Pre-submittal checklist. It must show the PV system configuration, wiring system, overcurrent protection, inverter, disconnects, required signs and the AC connection to the building.",
+        "source_ids": [
+          "S1",
+          "S3"
+        ]
+      },
+      {
+        "name": "Spec sheets and installation manuals for all manufactured components",
+        "required_when": "Pre-submittal checklist. This includes PV modules, inverters, combiner box, disconnects and mounting system; manuals if available.",
+        "source_ids": [
+          "S1",
+          "S3"
+        ]
+      },
+      {
+        "name": "Structural roof letter with snow load and wind speed, stamped by a Colorado Professional Engineer",
+        "required_when": "Pre-submittal checklist.",
+        "source_ids": [
+          "S1",
+          "S3"
+        ]
+      },
+      {
+        "name": "Project valuation and material costs on the application",
+        "required_when": "The Town's 2026 fee memo says all residential and commercial building permit applications need a general valuation, applicable trade valuations, a total project valuation and material costs to be an acceptable submittal.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Approved Mountain View Fire Rescue permit (PV shingle systems)",
+        "required_when": "PV shingle systems, before the Town issues the permit.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Approved Mountain View Fire Rescue permit (battery storage inside the house)",
+        "required_when": "Battery storage systems located inside the house, other than in the garage, before the Town issues the permit.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Improvement Survey Plat (ground-mount solar less than three feet from the required setback)",
+        "required_when": "Ground-mount solar installations where the proposed location is less than three feet from the required setback, for submittals on or after September 3, 2025.",
+        "source_ids": [
+          "S4"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S4",
+      "S6"
+    ],
+    "notes": "The Solar page says its pre-submittal checklist contains the minimum information and plan details required for a residential or commercial solar PV permit. PV arrays that comply with IRC R324.6 Roof Access and Pathways require no fire service review. A licensed electrical contractor must be listed on every solar permit application."
+  },
+  "inspection_steps": {
+    "value": [
+      "Apply for the solar building permit on the Town's Customer Self Service Portal, with a licensed electrical contractor listed on the application.",
+      "Apply to your electric utility for interconnection: Xcel customers usually have their installer submit Xcel's application, and United Power members submit United Power's online application with their solar contractor.",
+      "Get the Town permit before any work starts.",
+      "After installation, email the Solar Rough photos, with the address and permit number in the subject line, to building@erieco.gov for review.",
+      "After the rough photos are approved, request the Solar Final and Meter Release inspection through the Customer Self-Service Portal.",
+      "At the on-site final inspection the inspector performs a rapid shutdown test. Have the plans, permit and access ready, and provide a certification letter on company letterhead, signed by the licensed electrical contractor, stating the system was installed per the approved plans and the manufacturer's specifications.",
+      "Xcel customers: Xcel witness tests and energizes the system and issues a permission to operate letter to the generator owner. United Power members: United Power says systems connected without proper notification to United Power will be immediately disabled, so confirm the final step with United Power. United Power's undated Interconnection Procedures say United Power gives written approval for normal operation within 3 business days of successful acceptance tests, once all requirements are met, and that certified inverter systems of 10 kW or less may qualify for an abbreviated process; its 2018 solar process sheet says United Power schedules a final on-site inspection with the member once the system is installed."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S12",
+      "S18",
+      "S21",
+      "S23",
+      "S24"
+    ],
+    "notes": "The Solar page says a solar PV system requires two inspections: Rough Electrical and Frame Solar (photos for residential systems), then Final Electrical, Building and Electrical Service. Additional inspections not listed may be required. The Solar page says rough photos are uploaded into your permit application in one place and emailed to building@erieco.gov in another, so ask the Building Division which to use. Required rough photos include the front of the house with the address clearly visible, roof flashing at all penetrations and the complete solar array, among other items listed on the Solar page. Attach photos as JPG files or one full PDF; ZIP files and share-drive links result in a failed inspection. The current turnaround for photo review of solar roughs is 2-3 business days. A detach and reattach for a re-roof needs a permit, and its Solar Reattach Final uses the same photographs as the rough inspection. Inspections must be scheduled in sequence through the eTRAKiT Self-Service Portal, and typically they are completed within the next business day. If no one will be on site, post the permit card and leave a note on the front door granting the inspector permission to enter. Passing the Town's final inspection is not the utility's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Two Town pages give different review times for solar permits. The Solar page says best efforts are made to review completed residential solar permit applications within 5 business days, and that these turnaround times are typical, not guaranteed. The Building Permit Information page lists Solar Permits at 1-2 Weeks. Ask the Building Division which estimate applies."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Solar PV building permit (flat fee for residential), applied for on the eTRAKiT portal",
+      "other_conditions": [
+        "All solar permits must have a licensed electrical contractor listed on the application. A Permit Technician verifies that the company has a State licensed Electrical Contractor and that the listed Master Electrician is employed by the company.",
+        "All contractors on the project must have a current Town of Erie license and a current certificate of insurance on file for the permit to be issued. The Town's Electrical Contractor license type covers residential and commercial electrical work such as solar and EV chargers.",
+        "The Town's general homeowner rule lets an owner who owns and occupies the home get a building permit for their primary residence without a contractor's license. For solar, the Solar page still says a licensed electrical contractor must be listed on the application.",
+        "Local design criteria on the Solar page: wind load V(ult) 142 mph, snow load 30 psf, and a 3-foot setback is required.",
+        "The Solar web page and the Town's Building Codes page list the 2026 National Electrical Code, in effect since April 24, 2026, while the downloadable PDF checklist still lists the 2020 edition.",
+        "PV shingle systems, and battery storage inside the house other than in the garage, need an approved Mountain View Fire Rescue permit before the Town issues the permit.",
+        "Solar panels need a building permit, both new installations and detach and re-attach for a re-roof.",
+        "The Town's Rapid Plan Review is for simple residential projects such as basement finishes, decks and pergolas, at the plans examiner's discretion.",
+        "The Solar page says a permit expires six months after issuance unless work starts within six months, or if more than six months pass between inspections, while the Building Permit Information page says all building permits are subject to expiration if work does not begin within 90 days of issuance, or if more than 90 days pass between inspections. Confirm your permit's expiration with the Building Division.",
+        "Xcel Energy net metering: you must be an Xcel residential or business electricity customer with an active and valid account number and premise number, and the name on the application must match the name on the Xcel account or bill.",
+        "Xcel Energy net metering: expected generation, combined with other distributed generation at the service address, must not exceed 200% of historical consumption (the previous 12 months at the time of application).",
+        "Xcel Energy: all equipment must be UL 1741 SB certified and listed within the Solar Equipment Lists on the California Energy Commission website.",
+        "United Power: system generation can not exceed 200% of the annual usage at that location, and the contractor installing your solar panels must place a disconnect switch and production meter housing on the side of your home."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S4",
+      "S13",
+      "S14",
+      "S15",
+      "S19",
+      "S21"
+    ],
+    "notes": "Sizing, equipment and account conditions are the utilities' own and apply to their customers. The $164.50 flat fee is for residential applications only."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar installation permit, residential (flat fee)",
+        "amount_usd": 164.5,
+        "unit": "flat fee per permit, plus use tax",
+        "notes": "The Fee Schedules page lists Solar Installation at $164.50 plus tax, for residential applications only. The flat fee does not include a service upgrade."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "notes": "The Town's 2026 fee memo, effective January 1, 2026, says residential and commercial solar PV projects apply the specific permit fee in the Town Fee Schedule. Use tax is collected with the permit on the estimated material cost: the Town Use Tax is 3.5%, and the deposit is based on an estimated taxable materials percentage of 50% of the total contract valuation. For projects in Boulder County, Town pages print three different county use tax rates: 0.985% on the Solar page, 1.185% on the Sales and Use Tax page, and 1.335% in the 2026 fee memo, which matches the 2026 rate on Boulder County's own page. The Town's reconciliation form says no County use tax applies if the project was in Weld County. The permit holder should take a copy of the permit and permit receipt to vendors to avoid paying the tax twice, and should perform a Building Materials Use Tax Reconciliation within 90 days from the Certificate of Occupancy or Final Inspection. The 2026 fee memo also applies a plan check fee equal to 65% of the building permit fee to all residential projects requiring a plan review, and the Town's pages do not say whether it is added to the solar flat fee. For use tax questions, call the Town of Erie Finance Department at 303-926-2700."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Town of Erie Energy Efficiency Rebate: PV Solar",
+        "administrator": "Town of Erie",
+        "description": "The Town's 2026 rebate table lists $500.00 for PV solar. Rebate amounts cannot be greater than the purchase price, and there is one rebate per measure, per entity. Funds are limited and available on a first come, first served basis. Rebates over $200 are awarded as a check sent to the address in the application. Purchases made in 2026 must be submitted for a rebate by Jan. 8, 2027.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": 500,
+        "value_usd_per_watt": null,
+        "eligibility": "Installation by a NABCEP certified installer only. Rooftop systems only; community solar subscriptions are not eligible. Applicants must be a Town of Erie utility customer with a current, non-delinquent account, and the equipment must be for use at a Town of Erie service address. The purchase must be made between Jan. 1, 2026 and Dec. 31, 2026, and leased fixtures are not eligible.",
+        "url": "https://www.erieco.gov/2242/Energy-Efficiency-Rebates",
+        "effective_from": "2026-01-01",
+        "expires_on": "2026-12-31",
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S11",
+      "S16"
+    ],
+    "notes": "The Xcel rebates are for Xcel Energy customers only. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. United Power says that at this time it does not offer a rebate for new system installations."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Erie Building Division",
+        "role": "Town of Erie Building Division (solar permit questions), 645 Holbrook St., Erie, CO 80516",
+        "phone": "303-926-2780",
+        "email": "building@erieco.gov",
+        "url": "https://www.erieco.gov/110/Building-Division"
+      },
+      {
+        "name": "Town of Erie building inspection staff",
+        "role": "Town of Erie building inspection staff (inspection time windows; call 7:30 to 8:30 a.m. and select option 2)",
+        "phone": "303-926-2780",
+        "email": "buildinginspectors@erieco.gov",
+        "url": "https://erieco.gov/2550/Building-Inspections"
+      },
+      {
+        "name": "Town of Erie Finance Department",
+        "role": "Town of Erie Finance Department (use tax questions)",
+        "phone": "303-926-2700",
+        "email": null,
+        "url": "https://www.erieco.gov/136/Sales-Use-Taxes"
+      },
+      {
+        "name": "Town of Erie Planning Division",
+        "role": "Town of Erie Planning Division (required setbacks and property easements)",
+        "phone": "303-926-2770",
+        "email": "planningdivision@erieco.gov",
+        "url": "https://www.erieco.gov/1534/Does-my-project-require-a-permit"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S14",
+      "S12",
+      "S7",
+      "S15"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar",
+      "url": "https://www.erieco.gov/1811/Solar",
+      "publisher": "Town of Erie Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Building Division",
+      "url": "https://www.erieco.gov/110/Building-Division",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Solar Photovoltaic (PV) System Permitting and Inspection Checklist (PDF)",
+      "url": "https://erieco.gov/DocumentCenter/View/18165/Solar-Permitting--Inspection-Checklist?bidId=",
+      "publisher": "Town of Erie Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permit Information (Apply for Building Permits)",
+      "url": "https://www.erieco.gov/1929/Apply-for-Building-Permits",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Fee Schedules",
+      "url": "https://www.erieco.gov/121/Fee-Schedules",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Building Permit Fees Determined by Project Valuation - 2026 (memo dated December 16, 2025)",
+      "url": "https://www.erieco.gov/DocumentCenter/View/24059/2026-Project-Valuations-to-Determine-Building-Permit-Fees",
+      "publisher": "Town of Erie Building Division",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Sales & Use Tax Information",
+      "url": "https://www.erieco.gov/136/Sales-Use-Taxes",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Building Materials Use Tax Reconciliation Form, Boulder County",
+      "url": "https://www.erieco.gov/DocumentCenter/View/14522/Building-Materials-Use-Tax---Reconciliation-Form---Boulder-County",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Sales and Use Tax",
+      "url": "https://bouldercounty.gov/government/budget-and-finance/sales-and-use-tax/",
+      "publisher": "Boulder County",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Utility Providers",
+      "url": "https://www.erieco.gov/1284/Utility-Providers",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Energy Efficiency Rebates",
+      "url": "https://www.erieco.gov/2242/Energy-Efficiency-Rebates",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Building Inspections",
+      "url": "https://erieco.gov/2550/Building-Inspections",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Building Codes & Design Criteria",
+      "url": "https://www.erieco.gov/1772/Building-Codes-Design-Criteria",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S14",
+      "title": "Contractor Licensing",
+      "url": "https://www.erieco.gov/120/Contractor-Licensing",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S15",
+      "title": "Does my project require a permit?",
+      "url": "https://www.erieco.gov/1534/Does-my-project-require-a-permit",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S16",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S17",
+      "title": "Solar & Your Bill",
+      "url": "https://www.unitedpower.com/solar-bill",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S18",
+      "title": "Interconnection (Renewable Developers)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S19",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S20",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S21",
+      "title": "Connect Your Solar",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S22",
+      "title": "eTRAKiT",
+      "url": "https://www.erieco.gov/2393/eTRAKiT",
+      "publisher": "Town of Erie",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S23",
+      "title": "United Power: Interconnection Procedures for Generation Facilities",
+      "url": "https://www.unitedpower.com/sites/default/files/1-DGApplicationProcess.pdf",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-21"
+    },
+    {
+      "id": "S24",
+      "title": "United Power: Residential / Small Commercial Solar Electric Process (2018)",
+      "url": "https://www.unitedpower.com/sites/default/files/Documents/RenewableBatteryApplication_UnitedPower_2018.pdf",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-21"
+    }
+  ]
+}

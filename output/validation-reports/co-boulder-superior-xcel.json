@@ -1,0 +1,182 @@
+{
+  "record_id": "co-boulder-superior-xcel",
+  "file": "data/localities/co-boulder-superior-xcel.json",
+  "validated_at": "2026-11-24",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Sustainable-Building — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:41:12Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:39:45Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[2].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance/Contractor-Licensing — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:41:04Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.superiorcolorado.gov/files/assets/town/v/2/planning-amp-building/documents/solar-requirements.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:40:01Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Building-Codes-and-Zoning-Regulations — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:40:40Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S6].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.superiorcolorado.gov/Government/Departments/Sustainability/Energy — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-21T21:41:22Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Sustainable-Building",
+      "checked_at": "2026-11-24T17:54:59.178Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:41:12Z",
+        "sha256": "e5791b0e9417429b4d46d0c58d3a40160028eea1052b801a4563d3af11abe865",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "checked_at": "2026-11-24T17:54:59.309Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "checked_at": "2026-11-24T17:54:59.865Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "checked_at": "2026-11-24T17:55:00.356Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance",
+      "checked_at": "2026-11-24T17:55:00.863Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:39:45Z",
+        "sha256": "fd8a34ee2f5207663a5986565d72c075011ca6479a498ab603c58543d1b08cce",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Permit-Guidance/Contractor-Licensing",
+      "checked_at": "2026-11-24T17:55:00.916Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:41:04Z",
+        "sha256": "1d1f0763d20e67268c1c38950c3794804f2a9978cd8616aa5985089477fc77c6",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.superiorcolorado.gov/files/assets/town/v/2/planning-amp-building/documents/solar-requirements.pdf",
+      "checked_at": "2026-11-24T17:55:00.962Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:40:01Z",
+        "sha256": "e16ea4a3632dc9ba588fb462be6fdabe8736f6b07e23dc26008cff515d442c00",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Planning-Building/Building-Codes-and-Zoning-Regulations",
+      "checked_at": "2026-11-24T17:55:01.106Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:40:40Z",
+        "sha256": "6b2eeaf9f5e4fe85bf26d230d8b65958fcdbe1dfe7c46070122bdcad7a2d33d5",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.superiorcolorado.gov/Government/Departments/Sustainability/Energy",
+      "checked_at": "2026-11-24T17:55:01.163Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-21T21:41:22Z",
+        "sha256": "55a67d414ee929c75e5d0829f44aa6f92bfd0ecd8eb15c36571b6340c9d19d23",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "checked_at": "2026-11-24T17:55:01.223Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://bouldercounty.gov/government/budget-and-finance/sales-and-use-tax/",
+      "checked_at": "2026-11-24T17:55:01.489Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "checked_at": "2026-11-24T17:55:02.781Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe-responsive/Working%20With%20Us/Renewable%20Developers/CO%20Renewable%20Battery%20Connect%20Interconnection%20Application%20Installer%20Guide_2024.pdf",
+      "checked_at": "2026-11-24T17:55:03.243Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}
