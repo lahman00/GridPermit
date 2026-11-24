@@ -4,7 +4,10 @@ import Header from "../components/Header.astro";
 import DesignHead from "../components/DesignHead.astro";
 import Analytics from "../components/Analytics.astro";
 const title = "Partner Integration Inquiry | GridPermit";
-const description = "Submit a GridPermit platform, workflow, referral or integration inquiry.";
+const description = "Email GridPermit about a platform, workflow, referral or integration inquiry.";
+const inquirySubject = "GridPermit business workflow inquiry";
+const inquiryBody = ["Company or organization:", "Role or team:", "State and city or county:", "Workflow you are trying to complete:", "Where you get stuck:", "", "Please omit homeowner names, street addresses, account numbers and private documents."].join("\r\n");
+const inquiryHref = `mailto:support@mygridpermit.com?subject=${encodeURIComponent(inquirySubject)}&body=${encodeURIComponent(inquiryBody)}`;
 ---
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
@@ -25,7 +28,12 @@ const description = "Submit a GridPermit platform, workflow, referral or integra
   <meta name="twitter:description" content={description} />
   <meta name="google-site-verification" content="b36wwqlXise5bGI8ckWqbybnEoCYlsTmp4BiV" />
   <link rel="sitemap" href="/sitemap-index.xml" />
-  <style>.card {background: var(--gp-surface);border: 1px solid var(--gp-line);border-radius: 2px;padding:2rem}label {display:block;font-weight:700;font-size:.88rem;margin:1rem 0 .35rem}input, textarea {width:100%;padding:.78rem .85rem;border: 1px solid var(--gp-line);border-radius: 2px;font:inherit;background: var(--gp-surface)}textarea {min-height:150px;resize:vertical}.two {display:grid;grid-template-columns:1fr 1fr;gap:1rem}.button {margin-top:1.25rem;border:0;border-radius: 2px;background: var(--gp-accent);color: var(--gp-ink);font:inherit;font-weight:800;padding:.85rem 1.1rem;cursor:pointer}.small {font-size:.8rem;color: var(--gp-muted)}@media(max-width:620px){.two {grid-template-columns:1fr}.card {padding:1.25rem}}
+  <style>
+    .card { background:var(--gp-surface); border:1px solid var(--gp-line); border-radius:2px; padding:2rem; }
+    .button { display:inline-flex; align-items:center; min-height:48px; margin:8px 0; border-radius:2px; background:var(--gp-accent); color:var(--gp-bg); font:inherit; font-weight:700; padding:12px 16px; text-decoration:none; }
+    .button:focus-visible { outline:2px solid var(--gp-ink); outline-offset:4px; }
+    .small { font-size:.875rem; color:var(--gp-muted); }
+    @media(max-width:620px) { .card { padding:20px; } .button { width:100%; justify-content:center; box-sizing:border-box; } }
   </style>
 </head>
 <body>
@@ -36,39 +44,18 @@ const description = "Submit a GridPermit platform, workflow, referral or integra
       <h1>Discuss a GridPermit integration or distribution pilot</h1>
       <p>Use this for software integrations, workflow pilots, referral/distribution partnerships or permit/interconnection service routing.</p>
       <p>The strongest pilot candidates already have project context—address, AHJ, utility, system design or milestone data—but still send operations teams into manual research when a battery, MPU, existing PV, equipment revision, SolarAPP+ eligibility question, failed inspection or stalled PTO changes the normal path. GridPermit's proposed role is to classify that exception, show current first-party evidence and route the project into the partner's existing execution workflow rather than replace it.</p>
-      <form name="partner-integration" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="partner-integration" />
-        <input type="hidden" name="source_page" value="" />
-        <input type="hidden" name="referrer" value="" />
-        <input type="hidden" name="utm_source" value="" />
-        <input type="hidden" name="utm_medium" value="" />
-        <input type="hidden" name="utm_campaign" value="" />
-        <input type="hidden" name="utm_term" value="" />
-        <div class="two">
-          <div><label for="email">Work email</label><input id="email" name="email" type="email" required /></div>
-          <div><label for="company">Company</label><input id="company" name="company" required /></div>
-        </div>
-        <label for="role">Role / team</label><input id="role" name="role" placeholder="Product, Partnerships, Operations, Engineering…" />
-        <label for="workflow">Where does permit/interconnection decision work create friction today?</label>
-        <textarea id="workflow" name="workflow" required placeholder="Examples: routing the correct permit service, SolarAPP+ eligibility, AHJ vs utility responsibility, inspection exceptions, PTO delays…"></textarea>
-        <button class="button" type="submit">Submit partner inquiry</button>
-        <p class="small">This form is for business/workflow discussions. Do not submit customer account numbers or private project credentials.</p>
-      </form>
+      <section aria-labelledby="inquiry-email-heading">
+        <h2 id="inquiry-email-heading">Tell us about your workflow</h2>
+        <p>Include your company or organization, your role, the state and city or county you work in, and one task that sends your team back to manual research.</p>
+        <a class="button" href={inquiryHref}>Compose a business inquiry</a>
+        <p class="small">Opens a draft in your email app. Review it and send it there. Clicking this link does not submit an inquiry.</p>
+        <p>No email app? Write to <a href="mailto:support@mygridpermit.com">support@mygridpermit.com</a>.</p>
+        <p class="small">Please leave out homeowner names, street addresses, account numbers, login details and private project documents. This is a conversation about a possible pilot, not an order or a commitment to a service.</p>
+      </section>
     </div>
   </main>
 
-  <script is:inline>
-    const params = new URLSearchParams(window.location.search);
-    const setField = (name, value) => {
-      const field = document.querySelector(`input[name="${name}"]`);
-      if (field instanceof HTMLInputElement) field.value = value || "";
-    };
-    setField("source_page", window.location.href);
-    setField("referrer", document.referrer);
-    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_term"]) {
-      setField(key, params.get(key));
-    }
-  </script>
+
 <Footer />
 </body>
 </html>
