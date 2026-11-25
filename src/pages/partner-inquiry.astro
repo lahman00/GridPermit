@@ -47,15 +47,40 @@ const inquiryHref = `mailto:support@mygridpermit.com?subject=${encodeURIComponen
       <section aria-labelledby="inquiry-email-heading">
         <h2 id="inquiry-email-heading">Tell us about your workflow</h2>
         <p>Include your company or organization, your role, the state and city or county you work in, and one task that sends your team back to manual research.</p>
-        <a class="button" href={inquiryHref}>Compose a business inquiry</a>
+        <a class="button" href={inquiryHref} data-inquiry-email="compose">Compose a business inquiry</a>
         <p class="small">Opens a draft in your email app. Review it and send it there. Clicking this link does not submit an inquiry.</p>
-        <p>No email app? Write to <a href="mailto:support@mygridpermit.com">support@mygridpermit.com</a>.</p>
+        <p>No email app? Write to <a href="mailto:support@mygridpermit.com" data-inquiry-email="address">support@mygridpermit.com</a>.</p>
         <p class="small">Please leave out homeowner names, street addresses, account numbers, login details and private project documents. This is a conversation about a possible pilot, not an order or a commitment to a service.</p>
       </section>
     </div>
   </main>
 
 
+<!-- Page-scoped GA4 events deliberately leave the shared analytics bundle and
+     frozen measurement pages untouched. Reuse the existing Google tag only.
+     A click is a draft-opening attempt, never a sent email or qualified lead. -->
+<script is:inline>
+  (() => {
+    if (!['mygridpermit.com', 'www.mygridpermit.com'].includes(location.hostname)) return;
+    if (window.__gpInquiryMeasurement) return;
+    window.__gpInquiryMeasurement = true;
+    const pageLocation = 'https://mygridpermit.com/partner-inquiry/';
+    const emit = (name, params = {}) => {
+      if (typeof window.gtag !== 'function') return;
+      try { window.gtag('event', name, { page_location: pageLocation, ...params }); }
+      catch { /* Measurement must never break the email handoff. */ }
+    };
+    emit('inquiry_page_viewed');
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+      const link = event.target.closest('a[data-inquiry-email]');
+      if (!link) return;
+      const action = link.getAttribute('data-inquiry-email');
+      if (action !== 'compose' && action !== 'address') return;
+      emit('inquiry_email_clicked', { inquiry_action: action });
+    });
+  })();
+</script>
 <Footer />
 </body>
 </html>
