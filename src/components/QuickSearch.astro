@@ -1,9 +1,9 @@
 <div class="gp-quick-search" data-quick-search>
   <form id="hero-search-form" action="/search/" method="get" role="search">
-    <label for="hero-search-input" class="gp-kicker">Start with your location</label>
+    <label for="hero-search-input" class="gp-search-label">Find your city's permit guide</label>
     <div class="gp-search-row">
       <input type="search" id="hero-search-input" name="q" placeholder="City, county or electric utility" autocomplete="off" aria-controls="quick-search-results" aria-describedby="quick-search-help" />
-      <button type="submit" class="gp-button">Find <span aria-hidden="true">↗</span></button>
+      <button type="submit" class="gp-button">Search guides <span aria-hidden="true">↗</span></button>
     </div>
   </form>
   <div class="gp-search-dropdown" data-search-dropdown hidden>
@@ -42,7 +42,7 @@
       let index: SearchEntry[];
       try { index = await loadIndex(); } catch {
         if (version === renderVersion) {
-          if (status) status.textContent = 'Suggestions unavailable. Use Find to search.';
+          if (status) status.textContent = 'Suggestions unavailable. Use Search guides to search.';
           close();
         }
         return;
@@ -95,6 +95,7 @@
   .gp-quick-search form > label { margin-bottom: 12px; font-size: 10px; }
   .gp-search-row { display: flex; gap: 8px; padding: 6px; border: 1px solid var(--gp-line); background: var(--gp-surface); border-radius: 2px; }
   .gp-search-row input { width: 100%; flex: 1; border: 0; padding: 12px 16px; background: transparent; font-size: 17px; }
+  .gp-search-label { display: block; margin: 0 0 10px; font-size: 17px; font-weight: 600; color: var(--gp-ink, inherit); }
   .gp-search-row .gp-button { flex: none; min-width: 115px; }
   .gp-search-help { font-size: 11px; color: var(--gp-muted); margin: 13px 0 0; }
   .gp-search-dropdown { position: absolute; left: 0; right: 0; top: calc(100% - 24px); background: var(--gp-surface); border: 1px solid var(--gp-line); z-index: 50; }
