@@ -78,5 +78,5 @@ test("homepage does not render empty Coming Soon comparison rows", () => {
 	const source = readFileSync(path.join(REPO_ROOT, "src/pages/index.astro"), "utf8");
 	assert.doesNotMatch(source, /<td>Coming Soon<\/td>/);
 	assert.doesNotMatch(source, /class="results-table-wrap"/);
-	assert.match(source, /Does <strong>not<\/strong> estimate dollar savings or payback yet/);
+	assert.match(source, /Does <strong>not<\/strong> estimate dollar savings or payback/);
 });

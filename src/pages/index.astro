@@ -10,7 +10,12 @@ import { SITE_ORIGIN } from "../lib/locality-guide";
 import { getPartner, getCplState, getCplDisclosureText } from "../lib/partners";
 
 const energysage = getPartner("energysage")!;
-const energysageDisclosure = getCplDisclosureText(getCplState(energysage), energysage.name);
+const energysageState = getCplState(energysage);
+// Homepage wording only (shared guide wording is unchanged during the measurement window):
+// the EnergySage destination is the plain, untracked site, so say plainly that it earns nothing.
+const energysageDisclosure = energysageState === "UNTRACKED_RELATIONSHIP"
+	? `GridPermit doesn't earn money from this link. ${energysage.name} is an independent third-party resource.`
+	: getCplDisclosureText(energysageState, energysage.name);
 
 // Organization + WebSite/SearchAction JSON-LD. The SearchAction's target
 // actually works: src/pages/search.astro reads the same ?q= query param on
@@ -82,7 +87,7 @@ const websiteSchema = {
             <QuickSearch />
           </div>
           <div class="gp-route-map" aria-hidden="true">
-            <div class="gp-route-map-head"><span>Project route</span><span>Source linked</span></div>
+            <div class="gp-route-map-head"><span>Your project's path</span><span>Source linked</span></div>
             <div class="gp-route-board">
             <svg class="gp-isometric-scene" viewBox="0 70 400 285" role="presentation">
               <defs>
@@ -139,25 +144,17 @@ const websiteSchema = {
               <g><ellipse cx="324" cy="220" rx="8" ry="4" fill="var(--scene-shadow)" opacity=".12"/><path d="M324 218v-15" stroke="var(--scene-roof)" stroke-width="2"/><circle cx="324" cy="198" r="9" fill="var(--scene-foliage)"/><circle cx="321" cy="193" r="6" fill="var(--scene-foliage-light)"/></g>
             </svg>
             <div class="gp-route-label gp-route-label--permit"><span>01</span><strong>Permit</strong><small>Local authority</small></div>
-            <div class="gp-route-label gp-route-label--inspect"><span>02</span><strong>Inspection</strong><small>Field approval</small></div>
-            <div class="gp-route-label gp-route-label--pto"><span>03</span><strong>PTO</strong><small>Utility approval</small></div>
+            <div class="gp-route-label gp-route-label--inspect"><span>02</span><strong>Inspection</strong><small>On-site check</small></div>
+            <div class="gp-route-label gp-route-label--pto"><span>03</span><strong>PTO</strong><small>Permission to operate</small></div>
             </div>
             <div class="gp-route-readout"><span><i></i> Verified facts</span><span>No contact info</span></div>
           </div>
         </div>
-        <div class="gp-home-hero-bottom"><span>Find. Understand. Act.</span><a href="#know-your-path">Scroll to explore <span aria-hidden="true">↓</span></a></div>
+        <div class="gp-home-hero-bottom"><span>Find. Understand. Act.</span><a href="#project-nav-title">Scroll to explore <span aria-hidden="true">↓</span></a></div>
       </section>
       <ProjectNavigator />
-      <section class="gp-container gp-home-section gp-home-path" id="know-your-path">
-        <div><p class="gp-kicker">01 / Know your path</p><h2>City permit.<br/>Utility approval.<br/><span class="gp-muted-heading">Not the same thing.</span></h2></div>
-        <div class="gp-home-track-list">
-          <div><span class="gp-kicker">Local authority</span><h3>The installation.</h3><p>Your city or county handles the permit and local inspection requirements. Start with the authority named in your guide.</p></div>
-          <div><span class="gp-kicker">Electric utility</span><h3>The connection.</h3><p>Your electric utility handles interconnection and permission to operate. A building permit does not replace utility approval.</p></div>
-          <a href="/how-it-works/" class="gp-text-link">Understand the process <span aria-hidden="true">↗</span></a>
-        </div>
-      </section>
       <section class="gp-container gp-home-section gp-home-discover">
-        <div><p class="gp-kicker">02 / Start locally</p><h2>Every place.<br/>Its own requirements.</h2><p>Find the guidance we have published for your location. Where research is incomplete, we say so.</p></div>
+        <div><p class="gp-kicker">Start locally</p><h2>Every place.<br/>Its own requirements.</h2><p>Find the guidance we have published for your location. Where research is incomplete, we say so.</p></div>
         <nav aria-label="Explore permit guidance" class="gp-explore-rows">
           <a href="/california/"><span><small>Our deepest coverage</small>California</span><span aria-hidden="true">↗</span></a>
           <a href="/colorado/"><span><small>Source-linked city guides</small>Colorado</span><span aria-hidden="true">↗</span></a>
@@ -166,10 +163,15 @@ const websiteSchema = {
           <a href="/california/solar-permit-data/"><span><small>Open data, free CSV</small>California permit data</span><span aria-hidden="true">↗</span></a>
         </nav>
       </section>
-      <section class="gp-statement" aria-labelledby="trust-heading"><div class="gp-container"><p class="gp-kicker">Our standard</p><h2 id="trust-heading">We don't fill gaps<br/>with guesses.</h2><a href="/methodology/">Read our methodology <span aria-hidden="true">↗</span></a></div></section>
-      <section class="gp-container gp-home-section gp-trust-editorial">
-        <p class="gp-kicker">03 / Evidence, not assumptions</p>
-        <div><h2>Know what is verified.<br/>See what is not.</h2><p>Read the permit facts alongside their sources, access dates and confidence notes. Check the local authority's current requirements before making a project decision.</p><a href="/search/" class="gp-text-link">Find your local guide <span aria-hidden="true">↗</span></a></div>
+      <section class="gp-statement" aria-labelledby="trust-heading"><div class="gp-container"><p class="gp-kicker">Our standard</p><h2 id="trust-heading">We don't fill gaps<br/>with guesses.</h2><p class="gp-statement-copy">Every permit fact links to the official source it came from, with the date it was checked and a confidence note. Where research is incomplete, the guide says so. Check the local authority's current requirements before making a project decision.</p><a href="/methodology/">Read our methodology <span aria-hidden="true">↗</span></a></div></section>
+      <section class="gp-container gp-home-section gp-home-faq" aria-labelledby="faq-heading">
+        <div><p class="gp-kicker">Questions</p><h2 id="faq-heading">Before you rely on a guide.</h2></div>
+        <div class="gp-faq-list">
+          <details><summary>Is this legal or permit advice?</summary><p>No. GridPermit is for information only and is not legal, engineering, financial, tax or permit advice. It is not a solar installer, contractor, engineering firm, utility or government agency. Confirm current requirements with the permit authority and utility named in your guide.</p></details>
+          <details><summary>How current is the information?</summary><p>Every guide page states the date it was last verified. Cities and utilities change their rules, so facts can go stale; each guide links its official sources so you can check them.</p></details>
+          <details><summary>How does GridPermit make money?</summary><p>On eligible California pages, GridPermit may show a clearly disclosed paid referral to CompareSolarPrices. Other pages may link to independent resources such as EnergySage without compensation, and each link is labeled with its actual status. GridPermit also sells the <a href="/solar-project-organizer/">Solar Project Organizer</a>, a $9 one-time downloadable workbook for tracking quotes, permit paperwork and utility approvals.</p></details>
+          <details><summary>What do installers get?</summary><p>The free guides, the <a href="/permit-path/">permit path checker</a> and an <a href="/for-installers/">installer pilot</a> for jobs that fall off the normal permit path. <a href="/pro/">GridPermit Pro</a>, a paid permit-research tool for installers, is not available yet; its page only asks whether you would use it.</p></details>
+        </div>
       </section>
 <section class="gp-container gp-lab-section" aria-label="Illustrative tool">
 <details id="calculator" class="gp-lab"><summary><span class="gp-kicker">Optional / Illustrative tool</span>California system-sizing estimator <span aria-hidden="true">+</span></summary>
@@ -183,7 +185,7 @@ const websiteSchema = {
 			<div class="calculator-glass-card">
 				<div class="calc-header">
 					<h3>Enter a California ZIP Code</h3>
-					<p>Takes only 30 seconds • No contact info required • California ZIP codes only</p>
+					<p>No contact info required • California ZIP codes only</p><p class="calc-assumptions">How it works: your monthly bill divided by a flat placeholder rate of $0.30 per kWh, then by 1,400 kWh per installed kW per year. Not your actual utility rate or roof.</p>
 				</div>
 
 				<form id="solar-form">
@@ -191,6 +193,7 @@ const websiteSchema = {
 						<label for="zip">California ZIP Code</label>
 						<input type="text" id="zip" placeholder="e.g. 90210, 94103, 92101" required pattern="[0-9]{5}" />
 						<div id="utility-detected" class="utility-pill hidden">✓ ZIP code is within California's range</div>
+						<div id="bill-invalid" class="utility-pill-warn hidden" role="alert">Enter a monthly bill between $25 and $5,000.</div>
 						<div id="utility-not-ca" class="utility-pill-warn hidden">This doesn't look like a California ZIP code. This estimator currently covers California only. Try our <a href="/search/">location search</a> instead for other states.</div>
 					</div>
 					<div class="input-field">
@@ -198,7 +201,7 @@ const websiteSchema = {
 						<input type="number" id="bill" placeholder="e.g. 250" required min="25" max="5000" />
 					</div>
 					<button type="submit" class="btn-glow-submit" id="calc-btn">
-						<span id="btn-text">See My Preliminary Estimate →</span>
+						<span id="btn-text">See an illustrative system size →</span>
 					</button>
 				</form>
 
@@ -210,12 +213,6 @@ const websiteSchema = {
 				<div id="results" class="results-container hidden">
 					<div class="results-badge illustrative-badge">⚠ Illustrative Only: Not Utility-Specific</div>
 
-					<div class="main-savings-card">
-						<span class="savings-head">20-Year Savings & Payback</span>
-						<span class="savings-amount coming-soon">Coming Soon</span>
-						<span class="savings-sub">Requires real utility rate data (PG&E / SCE / SDG&E) we haven't integrated yet</span>
-					</div>
-
 					<div class="confidence-box">
 						<div class="conf-header">
 							<span>What this estimate is (and isn't)</span>
@@ -223,8 +220,8 @@ const websiteSchema = {
 						<ul class="conf-list">
 							<li>✓ Confirms your ZIP code falls within California's range</li>
 							<li>✓ Gives a rough system-size figure from one flat, disclosed placeholder rate (see below)</li>
-							<li>✗ Does <strong>not</strong> look up your actual utility (PG&E / SCE / SDG&E) or rate schedule (coming soon)</li>
-							<li>✗ Does <strong>not</strong> estimate dollar savings or payback yet: that requires real rate data we don't have</li>
+							<li>✗ Does <strong>not</strong> look up your actual utility (PG&E / SCE / SDG&E) or rate schedule</li>
+							<li>✗ Does <strong>not</strong> estimate dollar savings or payback</li>
 							<li>⚡ <em>The number below is a rough sizing figure, not a quote or financial projection</em></li>
 						</ul>
 					</div>
@@ -232,7 +229,7 @@ const websiteSchema = {
 					<div class="results-metrics-grid">
 						<div class="metric-card">
 							<span class="m-label">Illustrative System Size</span>
-							<span class="m-val" id="res-sys-size">0.0 kW</span>
+							<span class="m-val" id="res-sys-size">–</span>
 						</div>
 						<div class="metric-card">
 							<span class="m-label">Typical Battery Range</span>
@@ -316,6 +313,16 @@ const websiteSchema = {
 						return;
 					}
 
+					const billField = document.getElementById("bill") as HTMLInputElement | null;
+					const billWarn = document.getElementById("bill-invalid");
+					const billValue = Number(billField?.value);
+					if (!billField?.value || !Number.isFinite(billValue) || billValue < 25 || billValue > 5000) {
+						billWarn?.classList.remove("hidden");
+						billField?.focus();
+						return;
+					}
+					billWarn?.classList.add("hidden");
+
 					trackEvent("calculator_started");
 
 					form.classList.add("hidden");
@@ -328,8 +335,7 @@ const websiteSchema = {
 						loadingBox.classList.add("hidden");
 						results.classList.remove("hidden");
 
-						const billInput = document.getElementById("bill") as HTMLInputElement | null;
-						const bill = Number(billInput?.value || 250);
+						const bill = billValue;
 
 						// The only figure this MVP computes: a rough system-size guess,
 						// derived transparently from the two placeholder constants above.
@@ -414,6 +420,11 @@ const websiteSchema = {
  .gp-statement { background: #ff4f2b; color: #050505; padding-block: 84px; }
  .gp-statement h2 { font-size: clamp(42px,6vw,80px); font-weight: 300; color: #050505; letter-spacing: -.045em; line-height: 1.05; margin: 20px 0 36px; }
  .gp-statement .gp-kicker { color: #050505; }
+ .gp-statement-copy { max-width: 640px; font-size: 18px; line-height: 1.6; margin: 0 0 28px; color: #050505; }
+ .gp-home-faq .gp-faq-list details { border-bottom: 1px solid var(--gp-line); padding: 18px 0; }
+ .gp-home-faq .gp-faq-list summary { cursor: pointer; font-size: 19px; }
+ .gp-home-faq .gp-faq-list p { color: var(--gp-muted); max-width: 640px; margin: 12px 0 0; line-height: 1.6; }
+ .calc-assumptions { font-size: 13px; color: var(--gp-muted); margin-top: 8px; }
  .gp-statement a { color: #050505; font-size: 14px; display: inline-flex; gap: 40px; padding: 10px 0; text-decoration: none; border-bottom: 1px solid #96301d; }
  .gp-trust-editorial { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
  .gp-lab-section { padding-block: 40px 70px; }
