@@ -1,0 +1,409 @@
+{
+  "record_id": "co-eagle-vail-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Holy Cross Energy or Xcel Energy, check your electric bill",
+    "confidence": 0.7,
+    "source_ids": [
+      "S13",
+      "S12",
+      "S14"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities it serves, dated 10/2015, shows Vail with gas and electricity service. Holy Cross Energy lists an Eagle Valley engineering district that covers Vail to Dotsero. Holy Cross Energy says it serves members in the Western Colorado counties of Eagle, Pitkin, Garfield, Mesa and Gunnison. The Town of Vail does not say which utility serves which address. Check the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Holy Cross Energy or Xcel Energy (the utility on your electric bill)",
+      "type": "utility",
+      "notes": "Holy Cross Energy bills members for all energy delivered from the grid and credits energy returned under its Renewable Energy Net Metering Service, Optional Tariff. Holy Cross allows members who install generators up to 25 kW to net meter. If Xcel Energy is the utility on your bill, ask Xcel how it credits excess solar energy."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S11",
+      "S12",
+      "S13"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Vail",
+    "confidence": 1,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's building and permit pages do not name the county."
+  },
+  "permit_authority": {
+    "value": "Town of Vail Building Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S1",
+      "S3"
+    ],
+    "notes": "The Building Department administers the town's building codes through the permitting process. The Town has its own Electrical Permit Application, and its Schedule of Permit Fees lists photovoltaic installations under the electrical permit fees. For solar thermal and photovoltaic systems, Design Review Board approval is required before the permit process starts. Eagle County's Building Department serves unincorporated Eagle County. The Town's permit pages do not explain how to confirm that an address is inside Town of Vail limits. Ask Community Development (Front Desk: 970-479-2100)."
+  },
+  "permit_url": {
+    "value": "https://www.vail.gov/government/departments/community-development/building-department/building-permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Building Permits page lists Solar Thermal/Photovoltaic Systems among the permits available in OpenGov. Applications are submitted through the Town of Vail OpenGov Portal. If you submit electronic plans, you receive an invitation to upload them to ProjectDox once the application has been reviewed for completeness."
+  },
+  "interconnection_url": {
+    "value": "https://www.holycross.com/interconnection-guidelines/",
+    "confidence": 0.8,
+    "source_ids": [
+      "S12",
+      "S11",
+      "S13"
+    ],
+    "notes": "This is Holy Cross Energy's page and applies to Holy Cross members. Holy Cross takes interconnection applications through PowerClerk, and all applicants must create a PowerClerk account. Holy Cross allows members who install generators up to 25 kW to net meter, with a load offset of up to 200%. Holy Cross lists a non-refundable $100 interconnection study fee, but its two pages give different size ranges for it (0 to 100 kW on one, 12 to 100 kW on the other). Ask Holy Cross which study fee applies to your system. Xcel Energy's list of communities it serves also includes Vail, so check the utility on your electric bill first."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Power+ or Power+FLEX battery incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Holy Cross calculates this incentive as $500 per enrolled kW, up to $12,500. Members can enroll in only one Holy Cross battery program and receive one battery incentive.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The member must be enrolled in Power+ or Power+FLEX under the Distribution Flexibility Program Optional Tariff.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Time of Use Rate battery incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Members enrolled in the Time of Use Optional Rate receive the lesser of $250 per kW of battery capacity or $100 per kWh. The incentive is capped at $12,500.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The member must be enrolled in the Holy Cross Time of Use Optional Rate.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11"
+    ],
+    "notes": "These are Holy Cross Energy programs for Holy Cross members. Holy Cross says the battery incentives are available for energy storage systems that meet all program requirements."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Design Review Board application (before the solar permit)",
+        "required_when": "Design Review Board approval is required before the permit process starts for solar thermal and photovoltaic systems. A Design Review Board application is required for all applications submitted for review by the Board.",
+        "source_ids": [
+          "S1",
+          "S5"
+        ]
+      },
+      {
+        "name": "Completed Plan Submittal Checklist for DRB/Building permit",
+        "required_when": "Effective January 1, 2025, all plan submittals must include the completed checklist, uploaded to ProjectDox.",
+        "source_ids": [
+          "S4",
+          "S6"
+        ]
+      },
+      {
+        "name": "Plans showing solar PV locations and access points (new building or remodel DRB plans)",
+        "required_when": "Vail Fire requires this on New Building/Remodel Plan DRB submittals.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Plans showing energy storage system and main isolation switch locations (new building or remodel DRB plans)",
+        "required_when": "Vail Fire requires this on New Building/Remodel Plan DRB submittals.",
+        "source_ids": [
+          "S6"
+        ]
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S1",
+      "S5",
+      "S4",
+      "S6",
+      "S2"
+    ],
+    "notes": "The Town does not publish a submittal list written for solar PV permits. The items here come from the Town's Design Review Board rules and the Vail Fire plan submittal checklist. Ask the Building Department what plans and spec sheets a residential PV permit needs."
+  },
+  "inspection_steps": {
+    "value": [
+      "Get Design Review Board approval before you start the solar permit process.",
+      "Apply for the solar permit in the Town of Vail OpenGov Portal, and upload electronic plans to ProjectDox when invited.",
+      "Request each inspection by submitting an Inspection Request in OpenGov. The Inspections page gives a 4 p.m. cutoff Monday through Friday for next-business-day requests, and the Building Department page adds excluding Wednesdays. Ask the Building Department which cutoff applies.",
+      "For Holy Cross members, the permitting authority makes one site visit and Holy Cross makes a second visit before it issues an authorization to operate.",
+      "If Holy Cross is your utility, do not energize the system before Holy Cross's authorization to operate."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S7",
+      "S2",
+      "S11"
+    ],
+    "notes": "The Town's electrical permit fee includes two inspections, and each additional inspection needs a 105.00 fee paid first. Passing the Town's inspections is separate from Holy Cross's authorization to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town does not publish a review time for building or solar permits."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Town of Vail Solar Thermal/Photovoltaic Systems permit, after DRB approval",
+      "other_conditions": [
+        "Design Review Board approval is required before starting the permit process for solar thermal and photovoltaic systems.",
+        "Any exterior work on a structure must first obtain Design Review Board approval before a permit is submitted.",
+        "Electrical and plumbing contractors working within town limits must maintain proper licensing through the State of Colorado.",
+        "State law (CRS 12-23-106) requires field verification of licensing and registration for all contractors performing electrical work.",
+        "Contractor registration is good for one year in the Town of Vail.",
+        "The Town lists Expedited Permits that cover both the Design Review Board and building permit approval, but does not say whether a solar project can use that path."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S8",
+      "S3"
+    ],
+    "notes": "Contractor conditions are from the Town's Building Department, Building Permits and Contractor Registrations pages."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Electrical permit, photovoltaic (installation valued at $2,000 or less)",
+        "amount_usd": 110.4,
+        "unit": "total fee with 15% added",
+        "notes": "This is Section B, row (1), of the Town's electrical fee table, which names photovoltaic. The State fee is 96.00."
+      },
+      {
+        "name": "Electrical permit, photovoltaic (installation valued at $2,001 and above)",
+        "amount_usd": 10.35,
+        "unit": "per $1,000 of installation cost (rounded up), with 15% added, charged in addition to $110.40",
+        "notes": "Section B, row (2), lists a State fee of 9.00 and 10.35 with 15% added. The sheet's worked example for a $5,150 installation rounds up to $6,000 and shows 6 x $10.35 = $62.10, plus $110.40, plus a plan review fee of 43.13 ($172.50 x 25%), for a total of $215.63."
+      },
+      {
+        "name": "Will Call inspection fee",
+        "amount_usd": 5.0,
+        "unit": "per electrical permit",
+        "notes": "The fee applies to every electrical permit."
+      },
+      {
+        "name": "Additional electrical inspection or re-inspection",
+        "amount_usd": 105.0,
+        "unit": "per additional inspection",
+        "notes": "The permit fee includes two inspections only. This fee must be paid before any additional inspection is performed."
+      },
+      {
+        "name": "Town contractor registration",
+        "amount_usd": 67,
+        "unit": "per year",
+        "notes": "The fee does not apply to electrical contractors."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S1",
+      "S8",
+      "S9"
+    ],
+    "notes": "Amounts are from the Town of Vail Schedule of Permit Fees, linked on the Building Permits page as the 2026 Schedule of Permit Fees. Section B of its electrical fee table covers residential installations not based on square footage, such as photovoltaic, and is calculated from the total cost to the customer, including electrical materials, items and labor. The electrical table is marked Electrical Fees Effective July 1, 2021, and these State-mandated fees are subject to review and adjustment annually. A plan review fee of 25% of the permit fee is added to all electrical permits. The Plan Review Fee is paid at submittal, and the balance of the permit fees is collected when the permit is issued. Construction use tax applies to any electrical permit with a valuation over $10,000. The schedule's formula is valuation less $10,000.00, divided by 2, then multiplied by 4%. Vail voters approved a 4% use tax on construction and building materials on November 6, 2007, with an exemption for the first $10,000 of the valuation. The schedule does not list a separate building permit fee for solar. Ask the Building Department which fees apply to your PV permit."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Holy Cross Energy solar incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Effective April 1, 2026, all new solar net metered interconnection applications receive a flat incentive of $100 per kW, up to 25 kW. Members must have a Holy Cross Approval Letter before building any part of the solar system to qualify. Funding is limited to available funds on a first-come, first-served basis.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The system must be sized to supply no more than 200% of the account's previous 12 months of electricity use.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": "2026-04-01",
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11"
+    ],
+    "notes": "This is a Holy Cross Energy program for Holy Cross members."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Vail Building Department",
+        "role": "Town of Vail Building Department (permit submittal and fee questions)",
+        "phone": "970-479-2139",
+        "email": null,
+        "url": "https://www.vail.gov/Home/Components/ServiceDirectory/ServiceDirectory/26/"
+      },
+      {
+        "name": "Holy Cross Energy",
+        "role": "Holy Cross Energy (interconnection questions)",
+        "phone": "(970) 547-5414",
+        "email": "klarouche@holycross.com",
+        "url": "https://www.holycross.com/interconnection-guidelines/"
+      },
+      {
+        "name": "Holy Cross Energy Engineering, Eagle Valley District",
+        "role": "Holy Cross Energy Engineering, Eagle Valley District (Vail to Dotsero)",
+        "phone": "970.393.5300",
+        "email": null,
+        "url": "https://www.holycross.com/interconnection-guidelines/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S10",
+      "S12"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permits",
+      "url": "https://www.vail.gov/government/departments/community-development/building-department/building-permits",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Building Department",
+      "url": "https://www.vail.gov/government/departments/community-development/building-department",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Town of Vail Schedule of Permit Fees (linked as 2026 Schedule of Permit Fees; electrical fees effective July 1, 2021)",
+      "url": "https://www.vail.gov/home/showpublisheddocument/5720/639124419398700000",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Fire DRB/Building Plan Submittals",
+      "url": "https://www.vail.gov/government/departments/community-development/fire-drb-building-plan-submittals",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "DRB Applications",
+      "url": "https://www.vail.gov/government/boards-commissions-authority-district/design-review-board-drb/drb-applications",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Plan Submittal Checklist for DRB/Building permit (2025 Vail Fire & Emergency Services DRB Plan Submittal Requirements)",
+      "url": "https://www.vail.gov/home/showpublisheddocument/4816/638715291283270000",
+      "publisher": "Town of Vail Fire & Emergency Services",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Inspections",
+      "url": "https://www.vail.gov/government/departments/community-development/building-department/inspections",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Contractor Registrations",
+      "url": "https://www.vail.gov/government/departments/community-development/contractor-registrations",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Construction Use Tax",
+      "url": "https://www.vail.gov/government/departments/finance/construction-use-tax",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Building Permit Fee (Service Directory)",
+      "url": "https://www.vail.gov/Home/Components/ServiceDirectory/ServiceDirectory/26/",
+      "publisher": "Town of Vail",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Solar + Battery Energy Storage",
+      "url": "https://www.holycross.com/member-programs/go-solar",
+      "publisher": "Holy Cross Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Interconnect Guidelines",
+      "url": "https://www.holycross.com/interconnection-guidelines/",
+      "publisher": "Holy Cross Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Colorado Communities Served",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S14",
+      "title": "Service Area",
+      "url": "https://www.holycross.com/service-map/",
+      "publisher": "Holy Cross Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}
