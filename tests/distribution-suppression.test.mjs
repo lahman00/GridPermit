@@ -64,12 +64,13 @@ test("the report reconciles every locality into a published or suppressed partit
 	// 2026-11-27 batch 4: Durango, Federal Heights, Glenwood Springs, Frederick, Sheridan, Salida,
 	// Wellington and Alamosa (Colorado, audited): 443 records, 381 routes.
 	// Then Silverthorne and Johnstown: 445 records, 383 routes.
-	assert.equal(pack.summary.record_count, 445);
-	assert.equal(pack.records.length, 445);
-	assert.equal(pack.summary.published_route_count, 383);
+	// 2026-11-27 batch 5: Glendale, Bow Mar, Gunbarrel and Niwot: 449 records, 387 routes.
+	assert.equal(pack.summary.record_count, 449);
+	assert.equal(pack.records.length, 449);
+	assert.equal(pack.summary.published_route_count, 387);
 	assert.equal(pack.summary.suppressed_record_count, 62);
 	assert.equal(pack.summary.published_route_count + pack.summary.suppressed_record_count, pack.summary.record_count);
-	assert.equal(pack.summary.recorded_ready_count, 383);
+	assert.equal(pack.summary.recorded_ready_count, 387);
 	assert.equal(pack.summary.recorded_limited_count, 60);
 	assert.equal(pack.summary.recorded_not_ready_count, 2);
 	// The 2026-10-08 READY refresh added one current, primary-source-backed field
@@ -77,7 +78,7 @@ test("the report reconciles every locality into a published or suppressed partit
 	// Loma Linda, Lodi, Shasta Lake, New Castle County, Ann Arbor, Oklahoma City
 	// and Salt Lake City). All nine now recompute at 80% / READY without changing
 	// their published route state.
-	assert.equal(pack.summary.recomputed_ready_count, 382);
+	assert.equal(pack.summary.recomputed_ready_count, 386);
 	assert.equal(pack.summary.recomputed_limited_count, 61);
 	assert.equal(pack.summary.recomputed_not_ready_count, 2);
 	// ca-riverside-corona-multi graduated into this disagreement set once its

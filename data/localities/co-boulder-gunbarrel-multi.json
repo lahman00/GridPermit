@@ -1,0 +1,485 @@
+{
+  "record_id": "co-boulder-gunbarrel-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy (Public Service Company of Colorado) for addresses Xcel serves, or United Power for addresses in its service area. Check the utility named on your electric bill.",
+    "confidence": 0.6,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served, dated 10/2015, shows Gunbarrel with code GE, which means gas and electricity. The list is by community name, not by address. United Power, an electric cooperative, says its franchise communities span parts of six Colorado counties, including Boulder County. Neither utility's page says which one serves a given Gunbarrel address. Check the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy. Check the utility named on your electric bill."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S3",
+      "S1"
+    ],
+    "notes": "Xcel says all solar customers and other qualified distributed generation (DG) systems receive net energy metering benefits. Any excess is held in your virtual bank to be applied against future bills. United Power members connect through United Power's own interconnection agreement instead."
+  },
+  "city": {
+    "value": "Gunbarrel",
+    "confidence": 0.9,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Boulder County lists Gunbarrel among the communities in the unincorporated areas of Boulder County."
+  },
+  "county": {
+    "value": "Boulder County (unincorporated)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "The unincorporated communities of Boulder County are governed by the ordinances and regulations adopted by the Board of County Commissioners. If you are not sure whether a property is in the unincorporated county or inside a city or town, the County says to type the address into its Property Search."
+  },
+  "permit_authority": {
+    "value": "Boulder County Community Planning and Permitting Department (for addresses in unincorporated Boulder County)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S5",
+      "S6",
+      "S4"
+    ],
+    "notes": "The Community Planning and Permitting Department issues building permits for properties located in unincorporated Boulder County. Solar photovoltaic applications are reviewed by the county electrical inspectors. If your property is inside a city or town, the County says to contact that city or town directly. To check, type the address into the County's Property Search. Boulder County uses the 2021 International Building Codes, and its Building Code Amendments took effect July 1, 2026. The County's solar checklist (B46) is written per the 2026 NEC (National Electrical Code)."
+  },
+  "permit_url": {
+    "value": "https://bouldercounty.gov/property-and-land/land-use/building/building-publications/b46-solar-photovoltaic-systems-checklist/",
+    "confidence": 0.9,
+    "source_ids": [
+      "S6",
+      "S5",
+      "S7"
+    ],
+    "notes": "This is the County's Solar Photovoltaic Systems Checklist (B46). All construction drawings must be submitted in PDF format with the online building permit application at Boulder County Permit Records & Online Application Submittals. New users must create an account first. You can also pay fees and look up current or past applications online."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.8,
+    "source_ids": [
+      "S8",
+      "S3",
+      "S9"
+    ],
+    "notes": "For Xcel Energy customers. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. United Power members instead review and submit United Power's online application with their solar contractor, and United Power requires a one-line engineering drawing with each solar application. Xcel's permission to operate letter is separate from the County permit and the County's inspections. For United Power members, United Power's engineering review is separate from the inspection your contractor arranges with the local authority having jurisdiction."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5-years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Eligible equipment includes all Tesla Powerwall models or all current Enphase models. For Xcel Energy customers who add an eligible solar charged battery to their home or small business.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S10",
+      "S3",
+      "S9"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page. Figures dated 11/02/2026 show a 2026 General incentive budget of $13,629,630 with $10,635,423 available, and a separate Income Qualified and Disproportionately Impacted Community (IQDIC) budget of $6,657,874 with $6,215,878 available. United Power handles battery interconnection in similar fashion to a new solar installation, by reviewing its interconnection terms and submitting an online application."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Marked Solar Photovoltaic Systems Checklist (B46)",
+        "required_when": null,
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "PV system capacity in watts and system type (stand-alone, grid-tied or hybrid)",
+        "required_when": null,
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Site plan for equipment outside a building",
+        "required_when": "When equipment is outside a building. Shows the location of all disconnects, batteries, inverters and grounding electrode conductors, the layout of all arrays with the required minimum access and pathways per 2021 IFC Section 1205, the clearances around all equipment, and dimensions between equipment and structures and between equipment and property lines.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Floor plan for equipment within a building",
+        "required_when": null,
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "One-line diagram",
+        "required_when": "Includes items such as existing and new panel amperage ratings (buss ratings).",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Product listing sheets for all equipment",
+        "required_when": null,
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Method of grounding for modules and array",
+        "required_when": null,
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Projected kWh per year for the system",
+        "required_when": null,
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Engineer's evaluation of the existing roof structure (roof mounted panels)",
+        "required_when": "Roof mounted panels. The engineer must reference the required wind and snow load for the site, and must also cover panels that project above the ridge line of the roof.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Method of repair for roof penetrations (flat roofs)",
+        "required_when": "Flat roof installations.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Site plan with panel locations and dimensions (pole or ground mounted panels)",
+        "required_when": "Pole or ground mounted panels. Shows dimensions to property lines, other structures and property easements.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Engineered footing design (pole or ground mounted panels)",
+        "required_when": "Pole or ground mounted panels.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Signed Letter of Verification on company letterhead (final solar PV inspection)",
+        "required_when": "For the final solar PV inspection.",
+        "source_ids": [
+          "S6"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S6"
+    ],
+    "notes": "From the County's Solar Photovoltaic Systems Checklist (B46). The checklist shall be submitted with your plans, and each item shall be marked to verify it is part of the submittal. Incomplete information may result in plan rejection or delay in approval."
+  },
+  "inspection_steps": {
+    "value": [
+      "Before you apply, the County recommends an Ask a Planner Form to find out if a separate planning review is also required.",
+      "Submit the building permit application online with all construction drawings in PDF format and the marked B46 checklist.",
+      "County electrical inspectors review the solar photovoltaic application.",
+      "Xcel Energy customers: the installer usually submits the interconnection application online, and Xcel highly recommends not starting construction until Xcel's engineering team fully approves it and all final agreements are signed. United Power members submit United Power's online application with their solar contractor, and United Power engineers review the installation.",
+      "Request building inspections for the issued permit online. You do not need to log in.",
+      "For the final solar PV inspection, email a signed Letter of Verification on company letterhead to buildinginspectors@bouldercounty.gov, verifying that the roof mounted PV array equipment and grounding were installed in accordance with NEC articles 690.41 through 690.47, other applicable sections of the NEC and the manufacturer installation instructions.",
+      "Xcel Energy customers: Xcel works with you and your contractors to witness test and energize the system, and the work ends with a permission to operate letter from Xcel to the generator owner."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S5",
+      "S6",
+      "S7",
+      "S3",
+      "S8",
+      "S9"
+    ],
+    "notes": "The County's solar checklist does not list the separate county inspections by name. Ask Building Safety and Inspection Services which inspections apply. United Power says your solar contractor will also need to arrange for an inspection with the local authority having jurisdiction. The County's inspections are not the utility's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Boulder County's solar checklist and building permit pages do not publish a review time for residential solar permits. Ask Building Safety and Inspection Services."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Boulder County Renewable Energy Permit - Residential (building permit)",
+      "other_conditions": [
+        "Boulder County licenses contractors for work in the unincorporated county. Its Class M license includes solar photo-voltaic equipment installation and repair.",
+        "Plumbers and electricians are licensed by the State of Colorado.",
+        "Property owners who pull their own permits must do all the work themselves or have their full-time maintenance or repair employees perform the work.",
+        "A small roof-mounted solar energy system may be approved with just a building permit.",
+        "A small ground-mounted solar energy system that meets Article 4-516.L.5.e of the Land Use Code may be approved with just a building permit. An accessory ground-mounted system that does not meet those parameters and is less than half of an acre requires Expedited Site Plan Review (ESPR).",
+        "Xcel Energy net metering: you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number, and the name on the application must match the name on the Xcel Energy account or bill.",
+        "Xcel Energy net metering: all equipment must be UL 1741 SB certified and listed within the Solar Equipment Lists on the California Energy Commission website.",
+        "Xcel Energy net metering: expected generation, combined with other distributed generation serving the service address, must not exceed 200% of historical consumption (the previous 12 months at the time of application submission).",
+        "United Power: system generation can not exceed 200% of the annual usage at that location, and the contractor must place a disconnect switch and production meter housing on the side of your home."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S11",
+      "S12",
+      "S13",
+      "S14",
+      "S3",
+      "S9"
+    ],
+    "notes": "License conditions are from the County's contractor licensing pages. Net metering conditions are Xcel Energy's or United Power's and apply to their own customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Renewable Energy Permit - Residential",
+        "amount_usd": 400,
+        "unit": "per permit, plus tax",
+        "notes": "From Boulder County's Permit Fees publication (B33): $400 plus tax (based on materials only at $3.50 per watt)."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S11",
+      "S15"
+    ],
+    "notes": "For Renewable Energy permits, B33 says only the use taxes marked with an asterisk apply, and they are based on materials at $3.50 per watt. The marked taxes are Jail Improvements and Operations (1/2 of the valuation X 0.050%), Open Space Capital Improvements 2005 (1/2 of the valuation X 0.100%), Transportation Improvements - CPP (1/2 of the valuation X 0.045%) and Transportation Improvements - PWD (1/2 of the valuation X 0.055%). B33 shows these as new rates starting as of Jan. 1, 2026. Building materials purchased in Boulder County are tax-exempt for County Taxes when you present your building permit to the materials vendor at time of purchase. A credit/debit card service fee of 2.25% + $0.75 applies to all credit card and debit card transactions. The County's fee estimator gives only an estimate, and Building Safety & Inspection Services staff calculate the actual final fee at the time of permit application approval. These fees apply to the unincorporated areas of Boulder County, not to cities or towns that collect their own fees. B33 does not say whether the plan check fee, the zoning and public health permit review fee, the technology fee or an application deposit also applies to a residential renewable energy permit. Ask Building Safety and Inspection Services."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S16",
+      "S3",
+      "S9"
+    ],
+    "notes": "These are Xcel Energy programs for Xcel customers. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. At this time, United Power does not offer a rebate for new system installations."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Boulder County Building Safety and Inspection Services",
+        "role": "Boulder County Building Safety and Inspection Services (permit type questions)",
+        "phone": "303-441-3926",
+        "email": "building_official@bouldercounty.gov",
+        "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-permits/"
+      },
+      {
+        "name": "Boulder County building inspectors",
+        "role": "Boulder County building inspectors (final solar PV inspection letter)",
+        "phone": null,
+        "email": "buildinginspectors@bouldercounty.gov",
+        "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-publications/b46-solar-photovoltaic-systems-checklist/"
+      },
+      {
+        "name": "Boulder County permit questions",
+        "role": "Boulder County permit questions (email)",
+        "phone": null,
+        "email": "ezbp@bouldercounty.gov",
+        "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-permits/"
+      },
+      {
+        "name": "Boulder County building code questions",
+        "role": "Boulder County building code questions (Ask a Building Official)",
+        "phone": "720-564-2640",
+        "email": null,
+        "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-permits/"
+      },
+      {
+        "name": "Boulder County Community Planning and Permitting",
+        "role": "Boulder County Community Planning and Permitting (front desk)",
+        "phone": "303-441-3930",
+        "email": "CPPfrontdesk@bouldercounty.gov",
+        "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-permits/"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S5",
+      "S6"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Colorado Communities Served (PDF, 2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Service Area",
+      "url": "https://www.unitedpower.com/service-area",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Net Energy Metering (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Unincorporated Towns and Communities",
+      "url": "https://bouldercounty.gov/government/about-boulder-county/unincorporated-towns/",
+      "publisher": "Boulder County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Building Permits",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-permits/",
+      "publisher": "Boulder County Community Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Solar Photovoltaic Systems Checklist - B46",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-publications/b46-solar-photovoltaic-systems-checklist/",
+      "publisher": "Boulder County Community Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Permit Records & Online Application Submittals",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/search-records/",
+      "publisher": "Boulder County Community Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Interconnection (Developer Resources, Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Solar & Storage Connection",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Renewable Battery Connect (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Permit Fees - B33",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-publications/permit-fees-b33/",
+      "publisher": "Boulder County Community Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Contractor Licensing in Unincorporated Boulder County",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/building/contractor-licensing/",
+      "publisher": "Boulder County Community Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Contractor License - B60",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-publications/contractor-license-b60/",
+      "publisher": "Boulder County Community Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S14",
+      "title": "Land Use Reviews for Small Renewable Energy Systems - SPR07",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/planning/planning-publications/spr07-land-use-reviews-for-small-renewable-energy-systems/",
+      "publisher": "Boulder County Community Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S15",
+      "title": "Building Permit Fees and Estimator Calculator Tool",
+      "url": "https://bouldercounty.gov/property-and-land/land-use/building/building-permit-fees/",
+      "publisher": "Boulder County Community Planning and Permitting",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S16",
+      "title": "Solar*Rewards (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}
