@@ -1,0 +1,202 @@
+{
+  "record_id": "co-summit-silverthorne-multi",
+  "file": "data/localities/co-summit-silverthorne-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 90,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "rebates",
+      "category": "outdated_information",
+      "message": "Town of Silverthorne Solarize Summit rebate description states availability 'through 2025', which has elapsed as of last_verified 2026-11-20"
+    },
+    {
+      "field": "rebates",
+      "category": "outdated_information",
+      "message": "Town of Silverthorne Solarize Summit rebate description states availability 'through 2025', which has elapsed as of last_verified 2026-11-20"
+    },
+    {
+      "field": "rebates[2].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.silverthorne.org/town-government/sustainability-in-silverthorne/sustainability-rebates — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:20:35Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.silverthorne.org/town-government/community-development/building-copy/building-codes-construction-resources — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:20:08Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[2].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.silverthorne.org/town-government/community-development/building-copy — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:19:00Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.silverthorne.org/town-government/community-development/community-development-faq — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:20:21Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.silverthorne.org/town-government/community-development/building-copy/permit-fees — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:19:24Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permits.php",
+      "checked_at": "2026-11-27T07:53:07.285Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "checked_at": "2026-11-27T07:53:07.956Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.silverthorne.org/town-government/sustainability-in-silverthorne/sustainability-rebates",
+      "checked_at": "2026-11-27T07:53:09.105Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:20:35Z",
+        "sha256": "d03d8e6a29f264ba5fd7982f467feb695346d9a4449b6c198851d012b71f7290",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.silverthorne.org/town-government/community-development/building-copy/building-codes-construction-resources",
+      "checked_at": "2026-11-27T07:53:09.462Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:20:08Z",
+        "sha256": "cdb78eff534927a545cc485fef87d7a18091e31634477bf9aa90ef05a8084503",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/inspections/schedule_inspections.php",
+      "checked_at": "2026-11-27T07:53:09.511Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.silverthorne.org/town-government/community-development/building-copy",
+      "checked_at": "2026-11-27T07:53:09.714Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:19:00Z",
+        "sha256": "ddd476496bb808d34054b60668ee319c017b7e2dbac0cb399249b58090cbbba3",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://twn-silverthorne-co.smartgovcommunity.com",
+      "checked_at": "2026-11-27T07:53:09.780Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.silverthorne.org/town-government/community-development/community-development-faq",
+      "checked_at": "2026-11-27T07:53:13.602Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:20:21Z",
+        "sha256": "69c60c69ff3ddb5e516f6c675c26476a6136339d34df415c4a9262b776380639",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.silverthorne.org/town-government/community-development/building-copy/permit-fees",
+      "checked_at": "2026-11-27T07:53:13.665Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:19:24Z",
+        "sha256": "8c4a79b9b4cd622625b9b83331465bc784aac22f1f96eb87b3d0366e66b1c2fe",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/submittals.php",
+      "checked_at": "2026-11-27T07:53:13.721Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://summitcountyco.gov/Documents/Services/Community%20Development/Building%20Inspection/Building%20Permit/PV%20CHECKLIST%202023_202309221624491113.pdf?t=202405230931250",
+      "checked_at": "2026-11-27T07:53:13.935Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://summitcountyco.gov/Documents/Services/Community%20Development/Building%20Inspection/Building%20Permit/Photovoltaic%20-%20Revised%2011-5-19_201911060851099677.pdf?t=202405230931240",
+      "checked_at": "2026-11-27T07:53:15.517Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permit_fee_schedule.php",
+      "checked_at": "2026-11-27T07:53:16.479Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/contractor_registrations/homeowner_builders.php",
+      "checked_at": "2026-11-27T07:53:16.757Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "checked_at": "2026-11-27T07:53:16.961Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

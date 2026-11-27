@@ -1,0 +1,480 @@
+{
+  "record_id": "co-weld-johnstown-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy or United Power, check your electric bill",
+    "confidence": 0.75,
+    "source_ids": [
+      "S7",
+      "S8"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served (10/2015) shows Johnstown with gas and electricity service. United Power lists Johnstown among the 17 communities it serves along the Colorado Front Range north and east of Denver. The Town's building pages do not say which utility serves which addresses, so check the utility named on your electric bill."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy or United Power, check your electric bill",
+      "type": "utility",
+      "notes": "Xcel says all solar customers receive net energy metering benefits, and any excess energy is held in a customer's virtual solar bank for use in future months. United Power rolls excess kWh over to the next month at the member's applicable rate. On an annual basis (April to March), a United Power member who continues to have excess generation is cashed out at the wholesale energy rate."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S7",
+      "S8",
+      "S9",
+      "S12"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Johnstown",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's building pages do not name the county, so check your county with the Town if you need it."
+  },
+  "permit_authority": {
+    "value": "Town of Johnstown Building Department (plan review and inspections by SafeBuilt)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S5",
+      "S3"
+    ],
+    "notes": "The Johnstown Building Department administers the Town's adopted building codes. The Town contracts with SafeBuilt for plan reviews, most permit inspections, and to serve as its Chief Building Official. The Building office is at 201 Centennial Drive, Johnstown, CO 80534. If your address does not populate in eTRAKiT, check that it is correct and within the town limits of Johnstown. A parcel impacted by the FEMA 100-year floodplain must also submit a Floodplain Development Permit with the building permit application packet."
+  },
+  "permit_url": {
+    "value": "https://johnstownco.gov/590/Residential-Solar",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "notes": "The Building Department accepts building permit applications electronically through eTRAKiT, the Town's Self-Service Portal. On eTRAKiT, contractors and homeowners can apply and pay for permits, view and respond to plan review comments, and see inspection results. The Town requires all documents to be submitted in electronic form (PDF) if documentation is required."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.75,
+    "source_ids": [
+      "S10",
+      "S11",
+      "S12",
+      "S9"
+    ],
+    "notes": "This link is for Xcel Energy customers. Xcel says that once you understand state, local and utility requirements and permits, you can submit an interconnection application online. In most cases the installer submits the application on your behalf, or you can manage your own. Xcel highly recommends that construction should not start until the application receives full approval from its engineering team and all final agreements are fully signed. United Power members apply through United Power instead, where a member must complete the corresponding application and follow all requirements for that system. United Power asks you to review its Solar Interconnection Standards and Terms & Conditions before signing a contract with a solar installer. United Power says systems connected without proper notification will be immediately disabled."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5 years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar charged battery. Eligible equipment includes all Tesla Powerwall models or all current Enphase models. It applies only if Xcel is your electric utility, so check your electric bill first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S13",
+      "S9"
+    ],
+    "notes": "Xcel's page lists a Renewable Battery Connect General incentive budget for 2026. United Power handles batteries like a new solar installation: you review its interconnection Terms & Conditions and submit an online application."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Building owner name and phone number",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Owner's complete address (if different from the job address)",
+        "required_when": "If the owner's address is different from the job address.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Building, unit or lot number (apartments, townhomes, mobile homes, suites)",
+        "required_when": "If it is an apartment building, townhome, mobile home, or commercial suite or unit.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "All specifications of the photovoltaic system",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan showing the installation location",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signed contract between the solar contractor and the resident or builder",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural engineered letter (roof-mounted panels)",
+        "required_when": "If the solar panels will be installed on the roof of the building.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Notarized Homeowner Affidavit (homeowner permits)",
+        "required_when": "Homeowners must complete, sign and notarize a Homeowner Affidavit as part of the residential project submittal.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Floodplain Development Permit (parcels in the FEMA 100-year floodplain)",
+        "required_when": "Any parcel impacted by the FEMA 100-year floodplain, even if the building footprint will not impact the floodplain.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "One-line engineering drawing (United Power members, utility application)",
+        "required_when": "United Power requires one with each solar application to the utility. It is typically provided by your solar installer.",
+        "source_ids": [
+          "S9"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S4",
+      "S2",
+      "S9"
+    ],
+    "notes": "Items 1 to 7 are listed on the Town's Residential Solar page as required for all residential solar permits. Documents must be submitted in electronic form (PDF format) if documentation is required. The Town's Residential Solar page does not mention battery or energy storage systems, ground mounts, or service upgrades done with solar, so ask the Building Department what to submit for those."
+  },
+  "inspection_steps": {
+    "value": [
+      "Separately from the Town permit, you or your installer applies for interconnection with your electric utility (Xcel Energy or United Power). Xcel highly recommends not starting construction until the application has full approval and all final agreements are signed.",
+      "Submit the residential solar permit application and documents (PDF) through eTRAKiT.",
+      "The Town reviews the application and notifies the applicant by email when the application fees are ready for payment.",
+      "Pay the fees. Approved documents are uploaded to the permit attachments within 48 hours of payment.",
+      "Once all fees are paid and the permit status is Issued, schedule inspections.",
+      "Electrical Rough inspection.",
+      "Electrical Permanent Meter inspection.",
+      "Electrical Final inspection.",
+      "Inspection results may be viewed in eTRAKiT within 24 hours of the inspection.",
+      "Before the system operates, complete your utility's interconnection steps. Xcel's interconnection work ends with a permission to operate letter from Xcel to the generator owner. United Power engineers review solar installations connecting to its grid, and United Power says systems connected without proper notification will be immediately disabled."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S5",
+      "S10",
+      "S12",
+      "S11",
+      "S9"
+    ],
+    "notes": "The three electrical inspections are the ones the Residential Solar page lists as required. Inspections must be requested by 4 PM on the business day before the inspection date, and can be scheduled up to 7 days ahead. Inspections are completed Monday to Friday, and cannot be scheduled on weekends or holidays. The Town's pages differ on how to request a SafeBuilt inspection. The Residential Solar page says to call (970) 305-3161 option 1 or use the SafeBuilt website, and the Building Department page says to call 970-305-3161, ext. 1. The Inspections page says that beginning March 1st, 2026 all SafeBuilt inspection requests must be made in eTRAKiT. Ask the Building Department which method applies. For an inspection, the permit and approved documents must be printed and on site, and all inspection areas must be accessible and fully visible. United Power says your solar contractor must also arrange an inspection with the local authority having jurisdiction. The Town permit, the Town's inspections and the utility's permission to operate are separate approvals."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 14,
+      "notes": "The Town says solar permit applications have a turnaround timeframe of up to 14 business days."
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The figure is in business days. Once the application is submitted, the Town notifies the applicant by email when the application fees are ready for payment."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential Solar permit, applied for in eTRAKiT",
+      "other_conditions": [
+        "The Town defines a Residential Solar Permit as installing or replacing solar panels on a residential building or property.",
+        "The Town's pages describe no expedited or same-day path for residential solar.",
+        "All contractors must be licensed in the Town of Johnstown. A new contractor license costs $100 and needs a certificate of liability insurance naming the Town of Johnstown as certificate holder.",
+        "A homeowner may get a building permit to work on their own primary residence without a contractor's license, and must own and occupy the home. A resident doing the work without a contractor should enter their own information in the contractor section of the application.",
+        "A building permit will not be issued to a homeowner for work performed by unlicensed contractors, and a permit on a rental property requires a contractor's license.",
+        "The Residential Solar page lists the 2023 National Electric Code and says the most current version of the National Electric Code shall be enforced.",
+        "Official sources list different fire code editions for Johnstown. The Town's Residential Solar page lists the 2024 Fire Code, while Front Range Fire Rescue's pages say the 2018 IFC is in place in the Town and, on another page, that the 2006 International Fire Code has been adopted. Confirm the fire code edition with the Building Department.",
+        "Xcel Energy limit (not a permit rule): expected generation, combined with other distributed generation at the address, must not exceed 200% of historical consumption for the previous 12 months.",
+        "United Power limit (not a permit rule): system generation cannot exceed 200% of the annual usage at that location.",
+        "United Power requires the contractor to place a disconnect switch and production meter housing on the side of the home."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S11",
+      "S9",
+      "S15",
+      "S16"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar electrical permit, valuation of $2,000 or less",
+        "amount_usd": 77,
+        "unit": "base fee, no additional fee",
+        "notes": null
+      },
+      {
+        "name": "Solar electrical permit, valuation of $2,000 or more",
+        "amount_usd": 77,
+        "unit": "base fee plus $6.00 per $1000 of value (or fraction thereof)",
+        "notes": null
+      },
+      {
+        "name": "Electrical re-inspection",
+        "amount_usd": 50,
+        "unit": "per hour",
+        "notes": null
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S6",
+      "S5",
+      "S3",
+      "S14"
+    ],
+    "notes": "Fees are from the Town's 2026 Fee Schedule (Exhibit A, Chapter 18, Sec. 18-121), adopted 1/5/2026. The solar permit fee follows the valuation table for Commercial, Solar & Non-living Residential spaces under Electrical Fees. The schedule also lists a meter fee (temporary and permanent) of $38.00 each and a residential plan review fee of 30% of the permit fee, and it does not say whether either applies to a solar permit, so ask the Building Department for your total. The schedule lists the Johnstown Use Tax at 3.50%. The Town collects this Use Tax on all construction materials when a building permit is issued. The Town's Inspections page says an inspection that does not meet its access requirements is a failed inspection with a $50 reinspection fee. Credit card transactions are charged a non-refundable 3% service charge by the Town's card processor. Colorado HB21-1284 limits the aggregate of all fees a governmental body may impose to install an active solar energy system to $500 for a residential permit."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer in a Disproportionately Impacted Community.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S12",
+      "S9"
+    ],
+    "notes": "These are Xcel Energy programs, for Xcel customers only. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. United Power says it does not offer a rebate for new system installations at this time. The Town's pages describe no Town rebate for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Johnstown Building Department",
+        "role": "Town of Johnstown Building Department (solar permit questions)",
+        "phone": "970.587.4664",
+        "email": "BuildingPermits@JohnstownCO.gov",
+        "url": "https://johnstownco.gov/210/Building-Department"
+      },
+      {
+        "name": "Town of Johnstown Permit Processing",
+        "role": "Town of Johnstown Permit Processing Office",
+        "phone": "970-578-9608",
+        "email": null,
+        "url": "https://johnstownco.gov/210/Building-Department"
+      },
+      {
+        "name": "SafeBuilt (Chief Building Official for the Town)",
+        "role": "SafeBuilt for the Town of Johnstown (code, plan review and inspection questions)",
+        "phone": "970-305-3161",
+        "email": null,
+        "url": "https://johnstownco.gov/210/Building-Department"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S4",
+      "S5"
+    ],
+    "notes": "For questions about the inspection process, the Town's Inspections page also gives (970)-587-4664 and buildingpermits@johnstownco.gov."
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar",
+      "url": "https://johnstownco.gov/590/Residential-Solar",
+      "publisher": "Town of Johnstown",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Building Department",
+      "url": "https://johnstownco.gov/210/Building-Department",
+      "publisher": "Town of Johnstown",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "eTRAKiT Help Guide",
+      "url": "https://johnstownco.gov/588/eTRAKiT-Help-Guide",
+      "publisher": "Town of Johnstown",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Residential Project Submittal Guidelines",
+      "url": "https://johnstownco.gov/472/Residential-Project-Submittal-Guidelines",
+      "publisher": "Town of Johnstown",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Inspections",
+      "url": "https://johnstownco.gov/213/Inspections",
+      "publisher": "Town of Johnstown",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "2026 Fee Schedule, Exhibit A (Adopted: 1/5/2026)",
+      "url": "https://johnstownco.gov/DocumentCenter/View/1820/2026-Fee-Schedule---Adopted",
+      "publisher": "Town of Johnstown",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Service Area",
+      "url": "https://www.unitedpower.com/service-area",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Solar & Storage Connection",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Interconnection (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Net Energy Metering (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Solar*Rewards (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Renewable Battery Connect (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S14",
+      "title": "HB21-1284 Limit Fee Install Active Solar Energy System",
+      "url": "https://leg.colorado.gov/bills/hb21-1284",
+      "publisher": "Colorado General Assembly",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S15",
+      "title": "Services for Construction and Development",
+      "url": "https://frfr.colorado.gov/services/services-for-construction-development",
+      "publisher": "Front Range Fire Rescue",
+      "type": "other_official",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S16",
+      "title": "Safety",
+      "url": "https://frfr.colorado.gov/safety",
+      "publisher": "Front Range Fire Rescue",
+      "type": "other_official",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}
