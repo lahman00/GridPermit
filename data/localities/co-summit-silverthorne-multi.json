@@ -1,0 +1,436 @@
+{
+  "record_id": "co-summit-silverthorne-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy, if it serves your address (check your electric bill)",
+    "confidence": 0.7,
+    "source_ids": [
+      "S15"
+    ],
+    "notes": "Xcel Energy's Colorado Communities Served list (10/2015) shows Silverthorne with gas and electricity service. No Town page names the electric utility, and no official source says that Xcel Energy serves every address in Silverthorne. Xcel's list names towns, not addresses, and Summit County's PV checklist has a line for Mountain Parks Electric, a different electric utility. Confirm the electric utility for your own address, for example from the utility named on your electric bill, before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy. Check the utility named on your electric bill."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S15"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Silverthorne",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Summit County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "Some nearby subdivisions, such as Wildernest, Mesa Cortina, South Forty, Hamilton Creek and portions of Ptarmigan Trail Estates, are outside Town limits in unincorporated Summit County. To check whether a property is inside the Town, call 970-262-7360 or use the Summit County GIS Parcel Query Tool."
+  },
+  "permit_authority": {
+    "value": "Summit County Building Department (electrical permits, and Summit County photovoltaic permits) and Town of Silverthorne (building permits; ask the Town whether a solar installation also needs one)",
+    "confidence": 0.6,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S6",
+      "S9",
+      "S4"
+    ],
+    "notes": "The Town of Silverthorne issues building permits. The Town says electrical permits are not applied for through its portal and must be applied for directly at the Summit County Building Department, 37 S.C.R. 1005, Frisco. Summit County lists Photovoltaic permits, required for photovoltaic (solar) systems, among its technical permits. Summit County's PV permitting memo (July 1, 2011 Revised) says the PV permit is required in addition to any existing building permits issued. The Town's building pages do not mention solar or photovoltaic systems or say whether a solar installation also needs a Town building permit, and no County page says outright that its photovoltaic permit is the permit for addresses inside the Town. Before you apply, ask the Town at buildinginfo@silverthorne.org or 970-262-7360 whether a Town building permit is also needed, and ask the County which permits it will issue for your address. To check whether a property is inside the Town, call 970-262-7360 or use the Summit County GIS Parcel Query Tool."
+  },
+  "permit_url": {
+    "value": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permits.php",
+    "confidence": 0.7,
+    "source_ids": [
+      "S6",
+      "S7",
+      "S2"
+    ],
+    "notes": "Summit County's Building Permits page lists the Photovoltaic permit and links the PV Permit Application, the PV Submittal Requirements and the PV Checklist. The County says building and technical permits should be submitted in person by a representative who can answer submittal questions. Electronic, mailed-in and couriered drop-off submittals are not accepted. Submittals are not accepted after 4:30 pm. The Town's SmartGov portal does not take electrical permits."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+    "confidence": 0.8,
+    "source_ids": [
+      "S14"
+    ],
+    "notes": "For Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. Xcel's Solar*Rewards page does not say when the system may be turned on. Xcel's interconnection page says Xcel works with you and your contractors to witness test and energize the system, and the work ends with a permission to operate letter from Xcel to the generator owner. Ask Xcel or your installer before you switch it on."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's Sustainability Rebates page and Summit County's solar pages describe no battery storage incentive. Xcel Energy's Solar*Rewards page says customers may qualify for incentives for installing solar or a battery and lists a Renewable Battery Connect program, so Xcel customers can check that program."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed photovoltaic (technical) permit application form",
+        "required_when": null,
+        "source_ids": [
+          "S7",
+          "S12"
+        ]
+      },
+      {
+        "name": "Site plan (to scale) showing the locations of major components on the property",
+        "required_when": null,
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Property lines and setbacks (ground mounts)",
+        "required_when": "Ground-mounted systems.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Engineer-stamped evaluation report of the structure (roof mounts)",
+        "required_when": "Roof-mounted systems.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Engineer-stamped one-line or three-line drawing showing PV array configuration, wiring systems (conductors and raceways), grounding, overcurrent protection, inverter, rapid shut-down, disconnects, batteries, required signs and AC point of connection (supply or load side)",
+        "required_when": null,
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Roof plan with the locations and arrangements of all PV panels, depicting roof access and pathways",
+        "required_when": null,
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Manufacturer's specification sheets for all manufactured components",
+        "required_when": null,
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "NABCEP Certified Installer with Master Electrician on Staff, or Registered Electrical Contractor (checklist item)",
+        "required_when": null,
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Elevations of ground-mounted or pole-mounted systems (ground mounts)",
+        "required_when": "Ground-mounted or pole-mounted systems.",
+        "source_ids": [
+          "S8"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S7",
+      "S8",
+      "S12"
+    ],
+    "notes": "From Summit County's Photovoltaic Permit Submittal Completeness Checklist (PV Checklist 2023). The checklist covers roof mounts of 15kw and under, ground mounts, residential systems over 15kw, commercial systems and batteries. The County says all applicable items are required in order to submit, and fees are due at the time of submittal. The checklist is a general list, and more items may be needed if departmental plan reviews are required. The checklist's engineer-stamp items for wind speed and snow load are labeled for the Town of Frisco, so ask the County which design values apply in Silverthorne. These are County requirements, and the Town does not publish a solar submittal list."
+  },
+  "inspection_steps": {
+    "value": [
+      "Submit the PV permit application and checklist items in person at the Summit County Building Department (37 S.C.R. 1005, Frisco) before 4:30 pm, and pay the plan review fee at submittal.",
+      "Residential roof-mounted systems under 15kw may be issued over the counter if all submittal materials are provided, while residential systems over 15kw, ground-mounted and commercial systems need a plan review.",
+      "Plans are routed through the local Fire Department and Planning Department if applicable, and all referral agency signoffs listed on your signoff card must be brought to the Building Department before the permit is issued.",
+      "If Xcel Energy is your utility, your installer usually submits the interconnection application, and Xcel recommends not starting construction until the application has full approval and all final agreements are signed.",
+      "For the County PV permit, schedule the inspection online in Summit County's eTRAKiT by 5 p.m. the evening before the requested date (new users must register first). If the Town also issues a building permit, Town building inspections are requested in the Town's SmartGov Portal, up to 4p.m. the business day before.",
+      "The County inspects all PV systems on site, and code compliant roof pathways are verified during the field inspection."
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S6",
+      "S7",
+      "S8",
+      "S11",
+      "S14"
+    ],
+    "notes": "Steps are from Summit County's Building Permits, Submittals and Schedule Inspections pages, its PV checklist, and Xcel Energy's Solar*Rewards page. For scheduling problems, call (970) 668-3170 before 7 a.m. and leave a message. Xcel's interconnection page says the work ends with a permission to operate letter from Xcel to the generator owner, after Xcel witness tests and energizes the system. The County inspection and Xcel's permission to operate are separate steps, so ask Xcel or your installer before you switch the system on."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Neither the Town nor Summit County publishes a review time in days for residential solar permits. Summit County says residential roof-mounted systems under 15kw may be issued over the counter if all submittal materials are provided."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Summit County Photovoltaic (PV) permit, submitted in person",
+      "other_conditions": [
+        "Summit County says residential roof-mounted systems under 15kw may be issued over the counter if all submittal materials are provided.",
+        "A plan review is required for all residential PV systems over 15kw, ground-mounted and commercial systems.",
+        "Summit County's PV permitting memo (July 1, 2011 Revised) says the photovoltaic contractor must be registered with the county, be certified by NABCEP as an installer, and have proof of insurance ($300,000).",
+        "The same memo says an electrical permit is required for the AC side of the system and must be issued to a registered electrical contractor.",
+        "A homeowner builder must pass Summit County's tests with 80% or better on the first try to obtain building, plumbing, electrical and gas pipe permits, or hire registered contractors to obtain the permits.",
+        "All contractors and subcontractors, other than homeowner/builders, must obtain a Town of Silverthorne Business License.",
+        "The Town says it does not require contractor licensing, and also says anyone paid to do work for someone else must be licensed with the Town.",
+        "Xcel Energy Solar*Rewards: you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number."
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S6",
+      "S9",
+      "S12",
+      "S1",
+      "S14"
+    ],
+    "notes": "Permit path conditions are Summit County's. Business license conditions are the Town's. Account conditions are Xcel Energy's and apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Photovoltaic permit fee, residential",
+        "amount_usd": 325.0,
+        "unit": "per residential PV permit",
+        "notes": "From the Photovoltaic Permit Fees table in Summit County's Building Permit Fee Schedule."
+      },
+      {
+        "name": "Photovoltaic plan review, residential",
+        "amount_usd": 175.0,
+        "unit": "per residential PV plan review",
+        "notes": "From the same Photovoltaic Permit Fees table, listed as residential plan review. The County says a plan review is required for residential PV systems over 15kw and ground-mounted systems, and does not say whether this fee is charged when a roof-mounted system under 15kw is issued over the counter, so ask the County."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S10",
+      "S5",
+      "S9",
+      "S8"
+    ],
+    "notes": "Summit County sets the fees for electrical permits in Silverthorne, and the Town's fee schedule does not include them. Summit County's fee schedule lists Photovoltaic Permit Fees of $175.00 for residential plan review and $325.00 for the residential permit fee. The schedule page shows no effective date. Summit County's older PV permitting memo (July 1, 2011 Revised) describes a fee based on the total valuation of the system plus the cost of the panels, plus a plan review fee, with a total that will not exceed $500.00 for residential. The memo also says the separate AC electrical permit fee is based on the valuation of the AC side, with no plan review fee. For electrical work not priced by unit area, the current schedule computes electrical permit fees on the dollar value of the electrical installation, including time and material: $146.00 for not more than $2,000.00, and $15.00 per $1,000 or fraction thereof plus $146.00 for more than $2,000.00. The County pages do not say whether a separate AC electrical permit fee is still charged on top of the photovoltaic permit fees, so ask the County for the total before you apply. Summit County's PV checklist says fees are due at the time of submittal, while its Submittals page says the plan review fee is paid at submittal and any remaining fees are due at the time of permit issuance."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Town of Silverthorne Solarize Summit rebate",
+        "administrator": "Town of Silverthorne with High Country Conservation Center",
+        "description": "The Town says it is offering a $1,650 rebate for 2025 to residents who install solar through Solarize Summit, in partnership with High Country Conservation Center. Local rebates are first-come, first-served and limited. The page labels the rebate 2025 and also says the rebates are available now, so ask the Town whether it is open.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": 1650,
+        "value_usd_per_watt": null,
+        "eligibility": "Silverthorne residents who install solar through the Solarize Summit program.",
+        "url": "https://www.silverthorne.org/town-government/sustainability-in-silverthorne/sustainability-rebates",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S14",
+      "S13"
+    ],
+    "notes": "Xcel amounts are from Xcel's Solar*Rewards page, which says that as of 10/05/2026 Xcel moved $1,050,000 from CO Solar*Rewards C&I to the CO Solar*Rewards Residential IQ/DIC program. The Xcel rebates apply only to Xcel Energy customers."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Summit County Building Department",
+        "role": "Summit County Building Department (electrical and photovoltaic permits), 37 S.C.R. 1005, Frisco",
+        "phone": "970-668-3170",
+        "email": null,
+        "url": "https://www.silverthorne.org/town-government/community-development/building-copy/building-codes-construction-resources"
+      },
+      {
+        "name": "Summit County Building Inspection Department",
+        "role": "Summit County Building Inspection Department (inspection scheduling problems)",
+        "phone": "(970) 668-3170",
+        "email": null,
+        "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/inspections/schedule_inspections.php"
+      },
+      {
+        "name": "Town of Silverthorne Community Development",
+        "role": "Town of Silverthorne Community Development (building permits, inspections and COs)",
+        "phone": "970-262-7360",
+        "email": "buildinginfo@silverthorne.org",
+        "url": "https://www.silverthorne.org/town-government/community-development/building-copy"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S11",
+      "S1"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building",
+      "url": "https://www.silverthorne.org/town-government/community-development/building-copy",
+      "publisher": "Town of Silverthorne",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Town of Silverthorne Public Portal (SmartGov)",
+      "url": "https://twn-silverthorne-co.smartgovcommunity.com",
+      "publisher": "Town of Silverthorne",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Building Codes & Construction Resources",
+      "url": "https://www.silverthorne.org/town-government/community-development/building-copy/building-codes-construction-resources",
+      "publisher": "Town of Silverthorne",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Community Development FAQ",
+      "url": "https://www.silverthorne.org/town-government/community-development/community-development-faq",
+      "publisher": "Town of Silverthorne",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Permit Fees",
+      "url": "https://www.silverthorne.org/town-government/community-development/building-copy/permit-fees",
+      "publisher": "Town of Silverthorne",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Building Permits",
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permits.php",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Submittals",
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/submittals.php",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Photovoltaic Permit Submittal Completeness Checklist (PV Checklist 2023)",
+      "url": "https://summitcountyco.gov/Documents/Services/Community%20Development/Building%20Inspection/Building%20Permit/PV%20CHECKLIST%202023_202309221624491113.pdf?t=202405230931250",
+      "publisher": "Summit County",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Photovoltaic Systems Permitting memo (July 1, 2011 Revised)",
+      "url": "https://summitcountyco.gov/Documents/Services/Community%20Development/Building%20Inspection/Building%20Permit/Photovoltaic%20-%20Revised%2011-5-19_201911060851099677.pdf?t=202405230931240",
+      "publisher": "Summit County",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Building Permit Fee Schedule",
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permit_fee_schedule.php",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Schedule Inspections",
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/inspections/schedule_inspections.php",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Homeowner Builders",
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/contractor_registrations/homeowner_builders.php",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Sustainability Rebates",
+      "url": "https://www.silverthorne.org/town-government/sustainability-in-silverthorne/sustainability-rebates",
+      "publisher": "Town of Silverthorne",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S14",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S15",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}

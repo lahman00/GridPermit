@@ -1,0 +1,171 @@
+{
+  "record_id": "co-weld-johnstown-multi",
+  "file": "data/localities/co-weld-johnstown-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 98,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "sources[S14].url",
+      "category": "broken_url",
+      "message": "https://leg.colorado.gov/bills/hb21-1284 — HTTP 406: not a removal signal, treated as unverifiable — recommend a manual check"
+    },
+    {
+      "field": "sources[S15].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://frfr.colorado.gov/services/services-for-construction-development — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T06:46:36Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S16].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://frfr.colorado.gov/safety — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T06:46:38Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "county",
+      "message": "'county' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://johnstownco.gov/590/Residential-Solar",
+      "checked_at": "2026-11-27T07:54:49.219Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "checked_at": "2026-11-27T07:54:50.132Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "checked_at": "2026-11-27T07:54:50.877Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "checked_at": "2026-11-27T07:54:51.392Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://johnstownco.gov/210/Building-Department",
+      "checked_at": "2026-11-27T07:54:51.884Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://johnstownco.gov/588/eTRAKiT-Help-Guide",
+      "checked_at": "2026-11-27T07:54:52.798Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://johnstownco.gov/472/Residential-Project-Submittal-Guidelines",
+      "checked_at": "2026-11-27T07:54:53.614Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://johnstownco.gov/213/Inspections",
+      "checked_at": "2026-11-27T07:54:54.546Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://johnstownco.gov/DocumentCenter/View/1820/2026-Fee-Schedule---Adopted",
+      "checked_at": "2026-11-27T07:54:55.494Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "checked_at": "2026-11-27T07:54:57.469Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.unitedpower.com/service-area",
+      "checked_at": "2026-11-27T07:54:57.939Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "checked_at": "2026-11-27T07:54:58.330Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "checked_at": "2026-11-27T07:54:58.817Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://leg.colorado.gov/bills/hb21-1284",
+      "checked_at": "2026-11-27T07:54:59.401Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 406,
+      "method": "HEAD",
+      "details": "HTTP 406: not a removal signal, treated as unverifiable"
+    },
+    {
+      "url": "https://frfr.colorado.gov/services/services-for-construction-development",
+      "checked_at": "2026-11-27T07:55:00.038Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T06:46:36Z",
+        "sha256": "57a885b3829478cd60a79d3c951fdd0978797848c22f857a3791200356ee3d42",
+        "method": "curl"
+      }
+    },
+    {
+      "url": "https://frfr.colorado.gov/safety",
+      "checked_at": "2026-11-27T07:55:00.098Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T06:46:38Z",
+        "sha256": "ea6a64f3ad82f625924d6b524660949d278e2c319bad8a5cb58e5f01b3792312",
+        "method": "curl"
+      }
+    }
+  ]
+}
