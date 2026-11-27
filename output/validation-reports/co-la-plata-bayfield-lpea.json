@@ -1,0 +1,164 @@
+{
+  "record_id": "co-la-plata-bayfield-lpea",
+  "file": "data/localities/co-la-plata-bayfield-lpea.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.bayfieldgov.org/building-permits-inspections/page/solar-permit-information — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:35:36Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[1].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.bayfieldgov.org/building-permits-inspections/page/schedule-inspection — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:35:30Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S1].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.bayfieldgov.org/building-permits-inspections — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T09:49:04Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.bayfieldgov.org/media/331 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:35:44Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S11].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://dpo.colorado.gov/ElectricalPlumbingPermits/Info — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:02:27Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.bayfieldgov.org/building-permits-inspections/page/solar-permit-information",
+      "checked_at": "2026-11-27T11:06:40.300Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:35:36Z",
+        "sha256": "2072b6fd8360a3814ad31f38f1b55901d51973dd362b7a492c7fc882088c29a9",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://lpea.coop/installer-resources",
+      "checked_at": "2026-11-27T11:06:40.539Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://lpea.coop/obf",
+      "checked_at": "2026-11-27T11:06:41.365Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.bayfieldgov.org/building-permits-inspections/page/schedule-inspection",
+      "checked_at": "2026-11-27T11:06:41.761Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:35:30Z",
+        "sha256": "338b963770c1d9c531ae917c123352bd7788765440eb77d84d635a43de7fcc15",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.bayfieldgov.org/building-permits-inspections",
+      "checked_at": "2026-11-27T11:06:41.896Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T09:49:04Z",
+        "sha256": "b97e0a3a57c421a4b545dc4821e0b391d5cedd7b92c59facf306e3c3c449c72d",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.bayfieldgov.org/media/331",
+      "checked_at": "2026-11-27T11:06:41.936Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:35:44Z",
+        "sha256": "49b81a90fa8fa55cdd770709a185c9c96f18cf6764b19389258c1f92590c8ee5",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://cms9files.revize.com/laplatacounty/Revised%20Building%20Permit%20Application%20Packet%202-7-24.pdf",
+      "checked_at": "2026-11-27T11:06:41.989Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://lpea.coop/ready-apply-solar",
+      "checked_at": "2026-11-27T11:06:42.680Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://lpea.coop/sites/default/files/2024/Solar/LPEA%20Member%20Solar%20Fact%20Sheet%202.pdf",
+      "checked_at": "2026-11-27T11:06:43.075Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://lpea.coop/making-switch-net-metered",
+      "checked_at": "2026-11-27T11:06:43.287Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits/Info",
+      "checked_at": "2026-11-27T11:06:43.712Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:02:27Z",
+        "sha256": "623cb4e29902a7977e678b428a6e2c4a0cb89d4cfc377f8f410529077cc27180",
+        "method": "curl"
+      }
+    }
+  ]
+}

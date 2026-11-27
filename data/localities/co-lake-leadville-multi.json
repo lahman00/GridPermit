@@ -1,0 +1,461 @@
+{
+  "record_id": "co-lake-leadville-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy or Sangre de Cristo Electric Association, check your electric bill",
+    "confidence": 0.6,
+    "source_ids": [
+      "S7"
+    ],
+    "notes": "Lake County's Building Permit Approvals Form for City of Leadville projects lists Xcel Energy and Sangre de Cristo Electric Association under Utility Services. Check the utility named on your electric bill to see which one serves your address. The form gives Sangre de Cristo Electric Association's address as 29780 Hwy 24, Buena Vista, and its phone as 719-395-2412. For Xcel Energy, the form says to submit an application online or call 1-800-628-2121."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies only to addresses served by Xcel Energy. Xcel says all of its solar customers receive Net Energy Metering (NEM) benefits from a system installed on their premise. Any excess is held in a virtual bank and applied against future bills. For an address served by Sangre de Cristo Electric Association, ask the cooperative at 719-395-2412 about its net metering terms."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S9",
+      "S11",
+      "S7"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Leadville",
+    "confidence": 0.95,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City of Leadville's Building Department page says the City merged its building department with Lake County Community Planning & Development as of July 9th, 2018."
+  },
+  "permit_authority": {
+    "value": "Lake County Community Planning & Development (Building)",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S4",
+      "S2",
+      "S3"
+    ],
+    "notes": "Lake County Community Planning and Development administers all building, plumbing, mechanical, roofing, and solar permits for both the County and the City of Leadville. The City of Leadville merged its building department with Lake County Community Planning & Development as of July 9th, 2018. The City's Building Department page says the County has a contract with Colorado Code Consulting, which provides building, plumbing and mechanical permits, plan review and inspection services for the City of Leadville and Lake County. The solar permit form says a separate permit must be secured for electrical work, and the County's Permits & Information page lists the electrical permit as State Managed. The solar permit form has separate boxes for County and City projects and notes that City projects require City approval."
+  },
+  "permit_url": {
+    "value": "https://www.lakecountyco.gov/194/Permits-Information",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S3",
+      "S8"
+    ],
+    "notes": "The County's Permits & Information page links the Solar Permit (PDF) form under Other Permits. The County says it is best to schedule a pre-application meeting to determine which forms and information apply; call 719-486-2875 to schedule. The County does not accept photos of permits or forms for submission. The solar form asks for two sets of site plans, while the County's Building Permit Information sheet says all building permits must be submitted electronically. Ask the Building Department how to submit a solar permit."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.7,
+    "source_ids": [
+      "S9",
+      "S10",
+      "S11",
+      "S7"
+    ],
+    "notes": "This link is for Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. Xcel's interconnection work ends with a permission to operate letter from Xcel to the generator owner. The utility's permission to operate is separate from the County solar permit and the County's inspections. For an address served by Sangre de Cristo Electric Association, ask the cooperative at 719-395-2412 about its interconnection process."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you join with an eligible solar-charged battery, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5-years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For Xcel Energy customers only, so check that Xcel is your electric utility first. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S12",
+      "S9"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page, which showed 2026 incentive budget available on figures dated 11/02/2026. Lake County's solar permit form covers photovoltaic and hot water systems and does not mention batteries, so ask the Building Department which permit a battery needs."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Lake County Solar Permit form",
+        "required_when": "All solar permits, for County and City of Leadville projects.",
+        "source_ids": [
+          "S3",
+          "S2"
+        ]
+      },
+      {
+        "name": "HOA permission (if the property is in an active HOA)",
+        "required_when": "If you are located within an active HOA.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "City approval (City of Leadville projects)",
+        "required_when": "City projects. The solar form marks City projects as requiring City approval. Lake County's Building Permit Approvals Form for City projects lists three City of Leadville contacts to send a copy of plans to: planningdirector@leadville-co.gov (Chapin LaChance, 719-486-2092), awillis@leadville-co.gov (Alex Willis, 719-656-0625) and acummins@leadville-co.gov (Andrew Cummins, 719-656-0208).",
+        "source_ids": [
+          "S3",
+          "S7"
+        ]
+      },
+      {
+        "name": "Signature from Leadville Lake County Fire Rescue (roof-mounted systems)",
+        "required_when": "Roof-mounted systems. Request a fire plan review at https://www.lakecountyco.gov/787/Plan-Review-Fire-Inspections.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Two sets of fully dimensioned site plans",
+        "required_when": "All solar permits. The County's Building Permit Information sheet says all building permits must be submitted electronically, so ask the Building Department how many sets to provide. Show north arrows and the location, size and use of all existing and proposed structures on the lot. Identify property lines and show lot dimensions and all easements. Section 5.2.20, printed with the form, says the site plan includes the location of all panels and accessory development, such as utility trenching.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Plans showing the location of solar components",
+        "required_when": "All solar permits.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Structural plans and details showing component attachment or support",
+        "required_when": "All solar permits.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Separate electrical permit (State Managed)",
+        "required_when": "Electrical work. The solar form says a separate permit must be secured for electrical work, and Lake County lists the electrical permit as State Managed.",
+        "source_ids": [
+          "S3",
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S2",
+      "S7"
+    ],
+    "notes": "Items follow the checklist and the signed declaration on Lake County's Solar Permit form. Solar permits must first go through the Plan Review process."
+  },
+  "inspection_steps": {
+    "value": [
+      "If the system is roof-mounted, request a plan review from Leadville Lake County Fire Rescue and get its signature on the solar permit form.",
+      "Submit the Lake County Solar Permit form with the checklist items and the permit fee to the Lake County Building Department.",
+      "Xcel Energy customers: your installer usually submits the interconnection application, and Xcel highly recommends not starting construction until the application receives full approval from Xcel's engineering team and all final agreements are fully signed.",
+      "The solar permit goes through plan review first.",
+      "Get the separate electrical permit, which Lake County lists as State Managed.",
+      "Roof-mounted systems: the form lists Rough Electrical, Mounting (access to attic required), Final Electrical and Final inspections.",
+      "Ground-mounted systems: the form lists Rough Electrical, Footing, Final Electrical and Framing/Final inspections.",
+      "Give at least 24 hours notice for every inspection.",
+      "Xcel Energy customers: Xcel's Colorado DER Interconnection Portal Process Guide (May 2022) says proof of a final, passing electrical inspection from the city or county/local AHJ is required for all applications.",
+      "Xcel Energy customers: the process ends with Xcel's permission to operate letter to the generator owner."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S2",
+      "S10",
+      "S11",
+      "S13"
+    ],
+    "notes": "Inspection lists are from Lake County's Solar Permit form, which gives separate required inspections for roof-mounted and ground-mounted systems. Re-inspections may be subject to additional fees. The County solar permit and its inspections, the separate state-managed electrical permit, and the utility's permission to operate are separate approvals. If Sangre de Cristo Electric Association serves your address, ask the cooperative about its own approval steps."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Lake County's solar permit form and permit pages give no review or processing time for solar permits."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Lake County Solar Permit, used for County and City of Leadville projects",
+      "other_conditions": [
+        "Solar permits must first go through plan review and require inspections.",
+        "City of Leadville projects require City approval, as marked on the solar permit form.",
+        "If the property is in an active HOA, provide the HOA's permission.",
+        "The solar permit expires one year from the date of issue.",
+        "Work started without a permit is subject to a double fee.",
+        "Section 5.2.20 (Solar Energy Systems, Revised December 17, 2013), printed with the County solar form, limits an accessory system to 120% or less of site generation needs. The form does not say whether these standards apply to City of Leadville projects, which require City approval, so ask the Building Department.",
+        "Under the same section, a building-mounted system may not exceed the roofline of a pitched roof, and collectors on flat roofs need a 3-foot setback from the roof edge.",
+        "Under the same section, solar panels placed on roofs may exceed the maximum permitted building height by 10%.",
+        "Under the same section, ground-mounted systems must stay outside the zoning district's minimum setbacks and any easements, may not exceed 25 feet in height, and must be screened from views at grade to the best extent possible without compromising the system's access to the sun.",
+        "The City and County have both adopted the 2018 International Building Code, and Lake County's basic amendments list a basic wind speed of 115 mph.",
+        "Lake County's Building Permit Information sheet asks that all design criteria used for the structure, including snow loads when applicable, be clearly stated on the plans.",
+        "Building Department staff can provide a copy of International Fire Code Section 1205.",
+        "If a homeowner hires an electrical contractor, the state says the contractor is responsible for obtaining the required permits.",
+        "Xcel Energy sizing rule for its customers (not a County rule): expected generation, combined with other distributed generation serving the service address, must not exceed 200% of historical consumption over the previous 12 months."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S1",
+      "S4",
+      "S8",
+      "S14",
+      "S9"
+    ],
+    "notes": "The 120% limit is in section 5.2.20 printed with the County solar form, and the 200% limit is an Xcel Energy net metering eligibility rule."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar Permit, residential",
+        "amount_usd": 150,
+        "unit": "flat permit fee",
+        "notes": "Lake County's Solar Permit form lists Residential Permit Fee = $150. The City of Leadville's Building Permit Fees sheet (Appendix A) also lists Solar Permit, Residential at $150.00."
+      },
+      {
+        "name": "Solar Permit, commercial",
+        "amount_usd": 300,
+        "unit": "flat permit fee",
+        "notes": "The City's Appendix A sheet also lists Solar Permit, Commercial at $300.00."
+      },
+      {
+        "name": "Fire Department (LLCFR) Residential Solar Array Plan Review",
+        "amount_usd": 25,
+        "unit": "fire plan review fee",
+        "notes": "Listed under Fire Department (LLCFR) in the City of Leadville 2026 Master Fee Schedule."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S5",
+      "S6",
+      "S4"
+    ],
+    "notes": "Make checks payable to Lake County Treasurer; credit card payments carry a 3% processing fee. Work started without a permit is subject to a double fee, and re-inspections may be subject to additional fees. The City's Building Department page says the County charges an additional 65% of the permit fee for plan reviews, while the solar form lists only the flat fee. Ask the Building Department whether this charge applies to a solar permit. The fee for the separate state-managed electrical permit is not listed on the County solar form."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. Income Qualified terms apply.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S11",
+      "S9"
+    ],
+    "notes": "These are Xcel Energy programs for Xcel customers only. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Lake County Community Planning & Development, Building",
+        "role": "Lake County Building Department (solar permits for the County and the City of Leadville)",
+        "phone": "(719) 486-2875",
+        "email": null,
+        "url": "https://lakecountyco.gov/188/Community-Planning-Development"
+      },
+      {
+        "name": "Leadville Lake County Fire Rescue",
+        "role": "Leadville Lake County Fire Rescue (plan review and signature for roof-mounted systems)",
+        "phone": null,
+        "email": null,
+        "url": "https://www.lakecountyco.gov/787/Plan-Review-Fire-Inspections"
+      },
+      {
+        "name": "Chapin LaChance",
+        "role": "City of Leadville (copy of plans for City projects)",
+        "phone": "719-486-2092",
+        "email": "planningdirector@leadville-co.gov",
+        "url": null
+      },
+      {
+        "name": "Sangre de Cristo Electric Association",
+        "role": "Sangre de Cristo Electric Association (electric utility listed on the County approvals form)",
+        "phone": "719-395-2412",
+        "email": null,
+        "url": null
+      },
+      {
+        "name": "Xcel Energy",
+        "role": "Xcel Energy (electric utility listed on the County approvals form)",
+        "phone": "1-800-628-2121",
+        "email": null,
+        "url": "https://co.my.xcelenergy.com/s/renewable/net-metering"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S7",
+      "S9"
+    ],
+    "notes": "The Lake County Building & Land Use Department office is at 505 Harrison Avenue, Leadville, Colorado 80461. Lake County forms give two email addresses for building permits: buildingpermits@co.lake.co.us on the Building Permit Information sheet and buildingpermits@lakecountyco.gov on the approvals forms. Confirm the current email address by phone at (719) 486-2875."
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Community Planning & Development",
+      "url": "https://lakecountyco.gov/188/Community-Planning-Development",
+      "publisher": "Lake County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Permits & Information",
+      "url": "https://www.lakecountyco.gov/194/Permits-Information",
+      "publisher": "Lake County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Solar Permit (PDF)",
+      "url": "https://www.lakecountyco.gov/DocumentCenter/View/134/Solar-Permit-PDF",
+      "publisher": "Lake County Building & Land Use Department",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Building Department",
+      "url": "https://www.leadville-co.gov/building-department",
+      "publisher": "City of Leadville",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Building Permit Fees (Appendix A, Building Permit Fee Calculation)",
+      "url": "https://www.leadville-co.gov/media/881",
+      "publisher": "City of Leadville",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "2026 Master Fee Schedule",
+      "url": "https://www.leadville-co.gov/media/6351",
+      "publisher": "City of Leadville",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Building Permit Approvals Form, City Projects (PDF)",
+      "url": "https://www.lakecountyco.gov/DocumentCenter/View/3076/Building-Permit-Approvals---City-of-Leadville-PDF",
+      "publisher": "Lake County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Building Permit Information (PDF)",
+      "url": "https://lakecountyco.gov/DocumentCenter/View/127/Building-Permit-Information-PDF?bidId=",
+      "publisher": "Lake County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Net Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Interconnection",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Colorado DER Interconnection Portal Process Guide (May 2022)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe-responsive/Working%20With%20Us/Renewable%20Developers/CO_DER%20Interconnection%20Portal_Process%20Guide_2022-05.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S14",
+      "title": "Electrical and Plumbing Permits",
+      "url": "https://www.colorado.gov/pacific/dora/DPO_Electrical_Plumbing_Permits",
+      "publisher": "Colorado Department of Regulatory Agencies, Division of Professions and Occupations",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "record_id": "co-mesa-palisade-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy (Public Service Company of Colorado), for addresses Xcel serves. Check the utility named on your electric bill.",
+    "confidence": 0.7,
+    "source_ids": [
+      "S2",
+      "S13",
+      "S18"
+    ],
+    "notes": "The Town of Palisade's Public Works page lists Xcel Energy, (800) 481-4700, among its utility contacts and says streetlight outages are handled by Xcel Energy, not the Town. Xcel Energy's list of Colorado communities served, dated 10/2015, shows Palisade with code GE, which means gas and electricity. The list is by community name, not by address. Public Service Company of Colorado is an operating company subsidiary of Xcel Energy Inc. Neither the Town nor Xcel says which utility serves each Palisade address, so confirm the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy. Xcel says all solar customers receive Net Energy Metering benefits, and any excess is held in a virtual bank to be applied against future bills."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S2",
+      "S15",
+      "S16"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Palisade",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Mesa County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "The Town's comprehensive plan text refers to the Town of Palisade and the surrounding area of Mesa County, and Mesa County's Building Department lists Palisade among the towns it serves."
+  },
+  "permit_authority": {
+    "value": "Mesa County Building Department",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S1",
+      "S4",
+      "S12"
+    ],
+    "notes": "Mesa County's Building Department says it performs inspections, supplies permits, and current codes for building projects in the County, the towns of De Beque, Collbran, Palisade, and the City of Grand Junction. The Town of Palisade's Community Development Department handles questions about planning, zoning, land use and development within the Town, and its Planning Clearance Applications cover work from building remodels to fences. Mesa County's solar guide says roof mount systems in Palisade require a residential planning clearance before the permit is issued, and all residential ground mount solar permits need one regardless of jurisdiction. The County Building Department's staff list includes an Electrical Inspector Supervisor. To check a property's zone district, the Town's Community Development page links its Official Zoning Map on the Town GIS site. The County and Town pages describe no solar-specific expedited or same-day permit path."
+  },
+  "permit_url": {
+    "value": "https://www.mesacounty.us/departments-and-services/community-development/planning/applications-and-fees-planning-department",
+    "confidence": 0.8,
+    "source_ids": [
+      "S8",
+      "S10",
+      "S1"
+    ],
+    "notes": "Use the Mesa County Customer Portal to submit a new building permit and to view your current projects and permits. The County says permit issuance after 4:30 p.m. is on a limited basis. For the Town planning clearance, contact Palisade Community Development at (970) 464-5602 or planning@townofpalisade.org, and fill out the forms in their entirety."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.8,
+    "source_ids": [
+      "S14",
+      "S15"
+    ],
+    "notes": "For Xcel Energy customers. Xcel says that in most cases the developer or installer submits the application on your behalf and manages the details with Xcel, or you can manage your own. Once you understand the state, local and utility requirements and permits, you can submit an interconnection application online. Your proposal goes through a technical review and, if needed, a detailed engineering study, and Xcel provides an interconnection agreement. Xcel highly recommends that construction not start until the application receives full approval from its engineering team and all final agreements are fully signed. The work ends with a permission to operate letter from Xcel to the generator owner, which is separate from the County permit and the County inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that by joining, you let it automatically manage your eligible solar-charged battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5 years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar-charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S17"
+    ],
+    "notes": "Xcel's Renewable Battery Connect page shows a 2026 General incentive budget of $13,629,630, with $10,635,423 shown as available."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Valuation including all labor and materials, broken out",
+        "required_when": "All PV applications, as applicable. Break the valuation into modules to inverters, the remainder of the electrical work (for example generator, AC wiring, service upgrade, ESS), and any required structural alterations.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Structural certification report for the existing roof framing",
+        "required_when": "Required to verify that the existing roof framing will safely support the array.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Three-line diagram",
+        "required_when": "Show all conductor sizing and insulation types, overcurrent protective devices and conduit sizing and types.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Source connection being used",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Method used to determine the required busbar ampere rating",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Specification sheets for all listed compatible components",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Roof layout with access, pathways, ridge setback, total roof area and total array area",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Structural, foundation and electrical drawings stamped by a Colorado PE (commercial and ground mount systems)",
+        "required_when": "All commercial and ground mount PV system designs.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Residential planning clearance (roof mount systems in Palisade, and all ground mount systems)",
+        "required_when": "Required before the permit is issued for roof mount systems installed in Palisade and for all residential ground mount solar permits. Ask Palisade Community Development for the planning clearance application.",
+        "source_ids": [
+          "S4",
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S4",
+      "S5",
+      "S6",
+      "S1"
+    ],
+    "notes": "This list follows the Mesa County Photovoltaic Guide, which the County's Building Guides page links as the Residential and Commercial Building Guide - Solar; the County's file for it is dated 7-20-2023. The County also posts a version titled Mesa County Active Solar Energy Systems, which says calculations by a Colorado Professional Engineer must be submitted to show that the structure can support the design loads, and that generators require a separate permit. Ask the Building Department which version applies to your project."
+  },
+  "inspection_steps": {
+    "value": [
+      "If Xcel Energy is your utility, submit the interconnection application online. Xcel highly recommends that construction not start until the application has full approval from its engineering team and all final agreements are fully signed.",
+      "For a roof mount system in Palisade, or any residential ground mount system, get a residential planning clearance before the permit is issued.",
+      "Submit the building permit with the PV submittal items on the Mesa County Customer Portal.",
+      "Schedule inspections on the Customer Portal, by phone at 970-256-1564, or by texting SCHEDULE to 844-987-4628. On the Customer Portal, requests received by 7:00 a.m. can be scheduled for the same day or the next business day.",
+      "When an inspection is complete, see the results and inspector comments by clicking on the inspection in the portal.",
+      "If Xcel Energy is your utility, the process ends with a permission to operate letter from Xcel to the generator owner."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S4",
+      "S8",
+      "S9",
+      "S14"
+    ],
+    "notes": "Mesa County's Building Department provides inspections for building permits for each jurisdiction it serves and for unincorporated Mesa County. The County's inspection page does not list which inspections apply to a solar permit. It links the Building Sample Inspection Codes 02-05-24 and Residential Inspection Guidelines, which are not summarized here, so ask the Building Department when you schedule. The page links the Building Sample Inspection Codes 02-05-24. The County permit, the County inspections and the utility's permission to operate are separate approvals."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Mesa County's building pages and solar guide give no review or processing time for a solar permit."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Mesa County building permit for a PV system, with a Town of Palisade planning clearance",
+      "other_conditions": [
+        "A rapid shutdown function to reduce shock hazard for firefighters is required.",
+        "DC circuits in buildings require metal raceways and labeling of \"PHOTOVOLTAIC POWER SOURCE\".",
+        "Mesa County's solar guides list different code editions. The guide linked from the Building Guides page lists the 2018 IBC, IRC, IEBC, IFC and the 2023 NEC, while the Active Solar Energy Systems version lists the 2024 IBC, IRC, IEBC and the 2023 NEC, and the Adopted Codes and Regulations page lists the 2024 International Residential Code. Confirm the code edition with the Building Department.",
+        "The County says the 2026 NEC will be effective January 1, 2027.",
+        "Xcel Energy interconnection limit (not a County rule): expected generation must not exceed 200% of historical consumption, meaning the previous 12 months at the time of application."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S3",
+      "S4",
+      "S5",
+      "S7",
+      "S16"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Permit fee, total valuation up to $1200.00",
+        "amount_usd": 50,
+        "unit": "flat",
+        "notes": null
+      },
+      {
+        "name": "Permit fee, total valuation $1200.01 to $2,000",
+        "amount_usd": 50,
+        "unit": "for the first $1200.00, plus $2.20 for each additional $100.00 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Permit fee, total valuation $2,000.01 to $25,000",
+        "amount_usd": 68,
+        "unit": "for the first $2,000.00, plus $9.90 for each additional $1,000.00 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Permit fee, total valuation $25,000.01 to $50,000",
+        "amount_usd": 295.7,
+        "unit": "for the first $25,000.00, plus $7.20 for each additional $1,000.00 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Re-inspection fee",
+        "amount_usd": 50,
+        "unit": "first re-inspection",
+        "notes": null
+      },
+      {
+        "name": "Same day inspection, if staff is available",
+        "amount_usd": 100,
+        "unit": "in addition to the re-inspection fee",
+        "notes": null
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11",
+      "S10",
+      "S4"
+    ],
+    "notes": "Mesa County's fee schedule has no separate solar line: the permit fee follows the valuation table (Table 2) in Exhibit A, the Mesa County Building Department Fee Schedule (file titled Fee Schedule 2024). For remodel work and other building upgrades, the County bases the fee on the valuation of the project, and the schedule defines total valuation as the actual cost of project labor and materials. The schedule lists the electrical permit fee (fee 11) on the same Table 2 basis, and the PV guide asks for a valuation that includes all labor and materials. All permit fees are rounded up to the next dollar, and the table continues above $50,000. Other fees may be assessed depending on the scope of the project, and work started before the permit is issued can be charged twice the permit fee at the Building Official's discretion."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S15",
+      "S16"
+    ],
+    "notes": "These are Xcel Energy programs. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. The Town and County pages describe no local rebate for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Mesa County Building Department",
+        "role": "Mesa County Building Department (solar permit questions for Palisade)",
+        "phone": "970-244-1631",
+        "email": "mccomdev@mesacounty.us",
+        "url": "https://www.mesacounty.us/departments-and-services/community-development/building"
+      },
+      {
+        "name": "Town of Palisade Community Development",
+        "role": "Town of Palisade Community Development (planning clearance)",
+        "phone": "(970) 464-5602",
+        "email": "planning@townofpalisade.org",
+        "url": "https://palisade.colorado.gov/departments/community-development-planning"
+      },
+      {
+        "name": "Darrell Bay",
+        "role": "Mesa County Chief Building Official",
+        "phone": "970-244-1651",
+        "email": "Darrell.Bay@mesacounty.us",
+        "url": "https://www.mesacounty.us/departments-and-services/community-development/building/contact-building-department"
+      },
+      {
+        "name": "Jeremiah Adams",
+        "role": "Mesa County Electrical Inspector Supervisor",
+        "phone": "970-254-4145",
+        "email": "Jeremiah.Adams@mesacounty.us",
+        "url": "https://www.mesacounty.us/departments-and-services/community-development/building/contact-building-department"
+      },
+      {
+        "name": "Mesa County inspection line",
+        "role": "Mesa County Building Department inspection scheduling (phone)",
+        "phone": "970-256-1564",
+        "email": null,
+        "url": "https://www.mesacounty.us/departments-and-services/community-development/building/inspection-and-policy-information-building"
+      },
+      {
+        "name": "Xcel Energy",
+        "role": "Xcel Energy (listed on the Town of Palisade Public Works page)",
+        "phone": "(800) 481-4700",
+        "email": null,
+        "url": "https://palisade.colorado.gov/public-works"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S1",
+      "S12",
+      "S9",
+      "S2"
+    ],
+    "notes": "Mesa County Community Development is open Monday to Friday, 8:00 a.m. to 5:00 p.m., and the Town of Palisade office is open Monday to Friday, 8:30 a.m. to 4:30 p.m."
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Community Development & Planning",
+      "url": "https://palisade.colorado.gov/departments/community-development-planning",
+      "publisher": "Town of Palisade",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Utilities",
+      "url": "https://palisade.colorado.gov/departments/utilities",
+      "publisher": "Town of Palisade",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Building Department",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Mesa County Photovoltaic Guide (Residential and Commercial Building Guide - Solar)",
+      "url": "https://www.mesacounty.us/sites/default/files/2026-04/Photovoltaic%20Guide%207-20-2023.pdf",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Mesa County Active Solar Energy Systems",
+      "url": "https://www.mesacounty.us/sites/default/files/2026-04/Photovoltaic%20Guide%207.20.23.pdf",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Building Guides",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/building-guides",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Adopted Codes and Regulations",
+      "url": "https://www.mesacounty.us/building/residential-building-guides/",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Applications and Fees for the Planning Department (Customer Portal)",
+      "url": "https://mesacounty.us/planning/electronic-permitting-system",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Inspection and Policy Information",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/inspection-and-policy-information-building",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Permit and Plan Review Fees",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/permit-and-plan-review-fees-building",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Exhibit A, Mesa County Building Department Fee Schedule",
+      "url": "https://www.mesacounty.us/sites/default/files/2026-04/Exhibit%20A%20Mesa%20County%20Building%20Department%20Fee%20Schedule%202024%20ADA.pdf",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Contact the Building Department",
+      "url": "https://www.mesacounty.us/departments-and-services/community-development/building/contact-building-department",
+      "publisher": "Mesa County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Xcel Energy Colorado Communities Served (PDF)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S14",
+      "title": "Xcel Energy Colorado: Interconnection (developer resources)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S15",
+      "title": "Xcel Energy Colorado: Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S16",
+      "title": "Xcel Energy Colorado: Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S17",
+      "title": "Xcel Energy Colorado: Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S18",
+      "title": "Xcel Energy Colorado: Developers",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}
