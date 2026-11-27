@@ -1,6 +1,6 @@
 {
   "state": "CO",
-  "generated_at": "2026-11-27T07:55:15.883Z",
+  "generated_at": "2026-11-27T10:28:53.795Z",
   "records": [
     {
       "record_id": "co-adams-brighton-multi",
@@ -234,6 +234,41 @@
       "readiness": "READY"
     },
     {
+      "record_id": "co-arapahoe-bow-mar-multi",
+      "state": "CO",
+      "city": "Bow Mar",
+      "county": null,
+      "completeness_pct": 86.7,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "county",
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture",
+        "broken_url"
+      ],
+      "readiness": "READY"
+    },
+    {
       "record_id": "co-arapahoe-centennial-multi",
       "state": "CO",
       "city": "Centennial",
@@ -298,6 +333,41 @@
       ],
       "warning_categories": [
         "blocked_url_with_capture"
+      ],
+      "readiness": "READY"
+    },
+    {
+      "record_id": "co-arapahoe-glendale-multi",
+      "state": "CO",
+      "city": "Glendale",
+      "county": null,
+      "completeness_pct": 86.7,
+      "validation_score": 98,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 2,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "county",
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture",
+        "broken_url"
       ],
       "readiness": "READY"
     },
@@ -433,6 +503,38 @@
       "readiness": "READY"
     },
     {
+      "record_id": "co-boulder-gunbarrel-multi",
+      "state": "CO",
+      "city": "Gunbarrel",
+      "county": "Boulder County (unincorporated)",
+      "completeness_pct": 93.3,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days"
+      ],
+      "warning_categories": [],
+      "readiness": "READY"
+    },
+    {
       "record_id": "co-boulder-lafayette-xcel",
       "state": "CO",
       "city": "Lafayette",
@@ -491,6 +593,38 @@
       ],
       "missing_fields": [
         "battery_programs",
+        "rebates"
+      ],
+      "warning_categories": [],
+      "readiness": "READY"
+    },
+    {
+      "record_id": "co-boulder-niwot-multi",
+      "state": "CO",
+      "city": "Niwot",
+      "county": "Boulder County (unincorporated)",
+      "completeness_pct": 86.7,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "timeline_days",
         "rebates"
       ],
       "warning_categories": [],
@@ -1103,11 +1237,11 @@
   ],
   "aggregate": {
     "average_completeness_pct": 87.7,
-    "average_validation_score": 97.2,
+    "average_validation_score": 97.4,
     "fields_most_often_missing": [
       {
         "field": "timeline_days",
-        "missing_in_records": 25
+        "missing_in_records": 29
       },
       {
         "field": "battery_programs",
@@ -1119,11 +1253,11 @@
       },
       {
         "field": "rebates",
-        "missing_in_records": 6
+        "missing_in_records": 7
       },
       {
         "field": "county",
-        "missing_in_records": 4
+        "missing_in_records": 6
       },
       {
         "field": "required_documents",
@@ -1152,14 +1286,18 @@
       "co-adams-westminster-multi",
       "co-alamosa-alamosa-multi",
       "co-arapahoe-aurora-xcel",
+      "co-arapahoe-bow-mar-multi",
       "co-arapahoe-centennial-multi",
       "co-arapahoe-englewood-xcel",
+      "co-arapahoe-glendale-multi",
       "co-arapahoe-littleton-xcel",
       "co-arapahoe-sheridan-xcel",
       "co-boulder-boulder-multi",
       "co-boulder-erie-multi",
+      "co-boulder-gunbarrel-multi",
       "co-boulder-lafayette-xcel",
       "co-boulder-longmont-multi",
+      "co-boulder-niwot-multi",
       "co-boulder-superior-xcel",
       "co-broomfield-broomfield-multi",
       "co-chaffee-salida-multi",

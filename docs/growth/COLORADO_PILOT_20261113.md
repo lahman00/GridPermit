@@ -142,3 +142,22 @@ Same method as batches 1 to 3: raw captures of official pages on the owner's com
 - Silverthorne was drafted as `-xcel`; the auditor changed it to `-multi` because the only support is Xcel's 10/2015 list and Summit County's PV checklist names Mountain Parks Electric. Permits are Summit County's ($325.00 PV residential permit, $175.00 plan review); the page tells readers to ask the Town whether a Town building permit is also needed. The Town's Solarize rebate is labelled 2025, so its status is shown as unknown (validation flags it as possibly outdated, hence 90).
 - Johnstown: no capture names the Town's county, so the page shows none; `weld` in the record id is a naming convention only. Town pages disagree on how to request inspections (phone, or eTRAKiT only from March 1, 2026) and on the fire code edition; the page states each value.
 - Both ids are in the batch 4 sets. The before/after diff against 46c3ee5 adds only these two guides and their Permit Path records; no other guide page changed and the 86-route manifest is byte-identical.
+
+## Batch 5 (2026-11-27, second run): owner asked for 30 more Colorado places
+
+Research folder: `01-Command-Center/research/colorado-batch5-20261127/` (96 candidates in eight groups, including unincorporated census-designated places where a county issues permits). Same method: discovery of official URLs, raw captures on the owner's computer, a second capture round from links found on the first-round pages (`tools/harvest_links.py`), quote-checked claims, sentence trace, independent audit.
+
+### Wave 1
+
+| Guide | Record | Readiness |
+|---|---|---|
+| `/colorado/glendale/solar-permit-guide/` | `co-arapahoe-glendale-multi` | 13 of 15 fields, validation 98 |
+| `/colorado/bow-mar/solar-permit-guide/` | `co-arapahoe-bow-mar-multi` | 13 of 15 fields, validation 98 |
+| `/colorado/gunbarrel/solar-permit-guide/` | `co-boulder-gunbarrel-multi` | 14 of 15 fields, validation 100 |
+| `/colorado/niwot/solar-permit-guide/` | `co-boulder-niwot-multi` | 13 of 15 fields, validation 100 |
+
+- Audit: Glendale 120 pass / 9 edits; Bow Mar 135 / 7 / 1 fail (a sentence saying the Town is silent on electrical permits; Ordinance 340 refers readers to the State Electrical Board, so the sentence was removed); Gunbarrel 138 / 9; Niwot 123 / 10. All four ids changed from `-xcel` to `-multi` at audit.
+- Gunbarrel and Niwot are unincorporated. Boulder County lists both as unincorporated communities and its permit page covers unincorporated properties; the page says the County issues permits "for addresses in unincorporated Boulder County". Fee: $400 residential renewable energy permit plus tax (County fee sheet B33).
+- Glendale has no solar-specific City page; the page says so and uses the City's electrical permit valuation table (June 23, 2026). Two after-hours inspection fees disagree and both are stated.
+- The ids are in `NEW_GUIDES_DURING_MEASUREMENT` and a new batch 5 set in `relatedPoolFor`, so no earlier guide's related list changes. The before/after diff against 762647c adds only these four guides and their Permit Path records; the 86-route manifest is byte-identical.
+

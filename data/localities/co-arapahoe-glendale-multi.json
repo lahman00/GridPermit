@@ -1,0 +1,391 @@
+{
+  "record_id": "co-arapahoe-glendale-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy (Public Service Company of Colorado), for addresses Xcel serves. Check the utility named on your electric bill.",
+    "confidence": 0.7,
+    "source_ids": [
+      "S8",
+      "S9"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served, dated 10/2015, shows Glendale with gas and electricity service. The list is by community name, not by address. The City's building and permit pages do not name an electric utility or say that one utility serves every address in Glendale. Confirm the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy. Under Xcel's net energy metering, excess generation is held in a virtual bank and applied against future bills."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S8",
+      "S9"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Glendale",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's building and permit pages do not state the county."
+  },
+  "permit_authority": {
+    "value": "City of Glendale Building & Permits Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "The City's Building & Permits Department page covers all building permits, associated fees and inspection information. All electrical work needs a permit unless specifically exempted by ordinance, and electrical permits are separate permits that must be obtained by a licensed electrician. The City's pages do not describe a solar-specific permit and do not explain how to confirm that an address is inside city limits. Ask the Building & Permits Department before you apply."
+  },
+  "permit_url": {
+    "value": "https://glendale.co.us/429/Permit-Fees-and-Inspections",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S2",
+      "S4"
+    ],
+    "notes": "The page links the Main Building Permit Application, which is the permit application for all project types except signs. The City prefers an electronic submittal: its online fillable Permit Application lets you upload a set of drawings, or you may email the PDF version of the application and plans to BuildingPermits@glendale.co.us."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.8,
+    "source_ids": [
+      "S9",
+      "S10",
+      "S11"
+    ],
+    "notes": "For Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. Xcel says the interconnection work ends with a permission to operate letter from Xcel to the generator owner. The utility's permission to operate is separate from the City permit and the City's inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery to your home or small business and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5 years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S12"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page. The page shows a 2026 General incentive budget of $13,629,630, with $10,635,423 shown as available."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Permit application giving owner, architect and contractor information",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Valuation of the work, including the electrical valuation",
+        "required_when": "List the value (contract amount or estimate) in the fee section of the application.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Two sets of plans, if applicable, with supporting data such as structural calculations",
+        "required_when": "If applicable.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Current Glendale contractor license (state or ICC certifications and a current certificate of insurance are needed for the license)",
+        "required_when": "All contractors must possess a current license before a permit will be issued.",
+        "source_ids": [
+          "S3",
+          "S5"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S3",
+      "S5",
+      "S1"
+    ],
+    "notes": "From the City's Permit Application Guide. The City's permit page says the Main Building Permit Application is for all project types except signs. The City does not publish a solar-specific submittal checklist. Ask the Building & Permits Department which plans and equipment sheets a solar permit needs."
+  },
+  "inspection_steps": {
+    "value": [
+      "A licensed electrician obtains the separate electrical permit from the City.",
+      "Submit inspection requests by 3:30pm the day before the inspection. Electrical inspections are done on Tuesdays and Thursdays only, and the City is currently not performing inspections on Fridays.",
+      "Keep the Inspection Card on site at all times.",
+      "The permit holder calls for all required inspections and receives approval before proceeding with the next phase of the work. Work covered before inspection is subject to removal.",
+      "For Xcel Energy customers: submit the interconnection application online, and Xcel does a technical review and, if needed, an engineering study before providing an interconnection agreement. Xcel highly recommends that construction not start until the application has full approval from Xcel's engineering team and all final agreements are signed.",
+      "Xcel works with you and your contractors to witness test and energize the system, and issues a permission to operate letter to the generator owner."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S3",
+      "S2",
+      "S11"
+    ],
+    "notes": "The City's pages do not list the specific inspections for a solar installation. Passing the City's inspections is not the utility's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's permit guide gives general review times only for small commercial projects and for large projects, not for residential solar. Ask the Building & Permits Department."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City of Glendale electrical permit, obtained by a licensed electrician",
+      "other_conditions": [
+        "All contractors need a City of Glendale contractor license to pull a permit. The City has a separate contractor license application for electrical contractors only.",
+        "A person who is not a licensed contractor needs a Glendale Contractor License to pull a permit. The license application and permit application may be submitted together and processed at the same time, with one combined payment.",
+        "A permit becomes null and void if work is not commenced within 180 days, or if work is suspended or abandoned for 180 days after it starts.",
+        "The City's pages describe no separate expedited path for solar permits. The permit guide says the City will do its best to expedite your permit and asks you to fill out the permit application in full and submit the necessary documentation.",
+        "Xcel Energy net metering: you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number, and the name on the application must match the name on the Xcel Energy account or bill.",
+        "Xcel Energy net metering: the system must be sized so that expected generation, combined with other distributed generation serving the service address, does not exceed 200% of historical consumption (the previous 12 months at the time of application submission).",
+        "Xcel Energy net metering: all equipment must be UL 1741 SB certified and listed within the Solar Equipment Lists on the California Energy Commission website."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S3",
+      "S5",
+      "S4",
+      "S9"
+    ],
+    "notes": "License conditions are from the City's Contractor Licenses page, permit guide and FAQs. Sizing, equipment and account conditions are Xcel Energy's and apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Electrical permit fee, valuation $0 to $2,000.00",
+        "amount_usd": 50,
+        "unit": "flat amount for this valuation range",
+        "notes": "From the City's Permit and Inspection Fees sheet, which says that effective June 23, 2026 the City updated its building codes from the 2018 ICC to the 2024 ICC, including updated fire and elevator fees."
+      },
+      {
+        "name": "Electrical permit fee, valuation above $2,000.00 up to $50,000.00",
+        "amount_usd": 50,
+        "unit": "for the first $2,000.00, plus $16.00 per $1,000.00 or fraction thereof of the total valuation",
+        "notes": "The sheet prints this range as \"$2,00 0.01 to $50,000.00\"."
+      },
+      {
+        "name": "Re-inspection fee",
+        "amount_usd": 75,
+        "unit": "per hour (minimum charge of one hour), or the total hourly cost to the jurisdiction, whichever is the greatest",
+        "notes": null
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S2",
+      "S6",
+      "S3",
+      "S7"
+    ],
+    "notes": "The City does not publish a separate solar permit fee. Permit fees are based on the valuation, and the electrical permit fee follows the valuation table on the City's Permit and Inspection Fees sheet. For $50,000.01 to $500,000.00 the sheet lists $14.75 per $1,000.00 or fraction thereof of the total valuation plus $66.50. The same sheet has a separate Building Permit Fees table, starting at $23.50 for a valuation of $1 to $500. The City's pages do not say whether a rooftop solar system also needs a building permit. Plan review is 65% of the permit fee. Use tax is Valuation x 0.6 x 0.0375 (assessed on 60 percent of the total valuation at the rate of 3.75%), and Arapahoe Open Space Tax is Valuation x 0.6 x 0.0025. The City's permit guide says work commenced before a permit is issued will be assessed an investigation fee equal to the total permit fee, but the fee sheet lists investigation fees (minimum charge of two hours) of up to double the permit fees. Confirm the investigation fee with the Building & Permits Department. A state bill summary (HB21-1284) says the act sets a limit of $500 for a residential permit on the aggregate of all fees a governmental body may impose to install an active solar energy system, and extends the repeal date of that limit to December 31, 2029."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S10"
+    ],
+    "notes": "These are Xcel Energy programs. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. The City's pages do not mention a City rebate or incentive for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Glendale Building & Permits Department",
+        "role": "City of Glendale Building & Permits Department (permit questions)",
+        "phone": null,
+        "email": "buildingpermits@glendale.co.us",
+        "url": "https://glendale.co.us/107/Building-Permits-Department"
+      },
+      {
+        "name": "City of Glendale Inspection Line",
+        "role": "City of Glendale Inspection Line (inspection requests)",
+        "phone": "303-639-4605",
+        "email": null,
+        "url": "https://glendale.co.us/429/Permit-Fees-and-Inspections"
+      },
+      {
+        "name": "Brooke Worthington",
+        "role": "Community Development Administrator, City of Glendale Building & Permits Department",
+        "phone": "303-639-4507",
+        "email": "bworthington@glendale.co.us",
+        "url": "https://glendale.co.us/107/Building-Permits-Department"
+      },
+      {
+        "name": "Hannah Forbes",
+        "role": "Community Development Administrator, City of Glendale Building & Permits Department",
+        "phone": "3036394600",
+        "email": "hforbes@glendale.co.us",
+        "url": "https://glendale.co.us/107/Building-Permits-Department"
+      },
+      {
+        "name": "Glendale Municipal Offices",
+        "role": "Glendale Municipal Offices, 950 S Birch Street, Glendale, CO 80246",
+        "phone": "303-759-1513",
+        "email": null,
+        "url": "https://glendale.co.us/107/Building-Permits-Department"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S4"
+    ],
+    "notes": "The Building and Court window is open 8am to 4pm Monday, Tuesday, Thursday and Friday, and 8am to 12pm on Wednesday."
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building & Permits Department",
+      "url": "https://glendale.co.us/107/Building-Permits-Department",
+      "publisher": "City of Glendale",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Permit, Fees, and Inspections",
+      "url": "https://glendale.co.us/429/Permit-Fees-and-Inspections",
+      "publisher": "City of Glendale",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Building Permit Application & Instructions (online form)",
+      "url": "https://glendale-services.app.transform.civicplus.com/forms/44874",
+      "publisher": "City of Glendale",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permit FAQs",
+      "url": "https://glendale.co.us/FAQ.aspx?TID=23",
+      "publisher": "City of Glendale",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Licenses (contractor licensing)",
+      "url": "https://glendale.co.us/113/Licenses",
+      "publisher": "City of Glendale",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Permit and Inspection Fees - All",
+      "url": "https://glendale.co.us/DocumentCenter/View/1254/Permit--Inspection-Fees",
+      "publisher": "City of Glendale",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "HB21-1284 Limit Fee Install Active Solar Energy System",
+      "url": "https://leg.colorado.gov/bills/hb21-1284",
+      "publisher": "Colorado General Assembly",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Xcel Energy Colorado Communities Served (PDF)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Xcel Energy Colorado: Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Xcel Energy Colorado: Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Xcel Energy Colorado: Interconnection (developer resources)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Xcel Energy Colorado: Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}

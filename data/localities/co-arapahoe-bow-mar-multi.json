@@ -1,0 +1,438 @@
+{
+  "record_id": "co-arapahoe-bow-mar-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy (Public Service Company of Colorado), for addresses Xcel serves. Check the utility named on your electric bill.",
+    "confidence": 0.7,
+    "source_ids": [
+      "S8",
+      "S9"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served, dated 10/2015, shows Bow Mar with gas and electricity service. The list is by community name, not by address. The Town's building and permit pages do not name an electric utility or say that one utility serves every address in Bow Mar. Confirm the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy. Under Xcel's net energy metering, excess generation is held in a virtual bank and applied against future bills."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S8",
+      "S9"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Bow Mar",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's building and permit pages do not state the county."
+  },
+  "permit_authority": {
+    "value": "Town of Bow Mar Building Department (administered by the office at Columbine Valley Town Hall)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S7"
+    ],
+    "notes": "The Town says the day-to-day administration of the Town of Bow Mar Building Department is handled by the office at Columbine Valley Town Hall, and that all building plans, building permits and contractor licensing are administered through that office. The Town says its Building Inspector reviews all plans and conducts all inspections. The State's list of electrical local inspection areas includes Arapahoe County except Bow Mar, Deer Trail and Sheridan city limits, and the State says it does not inspect in local jurisdictions that have their own electrical inspection program. The State says you are responsible for determining the correct inspection authority."
+  },
+  "permit_url": {
+    "value": "https://townofbowmar.specialdistrict.org/building-permits",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Building permits are required on interior and exterior work on your property. After Design Review Board approval (if needed), the Building Permit Application with Plan Review is submitted with construction plans and specifications to the Bow Mar Building Department. The Town's pages do not say which permit application a solar installation uses. Call the Bow Mar Building Department to ask."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.8,
+    "source_ids": [
+      "S9",
+      "S10",
+      "S11"
+    ],
+    "notes": "For Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. Xcel says the interconnection work ends with a permission to operate letter from Xcel to the generator owner. The utility's permission to operate is separate from the Town permit and the Town's inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery to your home or small business and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5 years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S12"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page. The page shows a 2026 General incentive budget of $13,629,630, with $10,635,423 shown as available."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Design Review Board approval",
+        "required_when": "Required for solar panels before installation. The application form requires DRB approval if there is an exterior change.",
+        "source_ids": [
+          "S6",
+          "S4"
+        ]
+      },
+      {
+        "name": "Design Review Board application drawings: plot plan, floor plans, roof plan, exterior elevations and exterior color descriptions or samples",
+        "required_when": "Listed by the Town as the documents for a Design Review Board application.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Signed contract with the homeowner",
+        "required_when": "Marked required on the Building Permit Application with Plan Review.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "2 sets of blueprints or drawings",
+        "required_when": "Marked required on the Building Permit Application with Plan Review.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Digital copy (PDF) of blueprints",
+        "required_when": "If the blueprints are larger than 11x17.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Detailed Schedule Of Valuations",
+        "required_when": "Projects with a total valuation of $50,000 and above.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Two sets of construction drawings, including landscape/civil, mechanical/electrical/plumbing and structural drawings, with the structural drawings stamped by a professional engineer with a current State of Colorado license",
+        "required_when": "Listed on the Town's Building Procedures page among the construction drawings for a building permit.",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S6",
+      "S2",
+      "S4",
+      "S3"
+    ],
+    "notes": "The Design Guidelines (adopted 2008, revised 2019) say solar panels and other similar solar energy devices require the approval of the Design Review Board prior to installation. The Town does not publish a solar-specific permit checklist. Ask the Bow Mar Building Department which plans and equipment sheets a solar permit needs."
+  },
+  "inspection_steps": {
+    "value": [
+      "Apply to the Design Review Board and get its approval for the solar panels before installation. The Board holds regular 2026 meetings at 7:00PM on the 2nd Tuesday of every month.",
+      "Submit the building permit application to the Bow Mar Building Department, which is administered by the office at Columbine Valley Town Hall.",
+      "Do not begin construction before the permit is approved, issued and paid for.",
+      "The Building Inspector makes periodic inspections during construction to check compliance with the DRB approved plans, applicable building codes and Town ordinances.",
+      "For Xcel Energy customers: submit the interconnection application online, and Xcel does a technical review and, if needed, an engineering study before providing an interconnection agreement. Xcel highly recommends that construction not start until the application has full approval from Xcel's engineering team and all final agreements are signed.",
+      "Xcel works with you and your contractors to witness test and energize the system, and issues a permission to operate letter to the generator owner."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S6",
+      "S5",
+      "S11"
+    ],
+    "notes": "The Town's pages do not list the specific inspections for a solar installation. The Town's building code (Ordinance No. 340) says the permit holder or their agent is responsible to contact the State Electrical Board concerning the permits, inspections and fees. Passing the Town's inspections is not the utility's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town does not publish a permit review time. The Design Review Board meets monthly, on the 2nd Tuesday."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Design Review Board approval, then a Town of Bow Mar building permit",
+      "other_conditions": [
+        "Solar panels must be placed on the home itself. No ground-mounted solar is allowed unless a variance from the Town of Bow Mar is obtained.",
+        "The Design Review Board may place reasonable aesthetic restrictions on solar devices, so long as they do not significantly increase the cost of the device, consistent with Colorado State Law.",
+        "Placing solar panels on the front of the house is discouraged for aesthetic reasons and should be avoided wherever possible. Overly reflective panels will not be permitted, and the impact on neighbors' views should be considered when choosing the location.",
+        "Each contractor working in Bow Mar must obtain a Town contractor license and the necessary permit. All subcontractors must be registered with the Town before work starts, and electricians must be state licensed and show proof of licensing at registration.",
+        "All insurance needs to name both the Town of Bow Mar and Columbine Valley as additional insured parties.",
+        "The Town's Building Procedures page says building permits are valid for 360 days. The Town's building code (Ordinance No. 340) says a permit expires if work is not started within 180 days or is suspended or abandoned for 180 days, and that construction must be completed within 365 days. Confirm the permit term with the Bow Mar Building Department.",
+        "The Town's pages describe no separate expedited path for solar permits.",
+        "Xcel Energy net metering: you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number, and the name on the application must match the name on the Xcel Energy account or bill.",
+        "Xcel Energy net metering: the system must be sized so that expected generation, combined with other distributed generation serving the service address, does not exceed 200% of historical consumption (the previous 12 months at the time of application submission).",
+        "Xcel Energy net metering: all equipment must be UL 1741 SB certified and listed within the Solar Equipment Lists on the California Energy Commission website."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S2",
+      "S6",
+      "S4",
+      "S1",
+      "S9"
+    ],
+    "notes": "Solar placement rules are from the Town's Design Guidelines (adopted 2008, revised 2019). Sizing, equipment and account conditions are Xcel Energy's and apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Building permit fee, project valuation $1-$500",
+        "amount_usd": 56,
+        "unit": "flat amount for this valuation range",
+        "notes": null
+      },
+      {
+        "name": "Building permit fee, project valuation $501-$2,000",
+        "amount_usd": 56,
+        "unit": "for the 1st $500, plus $7.25 per additional $100",
+        "notes": null
+      },
+      {
+        "name": "Building permit fee, project valuation $2,001-$25,000",
+        "amount_usd": 164,
+        "unit": "for the 1st $2,000, plus $33.25 per additional $1,000",
+        "notes": null
+      },
+      {
+        "name": "Building permit fee, project valuation $25,001-$50,000",
+        "amount_usd": 930,
+        "unit": "for the 1st $25,000, plus $24.00 per additional $1,000",
+        "notes": null
+      },
+      {
+        "name": "Building permit fee, project valuation $50,000-$100,000",
+        "amount_usd": 1530,
+        "unit": "for the 1st $50,000, plus $16.50 per additional $1,000",
+        "notes": null
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S2",
+      "S3",
+      "S13"
+    ],
+    "notes": "The Town does not publish a separate solar permit fee, and solar is not on its Flat Fee Schedule. Building permit fees are determined according to the total project valuation, which includes all labor and materials (new or used) plus all profit and commissions. The Town's fee schedule has further rows for project valuations above $100,000. An additional Transportation Utility Fee of one percent (1%) of Total Project Valuation is added to the Building Permit Fee for all projects of $10,000 and above. The permit check is made payable to Town of Bow Mar, and the Building Department determines the amount based on the value of the project. A state bill summary (HB21-1284) says the act sets a limit of $500 for a residential permit on the aggregate of all fees a governmental body may impose to install an active solar energy system, and extends the repeal date of that limit to December 31, 2029."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S10"
+    ],
+    "notes": "These are Xcel Energy programs. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. The Town's pages do not mention a Town rebate or incentive for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Bow Mar Building Department Office",
+        "role": "Bow Mar Building Department Office (permit applications), 2 Middlefield Road, Columbine Valley, CO 80123",
+        "phone": "303-795-2063",
+        "email": null,
+        "url": "https://townofbowmar.specialdistrict.org/building-procedures"
+      },
+      {
+        "name": "Bonnie Zapata-Diaz",
+        "role": "Building Department Coordinator (general project questions)",
+        "phone": "303-795-1434",
+        "email": "bzapata-diaz@columbinevalley.org",
+        "url": "https://townofbowmar.specialdistrict.org/building-permits"
+      },
+      {
+        "name": "Terry Weis",
+        "role": "Bow Mar Building Inspector (project specific questions; reviews all plans and conducts all inspections)",
+        "phone": "303-522-3331",
+        "email": null,
+        "url": "https://townofbowmar.specialdistrict.org/building-procedures"
+      },
+      {
+        "name": "Town of Bow Mar (Design Review Board applications)",
+        "role": "Town of Bow Mar (Design Review Board application forms)",
+        "phone": null,
+        "email": "townclerk@bowmar.gov",
+        "url": "https://townofbowmar.specialdistrict.org/building-procedures"
+      },
+      {
+        "name": "Colorado Division of Professions and Occupations, Electrical and Plumbing Permits",
+        "role": "State electrical permits (Colorado Division of Professions and Occupations)",
+        "phone": "303-894-7800",
+        "email": "dora_eandp_permits@state.co.us",
+        "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S7",
+      "S2",
+      "S1"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permits",
+      "url": "https://townofbowmar.specialdistrict.org/building-permits",
+      "publisher": "Town of Bow Mar",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Building Procedures",
+      "url": "https://townofbowmar.specialdistrict.org/building-procedures",
+      "publisher": "Town of Bow Mar",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Building Permit Fees",
+      "url": "https://townofbowmar.specialdistrict.org/building-permit-fees",
+      "publisher": "Town of Bow Mar",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permit Application with Plan Review (PDF)",
+      "url": "https://townofbowmar.org/files/f5276a6a4/Building-Permit-Application-with-Plan-Review_1.pdf",
+      "publisher": "Town of Bow Mar",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Design Review Board",
+      "url": "https://townofbowmar.specialdistrict.org/design-review-board",
+      "publisher": "Town of Bow Mar",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Design Review Guidelines (PDF, 2019)",
+      "url": "https://townofbowmar.specialdistrict.org/files/43cec9885/Design+Review+Board+6.24.19+revised+guidelines+FINAL.pdf",
+      "publisher": "Town of Bow Mar",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "DORA Colorado Electrical and Plumbing Permits",
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits",
+      "publisher": "Colorado Department of Regulatory Agencies",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Xcel Energy Colorado Communities Served (PDF)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Xcel Energy Colorado: Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Xcel Energy Colorado: Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Xcel Energy Colorado: Interconnection (developer resources)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Xcel Energy Colorado: Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "HB21-1284 Limit Fee Install Active Solar Energy System",
+      "url": "https://leg.colorado.gov/bills/hb21-1284",
+      "publisher": "Colorado General Assembly",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}
