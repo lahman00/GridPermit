@@ -1,0 +1,394 @@
+{
+  "record_id": "co-weld-fort-lupton-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "United Power or Xcel Energy, check your electric bill",
+    "confidence": 0.6,
+    "source_ids": [
+      "S3",
+      "S11",
+      "S12"
+    ],
+    "notes": "The City's Inspections page lists solar under SAFEbuilt releases to United Power, and lists Xcel under the City's gas releases. United Power lists Fort Lupton among the cities and towns it serves. Xcel Energy's list of Colorado communities served (10/2015) shows Fort Lupton with gas and electricity service. Both lists name communities, not addresses, and the City does not say which electric utility serves each address, so check the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "United Power or Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to whichever of these utilities is named on your electric bill. United Power says it will always be there to back up solar members when their system is not producing enough energy to power the home. United Power rolls excess kWh over to the next month at the member's applicable rate. Xcel says all solar customers receive Net Energy Metering (NEM) benefits from a system installed on their premise."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S10",
+      "S8",
+      "S13",
+      "S11",
+      "S12"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Fort Lupton",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's Building Department pages and building permit fee schedule do not state which county Fort Lupton is in."
+  },
+  "permit_authority": {
+    "value": "City of Fort Lupton Building Department (SAFEbuilt provides inspections and plan review)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The Building Department issues building permits, makes inspections, reviews plans and enforces codes for all construction in Fort Lupton. The City partners with SAFEbuilt to provide building inspections and plan review services. The City highly suggests checking its zoning map to make sure the property is in the City's jurisdiction before applying for any permits."
+  },
+  "permit_url": {
+    "value": "https://www.fortluptonco.gov/210/Permit-Information",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "The City accepts permit applications through its online portal, CommunityCore. Create a permit, upload all documents required and submit; the City cannot see the application until it is submitted."
+  },
+  "interconnection_url": {
+    "value": "https://www.unitedpower.com/connect-your-solar",
+    "confidence": 0.8,
+    "source_ids": [
+      "S8",
+      "S9",
+      "S13"
+    ],
+    "notes": "This United Power page applies if United Power is your utility. United Power members must complete the corresponding application, follow all requirements for that system and sign the United Power Interconnection Terms and Conditions. United Power's net metering application is a pre-approval process, and United Power e-mails a link for signing its Terms and Conditions with instructions for submitting the $200 application fee. If Xcel Energy is your utility, Xcel highly recommends that construction not start until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. United Power says your solar contractor will also need to arrange for an inspection with the local authority having jurisdiction to make sure the installation meets local building codes. United Power's interconnection approval is separate from the City permit and the City's inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect (if Xcel Energy is your utility)",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. The general upfront incentive is $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "Only if Xcel Energy is your utility. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S14",
+      "S8"
+    ],
+    "notes": "Xcel's Renewable Battery Connect page shows 2026 incentive budget available, on figures dated 11/02/2026. If United Power is your utility, it handles batteries in similar fashion to a new solar installation, through its interconnection Terms & Conditions and an online application. United Power's solar connection page describes no battery incentive."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Permit application with all required documents, uploaded in CommunityCore",
+        "required_when": "The City accepts applications through CommunityCore, and you upload all documents required before you submit.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Electrical one-line drawing (United Power application, if United Power is your utility)",
+        "required_when": "United Power says a one-line engineering drawing, typically provided by your solar installer, is required with each solar application.",
+        "source_ids": [
+          "S8",
+          "S9"
+        ]
+      },
+      {
+        "name": "Signed United Power Interconnection Terms and Conditions (if United Power is your utility)",
+        "required_when": "United Power members will be required to sign the United Power Interconnection Terms and Conditions.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Final design drawings and photos of the production meter housing, AC disconnect and inverter nameplate (United Power, after installation)",
+        "required_when": "Once the system has been installed, United Power provides a link to a form for submitting these items.",
+        "source_ids": [
+          "S9"
+        ]
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S2",
+      "S8",
+      "S9"
+    ],
+    "notes": "The City's Permit Information, Building Department and Inspections pages give no solar-specific submittal list. The City's steps for every permit say to upload all documents required in CommunityCore, so ask the Building Department which documents a solar permit needs."
+  },
+  "inspection_steps": {
+    "value": [
+      "Check the City's zoning map to make sure the property is in the City's jurisdiction.",
+      "If United Power is your utility, review its Solar Interconnection Standards and Terms & Conditions before you sign a contract with a solar installer.",
+      "Register with CommunityCore, create the permit, upload all required documents and submit.",
+      "Pay the plan review fee when invoiced, because permits that need plan review must have it paid before the review is completed.",
+      "After approval, pay for the permit online, in person or over the phone.",
+      "Keep the printed permit, inspection card and all stamped documents on site throughout the project, including inspections.",
+      "If United Power is your utility, review and submit its online application with your solar contractor when you are ready to install. United Power calls this a pre-approval process.",
+      "Request the inspections noted on the permit card; inspections scheduled before 4:00 PM are completed the following business day. The Permit Information and Inspections pages say to schedule inspections online through Community Core, while the City's Planning FAQ points to a ProCode inspection request page.",
+      "Provide access for the inspector, including set and secured ladders when necessary.",
+      "SAFEbuilt handles the solar release to United Power, which the Inspections page lists as Solar/ United Power.",
+      "After installation, send United Power the final design drawings and photos it requests.",
+      "If United Power is your utility, United Power engineers review solar installations connecting to the grid to make sure the grid can accommodate them."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S2",
+      "S3",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "notes": "Systems connected without proper notification to United Power will be immediately disabled, and can result in service being terminated to the member until all requirements are met. The City's pages do not list which inspections a solar installation needs, so ask SAFEbuilt when you schedule."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City asks applicants to allow 7 to 14 business days for residential building plans, based on complete submittals. The City does not say whether a solar permit follows that time or the 24 to 48 hours it lists for over the counter or one stop permits."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential solar permit, applied for online through CommunityCore",
+      "other_conditions": [
+        "Professional contractors are required to obtain the applicable and necessary permits for residential and commercial construction.",
+        "The City's residential building permit application says electrical and plumbing work may be performed by the homeowner solely on owner-occupied residences, and not on properties being sold, offered for sale, or prepared for occupancy by tenants, where licensed contractors must do the work.",
+        "The City does not enforce HOA or Metro District requirements and suggests checking with your HOA or Metro District before pulling a permit.",
+        "On January 20, 2026, the City Council approved Ordinance 2026-1198 to adopt the 2024 International Codes and new sections for the Colorado Model Electric Ready and Solar Ready Code, 2023 Edition, with an effective date (after publication) of March 28th, 2026.",
+        "If United Power is your utility, system generation can not exceed 200% of the annual usage at that location.",
+        "If United Power is your utility, your contractor must place a disconnect switch and production meter housing on the side of your home."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S4",
+      "S6",
+      "S8"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential Solar Permit Fee",
+        "amount_usd": 500,
+        "unit": "per residential solar permit",
+        "notes": "Listed under Solar PV Permit Fees in Resolution No. 2026R020, effective May 1, 2026."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S4",
+      "S5",
+      "S2"
+    ],
+    "notes": "Fees are from the City Building Permit Fee Schedule, Resolution No. 2026R020, effective May 1, 2026. The schedule also lists a Residential Plan Review Fee of 65% of the Building Permit Fee and separate electrical permit fees, and it does not say whether these apply on top of the residential solar permit fee. Plan review fees are collected up front at application submittal and are non-refundable once the review process has commenced. Use tax is calculated based on 50% of the calculated valuation or the provided material cost, whichever is greater. Credit card payments carry a 3.95% processing fee, and e-checks a $1.00 flat fee."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate (if Xcel Energy is your utility)",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate (if Xcel Energy is your utility)",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S13",
+      "S8"
+    ],
+    "notes": "These are Xcel Energy programs for Xcel electricity customers. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. If United Power is your utility, it says that at this time it does not offer a rebate for new system installations."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Planning and Building",
+        "role": "City of Fort Lupton Planning and Building (building permits)",
+        "phone": "303-857-6694",
+        "email": "buildingdept@fortluptonco.gov",
+        "url": "https://www.fortluptonco.gov/208/Building-Department"
+      },
+      {
+        "name": "Jose Gonzalez, Building Official II",
+        "role": "Building Official II (Building Department contact)",
+        "phone": "970-305-3161",
+        "email": null,
+        "url": "https://www.fortluptonco.gov/208/Building-Department"
+      },
+      {
+        "name": "SAFEbuilt",
+        "role": "SAFEbuilt (inspections and plan review for Fort Lupton)",
+        "phone": null,
+        "email": "coemail@safebuilt.com",
+        "url": "https://www.fortluptonco.gov/212/Inspections-Plan-Review"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S6",
+      "S3"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Department",
+      "url": "https://www.fortluptonco.gov/208/Building-Department",
+      "publisher": "City of Fort Lupton",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Permit Information",
+      "url": "https://www.fortluptonco.gov/210/Permit-Information",
+      "publisher": "City of Fort Lupton",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Inspections & Plan Review",
+      "url": "https://www.fortluptonco.gov/212/Inspections-Plan-Review",
+      "publisher": "City of Fort Lupton",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permit Fee Schedule, Resolution No. 2026R020",
+      "url": "https://www.fortluptonco.gov/DocumentCenter/View/20476/Building-Permit-Fee-Schedule---Resolution-No-2026R020",
+      "publisher": "City of Fort Lupton",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Payment & Fee Information",
+      "url": "https://www.fortluptonco.gov/956/Payment-Fee-Information",
+      "publisher": "City of Fort Lupton",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Residential Construction Building Permit Application",
+      "url": "https://www.fortluptonco.gov/DocumentCenter/View/58/Building-Permit-Application",
+      "publisher": "City of Fort Lupton",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Planning FAQ",
+      "url": "https://www.fortluptonco.gov/FAQ.aspx?QID=116",
+      "publisher": "City of Fort Lupton",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Solar & Storage Connection",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Net Metering Application (No Larger than 25 kW)",
+      "url": "https://www.unitedpower.com/form/net-metering-application",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Going Solar",
+      "url": "https://www.unitedpower.com/going-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Service Area",
+      "url": "https://www.unitedpower.com/service-area",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Solar*Rewards (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S14",
+      "title": "Renewable Battery Connect (Colorado)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}

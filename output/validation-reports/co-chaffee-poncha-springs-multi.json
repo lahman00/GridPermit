@@ -1,0 +1,100 @@
+{
+  "record_id": "co-chaffee-poncha-springs-multi",
+  "file": "data/localities/co-chaffee-poncha-springs-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://dpo.colorado.gov/EandP/Permits — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:16:28Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "county",
+      "message": "'county' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Electrical_Application.pdf",
+      "checked_at": "2026-11-27T11:34:09.801Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+      "checked_at": "2026-11-27T11:34:10.886Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "checked_at": "2026-11-27T11:34:11.390Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "checked_at": "2026-11-27T11:34:11.870Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Residential%20Final%20Packet%20October%202026.pdf?t=202610210853140",
+      "checked_at": "2026-11-27T11:34:12.389Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Residential_Building_Application.pdf",
+      "checked_at": "2026-11-27T11:34:12.647Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://dpo.colorado.gov/EandP/Permits",
+      "checked_at": "2026-11-27T11:34:12.912Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:16:28Z",
+        "sha256": "41665317786f7f70ad21bf4ae1e449d95c0554d118fc0caa9347216385589ed3",
+        "method": "curl"
+      }
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "checked_at": "2026-11-27T11:34:12.977Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

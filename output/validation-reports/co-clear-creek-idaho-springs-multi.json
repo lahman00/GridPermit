@@ -1,0 +1,126 @@
+{
+  "record_id": "co-clear-creek-idaho-springs-multi",
+  "file": "data/localities/co-clear-creek-idaho-springs-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.idahospringsco.com/building-department — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:11:47Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[1].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.idahospringsco.com/media/116 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:11:51Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.idahospringsco.com/city-clerk/page/permitting — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:12:04Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.idahospringsco.com/media/4031 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T11:12:34Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.idahospringsco.com/building-department",
+      "checked_at": "2026-11-27T11:53:21.722Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:11:47Z",
+        "sha256": "2d00df715a1dfad58d2166c3a46eee1002c58948d0c4decd0d03e5c72c65540b",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+      "checked_at": "2026-11-27T11:53:21.940Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards?nocache=https%3A%2F%2Fco.my.xcelenergy.com%2Fs%2Frenewable%2Fsolar-rewards",
+      "checked_at": "2026-11-27T11:53:22.412Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.idahospringsco.com/media/116",
+      "checked_at": "2026-11-27T11:53:23.375Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:11:51Z",
+        "sha256": "6cd9746e60f1172ff76cfc9e146c312b57db401ed77306e47cc441c2bce13984",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.idahospringsco.com/city-clerk/page/permitting",
+      "checked_at": "2026-11-27T11:53:23.425Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:12:04Z",
+        "sha256": "672c568210e2a30f3670174b2a8c33907b9715cd2d61f72f01eba39ef37ef853",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.idahospringsco.com/media/4031",
+      "checked_at": "2026-11-27T11:53:23.461Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T11:12:34Z",
+        "sha256": "ba1c63cbce4e0daccbe267071423e10f81062bf1b9a86563e5b4509ae8c848ed",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://clearcreekcounty.us/1530/Permits",
+      "checked_at": "2026-11-27T11:53:23.503Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "checked_at": "2026-11-27T11:53:24.664Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

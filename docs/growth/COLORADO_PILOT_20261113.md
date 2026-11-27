@@ -194,3 +194,15 @@ Research folder: `01-Command-Center/research/colorado-batch5-20261127/` (96 cand
 - Leadville: Lake County issues solar permits for the City. Bayfield: the Town's $50 Solar Permit Fee (Resolution 566, June 20, 2023); the Town and LPEA give opposite orders for the Town permit and the LPEA application, and the page states both.
 - Diff against 9c72663: adds the seven guides and their Permit Path records; three batch 5 guides change only in their related-cities lists. No measured guide changed; the 86-route manifest is byte-identical.
 
+### Wave 4
+
+| Guide | Record | Readiness |
+|---|---|---|
+| `/colorado/poncha-springs/solar-permit-guide/` | `co-chaffee-poncha-springs-multi` | 12 of 15 fields, validation 100 |
+| `/colorado/idaho-springs/solar-permit-guide/` | `co-clear-creek-idaho-springs-multi` | 13 of 15 fields, validation 100 |
+| `/colorado/fort-lupton/solar-permit-guide/` | `co-weld-fort-lupton-multi` | 13 of 15 fields, validation 100 |
+
+- Audit (pass / edit / fail): Poncha Springs 98/9/7 (derived county and generation-supplier values removed; 12 of 15 remain), Idaho Springs 104/7/0, Fort Lupton 99/13/0. From this wave the auditor brief fails any derived or inferred value outright.
+- Poncha Springs: Chaffee County Building Safety issues permits (its forms list Poncha Springs); fee $4.00 per watt valuation, residential maximum $500.00; the County sheet's cost-based photovoltaic line is also stated. Idaho Springs: no solar-specific City list; the City's plan review handout covers "Solar energy" and the page says so; 2026 valuation table. Fort Lupton: Residential Solar Permit Fee $500.00 (Resolution 2026R020, scanned; checked against the page image); battery and rebate items are labelled for Xcel Energy customers only.
+- Diff against 102886c: adds the three guides and their Permit Path records; three batch 5 guides change only in related-cities lists. 86-route manifest byte-identical.
+
