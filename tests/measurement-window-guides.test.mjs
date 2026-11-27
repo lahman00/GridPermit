@@ -39,7 +39,9 @@ function loadEntries() {
 const BATCH_2_IDS = new Set(["co-jefferson-wheat-ridge-xcel", "co-boulder-lafayette-xcel", "co-mesa-grand-junction-multi", "co-arapahoe-englewood-xcel", "co-arapahoe-littleton-xcel", "co-adams-commerce-city-multi"]);
 // Batch 3 guides (2026-11-24) are newer than batch 2.
 const BATCH_3_IDS = new Set(["co-adams-brighton-multi", "co-boulder-erie-multi", "co-boulder-superior-xcel", "az-maricopa-queen-creek-multi", "az-pima-oro-valley-multi"]);
-const LATER_BATCH_IDS = new Set([...BATCH_2_IDS, ...BATCH_3_IDS]);
+// Batch 4 guides (2026-11-27) are newer than batch 3.
+const BATCH_4_IDS = new Set(["co-weld-frederick-united-power", "co-garfield-glenwood-springs-multi", "co-adams-federal-heights-multi", "co-la-plata-durango-multi", ]);
+const LATER_BATCH_IDS = new Set([...BATCH_2_IDS, ...BATCH_3_IDS, ...BATCH_4_IDS]);
 
 test("existing and earlier pilot guides keep their pools; Thornton can see all guides", () => {
 	const entries = [{ recordId: "co-denver-denver-xcel" }, ...[...NEW_GUIDES_DURING_MEASUREMENT].map((recordId) => ({ recordId }))];
@@ -47,8 +49,9 @@ test("existing and earlier pilot guides keep their pools; Thornton can see all g
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		assert.equal(isNewGuideDuringMeasurement(id), true);
 		const hidden = id === "co-adams-thornton-multi" ? [] : ["co-adams-thornton-multi", ...(id === "co-douglas-parker-multi" ? [] : ["co-douglas-parker-multi", ...(id === "co-adams-westminster-multi" ? [] : ["co-adams-westminster-multi", ...(id === "co-broomfield-broomfield-multi" ? [] : ["co-broomfield-broomfield-multi", ...(id === "co-boulder-boulder-multi" ? [] : ["co-boulder-boulder-multi", ...(id === "co-arapahoe-centennial-multi" ? [] : id === "co-boulder-longmont-multi" ? ["co-arapahoe-centennial-multi"] : id === "co-jefferson-arvada-multi" ? ["co-arapahoe-centennial-multi", "co-boulder-longmont-multi"] : ["co-arapahoe-centennial-multi", "co-boulder-longmont-multi", "co-jefferson-arvada-multi"])])])])])];
-		if (BATCH_3_IDS.has(id)) { assert.deepEqual(relatedPoolFor(id, entries), entries); continue; }
-		if (BATCH_2_IDS.has(id)) { assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !BATCH_3_IDS.has(entry.recordId))); continue; }
+		if (BATCH_4_IDS.has(id)) { assert.deepEqual(relatedPoolFor(id, entries), entries); continue; }
+		if (BATCH_3_IDS.has(id)) { assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !BATCH_4_IDS.has(entry.recordId))); continue; }
+		if (BATCH_2_IDS.has(id)) { assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !BATCH_3_IDS.has(entry.recordId) && !BATCH_4_IDS.has(entry.recordId))); continue; }
 		assert.deepEqual(relatedPoolFor(id, entries), entries.filter((entry) => !hidden.includes(entry.recordId) && !LATER_BATCH_IDS.has(entry.recordId)));
 	}
 	assert.equal(isNewGuideDuringMeasurement("co-denver-denver-xcel"), false);
@@ -127,7 +130,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		const record = JSON.parse(read(`data/localities/${id}.json`));
 		// Each record tells the reader to check their own address in the utility notes.
-		assert.match(record.utility.notes, /your (own )?address|your electric bill/);
+		assert.match(record.utility.notes, /your (own )?address|your electric (bill|service)/);
 		const utilityFaq = buildFaqs(record, { addressLevelUtility: true })[0];
 		assert.match(utilityFaq.a, /^It depends on the address\./);
 		assert.doesNotMatch(utilityFaq.a, /is the interconnection and distribution utility for/);
@@ -144,8 +147,8 @@ test("new guides say the utility depends on the address; existing guides keep th
 	// Batch 3 guides answer the utility question with their own audited notes (Boulder already did).
 	const notesSet = read("src/layouts/LocalityGuideLayout.astro").match(/const UTILITY_ANSWER_FROM_NOTES = new Set\(\[([^\]]*)\]\);/);
 	assert.ok(notesSet);
-	assert.deepEqual([...notesSet[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), ["co-boulder-boulder-multi", ...BATCH_3_IDS].sort());
-	for (const id of BATCH_3_IDS) assert.match(JSON.parse(read(`data/localities/${id}.json`)).utility.notes, /your (own )?address|your electric bill/);
+	assert.deepEqual([...notesSet[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), ["co-boulder-boulder-multi", ...BATCH_3_IDS, ...BATCH_4_IDS].sort());
+	for (const id of [...BATCH_3_IDS, ...BATCH_4_IDS]) assert.match(JSON.parse(read(`data/localities/${id}.json`)).utility.notes, /your (own )?address|your electric (bill|service)/);
 	const denver = JSON.parse(read("data/localities/co-denver-denver-xcel.json"));
 	assert.match(buildFaqs(denver)[0].a, /is the interconnection and distribution utility for Denver\./);
 	assert.deepEqual(buildFaqs(denver), buildFaqs(denver, {}));

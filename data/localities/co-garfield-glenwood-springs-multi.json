@@ -1,0 +1,381 @@
+{
+  "record_id": "co-garfield-glenwood-springs-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Glenwood Springs Electric (the City's Electric Department), if it serves your address",
+    "confidence": 0.7,
+    "source_ids": [
+      "S7",
+      "S8",
+      "S9",
+      "S10"
+    ],
+    "notes": "The City's net metering agreement says the City is a publicly-owned electric utility engaged in the retail sale of electricity in the state of Colorado. The City's Sustainability page says the City provides all renewable energy through its electric utility. The City's pages do not say that Glenwood Springs Electric serves every address in the city, and they give no address lookup for electric service. To confirm who provides your electric service, contact the City's Electric Department at 970-384-6352 or utilities@cogs.us."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Glenwood Springs Electric",
+      "type": "utility",
+      "notes": "Applies to Glenwood Springs Electric customers. The City says it purchases all of Glenwood Springs Electric electricity from green power from the Municipal Energy Agency of Nebraska (MEAN)."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Glenwood Springs",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Garfield County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S5"
+    ],
+    "notes": "The City's building code ordinance (Ordinance No. 06, Series of 2022) says certain special assessments on property may be certified by the city clerk to the Garfield County Treasurer. The City's building and permit pages do not say which county the City is in. The county is inferred from City documents that refer to the Garfield County Treasurer and to Garfield County permits for onsite water treatment systems."
+  },
+  "permit_authority": {
+    "value": "City of Glenwood Springs Building Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S11"
+    ],
+    "notes": "The City says a solar panel installation requires a building permit, and the solar permit application is filed on the City's customer portal. The City says electrical permits are issued by the State of Colorado Department of Regulatory Agencies (DORA), online at the DORA website. The City says it uses the State of Colorado for electrical inspections. The City's Building Permits page says most construction projects within City limits require a building permit. The City's building pages give no tool for checking whether an address is inside City limits. Ask the Building Department at 970-384-6450."
+  },
+  "permit_url": {
+    "value": "https://cogs.us/540/Solar-Panel-Permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City's Solar Panel Permits page says to fill out and submit a Solar permit application on the City's customer portal. All applicants apply for building permits through the Online Customer Portal, and the Building Department no longer takes paper applications or applications submitted by email. Permit payments can be made online through the customer portal you applied with, or in person at City Hall by check or credit card."
+  },
+  "interconnection_url": {
+    "value": "https://cogs.us/DocumentCenter/View/9295",
+    "confidence": 0.85,
+    "source_ids": [
+      "S7",
+      "S8"
+    ],
+    "notes": "This is the Net Metering Application for Interconnection linked from the City's Electric Department page, for Glenwood Springs Electric customers. The form says interconnection is approved contingent upon the terms and conditions of the City's Interconnection Agreement Inspection and upon return of the Certificate of Completion. The agreement says the customer shall not commence parallel operation of the generating facility until the City has given written approval of the interconnection facilities. The customer agrees to pay, if necessary, the costs of upgrades to the City's distribution system under the City's Line Extension Policy. Glenwood Springs Electric's approval to energize is separate from the City building permit and the City's inspections. Glenwood Springs Electric does not publish a review time for the interconnection application."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's Electric Department page, Sustainability page and net metering application describe no battery or energy storage program."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Solar permit application (filed on the City's customer portal)",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan",
+        "required_when": null,
+        "source_ids": [
+          "S1",
+          "S3"
+        ]
+      },
+      {
+        "name": "Letter from a structural engineer",
+        "required_when": null,
+        "source_ids": [
+          "S1",
+          "S3"
+        ]
+      },
+      {
+        "name": "Net Metering Application for Interconnection (Glenwood Springs Electric customers)",
+        "required_when": "If Glenwood Springs Electric serves the address.",
+        "source_ids": [
+          "S7",
+          "S8"
+        ]
+      },
+      {
+        "name": "One-line electrical diagram of the generating system (Glenwood Springs Electric customers)",
+        "required_when": "Furnished to the City before installation. It must show all wiring, connecting points and protective devices for the selected equipment components at the site.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Copy of the installer's NABCEP certification (Glenwood Springs Electric customers)",
+        "required_when": "Submitted to the City with the Net Metering Application for Interconnection.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Manufacturer's cut-sheet showing UL1741 listing (if the equipment is UL1741 listed)",
+        "required_when": "The application asks whether the equipment is UL1741 listed and, if yes, to attach the cut-sheet.",
+        "source_ids": [
+          "S8"
+        ]
+      },
+      {
+        "name": "Net Metering Certificate of Completion, with the signed State Electric Inspection and the City building department's Certificate of Completion (Glenwood Springs Electric customers)",
+        "required_when": "After installation, as a condition of interconnection.",
+        "source_ids": [
+          "S8"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S5",
+      "S7",
+      "S8"
+    ],
+    "notes": "The City's Solar Panel Permits page lists a site plan and a letter from a structural engineer as required documents. The structural engineer's letter must consider the weight per square foot of the solar panels and solar platform, the weight bearing capacity of the roof trusses, the existing roof snow load, the age of the roof structure, the wind rating of the solar panels and solar platform, and the mounting method and hardware used. The City's building code sets a minimum ground snow load of 50 pounds per square foot (psf) for buildings or structures within the City. The interconnection documents come from Glenwood Springs Electric's Net Metering Application for Interconnection and apply to its customers."
+  },
+  "inspection_steps": {
+    "value": [
+      "Submit a Solar permit application with the site plan and the structural engineer's letter on the City's customer portal.",
+      "If Glenwood Springs Electric serves the address, submit its Net Metering Application for Interconnection and furnish a one-line electrical diagram to the City before installation.",
+      "Electrical permits are issued by the State of Colorado (DORA), and the City uses the State for electrical inspections.",
+      "City pre-installation inspection of bracketing.",
+      "City final inspection.",
+      "Glenwood Springs Electric customers then email or fax the Net Metering Certificate of Completion, with a copy of the signed State Electric Inspection and the City building department's Certificate of Completion, to the Glenwood Springs Electric Department (metertech@cogs.us, fax 970-945-5521).",
+      "If Glenwood Springs Electric serves the address, do not operate the system in parallel with the grid until the City gives written approval. The Electric Department signs the Approval to Energize on the Certificate of Completion."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S8"
+    ],
+    "notes": "To schedule a City inspection, call the City's Inspection Hot Line at 970-384-6432 or use the online permitting and licensing portal. The Solar Panel Permits page says to request an inspection 24 hours in advance, while the City's inspection FAQ says to request an inspection before 7:00am on the day of your request by phone, or before 6:00pm the day before if done online. Confirm the cutoff with the Building Department. The Building Inspector will contact you the morning of the inspection to set up a time. The person who did the work will need to be on site for the inspection. Passing the City's inspections is not Glenwood Springs Electric's approval to energize."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 10,
+      "notes": "The Building Department says it is committed to processing and issuing permits within 10 days from the application day, as long as all necessary documents are included in the application. The page does not say whether the 10 days are business days or calendar days."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This commitment appears on the City's Solar Panel Permits page. It covers the City building permit, not the State electrical permit or Glenwood Springs Electric's approval to energize."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City solar panel building permit, applied for on the City's customer portal",
+      "other_conditions": [
+        "Anyone who builds, alters, repairs, moves or demolishes a building or structure for compensation must hold a City contractor license before any permit is issued or work begins.",
+        "The City's contractor license chart lists a Class-D Solar license with a $75 fee for 1 year and a $300,000 minimum insurance amount.",
+        "A City Electrician license has no charge, expires with the State electricians license, and requires a current State of Colorado issued contractor license and Master Electricians License.",
+        "Homeowners performing work at their primary residence do not need a contractor's license, within the limits set by the City's ordinance.",
+        "Glenwood Springs Electric net metering: systems must be installed by a NABCEP certified installer.",
+        "Glenwood Springs Electric net metering: residential customer-generators may generate electricity under the Net Metering Agreement up to 10 kilowatts. A system found to have a max peak kilowatt production greater than this limit could forfeit its Net Metering Agreement.",
+        "Glenwood Springs Electric net metering: the generating facility should be sized to supply no more than 120 percent of the customer's average annual electricity consumption at the site.",
+        "Glenwood Springs Electric net metering: inverters must be UL listed and approved, and the system must be grid-tied with a minimum 5 year warranty on the panels, inverters and installation.",
+        "Glenwood Springs Electric net metering: the AC outlet supply must be wired to an outside disconnect labeled \"WARNING!! DUAL POWER SUPPLY\", installed adjacent to or at the main point of service disconnect.",
+        "The City's solar and permit pages describe no separate expedited path for solar permits."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S6",
+      "S8"
+    ],
+    "notes": "License conditions are from the City's Contractor Licensing page. Net metering conditions are from Glenwood Springs Electric's Net Metering Application for Interconnection and apply to its customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar panel building permit, application review",
+        "amount_usd": 50,
+        "unit": "per hour of application review",
+        "notes": "The hourly fee is capped at $500.00 for a residential application or $2,000.00 for a nonresidential application."
+      },
+      {
+        "name": "Solar panel building permit, residential maximum (cap on the hourly review fee, not an added fee)",
+        "amount_usd": 500,
+        "unit": "maximum per residential application",
+        "notes": "Ordinance No. 06, Series of 2022 sets the same $50.00 hourly rate and $500.00 residential maximum."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S5"
+    ],
+    "notes": "The City says the fee for solar panel building permits is $50.00 per hour for application review, with a maximum fee of $500.00 for a residential application or $2,000.00 for a nonresidential application. The City also says most solar panel building permit fees are $100. Use tax is separate from the building permit fee. The Solar Panel Permits page does not give the use tax rate. Ask the Building Department. The City says electrical permits are issued by the State of Colorado (DORA)."
+  },
+  "rebates": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Official sources disagree on whether Glenwood Springs Electric offers a solar rebate. The City's Sustainability page says the City will continue to offer rebates for energy efficiency and solar projects for its customers. Garfield Clean Energy's residential solar page says Glenwood Springs Electric discontinued its solar rebate program as of January 2022. Garfield Clean Energy's Glenwood Springs Electric rebate page says some upgrades, such as solar installations, require advance enrollment and a home energy assessment to qualify for the rebate. That page also says that as of July 1, 2026, current rebate funding has been fully allocated and new applications will be placed on a waitlist. Ask the Electric Department at 970-384-6352 whether a solar rebate is available before you count on one."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Glenwood Springs Building Department",
+        "role": "City of Glenwood Springs Building Department (solar permit questions), 101 W. 8th Street, Second Floor, Glenwood Springs, CO 81601",
+        "phone": "970-384-6450",
+        "email": "building@cogs.us",
+        "url": "https://cogs.us/283/Building-Department"
+      },
+      {
+        "name": "City of Glenwood Springs Inspection Hot Line",
+        "role": "City of Glenwood Springs Inspection Hot Line (inspection requests)",
+        "phone": "970-384-6432",
+        "email": null,
+        "url": "https://cogs.us/540/Solar-Panel-Permits"
+      },
+      {
+        "name": "Victor Meraz",
+        "role": "City of Glenwood Springs Building Official",
+        "phone": "970-384-6410",
+        "email": null,
+        "url": "https://cogs.us/283/Building-Department"
+      },
+      {
+        "name": "Glenwood Springs Electric Department",
+        "role": "Glenwood Springs Electric Department (electric service and net metering)",
+        "phone": "970-384-6352",
+        "email": "utilities@cogs.us",
+        "url": "https://cogs.us/299/Utilities"
+      },
+      {
+        "name": "Glenwood Springs Electric Department (completion documents)",
+        "role": "Glenwood Springs Electric Department (Net Metering Certificate of Completion and inspection copies)",
+        "phone": null,
+        "email": "metertech@cogs.us",
+        "url": "https://cogs.us/DocumentCenter/View/9295"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S8",
+      "S10"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Panel Permits",
+      "url": "https://cogs.us/540/Solar-Panel-Permits",
+      "publisher": "City of Glenwood Springs Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Building Department",
+      "url": "https://cogs.us/283/Building-Department",
+      "publisher": "City of Glenwood Springs Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Do I Need a Permit For...",
+      "url": "https://www.cogs.us/732",
+      "publisher": "City of Glenwood Springs",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Building Department FAQs: How do I schedule an inspection?",
+      "url": "https://www.cogs.us/Faq.aspx?QID=88",
+      "publisher": "City of Glenwood Springs",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Ordinance No. 06, Series of 2022, adopting the 2021 International Codes",
+      "url": "https://www.cogs.us/DocumentCenter/View/8461/Ord-2022-06-Title-060-Adoption-of-International-Building-Codes-PDF",
+      "publisher": "City of Glenwood Springs",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Contractor Licensing",
+      "url": "https://cogs.us/931/Contractor-Licensing",
+      "publisher": "City of Glenwood Springs Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Electric Department",
+      "url": "https://cogs.us/154/Electric",
+      "publisher": "Glenwood Springs Electric Department (City of Glenwood Springs)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Net Metering Application for Interconnection",
+      "url": "https://cogs.us/DocumentCenter/View/9295",
+      "publisher": "Glenwood Springs Electric Department (City of Glenwood Springs)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Sustainability",
+      "url": "https://cogs.us/529/Sustainability",
+      "publisher": "City of Glenwood Springs",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Utilities Departments",
+      "url": "https://cogs.us/299/Utilities",
+      "publisher": "City of Glenwood Springs",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Building Permits",
+      "url": "https://cogs.us/933/Building-Permits",
+      "publisher": "City of Glenwood Springs Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}
