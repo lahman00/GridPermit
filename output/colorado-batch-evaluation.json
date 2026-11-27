@@ -1,6 +1,6 @@
 {
   "state": "CO",
-  "generated_at": "2026-11-27T11:08:49.447Z",
+  "generated_at": "2026-11-27T11:54:06.400Z",
   "records": [
     {
       "record_id": "co-adams-brighton-multi",
@@ -729,6 +729,40 @@
       "readiness": "READY"
     },
     {
+      "record_id": "co-chaffee-poncha-springs-multi",
+      "state": "CO",
+      "city": "Poncha Springs",
+      "county": null,
+      "completeness_pct": 80,
+      "validation_score": 100,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 1,
+      "populated_fields": [
+        "utility",
+        "city",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "generation_supplier",
+        "county",
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture"
+      ],
+      "readiness": "READY"
+    },
+    {
       "record_id": "co-chaffee-salida-multi",
       "state": "CO",
       "city": "Salida",
@@ -755,6 +789,40 @@
         "official_contacts"
       ],
       "missing_fields": [
+        "timeline_days"
+      ],
+      "warning_categories": [
+        "blocked_url_with_capture"
+      ],
+      "readiness": "READY"
+    },
+    {
+      "record_id": "co-clear-creek-idaho-springs-multi",
+      "state": "CO",
+      "city": "Idaho Springs",
+      "county": "Clear Creek County",
+      "completeness_pct": 86.7,
+      "validation_score": 100,
+      "validation_status": "REVIEW",
+      "error_count": 0,
+      "warning_count": 4,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "county",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "battery_programs",
         "timeline_days"
       ],
       "warning_categories": [
@@ -1537,6 +1605,38 @@
       "readiness": "READY"
     },
     {
+      "record_id": "co-weld-fort-lupton-multi",
+      "state": "CO",
+      "city": "Fort Lupton",
+      "county": null,
+      "completeness_pct": 86.7,
+      "validation_score": 100,
+      "validation_status": "PASS",
+      "error_count": 0,
+      "warning_count": 0,
+      "populated_fields": [
+        "utility",
+        "generation_supplier",
+        "city",
+        "permit_authority",
+        "permit_url",
+        "interconnection_url",
+        "battery_programs",
+        "required_documents",
+        "inspection_steps",
+        "eligibility_constraints",
+        "permit_fees",
+        "rebates",
+        "official_contacts"
+      ],
+      "missing_fields": [
+        "county",
+        "timeline_days"
+      ],
+      "warning_categories": [],
+      "readiness": "READY"
+    },
+    {
       "record_id": "co-weld-frederick-united-power",
       "state": "CO",
       "city": "Frederick",
@@ -1637,24 +1737,24 @@
     }
   ],
   "aggregate": {
-    "average_completeness_pct": 87.5,
-    "average_validation_score": 97.9,
+    "average_completeness_pct": 87.3,
+    "average_validation_score": 98,
     "fields_most_often_missing": [
       {
         "field": "timeline_days",
-        "missing_in_records": 39
+        "missing_in_records": 42
       },
       {
         "field": "battery_programs",
-        "missing_in_records": 17
+        "missing_in_records": 18
       },
       {
         "field": "county",
-        "missing_in_records": 14
+        "missing_in_records": 16
       },
       {
         "field": "generation_supplier",
-        "missing_in_records": 11
+        "missing_in_records": 12
       },
       {
         "field": "rebates",
@@ -1702,7 +1802,9 @@
       "co-boulder-niwot-multi",
       "co-boulder-superior-xcel",
       "co-broomfield-broomfield-multi",
+      "co-chaffee-poncha-springs-multi",
       "co-chaffee-salida-multi",
+      "co-clear-creek-idaho-springs-multi",
       "co-denver-denver-xcel",
       "co-douglas-parker-multi",
       "co-eagle-basalt-holy-cross",
@@ -1725,6 +1827,7 @@
       "co-summit-dillon-multi",
       "co-summit-frisco-multi",
       "co-summit-silverthorne-multi",
+      "co-weld-fort-lupton-multi",
       "co-weld-frederick-united-power",
       "co-weld-hudson-multi",
       "co-weld-johnstown-multi"

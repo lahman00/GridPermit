@@ -1,0 +1,318 @@
+{
+  "record_id": "co-chaffee-poncha-springs-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy, for addresses Xcel serves. Check the utility named on your electric bill.",
+    "confidence": 0.65,
+    "source_ids": [
+      "S5",
+      "S1"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served, dated 10/2015, shows Poncha Springs with code GE, which means gas and electricity. The list names communities, not addresses, and does not say that Xcel serves every address in Poncha Springs, so check the utility named on your electric bill before you apply for interconnection. Chaffee County's Electrical Permit Application asks you to name the power supplier."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": null
+  },
+  "city": {
+    "value": "Poncha Springs",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S3"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": null
+  },
+  "permit_authority": {
+    "value": "Chaffee County Building Safety Department",
+    "confidence": 0.7,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "notes": "Chaffee County's Residential Permit Application lists Poncha Springs as a project location, next to Unincorporated Chaffee County, Salida and Buena Vista. The County's Residential Building Application says its building permit review time frame starts once it receives your submittal from any of the municipalities, all required documents and all fees. If your project is within a municipality, the County says you are responsible for coordinating submittal with that jurisdiction. Solar fees are printed on the County's Electrical Permit Application, which is approved by the Chaffee County Building Department. The State's list of Electrical Local Inspection Areas includes Chaffee, and the State does not inspect in local jurisdictions that have their own electrical inspection program. The County materials do not describe the Town of Poncha Springs' own steps, so ask the Town how it routes a solar permit to the County before you apply."
+  },
+  "permit_url": {
+    "value": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Electrical_Application.pdf",
+    "confidence": 0.75,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This is Chaffee County's Electrical Permit Application, revised 04/01/22. It has a solar section where you mark the mounting system (pole, ground or roof) and AC or DC, and its second page lists the County's solar permit fees. The application is not valid without the County's signoff."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+    "confidence": 0.75,
+    "source_ids": [
+      "S6",
+      "S7"
+    ],
+    "notes": "For Xcel Energy customers. Xcel says the solar application process is typically managed by your solar installer through Xcel's Distributed Energy Resource (DER) Application Portal. Xcel says the typical interconnection process can take up to 12-16 weeks after the initial application if no additional grid upgrades are required, and that upgrades may extend the timeline by 3-6 months. Xcel highly recommends that construction of your system should not start until your application receives full approval from its engineering team and all final agreements are signed. Xcel's permission to operate (PTO) is separate from the County's electrical permit and final inspection."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5-years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page, which showed a 2026 general incentive budget of $13,629,630 with $10,635,423 available, on figures dated 11/02/2026."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Chaffee County Electrical Permit Application, solar section completed",
+        "required_when": "Every solar electrical permit. Mark the solar mounting system (pole, ground or roof) and AC or DC. The form also asks for the power supplier and the project valuation.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Signature on the application (master license holder, homeowner or non-licensed installer)",
+        "required_when": "Always. On a fillable application a digital signature is required and the line must not be left blank. A homeowner signs as the installer only when doing the electrical installation under the homeowner clause on the County's form.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site Plan for Xcel Energy (Xcel customers)",
+        "required_when": "Xcel's engineering review for an Xcel interconnection application. Xcel says it must contain the customer's name and address.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Line Diagram for Xcel Energy (Xcel customers)",
+        "required_when": "Xcel's engineering review for an Xcel interconnection application. Xcel says it must contain the customer's name, address, and the solar system size (AC and DC size).",
+        "source_ids": [
+          "S6"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S6"
+    ],
+    "notes": "Chaffee County's application forms do not list solar plan sheets, a structural letter or other solar attachments, and do not say whether a roof-mounted system also needs a County building permit, so ask the Building Safety Department what to submit with the electrical application. The County says all electrical, plumbing and mechanical work requires a separate permit, which must be obtained before work commences. Your Xcel customer account number and premise number are on your Xcel billing statement."
+  },
+  "inspection_steps": {
+    "value": [
+      "Chaffee County's October 2026 building permit submittal requirements say that if your project is within a municipality, you are responsible for coordinating submittal with that jurisdiction.",
+      "Apply for a County electrical permit on the Electrical Permit Application, which is not valid without the Chaffee County Building Department's approval signoff.",
+      "If Xcel serves your address, your installer typically submits the Xcel interconnection application, and Xcel highly recommends that construction not start until the application has full approval from its engineering team and all final agreements are signed.",
+      "Sign the Solar Agreements that Xcel sends to you and your installer for electronic signature.",
+      "Schedule the County electrical inspections; the County's fee sheet lists required inspections as a service underground system, a rough-in prior to insulation and drywall, and a final prior to occupancy.",
+      "Request and pass the final inspection within one year of permit issuance. If it is not requested and approved within the year, a new permit or extension will be required, or the meter may be subject to removal.",
+      "Your installer uploads images of the installed equipment to Xcel, then the final electrical inspection and the installation details.",
+      "Xcel requests your meter once the final inspection documents and Solar Agreements meet program requirements, and a meter technician installs or reviews it.",
+      "Xcel grants permission to operate (PTO): the meter technician leaves a red door hanger."
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S3",
+      "S1",
+      "S6"
+    ],
+    "notes": "The County's list of required inspections is general and does not say which of them apply to a solar installation, so ask the Building Safety Department when you apply. Passing the County's final inspection is not the utility's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Chaffee County's Electrical Permit Application does not state a review time. The County's Residential Building Application states a goal of issuing residential building permits within 4 to 5 weeks, but does not say that this covers a solar electrical permit."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Chaffee County electrical permit (solar fees on the Electrical Permit Application)",
+      "other_conditions": [
+        "A homeowner may do the electrical installation only if the homeowner owns the property and it is not for sale, resale or rental property, lives or intends to live there as the sole place of residence, and does the permitted work personally with enough knowledge of electrical codes for a proper installation.",
+        "All applications are subject to review by the electrical inspector.",
+        "Xcel Energy customers: under Xcel's 200% Rule, the solar system cannot be sized by more than twice the annual kWh consumption of the site.",
+        "Xcel's interconnection process applies only if you are an Xcel Energy electric customer."
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S6"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "County solar electrical permit fee, residential unit (maximum)",
+        "amount_usd": 500,
+        "unit": "maximum per residential unit",
+        "notes": "The fee is figured from a valuation of $4.00 per watt and will not exceed $500.00 for a residential unit."
+      },
+      {
+        "name": "Re-inspection fee",
+        "amount_usd": 100,
+        "unit": "per re-inspection",
+        "notes": null
+      },
+      {
+        "name": "Partial or extra inspection fee",
+        "amount_usd": 100,
+        "unit": "per partial or extra inspection",
+        "notes": null
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "From the Solar Fees section of Chaffee County's Electrical Permit Application (Revised 04/01/22, Chaffee County Ordinance 2018-1). Solar panel fees are calculated using a cost of $4.00 per watt to come up with a valuation for the permit fee. Section B of the same fee sheet also lists photovoltaic among installations whose fee is figured from the total cost to the customer ($135.00 up to $2,000.00, then $135.00 plus $13.50 per thousand), so ask the Building Safety Department which method applies to your system. The County's example for a 5500-watt system gives a valuation of $22,000.00 and a total fee of $285.00 (22 x $10.00 plus $65.00). The County says its electrical fees are tied to the State schedule, are reviewed annually and may be adjusted as the State does. If a permit application is not filed before the installation starts, the inspection fee is twice the amount computed."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S7"
+    ],
+    "notes": "These are Xcel Energy programs for Xcel customers. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Chaffee County Building Safety Department",
+        "role": "Chaffee County Building Safety Department (electrical and building permits)",
+        "phone": "(719) 539-2124",
+        "email": "bdepartment@chaffeecounty.org",
+        "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Residential%20Final%20Packet%20October%202026.pdf?t=202610210853140"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S1"
+    ],
+    "notes": "The County's October 2026 submittal requirements say to send electronic submittals to bdepartment@chaffeecounty.org."
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Electrical Permit Application (Revised 04/01/22)",
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Electrical_Application.pdf",
+      "publisher": "Chaffee County Building Safety Department",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Building Permit Submittal Requirements and Residential Permit Application (Residential Final Packet, October 2026)",
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Residential%20Final%20Packet%20October%202026.pdf?t=202610210853140",
+      "publisher": "Chaffee County Building Safety Department",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Residential Building Application",
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Residential_Building_Application.pdf",
+      "publisher": "Chaffee County Building Safety Department",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Electrical and Plumbing Permits",
+      "url": "https://dpo.colorado.gov/EandP/Permits",
+      "publisher": "Colorado Division of Professions and Occupations (DORA)",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Solar Application Process",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-application-process",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}
