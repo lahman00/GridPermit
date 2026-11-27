@@ -1,0 +1,182 @@
+{
+  "record_id": "co-lake-leadville-multi",
+  "file": "data/localities/co-lake-leadville-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.leadville-co.gov/building-department — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T09:51:22Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.leadville-co.gov/media/881 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:32:48Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S6].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.leadville-co.gov/media/6351 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T10:32:44Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S14].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.colorado.gov/pacific/dora/DPO_Electrical_Plumbing_Permits — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T09:59:33Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "county",
+      "message": "'county' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.lakecountyco.gov/194/Permits-Information",
+      "checked_at": "2026-11-27T11:01:32.709Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "checked_at": "2026-11-27T11:01:33.689Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "checked_at": "2026-11-27T11:01:34.729Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "checked_at": "2026-11-27T11:01:35.243Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://lakecountyco.gov/188/Community-Planning-Development",
+      "checked_at": "2026-11-27T11:01:36.053Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.lakecountyco.gov/787/Plan-Review-Fire-Inspections",
+      "checked_at": "2026-11-27T11:01:37.000Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.lakecountyco.gov/DocumentCenter/View/134/Solar-Permit-PDF",
+      "checked_at": "2026-11-27T11:01:38.021Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.leadville-co.gov/building-department",
+      "checked_at": "2026-11-27T11:01:40.058Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T09:51:22Z",
+        "sha256": "d0985009365027faea3593e70d8a66c28761b4da5e05f3f59f35a1748289e80d",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.leadville-co.gov/media/881",
+      "checked_at": "2026-11-27T11:01:40.115Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:32:48Z",
+        "sha256": "d86fd612c6bd3b503e40e821e9462ac48ef69fac358c656528c94b9ce74e7ee9",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.leadville-co.gov/media/6351",
+      "checked_at": "2026-11-27T11:01:40.147Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T10:32:44Z",
+        "sha256": "63f69450647f59ec41d7d8a74941ef8ba965293d5da995e689d1e61dc534808b",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.lakecountyco.gov/DocumentCenter/View/3076/Building-Permit-Approvals---City-of-Leadville-PDF",
+      "checked_at": "2026-11-27T11:01:40.205Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://lakecountyco.gov/DocumentCenter/View/127/Building-Permit-Information-PDF?bidId=",
+      "checked_at": "2026-11-27T11:01:42.041Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "checked_at": "2026-11-27T11:01:44.116Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe-responsive/Working%20With%20Us/Renewable%20Developers/CO_DER%20Interconnection%20Portal_Process%20Guide_2022-05.pdf",
+      "checked_at": "2026-11-27T11:01:44.669Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.colorado.gov/pacific/dora/DPO_Electrical_Plumbing_Permits",
+      "checked_at": "2026-11-27T11:01:45.124Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T09:59:33Z",
+        "sha256": "41665317786f7f70ad21bf4ae1e449d95c0554d118fc0caa9347216385589ed3",
+        "method": "curl"
+      }
+    }
+  ]
+}

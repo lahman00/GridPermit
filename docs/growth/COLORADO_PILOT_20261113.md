@@ -176,3 +176,21 @@ Research folder: `01-Command-Center/research/colorado-batch5-20261127/` (96 cand
 - Clifton is unincorporated; Mesa County is named the permit office "for addresses in unincorporated Mesa County", and a County map layer names Xcel Energy and Grand Valley Power.
 - Diff against 0b78621: adds the five guides and their Permit Path records. The four wave 1 guides also changed, only in their related-cities lists (same batch, not under measurement). No measured guide changed; the 86-route manifest is byte-identical.
 
+### Wave 3
+
+| Guide | Record | Readiness |
+|---|---|---|
+| `/colorado/hudson/solar-permit-guide/` | `co-weld-hudson-multi` | 13 of 15 fields, validation 100 |
+| `/colorado/leadville/solar-permit-guide/` | `co-lake-leadville-multi` | 13 of 15 fields, validation 100 |
+| `/colorado/winter-park/solar-permit-guide/` | `co-grand-winter-park-mountain-parks` | 12 of 15 fields, validation 98 |
+| `/colorado/fraser/solar-permit-guide/` | `co-grand-fraser-mountain-parks` | 12 of 15 fields, validation 98 |
+| `/colorado/bayfield/solar-permit-guide/` | `co-la-plata-bayfield-lpea` | 12 of 15 fields, validation 100 |
+| `/colorado/new-castle/solar-permit-guide/` | `co-garfield-new-castle-multi` | 14 of 15 fields, validation 100 |
+| `/colorado/palisade/solar-permit-guide/` | `co-mesa-palisade-multi` | 14 of 15 fields, validation 98 |
+
+- Audit (pass / edit / fail): Hudson 104/13/0, Leadville 142/16/0, Winter Park 108/14/0, Fraser 114/15/0, Bayfield 109/11/0, New Castle 162/9/1 (a "no Town rebate" sentence removed: the Building page links an incentives page that was not captured), Palisade 139/10/0. Hudson and Palisade moved to `-multi` at audit.
+- Scanned PDFs: some fee tables and checklists are scanned images. They were read with OCR (tesseract, 300 dpi) and every number used was checked against the page image by the drafter and again by the auditor; a misread plan review rate in New Castle's table was left out. OCR text and page images are kept in the research folder.
+- Winter Park and Fraser: Winter Park's Building Division handles Fraser permits; the fee guide (dated April 30, 2010, still linked on the current forms page) and the undated PV checklist are described with their dates. Applications pause December 21, 2026 to January 4, 2027 while Cloudpermit replaces Accela.
+- Leadville: Lake County issues solar permits for the City. Bayfield: the Town's $50 Solar Permit Fee (Resolution 566, June 20, 2023); the Town and LPEA give opposite orders for the Town permit and the LPEA application, and the page states both.
+- Diff against 9c72663: adds the seven guides and their Permit Path records; three batch 5 guides change only in their related-cities lists. No measured guide changed; the 86-route manifest is byte-identical.
+

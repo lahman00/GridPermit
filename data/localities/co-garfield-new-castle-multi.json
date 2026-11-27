@@ -1,0 +1,471 @@
+{
+  "record_id": "co-garfield-new-castle-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Holy Cross Energy or Xcel Energy, check your electric bill",
+    "confidence": 0.6,
+    "source_ids": [
+      "S8",
+      "S9",
+      "S10"
+    ],
+    "notes": "Holy Cross Energy says its Rifle East Feeder serves members from New Castle to areas east of the Garfield County Airport. Holy Cross Energy says it serves members in the Western Colorado counties of Eagle, Pitkin, Garfield, Mesa, and Gunnison. Xcel Energy's list of Colorado communities served, dated 10/2015, shows New Castle with code GE, which means gas and electricity. Neither utility's page lists New Castle addresses, and the Town's building pages do not name an electric utility. Check the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Holy Cross Energy or Xcel Energy (the utility on your electric bill)",
+      "type": "utility",
+      "notes": "If Holy Cross Energy is your utility, you keep receiving monthly energy bills from it after the system is energized. Energy you return to its system is credited under its Renewable Energy Net Metering Service Optional Tariff. Holy Cross Energy says that in 2026 it will purchase over 85% clean energy from its wholesale electricity providers for its entire membership. If Xcel Energy is your utility, all solar customers receive Net Energy Metering benefits, and any excess is held in a virtual bank to be applied against future bills."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S8",
+      "S12",
+      "S13"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "New Castle",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Garfield County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S5"
+    ],
+    "notes": "The Town's tax information page lists a Garfield County sales tax among the taxes collected on sales within the New Castle town limits."
+  },
+  "permit_authority": {
+    "value": "Town of New Castle Building Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S6",
+      "S7"
+    ],
+    "notes": "The Building Department handles all matters relating to construction within the Town of New Castle. The Town's Residential Building & Design Requirements (written per the 2015 International Codes) say electrical requirements for residential structures are governed by State of Colorado statutes and regulations, and that all electrical inspections are performed on behalf of the Town by a certified inspector for the State of Colorado. If you hire an electrical contractor, the State says the contractor is responsible for obtaining the required electrical permit. To see a property's zone district, use the Zoning Map (updated 2023) linked on the Building page. The Town's Building page describes no expedited or same-day path for solar permits."
+  },
+  "permit_url": {
+    "value": "https://www.newcastlecolorado.org/building",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Complete a permit application with the plan sets and documents listed on the application checklist, and email the complete application to permitting@newcastlecolorado.org. The Town's Minor Building Permit Application lists Solar Installation as a type of work. The review process begins only when the application is complete, and an incomplete application delays review and permitting until all required documents are received."
+  },
+  "interconnection_url": {
+    "value": "https://www.holycross.com/member-programs/go-solar",
+    "confidence": 0.75,
+    "source_ids": [
+      "S8",
+      "S11"
+    ],
+    "notes": "This page is for Holy Cross Energy members. Holy Cross Energy processes generator interconnection applications through PowerClerk, and all applicants must create a PowerClerk account to apply. A non-refundable interconnection study fee must go with each application: $100 for systems 0 to 100 kW and $250 for systems greater than 100kW. The applicant may be responsible for additional study costs on a case-by-case basis. If Xcel Energy is your utility, Xcel says you can submit an interconnection application online once you understand the state, local and utility requirements and permits, and its interconnection page is https://co.my.xcelenergy.com/s/renewable/developers/interconnection. Xcel highly recommends that construction not start until the application receives full approval from its engineering team and all final agreements are fully signed. The utility's approval to operate is separate from the Town building permit and the Town's inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Power+ or Power+FLEX battery incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Calculated as $500 per enrolled kW, up to $12,500. Members can enroll in only one Holy Cross Energy battery program and receive one incentive. Incentives are limited to available funds on a first-come, first-served basis.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The member must be enrolled in Power+ or Power+FLEX under the Distribution Flexibility Program Optional Tariff. Portable and non-permanent storage, such as vehicle-to-home (V2H) applications, is not eligible. Check that Holy Cross Energy is your utility first.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Time of Use Rate battery incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Pays the lesser of $250 per kW of battery capacity or $100 per kWh, capped at $12,500. Members can enroll in only one Holy Cross Energy battery program and receive one incentive.",
+        "value_usd_per_kwh": 100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The member must be enrolled in the Time of Use Optional Rate. Portable and non-permanent storage, such as vehicle-to-home (V2H) applications, is not eligible. Check that Holy Cross Energy is your utility first.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that by joining, you let it automatically manage your eligible solar-charged battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5 years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar-charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S8",
+      "S14"
+    ],
+    "notes": "Holy Cross Energy says no member may receive more than $30,000 related to the ownership of renewable generation, and its member limit for energy storage systems is $15,000, in addition to the renewable generation limit. Xcel's Renewable Battery Connect page shows a 2026 General incentive budget of $13,629,630, with $10,635,423 shown as available."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Town of New Castle Minor Building Permit Application (Solar Installation)",
+        "required_when": "The form lists Solar Installation as a type of work. It asks for the general contractor and license number and an estimated valuation, and asks whether HOA approval is required.",
+        "source_ids": [
+          "S2",
+          "S3"
+        ]
+      },
+      {
+        "name": "Plan sets and documents listed on the application checklist",
+        "required_when": "The Building page says to include the relevant plan sets and documents as indicated on the application checklist. The Town's Building and Forms pages do not list a separate solar checklist, so ask the Building Department which plans a solar permit needs.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "HOA approval (if your HOA requires it)",
+        "required_when": "The application asks whether HOA approval is required.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Valid Town of New Castle Business License for each contractor and subcontractor",
+        "required_when": "All contractors and subcontractors are required to have one.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "State of Colorado electrical permit (for the electrical work)",
+        "required_when": "Electrical requirements for residential structures are governed by State statutes and regulations. If you hire an electrical contractor, the contractor is responsible for obtaining the permit.",
+        "source_ids": [
+          "S6",
+          "S7"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S6",
+      "S7"
+    ],
+    "notes": "From the Town's Building page and its Minor Building Permit Application (listed on the Forms page as Rev.1-2025)."
+  },
+  "inspection_steps": {
+    "value": [
+      "If Holy Cross Energy is your utility, your installer applies for interconnection through PowerClerk. To qualify for a Holy Cross Energy incentive, you need its Approval Letter before any solar component is built.",
+      "If Xcel Energy is your utility, submit the interconnection application online. Xcel highly recommends that construction not start until the application has full approval from its engineering team and all final agreements are fully signed.",
+      "Email the complete Town permit application to permitting@newcastlecolorado.org.",
+      "After the review, the Town calculates the fees. All fees are due when the permit is issued.",
+      "Contact the Building Department to schedule the required inspections, with 24-hour notice. The permit card lists the inspections the Building Official may require.",
+      "Electrical inspections are performed on behalf of the Town by a certified inspector for the State of Colorado.",
+      "Final inspection after the permitted work is complete.",
+      "If Holy Cross Energy is your utility, it makes its own site visit before it issues an authorization to operate, and the system cannot be energized before that. If Xcel Energy is your utility, the process ends with a permission to operate letter from Xcel."
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S6",
+      "S8",
+      "S11"
+    ],
+    "notes": "The Town building permit, the Town and State inspections, and the utility's approval to operate are separate approvals. The inspection rules are from the Town's Residential Building & Design Requirements, written per the 2015 International Codes. The Building page says reviews now use the 2021 International Building Codes, so confirm the current inspection rules with the Building Department."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's Building page gives no review or processing time for a solar permit."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Town of New Castle building permit (Minor Building Permit Application, Solar Installation)",
+      "other_conditions": [
+        "All contractors and subcontractors must have a valid Town of New Castle Business License.",
+        "The Town's review covers its zoning and land use code, the 2021 International Building Codes with Town amendments and, if applicable, the historical characteristics in the R-1 and C-1 zone districts.",
+        "A permit expires if work does not begin within 180 days or is suspended for 180 consecutive days, and a permit becomes null and void 18 months after issuance.",
+        "The Building page links the 2023 Colorado Model Electrical and Solar Ready Codes.",
+        "If Holy Cross Energy is your utility: generation must be sized to supply annually no more than 200% of the account's previous 12 months of use, and Holy Cross Energy will not interconnect a net metering installation that sells power to a member under a Power Purchase Agreement.",
+        "If Xcel Energy is your utility: expected generation must not exceed 200% of historical consumption, meaning the previous 12 months at the time of application."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S8",
+      "S13"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Town building permit, valuation $501 to $2,000",
+        "amount_usd": 24,
+        "unit": "for the first $500, plus $3.00 for each additional $100 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Town building permit, valuation $2,001 to $40,000",
+        "amount_usd": 69,
+        "unit": "for the first $2,000, plus $11.00 for each additional $1,000 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Town building permit, valuation $40,001 to $100,000",
+        "amount_usd": 487,
+        "unit": "for the first $40,000, plus $9.00 for each additional $1,000 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Holy Cross Energy interconnection study fee, systems 0 to 100 kW (Holy Cross members)",
+        "amount_usd": 100,
+        "unit": "per application, non-refundable",
+        "notes": null
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S4",
+      "S1",
+      "S2",
+      "S5",
+      "S8"
+    ],
+    "notes": "The Town's fee directory has no separate solar line. Section 3 of the Directory of Town Fees and Charges (dated January 1, 2026) sets the building permit fee by total valuation, and the Minor Building Permit Application asks for an estimated valuation. The table continues above $100,000 of valuation. The directory also lists a separate plan review fee tied to the building permit fee, so ask the Building Department for the rate. Fees are calculated once the review is complete, and all fees are due when the permit is issued. The Town also collects a use tax at the time of building permit. Its tax page says the use tax is 2% on construction materials purchased outside the Town on which no other local tax has been paid, and the rate is calculated at 2% of 45% of the project valuation."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Holy Cross Energy solar incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Effective April 1, 2026, all new solar net metered interconnection applications receive a flat incentive of $100 per kW, up to 25 kW. Funding is limited and first-come, first-served, and payments are reduced so they do not exceed 40% of the installed cost. Renewable Energy Credits (RECs) from the system are assigned to Holy Cross Energy when you accept the incentive. The installation must be finished within 120 days of the reservation or the reservation is lost.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "You need a Holy Cross Energy Approval Letter before any solar component is built. Generation must be sized to supply annually no more than 200% of the account's previous 12 months of use. Check that Holy Cross Energy is your utility first.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": "2026-04-01",
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S8",
+      "S12",
+      "S13"
+    ],
+    "notes": "Xcel's Solar*Rewards page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of New Castle Building Department",
+        "role": "Town of New Castle Building Department (solar permit questions)",
+        "phone": "(970) 984-2311",
+        "email": "permitting@newcastlecolorado.org",
+        "url": "https://www.newcastlecolorado.org/building"
+      },
+      {
+        "name": "Paul Smith",
+        "role": "Town of New Castle Building Official/Town Planner",
+        "phone": "(970) 984-2311 Ext: 108",
+        "email": null,
+        "url": "https://www.newcastlecolorado.org/building"
+      },
+      {
+        "name": "Tony Chamberlain",
+        "role": "Town of New Castle Building Inspector",
+        "phone": "(970) 984-2311 Ext: 102",
+        "email": null,
+        "url": "https://www.newcastlecolorado.org/building"
+      },
+      {
+        "name": "Colorado Electrical and Plumbing Permits",
+        "role": "State of Colorado electrical permits (DORA)",
+        "phone": "303-894-7800",
+        "email": "dora_eandp_permits@state.co.us",
+        "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits"
+      },
+      {
+        "name": "Holy Cross Energy interconnection",
+        "role": "Holy Cross Energy (interconnection questions, for Holy Cross members)",
+        "phone": "(970) 547-5414",
+        "email": "klarouche@holycross.com",
+        "url": "https://www.holycross.com/member-programs/go-solar"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S7",
+      "S8"
+    ],
+    "notes": "The Building Department's listed office hours are 8:00am to 5:00pm, Monday thru Friday."
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building",
+      "url": "https://www.newcastlecolorado.org/building",
+      "publisher": "Town of New Castle",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Minor Building Permit Application",
+      "url": "https://www.newcastlecolorado.org/media/4816",
+      "publisher": "Town of New Castle",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Forms",
+      "url": "https://www.newcastlecolorado.org/forms",
+      "publisher": "Town of New Castle",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "2026 Directory of Fees and Charges",
+      "url": "https://www.newcastlecolorado.org/media/8211",
+      "publisher": "Town of New Castle",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Tax information",
+      "url": "https://www.newcastlecolorado.org/finance/page/tax-information",
+      "publisher": "Town of New Castle",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Residential Building & Design Requirements",
+      "url": "https://www.newcastlecolorado.org/media/5276",
+      "publisher": "Town of New Castle",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Electrical and Plumbing Permits",
+      "url": "https://www.colorado.gov/pacific/dora/DPO_Electrical_Plumbing_Permits",
+      "publisher": "Colorado Department of Regulatory Agencies, Division of Professions and Occupations",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Solar + Battery Energy Storage",
+      "url": "https://www.holycross.com/member-programs/go-solar",
+      "publisher": "Holy Cross Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Service area",
+      "url": "https://www.holycross.com/our-system/service-area",
+      "publisher": "Holy Cross Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Xcel Energy Colorado Communities Served (PDF)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Xcel Energy Colorado: Interconnection (developer resources)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Xcel Energy Colorado: Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Xcel Energy Colorado: Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S14",
+      "title": "Xcel Energy Colorado: Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}

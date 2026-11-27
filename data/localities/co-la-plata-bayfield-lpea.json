@@ -1,0 +1,384 @@
+{
+  "record_id": "co-la-plata-bayfield-lpea",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "La Plata Electric Association (LPEA), if it serves your address; check your electric bill",
+    "confidence": 0.7,
+    "source_ids": [
+      "S2",
+      "S6"
+    ],
+    "notes": "The Town's solar permit page says a Town of Bayfield Solar Permit is required before you submit a net metering application to La Plata Electric Association (LPEA). LPEA's Installer Resources page links to the Town of Bayfield's solar permitting page. The Town's pages do not say which utility serves each address in Bayfield, so check the utility named on your electric bill before you apply."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "LPEA's solar and net metering pages do not name a separate power supplier."
+  },
+  "city": {
+    "value": "Bayfield",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "La Plata County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S5"
+    ],
+    "notes": "La Plata County's building permit packet says the County Building division's jurisdiction excludes the City of Bayfield. Inside town limits, the Town of Bayfield Building Division handles permits and inspections."
+  },
+  "permit_authority": {
+    "value": "Town of Bayfield Building Division",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "notes": "The Town of Bayfield Building Division is responsible for permitting and inspecting all construction within the town limits of Bayfield. The Town uses a contract Building Inspector, and you should call 48 hours ahead to schedule an inspection. Electrical permits are issued by the State of Colorado. For commercial and multifamily solar, Upper Pine River Fire Protection District (UPRFPD) also needs to sign off on the permit. The Town's pages do not explain how to check whether an address is inside town limits, so ask the Building Division if you are unsure."
+  },
+  "permit_url": {
+    "value": "https://www.bayfieldgov.org/building-permits-inspections/page/solar-permit-information",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2",
+      "S1"
+    ],
+    "notes": "The Town issues Solar Permits for new photovoltaic solar installations. The Solar Permit Application Packet is attached to this page. The Town says to send all building permit applications to building@bayfieldgov.org. Fees can be paid in person, over the phone by calling (970) 884-9544, or online through an invoice with a payment link."
+  },
+  "interconnection_url": {
+    "value": "https://lpea.coop/installer-resources",
+    "confidence": 0.85,
+    "source_ids": [
+      "S6",
+      "S7",
+      "S9",
+      "S2"
+    ],
+    "notes": "LPEA's Installer Resources page lists the steps and forms for an LPEA Interconnection Application. The member must have an LPEA account number before the application is submitted. LPEA's Installer Resources page lists its engineering review as 2-4 weeks, while its Ready to apply page says the engineering team reviews the request within two weeks of confirming the application is complete. Engineering approval is valid for 12 months, and projects must be placed in service within 12 months or a new application will be required. LPEA says members must have an LPEA Interconnection Engineering Approval Letter before building any solar system. LPEA's Permission to Operate is separate from the Town permit and the Town's final inspection, and the Town says its solar permit does not guarantee approval from LPEA."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "LPEA's website menu lists a Battery Energy Storage System rebate page, but its terms are not on LPEA's solar pages, so ask LPEA for the current terms. LPEA's On-Bill Financing loan program also covers energy storage (battery systems) projects."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Signed Solar Permit Application Packet, with the permit fee",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Site plan or aerial photo showing array locations and grid connections",
+        "required_when": "All solar permits. The site plan should be scaled or include measurements.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Detailed roof plan (commercial or multifamily installs)",
+        "required_when": "Commercial or multifamily installations.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer's specifications for the photovoltaic system",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural engineer's letter or report (roof load, or foundation if ground-mounted)",
+        "required_when": "Roof-mounted systems: the letter addresses the additional roof load. Ground-mounted systems: the letter should address foundation requirements.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Upper Pine River Fire Protection District sign-off (commercial or multifamily)",
+        "required_when": "Commercial and multifamily proposals.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Town of Bayfield Business License for the current year (contractors)",
+        "required_when": "All contractors.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "State of Colorado Electrical Permit",
+        "required_when": "All solar permits. The State electrical inspection is also required.",
+        "source_ids": [
+          "S2",
+          "S11"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S11"
+    ],
+    "notes": "The list follows the Solar Permit Submittals section of the Town's solar permit page. The application packet PDF may list more items, so read it before you apply."
+  },
+  "inspection_steps": {
+    "value": [
+      "Apply for the Town of Bayfield Solar Permit by email to the Building Division, with the signed application packet and the permit fee.",
+      "Get a State of Colorado electrical permit for the solar work.",
+      "Your installer submits an Interconnection Application to LPEA, and LPEA's engineering team reviews it. LPEA's pages place this step before the permits, while the Town requires its Solar Permit first, so ask both which order applies.",
+      "After engineering approval, sign and return the Interconnection Agreement to LPEA.",
+      "Your installer builds the system.",
+      "Call the Town Building Inspector 48 hours ahead to schedule the Town's final inspection.",
+      "Pass the State electrical inspection, scheduled with the State Electrical Inspector.",
+      "The Town issues a Certificate of Completion when the work is complete.",
+      "LPEA says the system can be left energized after the State (DORA) electrical inspection has passed and the inverter has been programmed to LPEA's required settings. Within 10 days of turning on the system, your installer submits the Permission to Operate (PTO) request to LPEA, with evidence of the passed State electrical inspection and the inverter settings.",
+      "LPEA performs its final inspection within two weeks of receiving the completed PTO request.",
+      "LPEA issues the Permission to Operate certificate upon its approval. LPEA's Installer Resources page says net metering takes effect on the date PTO is issued, but also says the system gets a net metering start date matching the date LPEA receives a complete and compliant PTO request, so ask LPEA which date applies."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2",
+      "S3",
+      "S6",
+      "S7",
+      "S1",
+      "S11"
+    ],
+    "notes": "The Town says its Solar Permit is required before you submit a net metering application to LPEA, while LPEA's application page says your installer pulls all permits after LPEA's engineering approval. Ask the Building Division and LPEA which order applies to your project. The Town solar permit and the Town's final inspection, the State electrical permit and inspection, and LPEA's Permission to Operate are separate approvals. The Town says its solar permit does not guarantee approval from LPEA."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's published review times are general and not specific to solar permits. Its Building page says to allow a minimum of 20 business days for all reviews, while its general Building Permit Application (5/2023) says plan review takes up to 21 days if no corrections are required. Ask the Building Division which applies to a solar permit."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "commercial",
+        "multifamily"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Town of Bayfield Solar Permit for new photovoltaic installations",
+      "other_conditions": [
+        "The Town issues Solar Permits for new photovoltaic solar installations.",
+        "All solar contractors need a Town of Bayfield Business License for the current year.",
+        "A State of Colorado electrical permit and inspection are also required, and electrical permits are issued by the State of Colorado.",
+        "Homeowners can do their own electrical work, but an electrician who is used must be licensed by the State of Colorado, and commercial property owners must use a licensed electrician. The State allows a homeowner to do their own solar wiring only if they personally do the work and the property is not for sale, resale or rent and is not generally open to the public.",
+        "Commercial and multifamily installations need a detailed roof plan and sign-off from Upper Pine River Fire Protection District (UPRFPD).",
+        "The Town's design criteria list a ground snow load of 73 pounds, a roof snow load of 51 pounds and a wind speed of 110 miles per hour.",
+        "On August 10, 2026, the Town adopted the 2024 International Building Codes through Ordinance 519.",
+        "Land Use Code requirements, such as zoning, height restrictions and setbacks, apply to all building permit applications.",
+        "LPEA rule (not a Town permit rule): members apply for interconnection and net metering for their annual kWh usage, up to 150%."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S1",
+      "S10"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar Permit Fee",
+        "amount_usd": 50,
+        "unit": "solar permit",
+        "notes": "Listed as Solar Permit Fees under Miscellaneous Fees in the Town's Building Permit Fee Schedule (Resolution 566, Adopted June 20, 2023)."
+      },
+      {
+        "name": "Reinspection Fee",
+        "amount_usd": 140,
+        "unit": "per hour, 1 hour minimum",
+        "notes": "Listed under Miscellaneous Fees in the same schedule, which does not tie it to one permit type."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S4",
+      "S1",
+      "S6"
+    ],
+    "notes": "Amounts are from the Town's Building Permit Fee Schedule, Resolution 566, Adopted June 20, 2023. Fees can be paid in person, over the phone by calling (970) 884-9544, or online through an invoice with a payment link. LPEA separately charges a $150 Interconnection Application Fee on the customer's bill upon engineering approval of the Interconnection Application."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "LPEA On-Bill Financing (financing, not a rebate)",
+        "administrator": "La Plata Electric Association (LPEA), with First Southwest Bank (FSWB)",
+        "description": "LPEA members in good standing can apply for loans up to $60,000 for solar PV projects. If approved, the loan is paid off over time as part of the LPEA electric bill. Solar PV projects and energy storage (battery systems) are eligible.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An OBF application for solar or storage is not reviewed until the LPEA Interconnection Application has received engineering approval. For a solar loan, the array must be designed to produce no more than 150% of the annual historical electric consumption at the service location. Applicants must be in good standing and have an established credit rating with LPEA.",
+        "url": "https://lpea.coop/obf",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": null
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Bayfield Building Division",
+        "role": "Town of Bayfield Building Division (solar permit questions)",
+        "phone": "970-884-9544 Ext. 212",
+        "email": "building@bayfieldgov.org",
+        "url": "https://www.bayfieldgov.org/building-permits-inspections/page/solar-permit-information"
+      },
+      {
+        "name": "Dan Naiman, Town Building Inspector",
+        "role": "Town of Bayfield Building Inspector (schedule inspections 48 hours ahead)",
+        "phone": "970-903-4002",
+        "email": null,
+        "url": "https://www.bayfieldgov.org/building-permits-inspections/page/schedule-inspection"
+      },
+      {
+        "name": "State Electrical Inspector",
+        "role": "State of Colorado Electrical Inspector (electrical inspections)",
+        "phone": "970-249-1300",
+        "email": null,
+        "url": "https://www.bayfieldgov.org/building-permits-inspections/page/schedule-inspection"
+      },
+      {
+        "name": "La Plata Electric Association (LPEA) Member Services",
+        "role": "La Plata Electric Association (LPEA) member services",
+        "phone": "(970) 247-5786",
+        "email": "memberservices@lpea.coop",
+        "url": "https://lpea.coop/installer-resources"
+      },
+      {
+        "name": "LPEA Renewables",
+        "role": "LPEA renewables team (signed Interconnection Agreements)",
+        "phone": null,
+        "email": "renewables@lpea.coop",
+        "url": "https://lpea.coop/installer-resources"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S3",
+      "S1",
+      "S6"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permits & Inspections",
+      "url": "https://www.bayfieldgov.org/building-permits-inspections",
+      "publisher": "Town of Bayfield",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Solar Permit Information",
+      "url": "https://www.bayfieldgov.org/building-permits-inspections/page/solar-permit-information",
+      "publisher": "Town of Bayfield",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Schedule an Inspection",
+      "url": "https://www.bayfieldgov.org/building-permits-inspections/page/schedule-inspection",
+      "publisher": "Town of Bayfield",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permit Fee Schedule (Resolution 566, Adopted June 20, 2023)",
+      "url": "https://www.bayfieldgov.org/media/331",
+      "publisher": "Town of Bayfield",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Revised Building Permit Application Packet (2-7-24)",
+      "url": "https://cms9files.revize.com/laplatacounty/Revised%20Building%20Permit%20Application%20Packet%202-7-24.pdf",
+      "publisher": "La Plata County",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Installer Resources",
+      "url": "https://lpea.coop/installer-resources",
+      "publisher": "La Plata Electric Association",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Ready to apply for solar",
+      "url": "https://lpea.coop/ready-apply-solar",
+      "publisher": "La Plata Electric Association",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "On-Bill Financing Program",
+      "url": "https://lpea.coop/obf",
+      "publisher": "La Plata Electric Association",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "LPEA Solar Fact Sheet",
+      "url": "https://lpea.coop/sites/default/files/2024/Solar/LPEA%20Member%20Solar%20Fact%20Sheet%202.pdf",
+      "publisher": "La Plata Electric Association",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Making the Switch to Net Metered",
+      "url": "https://lpea.coop/making-switch-net-metered",
+      "publisher": "La Plata Electric Association",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Electrical and Plumbing Permit Information",
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits/Info",
+      "publisher": "Colorado Department of Regulatory Agencies, Division of Professions and Occupations",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}
