@@ -1,0 +1,128 @@
+{
+  "record_id": "co-eagle-basalt-holy-cross",
+  "file": "data/localities/co-eagle-basalt-holy-cross.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "official_contacts[4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://dpo.colorado.gov/ElectricalPlumbingPermits — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T09:54:52Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "county",
+      "message": "'county' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://us.cloudpermit.com/basalt/",
+      "checked_at": "2026-11-27T10:41:06.509Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.holycross.com/about-us/library/tariffs-rules-and-regulations/interconnect-guidelines",
+      "checked_at": "2026-11-27T10:41:06.953Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.holycross.com/member-programs/go-solar",
+      "checked_at": "2026-11-27T10:41:08.013Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.basalt.net/132/Building",
+      "checked_at": "2026-11-27T10:41:08.587Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits",
+      "checked_at": "2026-11-27T10:41:09.678Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T09:54:52Z",
+        "sha256": "41665317786f7f70ad21bf4ae1e449d95c0554d118fc0caa9347216385589ed3",
+        "method": "curl"
+      }
+    },
+    {
+      "url": "https://www.basalt.net/DocumentCenter/View/5675",
+      "checked_at": "2026-11-27T10:41:09.827Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.basalt.net/DocumentCenter/View/7058",
+      "checked_at": "2026-11-27T10:41:12.497Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.basalt.net/DocumentCenter/View/5418",
+      "checked_at": "2026-11-27T10:41:15.258Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.basalt.net/DocumentCenter/View/5428",
+      "checked_at": "2026-11-27T10:41:18.053Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://app.smartsheet.com/b/form/d38d46f12ce04574ab19e59204016f22",
+      "checked_at": "2026-11-27T10:41:20.832Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.holycross.com/service-map/",
+      "checked_at": "2026-11-27T10:41:22.193Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.basalt.net/DocumentCenter/View/6791",
+      "checked_at": "2026-11-27T10:41:23.213Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    }
+  ]
+}

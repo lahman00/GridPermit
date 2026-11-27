@@ -161,3 +161,18 @@ Research folder: `01-Command-Center/research/colorado-batch5-20261127/` (96 cand
 - Glendale has no solar-specific City page; the page says so and uses the City's electrical permit valuation table (June 23, 2026). Two after-hours inspection fees disagree and both are stated.
 - The ids are in `NEW_GUIDES_DURING_MEASUREMENT` and a new batch 5 set in `relatedPoolFor`, so no earlier guide's related list changes. The before/after diff against 762647c adds only these four guides and their Permit Path records; the 86-route manifest is byte-identical.
 
+### Wave 2
+
+| Guide | Record | Readiness |
+|---|---|---|
+| `/colorado/cherry-hills-village/solar-permit-guide/` | `co-arapahoe-cherry-hills-village-multi` | 13 of 15 fields, validation 100 |
+| `/colorado/frisco/solar-permit-guide/` | `co-summit-frisco-multi` | 14 of 15 fields, validation 100 |
+| `/colorado/dillon/solar-permit-guide/` | `co-summit-dillon-multi` | 14 of 15 fields, validation 100 (capture attestation) |
+| `/colorado/basalt/solar-permit-guide/` | `co-eagle-basalt-holy-cross` | 13 of 15 fields, validation 100 (capture attestation) |
+| `/colorado/clifton/solar-permit-guide/` | `co-mesa-clifton-multi` | 12 of 15 fields, validation 100 |
+
+- Audit (pass / edit, no fails): Cherry Hills Village 137/17, Frisco 137/18, Dillon 132/15, Basalt 144/6, Clifton 129/9. Frisco and Dillon moved from `-xcel` to `-multi` (Summit County's PV checklist names Mountain Parks Electric). Basalt keeps `-holy-cross`: Xcel's list has no Basalt entry and Holy Cross is the only utility any capture ties to the Town.
+- Frisco: the Town says Summit County issues the permit and performs the inspections. Dillon: the page repeats what the Town says (Town development permit first) without claiming more.
+- Clifton is unincorporated; Mesa County is named the permit office "for addresses in unincorporated Mesa County", and a County map layer names Xcel Energy and Grand Valley Power.
+- Diff against 0b78621: adds the five guides and their Permit Path records. The four wave 1 guides also changed, only in their related-cities lists (same batch, not under measurement). No measured guide changed; the 86-route manifest is byte-identical.
+

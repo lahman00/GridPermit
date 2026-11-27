@@ -1,0 +1,478 @@
+{
+  "record_id": "co-summit-dillon-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy (Public Service Company of Colorado) for addresses Xcel serves. Summit County's PV checklist also names Mountain Parks Electric. Check the utility named on your electric bill.",
+    "confidence": 0.7,
+    "source_ids": [
+      "S10"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served (10/2015) shows Dillon with gas and electricity service. The list is by community name, not by address. The list does not say that Xcel serves every address in Dillon, and Summit County's photovoltaic submittal checklist has a line that names Mountain Parks Electric (\"Mountain Parks Electric Under 25 kW required\"). Confirm the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies only to addresses served by Xcel Energy. Check the utility named on your electric bill. Xcel says all solar customers receive net energy metering benefits, and any excess is held in a virtual bank to be applied against future bills."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S10",
+      "S13"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Dillon",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's pages name the Summit County Building Inspection Department as the office for code review and inspections, but they do not state in a sentence which county the Town is in."
+  },
+  "permit_authority": {
+    "value": "Town of Dillon (development permit) and Summit County Building Inspection Department (the Town uses it for electrical code review and inspections)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S5"
+    ],
+    "notes": "Most construction projects within the Town of Dillon municipal limits require a Town of Dillon development permit, and the Town's list of such projects includes solar panels. The Town uses the Summit County Building Inspection Department for structural, electrical, plumbing and mechanical code review and inspections. A development permit must be applied for and issued before you submit to Summit County, which has its own, separate application process and fee schedule. Summit County says photovoltaic permits are required for photovoltaic (solar) systems."
+  },
+  "permit_url": {
+    "value": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permits.php",
+    "confidence": 0.85,
+    "source_ids": [
+      "S5",
+      "S2",
+      "S3"
+    ],
+    "notes": "This is Summit County's Building Permits page, which links the PV Permit Application and PV checklists under Technical Permits. Building and technical permits should be submitted in person by a representative who can answer submittal questions. Start with the Town of Dillon development permit, applied for through the Town's online Development Application Form. The Town's Forms and Permits page also has a link labeled \"Apply for a Rooftop Solar Permit\", and its text does not say where that link leads. Ask the Town Planner which application to use."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.8,
+    "source_ids": [
+      "S11",
+      "S12",
+      "S13"
+    ],
+    "notes": "For Xcel Energy customers. Xcel says that once you understand state, local and utility requirements and permits, you can submit an interconnection application online. In most cases the developer or installer submits the application on your behalf, or you can manage your own. The customer's name on the application must match the name on the Xcel Energy account or bill. Xcel highly recommends that construction of your system should not start until the application receives full approval from its engineering team and all final agreements are signed. Xcel says the work ends with a permission to operate letter to the generator owner, which is separate from the Town and County permits and the County's inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for participating in control events (for 5 years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For Xcel Energy customers adding an eligible solar charged battery to a home or small business. Xcel says eligible equipment includes all Tesla Powerwall models or all current Enphase models.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S14"
+    ],
+    "notes": "Xcel's page shows budget available for 2026 on figures dated 11/02/2026."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Town of Dillon development permit (issued before the County permits)",
+        "required_when": "Required for solar panels within Dillon municipal limits. It must be issued before you submit to Summit County.",
+        "source_ids": [
+          "S1",
+          "S3"
+        ]
+      },
+      {
+        "name": "Summit County Photovoltaic Permit Application (DC side)",
+        "required_when": "Always, for the photovoltaic permit.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Technical Permit Application marked \"Photovoltaic-AC\" (AC electrical permit)",
+        "required_when": "For the separate electrical permit for the AC side of the system.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "Site plan to scale showing the major components",
+        "required_when": "All systems.",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Property lines and setbacks (ground-mounted systems)",
+        "required_when": "Ground-mounted systems.",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Engineer-stamped structural evaluation of the roof (roof-mounted systems)",
+        "required_when": "Roof-mounted systems. The County's 2020 sheet describes it as an engineer-stamped letter confirming roof and wind load can hold the PV system.",
+        "source_ids": [
+          "S7",
+          "S6"
+        ]
+      },
+      {
+        "name": "Engineer-stamped one-line or three-line electrical drawing",
+        "required_when": "All systems. It must show the PV array configuration, wiring, grounding, overcurrent protection, inverter, rapid shut-down, disconnects, batteries, required signs and the AC point of connection.",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Roof plan with the location of all PV panels and roof access pathways (roof-mounted systems)",
+        "required_when": "Roof-mounted systems.",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Manufacturer's specification sheets for all components",
+        "required_when": "All systems. The checklist says this includes PV modules (UL 1703, snow loads up to 5400 Pa and wind load up to 2400 Pa), inverters (UL1741), rapid shutdown, combiner box, disconnects, batteries and mounting systems (UL2703), and the design operating temperature must be suitable for -13 degrees.",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Elevations (ground-mounted or pole-mounted systems)",
+        "required_when": "Ground-mounted or pole-mounted systems.",
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Completed fire district sign-off card",
+        "required_when": "Returned to the Summit County Building Department before the photovoltaic permit can be issued.",
+        "source_ids": [
+          "S6"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S6",
+      "S7"
+    ],
+    "notes": "County items are from Summit County's Photovoltaic Permit Submittal Completeness Checklist (2023) and its Photovoltaic Systems Permitting Information sheet (revised 4/13/2020). The checklist says all applicable items are required in order to submit. The Town's pages do not list what to submit for the development permit, and the County checklist's wind and snow load lines name the Town of Frisco rather than Dillon. Ask the Town Planner and the County which items and design loads apply in Dillon."
+  },
+  "inspection_steps": {
+    "value": [
+      "Apply for a Town of Dillon development permit using the Town's online Development Application Form. Town staff email you the Development Permit Fee and any further steps.",
+      "After the development permit is issued, bring the photovoltaic permit application and all submittal documents in person to the Summit County Building Inspection Department at 0037 Peak One Dr., Frisco. The County says a representative who can answer submittal questions should submit them, and it does not accept emailed or mailed documents.",
+      "Pay the County fees when you submit. The County says fees are due at the time of submittal and payment for plan review is required at the time of submittal.",
+      "The permit technician checks the submittal, and the contractor takes a sign-off card to the fire district for review and returns the completed card to the County.",
+      "Summit County reviews the plans and issues the photovoltaic (DC) permit.",
+      "After the photovoltaic permit is issued, the County issues the AC electrical permit over the counter.",
+      "If Xcel Energy serves your address, your contractor (or you) submits the interconnection application to Xcel Energy. Xcel highly recommends not starting construction until the application is fully approved and all final agreements are signed.",
+      "Schedule inspections online in eTRAKiT, including a rough electrical inspection if any electrical work will later be concealed.",
+      "When ready for final, schedule the final electrical inspections for the DC and AC permits on the same date.",
+      "If Xcel Energy serves your address, Xcel works with you and your contractors to witness test and energize the system, and the work ends with a permission to operate letter to the generator owner."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S2",
+      "S3",
+      "S6",
+      "S7",
+      "S5",
+      "S11",
+      "S12"
+    ],
+    "notes": "The Town development permit, the Summit County permits and final electrical inspections, and your electric utility's permission to operate (for Xcel Energy customers, Xcel's permission to operate letter) are separate approvals. The County's 2020 sheet says every photovoltaic permit needs a plan review, while its current Building Permits page says residential roof-mounted systems under 15kw may be issued over the counter. Ask the County which path applies to your system."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 10,
+      "notes": "Summit County's Photovoltaic Systems Permitting Information sheet (revised 4/13/2020) says the Building Department reviews the documents within 10 business days from the day following submittal. The 10 business days start once all required documents are submitted and the plan review fee is paid. The County's current Building Permits page says residential roof-mounted systems under 15kw may be issued over the counter if all submittal materials are provided, which differs from the 2020 sheet. The Town's development permit pages do not give a review time for the development permit."
+    },
+    "confidence": 0.65,
+    "source_ids": [
+      "S6",
+      "S5"
+    ],
+    "notes": null
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Town development permit, then Summit County photovoltaic and AC electrical permits",
+      "other_conditions": [
+        "Summit County's current Building Permits page says residential roof-mounted systems under 15kw may be issued over the counter if all submittal materials are provided, while its 2020 sheet says a plan review is required. Confirm with the County.",
+        "A plan review is required for all residential PV systems over 15kw, ground-mounted and commercial systems.",
+        "A Town of Dillon development permit must be issued before you apply for the County's building-related permits.",
+        "The contractor installing the DC system must be registered with Summit County as an alternative energy contractor, which requires proof of NABCEP certification as a PV installer.",
+        "The electrical contractor pulling the AC permit must be registered with Summit County as an electrical contractor.",
+        "Photovoltaic and electrical permit applications expire 180 days after the date of application, and permits expire 18 months after issuance.",
+        "Roof pathways: not less than two 36-inch pathways from the low roof edge to the ridge, one 36-inch pathway on the street or driveway side, and a 36-inch ridge setback unless an exception is met.",
+        "Under Resolution No. PZ 04-25, Series of 2025 (approved August 6, 2025), solar panels are among the rooftop mechanical equipment exceptions allowed to exceed the building height by 8 feet (Sec. 16-1-200).",
+        "Carbon monoxide alarms are required in single-family and multifamily dwelling units when any project requiring a permit is done on the property.",
+        "Xcel Energy sizing rule for net metering (not a permit rule): expected generation, combined with other generation at the address, may not exceed 200% of the previous 12 months of consumption."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S13"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Summit County photovoltaic permit, residential plan review",
+        "amount_usd": 175,
+        "unit": "plan review fee",
+        "notes": null
+      },
+      {
+        "name": "Summit County photovoltaic permit, residential permit fee",
+        "amount_usd": 325,
+        "unit": "permit fee",
+        "notes": null
+      },
+      {
+        "name": "Maximum total County solar permit fee, residential",
+        "amount_usd": 500,
+        "unit": "maximum total, DC and AC permits",
+        "notes": "The County's 2020 sheet says the DC and AC permit fees combined shall not exceed $500 for residential projects."
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S8",
+      "S6",
+      "S7",
+      "S5",
+      "S1",
+      "S2"
+    ],
+    "notes": "The two County amounts are from the Photovoltaic Permit Fees table on Summit County's Building Permit Fee Schedule page, which prints no effective date next to them. The County's 2020 sheet says the DC permit fee is based on the total valuation of the system plus the cost of the solar panels, and that a plan review is required for every photovoltaic permit. The County's current Building Permits page says residential roof-mounted systems under 15kw may be issued over the counter if all submittal materials are provided. Neither page says whether the $175.00 plan review fee applies to a system issued over the counter, so ask the County. The County's 2020 sheet says the AC electrical permit fee is based on the valuation of the AC side, with no plan review fee. Summit County says fees are due at the time of submittal, and a processing fee of $.75 plus 2.25% applies to credit card payments. The Town says building and electrical permit fees are determined by the Summit County Building Inspection Department at the time of application. The Town of Dillon development permit has its own fee, which Town staff send by email after reviewing your application. The Town's pages do not publish the amount."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S12"
+    ],
+    "notes": "These are Xcel Energy programs. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Summit County Building Inspection Department",
+        "role": "Summit County Building Inspection Department (the Town uses it for electrical code review and inspections; County photovoltaic permits)",
+        "phone": "970-668-3170",
+        "email": "buildinginspection@summitcountyco.gov",
+        "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permits.php"
+      },
+      {
+        "name": "Ned West, Town Planner",
+        "role": "Town of Dillon Planning & Zoning (development permit for solar panels)",
+        "phone": "(970) 262-3421",
+        "email": "nwest@townofdillon.com",
+        "url": "https://www.dillonco.gov/departments/planning-zoning-department"
+      },
+      {
+        "name": "Town of Dillon",
+        "role": "Town of Dillon, Town Hall",
+        "phone": "(970) 468-2403",
+        "email": null,
+        "url": "https://www.dillonco.gov/departments/planning-zoning-department/development-permit-application"
+      },
+      {
+        "name": "Summit Fire & EMS",
+        "role": "Summit Fire & EMS (fire district for Dillon; fire review through the County sign-off card)",
+        "phone": "970-262-5100",
+        "email": null,
+        "url": "https://www.summitfire.org/permits"
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S6",
+      "S5",
+      "S1",
+      "S2",
+      "S9"
+    ],
+    "notes": "The Summit Fire & EMS number is published for its Community Risk Division. Summit Fire & EMS says its district includes Dillon."
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Planning & Zoning Department",
+      "url": "https://www.dillonco.gov/departments/planning-zoning-department",
+      "publisher": "Town of Dillon",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Development Permit Application",
+      "url": "https://www.dillonco.gov/departments/planning-zoning-department/development-permit-application",
+      "publisher": "Town of Dillon",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Forms and Permits",
+      "url": "https://www.dillonco.gov/how-do-i/apply-for",
+      "publisher": "Town of Dillon",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Sustainability in Dillon",
+      "url": "https://www.dillonco.gov/government/sustainability-in-dillon",
+      "publisher": "Town of Dillon",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Building Permits",
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permits.php",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Photovoltaic Systems Permitting Information (Revised 4/13/2020)",
+      "url": "https://summitcountyco.gov/Documents/Services/Community%20Development/Building%20Inspection/Building%20Permit/pphotovoltaic%20-%20Revised%204-13-20.pdf?t=202405230931250",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Photovoltaic Permit Submittal Completeness Checklist (2023)",
+      "url": "https://summitcountyco.gov/Documents/Services/Community%20Development/Building%20Inspection/Building%20Permit/PV%20CHECKLIST%202023_202309221624491113.pdf?t=202405230931250",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Building Permit Fee Schedule",
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permit_fee_schedule.php",
+      "publisher": "Summit County Building Inspection Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Permits",
+      "url": "https://www.summitfire.org/permits",
+      "publisher": "Summit Fire & EMS",
+      "type": "other_official",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Interconnection",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S14",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}

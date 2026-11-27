@@ -55,6 +55,11 @@ export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string
 	"co-adams-federal-heights-multi",
 	"co-la-plata-durango-multi",
 	// Batch 5 (2026-11-27)
+	"co-mesa-clifton-multi",
+	"co-eagle-basalt-holy-cross",
+	"co-summit-dillon-multi",
+	"co-summit-frisco-multi",
+	"co-arapahoe-cherry-hills-village-multi",
 	"co-boulder-niwot-multi",
 	"co-boulder-gunbarrel-multi",
 	"co-arapahoe-bow-mar-multi",
@@ -106,6 +111,11 @@ const BATCH_4_GUIDES = new Set([
 
 // Batch 5 (2026-11-27, second run) is newer than batch 4; every earlier guide keeps its pool.
 const BATCH_5_GUIDES = new Set<string>([
+	"co-mesa-clifton-multi",
+	"co-eagle-basalt-holy-cross",
+	"co-summit-dillon-multi",
+	"co-summit-frisco-multi",
+	"co-arapahoe-cherry-hills-village-multi",
 	"co-boulder-niwot-multi",
 	"co-boulder-gunbarrel-multi",
 	"co-arapahoe-bow-mar-multi",
