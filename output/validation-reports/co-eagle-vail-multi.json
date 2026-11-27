@@ -1,0 +1,234 @@
+{
+  "record_id": "co-eagle-vail-multi",
+  "file": "data/localities/co-eagle-vail-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/government/departments/community-development/building-department/building-permits — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:19:11Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/Home/Components/ServiceDirectory/ServiceDirectory/26/ — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:19:34Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S2].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/government/departments/community-development/building-department — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:19:04Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/home/showpublisheddocument/5720/639124419398700000 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T11:28:36Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/government/departments/community-development/fire-drb-building-plan-submittals — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:19:23Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/government/boards-commissions-authority-district/design-review-board-drb/drb-applications — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:20:28Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S6].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/home/showpublisheddocument/4816/638715291283270000 — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T11:28:45Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S7].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/government/departments/community-development/building-department/inspections — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:19:55Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S8].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/government/departments/community-development/contractor-registrations — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:20:15Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S9].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.vail.gov/government/departments/finance/construction-use-tax — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:19:49Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "county",
+      "message": "'county' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.vail.gov/government/departments/community-development/building-department/building-permits",
+      "checked_at": "2026-11-27T16:06:28.165Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:19:11Z",
+        "sha256": "27134c0d1fa72a13bfc32f65b7067c2883a5ac16a014019308274543ead14bb9",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.holycross.com/interconnection-guidelines/",
+      "checked_at": "2026-11-27T16:06:28.605Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.holycross.com/member-programs/go-solar",
+      "checked_at": "2026-11-27T16:06:29.938Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.vail.gov/Home/Components/ServiceDirectory/ServiceDirectory/26/",
+      "checked_at": "2026-11-27T16:06:30.395Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:19:34Z",
+        "sha256": "927dfa9574982f59fa9c68b2f72a112281beaab5508ef75d84cf375e459c1d64",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.vail.gov/government/departments/community-development/building-department",
+      "checked_at": "2026-11-27T16:06:30.802Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:19:04Z",
+        "sha256": "11f572c2f7afbd25faaa3489a2f6a7f1f54d5dffa214de4f1309d32bd1d2d254",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.vail.gov/home/showpublisheddocument/5720/639124419398700000",
+      "checked_at": "2026-11-27T16:06:30.908Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T11:28:36Z",
+        "sha256": "b7b51d06ca74b315ca69403cfa5c10d40833d2797e732965a236e53fd07006e1",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.vail.gov/government/departments/community-development/fire-drb-building-plan-submittals",
+      "checked_at": "2026-11-27T16:06:31.030Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:19:23Z",
+        "sha256": "638163ed1b3a5c0adf692011318f96e2dd03da37bd5bb7b63851a4b2946a89e2",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.vail.gov/government/boards-commissions-authority-district/design-review-board-drb/drb-applications",
+      "checked_at": "2026-11-27T16:06:31.119Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:20:28Z",
+        "sha256": "2677332f297565af08b8d7384364fb0aa2cb66fd892563c36ac7c7e76c106fd1",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.vail.gov/home/showpublisheddocument/4816/638715291283270000",
+      "checked_at": "2026-11-27T16:06:31.314Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T11:28:45Z",
+        "sha256": "c934e205d1829c44d6a7c16c55570bb1e9d59f9f0944708cc2dcd23e4080cad9",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.vail.gov/government/departments/community-development/building-department/inspections",
+      "checked_at": "2026-11-27T16:06:31.405Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:19:55Z",
+        "sha256": "709b299275149d23fac34fae23e2ae875665cc69d277d87911218c16431fac0b",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.vail.gov/government/departments/community-development/contractor-registrations",
+      "checked_at": "2026-11-27T16:06:31.520Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:20:15Z",
+        "sha256": "60acec8143937c8414b3f15b0e528573e93f24f608c8ed50c69a8aa1a270b683",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.vail.gov/government/departments/finance/construction-use-tax",
+      "checked_at": "2026-11-27T16:06:31.610Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:19:49Z",
+        "sha256": "4c6eda6eee4cf7de3147669d04ee5eaef66e1b7bc9134f40e426715e1beabfbe",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "checked_at": "2026-11-27T16:06:31.742Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.holycross.com/service-map/",
+      "checked_at": "2026-11-27T16:06:32.551Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

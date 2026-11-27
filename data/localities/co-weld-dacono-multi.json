@@ -1,0 +1,431 @@
+{
+  "record_id": "co-weld-dacono-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "United Power",
+    "confidence": 0.85,
+    "source_ids": [
+      "S6",
+      "S8"
+    ],
+    "notes": "The City of Dacono says United Power provides electric service to residents and businesses within the City of Dacono. The City says to confirm service availability and account information directly with United Power. The City's Utilities page also links Black Hills Energy but does not say what service it provides. United Power Member Services can be reached at 303-637-1300."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "United Power",
+      "type": "utility",
+      "notes": "Under United Power net metering, your net meter energy bank rolls over each month until March, when all banks are settled and returned to a zero balance. On an annual basis, a member who still has excess generation is cashed out at the wholesale energy rate."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S6",
+      "S10",
+      "S8"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Dacono",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's building, fee, utility and zoning pages do not name the county Dacono is in. The Zoning page says that properties outside city limits are governed by Weld County regulations."
+  },
+  "permit_authority": {
+    "value": "City of Dacono (building department services by SAFEbuilt Colorado)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City of Dacono contracts with SAFEbuilt Colorado for building department services. Certain plan submittals go directly to Mountain View Fire Protection District and St. Vrain Sanitation District. If you are unsure whether your property is inside Dacono city limits, ask the City's Community Development Department (303-833-2317). The City's GIS Hub offers interactive mapping."
+  },
+  "permit_url": {
+    "value": "https://www.daconoco.gov/875/Building-Codes-Permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "Building permit applications, plan submittals and payments are generally made through Community Core, which is open to residents and professional contractors. Residents who need Community Core access register as a Community Member. The PV submittal guide says the permit application (emailed to the town) or the online application must be filled out completely."
+  },
+  "interconnection_url": {
+    "value": "https://www.unitedpower.com/form/net-metering-application",
+    "confidence": 0.9,
+    "source_ids": [
+      "S7",
+      "S8"
+    ],
+    "notes": "United Power's online net metering application is for systems no larger than 25 kW and requires a copy of the electrical one-line drawing. United Power calls it a pre-approval process, and changes to equipment, orientation or installers must be approved by United Power. United Power then e-mails a link to sign its Terms and Conditions with instructions for paying the $200 application fee. The member must install a 200 amp AMI production sub-meter housing, which United Power fits with a sub-meter, and an external AC manual disconnect. The name on the application must match the account."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "United Power handles a battery like a new solar installation, through its interconnection Terms & Conditions and an online application, and United Power and the City describe no battery incentive program."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed permit application (emailed to the town or online)",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Structural engineer's stamped letter for roof-mounted panels",
+        "required_when": "Roof-mounted systems. The letter covers the added weight and wind load and must state design to a minimum ground snow load of 30psf, wind speed of 115mph Vult, wind exposure C and seismic design category B. The type of roof connection, with embedment, is also required.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Engineer stamped letter for ground-mounted systems",
+        "required_when": "Ground-mounted systems. The letter covers support and wind load of the PV system and must state the ground snow load of 30psf, wind speed of 115mph Vult, wind exposure C and seismic design category B.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Four-line electrical diagram",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Equipment specifications with ampacities, volts and wattage",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Wire, disconnect and fuse or breaker sizing calculations",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "DC inverter selection calculation",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Equipment cut sheets",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Equipment locations on the plans",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Labels, directories and plaques",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Roof layout with panel locations and roof dimensions",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Fire pathways, setbacks and equipment protection on the plans",
+        "required_when": "Shown per the IRC or IFC, as required by the type of structure.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Roof connection detail with manufacturer and equipment line",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Site plan with equipment location and distances to property lines",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Engineered stamped letter and plans for commercial projects",
+        "required_when": "Commercial projects only.",
+        "source_ids": [
+          "S3"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3"
+    ],
+    "notes": "The list follows the City's Photovoltaic System Submittal Requirements & Solar Panel Installation/Replacement Submittal (SAFEbuilt), marked Last revised 10.22.2021. Resubmittals go to coloradoplanreview@safebuilt.com, not to the plans examiner directly."
+  },
+  "inspection_steps": {
+    "value": [
+      "Before signing a contract with a solar installer, review United Power's Solar Interconnection Standards and Terms & Conditions. When you are ready to install, submit United Power's online application with your solar contractor. This United Power application is separate from the City building permit.",
+      "United Power reviews the application and e-mails whether it is approved or denied.",
+      "Apply for the City building permit, generally through Community Core, with the PV submittal documents.",
+      "SAFEbuilt plan review. Plan reviews are required for each building on a property, and separate permits may be required.",
+      "Pay all building permit fees in full when the permit is approved.",
+      "Your solar contractor must arrange an inspection with the local authority having jurisdiction to show the installation meets local building codes. In Dacono, inspections are requested through Community Core or the SAFEbuilt Inspection line at 1-888-774-0454.",
+      "Complete United Power's final step after installation. United Power's current online net metering application (November 2026) says that once the system is installed, United Power will send a link to a form for final design drawings and photos of the 200 amp production meter housing, the external AC manual disconnect switch and the inverter nameplate. United Power's older process document (2018, a date that appears only in its file name) says United Power will schedule a final on-site inspection with the member."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S8",
+      "S7",
+      "S1",
+      "S3",
+      "S5",
+      "S11"
+    ],
+    "notes": "Inspection requests received by the Building Division before 4:00 p.m., Monday through Friday, are scheduled for the following business day, and next day inspections are not guaranteed. United Power engineers review solar installations that connect to the grid. United Power says systems connected without proper notification will be immediately disabled. United Power's two documents describe the final utility step differently, so ask United Power which one applies to your system. The City's pages do not list which inspection types a solar permit needs, so ask SAFEbuilt when you schedule."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City does not publish a review time for solar permits."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Building permit through the City's SAFEbuilt building services, on Community Core",
+      "other_conditions": [
+        "Professional contractors must be licensed through the City of Dacono, and electricians must also complete the electrician registration form and say whether any solar work will be done.",
+        "Electrical contractor registration requires a copy of the State Master license, with no fee.",
+        "The minimum insurance for a contractor license is $1,000,000, effective September 2025.",
+        "The City adopted the 2024 I-Codes on December 8, 2025, effective December 17, 2025, and its Building Codes page lists the National Electrical Code, 2026 edition. The PV submittal guide (last revised 10.22.2021) lists \"20203 NEC, 2024 International Codes\", so confirm the electrical code edition with SAFEbuilt.",
+        "The PV submittal guide says zoning requirements are set by individual jurisdictions and the applicant should contact the jurisdiction to verify compliance.",
+        "United Power's online net metering application covers systems no larger than 25 kW, and United Power says system generation can not exceed 200% of the annual usage at that location."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S5",
+      "S7",
+      "S8",
+      "S12"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Electrical fee, valuation of work not more than $2,000.00",
+        "amount_usd": 115,
+        "unit": "flat amount for electrical work valued at not more than $2,000.00",
+        "notes": "This row is in the schedule's All other electrical fees table, which is based on the dollar value of the electrical installation. The schedule does not name solar. The schedule says electrical fees are scaled at 1.15 from the current version of the State of Colorado Fee Schedule."
+      },
+      {
+        "name": "Reinspection",
+        "amount_usd": 50,
+        "unit": "per inspection",
+        "notes": null
+      },
+      {
+        "name": "Administrative charge for late payment",
+        "amount_usd": 50,
+        "unit": "if not paid within 15 days of approval",
+        "notes": "Building permits are to be paid in full within 15 days of approval by the Building Official."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S4",
+      "S5",
+      "S3"
+    ],
+    "notes": "Dacono publishes no separate solar permit fee, and the permit fee follows the valuation of the work. Building permit fees are based on the total value or cost of the project, computed with the most recent Building Valuation Data published by the ICC. The PV submittal guide says the valuation of work is the total cost to the customer (contract price), including material, items and labor. Plan review is 65% of the applicable building permit fee. The City's Fee Schedule page says it is collected at time of permit submittal, while the 2026 Fee Schedule says all building permit fees are due in full at the time of building permit approval, so ask the City when plan review is paid. Use tax is also charged on the value of the materials, assumed to be 1.5% of the total cost. Other electrical fees are computed from the dollar value of the electrical installation, including time, material and contractor profit. For $2,001.00 and above, the electrical table prints $11.50 with a note reading $5.75 per thousand or a fraction thereof of the total valuation, so ask SAFEbuilt how the electrical fee is figured for your system. The 2026 Fee Schedule is marked Revised 03/09/2026."
+  },
+  "rebates": {
+    "value": [],
+    "confidence": 0.85,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "United Power says that at this time it does not offer a rebate for new system installations."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Dacono Community Development",
+        "role": "City of Dacono Community Development (permit questions, Permit Technician Raquel Chavez)",
+        "phone": "303-833-2317 Ext. 128",
+        "email": null,
+        "url": "https://www.daconoco.gov/920/Almost-Free-Building-Permits"
+      },
+      {
+        "name": "SAFEbuilt (City of Dacono building services)",
+        "role": "SAFEbuilt for the City of Dacono (building code questions)",
+        "phone": "970-545-3512",
+        "email": null,
+        "url": "https://www.daconoco.gov/918/Building-Codes"
+      },
+      {
+        "name": "SAFEbuilt Inspection Line",
+        "role": "SAFEbuilt for the City of Dacono (inspection requests)",
+        "phone": "1-888-774-0454",
+        "email": null,
+        "url": "https://www.daconoco.gov/875/Building-Codes-Permits"
+      },
+      {
+        "name": "SAFEbuilt plan review",
+        "role": "SAFEbuilt plan review (solar plan resubmittals)",
+        "phone": null,
+        "email": "coloradoplanreview@safebuilt.com",
+        "url": "https://www.daconoco.gov/DocumentCenter/View/4450/Photovoltaic-System-Submittal-Requirements--Solar-Panel-InstallationReplacement-Submittal"
+      },
+      {
+        "name": "United Power Member Services",
+        "role": "United Power (interconnection and net metering)",
+        "phone": "303-637-1300",
+        "email": null,
+        "url": "https://www.unitedpower.com/connect-your-solar"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S9",
+      "S2",
+      "S1",
+      "S3",
+      "S8"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Codes & Permits",
+      "url": "https://www.daconoco.gov/875/Building-Codes-Permits",
+      "publisher": "City of Dacono",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Building Codes",
+      "url": "https://www.daconoco.gov/918/Building-Codes",
+      "publisher": "City of Dacono",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Photovoltaic System Submittal Requirements & Solar Panel Installation/Replacement Submittal",
+      "url": "https://www.daconoco.gov/DocumentCenter/View/4450/Photovoltaic-System-Submittal-Requirements--Solar-Panel-InstallationReplacement-Submittal",
+      "publisher": "City of Dacono (SAFEbuilt)",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Fee Schedule",
+      "url": "https://www.daconoco.gov/906/Fee-Schedule",
+      "publisher": "City of Dacono",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "2026 Fee Schedule",
+      "url": "https://www.daconoco.gov/DocumentCenter/View/6556/2026-Fee-Schedule-pdf",
+      "publisher": "City of Dacono",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Electricity",
+      "url": "https://www.daconoco.gov/904/Electricity",
+      "publisher": "City of Dacono",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "United Power Net Metering Application",
+      "url": "https://www.unitedpower.com/form/net-metering-application",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Solar & Storage Connection Requirements",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Almost Free Building Permits",
+      "url": "https://www.daconoco.gov/920/Almost-Free-Building-Permits",
+      "publisher": "City of Dacono",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Solar & Your Bill",
+      "url": "https://www.unitedpower.com/solar-bill",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Residential / Small Commercial Solar Electric Process (2018)",
+      "url": "https://www.unitedpower.com/sites/unitedpower/files/Documents/RenewableBatteryApplication_UnitedPower_2018.pdf",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Contractor Licensing",
+      "url": "https://www.daconoco.gov/886/Contractor-Licensing",
+      "publisher": "City of Dacono",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}

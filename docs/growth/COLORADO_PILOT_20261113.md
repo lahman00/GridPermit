@@ -206,3 +206,16 @@ Research folder: `01-Command-Center/research/colorado-batch5-20261127/` (96 cand
 - Poncha Springs: Chaffee County Building Safety issues permits (its forms list Poncha Springs); fee $4.00 per watt valuation, residential maximum $500.00; the County sheet's cost-based photovoltaic line is also stated. Idaho Springs: no solar-specific City list; the City's plan review handout covers "Solar energy" and the page says so; 2026 valuation table. Fort Lupton: Residential Solar Permit Fee $500.00 (Resolution 2026R020, scanned; checked against the page image); battery and rebate items are labelled for Xcel Energy customers only.
 - Diff against 102886c: adds the three guides and their Permit Path records; three batch 5 guides change only in related-cities lists. 86-route manifest byte-identical.
 
+### Wave 5 (batch 4 second round)
+
+| Guide | Record | Readiness |
+|---|---|---|
+| `/colorado/dacono/solar-permit-guide/` | `co-weld-dacono-multi` | 12 of 15 fields, validation 100 |
+| `/colorado/vail/solar-permit-guide/` | `co-eagle-vail-multi` | 13 of 15 fields, validation 100 (capture attestation) |
+
+- Batch 4 cities that failed in round 1 got a second capture round from links on their first-round pages, plus OCR for scanned PDFs (research folder `colorado-batch4-20261127/`). Dacono and Vail passed; the others stay DO NOT BUILD with reasons in their folders.
+- Audit: Dacono 100 pass / 12 edits / 0 fail (id moved to `-multi`: the City's Utilities page also links Black Hills Energy); Vail 122 / 8 / 2 fails (a structural special inspections form that the Town requires for all engineered projects, not tied to solar, was removed).
+- Dacono: no solar-specific fee; the fee follows valuation, and the electrical fee table's ambiguous $2,001-and-up row ($11.50 vs a $5.75 note) is stated as written. Vail: 2026 fee schedule photovoltaic line, $110.40 up to $2,000 and $10.35 per additional $1,000.
+- The utility-notes test now also accepts a City's "confirm service availability" instruction (Dacono).
+- Diff against 5bce013: adds the two guides and their Permit Path records; two batch 5 guides change only in related-cities lists. 86-route manifest byte-identical.
+

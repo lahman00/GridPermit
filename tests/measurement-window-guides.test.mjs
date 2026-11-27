@@ -41,7 +41,7 @@ const BATCH_2_IDS = new Set(["co-jefferson-wheat-ridge-xcel", "co-boulder-lafaye
 const BATCH_3_IDS = new Set(["co-adams-brighton-multi", "co-boulder-erie-multi", "co-boulder-superior-xcel", "az-maricopa-queen-creek-multi", "az-pima-oro-valley-multi"]);
 // Batch 4 guides (2026-11-27) are newer than batch 3.
 const BATCH_4_IDS = new Set(["co-weld-johnstown-multi", "co-summit-silverthorne-multi", "co-alamosa-alamosa-multi", "co-larimer-wellington-multi", "co-chaffee-salida-multi", "co-arapahoe-sheridan-xcel", "co-weld-frederick-united-power", "co-garfield-glenwood-springs-multi", "co-adams-federal-heights-multi", "co-la-plata-durango-multi", ]);
-const BATCH_5_IDS = new Set(["co-weld-fort-lupton-multi", "co-clear-creek-idaho-springs-multi", "co-chaffee-poncha-springs-multi", "co-mesa-palisade-multi", "co-garfield-new-castle-multi", "co-la-plata-bayfield-lpea", "co-grand-fraser-mountain-parks", "co-grand-winter-park-mountain-parks", "co-lake-leadville-multi", "co-weld-hudson-multi", "co-mesa-clifton-multi", "co-eagle-basalt-holy-cross", "co-summit-dillon-multi", "co-summit-frisco-multi", "co-arapahoe-cherry-hills-village-multi", "co-boulder-niwot-multi", "co-boulder-gunbarrel-multi", "co-arapahoe-bow-mar-multi", "co-arapahoe-glendale-multi", ]);
+const BATCH_5_IDS = new Set(["co-eagle-vail-multi", "co-weld-dacono-multi", "co-weld-fort-lupton-multi", "co-clear-creek-idaho-springs-multi", "co-chaffee-poncha-springs-multi", "co-mesa-palisade-multi", "co-garfield-new-castle-multi", "co-la-plata-bayfield-lpea", "co-grand-fraser-mountain-parks", "co-grand-winter-park-mountain-parks", "co-lake-leadville-multi", "co-weld-hudson-multi", "co-mesa-clifton-multi", "co-eagle-basalt-holy-cross", "co-summit-dillon-multi", "co-summit-frisco-multi", "co-arapahoe-cherry-hills-village-multi", "co-boulder-niwot-multi", "co-boulder-gunbarrel-multi", "co-arapahoe-bow-mar-multi", "co-arapahoe-glendale-multi", ]);
 const LATER_BATCH_IDS = new Set([...BATCH_2_IDS, ...BATCH_3_IDS, ...BATCH_4_IDS, ...BATCH_5_IDS]);
 
 test("existing and earlier pilot guides keep their pools; Thornton can see all guides", () => {
@@ -132,7 +132,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	for (const id of NEW_GUIDES_DURING_MEASUREMENT) {
 		const record = JSON.parse(read(`data/localities/${id}.json`));
 		// Each record tells the reader to check their own address in the utility notes.
-		assert.match(record.utility.notes, /your (own )?address|your electric (bill|service|utility)/i);
+		assert.match(record.utility.notes, /your (own )?address|your electric (bill|service|utility)|confirm service availability/i);
 		const utilityFaq = buildFaqs(record, { addressLevelUtility: true })[0];
 		assert.match(utilityFaq.a, /^It depends on the address\./);
 		assert.doesNotMatch(utilityFaq.a, /is the interconnection and distribution utility for/);
@@ -150,7 +150,7 @@ test("new guides say the utility depends on the address; existing guides keep th
 	const notesSet = read("src/layouts/LocalityGuideLayout.astro").match(/const UTILITY_ANSWER_FROM_NOTES = new Set\(\[([^\]]*)\]\);/);
 	assert.ok(notesSet);
 	assert.deepEqual([...notesSet[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]).sort(), ["co-boulder-boulder-multi", ...BATCH_3_IDS, ...BATCH_4_IDS, ...BATCH_5_IDS].sort());
-	for (const id of [...BATCH_3_IDS, ...BATCH_4_IDS, ...BATCH_5_IDS]) assert.match(JSON.parse(read(`data/localities/${id}.json`)).utility.notes, /your (own )?address|your electric (bill|service|utility)/i);
+	for (const id of [...BATCH_3_IDS, ...BATCH_4_IDS, ...BATCH_5_IDS]) assert.match(JSON.parse(read(`data/localities/${id}.json`)).utility.notes, /your (own )?address|your electric (bill|service|utility)|confirm service availability/i);
 	const denver = JSON.parse(read("data/localities/co-denver-denver-xcel.json"));
 	assert.match(buildFaqs(denver)[0].a, /is the interconnection and distribution utility for Denver\./);
 	assert.deepEqual(buildFaqs(denver), buildFaqs(denver, {}));
