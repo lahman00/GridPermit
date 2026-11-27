@@ -108,3 +108,25 @@ Same method as batches 1 and 2: raw captures of official pages on the owner's co
 - The 404 was CORE Electric Cooperative's Small Generation Interconnection Procedures (07/21/2025), cited by Centennial. The same document is now at a new address (the one Parker already cites) and still gives the interconnections email and the meter-release and witness-test steps. Centennial's source link and its accessed date are updated; nothing else on the page changes. Centennial now has a capture attestation, because the City site answers automated link checks with 403.
 - A network re-validation of all 20 records (with the Centennial fix) found no dead links. Several city sites now answer automated link checks with 403 (Westminster, Centennial, Arvada, Lakewood, Fort Collins). Their committed validation reports are unchanged. Before any of them is re-validated, take fresh browser captures for an attestation, or Westminster, Arvada and Lakewood would score below 85 for blocked links alone.
 - After 2026-12-16, also clear the batch 3 set in `relatedPoolFor` and the batch 3 ids from `NEW_GUIDES_DURING_MEASUREMENT`. Fee amounts with cents render without a trailing zero (for example $164.5); fixing the formatter changes every guide with such an amount, so it waits for the window to close.
+
+## Batch 4 (2026-11-27): Durango, Federal Heights, Glenwood Springs, Frederick, Sheridan, Salida, Wellington, Alamosa
+
+Same method as batches 1 to 3: raw captures of official pages on the owner's computer, quote-checked claims, a sentence-level trace, then an independent audit with a verdict per public sentence. Research folder: `01-Command-Center/research/colorado-batch4-20261127/`. 36 Colorado candidates were researched; these eight met the gate.
+
+| Guide | Record | Readiness |
+|---|---|---|
+| `/colorado/durango/solar-permit-guide/` | `co-la-plata-durango-multi` | 12 of 15 fields, validation 98 |
+| `/colorado/federal-heights/solar-permit-guide/` | `co-adams-federal-heights-multi` | 14 of 15 fields, validation 100 (capture attestation) |
+| `/colorado/glenwood-springs/solar-permit-guide/` | `co-garfield-glenwood-springs-multi` | 13 of 15 fields, validation 100 |
+| `/colorado/frederick/solar-permit-guide/` | `co-weld-frederick-united-power` | 13 of 15 fields, validation 100 |
+| `/colorado/sheridan/solar-permit-guide/` | `co-arapahoe-sheridan-xcel` | 13 of 15 fields, validation 100 |
+| `/colorado/salida/solar-permit-guide/` | `co-chaffee-salida-multi` | 14 of 15 fields, validation 100 (capture attestation) |
+| `/colorado/wellington/solar-permit-guide/` | `co-larimer-wellington-multi` | 15 of 15 fields, validation 100 |
+| `/colorado/alamosa/solar-permit-guide/` | `co-alamosa-alamosa-multi` | 14 of 15 fields, validation 100 (capture attestation) |
+
+- Audit results (pass / pass with edit, no fails): Durango 82/3, Federal Heights 116/6, Glenwood Springs 114/6, Frederick 119/10, Sheridan 129/9, Salida 108/9, Wellington 133/9, Alamosa 123/12. All edits are applied.
+- Utility: Frederick names United Power and Sheridan names Xcel Energy on their own pages. The other six use the `-multi` id and ask the reader to confirm the utility for their address. Salida was drafted as `-xcel`; the auditor changed it to `-multi` because its only support is Xcel's 10/2015 communities list, which also lists Fort Collins, a city with its own utility.
+- Salida's permit is issued by Chaffee County (electrical permit), not the City; the page says so. Salida's County fee form shows a $285.00 example that does not match its own valuation table; the page states both instead of choosing one.
+- Not built, with reasons kept in the research folder: Craig (no solar fee), Delta and Sterling and Gunnison (fee schedule or city pages not readable or refused automated access), Avon, Vail and Rifle (no solar document list), Carbondale and Breckenridge (solar requirements not captured), Timnath (every Town page refused automated access), and the rest of the 36 candidates for similar reasons. Silverthorne, Johnstown and Steamboat Springs were drafted and are in audit.
+- Measurement window: the eight ids are in `NEW_GUIDES_DURING_MEASUREMENT` and in the batch 4 set of `relatedPoolFor`. The full before/after build diff (live commit 581bcfb vs this branch) shows only the eight guide pages and their Permit Path records as added; changed pages are the Colorado state index, the guide directory, Permit Path, search, the sitemap and the release file. No existing guide changed and the 86-route paid manifest is byte-identical.
+- After 2026-12-16, also clear the batch 4 set in `relatedPoolFor` and the batch 4 ids from `NEW_GUIDES_DURING_MEASUREMENT`.

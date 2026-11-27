@@ -1,0 +1,424 @@
+{
+  "record_id": "co-arapahoe-sheridan-xcel",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy",
+    "confidence": 0.85,
+    "source_ids": [
+      "S5",
+      "S8"
+    ],
+    "notes": "The City's Utilities page says Xcel Energy provides gas and electric service within the City of Sheridan. The City says utilities in Sheridan are provided by separate utility districts that handle their own billing, customer service and system maintenance, and tells residents to contact the utility for information about service. To confirm which electric utility serves your address, check your electric bill or contact Xcel Energy. Xcel's Solar*Rewards page says you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "The City says Xcel Energy provides gas and electric service within the City of Sheridan. Xcel says all solar customers receive Net Energy Metering (NEM) benefits, and excess energy is held in a virtual solar bank for use in future months."
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S5",
+      "S8"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Sheridan",
+    "confidence": 1,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Arapahoe County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S4",
+      "S9"
+    ],
+    "notes": "The City's 2026 Fee Schedule says City and Arapahoe use taxes are assessed in addition to building permit fees, and the City's FAQ refers to the unincorporated parts of Arapahoe County adjacent to the City. The City's building and solar pages do not give a way to check whether an address is inside Sheridan city limits. Ask the Building Department (303-438-3302) whether your address is inside the City."
+  },
+  "permit_authority": {
+    "value": "City of Sheridan Building Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City's solar checklist says a City of Sheridan building permit must be issued prior to the start of any work. A separate electrical permit issued by the State of Colorado is also required, and the final electrical inspection is done by the State of Colorado. The State electrical permit application form that the City links says solar permits are on a separate form. The City's building and solar pages do not give a way to check whether an address is inside Sheridan city limits. Ask the Building Department (303-438-3302) whether your address is inside the City."
+  },
+  "permit_url": {
+    "value": "https://ci.sheridan.co.us/DocumentCenter/View/2533/Solar-Checklist-",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "This is the City's Solar Photovoltaic (PV) System Permitting Checklist. All permits and documents are submitted electronically through the City's OnBase plan review portal at https://permits.sheridangov.org/PlanReview. You can check permit status through your account on that portal or by calling the permit technician at 303-438-3302."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+    "confidence": 0.8,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "For Xcel Energy customers. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. The page links Xcel's solar application process, which covers the steps needed to energize your system. Xcel's approval is separate from the City building permit, the State electrical permit and the City's inspections."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Xcel's Solar*Rewards page lists Renewable Battery Connect among its programs. That page does not give the program's terms or amounts, so ask Xcel before you rely on a battery incentive."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Completed permit application form(s), including the project valuation",
+        "required_when": "The checklist says to complete the permit application form(s) and upload them with the other required documents to the City's Plan Review Portal. The City's Building Permit Application form asks for the contract value (attach a copy of the contract) or the cost of all materials and labor included in the entire project.",
+        "source_ids": [
+          "S6"
+        ]
+      },
+      {
+        "name": "One set of construction documents for each address",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "State of Colorado electrical permit information",
+        "required_when": "Included for record keeping.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Property owner and licensed contractor information",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Site plan drawn to scale showing the address and major components",
+        "required_when": "The site plan should include all the relative locations of components on site.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Roof plan with total roof area and percentage covered by panels (roof-mounted systems)",
+        "required_when": "Roof-mounted systems. Setbacks, pathways and roof access must comply with 2021 International Fire Code Section 1205.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural plans showing the means of attachment (roof-mounted systems)",
+        "required_when": "If installed on a roof.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Specification sheets and installation manuals",
+        "required_when": "Installation manuals if available.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Structural engineer's evaluation of the existing structure, stamped by a Colorado-licensed structural engineer",
+        "required_when": "The plans show how the existing structure will be altered to support the added loads. If the engineer finds the existing structure will support the additional loads, a letter stating that it will support the additional gravity and lateral loads is submitted instead. In each case the plans and/or the letter are stamped by a structural engineer licensed by the State of Colorado.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "One-line diagram showing number and wattage of modules, conductor sizes, wire lengths, insulation types, conduit sizes, fuses, circuit breaker ratings, inverter ratings, AC & DC disconnect rating and ground fault protection device",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "PV module nameplate short-circuit current and open-circuit voltage",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Wire size and fuse/breaker calculations with temperature deration factors per NEC Table 690.31(C)",
+        "required_when": "Roof-mounted systems should use the worse case ambient temperature of 56-60 degrees C.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Calculations showing the PV system voltage does not exceed the maximum rated DC inverter input voltage or that of the connected equipment",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "All grounding on the one-line diagram, with the grounding electrode system per NEC 690.47 and equipment grounding conductor calculations per NEC 690.43 & 690.45",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Location of all disconnecting means and equipment, with interior or exterior wiring identified",
+        "required_when": "The PV system disconnecting means are grouped together per NEC 690.14(C)(5).",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "UL Standard 1703 manufacturer's specifications for module installation and grounding",
+        "required_when": null,
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S6"
+    ],
+    "notes": "From the City's Solar Photovoltaic (PV) System Permitting Checklist, which lists the minimum information and plan details required when applying for a permit for a residential or commercial solar PV system. The checklist says the City has adopted the 2021 International Residential Code and the 2023 National Electrical Code. All PV projects require a thorough plan review, and the plans and documents are uploaded to the City's plan review portal."
+  },
+  "inspection_steps": {
+    "value": [
+      "Upload the permit application, plans and documents to the City's OnBase plan review portal at https://permits.sheridangov.org/PlanReview.",
+      "Pay the plan review fee before the review starts, in person or over the phone.",
+      "Get the City of Sheridan building permit before any work starts, and get the separate State of Colorado electrical permit.",
+      "If Xcel Energy serves your address, your installer usually submits the interconnection application to Xcel, and Xcel highly recommends not starting construction until the application has full approval from its engineering team and all final agreements are signed.",
+      "Schedule inspections by calling 303-438-3302 before 3:30 pm for a next-day inspection.",
+      "Rough frame inspection, before panels are set: the rail attachment to the roof is verified per the required design.",
+      "Rough electrical inspection to verify panel placement and grounding/bonding.",
+      "Final electrical inspection by the State of Colorado.",
+      "Final framing inspection, after the State electrical inspection has been approved and the net meter is installed."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S8"
+    ],
+    "notes": "The City's solar checklist says a residential solar PV system requires four inspections. The City says it offers inspection appointment times for solar projects, instead of appointment windows, if requested. The Building Department page also says you can email the Permit Technician to schedule an inspection. Passing the City and State inspections is separate from Xcel's own steps to energize your system."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "Two City sources give different review times for solar permits. The City's solar checklist says best efforts are made to review completed residential solar permit applications within seven business days. The City's Solar Energy Resources page says the City is committed to processing small rooftop solar PV permit applications in a turnaround time of 3 business days. The checklist says its turnaround times are typical, not guaranteed, and that missing information, a contractor who is not licensed, or equipment that is not listed can prolong the turnaround. Ask the Building Department which review time applies to your project."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City of Sheridan building permit for solar PV, plus a State electrical permit",
+      "other_conditions": [
+        "All PV projects require a thorough plan review.",
+        "Property owner and licensed contractor information is required with the application.",
+        "The City's Building Permit Application asks for the contractor's City of Sheridan license number and says all subcontractors on the project must be licensed in the City of Sheridan and listed.",
+        "The checklist says all permits expire six (6) months after date of issue, and failure to start the authorized work within that period makes the permit invalid. All work must be complete within twelve (12) months of the permit issue date.",
+        "The City's Planning and Zoning department recognizes solar PV systems as an accessory use in all zone districts.",
+        "The City's solar access memo (October 3, 2023) says that for properties covered under the Colorado Common Interest Ownership Act, a homeowners association cannot ban solar panels but can regulate them. The device can only be installed on property owned by the owner (unless the association approves otherwise), and the association may place reasonable aesthetic restrictions on dimensions, placement and external appearance. The memo says it is general information and not legal advice.",
+        "Xcel Energy customers: Xcel says you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential solar PV permit fee (maximum)",
+        "amount_usd": 500,
+        "unit": "cap per residential permit",
+        "notes": "The 2026 Fee Schedule lists the Solar PV permit fee as capped at $500.00 residential and cites state statute § 24-48.5-113. The solar checklist says permit fees for residential solar PV systems are capped at $500 and that systems are subject to applicable taxes and plan review fees."
+      },
+      {
+        "name": "Plan re-review beyond two review cycles",
+        "amount_usd": 125,
+        "unit": "per hour, one hour minimum",
+        "notes": "From the 2026 Fee Schedule, Building Plan Review Fee section."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S4",
+      "S10"
+    ],
+    "notes": "From the City of Sheridan 2026 Fee Schedule, marked Effective 01/01/2026, and the City's solar checklist. The checklist says residential and commercial solar systems are subject to applicable taxes and plan review fees. The 2026 Fee Schedule says all plan review fees are 65% of the permit fee, and the plan review fee must be paid before the review starts. The schedule says City and Arapahoe use taxes are assessed in addition to building permit fees. Permit fees may be doubled if work has begun before a permit is issued. The schedule says all fees are non-refundable. A separate electrical permit issued by the State of Colorado is also required. The State form the City links says solar permits are on a separate form."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer who qualifies under the terms of Income Qualified.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer in a Disproportionately Impacted Community.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S3",
+      "S8"
+    ],
+    "notes": "These are Xcel Energy programs. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. The City's Solar Energy Resources page says City of Sheridan residents who meet income eligibility requirements may be able to secure free solar via GRID Alternatives' Energy for All program. The City's solar page does not describe a City rebate for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Sheridan Building Department",
+        "role": "City of Sheridan Building Department (solar permit questions and inspection scheduling), 4101 S. Federal Blvd., Sheridan, CO 80110",
+        "phone": "303-438-3302",
+        "email": "building@ci.sheridan.co.us",
+        "url": "https://ci.sheridan.co.us/DocumentCenter/View/2533/Solar-Checklist-"
+      },
+      {
+        "name": "Jess Bradshaw",
+        "role": "Chief Building Official, City of Sheridan (staff point of contact on the solar checklist)",
+        "phone": null,
+        "email": "building@ci.sheridan.co.us",
+        "url": "https://ci.sheridan.co.us/DocumentCenter/View/2533/Solar-Checklist-"
+      },
+      {
+        "name": "City of Sheridan",
+        "role": "City of Sheridan main line",
+        "phone": "303-762-2200",
+        "email": null,
+        "url": "https://ci.sheridan.co.us/432/Building-Department"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The checklist lists the Building Department phone numbers as 303-438-3302 or 303-438-3309. The office and permit counter are open 8 am to 4:30 pm."
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Solar Photovoltaic (PV) System Permitting Checklist",
+      "url": "https://ci.sheridan.co.us/DocumentCenter/View/2533/Solar-Checklist-",
+      "publisher": "City of Sheridan Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Building Department",
+      "url": "https://ci.sheridan.co.us/432/Building-Department",
+      "publisher": "City of Sheridan",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Solar Energy Resources",
+      "url": "https://ci.sheridan.co.us/543/Solar-Energy-Resources",
+      "publisher": "City of Sheridan",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "City of Sheridan 2026 Fee Schedule (Effective 01/01/2026)",
+      "url": "https://ci.sheridan.co.us/DocumentCenter/View/2656/2026-Fee-Schedule?bidId=",
+      "publisher": "City of Sheridan",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Utilities",
+      "url": "https://www.ci.sheridan.co.us/515/Utilities",
+      "publisher": "City of Sheridan",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Building Permit Application",
+      "url": "https://www.ci.sheridan.co.us/DocumentCenter/View/212",
+      "publisher": "City of Sheridan Building Department",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Solar Access Law in Colorado memo (October 3, 2023)",
+      "url": "https://www.ci.sheridan.co.us/DocumentCenter/View/2552/Solar-access-memo",
+      "publisher": "City of Sheridan, Office of the City Manager",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Frequently Asked Questions",
+      "url": "https://www.ci.sheridan.co.us/m/faq",
+      "publisher": "City of Sheridan",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Electrical Permit Application (State Electrical Board form linked by the City, fee schedule effective May 15, 2019)",
+      "url": "https://ci.sheridan.co.us/DocumentCenter/View/1694/Electrical-Permit-Application5823_202006011401259309?bidId=",
+      "publisher": "Colorado Division of Professions and Occupations, State Electrical Board",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}
