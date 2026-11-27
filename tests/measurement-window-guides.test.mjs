@@ -41,7 +41,7 @@ const BATCH_2_IDS = new Set(["co-jefferson-wheat-ridge-xcel", "co-boulder-lafaye
 const BATCH_3_IDS = new Set(["co-adams-brighton-multi", "co-boulder-erie-multi", "co-boulder-superior-xcel", "az-maricopa-queen-creek-multi", "az-pima-oro-valley-multi"]);
 // Batch 4 guides (2026-11-27) are newer than batch 3.
 const BATCH_4_IDS = new Set(["co-weld-johnstown-multi", "co-summit-silverthorne-multi", "co-alamosa-alamosa-multi", "co-larimer-wellington-multi", "co-chaffee-salida-multi", "co-arapahoe-sheridan-xcel", "co-weld-frederick-united-power", "co-garfield-glenwood-springs-multi", "co-adams-federal-heights-multi", "co-la-plata-durango-multi", ]);
-const BATCH_5_IDS = new Set(["co-boulder-niwot-multi", "co-boulder-gunbarrel-multi", "co-arapahoe-bow-mar-multi", "co-arapahoe-glendale-multi", ]);
+const BATCH_5_IDS = new Set(["co-mesa-clifton-multi", "co-eagle-basalt-holy-cross", "co-summit-dillon-multi", "co-summit-frisco-multi", "co-arapahoe-cherry-hills-village-multi", "co-boulder-niwot-multi", "co-boulder-gunbarrel-multi", "co-arapahoe-bow-mar-multi", "co-arapahoe-glendale-multi", ]);
 const LATER_BATCH_IDS = new Set([...BATCH_2_IDS, ...BATCH_3_IDS, ...BATCH_4_IDS, ...BATCH_5_IDS]);
 
 test("existing and earlier pilot guides keep their pools; Thornton can see all guides", () => {

@@ -1,0 +1,453 @@
+{
+  "record_id": "co-eagle-basalt-holy-cross",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Holy Cross Energy (check your electric bill)",
+    "confidence": 0.6,
+    "source_ids": [
+      "S1",
+      "S11"
+    ],
+    "notes": "The Town of Basalt's Building page says its 2024 sustainable building rule amendment reflects Holy Cross Energy's renewable power supply. Holy Cross Energy says it serves members in the Western Colorado counties of Eagle, Pitkin, Garfield, Mesa, and Gunnison. Neither the Town nor Holy Cross Energy says which utility serves each Basalt address, so check the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Holy Cross Energy",
+      "type": "utility",
+      "notes": "Applies only if Holy Cross Energy is the utility on your electric bill. Holy Cross Energy says that in 2026 it will purchase over 85% clean energy from its wholesale electricity providers for its entire membership. Members with solar keep receiving monthly bills from Holy Cross Energy and are credited for energy returned under its Renewable Energy Net Metering Service Optional Tariff."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Basalt",
+    "confidence": 0.95,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's pages do not say which county a Basalt address is in. The Building page links to both Pitkin County GIS and Eagle County GIS maps."
+  },
+  "permit_authority": {
+    "value": "Town of Basalt Building Department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S4",
+      "S5"
+    ],
+    "notes": "The Town of Basalt Building Department takes the building PV permit application for plan review. The Town says electrical work is permitted and inspected by the State of Colorado. The State's list of local electrical inspection areas includes Eagle County (except Minturn and the Town of Avon) and Pitkin County, and the State says it does not inspect where a local electrical inspection program exists. Ask the Building Department who issues and inspects the electrical permit for your address. A separate fire permit is approved, issued and finalized by the Roaring Fork Fire Authority. To look up a property, the Town's Building page links to Pitkin County GIS and Eagle County GIS maps. The Town's pages give no expedited or same-day path for PV permits."
+  },
+  "permit_url": {
+    "value": "https://us.cloudpermit.com/basalt/",
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S4",
+      "S1"
+    ],
+    "notes": "Apply on the Town's Cloudpermit site, which has a Building Permit section for building permit applications. The Town of Basalt Building Permit Application is used for PV Solar permits; describe the solar work in the Description of Work. The Town's guidelines also say to send permit applications to all Building Department staff: carlos.peugnet@basalt.net, lanie.martin@basalt.net and mitch.miller@basalt.net. The Building page says the Cloud Permit online application process is near completion."
+  },
+  "interconnection_url": {
+    "value": "https://www.holycross.com/about-us/library/tariffs-rules-and-regulations/interconnect-guidelines",
+    "confidence": 0.75,
+    "source_ids": [
+      "S10",
+      "S9"
+    ],
+    "notes": "For Holy Cross Energy members only. Holy Cross Energy says any installer putting a generator behind the meter must submit an interconnection application through PowerClerk, and every applicant needs a PowerClerk account. Holy Cross Energy's two pages give different ranges for its $100 non-refundable study fee: the Interconnect Guidelines page says 12-100 kW, while the Solar + Battery page says 0 to 100 kW; both say $250 above 100 kW. Ask Holy Cross Energy which applies to your system. Holy Cross Energy makes its own site visit before it issues an authorization to operate, and systems cannot be energized before that authorization. The utility's authorization to operate is separate from the Town building permit, the State electrical permit and the fire permit."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Power+ or Power+FLEX battery incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Calculated as $500 per enrolled kW, up to $12,500. Members can enroll in only one Holy Cross Energy battery program and receive one incentive. Incentives are limited to available funds on a first-come, first-served basis.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The member must be enrolled in Power+ or Power+FLEX under the Distribution Flexibility Program Optional Tariff. Portable and non-permanent storage, such as vehicle-to-home (V2H) applications, is not eligible. Check that Holy Cross Energy is your utility first.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Time of Use Rate battery incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Pays the lesser of $250 per kW of battery capacity or $100 per kWh, capped at $12,500. Members can enroll in only one Holy Cross Energy battery program and receive one incentive.",
+        "value_usd_per_kwh": 100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The member must be enrolled in the Time of Use Optional Rate. Portable and non-permanent storage, such as vehicle-to-home (V2H) applications, is not eligible. Check that Holy Cross Energy is your utility first.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "Holy Cross Energy says no member may receive more than $30,000 related to the ownership of renewable generation, and its member limit for energy storage systems is $15,000, in addition to the renewable generation limit."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Town of Basalt Building Permit Application (PV Solar)",
+        "required_when": "Every PV permit; the application asks for the valuation of work.",
+        "source_ids": [
+          "S4",
+          "S5"
+        ]
+      },
+      {
+        "name": "One-line diagram",
+        "required_when": "At application for plan review; it must show wire sizing, circuit voltage, voltage drop, grounding and fusing of the PV system.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer specifications and installation documents for all PV equipment",
+        "required_when": "At application for plan review; covers module, array, combiner box (if applicable), inverter, mounting hardware, batteries (if applicable), disconnect and all other PV equipment.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Drawings with panel azimuth, zenith alignment, equipment elevations and a site plan",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Basalt PV Generation Calculator Sheet, or the Basalt REMP Calculation Sheet",
+        "required_when": "The REMP Calculation Sheet is for REMP/CREMP fee calculations on new construction and for Exterior Energy Use Fees under the Sustainable Building Regulations; both sheets are on the Town's Building page.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Separate State of Colorado electrical permit",
+        "required_when": "Electrical work is permitted and inspected by the State; if you hire an electrical contractor, the contractor obtains the permit.",
+        "source_ids": [
+          "S5",
+          "S2",
+          "S8"
+        ]
+      },
+      {
+        "name": "Roaring Fork Fire permit application",
+        "required_when": "Listed in the Town's PV guidelines; the application portal is linked from the Town's Building page.",
+        "source_ids": [
+          "S2",
+          "S1",
+          "S7"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S4",
+      "S5"
+    ],
+    "notes": "The list follows the Town's Photovoltaic Solar System Application Guidelines. The document prints no revision date; the Town's file for it is named Basalt-PV-Solar-Application-Guidelines-2023-10-24."
+  },
+  "inspection_steps": {
+    "value": [
+      "If Holy Cross Energy is your utility, your installer submits the interconnection application through PowerClerk. To qualify for a Holy Cross Energy incentive, you need its Approval Letter before any solar component is built.",
+      "Apply for the Town building permit on Cloudpermit with the PV submittal items. Once the permit is started, the Town emails an invitation to complete the requirements in the project Workspace, and you sign off the application to submit it for review.",
+      "Get the separate State electrical permit, which the Colorado State Electrical Board approves, issues and finalizes.",
+      "Get the Roaring Fork Fire permit, which the fire authority approves, issues and finalizes.",
+      "Town rough-in inspection: the inspector verifies the location and placement of the array.",
+      "Town final inspection: the inspector verifies operation of the array.",
+      "Holy Cross Energy makes its own site visit and issues an authorization to operate. The system cannot be energized before that."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S2",
+      "S4",
+      "S5",
+      "S9",
+      "S10"
+    ],
+    "notes": "The Basalt Building Department does not do inspections or site visits on Mondays and Fridays. For State electrical inspections, contact your State inspector to schedule. The Town building permit, the State electrical permit, the fire permit and the utility's authorization to operate are separate approvals."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town's Building page and PV guidelines give no review or processing time for a PV permit."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Town of Basalt building permit for PV solar, applied for on Cloudpermit",
+      "other_conditions": [
+        "Under the Town's installer requirements, both DC and AC wiring are listed as approved by the Colorado State Electrical Board.",
+        "All contractors working in the Town of Basalt must register in Cloudpermit Contractor Registration. Electrical contractors are licensed by the State (DORA) and must also register. Town contractor licenses run from Jan. 1 through Dec. 31 of each year.",
+        "Contractors, architects, engineers and the general public may create a Cloud Permit account to apply.",
+        "The Town's Building page lists its current code adoptions as 2021 ICC, 2023 NEC and 2024 SBR I and II.",
+        "For new construction, remodels and additions under the IRC, the Town's checklist asks the design specifications sheet to show roof live load (snow) plus added loads if solar is to be installed.",
+        "If Holy Cross Energy is your utility: it allows net metering for generators up to 25kW with a load offset of up to 200%, and it will not interconnect a net metering installation that sells power to a member under a Power Purchase Agreement."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S2",
+      "S3",
+      "S4",
+      "S1",
+      "S12",
+      "S9",
+      "S10"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Roaring Fork Fire permit, photovoltaic or thermal solar system or auxiliary battery energy storage system",
+        "amount_usd": 200,
+        "unit": "per permit",
+        "notes": "Listed on the fire permit application form linked from the Town's Building page."
+      },
+      {
+        "name": "Town building permit, valuation to $500",
+        "amount_usd": 21,
+        "unit": "flat",
+        "notes": null
+      },
+      {
+        "name": "Town building permit, valuation $501 to $2,000",
+        "amount_usd": 21,
+        "unit": "for the first $500, plus $2.75 per additional $100 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Town building permit, valuation $2,001 to $25,000",
+        "amount_usd": 62.25,
+        "unit": "for the first $2,000, plus $4.50 per additional $1,000 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Town building permit, valuation $25,001 to $50,000",
+        "amount_usd": 165.75,
+        "unit": "for the first $25,000, plus $5.50 per additional $1,000 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Town building permit, valuation $50,001 to $100,000",
+        "amount_usd": 303.25,
+        "unit": "for the first $50,000, plus $6.25 per additional $1,000 or fraction",
+        "notes": null
+      },
+      {
+        "name": "Re-inspection",
+        "amount_usd": 100,
+        "unit": "per hour",
+        "notes": null
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S6",
+      "S5",
+      "S7",
+      "S1"
+    ],
+    "notes": "The Town's Building Permit Fees sheet has no separate solar line: the building permit fee follows the sheet's valuation table, and the permit application asks for the valuation of work. Chapter 18 of the Town code adds a plan review fee of 65% of the building permit fee when construction documents are submitted for a building permit, and an energy and sustainable building code review fee of at least 10% of the building permit fee. The valuation is the total value of the work, including electrical work and permanent equipment. The sheet continues past $100,000 of valuation. It prints no effective date; the Town's file for it is named Building-Fees-2023-08-07. The State electrical permit fee is not on the Town's sheet."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Holy Cross Energy solar incentive",
+        "administrator": "Holy Cross Energy",
+        "description": "Effective April 1, 2026, all new solar net metered interconnection applications receive a flat incentive of $100 per kW, up to 25 kW. Funding is limited and first-come, first-served, and payments are reduced so they do not exceed 40% of the installed cost. Renewable Energy Credits (RECs) from the system are assigned to Holy Cross Energy when you accept the incentive. The installation must be finished within 120 days of the reservation or the reservation is lost.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "You need a Holy Cross Energy Approval Letter before any solar component is built. Generation must be sized to supply no more than 200% of the account's previous 12 months of electricity use. Projects installed by vendors not on Holy Cross Energy's Preferred Installer list may not be eligible. Check that Holy Cross Energy is your utility first.",
+        "url": "https://www.holycross.com/member-programs/go-solar",
+        "effective_from": "2026-04-01",
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "The Town's pages describe no Town rebate for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Basalt Building Department",
+        "role": "Town of Basalt Building Department (solar permit questions)",
+        "phone": "970-927-4701",
+        "email": "carlos.peugnet@basalt.net",
+        "url": "https://www.basalt.net/132/Building"
+      },
+      {
+        "name": "Dan Brown",
+        "role": "Town of Basalt Chief Building Official",
+        "phone": "970-279-2316",
+        "email": null,
+        "url": "https://www.basalt.net/132/Building"
+      },
+      {
+        "name": "Carlos Peugnet",
+        "role": "Town of Basalt Plans Examiner & Inspector",
+        "phone": "970-279-4385",
+        "email": "carlos.peugnet@basalt.net",
+        "url": "https://www.basalt.net/132/Building"
+      },
+      {
+        "name": "Line Inspection",
+        "role": "Town of Basalt Building Department line inspection",
+        "phone": "970-927-4702",
+        "email": null,
+        "url": "https://www.basalt.net/132/Building"
+      },
+      {
+        "name": "Colorado Electrical and Plumbing Permits",
+        "role": "State of Colorado electrical permits (DORA)",
+        "phone": "303-894-7800",
+        "email": "dora_eandp_permits@state.co.us",
+        "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits"
+      },
+      {
+        "name": "Holy Cross Energy interconnection",
+        "role": "Holy Cross Energy (interconnection questions, for Holy Cross members)",
+        "phone": "(970) 547-5414",
+        "email": "klarouche@holycross.com",
+        "url": "https://www.holycross.com/member-programs/go-solar"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S4",
+      "S8",
+      "S9"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building",
+      "url": "https://www.basalt.net/132/Building",
+      "publisher": "Town of Basalt",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Photovoltaic Solar System Application Guidelines",
+      "url": "https://www.basalt.net/DocumentCenter/View/5675",
+      "publisher": "Town of Basalt",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Cloudpermit: Town of Basalt building permits and contractor registration",
+      "url": "https://us.cloudpermit.com/basalt/",
+      "publisher": "Town of Basalt",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Cloud Permit Application Guidelines",
+      "url": "https://www.basalt.net/DocumentCenter/View/7058",
+      "publisher": "Town of Basalt",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Building Permit Application",
+      "url": "https://www.basalt.net/DocumentCenter/View/5418",
+      "publisher": "Town of Basalt",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Building Permit Fees",
+      "url": "https://www.basalt.net/DocumentCenter/View/5428",
+      "publisher": "Town of Basalt",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Plan & Permit (fire permit application form linked from the Town of Basalt Building page)",
+      "url": "https://app.smartsheet.com/b/form/d38d46f12ce04574ab19e59204016f22",
+      "publisher": "Roaring Fork Fire Rescue",
+      "type": "other_official",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Colorado Electrical and Plumbing Permits",
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits",
+      "publisher": "Colorado Department of Regulatory Agencies, Division of Professions and Occupations",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Solar + Battery Energy Storage",
+      "url": "https://www.holycross.com/member-programs/go-solar",
+      "publisher": "Holy Cross Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Interconnect Guidelines",
+      "url": "https://www.holycross.com/about-us/library/tariffs-rules-and-regulations/interconnect-guidelines",
+      "publisher": "Holy Cross Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Service area",
+      "url": "https://www.holycross.com/service-map/",
+      "publisher": "Holy Cross Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Town of Basalt Permit Application Checklist_IRC (new construction, remodel, addition)",
+      "url": "https://www.basalt.net/DocumentCenter/View/6791",
+      "publisher": "Town of Basalt",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}

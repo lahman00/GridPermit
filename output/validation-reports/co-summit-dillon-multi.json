@@ -1,0 +1,170 @@
+{
+  "record_id": "co-summit-dillon-multi",
+  "file": "data/localities/co-summit-dillon-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "official_contacts[1].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.dillonco.gov/departments/planning-zoning-department — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T09:46:40Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[2].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.dillonco.gov/departments/planning-zoning-department/development-permit-application — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T09:47:11Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S3].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.dillonco.gov/how-do-i/apply-for — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T09:47:42Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.dillonco.gov/government/sustainability-in-dillon — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T09:49:10Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "county",
+      "message": "'county' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permits.php",
+      "checked_at": "2026-11-27T10:40:09.873Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "checked_at": "2026-11-27T10:40:10.101Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "checked_at": "2026-11-27T10:40:10.611Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "checked_at": "2026-11-27T10:40:11.110Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.dillonco.gov/departments/planning-zoning-department",
+      "checked_at": "2026-11-27T10:40:11.632Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T09:46:40Z",
+        "sha256": "d5baf1bb7716b3b3a6bdd12db4c321a5d71991ee79ecaf7858f9d6b419fe3cf8",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.dillonco.gov/departments/planning-zoning-department/development-permit-application",
+      "checked_at": "2026-11-27T10:40:11.838Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T09:47:11Z",
+        "sha256": "4cdda8a94606b617c78f618a1faf5751b2f67df25befd05508e166824bb44fb4",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.summitfire.org/permits",
+      "checked_at": "2026-11-27T10:40:11.901Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.dillonco.gov/how-do-i/apply-for",
+      "checked_at": "2026-11-27T10:40:12.660Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T09:47:42Z",
+        "sha256": "a8551669d136043a2e48af2d5c95477988453b55d3688e5ade2f475f4c8fcee4",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.dillonco.gov/government/sustainability-in-dillon",
+      "checked_at": "2026-11-27T10:40:12.747Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T09:49:10Z",
+        "sha256": "f7b724b1f12d11cc9b0d015d745bc2331d13b4c0913f40bb3ac45767d0bc5340",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://summitcountyco.gov/Documents/Services/Community%20Development/Building%20Inspection/Building%20Permit/pphotovoltaic%20-%20Revised%204-13-20.pdf?t=202405230931250",
+      "checked_at": "2026-11-27T10:40:12.815Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://summitcountyco.gov/Documents/Services/Community%20Development/Building%20Inspection/Building%20Permit/PV%20CHECKLIST%202023_202309221624491113.pdf?t=202405230931250",
+      "checked_at": "2026-11-27T10:40:13.486Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.summitcountyco.gov/services/community_development/building_inspection/building_permit_fee_schedule.php",
+      "checked_at": "2026-11-27T10:40:13.954Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "checked_at": "2026-11-27T10:40:14.237Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "checked_at": "2026-11-27T10:40:14.757Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

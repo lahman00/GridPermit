@@ -1,0 +1,502 @@
+{
+  "record_id": "co-arapahoe-cherry-hills-village-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy (check the utility named on your electric bill)",
+    "confidence": 0.6,
+    "source_ids": [
+      "S9",
+      "S2"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served (10/2015) shows Cherry Hills Village with gas and electricity service. The City's solar checklist asks for a copy of the application for Xcel Energy's Solar Rewards Contract. No City page says which electric utility serves each address or that one utility serves every address in Cherry Hills Village. Check the utility named on your electric bill before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy. Check the utility named on your electric bill."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S9",
+      "S10"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Cherry Hills Village",
+    "confidence": 1,
+    "source_ids": [
+      "S6"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's fee page says an Arapahoe County Open Space Use Tax may apply before a permit is issued."
+  },
+  "permit_authority": {
+    "value": "City of Cherry Hills Village Building Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S6",
+      "S1"
+    ],
+    "notes": "The City's solar checklist says two permits are required: a building permit for the installation and structural support of the system, and an electrical permit for the electrical portion of the installation. Permit issuance is subject to approval from the Cherry Hills Village Planning Department and Building Department. When you apply in the City's portal, you search for the property under the \"Land Address\" box. The City's pages do not explain how to confirm that an address is inside the city limits, so ask the Building Division if you are unsure."
+  },
+  "permit_url": {
+    "value": "https://cherryhillsvillage.com/421/Building-Permits",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City's Building Permits page says applying, paying, scheduling inspections and reviewing plan review results are handled through the City's online portal. First-time users must register, and registration has to be manually approved by the City. The Building Permits page says this may take up to 1 business day in one place and up to 24 business hours in another. The solar checklist says plans can be submitted online at http://cherryhillsvillage.com/solar. The City's Building Permits page says all permit applications are now handled through the City's online portal."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.8,
+    "source_ids": [
+      "S10",
+      "S11",
+      "S13",
+      "S14"
+    ],
+    "notes": "For Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf and manages the details with Xcel Energy, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. Xcel's May 2022 Colorado portal guide says proof of a final, passing electrical inspection from the city or county is required for all applications. Xcel says the interconnection work ends with a permission to operate letter from Xcel to the generator owner. Xcel's permission to operate is separate from the City permits and the City's inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery to your home or small business and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5-years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S12"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page, which shows General budget available on figures dated 11/02/2026. The City's solar checklist does not describe permit requirements for batteries or energy storage, so ask the Building Division before adding one."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Solar PV Checklist (Requirements for Plan Submittal), attached to the permit application",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "One set of construction documents for each address",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Site plan showing the location of the system",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Elevation drawings (roof-mounted systems)",
+        "required_when": "For roof-mounted systems. If equipment is above the highest point of the roof ridge, an overall height calculation is also required.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Construction staging plan (projects disturbing more than 500 square feet and 10 cubic feet of soil)",
+        "required_when": "When the project disturbs more than 500 square feet of property and 10 cubic feet of soil, following Section 18-10 of the Municipal Code.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "One-line diagram showing number and wattage of modules, conductor sizes, wire lengths, insulation types, conduit sizes, fuses, circuit breaker ratings, inverter ratings, AC & DC disconnect rating and ground fault protection device, with all grounding shown, the grounding electrode system per NEC 690.47, and calculations used to size the equipment grounding conductor per NEC 690.43 & 690.45",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "PV module nameplate short-circuit current and open-circuit voltage relative to the work performed",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Calculations for wire sizes and fuses/breakers, with temperature deration factors per NEC Table 690.31(C) (roof-mounted systems should use a worst case ambient temperature of 56-60 degrees C)",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Calculations showing PV system voltage does not exceed the maximum rated DC inverter input voltage or that of the connected equipment",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Plan showing the location of all disconnecting means and of the equipment and panels in relation to the house and service equipment, with wiring identified as interior or exterior and the PV system disconnecting means grouped together per NEC 690.14(C)(5)",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "UL Standard 1703 manufacturer's specifications for module installation and grounding, dated after May 1, 2012",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer's cut sheets and listing information for PV equipment",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Copy of the application for Xcel Energy's Solar Rewards Contract",
+        "required_when": "Submit the application copy with the plans. Xcel's net metering page calls Solar*Rewards its 'other solar option', an incentivized program. The checklist does not say what to submit if you are not applying for Solar*Rewards, so ask the Building Division. The checklist also asks for a copy of the signed and approved contract upon project completion.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural plans showing load path elements and, for roof installs, the means of attachment",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural engineer's evaluation of the existing structure (plans showing alterations, or a letter), stamped by a Colorado-licensed structural engineer",
+        "required_when": "Plans show how the existing structure will be altered to support the added loads. If the engineer finds the structure will support the added gravity and lateral loads, a letter saying so is submitted with the application instead.",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2",
+      "S1",
+      "S7"
+    ],
+    "notes": "From the City's Requirements for Plan Submittal, Residential Solar Photovoltaic Systems (the Solar PV Checklist), which must be attached to the permit application. The checklist prints no revision date. The City's Building Permits page says the City adopted the 2024 I-Codes at the beginning of 2026, so ask the Building Division whether the checklist is the current version. The City's plan submittal best practices say Cherry Hills Village does not accept deferred submittals, except for engineered truss designs and possibly a few other items, with prior approval. Uploaded documents must follow the City's file naming convention."
+  },
+  "inspection_steps": {
+    "value": [
+      "Register for the City's online permit portal. Registration is manually approved by the City; the Building Permits page says it may take up to 1 business day in one place and up to 24 business hours in another.",
+      "Apply in the portal for a building permit (installation and structural support) and a separate electrical permit, with the Solar PV Checklist attached.",
+      "Permit issuance is subject to approval from the Planning Department and Building Department. The checklist says permit fees are paid at the time of permit issuance.",
+      "Request inspections online in the portal: requests submitted before 3 p.m. are performed the next business day, and requests after 3 p.m. in two business days.",
+      "Upon project completion, submit a copy of the signed and approved Xcel Energy Solar Rewards Contract, as the City's checklist requires.",
+      "For Xcel customers, Xcel's May 2022 portal guide says proof of a final, passing electrical inspection from the City is uploaded to Xcel's application portal.",
+      "Xcel's May 2022 portal guide says Xcel's meter technician then installs or reviews the meters and leaves a door hanger giving permission to operate, and an automated email from the application portal follows within a few days."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S5",
+      "S14"
+    ],
+    "notes": "The City's solar checklist and Building Inspection Requests page do not list the specific inspections for a solar installation, so ask the Building Division which inspections to request. Times are not assigned to inspection requests, and the inspector texts a time frame. Passing the City's inspections is not Xcel's permission to operate."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City does not publish a review time for residential solar permits. Its Exterior Remodel Requirements (revised June 6, 2024) say Exterior Remodel permits that need Planning, Building and/or Civil Engineering review may take 10 business days for each review cycle. That document lists solar systems as work that needs a separate permit and does not say the same time applies to it."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Residential solar PV building permit plus electrical permit, via the City portal",
+      "other_conditions": [
+        "All electrical contractors must register with the City by sending a State Electrical Contractor License, State Master Electrician License and the Master Electrician's driver's license to buildingdepartment@cherryhillsvillage.com.",
+        "Cherry Hills Village does not issue contractor licenses, and anyone other than an electrical contractor does not need to register as a contractor with the City.",
+        "The City's plan submittal best practices say a Colorado State licensed electrical contractor shall do all electrical work on a separate permit.",
+        "The City's checklist says solar photovoltaic power systems shall be installed in accordance with Sections R324.1 through R324.7 and NFPA 70.",
+        "Panels on residential buildings must be no higher than 3 feet below the ridge, to allow for fire department smoke ventilation. The checklist allows panels up to the ridge where the fire chief has approved an alternative ventilation method or has determined vertical ventilation techniques will not be employed.",
+        "On hip roofs, panels must leave a 3-foot-wide clear access pathway from the eave to the ridge on each roof slope with panels; this does not apply to roofs with slopes of 2:12 or less.",
+        "Any electrical work on 400 amps (320 continuous) or more needs a separate plan review.",
+        "The City's solar checklist and permit pages describe no separate expedited path for residential solar permits.",
+        "Xcel Energy net metering: you must be an Xcel Energy residential or business electricity customer, and the name on the application must match the name on the Xcel Energy account or bill.",
+        "Xcel Energy net metering: expected generation, combined with other distributed generation serving the service address, must not exceed 200% of historical consumption (the previous 12 months at the time of application submission).",
+        "Xcel Energy net metering: all equipment must be UL 1741 SB certified and listed within the Solar Equipment Lists on the California Energy Commission website."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S7",
+      "S10"
+    ],
+    "notes": "Contractor and installation conditions are from the City's Building Permits page, plan submittal best practices and Solar PV Checklist. Sizing, equipment and account conditions are Xcel Energy's and apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential solar permit fees (State-law limit)",
+        "amount_usd": 500,
+        "unit": "maximum, or the City's actual cost if lower",
+        "notes": "From the City's memo Permit Fees for Solar Energy Devices, dated August 15, 2023."
+      },
+      {
+        "name": "Planning and Building Permit Technician staff time",
+        "amount_usd": 35,
+        "unit": "per hour",
+        "notes": null
+      },
+      {
+        "name": "Community Development Director staff time",
+        "amount_usd": 60,
+        "unit": "per hour",
+        "notes": null
+      },
+      {
+        "name": "Plan Examiner staff time",
+        "amount_usd": 170,
+        "unit": "per hour",
+        "notes": null
+      },
+      {
+        "name": "City Engineer staff time",
+        "amount_usd": 195,
+        "unit": "per hour",
+        "notes": null
+      },
+      {
+        "name": "City Attorney staff time",
+        "amount_usd": 205,
+        "unit": "per hour",
+        "notes": null
+      },
+      {
+        "name": "Building/Zoning inspections",
+        "amount_usd": 25,
+        "unit": "per inspection, $100 minimum",
+        "notes": null
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S2",
+      "S4",
+      "S8"
+    ],
+    "notes": "The City's memo dated August 15, 2023 says permit fees for solar energy devices are the lesser of the actual cost of issuing the permit or $500 for residential applications. The City figures its actual cost from the staff time and inspection rates listed, plus any other actual costs incurred by the City in issuing the permit. An itemized cost breakdown will be provided upon request from the applicant. The City's solar checklist says permit fees are paid at the time of permit issuance. The City's fee page says building permit review fees are due at the time any permit is submitted for review, and that after the permit is approved and before it is issued, a building permit fee, service expansion fee and Arapahoe County Open Space Use Tax may apply. The City's Exterior Remodel Requirements (revised June 6, 2024), whose fee tables cover most permits, list a use tax paid to Arapahoe County of 1/8th of 1% of the valuation. They say use tax is not applied to electric permits, demo permits or building permits of $2,000 valuation or under. The solar memo does not mention review fees, the service expansion fee or a use tax, and does not say whether they count toward the $500 limit, so ask the Community Development Department at 303-783-2721."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. Must qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11"
+    ],
+    "notes": "These are Xcel Energy programs for Xcel customers. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program. The City's solar pages do not mention a City rebate for residential solar."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Cherry Hills Village Building Division",
+        "role": "City of Cherry Hills Village Building Division (solar permit and inspection questions), 2450 E Quincy Avenue, Cherry Hills Village, CO 80113",
+        "phone": "303-783-2721",
+        "email": null,
+        "url": "https://cherryhillsvillage.com/379/Building-Inspection-Requests"
+      },
+      {
+        "name": "City of Cherry Hills Village Community Development Department",
+        "role": "City of Cherry Hills Village Community Development Department (solar permit fee questions)",
+        "phone": "303-783-2721",
+        "email": null,
+        "url": "https://cherryhillsvillage.com/DocumentCenter/View/1942"
+      },
+      {
+        "name": "City of Cherry Hills Village Building Department",
+        "role": "City of Cherry Hills Village Building Department (electrical contractor registration documents)",
+        "phone": null,
+        "email": "buildingdepartment@cherryhillsvillage.com",
+        "url": "https://cherryhillsvillage.com/421/Building-Permits"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S5",
+      "S3",
+      "S1"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permits",
+      "url": "https://cherryhillsvillage.com/421/Building-Permits",
+      "publisher": "City of Cherry Hills Village",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Requirements for Plan Submittal, Residential Solar Photovoltaic Systems (Solar PV Checklist)",
+      "url": "https://www.cherryhillsvillage.com/DocumentCenter/View/2716/Solar-PV-Checklist-",
+      "publisher": "City of Cherry Hills Village",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Memorandum: Permit Fees for Solar Energy Devices (August 15, 2023)",
+      "url": "https://cherryhillsvillage.com/DocumentCenter/View/1942",
+      "publisher": "City of Cherry Hills Village Community Development",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permit Fee Schedules",
+      "url": "https://cherryhillsvillage.com/372/Building-Permit-Fee-Schedules",
+      "publisher": "City of Cherry Hills Village",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Building Inspection Requests",
+      "url": "https://cherryhillsvillage.com/379/Building-Inspection-Requests",
+      "publisher": "City of Cherry Hills Village",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Building Division",
+      "url": "https://cherryhillsvillage.com/353/Building-Division",
+      "publisher": "City of Cherry Hills Village",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Best Practices for Plan Submittal",
+      "url": "https://www.cherryhillsvillage.com/DocumentCenter/View/6730/Best-Practice---Plan-Submittal",
+      "publisher": "City of Cherry Hills Village",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Exterior Remodel Requirements (Revised June 6, 2024)",
+      "url": "https://www.cherryhillsvillage.com/DocumentCenter/View/4335/Exterior-Remodel-Requirements-PDF",
+      "publisher": "City of Cherry Hills Village Community Development",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Interconnection (Renewable Developers)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S14",
+      "title": "Interconnection Application Portal Process Guide, Colorado DER (May 2022)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe-responsive/Working%20With%20Us/Renewable%20Developers/CO_DER%20Interconnection%20Portal_Process%20Guide_2022-05.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}
