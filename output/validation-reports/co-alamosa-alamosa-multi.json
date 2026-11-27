@@ -1,0 +1,140 @@
+{
+  "record_id": "co-alamosa-alamosa-multi",
+  "file": "data/localities/co-alamosa-alamosa-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "official_contacts[4].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://dpo.colorado.gov/ElectricalPlumbingPermits — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-27T07:08:54Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.alamosa.gov/building-department",
+      "checked_at": "2026-11-27T07:42:16.388Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "checked_at": "2026-11-27T07:42:17.522Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "checked_at": "2026-11-27T07:42:18.014Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "checked_at": "2026-11-27T07:42:18.476Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.alamosa.gov/files/9c58a8156/Contractors+License+Application.pdf",
+      "checked_at": "2026-11-27T07:42:18.977Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.alamosa.gov/files/dd4f7563f/General-Requirements-for-Residential-Building-Plans-and-Documents-2023.pdf",
+      "checked_at": "2026-11-27T07:42:19.735Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://alamosacounty.org/178/Land-Use-Building",
+      "checked_at": "2026-11-27T07:42:20.742Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits",
+      "checked_at": "2026-11-27T07:42:21.605Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-27T07:08:54Z",
+        "sha256": "41665317786f7f70ad21bf4ae1e449d95c0554d118fc0caa9347216385589ed3",
+        "method": "curl"
+      }
+    },
+    {
+      "url": "https://www.alamosa.gov/files/b25201352/ApplicationforSolarPermit-Sheet1.pdf",
+      "checked_at": "2026-11-27T07:42:21.651Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.alamosa.gov/files/9c50cd39c/CITY-OF-ALAMOSA-Permit-Fee-Schedule-PDF.pdf",
+      "checked_at": "2026-11-27T07:42:22.762Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.alamosa.gov/building-permit-fee-calculator",
+      "checked_at": "2026-11-27T07:42:23.520Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.alamosa.gov/sales-tax-business-license",
+      "checked_at": "2026-11-27T07:42:24.301Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.alamosa.gov/utilities",
+      "checked_at": "2026-11-27T07:42:25.082Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "checked_at": "2026-11-27T07:42:25.938Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

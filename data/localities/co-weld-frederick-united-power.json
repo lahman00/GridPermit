@@ -1,0 +1,454 @@
+{
+  "record_id": "co-weld-frederick-united-power",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "United Power",
+    "confidence": 0.85,
+    "source_ids": [
+      "S5",
+      "S12"
+    ],
+    "notes": "The Town's New Resident Welcome Kit says United Power is the Town's electricity provider, and United Power lists Frederick among the communities it serves. Neither says that every address in Town is served by United Power, so to confirm your address call United Power Member Services at 303-637-1300. United Power's net metering application says the name on the application must match the account."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "United Power",
+      "type": "utility",
+      "notes": "Under United Power net metering, your net meter energy bank rolls over each month until March, when all banks are settled and returned to a zero balance. United Power pays out net meter bank balances at the current wholesale energy rate."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S5",
+      "S14"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Frederick",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Weld County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": "The Town's Taxes page says property tax valuations and assessments are processed by the Weld County Assessor."
+  },
+  "permit_authority": {
+    "value": "Town of Frederick Building Department",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1",
+      "S11"
+    ],
+    "notes": "The Building Department oversees building permits, inspections, contractor licensing, and residential and commercial construction code compliance. The office is at 401 Locust Street, Frederick, CO 80530, and its listed hours are Monday to Friday, 7:30 am to 4:30 pm. The Town says building code inspections are performed by the Town or on its behalf by CAA, its private building inspection partner. The Town's building pages give no way to check whether an address is inside Town limits, so ask the Building Department if you are unsure."
+  },
+  "permit_url": {
+    "value": "https://frederickco.gov/1193/Solar-Submittal-Requirements",
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S8"
+    ],
+    "notes": "The Town's Solar Submittal Requirements page sets out the procedure and documents for a solar photovoltaic (PV) permit. The design package must include two complete sets of the listed items at the time of permit application. The Town's Permits page links an Accela Portal, but the solar page does not say whether solar applications are submitted there, so ask the Building Department how to apply."
+  },
+  "interconnection_url": {
+    "value": "https://www.unitedpower.com/connect-your-solar",
+    "confidence": 0.9,
+    "source_ids": [
+      "S12",
+      "S13"
+    ],
+    "notes": "To connect to United Power's distribution system, a member must complete the corresponding application, follow all requirements for that system and sign the United Power Interconnection Terms and Conditions. United Power asks you to review its Solar Interconnection Standards and Terms & Conditions before signing a contract with a solar installer. The online net metering application is for systems no larger than 25 kW, and a one-line engineering drawing is required with each solar application. United Power engineers review solar installations connecting to the grid. Changes in equipment, orientation or installer must be documented and approved by United Power. United Power says systems connected without proper notification to United Power will be immediately disabled, and can result in service being terminated until all requirements are met. United Power's approval is separate from the Town permit and the Town's inspections."
+  },
+  "battery_programs": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "United Power handles a battery storage system like a new solar installation: review its interconnection Terms & Conditions and submit an online application. United Power's solar and storage page and the Town's pages describe no battery incentive program."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Manufacturer's cut sheets and listing information for PV equipment and inverters",
+        "required_when": "Include the system manufacturer, model name and number for the PV equipment, inverters and other special equipment.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "One-line diagram",
+        "required_when": "Show all conductor sizes and insulation types, conduit sizes, fuse and circuit breaker ratings, inverter ratings, ground fault protection device (GFPD), and AC and DC disconnect ratings. Also show the PV module's nameplate short circuit current (Isc) and open circuit voltage (Voc), how the inverter is connected (NEC 705.12), and the AC and DC grounding electrode conductors (NEC 690.41).",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Panel mounting details",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Engineer's design (panels not flush-mounted on the roof)",
+        "required_when": "When panels are not flush-mounted on the roof.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural calculations by a Colorado registered professional engineer",
+        "required_when": "The calculations must show that the structure can support the design loads in Chapter 16 of the International Building Code (IBC).",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Details and calculations for the panel connections to the roof",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Stamped letter from a Colorado licensed structural engineer",
+        "required_when": "All projects, residential and commercial. The letter must say the existing structure has been reviewed and can adequately support the PV system.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Signed and sealed structural drawings or report (if structural enhancements are needed)",
+        "required_when": "If additional structural enhancements are required, submitted with the permit.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Conductor ampacity calculations (NEC 690.8)",
+        "required_when": "Based on 156% of the short circuit current (Isc).",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Inverter output and load center bus rating calculation (NEC 705.12)",
+        "required_when": "Show that 125% of the inverter output circuit current plus the rating of the overcurrent device protecting the AC load center is no more than 120% of the load center bus rating, where the utility and inverter sources are at opposite ends of the busbar.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Maximum PV system voltage calculation (NEC 690.7)",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Equipment grounding conductor sizing calculation (NEC 690.43 and 690.45)",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Drawing with the location of all new and existing electric service equipment",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "NEC required signage description and location",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Rapid shutdown compliance (NEC 690.12)",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Professional engineer's seal and signature (when required)",
+        "required_when": "Required for all PV installations not located on a single-family dwelling or duplex. For a single-family dwelling or duplex, required only if the system equals or exceeds 10 kilowatts or includes provisions for a generator or battery backup.",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S12"
+    ],
+    "notes": "The list follows the Town's Solar Submittal Requirements page, which asks for two complete sets of these items at the time of permit application. United Power's interconnection application is separate and requires a one-line engineering drawing."
+  },
+  "inspection_steps": {
+    "value": [
+      "Apply for the Town's solar PV permit with two complete sets of the documents on the Solar Submittal Requirements page.",
+      "Submit United Power's online net metering application with your solar contractor, including the one-line drawing. United Power calls this a pre-approval process.",
+      "United Power emails a link to sign its interconnection Terms and Conditions, with instructions for paying the $200 application fee.",
+      "After its review, United Power emails whether the application is approved or denied.",
+      "Your contractor installs the system, including the disconnect switch and production meter housing United Power requires on the side of the home.",
+      "If structural upgrades are required on a single-family or duplex project, call in a framing inspection for that work.",
+      "Schedule the Town inspections by calling (720) 382-5620, or use the online Inspection Request Form on the Town's Request an Inspection page. United Power says your solar contractor arranges this inspection with the local authority having jurisdiction.",
+      "At the final electrical inspection, the rapid shutdown system is tested with the inspector present, and a qualified person must attend. Provide a ladder if any part of the system is on the roof.",
+      "After installation, submit to United Power, through the link it sends, the final design drawings and photos of the production meter housing, the external AC disconnect switch and the inverter nameplate.",
+      "United Power installs the production sub-meter."
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S2",
+      "S6",
+      "S7",
+      "S12",
+      "S13"
+    ],
+    "notes": "If the rapid shutdown system is on the AC side, a licensed electrician must conduct the test. If it is on the DC side, a NABCEP certificate holder can conduct the test, as can any licensed electrician, and the installer must show proof of the NABCEP certificate. The Town permit, the Town's inspections and United Power's interconnection approval are separate steps. The Town and United Power pages do not say whether to apply to the Town or to United Power first, and United Power's pages do not name a permission to operate document, so ask United Power when you may turn the system on. The Town's Inspection Requirements document is a spreadsheet whose contents are not shown on its web pages, so ask the Building Department which inspection types to request."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The Town does not publish a review time for solar permits."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Town of Frederick solar photovoltaic (PV) permit",
+      "other_conditions": [
+        "For a single-family dwelling or duplex, a professional engineer's seal and signature is not required unless the system equals or exceeds 10 kilowatts or includes provisions for a generator or battery backup.",
+        "A professional engineer's seal and signature is required for all PV installations not located on a single-family dwelling or duplex.",
+        "A stamped letter from a Colorado licensed structural engineer is required for all projects, residential and commercial.",
+        "For residential structures with an electrical service of 200 amps or less, the qualified person at the PV electrical inspection can be a licensed master electrician, licensed journeyman electrician, residential wireman, or NABCEP-certified solar installer capable of testing the rapid shutdown system.",
+        "For residential service over 200 amps and IBC structures, the qualified person must be a licensed master or journeyman electrician.",
+        "Town code says no person is granted a permit for electrical installation work unless that person has a state master electrician license and electrical contractor's license.",
+        "The Town's Electrician License Contemporaneous Review Guidelines (Rev: 12/14/20) say that for permits that require a licensed electrician, the electrician and license numbers must be listed before the permit is issued, or the application will not be processed.",
+        "Contractors need a license from the Building Division to work in the Town. A homeowner working on their own residence is not a contractor under the Town's licensing chapter. The same chapter says no person is granted a permit for electrical installation work without a state master electrician license and electrical contractor's license, so ask the Building Department whether a homeowner may do the electrical part of a solar installation.",
+        "For a commercial project that needs structural enhancements, signed and sealed drawings must be logged in for a structural review, and a separate permit is issued for that work.",
+        "The Town's General Construction Permit application says the permit expires 180 days from the date of issue unless work is started and inspections have been done.",
+        "The Town lists the 2024 International Residential Code and the 2026 National Electric Code among its adopted codes.",
+        "Town design criteria: wind speed 115 MPH, ground snow load 30 psf and roof snow load 30 psf.",
+        "United Power net metering rule (not a Town permit rule): system generation cannot exceed 200% of the annual usage at the location.",
+        "For a battery, United Power recommends reviewing the National Fire Protection Association (NFPA) standard 855 with your installation contractor."
+      ]
+    },
+    "confidence": 0.9,
+    "source_ids": [
+      "S2",
+      "S6",
+      "S9",
+      "S10",
+      "S11",
+      "S12"
+    ],
+    "notes": "The 10 kilowatt threshold decides when a professional engineer's seal is needed on a single-family or duplex system; it is not a size limit for the permit."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Residential Solar Device",
+        "amount_usd": 500,
+        "unit": "flat fee",
+        "notes": "Listed under Building Permit Flat and/or Hourly Fees in the Town's Fee Schedule."
+      },
+      {
+        "name": "Commercial Solar Device",
+        "amount_usd": 1000,
+        "unit": "flat fee",
+        "notes": null
+      },
+      {
+        "name": "Re-inspection fee",
+        "amount_usd": 100,
+        "unit": "per re-inspection",
+        "notes": "Charged when work is not ready for inspection, for multiple re-inspections, or when a re-inspection is requested before corrections were made."
+      },
+      {
+        "name": "Inspection outside normal business hours",
+        "amount_usd": 120,
+        "unit": "per hour, 2 hours minimum",
+        "notes": "Charged directly to the applicant."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S4"
+    ],
+    "notes": "Amounts are from the Building Permit Fees section of the Town's Fee Schedule page, which links the January 1, 2026 Fee Schedule and shows the entire schedule in an accessible format. The same section has a valuation-based building permit fee table, with the note that the plan review fee is 65% of the building permit fee. It also lists an Administrative Fee based on project valuation, from $20.00 under $10,000 to $200.00 over $150,000. The Fee Schedule does not say whether the plan review fee or the Administrative Fee is added to the flat solar device fee, and the Town's General Construction Permit application has separate lines for Permit Fee, Plan Review and Administrative Fee, so ask the Building Department for your total. If work starts before the required permit is issued, the permit fee is subject to double the calculated building permit fee. The Town's use tax is 3.5%, calculated and paid when a building permit is issued."
+  },
+  "rebates": {
+    "value": [],
+    "confidence": 0.85,
+    "source_ids": [
+      "S12"
+    ],
+    "notes": "United Power says that at this time it does not offer a rebate for new system installations."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Frederick Building Department",
+        "role": "Town of Frederick Building Department (permit questions, Building Permit Technician)",
+        "phone": "720-382-5516",
+        "email": null,
+        "url": "https://frederickco.gov/416/Building-Department"
+      },
+      {
+        "name": "Town of Frederick Inspection Line",
+        "role": "Town of Frederick Building Department (inspection scheduling)",
+        "phone": "720-382-5620",
+        "email": null,
+        "url": "https://frederickco.gov/416/Building-Department"
+      },
+      {
+        "name": "United Power Member Services",
+        "role": "United Power (Member Services, the number listed on its Solar & Storage Connection page)",
+        "phone": "303-637-1300",
+        "email": null,
+        "url": "https://www.unitedpower.com/connect-your-solar"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S6",
+      "S12"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Department",
+      "url": "https://frederickco.gov/416/Building-Department",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Solar Submittal Requirements",
+      "url": "https://frederickco.gov/1193/Solar-Submittal-Requirements",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Fee Schedule",
+      "url": "https://frederickco.gov/533/Fee-Schedule",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Taxes",
+      "url": "https://www.frederickco.gov/337/Taxes",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "New Resident Welcome Kit",
+      "url": "https://frederickco.gov/832/New-Resident-Welcome-Kit",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "General Construction Permit application",
+      "url": "https://frederickco.gov/DocumentCenter/View/11757/Permit-Application-General",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Request an Inspection",
+      "url": "https://frederickco.gov/105/Request-an-Inspection",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Permits",
+      "url": "https://frederickco.gov/1064/Permits",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Building Codes",
+      "url": "https://frederickco.gov/141/Building-Codes",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Contractor License",
+      "url": "https://frederickco.gov/904/Contractor-License",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Electrician License Contemporaneous Review Guidelines",
+      "url": "https://frederickco.gov/DocumentCenter/View/12010/Electrician-License-Contemporaneous-Review-Guidelines",
+      "publisher": "Town of Frederick",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Solar & Storage Connection",
+      "url": "https://www.unitedpower.com/connect-your-solar",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Net Metering Application",
+      "url": "https://www.unitedpower.com/form/net-metering-application",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S14",
+      "title": "Solar & Your Bill",
+      "url": "https://www.unitedpower.com/solar-bill",
+      "publisher": "United Power",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}

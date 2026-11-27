@@ -1,0 +1,135 @@
+{
+  "record_id": "co-la-plata-durango-multi",
+  "file": "data/localities/co-la-plata-durango-multi.json",
+  "validated_at": "2026-11-27",
+  "status": "REVIEW",
+  "score": 98,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "official_contacts[1].url",
+      "category": "broken_url",
+      "message": "https://dpo.colorado.gov/EandP/Permits — HTTP 403: blocked/unverifiable, not confirmed broken — recommend a manual check"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "battery_programs",
+      "message": "'battery_programs' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.durangoco.gov/1037/Solar",
+      "checked_at": "2026-11-27T07:16:03.382Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://lpea.coop/installer-resources",
+      "checked_at": "2026-11-27T07:16:04.818Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://dpo.colorado.gov/EandP/Permits",
+      "checked_at": "2026-11-27T07:16:05.612Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken"
+    },
+    {
+      "url": "https://www.durangoco.gov/DocumentCenter/View/14075/SolarPermitChecklist",
+      "checked_at": "2026-11-27T07:16:05.651Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.durangoco.gov/311/Applying-for-a-Building-Permit",
+      "checked_at": "2026-11-27T07:16:07.961Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.durangoco.gov/683/Do-I-Need-a-Permit",
+      "checked_at": "2026-11-27T07:16:08.877Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.durangoco.gov/315/Fees",
+      "checked_at": "2026-11-27T07:16:09.805Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.durangoco.gov/312/Building-Inspections",
+      "checked_at": "2026-11-27T07:16:10.872Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://durangogov.org/building",
+      "checked_at": "2026-11-27T07:16:11.870Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.durangogov.org/308/Building-Codes",
+      "checked_at": "2026-11-27T07:16:13.356Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "http://online.encodeplus.com/regs/durango-co/",
+      "checked_at": "2026-11-27T07:16:15.637Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://lpea.coop/net-metering-how-it-works",
+      "checked_at": "2026-11-27T07:16:17.192Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.durangogov.org/codepermits",
+      "checked_at": "2026-11-27T07:16:17.629Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "record_id": "co-adams-federal-heights-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy, if it serves your address",
+    "confidence": 0.6,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served shows Federal Heights with gas and electricity service. The list names communities, not addresses, and the City's building pages do not name an electric utility or give a way to check an address. Confirm your electric utility before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S8"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Federal Heights",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Adams County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S7"
+    ],
+    "notes": "The City's building pages do not name the county. The State's electrical permit page lists Adams County, except Federal Heights, among the local jurisdictions that run their own electrical inspections, so the State inspects electrical work in Federal Heights."
+  },
+  "permit_authority": {
+    "value": "City of Federal Heights Building Department (building permit) and Colorado DORA (electrical permit and inspections)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S5",
+      "S7"
+    ],
+    "notes": "The City says the State of Colorado Department of Regulatory Agencies (DORA) administers all electrical permits and inspections for the City of Federal Heights. The City's fee page says separate permits are required for building, electric, mechanical and plumbing. The State's electrical permit page lists Adams County, except Federal Heights, as a local inspection area, which matches the City's statement."
+  },
+  "permit_url": {
+    "value": "https://www.fedheights.org/building",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City's Building page links the Building Permit Application, which lists Solar as a classification of work. The City's online portal lets you pay permit fees, and access for contractors requires being a licensed contractor with the City of Federal Heights."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.8,
+    "source_ids": [
+      "S10",
+      "S12"
+    ],
+    "notes": "For Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the application on your behalf. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. Xcel says the interconnection work ends with a permission to operate letter from Xcel to the generator owner, which is separate from the City permit and the State electrical inspection."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery to your home or small business and participate, Xcel can automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5-years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page, with budget figures dated 11/02/2026."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City Building Permit Application with Solar marked as the classification of work",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Valuation of work and material cost, entered on the application",
+        "required_when": null,
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "Separate State electrical permit from DORA",
+        "required_when": null,
+        "source_ids": [
+          "S1",
+          "S5"
+        ]
+      },
+      {
+        "name": "Name of the power supplier, for the State online electrical permit request",
+        "required_when": null,
+        "source_ids": [
+          "S7"
+        ]
+      },
+      {
+        "name": "Contractor registration with the City, if a contractor applies",
+        "required_when": "Access to the City's contractor portal requires being a licensed contractor with the City of Federal Heights.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Copies of current Master and State licenses, for an electrical contractor registration",
+        "required_when": "Electrical registrations require a current copy of a Master and State licenses.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Copy of insurance form, with a contractor registration",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      }
+    ],
+    "confidence": 0.7,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S7"
+    ],
+    "notes": "The City does not publish a solar-specific submittal checklist, so ask the Building Department which plans and documents a solar permit needs."
+  },
+  "inspection_steps": {
+    "value": [
+      "Submit the City Building Permit Application with Solar marked, including the valuation of work and the material cost.",
+      "Get the separate electrical permit from the State (DORA); the State says online permits are processed immediately upon payment.",
+      "Pay the City fees; the City's permit is valid after fees are paid and an authorized signature is obtained.",
+      "Request required City inspections one working day in advance, by email to building@fedheights.org or by phone at (303) 412-3534.",
+      "For State electrical inspections, contact your State inspector for scheduling.",
+      "Pass final inspections on all items of work.",
+      "If Xcel Energy serves the address, Xcel's interconnection process ends with a permission to operate letter from Xcel to the generator owner."
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S7",
+      "S12"
+    ],
+    "notes": "The City's inspection, the State's electrical inspection and the utility's permission to operate are separate approvals."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City does not publish a review time for building permits, including solar permits. The State says its online electrical permits are processed immediately upon payment."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City building permit (Solar) plus a State electrical permit from DORA",
+      "other_conditions": [
+        "To use the City's contractor portal you must first be a licensed contractor with the City of Federal Heights.",
+        "Electrical contractor registrations with the City require a current copy of a Master and State licenses, and no fee is assessed for electrical registrations.",
+        "The State says that if a homeowner hires an electrical contractor, the contractor is responsible for obtaining the required permit.",
+        "Xcel Energy net metering: you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number.",
+        "Xcel Energy net metering: expected generation, combined with other distributed generation serving the service address, must not exceed 200% of historical consumption (the previous 12 months at the time of application submission).",
+        "Xcel Energy net metering: all equipment must be UL 1741 SB certified and listed within the Solar Equipment Lists on the California Energy Commission website."
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S2",
+      "S3",
+      "S4",
+      "S7",
+      "S10"
+    ],
+    "notes": "Net metering conditions are Xcel Energy's and apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Building permit fee, valuation $1.00 to $500.00",
+        "amount_usd": 23.5,
+        "unit": "flat amount for that valuation range",
+        "notes": "The lowest row of the City's Standard Building Permit Fees table. The fee for a solar project depends on its valuation under the same table."
+      },
+      {
+        "name": "Re-inspection fee",
+        "amount_usd": 55,
+        "unit": "per hour",
+        "notes": "Or the total hourly cost to the City, whichever is greater, per the fee page footnote."
+      },
+      {
+        "name": "Inspection outside normal business hours",
+        "amount_usd": 55,
+        "unit": "per hour, minimum charge two hours",
+        "notes": null
+      },
+      {
+        "name": "Subcontractor fee",
+        "amount_usd": 14,
+        "unit": "per subcontractor",
+        "notes": null
+      },
+      {
+        "name": "Contractor registration",
+        "amount_usd": 100,
+        "unit": "per registered license per year",
+        "notes": "No fee is assessed for electrical registrations."
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "notes": "The City's Building Permit Application lists Solar as a classification of work, and the City's building permit fee follows its valuation table: the fee is based on the total valuation of the project including labor and materials costs. For example, for a valuation of $2,001.00 to $25,000.00 the fee is $69.25 for the first $2,000.00 plus $14.00 for each additional $1,000.00, or fraction thereof. A plan review fee of 65% of the building permit fee is added, and for projects with a valuation greater than $25,000 it is collected when the application is submitted. City building use tax is 4% of the construction materials cost, and the City's fee page says materials costs cannot be less than 50% of the project's total valuation. It is paid when the building permit is issued. Work started before a permit is issued is subject to an investigation fee equal to 100 percent of the permit fee, in addition to the permit fees. The electrical permit is a separate State (DORA) permit and is not on the City's fee page."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer who qualifies under the terms of Income Qualified.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer in a Disproportionately Impacted Community.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S9",
+      "S10"
+    ],
+    "notes": "These are Xcel Energy programs. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Federal Heights Building Department",
+        "role": "City of Federal Heights Building Department (solar permit questions)",
+        "phone": "303-412-3527",
+        "email": "building@fedheights.org",
+        "url": "https://www.fedheights.org/building"
+      },
+      {
+        "name": "City of Federal Heights building inspections",
+        "role": "City of Federal Heights building inspections (inspection requests)",
+        "phone": "(303) 412-3534",
+        "email": "building@fedheights.org",
+        "url": "https://www.fedheights.org/building"
+      },
+      {
+        "name": "Colorado DORA Electrical and Plumbing Permits",
+        "role": "Colorado DORA Electrical and Plumbing Permits (State electrical permit)",
+        "phone": "303-894-7800",
+        "email": "dora_eandp_permits@state.co.us",
+        "url": "https://dpo.colorado.gov/EandP/Permits"
+      },
+      {
+        "name": "City of Federal Heights Sales Tax",
+        "role": "City of Federal Heights Sales Tax (building use tax questions)",
+        "phone": "303.412.3540",
+        "email": "salestax@fedheights.org",
+        "url": "http://federalheightsco.govoffice3.com/index.asp?SEC=DB0E3CA9-231D-49E8-944E-AD57EB4C3CA2&Type=B_BASIC"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S6",
+      "S7"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building",
+      "url": "https://www.fedheights.org/building",
+      "publisher": "City of Federal Heights",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Building Department Portal",
+      "url": "https://fedheights.citizenlink.app/permits",
+      "publisher": "City of Federal Heights",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Building Permit Application",
+      "url": "https://www.fedheights.org/vertical/Sites/%7B30BDEC4F-3AAB-430C-A5CC-E2BE8097AC8C%7D/uploads/Building_Permit_Application_2022_English_fillable_tel.pdf",
+      "publisher": "City of Federal Heights",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Contractor Registration Application",
+      "url": "https://www.fedheights.org/vertical/Sites/%7B30BDEC4F-3AAB-430C-A5CC-E2BE8097AC8C%7D/uploads/Contractor_Registration_2022_a.pdf",
+      "publisher": "City of Federal Heights",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Building Permit Fees",
+      "url": "http://federalheightsco.govoffice3.com/index.asp?SEC=976829E5-E58F-4984-BE85-AEA69766A65F&Type=B_BASIC",
+      "publisher": "City of Federal Heights",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "Building Use Tax",
+      "url": "http://federalheightsco.govoffice3.com/index.asp?SEC=DB0E3CA9-231D-49E8-944E-AD57EB4C3CA2&Type=B_BASIC",
+      "publisher": "City of Federal Heights",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Colorado Electrical and Plumbing Permits Homepage",
+      "url": "https://dpo.colorado.gov/EandP/Permits",
+      "publisher": "Colorado DORA Division of Professions and Occupations",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Colorado Communities Served",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Interconnection (Renewable Developers)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy (Public Service Company of Colorado)",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}

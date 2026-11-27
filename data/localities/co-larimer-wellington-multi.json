@@ -1,0 +1,508 @@
+{
+  "record_id": "co-larimer-wellington-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Poudre Valley REA or Xcel Energy, check your electric bill",
+    "confidence": 0.8,
+    "source_ids": [
+      "S9",
+      "S14"
+    ],
+    "notes": "The Town's Utilities & Trash page lists two electricity providers: Poudre Valley REA (1-800-432-1012) and Xcel Energy (800-895-1999). Electric service in Wellington is split between Poudre Valley REA and Xcel Energy. The Town does not say which addresses each utility serves, so check the utility named on your electric bill. Poudre Valley REA's Service Territory page has a map where you can locate your address."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Poudre Valley REA or Xcel Energy, check your electric bill",
+      "type": "utility",
+      "notes": "Poudre Valley REA banks unused credits to offset usage in upcoming months, and at the end of each March it purchases unused credits. Its annual true-up date is April 1. Xcel Energy says all solar customers and other qualified distributed generation systems receive net energy metering benefits, and any excess is held in a virtual bank applied against future bills."
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S9",
+      "S10",
+      "S16",
+      "S12"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Wellington",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Larimer County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Town's Homeowners and Contractors page points applicants to Larimer County use tax information for a Project Cost Report."
+  },
+  "permit_authority": {
+    "value": "Town of Wellington Building Department (plan review, permits and inspections by SAFEbuilt, the Town's partner)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "The Town takes building permit applications online through Community Core. SAFEbuilt, the Building Department's partner, conducts plan review, issues permits and schedules inspections. The Building Department is at the Municipal Services Building, 8225 Third Street. The Town's building pages give no tool to check whether an address is inside Town limits, so ask the Building Department if you are unsure."
+  },
+  "permit_url": {
+    "value": "https://wellingtoncolorado.gov/653/Homeowners-and-Contractors",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S6"
+    ],
+    "notes": "The Town's Homeowners and Contractors page lists a PV System (photovoltaic systems) permit and links Community Core. The application and plans must be completed online through Community Core."
+  },
+  "interconnection_url": {
+    "value": "https://pvrea.coop/energy-solutions/renewable-options/rooftop-solar/",
+    "confidence": 0.8,
+    "source_ids": [
+      "S10",
+      "S12",
+      "S13"
+    ],
+    "notes": "This link is for Poudre Valley REA members. PVREA says to contact it first, and then you or your installer submit the completed Net-Metering Application with the required $255 Net-Meter fee. PVREA reviews the application and, if approved, provides an executable interconnection agreement. Xcel Energy customers apply through Xcel instead, where in most cases the installer submits the application on your behalf. Xcel highly recommends that construction should not start until the application receives full approval from its engineering team and all final agreements are fully signed."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Battery Rewards",
+        "administrator": "Poudre Valley REA",
+        "description": "PVREA rewards participants for allowing it to discharge their battery energy storage system during times of high demand on the bulk electric grid. It pays a $60/kW upfront enrollment incentive per installed kilowatt of manufacturer rated continuous capacity and a $20 ongoing participation reward each month. When PVREA draws power from your battery, at least 30% of the battery remains. The program agreement term is 3 years.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For Poudre Valley REA members only. You must own the property where the battery is located and have a valid Interconnection Agreement with PVREA. Currently, only Tesla batteries are supported. You must be on or switch to the net-metered A-Net rate, and you cannot be on a Time-of-Use rate while participating.",
+        "url": "https://pvrea.coop/energy-solutions/manage-your-energy/battery-rewards/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11"
+    ],
+    "notes": null
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Permit application in Community Core with contact person, phone number and total PV system valuation",
+        "required_when": null,
+        "source_ids": [
+          "S4",
+          "S6"
+        ]
+      },
+      {
+        "name": "Complete drawings (the 2019 sheet asks for 2 sets; the Town says plans must be submitted online through Community Core)",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Four-line electrical diagram",
+        "required_when": "Show the number and wattage of modules, conductor sizes, wire lengths, insulation types, conduit sizes, fuses, circuit breaker ratings, inverter ratings, AC and DC disconnect ratings, grounding and ground fault protection.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "PV module nameplate short circuit current and open circuit voltage",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Wire size and fuse or breaker calculations, with temperature derating",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Calculation showing system voltage does not exceed inverter maximum input voltage",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Equipment grounding conductor sizing calculations",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Locations of all disconnecting means on the plans",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Manufacturer's cut sheets and listing information for PV equipment",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Sheet of required placards and labels, with wording and colors",
+        "required_when": null,
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Structural engineering for roof-mounted systems",
+        "required_when": "When the system is installed on a roof. It must prove the roof supports the new load (wind uplift, roof snow load and dead load of the system), and the plans must show load path elements and the means of attachment.",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "name": "Plot or site plan (ground-mounted systems)",
+        "required_when": "When the system is ground-mounted: show the array location and distances to property lines and existing structures.",
+        "source_ids": [
+          "S4"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S4",
+      "S6",
+      "S1"
+    ],
+    "notes": "The list follows SAFEbuilt's Photovoltaic System Submittal Requirements, updated 11/13/2019, which the Town lists under Permits With Plan Review. The Town's Homeowners and Contractors page lists a 2024 Wellington Project Checklist for PV Systems for the PV permit, and it may differ from this 2019 list, so use the 2024 checklist and confirm the requirements with the Building Department."
+  },
+  "inspection_steps": {
+    "value": [
+      "If Poudre Valley REA is your utility, contact PVREA first about your planned system.",
+      "Apply for the PV System permit online through Community Core, with a contractor licensed by the Town unless you are a homeowner permitting your own dwelling.",
+      "A Permit technician checks the application for completeness.",
+      "SAFEbuilt conducts plan review and emails you if revisions are needed.",
+      "Separately, submit the utility application: PVREA's Net-Metering Application with the $255 Net-Meter fee, or Xcel's interconnection application, which your installer usually files.",
+      "Pay the emailed invoice, then print the approved plans, inspection card and building permit from Community Core.",
+      "Install the system, and have each inspection on the inspection card done by a SAFEbuilt inspector before the next phase of construction.",
+      "Finalize the permit; the property owner is responsible for making sure final inspections are completed.",
+      "PVREA members: PVREA inspects the system while installing any necessary equipment, then puts you on the Net Metering rate and issues a Certificate of Completion. PVREA's Interconnection Procedures say the owner has no right to operate in parallel until PVREA has performed a witness test, and PVREA notifies the owner in writing that interconnection is authorized."
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S5",
+      "S8",
+      "S6",
+      "S10",
+      "S13"
+    ],
+    "notes": "The Town permit and final inspection are separate from the utility's approval. The Town's pages do not say when to file the utility application relative to the Town permit. PVREA's steps list checking building, zoning and HOA requirements before you submit its Net-Metering Application, so confirm the order with your utility. For Xcel customers, Xcel says its interconnection process ends with a permission to operate letter from Xcel to the generator owner. Ask Xcel when you may turn the system on. Xcel recommends not starting construction until the interconnection application is fully approved and all final agreements are signed."
+  },
+  "timeline_days": {
+    "value": {
+      "min_days": null,
+      "max_days": 5,
+      "notes": "The Town's Permitting Process sheet, which is undated, says to allow five days for first comments or approval for residential projects during SAFEbuilt plan review. If SAFEbuilt requests revisions or resubmittal, the sheet gives no further time. It lists 10 days for commercial projects."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S5"
+    ],
+    "notes": "The sheet counts the five days to first comments or approval and does not say whether they are business days."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "PV System permit with SAFEbuilt plan review, applied for in Community Core",
+      "other_conditions": [
+        "A plan review is required for each property or address.",
+        "SAFEbuilt's PV requirements (updated 11/13/2019) list the 2020 NEC, 2018 IRC and 2018 IBC, while the Town says it adopted the 2024 International Codes, replacing the 2018 editions, effective January 1, 2026, and tells readers to look for the incorporation of the 2026 National Electric Code. Confirm the codes and design values that apply with the Building Department.",
+        "The 2019 SAFEbuilt sheet gives design criteria of 115 Vult, exposure C, roof snow load 30 lbs per square foot and seismic design category B.",
+        "Zoning requirements are set by the jurisdiction, so check zoning with the Town.",
+        "Contractors applying for permits on behalf of a homeowner must be licensed with the Town before submitting applications.",
+        "A homeowner getting a permit for his or her own dwelling does not need a contractor's license.",
+        "Ladders must be supplied and set for roof inspections by the homeowner or contractor.",
+        "Battery storage: the Town lists a separate ESS Energy Storage System (battery storage) permit with its own 2024 project checklist.",
+        "Roof replacement: the Town's re-roofing checklist names a Residential Roof/PV Solar Permit in the Residential One Stop category, so ask the Building Department which permit fits a project that combines roofing and solar.",
+        "Poudre Valley REA limit (not a permit rule): rooftop systems must be under 25 kW or 120% of the twelve-month historical usage at the metering point, whichever is less.",
+        "Poudre Valley REA says each solar system is required to have a rapid shutdown function, and installers may not de-energize or remove PVREA meters without facing service interruptions and potential reconnection fees.",
+        "Xcel Energy limit (not a permit rule): expected generation, combined with other distributed generation at the address, must not exceed 200% of historical consumption for the previous 12 months."
+      ]
+    },
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S10",
+      "S12",
+      "S15",
+      "S16"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Permit Issuance",
+        "amount_usd": 25,
+        "unit": "per permit",
+        "notes": "Listed under Building Permit Fees in the Town's fee schedule."
+      },
+      {
+        "name": "Building permit fee, valuation of $1 to $1,000",
+        "amount_usd": 75,
+        "unit": "first row of the valuation table",
+        "notes": "Higher valuations use the higher rows of the Town's valuation table."
+      },
+      {
+        "name": "Re-inspection/Consultation",
+        "amount_usd": 75,
+        "unit": "per re-inspection or consultation",
+        "notes": null
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S7",
+      "S6"
+    ],
+    "notes": "The Town's fee schedule is effective 2026-10-01 and marked updated 2026-10-13, and its Building Permit Fees section has no separate solar line. The Town says permit fees are based on the project valuation, which is the total cost of labor and materials, and the building permit fee follows the Town's published valuation table (Building Permit, Based on Valuation of Work as set by the Building Official, IBC 109.3). The schedule also lists Building Plan Review for single- and two-unit residential at 30% of the building fee, a Town Administrative Fee of 10% of the building fee, and an Electrical Fee from the State Electrical Fee Schedule. The Town does not say which of these apply to a PV System permit, so ask the Building Department for your total. The Town says the Wellington Use Tax is collected through permitting, so a supplier should not charge town sales tax on materials when you show your permit payment receipt. Payment is online or by check delivered to the Municipal Services Building at 8225 Third Street."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer in a Disproportionately Impacted Community.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S13"
+    ],
+    "notes": "These are Xcel Energy programs, for Xcel customers only. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "Town of Wellington Building Department",
+        "role": "Town of Wellington Building Department (solar permit questions)",
+        "phone": "(970) 821-5078",
+        "email": "building@wellingtoncolorado.gov",
+        "url": "https://wellingtoncolorado.gov/649/Building-Department"
+      },
+      {
+        "name": "SAFEbuilt",
+        "role": "SAFEbuilt, the Town's building partner (inspection scheduling)",
+        "phone": "970-674-1036",
+        "email": null,
+        "url": null
+      },
+      {
+        "name": "SAFEbuilt plan review",
+        "role": "SAFEbuilt plan review (additional plans and revisions)",
+        "phone": null,
+        "email": "safebuiltcoloradoplanreview@safebuilt.com",
+        "url": null
+      },
+      {
+        "name": "Poudre Valley REA",
+        "role": "Poudre Valley REA energy experts (rooftop solar and net metering, PVREA members)",
+        "phone": "800.432.1012",
+        "email": "energyuse@pvrea.coop",
+        "url": "https://pvrea.coop/energy-solutions/renewable-options/rooftop-solar/"
+      },
+      {
+        "name": "Xcel Energy",
+        "role": "Xcel Energy (electric service, as listed by the Town)",
+        "phone": "800-895-1999",
+        "email": null,
+        "url": null
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2",
+      "S6",
+      "S5",
+      "S10",
+      "S9"
+    ],
+    "notes": "On inspection day, SAFEbuilt at 970-686-7511 gives your inspector's contact information, from 8am."
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Homeowners and Contractors",
+      "url": "https://wellingtoncolorado.gov/653/Homeowners-and-Contractors",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Building Department",
+      "url": "https://wellingtoncolorado.gov/649/Building-Department",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Contractors",
+      "url": "https://wellingtoncolorado.gov/553/Contractors",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Photovoltaic System Submittal Requirements (UPDATED 11/13/2019)",
+      "url": "https://wellingtoncolorado.gov/DocumentCenter/View/3943",
+      "publisher": "Town of Wellington (SAFEbuilt document)",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Permitting Process",
+      "url": "https://wellingtoncolorado.gov/DocumentCenter/View/4097",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Frequently Asked Questions",
+      "url": "https://wellingtoncolorado.gov/DocumentCenter/View/4095",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "2026 Fee Schedule (effective 2026-10-01)",
+      "url": "https://wellingtoncolorado.gov/DocumentCenter/View/5329/2026-Fee-Schedule?bidId=",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Scheduling Inspections",
+      "url": "https://wellingtoncolorado.gov/DocumentCenter/View/4098",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Utilities & Trash",
+      "url": "https://www.wellingtoncolorado.gov/196/Utilities-Trash",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Rooftop Solar",
+      "url": "https://pvrea.coop/energy-solutions/renewable-options/rooftop-solar/",
+      "publisher": "Poudre Valley REA",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Battery Rewards",
+      "url": "https://pvrea.coop/energy-solutions/manage-your-energy/battery-rewards/",
+      "publisher": "Poudre Valley REA",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S14",
+      "title": "Service Territory",
+      "url": "https://pvrea.coop/the-co-op/about-pvrea/service-territory/",
+      "publisher": "Poudre Valley REA",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S15",
+      "title": "Residential Re-roofing Project Checklist",
+      "url": "https://wellingtoncolorado.gov/DocumentCenter/View/4104",
+      "publisher": "Town of Wellington",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S16",
+      "title": "Rooftop Solar FAQs",
+      "url": "https://pvrea.coop/rooftop-solar-faqs",
+      "publisher": "Poudre Valley REA",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}

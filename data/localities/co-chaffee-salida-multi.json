@@ -1,0 +1,389 @@
+{
+  "record_id": "co-chaffee-salida-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy, if it serves your address (check the utility named on your electric bill)",
+    "confidence": 0.7,
+    "source_ids": [
+      "S8",
+      "S3",
+      "S7"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served, dated 10/2015, shows Salida with gas and electricity service. The list does not say that Xcel serves every address in Salida. The City's Utility Billing page says the City provides water and wastewater (sewer) services. Chaffee County's Electrical Permit Application asks you to name your power supplier, so check the utility named on your electric bill before you apply."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies only to addresses that Xcel Energy serves. Xcel says all solar customers and other qualified distributed generation systems receive net energy metering benefits. Any excess is held in a virtual bank and applied against future bills."
+    },
+    "confidence": 0.7,
+    "source_ids": [
+      "S8",
+      "S9"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Salida",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Chaffee County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S13",
+      "S1"
+    ],
+    "notes": "Chaffee County's Certificate of Zoning Compliance form says it does not apply if construction is within the municipal limits of Buena Vista, Poncha Springs or Salida. The City says it contracts with the Chaffee County Building Department to administer all building permits within the municipality."
+  },
+  "permit_authority": {
+    "value": "City of Salida Community Development (zoning and fire review) and Chaffee County Building Department (permits, under contract with the City)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S4"
+    ],
+    "notes": "Salida contracts with the Chaffee County Building Department to administer all building permits within the city. Building permits must first be submitted to the City for review for zoning compliance and fire safety, and after City review they are forwarded to the County for review and administration. The County says that if your project is within a municipality, you are responsible for coordinating submittal with that jurisdiction. The City and County pages give no way to check whether an address is inside Salida city limits, so ask Community Development if you are unsure."
+  },
+  "permit_url": {
+    "value": "https://www.cityofsalida.com/commdev/page/building-permit-review",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "The City's Building Permit Review page explains the City and County review. For the electrical work, Chaffee County publishes an Electrical Permit Application with a solar section. The pages do not say whether a solar project also needs a building permit, or whether the electrical permit also goes to the City first, so ask Community Development before you apply."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+    "confidence": 0.8,
+    "source_ids": [
+      "S9",
+      "S10",
+      "S12"
+    ],
+    "notes": "For Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the interconnection application on your behalf, or you can manage your own. The name on the application must match the name on the Xcel Energy account. After any required engineering screens and studies, Xcel provides an interconnection agreement and an indicative cost estimate for any needed upgrades. Xcel highly recommends that construction should not start until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery and participate, you let Xcel automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5-years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "For Xcel Energy customers only, so check that Xcel is your electric utility first. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11"
+    ],
+    "notes": "Xcel's page shows general incentive budget available, on figures dated 11/02/2026."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Chaffee County Electrical Permit Application, with the solar section completed",
+        "required_when": "Mark the solar mounting system as pole, ground or roof, and AC or DC. The form also asks for the owner, job address, power supplier and project valuation.",
+        "source_ids": [
+          "S3"
+        ]
+      },
+      {
+        "name": "City of Salida Residential Building Permit Application Compliance Sheet (for a building permit)",
+        "required_when": "When the project needs a building permit, which the City reviews first. The sheet refers applicants to the Chaffee County Building Permit Application for additional requirements.",
+        "source_ids": [
+          "S2",
+          "S1"
+        ]
+      },
+      {
+        "name": "Certificate of Approval (historic properties)",
+        "required_when": "The City says exterior alterations to designated local landmarks and properties within the Salida Downtown Historic District require Historic Preservation Commission review. The City lists a Certificate of Approval form for historic properties.",
+        "source_ids": [
+          "S5",
+          "S6"
+        ]
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S3",
+      "S2",
+      "S1",
+      "S5",
+      "S6"
+    ],
+    "notes": "The City and County pages do not list plans, structural letters or engineering documents specific to a rooftop solar installation, so ask the Chaffee County Building Safety Department what to submit."
+  },
+  "inspection_steps": {
+    "value": [
+      "If your project needs a building permit, submit it to the City of Salida first, which reviews building permits for zoning compliance and fire safety.",
+      "After City review, building permits are forwarded to Chaffee County for review and administration.",
+      "File the Chaffee County Electrical Permit Application for the solar work before the installation starts.",
+      "If Xcel Energy is your utility, your installer usually submits the Xcel interconnection application, and Xcel recommends not starting construction until it is fully approved and all final agreements are signed.",
+      "Start work only after the permit is issued.",
+      "Request the County final inspection. If a final inspection has not been requested and approved within one year of the permit's issue date, a new permit or extension will be required, or the meter may be subject to removal."
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S4",
+      "S9",
+      "S10"
+    ],
+    "notes": "The County permit (after any City review), the County final inspection and the utility's approval to operate are separate steps. The City and County pages do not say whether the County electrical permit is also routed through City review, so ask Community Development. If Xcel Energy is your utility, Xcel says its interconnection process ends with a permission to operate letter from Xcel to the generator owner. If another utility serves your address, ask it when you may turn the system on."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City and Chaffee County do not publish a review time for a solar electrical permit."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential",
+        "commercial"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Chaffee County electrical permit, with City zoning and fire review first for building permits",
+      "other_conditions": [
+        "The County's Electrical Permit Application covers pole, ground and roof solar mounting systems.",
+        "The County says separate permits are required for electrical, plumbing and mechanical work.",
+        "The City adopted the 2021 International Codes, including the 2021 IECC, and the 2021 National Electric Code.",
+        "The County form says Colorado law lets a homeowner do the electrical installation if you own the property and it is not for sale, resale or rental property, you live there or intend to live there as your sole residence, and you do the permitted work yourself with reasonable knowledge of electrical codes.",
+        "A County electrical permit expires one year from the date of issuance.",
+        "Historic properties: exterior alterations to designated local landmarks and properties within the Salida Downtown Historic District require review by the Historic Preservation Commission, and the City says a pre-application meeting is required for all projects.",
+        "Xcel Energy interconnection limit (not a permit rule): expected generation, combined with other distributed generation at the address, must not exceed 200% of historical consumption for the previous 12 months.",
+        "The City and County pages do not describe permit rules for battery or energy storage systems, so ask the Chaffee County Building Safety Department."
+      ]
+    },
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S3",
+      "S4",
+      "S6",
+      "S9"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Chaffee County solar electrical permit, residential unit (maximum)",
+        "amount_usd": 500,
+        "unit": "maximum per residential unit",
+        "notes": "The County calculates solar panel fees from a valuation at a cost of $4.00 per watt, and the fee for a Residential Unit will not exceed $500.00. The form's solar example for 5500 watts shows a valuation of $22,000.00 and a total fee of $285.00 (22 x $10.00 + $65.00). The same form's Section B rates for photovoltaic and other work outside a living area are $135.00 plus $13.50 per thousand, which do not match the example, so ask the Building Safety Department how your fee is computed."
+      },
+      {
+        "name": "Chaffee County solar electrical permit, commercial unit (maximum)",
+        "amount_usd": 1000,
+        "unit": "maximum per commercial unit",
+        "notes": null
+      },
+      {
+        "name": "Chaffee County electrical re-inspection fee",
+        "amount_usd": 100,
+        "unit": "per re-inspection",
+        "notes": null
+      },
+      {
+        "name": "City of Salida processing fee for building permit applications, residential minimum",
+        "amount_usd": 50,
+        "unit": "minimum, residential",
+        "notes": "The City's compliance sheet says a processing fee paid to the City is required for all building permit applications, and it is 20% of the Chaffee County Building Department permit fee. The sheet does not say whether it applies to an electrical permit for solar."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S3",
+      "S2"
+    ],
+    "notes": "Solar fees follow the County's published valuation method on its Electrical Permit Application, marked Revised 04/01/22. The County says these fees are tied to the State schedule, are reviewed annually and may be adjusted as the State does. If the application is not filed before the installation starts, the inspection fee is twice the amount computed."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer and qualify under Xcel's Income Qualified terms.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer in a Disproportionately Impacted Community.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S10"
+    ],
+    "notes": "These are Xcel Energy programs, for Xcel customers only. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Salida Community Development Department",
+        "role": "City of Salida Community Development (zoning review and building permit questions)",
+        "phone": "719-539-4555",
+        "email": "planning@cityofsalida.com",
+        "url": "https://www.cityofsalida.com/commdev/page/building-permit-review"
+      },
+      {
+        "name": "Chaffee County Building Safety Department",
+        "role": "Chaffee County Building Safety Department (permits, electrical permits and inspections)",
+        "phone": "(719) 539-2124",
+        "email": "bdepartment@chaffeecounty.org",
+        "url": null
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "notes": "City Community Development office hours are Monday to Thursday, 8:00 a.m. to 5:00 p.m., at 448 E. First Street, Suite 112."
+  },
+  "last_verified": "2026-11-27",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Permit Review",
+      "url": "https://www.cityofsalida.com/commdev/page/building-permit-review",
+      "publisher": "City of Salida",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S2",
+      "title": "Residential Building Permit Application Compliance Sheet",
+      "url": "https://www.cityofsalida.com/media/9006",
+      "publisher": "City of Salida Community Development",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S3",
+      "title": "Electrical Permit Application (Revised 04/01/22)",
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Electrical_Application.pdf",
+      "publisher": "Chaffee County Building Safety Department",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S4",
+      "title": "Residential Final Packet October 2026",
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Residential%20Final%20Packet%20October%202026.pdf?t=202610210853140",
+      "publisher": "Chaffee County Building Safety Department",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S5",
+      "title": "Permits & Applications",
+      "url": "https://www.cityofsalida.com/commdev/page/permits-applications",
+      "publisher": "City of Salida",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S6",
+      "title": "Historic Preservation",
+      "url": "https://www.cityofsalida.com/commdev/page/historic-preservation",
+      "publisher": "City of Salida",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S7",
+      "title": "Utility Billing",
+      "url": "https://www.cityofsalida.com/community/page/utility-billing",
+      "publisher": "City of Salida",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S8",
+      "title": "Colorado Communities Served (10/2015)",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S9",
+      "title": "Net Energy Metering",
+      "url": "https://co.my.xcelenergy.com/s/renewable/net-metering",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S10",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S11",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S12",
+      "title": "Interconnection Agreement Process",
+      "url": "https://www.xcelenergy.com/working_with_us/how_to_interconnect/interconnection_agreement_process",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-27"
+    },
+    {
+      "id": "S13",
+      "title": "Residential Building Application",
+      "url": "https://cms2.revize.com/revize/chaffeecounty/Documents/Departments/Building%20Department/Applications%20&%20Fees/Current%20Building%20Applications/Residential_Building_Application.pdf",
+      "publisher": "Chaffee County Building Safety Department",
+      "type": "government",
+      "accessed_date": "2026-11-27"
+    }
+  ]
+}

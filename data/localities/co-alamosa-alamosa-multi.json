@@ -1,0 +1,473 @@
+{
+  "record_id": "co-alamosa-alamosa-multi",
+  "schema_version": "1.4.0",
+  "state": "CO",
+  "utility": {
+    "value": "Xcel Energy, if it serves your address",
+    "confidence": 0.6,
+    "source_ids": [
+      "S8",
+      "S10"
+    ],
+    "notes": "Xcel Energy's list of Colorado communities served, dated 10/2015, shows Alamosa and Alamosa East with GE, meaning gas and electricity. The list names communities, not addresses, and the City's Utilities page covers water, sewer and trash and does not name an electric provider. Confirm which electric utility serves your address, for example by asking Xcel Energy, before you apply for interconnection."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Xcel Energy",
+      "type": "utility",
+      "notes": "Applies to addresses served by Xcel Energy."
+    },
+    "confidence": 0.6,
+    "source_ids": [
+      "S10",
+      "S11"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Alamosa",
+    "confidence": 1,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": "Alamosa County",
+    "confidence": 0.6,
+    "source_ids": [
+      "S9"
+    ],
+    "notes": "The City's building pages do not name the county. The county shown here is based on Alamosa County's own Land Use page, not on a City statement. Alamosa County's Land Use office, which handles planning and building for unincorporated Alamosa County, lists its address in Alamosa."
+  },
+  "permit_authority": {
+    "value": "City of Alamosa Building Department (solar permit) and the State of Colorado (electrical permit and inspections)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S9"
+    ],
+    "notes": "The City's Building Department conducts plan reviews, issues permits and performs inspections. The City says electrical and plumbing inspections are not completed by its office and are done by the state. For unincorporated Alamosa County, the County's Land Use office handles planning and building, and its permit portal is https://us.cloudpermit.com/alamosacounty/. The City's pages do not give a way to check whether an address is inside city limits, so ask the Building Department if you are unsure."
+  },
+  "permit_url": {
+    "value": "https://www.alamosa.gov/building-department",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Building Department page lists the Solar Permit Application with the City's other permit forms. The page also has a Permits / Request Inspection link."
+  },
+  "interconnection_url": {
+    "value": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+    "confidence": 0.8,
+    "source_ids": [
+      "S1",
+      "S11",
+      "S12"
+    ],
+    "notes": "For Xcel Energy customers only. Xcel says that in most cases the developer or installer submits the application on your behalf, or you can manage your own. Xcel highly recommends that construction of your system should not commence until your application receives full approval from the Xcel Energy engineering team and all final agreements are fully signed. Xcel says the interconnection work ends with a permission to operate letter from Xcel to the generator owner. That letter is separate from the City permit and the State electrical inspection."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "Renewable Battery Connect",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says that when you add an eligible solar charged battery to your home or small business and participate, Xcel can automatically manage your battery during periods of peak demand on the grid. Upfront incentive, General: $250 per kW AC of Max Continuous Discharge Power (up to $5,000 per application). Income Qualified: $1,000 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). Disproportionately Impacted Community: $500 per kW AC of Max Continuous Discharge Power (up to 75% of the equipment-only cost). There is also a $100 annual participation incentive for all customer types for participating in control events (for 5-years).",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "An Xcel Energy program for a home or small business that adds an eligible solar charged battery. Xcel says eligible solar battery equipment includes all Tesla Powerwall models or all current Enphase models. Check that Xcel is your electric utility first.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11",
+      "S13"
+    ],
+    "notes": "Amounts are from Xcel's Renewable Battery Connect page, with budget figures dated 11/02/2026."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "City Application for Solar Permit",
+        "required_when": null,
+        "source_ids": [
+          "S1",
+          "S2"
+        ]
+      },
+      {
+        "name": "Site plan with setbacks",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Attachment details",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Roof plan",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Electrical labels",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Manufacturer spec sheets",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Line diagram",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Structural certification report",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Footer specs, if ground mounted",
+        "required_when": "Ground-mounted systems.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "Total project cost (materials and labor), entered on the application",
+        "required_when": null,
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S6"
+    ],
+    "notes": "The City's Application for Solar Permit lists these items as required at time of application. The City's 2023 general requirements for residential building plans say plans can be submitted on paper (minimum 8 1/2x11, maximum 24x36 inches) or delivered as an electronic copy to treynolds@ci.alamosa.co.us."
+  },
+  "inspection_steps": {
+    "value": [
+      "Submit the City's Application for Solar Permit with the documents it lists as required at time of application.",
+      "If Xcel Energy serves the address, submit an interconnection application to Xcel, usually through your installer.",
+      "Xcel highly recommends that construction not start until the application receives full approval from Xcel's engineering team and all final agreements are signed.",
+      "Get a State electrical permit (if you hire an electrical contractor, the contractor obtains it) and arrange the electrical inspection with the State, because the City's office does not complete electrical inspections.",
+      "For State electrical inspections, contact your State inspector for scheduling.",
+      "Schedule City inspections by calling (719) 589-6631 at least one day in advance.",
+      "Provide a ladder or other means of access if the roof access is higher than 10 feet.",
+      "Request the City's final inspection within 10 working days of job completion.",
+      "If Xcel Energy serves the address, Xcel works with you and your contractors to witness test and energize the system.",
+      "If Xcel Energy serves the address, Xcel's interconnection process ends with a permission to operate letter from Xcel to the generator owner."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S11",
+      "S12",
+      "S14"
+    ],
+    "notes": "City inspections take place between 10am and 4pm. The City's final inspection, the State's electrical inspection and the utility's permission to operate are separate approvals."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City does not publish a review time for solar permits. The State says its online electrical permits are processed immediately upon payment, and that approval of hard copy applications may be delayed up to 7 business days. This is the State electrical permit only, not the City permit or Xcel's approval."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "City of Alamosa solar permit plus State electrical permit and inspections",
+      "other_conditions": [
+        "The City's solar permit application asks for the contractor and the contractor's license number.",
+        "The City's Contractor's License Application says there is a ten day investigation period before the license is issued, and the applicant agrees not to undertake any work within the city limits until it ends.",
+        "The solar permit application says all work shall conform with the City of Alamosa adopted codes.",
+        "The Building Department page lists local design criteria including Ground Snow Load: 30 and a wind speed of 115/89 mph.",
+        "The State says that if a homeowner hires an electrical contractor, the contractor is responsible for obtaining the required permit.",
+        "Xcel Energy's Solar*Rewards page says you must be an Xcel Energy residential or business electricity customer with an active and valid account number and premise number."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S7",
+      "S11",
+      "S14"
+    ],
+    "notes": "These Xcel Energy conditions apply to Xcel customers."
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Photovoltaic permit, residential (ground or roof mount)",
+        "amount_usd": 100,
+        "unit": "flat fee",
+        "notes": "Listed as Photovoltaic: Residential (Ground/Roof mount) in the City's Permit Fee Schedule B, Revision 8/9/2023."
+      },
+      {
+        "name": "Re-inspection",
+        "amount_usd": 50,
+        "unit": "per hour, one hour minimum",
+        "notes": "Assessed under provision R 108.4. The schedule's footnote says there is a minimum charge of one hour, or the total cost to the City (including administration and overhead) if that is greater."
+      },
+      {
+        "name": "Inspection outside normal business hours",
+        "amount_usd": 50,
+        "unit": "per hour, one hour minimum",
+        "notes": null
+      },
+      {
+        "name": "City contractor's license, general",
+        "amount_usd": 25,
+        "unit": "general license",
+        "notes": null
+      },
+      {
+        "name": "City contractor's license, limited",
+        "amount_usd": 10,
+        "unit": "limited license",
+        "notes": null
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S4",
+      "S5",
+      "S7"
+    ],
+    "notes": "The City's Permit Fee Schedule B lists Photovoltaic: Residential (Ground/Roof mount) at $100.00. The same schedule lists a plan review fee of 25% of building permit fee. It does not say whether that plan review fee applies to the photovoltaic fee, so ask the Building Department. The City's Building Permit Fee Calculator shows a taxable amount of 50% of permit valuation and a use tax of 2.5% of the taxable amount, if over $3,000. The calculator says it provides an estimate only and does not replace official calculations by the City. Use tax is filed and paid directly to the City of Alamosa. Roofing or building without a permit carries a fine of 200% of original permit fee."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "Solar*Rewards Income Qualified upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says customers who qualify under the terms of Income Qualified can receive an upfront rebate of $3 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for customers who qualify under the terms of Income Qualified.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      },
+      {
+        "name": "Solar*Rewards Disproportionately Impacted Communities upfront rebate",
+        "administrator": "Xcel Energy",
+        "description": "Xcel says Disproportionately Impacted Communities can receive an upfront rebate of $0.50 per watt of installed solar up to 10kW AC.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 0.5,
+        "eligibility": "Must be an Xcel Energy residential or business electricity customer. The rebate is for customers in Disproportionately Impacted Communities.",
+        "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "active"
+      }
+    ],
+    "confidence": 0.8,
+    "source_ids": [
+      "S11"
+    ],
+    "notes": "These are Xcel Energy programs. Xcel's page says that as of 10/05/2026 it moved $1,050,000 from Solar*Rewards C&I to the Solar*Rewards Residential IQ/DIC program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Alamosa Building Department",
+        "role": "City of Alamosa Building Department (solar permit questions and inspection scheduling)",
+        "phone": "(719) 589-6631",
+        "email": null,
+        "url": "https://www.alamosa.gov/building-department"
+      },
+      {
+        "name": "City of Alamosa building official",
+        "role": "City of Alamosa building official (contractor's license applications)",
+        "phone": null,
+        "email": "buildingofficial@alamosa.gov",
+        "url": "https://www.alamosa.gov/files/9c58a8156/Contractors+License+Application.pdf"
+      },
+      {
+        "name": "City of Alamosa residential plan submittal",
+        "role": "City of Alamosa (electronic copy of residential building plans, per the 2023 plan requirements)",
+        "phone": null,
+        "email": "treynolds@ci.alamosa.co.us",
+        "url": "https://www.alamosa.gov/files/dd4f7563f/General-Requirements-for-Residential-Building-Plans-and-Documents-2023.pdf"
+      },
+      {
+        "name": "Alamosa County Land Use Office",
+        "role": "Alamosa County Land Use Office (addresses in unincorporated Alamosa County)",
+        "phone": "719-589-3812",
+        "email": null,
+        "url": "https://alamosacounty.org/178/Land-Use-Building"
+      },
+      {
+        "name": "Colorado DORA Electrical and Plumbing Permits",
+        "role": "Colorado DORA Electrical and Plumbing Permits (State electrical permit)",
+        "phone": "303-894-7800",
+        "email": "dora_eandp_permits@state.co.us",
+        "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S6",
+      "S7",
+      "S9",
+      "S14"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-20",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building Department",
+      "url": "https://www.alamosa.gov/building-department",
+      "publisher": "City of Alamosa",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S2",
+      "title": "Application for Solar Permit",
+      "url": "https://www.alamosa.gov/files/b25201352/ApplicationforSolarPermit-Sheet1.pdf",
+      "publisher": "City of Alamosa",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S3",
+      "title": "Permit Fee Schedule",
+      "url": "https://www.alamosa.gov/files/9c50cd39c/CITY-OF-ALAMOSA-Permit-Fee-Schedule-PDF.pdf",
+      "publisher": "City of Alamosa",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S4",
+      "title": "Building Permit Fee Calculator",
+      "url": "https://www.alamosa.gov/building-permit-fee-calculator",
+      "publisher": "City of Alamosa",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S5",
+      "title": "Sales Tax & Business License",
+      "url": "https://www.alamosa.gov/sales-tax-business-license",
+      "publisher": "City of Alamosa",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S6",
+      "title": "General Requirements for Residential Building Plans and Documents 2023",
+      "url": "https://www.alamosa.gov/files/dd4f7563f/General-Requirements-for-Residential-Building-Plans-and-Documents-2023.pdf",
+      "publisher": "City of Alamosa",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S7",
+      "title": "Contractor's License Application",
+      "url": "https://www.alamosa.gov/files/9c58a8156/Contractors+License+Application.pdf",
+      "publisher": "City of Alamosa",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S8",
+      "title": "Utilities",
+      "url": "https://www.alamosa.gov/utilities",
+      "publisher": "City of Alamosa",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S9",
+      "title": "Land Use Building",
+      "url": "https://alamosacounty.org/178/Land-Use-Building",
+      "publisher": "Alamosa County",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S10",
+      "title": "Colorado Communities Served",
+      "url": "https://www.xcelenergy.com/staticfiles/xe/PDF/CO_Communities_Served.pdf",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S11",
+      "title": "Solar*Rewards",
+      "url": "https://co.my.xcelenergy.com/s/renewable/solar-rewards",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S12",
+      "title": "Interconnection (Renewable Developer Resources)",
+      "url": "https://co.my.xcelenergy.com/s/renewable/developers/interconnection",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S13",
+      "title": "Renewable Battery Connect",
+      "url": "https://co.my.xcelenergy.com/s/renewable/battery-connect",
+      "publisher": "Xcel Energy",
+      "type": "utility",
+      "accessed_date": "2026-11-20"
+    },
+    {
+      "id": "S14",
+      "title": "Colorado Electrical and Plumbing Permits Homepage",
+      "url": "https://dpo.colorado.gov/ElectricalPlumbingPermits",
+      "publisher": "Colorado DORA Division of Professions and Occupations",
+      "type": "government",
+      "accessed_date": "2026-11-20"
+    }
+  ]
+}
