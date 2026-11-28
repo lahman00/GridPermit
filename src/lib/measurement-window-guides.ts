@@ -55,6 +55,8 @@ export const NEW_GUIDES_DURING_MEASUREMENT: ReadonlySet<string> = new Set<string
 	"co-adams-federal-heights-multi",
 	"co-la-plata-durango-multi",
 	// Batch 5 (2026-11-27)
+	"ca-los-angeles-bell-gardens-sce",
+	"ca-los-angeles-claremont-sce",
 	"co-eagle-vail-multi",
 	"co-weld-dacono-multi",
 	"co-weld-fort-lupton-multi",
@@ -123,6 +125,8 @@ const BATCH_4_GUIDES = new Set([
 
 // Batch 5 (2026-11-27, second run) is newer than batch 4; every earlier guide keeps its pool.
 const BATCH_5_GUIDES = new Set<string>([
+	"ca-los-angeles-bell-gardens-sce",
+	"ca-los-angeles-claremont-sce",
 	"co-eagle-vail-multi",
 	"co-weld-dacono-multi",
 	"co-weld-fort-lupton-multi",

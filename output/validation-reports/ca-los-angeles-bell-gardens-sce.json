@@ -1,0 +1,126 @@
+{
+  "record_id": "ca-los-angeles-bell-gardens-sce",
+  "file": "data/localities/ca-los-angeles-bell-gardens-sce.json",
+  "validated_at": "2026-11-28",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.bellgardens.org/government/city-departments/community-development/building-and-safety/solar-app — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-28T13:47:25Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[3].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.bellgardens.org/government/city-departments/public-works/contract-utilities — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-28T17:24:46Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "generation_supplier",
+      "message": "'generation_supplier' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "county",
+      "message": "'county' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://www.bellgardens.org/government/city-departments/community-development/building-and-safety/solar-app",
+      "checked_at": "2026-11-28T18:14:58.134Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-28T13:47:25Z",
+        "sha256": "982a143265d7f5f0b3706626f92161c9c517a0aa66dafd1f7227291df058033b",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/rule21",
+      "checked_at": "2026-11-28T18:14:58.572Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "checked_at": "2026-11-28T18:14:59.463Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://cpuc.ca.gov/-/media/cpuc-website/divisions/energy-division/documents/self-generation-incentive-program/sgip-fact-sheet---residential-solar-and-storage-equity.pdf",
+      "checked_at": "2026-11-28T18:15:00.277Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://bellgardens.org/government/city-departments/community-development/building-and-safety",
+      "checked_at": "2026-11-28T18:15:01.973Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "GET",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.bellgardens.org/government/city-departments/public-works/contract-utilities",
+      "checked_at": "2026-11-28T18:15:03.732Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-28T17:24:46Z",
+        "sha256": "0362f35187ae06c1bbb7350cd1d976cdc28600195a42789b727958aacbe4a40e",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/nem",
+      "checked_at": "2026-11-28T18:15:03.763Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "checked_at": "2026-11-28T18:15:04.573Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/sgipinfo",
+      "checked_at": "2026-11-28T18:15:05.350Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "checked_at": "2026-11-28T18:15:06.121Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "record_id": "ca-los-angeles-claremont-sce",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.9,
+    "source_ids": [
+      "S3",
+      "S4"
+    ],
+    "notes": "The City's Utilities page says the residents of Claremont are served by several utility companies, and it lists Southern California Edison under Electricity. The City's Clean Power Alliance page says Southern California Edison delivers the power to homes and businesses and that residents receive their bills through Edison. Check the utility named on your electric bill for your address."
+  },
+  "generation_supplier": {
+    "value": {
+      "name": "Clean Power Alliance",
+      "type": "cca",
+      "notes": "Clean Power Alliance is the new default electricity provider for residents and businesses in Claremont, and Southern California Edison still delivers the power. The City's page says customers can always switch to one of Clean Power Alliance's other two rate options, Lean Power or Clean Power, or opt out and select Southern California Edison as their electricity provider. Customers who had already opted up, down or out keep their rate plan. The City's page says the City Council selected Green Power as the default rate option on January 25, 2022, but another paragraph on the same page says residents are automatically enrolled in the Clean Power rate option, so ask Clean Power Alliance which rate applies to your account."
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S4"
+    ],
+    "notes": null
+  },
+  "city": {
+    "value": "Claremont",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's solar permit, utilities and Clean Power Alliance pages do not state which county Claremont is in."
+  },
+  "permit_authority": {
+    "value": "City of Claremont Building Division",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City of Claremont requires a photovoltaic permit for all single-family roof-mounted solar installations. Revisions to approved plans need approval from the Building Division."
+  },
+  "permit_url": {
+    "value": "https://claremontca.gov/Business-Development/Building-and-Construction/Building-Permits-and-Plan-Checks/Residential-Solar-Permit",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "Plan check, the step before permit issuance, may be completed through SolarAPP+. PDFs of the required items must be uploaded at time of application."
+  },
+  "interconnection_url": {
+    "value": "https://www.cpuc.ca.gov/rule21",
+    "confidence": 0.6,
+    "source_ids": [
+      "S6",
+      "S7"
+    ],
+    "notes": "This is the California Public Utilities Commission (CPUC) page on Electric Rule 21, the tariff that describes the interconnection, operating and metering requirements for generation facilities to be connected to an investor-owned utility's distribution and transmission system. SCE is one of the large investor-owned utilities under CPUC jurisdiction, and each investor-owned utility administers Rule 21 in its service territory and keeps its own version of the rule. For utility-specific interconnection questions, the CPUC says to contact the utility using the contact information on the utility's interconnection website. If your electric utility is SCE, the CPUC says customers applying for interconnection since April 15, 2023 have taken service on the net billing tariff (NBT), which the utilities call the Solar Billing Plan. NBT customer-generators must take service on a specific time-of-use rate, and the rate currently approved for SCE is TOU-D-PRIME. Residential SCE customers who apply to interconnect NBT facilities before the end of 2027 receive slightly higher-than-normal bill credits for exported energy for nine years. Customers who are required to add solar (for example, by the building code for new construction) do not receive this adder. The original customer who interconnects a system under the NBT is guaranteed use of the NBT for nine years. The City's solar permit page does not describe SCE's interconnection steps or its permission to operate, which are separate from the City permit and the City inspections."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "California SGIP - current category and budget check required",
+        "administrator": "Applicable SGIP Program Administrator",
+        "description": "The 2026 SGIP Handbook set December 30, 2025 as the deadline to submit new applications to the ratepayer-funded SGIP budgets and as the date all ratepayer-funded SGIP waitlists close. For the AB 209 funded budget, the deadline to submit new applications and waitlist applications is June 30, 2028. The 2026 SGIP rate table publishes $3.10/W for solar and $1.10/Wh for storage in applicable Residential Solar and Storage Equity categories. The 2026 SGIP Handbook sets eligibility requirements for each budget category. The SGIP Program Metrics page shows funding availability and step status for each budget category and Program Administrator, and it is updated nightly. Check that page for the current status of a category.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3.1,
+        "eligibility": "The 2026 SGIP Handbook sets eligibility requirements for each budget category. They include the Host Customer's utility, low-income housing and household income pathways for the Equity Budget, and equipment rules such as safety certification by a nationally recognized testing laboratory (NRTL).",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S8",
+      "S9",
+      "SGIP_HANDBOOK_2026",
+      "SGIP_METRICS_2026"
+    ],
+    "notes": "The 2026 SGIP Handbook says the SGIP is subject to change in whole or in part at any time without prior notice. This page does not say whether a household qualifies or whether funds are available in its category."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "SolarAPP+ approval packet (project specific)",
+        "required_when": "For permit issuance, once the project has been approved by SolarAPP+.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Completed permit worksheet",
+        "required_when": "For permit issuance, once the project has been approved by SolarAPP+.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "LA County Fire approved project plans, if applicable",
+        "required_when": "For permit issuance when Fire approval applies.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "City-issued job card (kept on site)",
+        "required_when": "On site for inspection, after a permit is issued through SolarAPP+.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Inspection checklist initialed by the contractor (on site)",
+        "required_when": "For a permit issued through SolarAPP+, the contractor must perform QA/QC with the inspection checklist and initial each item before the City inspection.",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "PDFs of the required items must be uploaded at time of application."
+  },
+  "inspection_steps": {
+    "value": [
+      "If you use SolarAPP+, verify your project is eligible for automated plan review via the Installer webpage on the SolarAPP+ platform.",
+      "If you use SolarAPP+, create a SolarAPP+ account, fill out the project questionnaire and pay the fees.",
+      "If you use SolarAPP+ and the project includes a battery in the garage, apply separately with the Los Angeles County Fire Department (LACoFD) for Fire approval.",
+      "Once the plans are approved, apply for the City permit and upload PDFs of the required items.",
+      "Pay the permit fees; the City issues permits once fees are collected.",
+      "For a permit issued through SolarAPP+, keep the City-issued job card on site. The applicant, or a courier with a valid notarized authorization letter and ID, can pick it up from the City office.",
+      "For a permit issued through SolarAPP+, the contractor must perform QA/QC with the inspection checklist and initial each item before the City inspection.",
+      "For a permit issued through SolarAPP+, if an energy storage system (ESS) is included, the fire inspection must be completed before the building inspection.",
+      "City inspections during the installation verify compliance with local ordinances and state regulations."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The City's solar permit page does not describe SCE's permission to operate, which is separate from the City's inspections."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's solar page does not publish a review or processing time."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "single-family"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "Photovoltaic permit, with optional SolarAPP+ plan check",
+      "other_conditions": [
+        "Use of the SolarAPP+ platform is completely voluntary.",
+        "Check eligibility for automated plan review on the Installer webpage of the SolarAPP+ platform.",
+        "A battery in the garage needs separate Fire approval from the Los Angeles County Fire Department (LACoFD).",
+        "If a revision is needed to the approved plans, you need approval from LACoFD if applicable, from SolarAPP+ if the plans were approved through SolarAPP+, and from the Building Division."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Solar permit issuance",
+        "amount_usd": 244.6,
+        "unit": "each",
+        "notes": "Listed as Permit Issuance under Solar Permit Fees in the Citywide User Fee Schedule, Effective July 1, 2026."
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S5"
+    ],
+    "notes": "The City's solar page says permit fees are listed in the adopted City of Claremont Fee Schedule and that permits are issued once fees are collected. The schedule linked from that page is marked Effective July 1, 2024 and has no solar permit line; the amount above is from the Citywide User Fee Schedule marked Effective July 1, 2026. The same schedule lists a General Plan Maintenance Fee of 10.0% (10% of the Building Permit and Building Plan Check) and a Technology Maintenance Fee of 2.5% (2.5% of the Building Permit and Building Plan Check). The schedule does not say whether these percentage fees or any plan check fee are added to the solar permit issuance fee. The SolarAPP+ steps include paying fees with the project questionnaire, and the City's page does not print that amount."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "SGIP Residential Solar and Storage Equity",
+        "administrator": "Your utility's SGIP Program Administrator (SCE for SCE customers)",
+        "description": "SGIP offers incentives for installing paired solar and energy storage technology at low-income residential properties. Depending on which category a customer is eligible for, they can receive $1,100 per kilowatt-hour (kWh) of storage and $3,100 per kilowatt (kW) of solar. The SGIP Advanced Payment Program offers 50 percent of the SGIP incentive upfront. Some customers may experience a waitlist for Residential Solar and Storage Equity project funding.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The CPUC says these incentives are available to any low-income residential electric and/or gas customer in California. You must meet one of the criteria on the CPUC fact sheet. For a single-family home, the criteria are household income at or below 80 percent of Area Median Income, current participation in and eligibility for CARE, FERA or ESA, or past participation in or reserved incentives from the SASH or DAC-SASH program. For an apartment, the criteria are low-income housing with at least five rental units that is in a Disadvantaged Community (DAC) or where at least 80 percent of residents have incomes at or below 60 percent of Area Median Income, or a property that already participated in SOMAH or MASH.",
+        "url": "https://cpuc.ca.gov/-/media/cpuc-website/divisions/energy-division/documents/self-generation-incentive-program/sgip-fact-sheet---residential-solar-and-storage-equity.pdf",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S8",
+      "S10"
+    ],
+    "notes": "The City's solar permit, utilities and Clean Power Alliance pages describe no City solar rebate or battery program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Claremont Building Division",
+        "role": "City of Claremont Building Division (permit questions)",
+        "phone": "(909) 399-5471",
+        "email": null,
+        "url": "https://www.claremontca.gov/Business-Development/Building-and-Construction/Standards-and-Requirements"
+      },
+      {
+        "name": "City of Claremont (general contact)",
+        "role": "City of Claremont, 207 Harvard Avenue, Claremont, CA 91711 (general City contact)",
+        "phone": "(909) 399-5460",
+        "email": "contact@claremontca.gov",
+        "url": "https://claremontca.gov/Business-Development/Building-and-Construction/Building-Permits-and-Plan-Checks/Residential-Solar-Permit"
+      },
+      {
+        "name": "Southern California Edison (SCE)",
+        "role": "Southern California Edison (electric utility, customer contact updates)",
+        "phone": "(800) 655-4555",
+        "email": null,
+        "url": "https://www.claremontca.gov/City-Services/Payments/Utilities"
+      },
+      {
+        "name": "Clean Power Alliance Customer Service",
+        "role": "Clean Power Alliance (default electricity provider, rate plans)",
+        "phone": "(888) 585-3788",
+        "email": "customerservice@cleanpoweralliance.org",
+        "url": "https://www.claremontca.gov/City-Services/Sustainability/Clean-Power-Alliance"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4"
+    ],
+    "notes": null
+  },
+  "last_verified": "2026-11-28",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Residential Solar Permit",
+      "url": "https://claremontca.gov/Business-Development/Building-and-Construction/Building-Permits-and-Plan-Checks/Residential-Solar-Permit",
+      "publisher": "City of Claremont",
+      "type": "government",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S2",
+      "title": "Standards and Requirements",
+      "url": "https://www.claremontca.gov/Business-Development/Building-and-Construction/Standards-and-Requirements",
+      "publisher": "City of Claremont",
+      "type": "government",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S3",
+      "title": "Utilities",
+      "url": "https://www.claremontca.gov/City-Services/Payments/Utilities",
+      "publisher": "City of Claremont",
+      "type": "government",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S4",
+      "title": "Clean Power Alliance",
+      "url": "https://www.claremontca.gov/City-Services/Sustainability/Clean-Power-Alliance",
+      "publisher": "City of Claremont",
+      "type": "government",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S5",
+      "title": "Citywide User Fee Schedule, Effective July 1, 2026",
+      "url": "https://www.claremontca.gov/files/assets/public/v/1/financial-services/documents/claremont-uf-adopted-6-23-26.pdf",
+      "publisher": "City of Claremont",
+      "type": "government",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S6",
+      "title": "Electric Rule 21",
+      "url": "https://www.cpuc.ca.gov/rule21",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S7",
+      "title": "Net Energy Metering and Net Billing",
+      "url": "https://www.cpuc.ca.gov/nem",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S8",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S9",
+      "title": "Participating in Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/sgipinfo",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S10",
+      "title": "SGIP Fact Sheet, Residential Solar and Storage Equity",
+      "url": "https://cpuc.ca.gov/-/media/cpuc-website/divisions/energy-division/documents/self-generation-incentive-program/sgip-fact-sheet---residential-solar-and-storage-equity.pdf",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "SGIP_HANDBOOK_2026",
+      "title": "2026 Self-Generation Incentive Program Handbook",
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "SGIP_METRICS_2026",
+      "title": "SGIP Program Metrics and Incentive Step Tracker",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-26"
+    }
+  ]
+}
