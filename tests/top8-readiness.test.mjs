@@ -31,7 +31,7 @@ test('canonical territory preparation is exact: statewide, SoCal four counties, 
   const byId=Object.fromEntries(registry.partners.map(p=>[p.partner_id,p]));
   for(const id of ['energysage','modernize','profitise','energyaid','greenlancer','permitdesign']){
     assert.deepEqual(byId[id].territories,{states:['CA'],cities:[],statewide_verified:true});
-    assert.equal(partnerCities(byId[id],registry.records).length,334);
+    assert.equal(partnerCities(byId[id],registry.records).length,336); // 334 + Claremont and Bell Gardens (2026-11-28)
   }
   assert.equal(partnerCities(byId['oc-solar'],registry.records).length,119);
   assert.equal(partnerCities(byId['norcal-solar-repair'],registry.records).length,89);

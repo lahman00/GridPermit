@@ -1,0 +1,168 @@
+{
+  "record_id": "ca-los-angeles-claremont-sce",
+  "file": "data/localities/ca-los-angeles-claremont-sce.json",
+  "validated_at": "2026-11-28",
+  "status": "REVIEW",
+  "score": 100,
+  "errors": [],
+  "warnings": [
+    {
+      "field": "permit_url",
+      "category": "blocked_url_with_capture",
+      "message": "https://claremontca.gov/Business-Development/Building-and-Construction/Building-Permits-and-Plan-Checks/Residential-Solar-Permit — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-28T13:54:37Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[0].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.claremontca.gov/Business-Development/Building-and-Construction/Standards-and-Requirements — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-28T13:54:56Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[2].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.claremontca.gov/City-Services/Payments/Utilities — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-28T17:22:16Z) is on record, no score penalty"
+    },
+    {
+      "field": "official_contacts[3].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.claremontca.gov/City-Services/Sustainability/Clean-Power-Alliance — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-28T17:22:24Z) is on record, no score penalty"
+    },
+    {
+      "field": "sources[S5].url",
+      "category": "blocked_url_with_capture",
+      "message": "https://www.claremontca.gov/files/assets/public/v/1/financial-services/documents/claremont-uf-adopted-6-23-26.pdf — HTTP 403: blocked/unverifiable, not confirmed broken — a browser capture of this URL (HTTP 200, 2026-11-28T13:55:04Z) is on record, no score penalty"
+    }
+  ],
+  "recommendations": [
+    {
+      "field": "county",
+      "message": "'county' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    },
+    {
+      "field": "timeline_days",
+      "message": "'timeline_days' is null — no recommendation to invent one; re-run the Data Collector once a verifiable official source is found."
+    }
+  ],
+  "url_checks": [
+    {
+      "url": "https://claremontca.gov/Business-Development/Building-and-Construction/Building-Permits-and-Plan-Checks/Residential-Solar-Permit",
+      "checked_at": "2026-11-28T18:14:49.629Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-28T13:54:37Z",
+        "sha256": "e0ff24979867351ea27da9e992bcbbe6cd403b84ff13fbde998dfdf5953cda6f",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/rule21",
+      "checked_at": "2026-11-28T18:14:50.400Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "checked_at": "2026-11-28T18:14:51.492Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://cpuc.ca.gov/-/media/cpuc-website/divisions/energy-division/documents/self-generation-incentive-program/sgip-fact-sheet---residential-solar-and-storage-equity.pdf",
+      "checked_at": "2026-11-28T18:14:52.294Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.claremontca.gov/Business-Development/Building-and-Construction/Standards-and-Requirements",
+      "checked_at": "2026-11-28T18:14:54.118Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-28T13:54:56Z",
+        "sha256": "c5c6c8726179c1297833dddb480db63bbe0e9e9a5fd56349f371701baf856ae1",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.claremontca.gov/City-Services/Payments/Utilities",
+      "checked_at": "2026-11-28T18:14:54.267Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-28T17:22:16Z",
+        "sha256": "a38d981d94020f7631e198b0a479a666bf831be315dff40b22fca8cfe1271ba4",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.claremontca.gov/City-Services/Sustainability/Clean-Power-Alliance",
+      "checked_at": "2026-11-28T18:14:54.333Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-28T17:22:24Z",
+        "sha256": "0a8b4ce5dcddf8fa6460e755b9d2fd4f9de60507efd28ac9a61da3705b7b711a",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.claremontca.gov/files/assets/public/v/1/financial-services/documents/claremont-uf-adopted-6-23-26.pdf",
+      "checked_at": "2026-11-28T18:14:54.414Z",
+      "status": "BLOCKED_OR_UNVERIFIABLE",
+      "http_status": 403,
+      "method": "HEAD",
+      "details": "HTTP 403: blocked/unverifiable, not confirmed broken",
+      "capture": {
+        "captured_at": "2026-11-28T13:55:04Z",
+        "sha256": "8390981c7f07ca2def62162480fc18f9bee52996c25f8ffc2105e2917148f045",
+        "method": "headless-browser"
+      }
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/nem",
+      "checked_at": "2026-11-28T18:14:54.473Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "checked_at": "2026-11-28T18:14:55.360Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.cpuc.ca.gov/sgipinfo",
+      "checked_at": "2026-11-28T18:14:56.177Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    },
+    {
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "checked_at": "2026-11-28T18:14:56.943Z",
+      "status": "REACHABLE",
+      "http_status": 200,
+      "method": "HEAD",
+      "details": "HTTP 200"
+    }
+  ]
+}

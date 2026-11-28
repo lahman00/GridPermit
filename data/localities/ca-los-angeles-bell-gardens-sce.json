@@ -1,0 +1,348 @@
+{
+  "record_id": "ca-los-angeles-bell-gardens-sce",
+  "schema_version": "1.4.0",
+  "state": "CA",
+  "utility": {
+    "value": "Southern California Edison (SCE)",
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S3"
+    ],
+    "notes": "The City's solar permit steps say to request an inspection in order to obtain a release of solar to SCE. The City's Public Works Contract/Utilities page lists Southern California Edison, (800) 684-8123, under Utilities. The City's pages do not say that SCE serves every address in Bell Gardens, so check the utility named on your electric bill."
+  },
+  "generation_supplier": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's pages do not name an electric generation supplier."
+  },
+  "city": {
+    "value": "Bell Gardens",
+    "confidence": 0.95,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": null
+  },
+  "county": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's pages do not state which county Bell Gardens is in."
+  },
+  "permit_authority": {
+    "value": "City of Bell Gardens Building and Safety Division",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1"
+    ],
+    "notes": "The Building and Safety Division issues permits for all new construction or modifications to existing developments (commercial, residential or industrial) in the City. Permits are also required for most plumbing, mechanical and electrical improvements."
+  },
+  "permit_url": {
+    "value": "https://www.bellgardens.org/government/city-departments/community-development/building-and-safety/solar-app",
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "Contractors can use SolarAPP+ for rooftop solar permitting in the City of Bell Gardens. The City's Solar App page says to register through the SolarAPP+ Registration Webpage, then log in and submit your design through the SolarAPP+ webpage. Non-licensed owner-builders must apply for a building permit with plan check."
+  },
+  "interconnection_url": {
+    "value": "https://www.cpuc.ca.gov/rule21",
+    "confidence": 0.6,
+    "source_ids": [
+      "S4",
+      "S5"
+    ],
+    "notes": "This is the California Public Utilities Commission (CPUC) page on Electric Rule 21, the tariff that describes the interconnection, operating and metering requirements for generation facilities to be connected to an investor-owned utility's distribution and transmission system. SCE is one of the large investor-owned utilities under CPUC jurisdiction, and each investor-owned utility administers Rule 21 in its service territory and keeps its own version of the rule. For utility-specific interconnection questions, the CPUC says to contact the utility using the contact information on the utility's interconnection website. If your electric utility is SCE, the CPUC says customers applying for interconnection since April 15, 2023 have taken service on the net billing tariff (NBT), which the utilities call the Solar Billing Plan. NBT customer-generators must take service on a specific time-of-use rate, and the rate currently approved for SCE is TOU-D-PRIME. The original customer who interconnects a system under the NBT is guaranteed use of the NBT for nine years. The City's pages do not describe SCE's own interconnection steps or its permission to operate, which are separate from the City permit and the City inspection."
+  },
+  "battery_programs": {
+    "value": [
+      {
+        "name": "California SGIP - current category and budget check required",
+        "administrator": "Applicable SGIP Program Administrator",
+        "description": "The 2026 SGIP Handbook set December 30, 2025 as the deadline to submit new applications to the ratepayer-funded SGIP budgets and as the date all ratepayer-funded SGIP waitlists close. For the AB 209 funded budget, the deadline to submit new applications and waitlist applications is June 30, 2028. The 2026 SGIP rate table publishes $3.10/W for solar and $1.10/Wh for storage in applicable Residential Solar and Storage Equity categories. The 2026 SGIP Handbook sets eligibility requirements for each budget category. The SGIP Program Metrics page shows funding availability and step status for each budget category and Program Administrator, and it is updated nightly. Check that page for the current status of a category.",
+        "value_usd_per_kwh": null,
+        "value_usd_flat": null,
+        "value_usd_per_watt": 3.1,
+        "eligibility": "The 2026 SGIP Handbook sets eligibility requirements for each budget category. They include the Host Customer's utility, low-income housing and household income pathways for the Equity Budget, and equipment rules such as safety certification by a nationally recognized testing laboratory (NRTL).",
+        "url": "https://www.selfgenca.com/home/program_metrics/",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S6",
+      "S7",
+      "SGIP_HANDBOOK_2026",
+      "SGIP_METRICS_2026"
+    ],
+    "notes": "The 2026 SGIP Handbook says the SGIP is subject to change in whole or in part at any time without prior notice. This page does not say whether a household qualifies or whether funds are available in its category."
+  },
+  "required_documents": {
+    "value": [
+      {
+        "name": "Valid City of Bell Gardens licensing (uploaded when registering for SolarAPP+)",
+        "required_when": "When registering for a SolarAPP+ account, upload valid City of Bell Gardens licensing or call (562) 806-7715 for information on obtaining a business license to do work in Bell Gardens.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "All required documentation, emailed to the City",
+        "required_when": "After applying for pre-approval on the SolarAPP+ website. The City's pages do not list what this documentation includes, so ask Building and Safety.",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "Evidence of a valid City of Bell Gardens business license (when requesting an inspection)",
+        "required_when": "When calling for an inspection, along with the SolarAPP+-issued City permit number, the type of inspection requested, the address, a site contact name and a contact phone number.",
+        "source_ids": [
+          "S2"
+        ]
+      },
+      {
+        "name": "SolarAPP+-issued City permit number (when requesting an inspection)",
+        "required_when": "The City emails this permit number (for example SA-XXXXXX) within 24 business hours.",
+        "source_ids": [
+          "S2"
+        ]
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": null
+  },
+  "inspection_steps": {
+    "value": [
+      "Apply for pre-approval on the SolarAPP+ website.",
+      "Email all required documentation to the City of Bell Gardens.",
+      "Pay all applicable fees; the City says your permit is then issued electronically.",
+      "Receive an email within 24 business hours with the City of Bell Gardens permit number (for example SA-XXXXXX) needed for scheduling inspections.",
+      "Call (562) 806-7700, 7:30 a.m. to 5:59 p.m., the business day before you would like your inspection. You must speak to a live person, and inspection requests are not accepted by voicemail.",
+      "Request an inspection in order to obtain a release of solar to SCE."
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": "The City's pages do not describe SCE's permission to operate after the City's release of solar to SCE."
+  },
+  "timeline_days": {
+    "value": null,
+    "confidence": 0,
+    "source_ids": [],
+    "notes": "The City's Solar Permits section, which describes SolarAPP+ for licensed contractors, carries the heading \"OBTAIN PERMIT IN 30 MINUTES\", and its Solar App page says the City permit number arrives by email within 24 business hours. The City does not publish a plan review time in days for solar permits."
+  },
+  "eligibility_constraints": {
+    "value": {
+      "property_types": [
+        "residential"
+      ],
+      "system_size_kw_ac_max": null,
+      "system_size_kw_dc_max": null,
+      "thermal_capacity_kw_max": null,
+      "program_or_pathway": "SolarAPP+ for eligible rooftop solar, or a regular building permit",
+      "other_conditions": [
+        "SolarAPP+ is an automated online application for permitting of certain new residential rooftop solar and storage systems.",
+        "At this time, SolarAPP+ is designed to provide a code-compliance check for the majority of residential, roof-mounted, retrofit photovoltaic systems.",
+        "Only projects that conform to the SolarAPP+ Eligibility Checklist may use SolarAPP+, and all other solar installations require a regular building permit.",
+        "Licensed contractors or installers may register for a SolarAPP+ account; non-licensed owner-builders must apply for a building permit with plan check.",
+        "For rooftop solar, and rooftop solar paired with an energy storage system (ESS), the City points to a Los Angeles County Fire Department notification statement on online submitting procedures.",
+        "For solar on mobile homes, the City points to State Housing requirements for manufactured home solar PV."
+      ]
+    },
+    "confidence": 0.85,
+    "source_ids": [
+      "S1",
+      "S2"
+    ],
+    "notes": null
+  },
+  "permit_fees": {
+    "value": [
+      {
+        "name": "Building Permit Fee",
+        "amount_usd": 493,
+        "unit": "City fee",
+        "notes": "Listed in the City fee table on the Solar App page."
+      },
+      {
+        "name": "Issuance Fee",
+        "amount_usd": 26.1,
+        "unit": "City fee",
+        "notes": "Listed in the City fee table on the Solar App page."
+      },
+      {
+        "name": "SMIP Fee",
+        "amount_usd": 0.65,
+        "unit": "City fee",
+        "notes": "Listed in the City fee table on the Solar App page."
+      },
+      {
+        "name": "C.B.S.C. Fee",
+        "amount_usd": 1,
+        "unit": "City fee",
+        "notes": "Listed in the City fee table on the Solar App page."
+      }
+    ],
+    "confidence": 0.85,
+    "source_ids": [
+      "S2"
+    ],
+    "notes": "The Solar App page says a processing fee from SolarAPP+ and City of Bell Gardens permit fees will be charged. The page does not print the SolarAPP+ processing fee amount or an effective date for the City fee table. It also does not say whether the same amounts apply to a regular building permit for solar."
+  },
+  "rebates": {
+    "value": [
+      {
+        "name": "SGIP Residential Solar and Storage Equity",
+        "administrator": "Your utility's SGIP Program Administrator (SCE for SCE customers)",
+        "description": "SGIP offers incentives for installing paired solar and energy storage technology at low-income residential properties. Depending on which category a customer is eligible for, they can receive $1,100 per kilowatt-hour (kWh) of storage and $3,100 per kilowatt (kW) of solar. The SGIP Advanced Payment Program offers 50 percent of the SGIP incentive upfront. Some customers may experience a waitlist for Residential Solar and Storage Equity project funding.",
+        "value_usd_per_kwh": 1100,
+        "value_usd_flat": null,
+        "value_usd_per_watt": null,
+        "eligibility": "The CPUC says these incentives are available to any low-income residential electric and/or gas customer in California. You must meet one of the criteria on the CPUC fact sheet. For a single-family home, the criteria are household income at or below 80 percent of Area Median Income, current participation in and eligibility for CARE, FERA or ESA, or past participation in or reserved incentives from the SASH or DAC-SASH program. For an apartment, the criteria are low-income housing with at least five rental units that is in a Disadvantaged Community (DAC) or where at least 80 percent of residents have incomes at or below 60 percent of Area Median Income, or a property that already participated in SOMAH or MASH.",
+        "url": "https://cpuc.ca.gov/-/media/cpuc-website/divisions/energy-division/documents/self-generation-incentive-program/sgip-fact-sheet---residential-solar-and-storage-equity.pdf",
+        "effective_from": null,
+        "expires_on": null,
+        "status": "unknown"
+      }
+    ],
+    "confidence": 0.75,
+    "source_ids": [
+      "S6",
+      "S8"
+    ],
+    "notes": "The City's pages describe no City solar rebate or battery program."
+  },
+  "official_contacts": {
+    "value": [
+      {
+        "name": "City of Bell Gardens Building and Safety",
+        "role": "City of Bell Gardens Building and Safety (solar permit questions)",
+        "phone": "562-806-7700",
+        "email": "building@bellgardens.org",
+        "url": "https://bellgardens.org/government/city-departments/community-development/building-and-safety"
+      },
+      {
+        "name": "City of Bell Gardens Building and Safety inspection line",
+        "role": "City of Bell Gardens Building and Safety (inspection requests, live person only)",
+        "phone": "(562) 806-7700",
+        "email": null,
+        "url": "https://www.bellgardens.org/government/city-departments/community-development/building-and-safety/solar-app"
+      },
+      {
+        "name": "City of Bell Gardens business license information",
+        "role": "City of Bell Gardens (business license information for contractors)",
+        "phone": "(562) 806-7715",
+        "email": null,
+        "url": "https://www.bellgardens.org/government/city-departments/community-development/building-and-safety/solar-app"
+      },
+      {
+        "name": "Southern California Edison",
+        "role": "Southern California Edison (electric utility, as listed on the City's utilities page)",
+        "phone": "(800) 684-8123",
+        "email": null,
+        "url": "https://www.bellgardens.org/government/city-departments/public-works/contract-utilities"
+      }
+    ],
+    "confidence": 0.9,
+    "source_ids": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "notes": "The general Building and Safety text gives (562) 806-7740 for more information, while the solar section gives 562-806-7700. Building and Safety is open for permit issuance Monday to Thursday, 7:30 a.m. to 11:00 a.m. only."
+  },
+  "last_verified": "2026-11-28",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Building and Safety",
+      "url": "https://bellgardens.org/government/city-departments/community-development/building-and-safety",
+      "publisher": "City of Bell Gardens",
+      "type": "government",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S2",
+      "title": "Solar App+",
+      "url": "https://www.bellgardens.org/government/city-departments/community-development/building-and-safety/solar-app",
+      "publisher": "City of Bell Gardens",
+      "type": "government",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S3",
+      "title": "Contract/Utilities",
+      "url": "https://www.bellgardens.org/government/city-departments/public-works/contract-utilities",
+      "publisher": "City of Bell Gardens",
+      "type": "government",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S4",
+      "title": "Electric Rule 21",
+      "url": "https://www.cpuc.ca.gov/rule21",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S5",
+      "title": "Net Energy Metering and Net Billing",
+      "url": "https://www.cpuc.ca.gov/nem",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S6",
+      "title": "Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/sgip",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S7",
+      "title": "Participating in Self-Generation Incentive Program (SGIP)",
+      "url": "https://www.cpuc.ca.gov/sgipinfo",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "S8",
+      "title": "SGIP Fact Sheet, Residential Solar and Storage Equity",
+      "url": "https://cpuc.ca.gov/-/media/cpuc-website/divisions/energy-division/documents/self-generation-incentive-program/sgip-fact-sheet---residential-solar-and-storage-equity.pdf",
+      "publisher": "California Public Utilities Commission",
+      "type": "cpuc",
+      "accessed_date": "2026-11-28"
+    },
+    {
+      "id": "SGIP_HANDBOOK_2026",
+      "title": "2026 Self-Generation Incentive Program Handbook",
+      "url": "https://www.selfgenca.com/documents/handbook/2026",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-26"
+    },
+    {
+      "id": "SGIP_METRICS_2026",
+      "title": "SGIP Program Metrics and Incentive Step Tracker",
+      "url": "https://www.selfgenca.com/home/program_metrics/",
+      "publisher": "Self-Generation Incentive Program Program Administrators",
+      "type": "program_administrator",
+      "accessed_date": "2026-08-26"
+    }
+  ]
+}
